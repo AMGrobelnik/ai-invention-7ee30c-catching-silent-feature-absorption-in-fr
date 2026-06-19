@@ -1,0 +1,442 @@
+{
+  "success": true,
+  "bib_text": "@inproceedings{Cunningham2023,\n author = {Hoagy Cunningham and Aidan Ewart and L. Smith and R. Huben and Lee Sharkey},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Sparse Autoencoders Find Highly Interpretable Features in Language Models},\n volume = {abs/2309.08600},\n year = {2023},\n  doi = {10.48550/arXiv.2309.08600}\n}\n\n@inproceedings{Lieberum2024,\n author = {Tom Lieberum and Senthooran Rajamanoharan and Arthur Conmy and Lewis Smith and Nicolas Sonnerat and Vikrant Varma and J'anos Kram'ar and Anca Dragan and Rohin Shah and Neel Nanda},\n booktitle = {BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP},\n journal = {ArXiv},\n title = {Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2},\n volume = {abs/2408.05147},\n year = {2024},\n  doi = {10.48550/arXiv.2408.05147}\n}\n\n@inproceedings{Leask2025,\n author = {Patrick Leask and Bart Bussmann and Michael Pearce and Joseph Bloom and Curt Tigges and N. A. Moubayed and Lee Sharkey and Neel Nanda},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Sparse Autoencoders Do Not Find Canonical Units of Analysis},\n volume = {abs/2502.04878},\n year = {2025},\n  doi = {10.48550/arXiv.2502.04878}\n}\n\n@article{Chanin2024,\n author = {David Chanin and James Wilken-Smith and Tom'avs Dulka and Hardik Bhatnagar and Joseph Bloom},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders},\n volume = {abs/2409.14507},\n year = {2024},\n  doi = {10.48550/arXiv.2409.14507}\n}\n\n@inproceedings{Wu2025,\n author = {Zhengxuan Wu and Aryaman Arora and Atticus Geiger and Zheng Wang and Jing Huang and Daniel Jurafsky and Christopher D. Manning and Christopher Potts},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders},\n volume = {abs/2501.17148},\n year = {2025},\n  doi = {10.48550/arXiv.2501.17148}\n}\n\n@inproceedings{Kantamneni2025,\n author = {Subhash Kantamneni and Joshua Engels and Senthooran Rajamanoharan and Max Tegmark and Neel Nanda},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {Are Sparse Autoencoders Useful? A Case Study in Sparse Probing},\n volume = {abs/2502.16681},\n year = {2025},\n  doi = {10.48550/arXiv.2502.16681}\n}\n\n@inproceedings{Karvonen2025,\n author = {Adam Karvonen and C. Rager and Johnny Lin and Curt Tigges and Joseph Bloom and David Chanin and Yeu-Tong Lau and Eoin Farrell and C. McDougall and K. Ayonrinde and M. Wearden and Arthur Conmy and Samuel Marks and Neel Nanda},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability},\n volume = {abs/2503.09532},\n year = {2025},\n  doi = {10.48550/arXiv.2503.09532}\n}\n\n@Inproceedings{Chanin2026,\n author = {David Chanin},\n title = {Are Sparse Autoencoder Benchmarks Reliable?},\n year = {2026}\n}\n\n@article{ONeill2024,\n author = {Charles O'Neill and Christine Ye and Kartheik G. Iyer and John F. Wu},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Disentangling Dense Embeddings with Sparse Autoencoders},\n volume = {abs/2408.00657},\n year = {2024},\n  doi = {10.48550/arXiv.2408.00657}\n}\n\n@Inproceedings{Deng2025,\n author = {Ruixuan Deng and Xiaoyang Hu and Miles Gilberti and Shane Storks and Aman Taxali and Michael Angstadt and C. Sripada and Joyce Chai},\n title = {Sparse Feature Coactivation Reveals Causal Semantic Modules in Large Language Models},\n year = {2025}\n}\n\n@inproceedings{Karvonen2024,\n author = {Adam Karvonen and Benjamin Wright and C. Rager and Rico Angell and Jannik Brinkmann and L. Smith and C. M. Verdun and David Bau and Samuel Marks},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {Measuring Progress in Dictionary Learning for Language Model Interpretability with Board Game Models},\n volume = {abs/2408.00113},\n year = {2024},\n  doi = {10.48550/arXiv.2408.00113}\n}\n\n@inproceedings{Marks2024,\n author = {Samuel Marks and C. Rager and Eric J. Michaud and Yonatan Belinkov and David Bau and Aaron Mueller},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models},\n volume = {abs/2403.19647},\n year = {2024},\n  doi = {10.48550/arXiv.2403.19647}\n}\n\n@inproceedings{Bussmann2025,\n author = {Bart Bussmann and Noa Nabeshima and Adam Karvonen and Neel Nanda},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {Learning Multi-Level Features with Matryoshka Sparse Autoencoders},\n volume = {abs/2503.17547},\n year = {2025},\n  doi = {10.48550/arXiv.2503.17547}\n}\n\n@article{Muchane2025,\n author = {Mark Muchane and Sean M. Richardson and Kiho Park and Victor Veitch},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Incorporating Hierarchical Semantics in Sparse Autoencoder Architectures},\n volume = {abs/2506.01197},\n year = {2025},\n  doi = {10.48550/arXiv.2506.01197}\n}\n\n@Inproceedings{Dalili2026,\n author = {Seyed Arshan Dalili and Mehrdad Mahdavi},\n title = {Subspace-Aware Sparse Autoencoders for Effective Mechanistic Interpretability},\n year = {2026}\n}\n\n@inproceedings{Lee2024,\n author = {Bruce Lee and Inkit Padhi and K. Ramamurthy and Erik Miehling and Pierre L. Dognin and Manish Nagireddy and Amit Dhurandhar},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Programming Refusal with Conditional Activation Steering},\n volume = {abs/2409.05907},\n year = {2024},\n  doi = {10.48550/arXiv.2409.05907}\n}\n\n@inproceedings{He2025,\n author = {Zirui He and Mingyu Jin and Bo Shen and Ali Payani and Yongfeng Zhang and Mengnan Du},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n journal = {ArXiv},\n title = {SAE-SSV: Supervised Steering in Sparse Representation Spaces for Reliable Control of Language Models},\n volume = {abs/2505.16188},\n year = {2025},\n  doi = {10.48550/arXiv.2505.16188}\n}\n\n@article{Chanin2025,\n author = {David Chanin and Tom'avs Dulka and Adri\u00e0 Garriga-Alonso},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Feature Hedging: Correlated Features Break Narrow Sparse Autoencoders},\n volume = {abs/2505.11756},\n year = {2025},\n  doi = {10.48550/arXiv.2505.11756}\n}\n\n@inproceedings{Minegishi2025,\n author = {Gouki Minegishi and Hiroki Furuta and Yusuke Iwasawa and Yutaka Matsuo},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Words},\n volume = {abs/2501.06254},\n year = {2025},\n  doi = {10.48550/arXiv.2501.06254}\n}\n\n@article{Winnicki2026,\n author = {John Winnicki and Abeynaya Gnanasekaran and Eric Darve},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Domain-Filtered Knowledge Graphs from Sparse Autoencoder Features},\n volume = {abs/2604.23829},\n year = {2026},\n  doi = {10.48550/arXiv.2604.23829}\n}\n\n@Inproceedings{Turani2026,\n author = {Vin'icius Conte Turani and Ot\u00e1vio Parraga and Jo\u00e3o Vitor Boer Abitante and Kristen K. Arguello and Joana Pasquali and Ramiro N. Barros and F. Calmon and C. Mattjie and Rodrigo C. Barros and L. S. Kupssinsku},\n title = {Inference-Time Machine Unlearning via Gated Activation Redirection},\n year = {2026}\n}\n\n@inproceedings{Wang2024,\n author = {Weixuan Wang and Jingyuan Yang and Wei Peng},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Semantics-Adaptive Activation Intervention for LLMs via Dynamic Steering Vectors},\n volume = {abs/2410.12299},\n year = {2024},\n  doi = {10.48550/arXiv.2410.12299}\n}\n\n@article{Peng2025,\n author = {Kenny Peng and Rajiv Movva and Jon M. Kleinberg and E. Pierson and Nikhil Garg},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Use Sparse Autoencoders to Discover Unknown Concepts, Not to Act on Known Concepts},\n volume = {abs/2506.23845},\n year = {2025},\n  doi = {10.48550/arXiv.2506.23845}\n}\n\n@article{Whitney2020,\n author = {William F. Whitney and M. Song and David Brandfonbrener and Jaan Altosaar and Kyunghyun Cho},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Evaluating representations by the complexity of learning low-loss predictors},\n volume = {abs/2009.07368},\n year = {2020}\n}\n\n@article{Marks2023,\n author = {Samuel Marks and Max Tegmark},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {The Geometry of Truth: Emergent Linear Structure in Large Language Model Representations of True/False Datasets},\n volume = {abs/2310.06824},\n year = {2023},\n  doi = {10.48550/arXiv.2310.06824}\n}\n\n@inproceedings{Tan2024,\n author = {Daniel Tan and David Chanin and Aengus Lynch and Dimitrios Kanoulas and Brooks Paige and Adri\u00e0 Garriga-Alonso and Robert Kirk},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {Analyzing the Generalization and Reliability of Steering Vectors},\n volume = {abs/2407.12404},\n year = {2024},\n  doi = {10.48550/arXiv.2407.12404}\n}\n\n@inproceedings{Rauch2023,\n author = {Lukas Rauch and M. A\u00dfenmacher and Denis Huseljic and Moritz Wirth and Bernd Bischl and B. Sick},\n booktitle = {ECML/PKDD},\n journal = {ArXiv},\n title = {ActiveGLAE: A Benchmark for Deep Active Learning with Transformers},\n volume = {abs/2306.10087},\n year = {2023},\n  doi = {10.48550/arXiv.2306.10087}\n}\n\n@inproceedings{Margatina2021,\n author = {Katerina Margatina and Giorgos Vernikos and Lo\u00efc Barrault and Nikolaos Aletras},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n pages = {650-663},\n title = {Active Learning by Acquiring Contrastive Examples},\n year = {2021},\n  doi = {10.18653/v1/2021.emnlp-main.51}\n}\n\n@inproceedings{Zhang2025,\n author = {Yejian Zhang and Shingo Takada},\n booktitle = {International Journal of Intelligent Systems},\n journal = {International Journal of Intelligent Systems},\n title = {Applying LLMs to Active Learning: Toward Cost\u2010Efficient Cross\u2010Task Text Classification Without Manually Labeled Data},\n volume = {2025},\n year = {2025},\n  doi = {10.1155/int/6472544}\n}\n\n@inproceedings{Arad2025,\n author = {Dana Arad and Aaron Mueller and Yonatan Belinkov},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n journal = {ArXiv},\n title = {SAEs Are Good for Steering - If You Select the Right Features},\n volume = {abs/2505.20063},\n year = {2025},\n  doi = {10.18653/v1/2025.emnlp-main.519}\n}\n\n@article{Chalnev2024,\n author = {Sviatoslav Chalnev and M. Siu and Arthur Conmy},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Improving Steering Vectors by Targeting Sparse Autoencoder Features},\n volume = {abs/2411.02193},\n year = {2024},\n  doi = {10.48550/arXiv.2411.02193}\n}\n\n@article{Flovik2025,\n author = {Vegard Flovik},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {SALVE: Sparse Autoencoder-Latent Vector Editing for Mechanistic Control of Neural Networks},\n volume = {abs/2512.15938},\n year = {2025},\n  doi = {10.48550/arXiv.2512.15938}\n}\n\n@article{Farrell2024,\n author = {Eoin Farrell and Yeu-Tong Lau and Arthur Conmy},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Applying sparse autoencoders to unlearn knowledge in language models},\n volume = {abs/2410.19278},\n year = {2024},\n  doi = {10.48550/arXiv.2410.19278}\n}\n\n@inproceedings{Belrose2023,\n author = {Nora Belrose and David Schneider-Joseph and Shauli Ravfogel and Ryan Cotterell and Edward Raff and Stella Biderman},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {LEACE: Perfect linear concept erasure in closed form},\n volume = {abs/2306.03819},\n year = {2023},\n  doi = {10.48550/arXiv.2306.03819}\n}\n\n@article{Karvonen2024,\n author = {Adam Karvonen and C. Rager and Samuel Marks and Neel Nanda},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks},\n volume = {abs/2411.18895},\n year = {2024},\n  doi = {10.48550/arXiv.2411.18895}\n}\n\n@inproceedings{GurArieh2025,\n author = {Yoav Gur-Arieh and C. Suslik and Yihuai Hong and Fazl Barez and Mor Geva},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n journal = {ArXiv},\n title = {Precise In-Parameter Concept Erasure in Large Language Models},\n volume = {abs/2505.22586},\n year = {2025},\n  doi = {10.48550/arXiv.2505.22586}\n}\n\n@article{Ashuach2025,\n author = {Tomer Ashuach and Dana Arad and Aaron Mueller and Martin Tutek and Yonatan Belinkov},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {CRISP: Persistent Concept Unlearning via Sparse Autoencoders},\n volume = {abs/2508.13650},\n year = {2025},\n  doi = {10.48550/arXiv.2508.13650}\n}\n\n@inproceedings{Li2024,\n author = {Nathaniel Li and Alexander Pan and Anjali Gopal and Summer Yue and Daniel Berrios and Alice Gatti and Justin Li and Ann-Kathrin Dombrowski and Shashwat Goel and Long Phan and Gabriel Mukobi and Nathan Helm-Burger and Rassin R. Lababidi and Lennart Justen and Andrew Liu and Michael Chen and Isabelle Barrass and Oliver Zhang and Xiaoyuan Zhu and Rishub Tamirisa and Bhrugu Bharathi and Adam Khoja and Ariel Herbert-Voss and Cort B. Breuer and Andy Zou and Mantas Mazeika and Zifan Wang and Palash Oswal and Weiran Liu and A-M Hunt and Justin Tienken-Harder and Kevin Y. Shih and Kemper Talley and J. Guan and Russell Kaplan and Ian Steneker and David Campbell and Brad Jokubaitis and A. Levinson and Jean Wang and William Qian and K. Karmakar and Steven Basart and Stephen Fitz and M. Levine and P. Kumaraguru and U. Tupakula and Vijay Varadharajan and Yan Shoshitaishvili and Jimmy Ba and K. Esvelt and Alexandr Wang and Dan Hendrycks},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {The WMDP Benchmark: Measuring and Reducing Malicious Use With Unlearning},\n volume = {abs/2403.03218},\n year = {2024}\n}\n\n@inproceedings{Shi2024,\n author = {Weijia Shi and Jaechan Lee and Yangsibo Huang and Sadhika Malladi and Jieyu Zhao and Ari Holtzman and Daogao Liu and Luke S. Zettlemoyer and Noah A. Smith and Chiyuan Zhang},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {MUSE: Machine Unlearning Six-Way Evaluation for Language Models},\n volume = {abs/2407.06460},\n year = {2024},\n  doi = {10.48550/arXiv.2407.06460}\n}\n\n@Inproceedings{Sasse2024,\n author = {Kuleen Sasse and Shan Chen and Jackson Pond and D. Bitterman and John D. Osborne},\n title = {debiaSAE: Benchmarking and Mitigating Vision-Language Model Bias},\n year = {2024}\n}\n\n@article{Karvonen2025,\n author = {Adam Karvonen and Samuel Marks},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Robustly Improving LLM Fairness in Realistic Settings via Interpretability},\n volume = {abs/2506.10922},\n year = {2025},\n  doi = {10.48550/arXiv.2506.10922}\n}\n\n@article{Ahsan2025,\n author = {Hiba Ahsan and Byron C. Wallace},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Can SAEs reveal and mitigate racial biases of LLMs in healthcare?},\n volume = {abs/2511.00177},\n year = {2025},\n  doi = {10.48550/arXiv.2511.00177}\n}\n\n@inproceedings{Gallifant2025,\n author = {Jack Gallifant and Shan Chen and Kuleen Sasse and Hugo J. W. L. Aerts and Thomas Hartvigsen and D. Bitterman},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n pages = {29939-29963},\n title = {Sparse Autoencoder Features for Classifications and Transferability},\n year = {2025},\n  doi = {10.48550/arXiv.2502.11367}\n}\n\n@article{Sagawa2019,\n author = {Shiori Sagawa and Pang Wei Koh and Tatsunori B. Hashimoto and Percy Liang},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Distributionally Robust Neural Networks for Group Shifts: On the Importance of Regularization for Worst-Case Generalization},\n volume = {abs/1911.08731},\n year = {2019}\n}\n\n@inproceedings{Liu2021,\n author = {E. Liu and Behzad Haghgoo and Annie S. Chen and Aditi Raghunathan and Pang Wei Koh and Shiori Sagawa and Percy Liang and Chelsea Finn},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {Just Train Twice: Improving Group Robustness without Training Group Information},\n volume = {abs/2107.09044},\n year = {2021}\n}\n\n@inproceedings{Sohoni2020,\n author = {N. Sohoni and Jared A. Dunnmon and Geoffrey Angus and Albert Gu and C. R\u00e9},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {No Subclass Left Behind: Fine-Grained Robustness in Coarse-Grained Classification Problems},\n volume = {abs/2011.12945},\n year = {2020}\n}\n\n@inproceedings{Creager2020,\n author = {Elliot Creager and J. Jacobsen and R. Zemel},\n booktitle = {International Conference on Machine Learning},\n pages = {2189-2200},\n title = {Environment Inference for Invariant Learning},\n year = {2020}\n}\n\n@article{Nam2020,\n author = {J. Nam and Hyuntak Cha and Sungsoo Ahn and Jaeho Lee and Jinwoo Shin},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Learning from Failure: Training Debiased Classifier from Biased Classifier},\n volume = {abs/2007.02561},\n year = {2020}\n}\n\n@inproceedings{Nemhauser1978,\n author = {G. Nemhauser and L. Wolsey and M. Fisher},\n booktitle = {Mathematical programming},\n journal = {Mathematical Programming},\n pages = {265-294},\n title = {An analysis of approximations for maximizing submodular set functions\u2014I},\n volume = {14},\n year = {1978},\n  doi = {10.1007/BF01588971}\n}\n\n@inproceedings{Tesson2010,\n author = {B. Tesson and R. Breitling and R. Jansen},\n booktitle = {BMC Bioinformatics},\n journal = {BMC Bioinformatics},\n pages = {497 - 497},\n title = {DiffCoEx: a simple and sensitive method to find differentially coexpressed gene modules},\n volume = {11},\n year = {2010},\n  doi = {10.1186/1471-2105-11-497}\n}\n\n@inproceedings{Zhang2005,\n author = {Bin Zhang and Steve Horvath},\n booktitle = {Statistical Applications in Genetics and Molecular Biology},\n journal = {Statistical Applications in Genetics and Molecular Biology},\n title = {A General Framework for Weighted Gene Co-Expression Network Analysis},\n volume = {4},\n year = {2005},\n  doi = {10.2202/1544-6115.1128}\n}\n\n@inproceedings{Traag2018,\n author = {V. Traag and L. Waltman and Nees Jan van Eck},\n booktitle = {Scientific Reports},\n journal = {Scientific Reports},\n title = {From Louvain to Leiden: guaranteeing well-connected communities},\n volume = {9},\n year = {2018},\n  doi = {10.1038/s41598-019-41695-z}\n}\n\n@inproceedings{Kaushik2019,\n author = {Divyansh Kaushik and E. Hovy and Zachary Chase Lipton},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Learning the Difference that Makes a Difference with Counterfactually-Augmented Data},\n volume = {abs/1909.12434},\n year = {2019}\n}\n\n@inproceedings{Abraham2022,\n author = {Eldar David Abraham and Karel D\u2019Oosterlinck and Amir Feder and Y. Gat and Atticus Geiger and Christopher Potts and Roi Reichart and Zhengxuan Wu},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {CEBaB: Estimating the Causal Effects of Real-World Concepts on NLP Model Behavior},\n volume = {abs/2205.14140},\n year = {2022},\n  doi = {10.48550/arXiv.2205.14140}\n}\n\n@inproceedings{Logacheva2022,\n author = {V. Logacheva and Daryna Dementieva and S. Ustyantsev and Daniil Moskovskiy and David Dale and I. Krotova and Nikita Semenov and A. Panchenko},\n booktitle = {Annual Meeting of the Association for Computational Linguistics},\n pages = {6804-6818},\n title = {ParaDetox: Detoxification with Parallel Data},\n year = {2022},\n  doi = {10.18653/v1/2022.acl-long.469}\n}\n\n@inproceedings{Borkan2019,\n author = {Daniel Borkan and Lucas Dixon and Jeffrey Scott Sorensen and Nithum Thain and Lucy Vasserman},\n booktitle = {The Web Conference},\n journal = {Companion Proceedings of The 2019 World Wide Web Conference},\n title = {Nuanced Metrics for Measuring Unintended Bias with Real Data for Text Classification},\n year = {2019},\n  doi = {10.1145/3308560.3317593}\n}\n\n@inproceedings{DeArteaga2019,\n author = {Maria De-Arteaga and Alexey Romanov and Hanna M. Wallach and J. Chayes and C. Borgs and Alexandra Chouldechova and S. Geyik and K. Kenthapadi and A. Kalai},\n booktitle = {FAT},\n journal = {Proceedings of the Conference on Fairness, Accountability, and Transparency},\n title = {Bias in Bios: A Case Study of Semantic Representation Bias in a High-Stakes Setting},\n year = {2019},\n  doi = {10.1145/3287560.3287572}\n}\n\n@article{Veitch2021,\n author = {Victor Veitch and A. D'Amour and Steve Yadlowsky and Jacob Eisenstein},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Counterfactual Invariance to Spurious Correlations: Why and How to Pass Stress Tests},\n volume = {abs/2106.00545},\n year = {2021}\n}\n\n@inproceedings{Varshney2025,\n author = {Payal Varshney and Adriano Lucieri and Christoph Balada and Andreas Dengel and Sheraz Ahmed},\n booktitle = {Pattern Recognition Letters},\n journal = {ArXiv},\n title = {Discovering Concept Directions from Diffusion-based Counterfactuals via Latent Clustering},\n volume = {abs/2505.07073},\n year = {2025},\n  doi = {10.1016/j.patrec.2025.11.012}\n}",
+  "total": 61,
+  "found": 59,
+  "failed_count": 2,
+  "entries": [
+    {
+      "citation_key": "Cunningham2023",
+      "bibtex": "@inproceedings{Cunningham2023,\n author = {Hoagy Cunningham and Aidan Ewart and L. Smith and R. Huben and Lee Sharkey},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Sparse Autoencoders Find Highly Interpretable Features in Language Models},\n volume = {abs/2309.08600},\n year = {2023},\n  doi = {10.48550/arXiv.2309.08600}\n}",
+      "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+      "doi": "10.48550/arXiv.2309.08600",
+      "arxiv": "2309.08600"
+    },
+    {
+      "citation_key": "Lieberum2024",
+      "bibtex": "@inproceedings{Lieberum2024,\n author = {Tom Lieberum and Senthooran Rajamanoharan and Arthur Conmy and Lewis Smith and Nicolas Sonnerat and Vikrant Varma and J'anos Kram'ar and Anca Dragan and Rohin Shah and Neel Nanda},\n booktitle = {BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP},\n journal = {ArXiv},\n title = {Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2},\n volume = {abs/2408.05147},\n year = {2024},\n  doi = {10.48550/arXiv.2408.05147}\n}",
+      "title": "Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2",
+      "doi": "10.48550/arXiv.2408.05147",
+      "arxiv": "2408.05147"
+    },
+    {
+      "citation_key": "Leask2025",
+      "bibtex": "@inproceedings{Leask2025,\n author = {Patrick Leask and Bart Bussmann and Michael Pearce and Joseph Bloom and Curt Tigges and N. A. Moubayed and Lee Sharkey and Neel Nanda},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Sparse Autoencoders Do Not Find Canonical Units of Analysis},\n volume = {abs/2502.04878},\n year = {2025},\n  doi = {10.48550/arXiv.2502.04878}\n}",
+      "title": "Sparse Autoencoders Do Not Find Canonical Units of Analysis",
+      "doi": "10.48550/arXiv.2502.04878",
+      "arxiv": "2502.04878"
+    },
+    {
+      "citation_key": "Chanin2024",
+      "bibtex": "@article{Chanin2024,\n author = {David Chanin and James Wilken-Smith and Tom'avs Dulka and Hardik Bhatnagar and Joseph Bloom},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders},\n volume = {abs/2409.14507},\n year = {2024},\n  doi = {10.48550/arXiv.2409.14507}\n}",
+      "title": "A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders",
+      "doi": "10.48550/arXiv.2409.14507",
+      "arxiv": "2409.14507"
+    },
+    {
+      "citation_key": "Wu2025",
+      "bibtex": "@inproceedings{Wu2025,\n author = {Zhengxuan Wu and Aryaman Arora and Atticus Geiger and Zheng Wang and Jing Huang and Daniel Jurafsky and Christopher D. Manning and Christopher Potts},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders},\n volume = {abs/2501.17148},\n year = {2025},\n  doi = {10.48550/arXiv.2501.17148}\n}",
+      "title": "AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders",
+      "doi": "10.48550/arXiv.2501.17148",
+      "arxiv": "2501.17148"
+    },
+    {
+      "citation_key": "Kantamneni2025",
+      "bibtex": "@inproceedings{Kantamneni2025,\n author = {Subhash Kantamneni and Joshua Engels and Senthooran Rajamanoharan and Max Tegmark and Neel Nanda},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {Are Sparse Autoencoders Useful? A Case Study in Sparse Probing},\n volume = {abs/2502.16681},\n year = {2025},\n  doi = {10.48550/arXiv.2502.16681}\n}",
+      "title": "Are Sparse Autoencoders Useful? A Case Study in Sparse Probing",
+      "doi": "10.48550/arXiv.2502.16681",
+      "arxiv": "2502.16681"
+    },
+    {
+      "citation_key": "Karvonen2025",
+      "bibtex": "@inproceedings{Karvonen2025,\n author = {Adam Karvonen and C. Rager and Johnny Lin and Curt Tigges and Joseph Bloom and David Chanin and Yeu-Tong Lau and Eoin Farrell and C. McDougall and K. Ayonrinde and M. Wearden and Arthur Conmy and Samuel Marks and Neel Nanda},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability},\n volume = {abs/2503.09532},\n year = {2025},\n  doi = {10.48550/arXiv.2503.09532}\n}",
+      "title": "SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability",
+      "doi": "10.48550/arXiv.2503.09532",
+      "arxiv": "2503.09532"
+    },
+    {
+      "citation_key": "Chanin2026",
+      "bibtex": "@Inproceedings{Chanin2026,\n author = {David Chanin},\n title = {Are Sparse Autoencoder Benchmarks Reliable?},\n year = {2026}\n}",
+      "title": "Are Sparse Autoencoder Benchmarks Reliable?",
+      "doi": "",
+      "arxiv": "2605.18229"
+    },
+    {
+      "citation_key": "ONeill2024",
+      "bibtex": "@article{ONeill2024,\n author = {Charles O'Neill and Christine Ye and Kartheik G. Iyer and John F. Wu},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Disentangling Dense Embeddings with Sparse Autoencoders},\n volume = {abs/2408.00657},\n year = {2024},\n  doi = {10.48550/arXiv.2408.00657}\n}",
+      "title": "Disentangling Dense Embeddings with Sparse Autoencoders",
+      "doi": "10.48550/arXiv.2408.00657",
+      "arxiv": "2408.00657"
+    },
+    {
+      "citation_key": "Deng2025",
+      "bibtex": "@Inproceedings{Deng2025,\n author = {Ruixuan Deng and Xiaoyang Hu and Miles Gilberti and Shane Storks and Aman Taxali and Michael Angstadt and C. Sripada and Joyce Chai},\n title = {Sparse Feature Coactivation Reveals Causal Semantic Modules in Large Language Models},\n year = {2025}\n}",
+      "title": "Sparse Feature Coactivation Reveals Causal Semantic Modules in Large Language Models",
+      "doi": "",
+      "arxiv": "2506.18141"
+    },
+    {
+      "citation_key": "Karvonen2024",
+      "bibtex": "@inproceedings{Karvonen2024,\n author = {Adam Karvonen and Benjamin Wright and C. Rager and Rico Angell and Jannik Brinkmann and L. Smith and C. M. Verdun and David Bau and Samuel Marks},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {Measuring Progress in Dictionary Learning for Language Model Interpretability with Board Game Models},\n volume = {abs/2408.00113},\n year = {2024},\n  doi = {10.48550/arXiv.2408.00113}\n}",
+      "title": "Measuring Progress in Dictionary Learning for Language Model Interpretability with Board Game Models",
+      "doi": "10.48550/arXiv.2408.00113",
+      "arxiv": "2408.00113"
+    },
+    {
+      "citation_key": "Marks2024",
+      "bibtex": "@inproceedings{Marks2024,\n author = {Samuel Marks and C. Rager and Eric J. Michaud and Yonatan Belinkov and David Bau and Aaron Mueller},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models},\n volume = {abs/2403.19647},\n year = {2024},\n  doi = {10.48550/arXiv.2403.19647}\n}",
+      "title": "Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models",
+      "doi": "10.48550/arXiv.2403.19647",
+      "arxiv": "2403.19647"
+    },
+    {
+      "citation_key": "Bussmann2025",
+      "bibtex": "@inproceedings{Bussmann2025,\n author = {Bart Bussmann and Noa Nabeshima and Adam Karvonen and Neel Nanda},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {Learning Multi-Level Features with Matryoshka Sparse Autoencoders},\n volume = {abs/2503.17547},\n year = {2025},\n  doi = {10.48550/arXiv.2503.17547}\n}",
+      "title": "Learning Multi-Level Features with Matryoshka Sparse Autoencoders",
+      "doi": "10.48550/arXiv.2503.17547",
+      "arxiv": "2503.17547"
+    },
+    {
+      "citation_key": "Muchane2025",
+      "bibtex": "@article{Muchane2025,\n author = {Mark Muchane and Sean M. Richardson and Kiho Park and Victor Veitch},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Incorporating Hierarchical Semantics in Sparse Autoencoder Architectures},\n volume = {abs/2506.01197},\n year = {2025},\n  doi = {10.48550/arXiv.2506.01197}\n}",
+      "title": "Incorporating Hierarchical Semantics in Sparse Autoencoder Architectures",
+      "doi": "10.48550/arXiv.2506.01197",
+      "arxiv": "2506.01197"
+    },
+    {
+      "citation_key": "Dalili2026",
+      "bibtex": "@Inproceedings{Dalili2026,\n author = {Seyed Arshan Dalili and Mehrdad Mahdavi},\n title = {Subspace-Aware Sparse Autoencoders for Effective Mechanistic Interpretability},\n year = {2026}\n}",
+      "title": "Subspace-Aware Sparse Autoencoders for Effective Mechanistic Interpretability",
+      "doi": "",
+      "arxiv": "2606.06333"
+    },
+    {
+      "citation_key": "Lee2024",
+      "bibtex": "@inproceedings{Lee2024,\n author = {Bruce Lee and Inkit Padhi and K. Ramamurthy and Erik Miehling and Pierre L. Dognin and Manish Nagireddy and Amit Dhurandhar},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Programming Refusal with Conditional Activation Steering},\n volume = {abs/2409.05907},\n year = {2024},\n  doi = {10.48550/arXiv.2409.05907}\n}",
+      "title": "Programming Refusal with Conditional Activation Steering",
+      "doi": "10.48550/arXiv.2409.05907",
+      "arxiv": "2409.05907"
+    },
+    {
+      "citation_key": "He2025",
+      "bibtex": "@inproceedings{He2025,\n author = {Zirui He and Mingyu Jin and Bo Shen and Ali Payani and Yongfeng Zhang and Mengnan Du},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n journal = {ArXiv},\n title = {SAE-SSV: Supervised Steering in Sparse Representation Spaces for Reliable Control of Language Models},\n volume = {abs/2505.16188},\n year = {2025},\n  doi = {10.48550/arXiv.2505.16188}\n}",
+      "title": "SAE-SSV: Supervised Steering in Sparse Representation Spaces for Reliable Control of Language Models",
+      "doi": "10.48550/arXiv.2505.16188",
+      "arxiv": "2505.16188"
+    },
+    {
+      "citation_key": "Chanin2025",
+      "bibtex": "@article{Chanin2025,\n author = {David Chanin and Tom'avs Dulka and Adri\u00e0 Garriga-Alonso},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Feature Hedging: Correlated Features Break Narrow Sparse Autoencoders},\n volume = {abs/2505.11756},\n year = {2025},\n  doi = {10.48550/arXiv.2505.11756}\n}",
+      "title": "Feature Hedging: Correlated Features Break Narrow Sparse Autoencoders",
+      "doi": "10.48550/arXiv.2505.11756",
+      "arxiv": "2505.11756"
+    },
+    {
+      "citation_key": "Minegishi2025",
+      "bibtex": "@inproceedings{Minegishi2025,\n author = {Gouki Minegishi and Hiroki Furuta and Yusuke Iwasawa and Yutaka Matsuo},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Words},\n volume = {abs/2501.06254},\n year = {2025},\n  doi = {10.48550/arXiv.2501.06254}\n}",
+      "title": "Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Words",
+      "doi": "10.48550/arXiv.2501.06254",
+      "arxiv": "2501.06254"
+    },
+    {
+      "citation_key": "Winnicki2026",
+      "bibtex": "@article{Winnicki2026,\n author = {John Winnicki and Abeynaya Gnanasekaran and Eric Darve},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Domain-Filtered Knowledge Graphs from Sparse Autoencoder Features},\n volume = {abs/2604.23829},\n year = {2026},\n  doi = {10.48550/arXiv.2604.23829}\n}",
+      "title": "Domain-Filtered Knowledge Graphs from Sparse Autoencoder Features",
+      "doi": "10.48550/arXiv.2604.23829",
+      "arxiv": "2604.23829"
+    },
+    {
+      "citation_key": "Turani2026",
+      "bibtex": "@Inproceedings{Turani2026,\n author = {Vin'icius Conte Turani and Ot\u00e1vio Parraga and Jo\u00e3o Vitor Boer Abitante and Kristen K. Arguello and Joana Pasquali and Ramiro N. Barros and F. Calmon and C. Mattjie and Rodrigo C. Barros and L. S. Kupssinsku},\n title = {Inference-Time Machine Unlearning via Gated Activation Redirection},\n year = {2026}\n}",
+      "title": "Inference-Time Machine Unlearning via Gated Activation Redirection",
+      "doi": "",
+      "arxiv": "2605.12765"
+    },
+    {
+      "citation_key": "Wang2024",
+      "bibtex": "@inproceedings{Wang2024,\n author = {Weixuan Wang and Jingyuan Yang and Wei Peng},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Semantics-Adaptive Activation Intervention for LLMs via Dynamic Steering Vectors},\n volume = {abs/2410.12299},\n year = {2024},\n  doi = {10.48550/arXiv.2410.12299}\n}",
+      "title": "Semantics-Adaptive Activation Intervention for LLMs via Dynamic Steering Vectors",
+      "doi": "10.48550/arXiv.2410.12299",
+      "arxiv": "2410.12299"
+    },
+    {
+      "citation_key": "Peng2025",
+      "bibtex": "@article{Peng2025,\n author = {Kenny Peng and Rajiv Movva and Jon M. Kleinberg and E. Pierson and Nikhil Garg},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Use Sparse Autoencoders to Discover Unknown Concepts, Not to Act on Known Concepts},\n volume = {abs/2506.23845},\n year = {2025},\n  doi = {10.48550/arXiv.2506.23845}\n}",
+      "title": "Use Sparse Autoencoders to Discover Unknown Concepts, Not to Act on Known Concepts",
+      "doi": "10.48550/arXiv.2506.23845",
+      "arxiv": "2506.23845"
+    },
+    {
+      "citation_key": "Whitney2020",
+      "bibtex": "@article{Whitney2020,\n author = {William F. Whitney and M. Song and David Brandfonbrener and Jaan Altosaar and Kyunghyun Cho},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Evaluating representations by the complexity of learning low-loss predictors},\n volume = {abs/2009.07368},\n year = {2020}\n}",
+      "title": "Evaluating representations by the complexity of learning low-loss predictors",
+      "doi": "",
+      "arxiv": "2009.07368"
+    },
+    {
+      "citation_key": "Marks2023",
+      "bibtex": "@article{Marks2023,\n author = {Samuel Marks and Max Tegmark},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {The Geometry of Truth: Emergent Linear Structure in Large Language Model Representations of True/False Datasets},\n volume = {abs/2310.06824},\n year = {2023},\n  doi = {10.48550/arXiv.2310.06824}\n}",
+      "title": "The Geometry of Truth: Emergent Linear Structure in Large Language Model Representations of True/False Datasets",
+      "doi": "10.48550/arXiv.2310.06824",
+      "arxiv": "2310.06824"
+    },
+    {
+      "citation_key": "Tan2024",
+      "bibtex": "@inproceedings{Tan2024,\n author = {Daniel Tan and David Chanin and Aengus Lynch and Dimitrios Kanoulas and Brooks Paige and Adri\u00e0 Garriga-Alonso and Robert Kirk},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {Analyzing the Generalization and Reliability of Steering Vectors},\n volume = {abs/2407.12404},\n year = {2024},\n  doi = {10.48550/arXiv.2407.12404}\n}",
+      "title": "Analyzing the Generalization and Reliability of Steering Vectors",
+      "doi": "10.48550/arXiv.2407.12404",
+      "arxiv": "2407.12404"
+    },
+    {
+      "citation_key": "Rauch2023",
+      "bibtex": "@inproceedings{Rauch2023,\n author = {Lukas Rauch and M. A\u00dfenmacher and Denis Huseljic and Moritz Wirth and Bernd Bischl and B. Sick},\n booktitle = {ECML/PKDD},\n journal = {ArXiv},\n title = {ActiveGLAE: A Benchmark for Deep Active Learning with Transformers},\n volume = {abs/2306.10087},\n year = {2023},\n  doi = {10.48550/arXiv.2306.10087}\n}",
+      "title": "ActiveGLAE: A Benchmark for Deep Active Learning with Transformers",
+      "doi": "10.48550/arXiv.2306.10087",
+      "arxiv": "2306.10087"
+    },
+    {
+      "citation_key": "Margatina2021",
+      "bibtex": "@inproceedings{Margatina2021,\n author = {Katerina Margatina and Giorgos Vernikos and Lo\u00efc Barrault and Nikolaos Aletras},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n pages = {650-663},\n title = {Active Learning by Acquiring Contrastive Examples},\n year = {2021},\n  doi = {10.18653/v1/2021.emnlp-main.51}\n}",
+      "title": "Active Learning by Acquiring Contrastive Examples",
+      "doi": "10.18653/v1/2021.emnlp-main.51",
+      "arxiv": "2109.03764"
+    },
+    {
+      "citation_key": "Zhang2025",
+      "bibtex": "@inproceedings{Zhang2025,\n author = {Yejian Zhang and Shingo Takada},\n booktitle = {International Journal of Intelligent Systems},\n journal = {International Journal of Intelligent Systems},\n title = {Applying LLMs to Active Learning: Toward Cost\u2010Efficient Cross\u2010Task Text Classification Without Manually Labeled Data},\n volume = {2025},\n year = {2025},\n  doi = {10.1155/int/6472544}\n}",
+      "title": "Applying LLMs to Active Learning: Toward Cost\u2010Efficient Cross\u2010Task Text Classification Without Manually Labeled Data",
+      "doi": "10.1155/int/6472544",
+      "arxiv": "2502.16892"
+    },
+    {
+      "citation_key": "Arad2025",
+      "bibtex": "@inproceedings{Arad2025,\n author = {Dana Arad and Aaron Mueller and Yonatan Belinkov},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n journal = {ArXiv},\n title = {SAEs Are Good for Steering - If You Select the Right Features},\n volume = {abs/2505.20063},\n year = {2025},\n  doi = {10.18653/v1/2025.emnlp-main.519}\n}",
+      "title": "SAEs Are Good for Steering - If You Select the Right Features",
+      "doi": "10.18653/v1/2025.emnlp-main.519",
+      "arxiv": "2505.20063"
+    },
+    {
+      "citation_key": "Chalnev2024",
+      "bibtex": "@article{Chalnev2024,\n author = {Sviatoslav Chalnev and M. Siu and Arthur Conmy},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Improving Steering Vectors by Targeting Sparse Autoencoder Features},\n volume = {abs/2411.02193},\n year = {2024},\n  doi = {10.48550/arXiv.2411.02193}\n}",
+      "title": "Improving Steering Vectors by Targeting Sparse Autoencoder Features",
+      "doi": "10.48550/arXiv.2411.02193",
+      "arxiv": "2411.02193"
+    },
+    {
+      "citation_key": "Flovik2025",
+      "bibtex": "@article{Flovik2025,\n author = {Vegard Flovik},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {SALVE: Sparse Autoencoder-Latent Vector Editing for Mechanistic Control of Neural Networks},\n volume = {abs/2512.15938},\n year = {2025},\n  doi = {10.48550/arXiv.2512.15938}\n}",
+      "title": "SALVE: Sparse Autoencoder-Latent Vector Editing for Mechanistic Control of Neural Networks",
+      "doi": "10.48550/arXiv.2512.15938",
+      "arxiv": "2512.15938"
+    },
+    {
+      "citation_key": "Farrell2024",
+      "bibtex": "@article{Farrell2024,\n author = {Eoin Farrell and Yeu-Tong Lau and Arthur Conmy},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Applying sparse autoencoders to unlearn knowledge in language models},\n volume = {abs/2410.19278},\n year = {2024},\n  doi = {10.48550/arXiv.2410.19278}\n}",
+      "title": "Applying sparse autoencoders to unlearn knowledge in language models",
+      "doi": "10.48550/arXiv.2410.19278",
+      "arxiv": "2410.19278"
+    },
+    {
+      "citation_key": "Belrose2023",
+      "bibtex": "@inproceedings{Belrose2023,\n author = {Nora Belrose and David Schneider-Joseph and Shauli Ravfogel and Ryan Cotterell and Edward Raff and Stella Biderman},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {LEACE: Perfect linear concept erasure in closed form},\n volume = {abs/2306.03819},\n year = {2023},\n  doi = {10.48550/arXiv.2306.03819}\n}",
+      "title": "LEACE: Perfect linear concept erasure in closed form",
+      "doi": "10.48550/arXiv.2306.03819",
+      "arxiv": "2306.03819"
+    },
+    {
+      "citation_key": "Karvonen2024",
+      "bibtex": "@article{Karvonen2024,\n author = {Adam Karvonen and C. Rager and Samuel Marks and Neel Nanda},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks},\n volume = {abs/2411.18895},\n year = {2024},\n  doi = {10.48550/arXiv.2411.18895}\n}",
+      "title": "Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks",
+      "doi": "10.48550/arXiv.2411.18895",
+      "arxiv": "2411.18895"
+    },
+    {
+      "citation_key": "GurArieh2025",
+      "bibtex": "@inproceedings{GurArieh2025,\n author = {Yoav Gur-Arieh and C. Suslik and Yihuai Hong and Fazl Barez and Mor Geva},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n journal = {ArXiv},\n title = {Precise In-Parameter Concept Erasure in Large Language Models},\n volume = {abs/2505.22586},\n year = {2025},\n  doi = {10.48550/arXiv.2505.22586}\n}",
+      "title": "Precise In-Parameter Concept Erasure in Large Language Models",
+      "doi": "10.48550/arXiv.2505.22586",
+      "arxiv": "2505.22586"
+    },
+    {
+      "citation_key": "Ashuach2025",
+      "bibtex": "@article{Ashuach2025,\n author = {Tomer Ashuach and Dana Arad and Aaron Mueller and Martin Tutek and Yonatan Belinkov},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {CRISP: Persistent Concept Unlearning via Sparse Autoencoders},\n volume = {abs/2508.13650},\n year = {2025},\n  doi = {10.48550/arXiv.2508.13650}\n}",
+      "title": "CRISP: Persistent Concept Unlearning via Sparse Autoencoders",
+      "doi": "10.48550/arXiv.2508.13650",
+      "arxiv": "2508.13650"
+    },
+    {
+      "citation_key": "Li2024",
+      "bibtex": "@inproceedings{Li2024,\n author = {Nathaniel Li and Alexander Pan and Anjali Gopal and Summer Yue and Daniel Berrios and Alice Gatti and Justin Li and Ann-Kathrin Dombrowski and Shashwat Goel and Long Phan and Gabriel Mukobi and Nathan Helm-Burger and Rassin R. Lababidi and Lennart Justen and Andrew Liu and Michael Chen and Isabelle Barrass and Oliver Zhang and Xiaoyuan Zhu and Rishub Tamirisa and Bhrugu Bharathi and Adam Khoja and Ariel Herbert-Voss and Cort B. Breuer and Andy Zou and Mantas Mazeika and Zifan Wang and Palash Oswal and Weiran Liu and A-M Hunt and Justin Tienken-Harder and Kevin Y. Shih and Kemper Talley and J. Guan and Russell Kaplan and Ian Steneker and David Campbell and Brad Jokubaitis and A. Levinson and Jean Wang and William Qian and K. Karmakar and Steven Basart and Stephen Fitz and M. Levine and P. Kumaraguru and U. Tupakula and Vijay Varadharajan and Yan Shoshitaishvili and Jimmy Ba and K. Esvelt and Alexandr Wang and Dan Hendrycks},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {The WMDP Benchmark: Measuring and Reducing Malicious Use With Unlearning},\n volume = {abs/2403.03218},\n year = {2024}\n}",
+      "title": "The WMDP Benchmark: Measuring and Reducing Malicious Use With Unlearning",
+      "doi": "",
+      "arxiv": "2403.03218"
+    },
+    {
+      "citation_key": "Shi2024",
+      "bibtex": "@inproceedings{Shi2024,\n author = {Weijia Shi and Jaechan Lee and Yangsibo Huang and Sadhika Malladi and Jieyu Zhao and Ari Holtzman and Daogao Liu and Luke S. Zettlemoyer and Noah A. Smith and Chiyuan Zhang},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {MUSE: Machine Unlearning Six-Way Evaluation for Language Models},\n volume = {abs/2407.06460},\n year = {2024},\n  doi = {10.48550/arXiv.2407.06460}\n}",
+      "title": "MUSE: Machine Unlearning Six-Way Evaluation for Language Models",
+      "doi": "10.48550/arXiv.2407.06460",
+      "arxiv": "2407.06460"
+    },
+    {
+      "citation_key": "Sasse2024",
+      "bibtex": "@Inproceedings{Sasse2024,\n author = {Kuleen Sasse and Shan Chen and Jackson Pond and D. Bitterman and John D. Osborne},\n title = {debiaSAE: Benchmarking and Mitigating Vision-Language Model Bias},\n year = {2024}\n}",
+      "title": "debiaSAE: Benchmarking and Mitigating Vision-Language Model Bias",
+      "doi": "",
+      "arxiv": "2410.13146"
+    },
+    {
+      "citation_key": "Karvonen2025",
+      "bibtex": "@article{Karvonen2025,\n author = {Adam Karvonen and Samuel Marks},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Robustly Improving LLM Fairness in Realistic Settings via Interpretability},\n volume = {abs/2506.10922},\n year = {2025},\n  doi = {10.48550/arXiv.2506.10922}\n}",
+      "title": "Robustly Improving LLM Fairness in Realistic Settings via Interpretability",
+      "doi": "10.48550/arXiv.2506.10922",
+      "arxiv": "2506.10922"
+    },
+    {
+      "citation_key": "Ahsan2025",
+      "bibtex": "@article{Ahsan2025,\n author = {Hiba Ahsan and Byron C. Wallace},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Can SAEs reveal and mitigate racial biases of LLMs in healthcare?},\n volume = {abs/2511.00177},\n year = {2025},\n  doi = {10.48550/arXiv.2511.00177}\n}",
+      "title": "Can SAEs reveal and mitigate racial biases of LLMs in healthcare?",
+      "doi": "10.48550/arXiv.2511.00177",
+      "arxiv": "2511.00177"
+    },
+    {
+      "citation_key": "Gallifant2025",
+      "bibtex": "@inproceedings{Gallifant2025,\n author = {Jack Gallifant and Shan Chen and Kuleen Sasse and Hugo J. W. L. Aerts and Thomas Hartvigsen and D. Bitterman},\n booktitle = {Conference on Empirical Methods in Natural Language Processing},\n pages = {29939-29963},\n title = {Sparse Autoencoder Features for Classifications and Transferability},\n year = {2025},\n  doi = {10.48550/arXiv.2502.11367}\n}",
+      "title": "Sparse Autoencoder Features for Classifications and Transferability",
+      "doi": "10.48550/arXiv.2502.11367",
+      "arxiv": "2502.11367"
+    },
+    {
+      "citation_key": "Sagawa2019",
+      "bibtex": "@article{Sagawa2019,\n author = {Shiori Sagawa and Pang Wei Koh and Tatsunori B. Hashimoto and Percy Liang},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Distributionally Robust Neural Networks for Group Shifts: On the Importance of Regularization for Worst-Case Generalization},\n volume = {abs/1911.08731},\n year = {2019}\n}",
+      "title": "Distributionally Robust Neural Networks for Group Shifts: On the Importance of Regularization for Worst-Case Generalization",
+      "doi": "",
+      "arxiv": "1911.08731"
+    },
+    {
+      "citation_key": "Liu2021",
+      "bibtex": "@inproceedings{Liu2021,\n author = {E. Liu and Behzad Haghgoo and Annie S. Chen and Aditi Raghunathan and Pang Wei Koh and Shiori Sagawa and Percy Liang and Chelsea Finn},\n booktitle = {International Conference on Machine Learning},\n journal = {ArXiv},\n title = {Just Train Twice: Improving Group Robustness without Training Group Information},\n volume = {abs/2107.09044},\n year = {2021}\n}",
+      "title": "Just Train Twice: Improving Group Robustness without Training Group Information",
+      "doi": "",
+      "arxiv": "2107.09044"
+    },
+    {
+      "citation_key": "Sohoni2020",
+      "bibtex": "@inproceedings{Sohoni2020,\n author = {N. Sohoni and Jared A. Dunnmon and Geoffrey Angus and Albert Gu and C. R\u00e9},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {No Subclass Left Behind: Fine-Grained Robustness in Coarse-Grained Classification Problems},\n volume = {abs/2011.12945},\n year = {2020}\n}",
+      "title": "No Subclass Left Behind: Fine-Grained Robustness in Coarse-Grained Classification Problems",
+      "doi": "",
+      "arxiv": "2011.12945"
+    },
+    {
+      "citation_key": "Creager2020",
+      "bibtex": "@inproceedings{Creager2020,\n author = {Elliot Creager and J. Jacobsen and R. Zemel},\n booktitle = {International Conference on Machine Learning},\n pages = {2189-2200},\n title = {Environment Inference for Invariant Learning},\n year = {2020}\n}",
+      "title": "Environment Inference for Invariant Learning",
+      "doi": "",
+      "arxiv": "2010.07249"
+    },
+    {
+      "citation_key": "Nam2020",
+      "bibtex": "@article{Nam2020,\n author = {J. Nam and Hyuntak Cha and Sungsoo Ahn and Jaeho Lee and Jinwoo Shin},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Learning from Failure: Training Debiased Classifier from Biased Classifier},\n volume = {abs/2007.02561},\n year = {2020}\n}",
+      "title": "Learning from Failure: Training Debiased Classifier from Biased Classifier",
+      "doi": "",
+      "arxiv": "2007.02561"
+    },
+    {
+      "citation_key": "Nemhauser1978",
+      "bibtex": "@inproceedings{Nemhauser1978,\n author = {G. Nemhauser and L. Wolsey and M. Fisher},\n booktitle = {Mathematical programming},\n journal = {Mathematical Programming},\n pages = {265-294},\n title = {An analysis of approximations for maximizing submodular set functions\u2014I},\n volume = {14},\n year = {1978},\n  doi = {10.1007/BF01588971}\n}",
+      "title": "An analysis of approximations for maximizing submodular set functions\u2014I",
+      "doi": "10.1007/BF01588971",
+      "arxiv": ""
+    },
+    {
+      "citation_key": "Tesson2010",
+      "bibtex": "@inproceedings{Tesson2010,\n author = {B. Tesson and R. Breitling and R. Jansen},\n booktitle = {BMC Bioinformatics},\n journal = {BMC Bioinformatics},\n pages = {497 - 497},\n title = {DiffCoEx: a simple and sensitive method to find differentially coexpressed gene modules},\n volume = {11},\n year = {2010},\n  doi = {10.1186/1471-2105-11-497}\n}",
+      "title": "DiffCoEx: a simple and sensitive method to find differentially coexpressed gene modules",
+      "doi": "10.1186/1471-2105-11-497",
+      "arxiv": ""
+    },
+    {
+      "citation_key": "Zhang2005",
+      "bibtex": "@inproceedings{Zhang2005,\n author = {Bin Zhang and Steve Horvath},\n booktitle = {Statistical Applications in Genetics and Molecular Biology},\n journal = {Statistical Applications in Genetics and Molecular Biology},\n title = {A General Framework for Weighted Gene Co-Expression Network Analysis},\n volume = {4},\n year = {2005},\n  doi = {10.2202/1544-6115.1128}\n}",
+      "title": "A General Framework for Weighted Gene Co-Expression Network Analysis",
+      "doi": "10.2202/1544-6115.1128",
+      "arxiv": ""
+    },
+    {
+      "citation_key": "Traag2018",
+      "bibtex": "@inproceedings{Traag2018,\n author = {V. Traag and L. Waltman and Nees Jan van Eck},\n booktitle = {Scientific Reports},\n journal = {Scientific Reports},\n title = {From Louvain to Leiden: guaranteeing well-connected communities},\n volume = {9},\n year = {2018},\n  doi = {10.1038/s41598-019-41695-z}\n}",
+      "title": "From Louvain to Leiden: guaranteeing well-connected communities",
+      "doi": "10.1038/s41598-019-41695-z",
+      "arxiv": "1810.08473"
+    },
+    {
+      "citation_key": "Kaushik2019",
+      "bibtex": "@inproceedings{Kaushik2019,\n author = {Divyansh Kaushik and E. Hovy and Zachary Chase Lipton},\n booktitle = {International Conference on Learning Representations},\n journal = {ArXiv},\n title = {Learning the Difference that Makes a Difference with Counterfactually-Augmented Data},\n volume = {abs/1909.12434},\n year = {2019}\n}",
+      "title": "Learning the Difference that Makes a Difference with Counterfactually-Augmented Data",
+      "doi": "",
+      "arxiv": "1909.12434"
+    },
+    {
+      "citation_key": "Abraham2022",
+      "bibtex": "@inproceedings{Abraham2022,\n author = {Eldar David Abraham and Karel D\u2019Oosterlinck and Amir Feder and Y. Gat and Atticus Geiger and Christopher Potts and Roi Reichart and Zhengxuan Wu},\n booktitle = {Neural Information Processing Systems},\n journal = {ArXiv},\n title = {CEBaB: Estimating the Causal Effects of Real-World Concepts on NLP Model Behavior},\n volume = {abs/2205.14140},\n year = {2022},\n  doi = {10.48550/arXiv.2205.14140}\n}",
+      "title": "CEBaB: Estimating the Causal Effects of Real-World Concepts on NLP Model Behavior",
+      "doi": "10.48550/arXiv.2205.14140",
+      "arxiv": "2205.14140"
+    },
+    {
+      "citation_key": "Logacheva2022",
+      "bibtex": "@inproceedings{Logacheva2022,\n author = {V. Logacheva and Daryna Dementieva and S. Ustyantsev and Daniil Moskovskiy and David Dale and I. Krotova and Nikita Semenov and A. Panchenko},\n booktitle = {Annual Meeting of the Association for Computational Linguistics},\n pages = {6804-6818},\n title = {ParaDetox: Detoxification with Parallel Data},\n year = {2022},\n  doi = {10.18653/v1/2022.acl-long.469}\n}",
+      "title": "ParaDetox: Detoxification with Parallel Data",
+      "doi": "10.18653/v1/2022.acl-long.469",
+      "arxiv": ""
+    },
+    {
+      "citation_key": "Borkan2019",
+      "bibtex": "@inproceedings{Borkan2019,\n author = {Daniel Borkan and Lucas Dixon and Jeffrey Scott Sorensen and Nithum Thain and Lucy Vasserman},\n booktitle = {The Web Conference},\n journal = {Companion Proceedings of The 2019 World Wide Web Conference},\n title = {Nuanced Metrics for Measuring Unintended Bias with Real Data for Text Classification},\n year = {2019},\n  doi = {10.1145/3308560.3317593}\n}",
+      "title": "Nuanced Metrics for Measuring Unintended Bias with Real Data for Text Classification",
+      "doi": "10.1145/3308560.3317593",
+      "arxiv": "1903.04561"
+    },
+    {
+      "citation_key": "DeArteaga2019",
+      "bibtex": "@inproceedings{DeArteaga2019,\n author = {Maria De-Arteaga and Alexey Romanov and Hanna M. Wallach and J. Chayes and C. Borgs and Alexandra Chouldechova and S. Geyik and K. Kenthapadi and A. Kalai},\n booktitle = {FAT},\n journal = {Proceedings of the Conference on Fairness, Accountability, and Transparency},\n title = {Bias in Bios: A Case Study of Semantic Representation Bias in a High-Stakes Setting},\n year = {2019},\n  doi = {10.1145/3287560.3287572}\n}",
+      "title": "Bias in Bios: A Case Study of Semantic Representation Bias in a High-Stakes Setting",
+      "doi": "10.1145/3287560.3287572",
+      "arxiv": "1901.09451"
+    },
+    {
+      "citation_key": "Veitch2021",
+      "bibtex": "@article{Veitch2021,\n author = {Victor Veitch and A. D'Amour and Steve Yadlowsky and Jacob Eisenstein},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Counterfactual Invariance to Spurious Correlations: Why and How to Pass Stress Tests},\n volume = {abs/2106.00545},\n year = {2021}\n}",
+      "title": "Counterfactual Invariance to Spurious Correlations: Why and How to Pass Stress Tests",
+      "doi": "",
+      "arxiv": "2106.00545"
+    },
+    {
+      "citation_key": "Varshney2025",
+      "bibtex": "@inproceedings{Varshney2025,\n author = {Payal Varshney and Adriano Lucieri and Christoph Balada and Andreas Dengel and Sheraz Ahmed},\n booktitle = {Pattern Recognition Letters},\n journal = {ArXiv},\n title = {Discovering Concept Directions from Diffusion-based Counterfactuals via Latent Clustering},\n volume = {abs/2505.07073},\n year = {2025},\n  doi = {10.1016/j.patrec.2025.11.012}\n}",
+      "title": "Discovering Concept Directions from Diffusion-based Counterfactuals via Latent Clustering",
+      "doi": "10.1016/j.patrec.2025.11.012",
+      "arxiv": "2505.07073"
+    }
+  ],
+  "failed": [
+    {
+      "index": 48,
+      "ref": {
+        "arxiv": "2403.09869",
+        "author": "Rudner",
+        "year": 2024
+      },
+      "reason": "Not found: ArXiv:2403.09869"
+    },
+    {
+      "index": 50,
+      "ref": {
+        "doi": "10.1145/285055.285059",
+        "author": "Feige",
+        "year": 1998
+      },
+      "reason": "Not found: DOI:10.1145/285055.285059"
+    }
+  ]
+}

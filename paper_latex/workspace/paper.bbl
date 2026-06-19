@@ -1,0 +1,531 @@
+\begin{thebibliography}{63}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[He et~al.(2025)He, Jin, Shen, Payani, Zhang, and Du]{Zhang2026}
+Zirui He, Mingyu Jin, Bo~Shen, Ali Payani, Yongfeng Zhang, and Mengnan Du.
+\newblock Sae-ssv: Supervised steering in sparse representation spaces for
+  reliable control of language models.
+\newblock In \emph{Conference on Empirical Methods in Natural Language
+  Processing}, volume abs/2505.16188, 2025.
+\newblock \doi{10.48550/arXiv.2505.16188}.
+
+\bibitem[Li et~al.(2024)Li, Pan, Gopal, Yue, Berrios, Gatti, Li, Dombrowski,
+  Goel, Phan, Mukobi, Helm-Burger, Lababidi, Justen, Liu, Chen, Barrass, Zhang,
+  Zhu, Tamirisa, Bharathi, Khoja, Herbert-Voss, Breuer, Zou, Mazeika, Wang,
+  Oswal, Liu, Hunt, Tienken-Harder, Shih, Talley, Guan, Kaplan, Steneker,
+  Campbell, Jokubaitis, Levinson, Wang, Qian, Karmakar, Basart, Fitz, Levine,
+  Kumaraguru, Tupakula, Varadharajan, Shoshitaishvili, Ba, Esvelt, Wang, and
+  Hendrycks]{Li2024}
+Nathaniel Li, Alexander Pan, Anjali Gopal, Summer Yue, Daniel Berrios, Alice
+  Gatti, Justin Li, Ann-Kathrin Dombrowski, Shashwat Goel, Long Phan, Gabriel
+  Mukobi, Nathan Helm-Burger, Rassin~R. Lababidi, Lennart Justen, Andrew Liu,
+  Michael Chen, Isabelle Barrass, Oliver Zhang, Xiaoyuan Zhu, Rishub Tamirisa,
+  Bhrugu Bharathi, Adam Khoja, Ariel Herbert-Voss, Cort~B. Breuer, Andy Zou,
+  Mantas Mazeika, Zifan Wang, Palash Oswal, Weiran Liu, A-M Hunt, Justin
+  Tienken-Harder, Kevin~Y. Shih, Kemper Talley, J.~Guan, Russell Kaplan, Ian
+  Steneker, David Campbell, Brad Jokubaitis, A.~Levinson, Jean Wang, William
+  Qian, K.~Karmakar, Steven Basart, Stephen Fitz, M.~Levine, P.~Kumaraguru,
+  U.~Tupakula, Vijay Varadharajan, Yan Shoshitaishvili, Jimmy Ba, K.~Esvelt,
+  Alexandr Wang, and Dan Hendrycks.
+\newblock The wmdp benchmark: Measuring and reducing malicious use with
+  unlearning.
+\newblock In \emph{International Conference on Machine Learning}, volume
+  abs/2403.03218, 2024.
+
+\bibitem[Wu et~al.(2025)Wu, Arora, Geiger, Wang, Huang, Jurafsky, Manning, and
+  Potts]{Wu2025}
+Zhengxuan Wu, Aryaman Arora, Atticus Geiger, Zheng Wang, Jing Huang, Daniel
+  Jurafsky, Christopher~D. Manning, and Christopher Potts.
+\newblock Axbench: Steering llms? even simple baselines outperform sparse
+  autoencoders.
+\newblock In \emph{International Conference on Machine Learning}, volume
+  abs/2501.17148, 2025.
+\newblock \doi{10.48550/arXiv.2501.17148}.
+
+\bibitem[De-Arteaga et~al.(2019)De-Arteaga, Romanov, Wallach, Chayes, Borgs,
+  Chouldechova, Geyik, Kenthapadi, and Kalai]{DeArteaga2019}
+Maria De-Arteaga, Alexey Romanov, Hanna~M. Wallach, J.~Chayes, C.~Borgs,
+  Alexandra Chouldechova, S.~Geyik, K.~Kenthapadi, and A.~Kalai.
+\newblock Bias in bios: A case study of semantic representation bias in a
+  high-stakes setting.
+\newblock In \emph{FAT}, 2019.
+\newblock \doi{10.1145/3287560.3287572}.
+
+\bibitem[Nam et~al.(2020)Nam, Cha, Ahn, Lee, and Shin]{Nam2020}
+J.~Nam, Hyuntak Cha, Sungsoo Ahn, Jaeho Lee, and Jinwoo Shin.
+\newblock Learning from failure: Training debiased classifier from biased
+  classifier.
+\newblock \emph{ArXiv}, abs/2007.02561, 2020.
+
+\bibitem[Liu et~al.(2021)Liu, Haghgoo, Chen, Raghunathan, Koh, Sagawa, Liang,
+  and Finn]{Liu2021}
+E.~Liu, Behzad Haghgoo, Annie~S. Chen, Aditi Raghunathan, Pang~Wei Koh, Shiori
+  Sagawa, Percy Liang, and Chelsea Finn.
+\newblock Just train twice: Improving group robustness without training group
+  information.
+\newblock In \emph{International Conference on Machine Learning}, volume
+  abs/2107.09044, 2021.
+
+\bibitem[Lee et~al.(2024)Lee, Padhi, Ramamurthy, Miehling, Dognin, Nagireddy,
+  and Dhurandhar]{Lee2024}
+Bruce Lee, Inkit Padhi, K.~Ramamurthy, Erik Miehling, Pierre~L. Dognin, Manish
+  Nagireddy, and Amit Dhurandhar.
+\newblock Programming refusal with conditional activation steering.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2409.05907, 2024.
+\newblock \doi{10.48550/arXiv.2409.05907}.
+
+\bibitem[Shi et~al.(2024)Shi, Lee, Huang, Malladi, Zhao, Holtzman, Liu,
+  Zettlemoyer, Smith, and Zhang]{Shi2024}
+Weijia Shi, Jaechan Lee, Yangsibo Huang, Sadhika Malladi, Jieyu Zhao, Ari
+  Holtzman, Daogao Liu, Luke~S. Zettlemoyer, Noah~A. Smith, and Chiyuan Zhang.
+\newblock Muse: Machine unlearning six-way evaluation for language models.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2407.06460, 2024.
+\newblock \doi{10.48550/arXiv.2407.06460}.
+
+\bibitem[Tan et~al.(2024)Tan, Chanin, Lynch, Kanoulas, Paige, Garriga-Alonso,
+  and Kirk]{Tan2024}
+Daniel Tan, David Chanin, Aengus Lynch, Dimitrios Kanoulas, Brooks Paige,
+  Adrià Garriga-Alonso, and Robert Kirk.
+\newblock Analyzing the generalization and reliability of steering vectors.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2407.12404, 2024.
+\newblock \doi{10.48550/arXiv.2407.12404}.
+
+\bibitem[Gur-Arieh et~al.(2025)Gur-Arieh, Suslik, Hong, Barez, and
+  Geva]{He2025}
+Yoav Gur-Arieh, C.~Suslik, Yihuai Hong, Fazl Barez, and Mor Geva.
+\newblock Precise in-parameter concept erasure in large language models.
+\newblock In \emph{Conference on Empirical Methods in Natural Language
+  Processing}, volume abs/2505.22586, 2025.
+\newblock \doi{10.48550/arXiv.2505.22586}.
+
+\bibitem[Arad et~al.(2025)Arad, Mueller, and Belinkov]{Arad2025}
+Dana Arad, Aaron Mueller, and Yonatan Belinkov.
+\newblock Saes are good for steering - if you select the right features.
+\newblock In \emph{Conference on Empirical Methods in Natural Language
+  Processing}, volume abs/2505.20063, 2025.
+\newblock \doi{10.18653/v1/2025.emnlp-main.519}.
+
+\bibitem[Peng et~al.(2025)Peng, Movva, Kleinberg, Pierson, and Garg]{Peng2025}
+Kenny Peng, Rajiv Movva, Jon~M. Kleinberg, E.~Pierson, and Nikhil Garg.
+\newblock Use sparse autoencoders to discover unknown concepts, not to act on
+  known concepts.
+\newblock \emph{ArXiv}, abs/2506.23845, 2025.
+\newblock \doi{10.48550/arXiv.2506.23845}.
+
+\bibitem[Deng et~al.(2025)Deng, Hu, Gilberti, Storks, Taxali, Angstadt,
+  Sripada, and Chai]{Deng2025}
+Ruixuan Deng, Xiaoyang Hu, Miles Gilberti, Shane Storks, Aman Taxali, Michael
+  Angstadt, C.~Sripada, and Joyce Chai.
+\newblock Sparse feature coactivation reveals causal semantic modules in large
+  language models.
+\newblock 2025.
+
+\bibitem[Wang et~al.(2024)Wang, Yang, and Peng]{Wang2024}
+Weixuan Wang, Jingyuan Yang, and Wei Peng.
+\newblock Semantics-adaptive activation intervention for llms via dynamic
+  steering vectors.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2410.12299, 2024.
+\newblock \doi{10.48550/arXiv.2410.12299}.
+
+\bibitem[Traag et~al.(2018)Traag, Waltman, and van Eck]{Traag2018}
+V.~Traag, L.~Waltman, and Nees~Jan van Eck.
+\newblock From louvain to leiden: guaranteeing well-connected communities.
+\newblock In \emph{Scientific Reports}, volume~9, 2018.
+\newblock \doi{10.1038/s41598-019-41695-z}.
+
+\bibitem[Zhang and Horvath(2005)]{Zhang2005}
+Bin Zhang and Steve Horvath.
+\newblock A general framework for weighted gene co-expression network analysis.
+\newblock In \emph{Statistical Applications in Genetics and Molecular Biology},
+  volume~4, 2005.
+\newblock \doi{10.2202/1544-6115.1128}.
+
+\bibitem[Ahsan and Wallace(2025)]{Ahsan2025}
+Hiba Ahsan and Byron~C. Wallace.
+\newblock Can saes reveal and mitigate racial biases of llms in healthcare?
+\newblock \emph{ArXiv}, abs/2511.00177, 2025.
+\newblock \doi{10.48550/arXiv.2511.00177}.
+
+\bibitem[Feige(1998)]{Feige1998}
+Uriel Feige.
+\newblock A threshold of $\ln n$ for approximating set cover.
+\newblock \emph{Journal of the ACM}, 45\penalty0 (4):\penalty0 634--652, 1998.
+\newblock \doi{10.1145/285055.285059}.
+
+\bibitem[Rauch et~al.(2023)Rauch, Aßenmacher, Huseljic, Wirth, Bischl, and
+  Sick]{Rauch2025}
+Lukas Rauch, M.~Aßenmacher, Denis Huseljic, Moritz Wirth, Bernd Bischl, and
+  B.~Sick.
+\newblock Activeglae: A benchmark for deep active learning with transformers.
+\newblock In \emph{ECML/PKDD}, volume abs/2306.10087, 2023.
+\newblock \doi{10.48550/arXiv.2306.10087}.
+
+\bibitem[Sasse et~al.(2024)Sasse, Chen, Pond, Bitterman, and
+  Osborne]{Sasse2024}
+Kuleen Sasse, Shan Chen, Jackson Pond, D.~Bitterman, and John~D. Osborne.
+\newblock debiasae: Benchmarking and mitigating vision-language model bias.
+\newblock 2024.
+
+\bibitem[Marks et~al.(2024)Marks, Rager, Michaud, Belinkov, Bau, and
+  Mueller]{Marks2024}
+Samuel Marks, C.~Rager, Eric~J. Michaud, Yonatan Belinkov, David Bau, and Aaron
+  Mueller.
+\newblock Sparse feature circuits: Discovering and editing interpretable causal
+  graphs in language models.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2403.19647, 2024.
+\newblock \doi{10.48550/arXiv.2403.19647}.
+
+\bibitem[Zhang and Takada(2025)]{Chatzoudis2025}
+Yejian Zhang and Shingo Takada.
+\newblock Applying llms to active learning: Toward cost‐efficient
+  cross‐task text classification without manually labeled data.
+\newblock In \emph{International Journal of Intelligent Systems}, volume 2025,
+  2025.
+\newblock \doi{10.1155/int/6472544}.
+
+\bibitem[Marks and Tegmark(2023)]{Im2025}
+Samuel Marks and Max Tegmark.
+\newblock The geometry of truth: Emergent linear structure in large language
+  model representations of true/false datasets.
+\newblock \emph{ArXiv}, abs/2310.06824, 2023.
+\newblock \doi{10.48550/arXiv.2310.06824}.
+
+\bibitem[Leask et~al.(2025)Leask, Bussmann, Pearce, Bloom, Tigges, Moubayed,
+  Sharkey, and Nanda]{Leask2025}
+Patrick Leask, Bart Bussmann, Michael Pearce, Joseph Bloom, Curt Tigges, N.~A.
+  Moubayed, Lee Sharkey, and Neel Nanda.
+\newblock Sparse autoencoders do not find canonical units of analysis.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2502.04878, 2025.
+\newblock \doi{10.48550/arXiv.2502.04878}.
+
+\bibitem[Sohoni et~al.(2020)Sohoni, Dunnmon, Angus, Gu, and Ré]{Sohoni2020}
+N.~Sohoni, Jared~A. Dunnmon, Geoffrey Angus, Albert Gu, and C.~Ré.
+\newblock No subclass left behind: Fine-grained robustness in coarse-grained
+  classification problems.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2011.12945, 2020.
+
+\bibitem[Tesson et~al.(2010)Tesson, Breitling, and Jansen]{Tesson2010}
+B.~Tesson, R.~Breitling, and R.~Jansen.
+\newblock Diffcoex: a simple and sensitive method to find differentially
+  coexpressed gene modules.
+\newblock In \emph{BMC Bioinformatics}, volume~11, pages 497 -- 497, 2010.
+\newblock \doi{10.1186/1471-2105-11-497}.
+
+\bibitem[Rudner et~al.(2024)Rudner, Zhang, Wilson, and Kempe]{Rudner2024}
+Tim G.~J. Rudner, Ya~Shi Zhang, Andrew~Gordon Wilson, and Julia Kempe.
+\newblock Mind the {GAP}: Improving robustness to subpopulation shifts with
+  group-aware priors.
+\newblock In \emph{Proceedings of the 27th International Conference on
+  Artificial Intelligence and Statistics (AISTATS)}, 2024.
+
+\bibitem[Chanin(2026)]{Chanin2026}
+David Chanin.
+\newblock Are sparse autoencoder benchmarks reliable?
+\newblock 2026.
+
+\bibitem[Chanin et~al.(2025)Chanin, Dulka, and Garriga-Alonso]{Chanin2025}
+David Chanin, Tom'avs Dulka, and Adrià Garriga-Alonso.
+\newblock Feature hedging: Correlated features break narrow sparse
+  autoencoders.
+\newblock \emph{ArXiv}, abs/2505.11756, 2025.
+\newblock \doi{10.48550/arXiv.2505.11756}.
+
+\bibitem[Chanin et~al.(2024)Chanin, Wilken-Smith, Dulka, Bhatnagar, and
+  Bloom]{Chanin2024}
+David Chanin, James Wilken-Smith, Tom'avs Dulka, Hardik Bhatnagar, and Joseph
+  Bloom.
+\newblock A is for absorption: Studying feature splitting and absorption in
+  sparse autoencoders.
+\newblock \emph{ArXiv}, abs/2409.14507, 2024.
+\newblock \doi{10.48550/arXiv.2409.14507}.
+
+\bibitem[Dalili and Mahdavi(2026)]{Dalili2026}
+Seyed~Arshan Dalili and Mehrdad Mahdavi.
+\newblock Subspace-aware sparse autoencoders for effective mechanistic
+  interpretability.
+\newblock 2026.
+
+\bibitem[Flovik(2025)]{Duan2026}
+Vegard Flovik.
+\newblock Salve: Sparse autoencoder-latent vector editing for mechanistic
+  control of neural networks.
+\newblock \emph{ArXiv}, abs/2512.15938, 2025.
+\newblock \doi{10.48550/arXiv.2512.15938}.
+
+\bibitem[Sagawa et~al.(2019)Sagawa, Koh, Hashimoto, and Liang]{Sagawa2019}
+Shiori Sagawa, Pang~Wei Koh, Tatsunori~B. Hashimoto, and Percy Liang.
+\newblock Distributionally robust neural networks for group shifts: On the
+  importance of regularization for worst-case generalization.
+\newblock \emph{ArXiv}, abs/1911.08731, 2019.
+
+\bibitem[Borkan et~al.(2019)Borkan, Dixon, Sorensen, Thain, and
+  Vasserman]{Borkan2019}
+Daniel Borkan, Lucas Dixon, Jeffrey~Scott Sorensen, Nithum Thain, and Lucy
+  Vasserman.
+\newblock Nuanced metrics for measuring unintended bias with real data for text
+  classification.
+\newblock In \emph{The Web Conference}, 2019.
+\newblock \doi{10.1145/3308560.3317593}.
+
+\bibitem[Veitch et~al.(2021)Veitch, D'Amour, Yadlowsky, and
+  Eisenstein]{Veitch2021}
+Victor Veitch, A.~D'Amour, Steve Yadlowsky, and Jacob Eisenstein.
+\newblock Counterfactual invariance to spurious correlations: Why and how to
+  pass stress tests.
+\newblock \emph{ArXiv}, abs/2106.00545, 2021.
+
+\bibitem[O'Neill et~al.(2024)O'Neill, Ye, Iyer, and Wu]{ONeill2024}
+Charles O'Neill, Christine Ye, Kartheik~G. Iyer, and John~F. Wu.
+\newblock Disentangling dense embeddings with sparse autoencoders.
+\newblock \emph{ArXiv}, abs/2408.00657, 2024.
+\newblock \doi{10.48550/arXiv.2408.00657}.
+
+\bibitem[Turani et~al.(2026)Turani, Parraga, Abitante, Arguello, Pasquali,
+  Barros, Calmon, Mattjie, Barros, and Kupssinsku]{Turani2026}
+Vin'icius~Conte Turani, Otávio Parraga, João Vitor~Boer Abitante, Kristen~K.
+  Arguello, Joana Pasquali, Ramiro~N. Barros, F.~Calmon, C.~Mattjie, Rodrigo~C.
+  Barros, and L.~S. Kupssinsku.
+\newblock Inference-time machine unlearning via gated activation redirection.
+\newblock 2026.
+
+\bibitem[Farrell et~al.(2024)Farrell, Lau, and Conmy]{Farrell2024}
+Eoin Farrell, Yeu-Tong Lau, and Arthur Conmy.
+\newblock Applying sparse autoencoders to unlearn knowledge in language models.
+\newblock \emph{ArXiv}, abs/2410.19278, 2024.
+\newblock \doi{10.48550/arXiv.2410.19278}.
+
+\bibitem[Belrose et~al.(2023)Belrose, Schneider-Joseph, Ravfogel, Cotterell,
+  Raff, and Biderman]{Belrose2023}
+Nora Belrose, David Schneider-Joseph, Shauli Ravfogel, Ryan Cotterell, Edward
+  Raff, and Stella Biderman.
+\newblock Leace: Perfect linear concept erasure in closed form.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2306.03819, 2023.
+\newblock \doi{10.48550/arXiv.2306.03819}.
+
+\bibitem[Muchane et~al.(2025)Muchane, Richardson, Park, and
+  Veitch]{Muchane2025}
+Mark Muchane, Sean~M. Richardson, Kiho Park, and Victor Veitch.
+\newblock Incorporating hierarchical semantics in sparse autoencoder
+  architectures.
+\newblock \emph{ArXiv}, abs/2506.01197, 2025.
+\newblock \doi{10.48550/arXiv.2506.01197}.
+
+\bibitem[Ashuach et~al.(2025)Ashuach, Arad, Mueller, Tutek, and
+  Belinkov]{Ashuach2025}
+Tomer Ashuach, Dana Arad, Aaron Mueller, Martin Tutek, and Yonatan Belinkov.
+\newblock Crisp: Persistent concept unlearning via sparse autoencoders.
+\newblock \emph{ArXiv}, abs/2508.13650, 2025.
+\newblock \doi{10.48550/arXiv.2508.13650}.
+
+\bibitem[Abraham et~al.(2022)Abraham, D’Oosterlinck, Feder, Gat, Geiger,
+  Potts, Reichart, and Wu]{Abraham2022}
+Eldar~David Abraham, Karel D’Oosterlinck, Amir Feder, Y.~Gat, Atticus Geiger,
+  Christopher Potts, Roi Reichart, and Zhengxuan Wu.
+\newblock Cebab: Estimating the causal effects of real-world concepts on nlp
+  model behavior.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2205.14140, 2022.
+\newblock \doi{10.48550/arXiv.2205.14140}.
+
+\bibitem[Creager et~al.(2020)Creager, Jacobsen, and Zemel]{Creager2020}
+Elliot Creager, J.~Jacobsen, and R.~Zemel.
+\newblock Environment inference for invariant learning.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  2189--2200, 2020.
+
+\bibitem[Bricken et~al.(2023)Bricken, Templeton, Batson, Chen, Jermyn, Conerly,
+  Turner, Anil, Denison, Askell, Lasenby, Wu, Kravec, Schiefer, Maxwell,
+  Joseph, Hatfield-Dodds, Tamkin, Nguyen, McLean, Burke, Hume, Carter,
+  Henighan, and Olah]{Bricken2023}
+Trenton Bricken, Adly Templeton, Joshua Batson, Brian Chen, Adam Jermyn, Tom
+  Conerly, Nick Turner, Cem Anil, Carson Denison, Amanda Askell, Robert
+  Lasenby, Yifan Wu, Shauna Kravec, Nicholas Schiefer, Tim Maxwell, Nicholas
+  Joseph, Zac Hatfield-Dodds, Alex Tamkin, Karina Nguyen, Brayden McLean,
+  Josiah~E. Burke, Tristan Hume, Shan Carter, Tom Henighan, and Christopher
+  Olah.
+\newblock Towards monosemanticity: Decomposing language models with dictionary
+  learning.
+\newblock Transformer Circuits Thread, 2023.
+\newblock URL
+  \url{https://transformer-circuits.pub/2023/monosemantic-features/}.
+
+\bibitem[Whitney et~al.(2020)Whitney, Song, Brandfonbrener, Altosaar, and
+  Cho]{Whitney2020}
+William~F. Whitney, M.~Song, David Brandfonbrener, Jaan Altosaar, and Kyunghyun
+  Cho.
+\newblock Evaluating representations by the complexity of learning low-loss
+  predictors.
+\newblock \emph{ArXiv}, abs/2009.07368, 2020.
+
+\bibitem[Kaushik et~al.(2019)Kaushik, Hovy, and Lipton]{Kaushik2019}
+Divyansh Kaushik, E.~Hovy, and Zachary~Chase Lipton.
+\newblock Learning the difference that makes a difference with
+  counterfactually-augmented data.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/1909.12434, 2019.
+
+\bibitem[Chalnev et~al.(2024)Chalnev, Siu, and Conmy]{Chalnev2024}
+Sviatoslav Chalnev, M.~Siu, and Arthur Conmy.
+\newblock Improving steering vectors by targeting sparse autoencoder features.
+\newblock \emph{ArXiv}, abs/2411.02193, 2024.
+\newblock \doi{10.48550/arXiv.2411.02193}.
+
+\bibitem[Lieberum et~al.(2024)Lieberum, Rajamanoharan, Conmy, Smith, Sonnerat,
+  Varma, Kram'ar, Dragan, Shah, and Nanda]{Lieberum2024}
+Tom Lieberum, Senthooran Rajamanoharan, Arthur Conmy, Lewis Smith, Nicolas
+  Sonnerat, Vikrant Varma, J'anos Kram'ar, Anca Dragan, Rohin Shah, and Neel
+  Nanda.
+\newblock Gemma scope: Open sparse autoencoders everywhere all at once on gemma
+  2.
+\newblock In \emph{BlackboxNLP Workshop on Analyzing and Interpreting Neural
+  Networks for NLP}, volume abs/2408.05147, 2024.
+\newblock \doi{10.48550/arXiv.2408.05147}.
+
+\bibitem[Karvonen and Marks(2025)]{Xu2025}
+Adam Karvonen and Samuel Marks.
+\newblock Robustly improving llm fairness in realistic settings via
+  interpretability.
+\newblock \emph{ArXiv}, abs/2506.10922, 2025.
+\newblock \doi{10.48550/arXiv.2506.10922}.
+
+\bibitem[Karvonen et~al.(2025)Karvonen, Rager, Lin, Tigges, Bloom, Chanin, Lau,
+  Farrell, McDougall, Ayonrinde, Wearden, Conmy, Marks, and
+  Nanda]{Karvonen2025}
+Adam Karvonen, C.~Rager, Johnny Lin, Curt Tigges, Joseph Bloom, David Chanin,
+  Yeu-Tong Lau, Eoin Farrell, C.~McDougall, K.~Ayonrinde, M.~Wearden, Arthur
+  Conmy, Samuel Marks, and Neel Nanda.
+\newblock Saebench: A comprehensive benchmark for sparse autoencoders in
+  language model interpretability.
+\newblock In \emph{International Conference on Machine Learning}, volume
+  abs/2503.09532, 2025.
+\newblock \doi{10.48550/arXiv.2503.09532}.
+
+\bibitem[Karvonen et~al.(2024{\natexlab{a}})Karvonen, Rager, Marks, and
+  Nanda]{KarvonenMarks2025}
+Adam Karvonen, C.~Rager, Samuel Marks, and Neel Nanda.
+\newblock Evaluating sparse autoencoders on targeted concept erasure tasks.
+\newblock \emph{ArXiv}, abs/2411.18895, 2024{\natexlab{a}}.
+\newblock \doi{10.48550/arXiv.2411.18895}.
+
+\bibitem[Karvonen et~al.(2024{\natexlab{b}})Karvonen, Wright, Rager, Angell,
+  Brinkmann, Smith, Verdun, Bau, and Marks]{Karvonen2024}
+Adam Karvonen, Benjamin Wright, C.~Rager, Rico Angell, Jannik Brinkmann,
+  L.~Smith, C.~M. Verdun, David Bau, and Samuel Marks.
+\newblock Measuring progress in dictionary learning for language model
+  interpretability with board game models.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2408.00113, 2024{\natexlab{b}}.
+\newblock \doi{10.48550/arXiv.2408.00113}.
+
+\bibitem[Bussmann et~al.(2025)Bussmann, Nabeshima, Karvonen, and
+  Nanda]{Bussmann2025}
+Bart Bussmann, Noa Nabeshima, Adam Karvonen, and Neel Nanda.
+\newblock Learning multi-level features with matryoshka sparse autoencoders.
+\newblock In \emph{International Conference on Machine Learning}, volume
+  abs/2503.17547, 2025.
+\newblock \doi{10.48550/arXiv.2503.17547}.
+
+\bibitem[Winnicki et~al.(2026)Winnicki, Gnanasekaran, and Darve]{Winnicki2026}
+John Winnicki, Abeynaya Gnanasekaran, and Eric Darve.
+\newblock Domain-filtered knowledge graphs from sparse autoencoder features.
+\newblock \emph{ArXiv}, abs/2604.23829, 2026.
+\newblock \doi{10.48550/arXiv.2604.23829}.
+
+\bibitem[Varshney et~al.(2025)Varshney, Lucieri, Balada, Dengel, and
+  Ahmed]{Varshney2025}
+Payal Varshney, Adriano Lucieri, Christoph Balada, Andreas Dengel, and Sheraz
+  Ahmed.
+\newblock Discovering concept directions from diffusion-based counterfactuals
+  via latent clustering.
+\newblock In \emph{Pattern Recognition Letters}, volume abs/2505.07073, 2025.
+\newblock \doi{10.1016/j.patrec.2025.11.012}.
+
+\bibitem[Nemhauser et~al.(1978)Nemhauser, Wolsey, and Fisher]{Nemhauser1978}
+G.~Nemhauser, L.~Wolsey, and M.~Fisher.
+\newblock An analysis of approximations for maximizing submodular set
+  functions—i.
+\newblock In \emph{Mathematical programming}, volume~14, pages 265--294, 1978.
+\newblock \doi{10.1007/BF01588971}.
+
+\bibitem[Logacheva et~al.(2022)Logacheva, Dementieva, Ustyantsev, Moskovskiy,
+  Dale, Krotova, Semenov, and Panchenko]{Logacheva2022}
+V.~Logacheva, Daryna Dementieva, S.~Ustyantsev, Daniil Moskovskiy, David Dale,
+  I.~Krotova, Nikita Semenov, and A.~Panchenko.
+\newblock Paradetox: Detoxification with parallel data.
+\newblock In \emph{Annual Meeting of the Association for Computational
+  Linguistics}, pages 6804--6818, 2022.
+\newblock \doi{10.18653/v1/2022.acl-long.469}.
+
+\bibitem[Gallifant et~al.(2025)Gallifant, Chen, Sasse, Aerts, Hartvigsen, and
+  Bitterman]{Gallifant2025}
+Jack Gallifant, Shan Chen, Kuleen Sasse, Hugo J. W.~L. Aerts, Thomas
+  Hartvigsen, and D.~Bitterman.
+\newblock Sparse autoencoder features for classifications and transferability.
+\newblock In \emph{Conference on Empirical Methods in Natural Language
+  Processing}, pages 29939--29963, 2025.
+\newblock \doi{10.48550/arXiv.2502.11367}.
+
+\bibitem[Templeton et~al.(2024)Templeton, Conerly, Marcus, Lindsey, Bricken,
+  Chen, Pearce, Citro, Ameisen, Jones, Cunningham, Turner, McDougall,
+  MacDiarmid, Tamkin, Durmus, Hume, Mosconi, Freeman, Sumers, Rees, Batson,
+  Jermyn, Carter, Olah, and Henighan]{Templeton2024}
+Adly Templeton, Tom Conerly, Jonathan Marcus, Jack Lindsey, Trenton Bricken,
+  Brian Chen, Adam Pearce, Craig Citro, Emmanuel Ameisen, Andy Jones, Hoagy
+  Cunningham, Nicholas~L. Turner, Callum McDougall, Monte MacDiarmid, Alex
+  Tamkin, Esin Durmus, Tristan Hume, Francesco Mosconi, C.~Daniel Freeman,
+  Theodore~R. Sumers, Edward Rees, Joshua Batson, Adam Jermyn, Shan Carter,
+  Chris Olah, and Tom Henighan.
+\newblock Scaling monosemanticity: Extracting interpretable features from
+  {Claude} 3 {Sonnet}.
+\newblock Transformer Circuits Thread, 2024.
+\newblock URL
+  \url{https://transformer-circuits.pub/2024/scaling-monosemanticity/}.
+
+\bibitem[Minegishi et~al.(2025)Minegishi, Furuta, Iwasawa, and
+  Matsuo]{Minegishi2025}
+Gouki Minegishi, Hiroki Furuta, Yusuke Iwasawa, and Yutaka Matsuo.
+\newblock Rethinking evaluation of sparse autoencoders through the
+  representation of polysemous words.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2501.06254, 2025.
+\newblock \doi{10.48550/arXiv.2501.06254}.
+
+\bibitem[Margatina et~al.(2021)Margatina, Vernikos, Barrault, and
+  Aletras]{Cho2022}
+Katerina Margatina, Giorgos Vernikos, Loïc Barrault, and Nikolaos Aletras.
+\newblock Active learning by acquiring contrastive examples.
+\newblock In \emph{Conference on Empirical Methods in Natural Language
+  Processing}, pages 650--663, 2021.
+\newblock \doi{10.18653/v1/2021.emnlp-main.51}.
+
+\bibitem[Cunningham et~al.(2023)Cunningham, Ewart, Smith, Huben, and
+  Sharkey]{Cunningham2023}
+Hoagy Cunningham, Aidan Ewart, L.~Smith, R.~Huben, and Lee Sharkey.
+\newblock Sparse autoencoders find highly interpretable features in language
+  models.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2309.08600, 2023.
+\newblock \doi{10.48550/arXiv.2309.08600}.
+
+\bibitem[Kantamneni et~al.(2025)Kantamneni, Engels, Rajamanoharan, Tegmark, and
+  Nanda]{Kantamneni2025}
+Subhash Kantamneni, Joshua Engels, Senthooran Rajamanoharan, Max Tegmark, and
+  Neel Nanda.
+\newblock Are sparse autoencoders useful? a case study in sparse probing.
+\newblock In \emph{International Conference on Machine Learning}, volume
+  abs/2502.16681, 2025.
+\newblock \doi{10.48550/arXiv.2502.16681}.
+
+\end{thebibliography}

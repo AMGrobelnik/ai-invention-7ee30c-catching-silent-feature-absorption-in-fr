@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "bib_text": "",
+  "total": 2,
+  "found": 0,
+  "failed_count": 2,
+  "entries": [],
+  "failed": [
+    {
+      "index": 0,
+      "ref": {
+        "title": "Mind the GAP: Improving Robustness to Subpopulation Shifts with Group-Aware Priors",
+        "author": "Rudner",
+        "year": 2024
+      },
+      "reason": "No match for: Rudner Mind the GAP: Improving Robustness to Subpopulation Shifts with Group-Aware Priors"
+    },
+    {
+      "index": 1,
+      "ref": {
+        "title": "A threshold of ln n for approximating set cover",
+        "author": "Feige",
+        "year": 1998
+      },
+      "reason": "No match for: Feige A threshold of ln n for approximating set cover"
+    }
+  ]
+}

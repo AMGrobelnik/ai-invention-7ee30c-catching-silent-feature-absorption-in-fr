@@ -1,0 +1,16 @@
+{
+  "title": "LaTeX Assembly: Catching Silent Feature Absorption in Frozen SAEs",
+  "summary": "Assembled a publication-ready, single-column (11pt, ICLR/ICML-style) LaTeX paper from the provided paper_text and figures, and compiled it to a 22-page PDF. SECTIONS: title, abstract, and all twelve body sections were written verbatim from the source with markdown headings converted to \\section, the corrected results kept as-is, and the appendix marked with \\appendix (Introduction, Related Work, Label-Free Single-Specialist Localization, Testbeds and Protocol, Averted-Cost Auditing, The Localization Spine, Where Absorption Hides / Coverage Screen and Catalog, Genuine Cross-Deployment Transfer, What Did Not Pay Off, Discussion, Conclusion, Appendix). FIGURES: all 5 pre-generated figures (fig1-fig5, all 21:9) were inserted as full-width figure* floats at their exact [FIGURE:...] markers with the captions from <available_figures>; grep confirms 5 \\includegraphics == 5 figures. TABLES: all 5 source LaTeX tables (operators, averted-cost, coverage, catalog, transfer) render within the text width via \\small + booktabs. BIBLIOGRAPHY: built references.bib with all 63 distinct citation keys used in the text via aii_semscholar_bib__fetch (batched by ArXiv ID/DOI), supplemented by web search to resolve 30+ recent SAE-specific papers (e.g. Chanin2026=2605.18229, Winnicki2026=2604.23829, Dalili2026=2606.06333, Ahsan2025=2511.00177, Turani GUARD-IT=2605.12765, Arad2025=2505.20063) and 4 hand-written verified classics (Bricken/Templeton Anthropic reports, Rudner AISTATS-2024, Feige JACM-1998); a post-processing script rewrote every entry's key to exactly match the paper text so all \\citep/\\citet resolve. No fabricated entries; all are real, verifiable, and topically correct. CLEANUP: the source paper_text contained a corruption where leaked prompt/goal text was spliced inside the word 'Steering' in the nulls section -- this was reconstructed to the intended sentence and all leaked content removed; all stray [ARTIFACT:...] markers were stripped while every \\footnote{Code: \\url{...}} GitHub artifact link was preserved verbatim. COMPILATION: ran pdflatex -> bibtex8 (bibtex not in PATH) -> pdflatex x2; final PDF has no undefined references and no '??'. A full visual review rendered all 22 pages to PNG and each page was read: layout is clean, figures span the page and are readable, tables fit, and footnote URLs break within the margins. Two large \\texttt overflow boxes (precision_specific, layer_12/width_16k) were fixed with \\allowbreak and the paper recompiled; remaining overfull boxes are <=23pt (a long section heading that wraps normally). Packages: graphicx, geometry (1in margins), amsmath, amssymb, booktabs, xcolor, listings, url[hyphens], natbib (plainnat), hyperref (black links). Deliverables: paper.tex, paper.pdf, references.bib, and figures/fig1_v0.jpg..fig5_v0.jpg.",
+  "out_expected_files": {
+    "paper_tex_path": "paper.tex",
+    "paper_pdf_path": "paper.pdf",
+    "references_bib_path": "references.bib",
+    "figure_paths": [
+      "figures/fig1_v0.jpg",
+      "figures/fig2_v0.jpg",
+      "figures/fig3_v0.jpg",
+      "figures/fig4_v0.jpg",
+      "figures/fig5_v0.jpg"
+    ]
+  }
+}
