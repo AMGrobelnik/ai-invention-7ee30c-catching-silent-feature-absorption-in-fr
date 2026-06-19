@@ -1,0 +1,222 @@
+{
+ "metadata": {
+  "method_name": "M1''' De-Inflated Fair-Gated Concentration-Attributed Unified-Operator Unlearning Edit",
+  "description": "iter-8: at MATCHED forget, ablate ONE KG-named absorber latent (KG-ABL, label-free/discovered) and LEAD with KG vs the strongest UNGATED dense DENSE-SUB-ABL; ESTABLISH with the GENUINELY-FAIR control DENSE-SUB-ABL-GATED-FAIR (erase u_sub ONLY where a precise logistic d_sub detector fires, beta<=1, no over-erasure, ONE unified gate for every case). The iter-7 footprint-gated DENSE-SUB-ABL-GATED is a CAVEATED robustness arm. ADD the M3''' MAX-PRECISION selector ablation (does anchored set-cover discovery add anything over the single most-precise latent?). HARDEN the meaningful-forget proof to 20-50 templated probes with BOTH instruments side-by-side (completion-accuracy drop + frozen sub-probe positive-rate drop) + a BEHAVIORAL forget-match. Run 4 CONCENTRATED absorbers (large 8463, Amazon 6846, Bush 1418, Cook 15631) + references (Georgia 16009, Jordan 540, US 846, insult auto), and ATTRIBUTE the win to CONCENTRATION/PRECISION not absorption. Per-case 3-WAY FORK KG_BEATS_STRONGEST_AND_FAIR_GATED / FAIR_GATED_CLOSES_GAP_DISCOVERY_IS_THE_VALUE / NO_MEANINGFUL_FORGET_SCOPE_TO_PARTIAL_SUPPRESSION.",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "Rnorm": 477.54937744140625,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189243912696838,
+   "L0": 87.859375,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2835852378161436,
+    "13": 0.19339877280263326,
+    "14": 0.33884036980742616
+   },
+   "Rnorm": 477.54937744140625
+  },
+  "forget_grids": {
+   "LAM_GRID": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "BETA_GRID": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    6.0,
+    8.0
+   ],
+   "BETA_FAIR": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+   ],
+   "MIN_SUB": 20,
+   "GATE_FOOTPRINT_MULTS": [
+    0.5,
+    1.0,
+    2.0,
+    4.0
+   ],
+   "MIN_FIRE_MAXPREC": 5
+  },
+  "judge": {
+   "primary_model": "anthropic/claude-haiku-4.5",
+   "temp": 0.0,
+   "target_usd": 3.0,
+   "hard_cap_usd": 10.0,
+   "spent_usd": 0.00061135,
+   "per_model": {
+    "anthropic/claude-haiku-4.5": {
+     "usd": 0.000505,
+     "calls": 1,
+     "fail": 0,
+     "refusal": 0
+    },
+    "openai/gpt-4o-mini": {
+     "usd": 0.00010634999999999998,
+     "calls": 2,
+     "fail": 0,
+     "refusal": 0
+    }
+   }
+  },
+  "operators": [
+   "NOOP",
+   "KG-ABL (ours)",
+   "DENSE-SUB-ABL (strongest ungated, LEAD comparator)",
+   "DENSE-SUB-ABL-GATED-FAIR (genuinely-fair d_sub-gated, ESTABLISHING)",
+   "DENSE-SUB-ABL-GATED (footprint-gated, CAVEATED robustness)",
+   "DENSE-WHOLE-ABL (secondary)",
+   "MAX-PRECISION (M3''' selector ablation)",
+   "RAND",
+   "KG-ABL-UNIT (M7)"
+  ],
+  "fair_gate_definition": "erase u_sub where (h.w_dsub + b_dsub) > 0; d_sub = logistic(target-sub-pos vs sibling-pos) on the DIAGNOSTIC fold (never SAE latents); thr=0 (prob 0.5); beta<=1.",
+  "concentrated_absorbers": {
+   "first_letter_large": 8463,
+   "named_entity_amazon": 6846,
+   "named_entity_bush": 1418,
+   "named_entity_cook": 15631
+  },
+  "named_entity_parent": 2768,
+  "canonical_units_used": {
+   "taxonomic_anchor": 3792,
+   "taxonomic_k_track_unit": [
+    3792,
+    4697,
+    9339,
+    8442
+   ],
+   "georgia_absorber": 16009,
+   "jordan_absorber": 540,
+   "us_absorber": 846,
+   "first_letter_L_anchor": 205,
+   "first_letter_L_members": [
+    205,
+    4736,
+    607,
+    3069,
+    8463,
+    2416,
+    2759,
+    3353,
+    3858,
+    7544,
+    15261,
+    1391,
+    1467,
+    1549,
+    1566
+   ],
+   "large_absorber": 8463
+  },
+  "smoke": {
+   "z_georgia_16009": 10.600091934204102,
+   "z_france_16009": 0.0,
+   "token_locality_ok": true,
+   "u_sub_norm_ok": true,
+   "u_sub_cos_with_whole": 0.09397847950458527,
+   "u_sub_abs_cos_lt_1": true,
+   "u_sub_n_pos": 8,
+   "u_sub_n_sib": 8,
+   "gen_base": "New York\nRobert Rakestraw (born 1951), American politician from the state of New York\nWilliam Rakestraw (1891\u20131963), Ame",
+   "gen_kg": "New York\nRobert Rakestraw (born 1951), American politician from the state of New York\nWilliam Rakestraw (1891\u20131963), Ame",
+   "gen_sub": "Georgia\nWilliam H. Rakestraw (1839\u20131903), American politician from the state of Georgia\nWilliam H. Rakestraw, Jr. (187",
+   "gen_gated": "Georgia\nWilliam Rakestraw (1899\u20131981), American football player\nWilliam Rakestraw (1912\u20131991), American football player",
+   "gen_whole": "Georgia, United States of America\nGeorgia Rakestraw (1921\u20131999), American politician from the state of Georgia, United S",
+   "gen_unit": "New York\nRakestraw, a character in the 1999 film The Sixth Sense\nRakestraw, a character in the 2000 film The Sixth Sense",
+   "gen_diff": true,
+   "sub_distinct_from_noop_and_whole": true,
+   "gated_distinct_from_noop_and_sub": true,
+   "kg_footprint": 0.0,
+   "sub_footprint": 1.0,
+   "gated_footprint": 0.13636363636363635,
+   "gate_tau": 239.0178680419922,
+   "footprint_kg_lt_sub": true,
+   "footprint_gated_lt_sub": true,
+   "n_calib_tok": 474,
+   "completion_finite": true,
+   "completion_drop_kg": 0.010223388671875,
+   "completion_drop_gated": 0.06609497070312509,
+   "completion_n_probes_large": 24,
+   "completion_n_probes_amazon": 24,
+   "sub_probe_auc": 1.0,
+   "sub_probe_drop": 1.0,
+   "sub_probe_ok": true,
+   "fair_dsub_balacc": 1.0,
+   "fair_gen": "Texas\nRakestraw, a character in the 1998 film The Big Lebowski\nRakestraw, a character in the 2001 film The Royal Tenenba",
+   "fair_distinct": true,
+   "fair_footprint": 0.03409090909090909,
+   "fair_footprint_lt_sub": true,
+   "fair_ok": true,
+   "fair_gate_unit_test_ok": true,
+   "ne_absorber_locality": {
+    "Amazon": {
+     "latent": 6846,
+     "z_entity": 42.87930679321289,
+     "z_other": 0.0,
+     "ok": true
+    },
+    "Bush": {
+     "latent": 1418,
+     "z_entity": 5.670792579650879,
+     "z_other": 0.0,
+     "ok": true
+    },
+    "Cook": {
+     "latent": 15631,
+     "z_entity": 4.943269729614258,
+     "z_other": 0.0,
+     "ok": true
+    }
+   },
+   "judge_result_primary": {
+    "fluency": 2,
+    "content_pres": 1
+   },
+   "judge_result_second": {
+    "fluency": 2,
+    "content_pres": 1
+   },
+   "judge_spent_usd": 0.00061135,
+   "judge_ok": true
+  }
+ },
+ "datasets": [
+  {
+   "dataset": "smoke",
+   "examples": [
+    {
+     "input": "smoke",
+     "output": "ok",
+     "predict_kg_abl": "New York\nRobert Rakestraw (born 1951), American politician from the state of New",
+     "predict_dense_sub_gated_fair": "Texas\nRakestraw, a character in the 1998 film The Big Lebowski\nRakestraw, a char",
+     "predict_dense_sub_abl": "Georgia\nWilliam H. Rakestraw (1839\u20131903), American politician from the state of "
+    }
+   ]
+  }
+ ]
+}

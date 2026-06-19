@@ -1,0 +1,1599 @@
+{
+  "metadata": {
+    "method_name": "A-Priori SAE Firing-Structure Router (recall-hole-alone PRIMARY screen)",
+    "description": "A single label-free firing-structure signal read from one cheap forward pass — the parent latent's RECALL-HOLE (the fraction of concept-positives the broad parent latent misses) — is the PRIMARY scree...",
+    "baselines": {
+      "a": "best single raw SAE latent (highest train AUC, content-responsive) — the individual latent to beat",
+      "h": "supervised SAE standardized diff-of-means attribution pool (top-k, AxBench/SCR-TPP proxy)",
+      "d": "non-SAE standardized diff-of-means probe on the raw layer-12 residual (required non-SAE baseline)",
+      "unit": "label-free CCRG K-track-lite: parent anchor + firing-disjoint hole-covering absorbers"
+    },
+    "sae_release": "google/gemma-scope-2b-pt-res",
+    "sae_id": "layer_12/width_16k/average_l0_82/params.npz",
+    "hook": "blocks.12.hook_resid_post",
+    "model": "unsloth/gemma-2-2b",
+    "seed": 1234,
+    "scale": "full",
+    "accelerator": "NVIDIA L4",
+    "firing_convention": "encode>0 (JumpReLU)",
+    "gating": {
+      "recon_cos_mean": 0.9269017577171326,
+      "recon_cos_min": 0.4453181326389313,
+      "l0_mean": 170.1750030517578,
+      "l0_median": 70.0
+    },
+    "n_concepts": 31,
+    "n_derivation": 12,
+    "n_prospective": 19,
+    "recommended": "recall_hole_alone",
+    "primary_rule": {
+      "signal": "parent recall-hole",
+      "tau_h_alone": 0.7794871794871795,
+      "balanced_acc": 1.0,
+      "loo_acc": 0.8333333333333334,
+      "definition_string": "predict ABSORPTION-regime iff (parent recall-hole > 0.7795); else CO-FIRING-regime"
+    },
+    "combined_rule": {
+      "tau_j": 0.31,
+      "tau_h": 0.7794871794871795,
+      "balanced_acc": 1.0,
+      "margin": 0.016153846153846185,
+      "n_optimal_cells": 7,
+      "degenerate_tau_h": false,
+      "is_ablation": true,
+      "definition_string": "[ABLATION] predict ABSORPTION-regime iff (firing-Jaccard < 0.3100) AND (parent recall-hole > 0.7795); else CO-FIRING-regime"
+    },
+    "single_signal_ablations": {
+      "recall_hole_alone": {
+        "tau": 0.7794871794871795,
+        "balanced_acc": 1.0,
+        "sweep": [
+          {
+            "tau": 0.0,
+            "balanced_acc": 0.5,
+            "margin": -0.7633333333333333
+          },
+          {
+            "tau": 0.02435897435897436,
+            "balanced_acc": 0.5833333333333334,
+            "margin": -0.7389743589743589
+          },
+          {
+            "tau": 0.04871794871794872,
+            "balanced_acc": 0.5833333333333334,
+            "margin": -0.7146153846153845
+          }
+        ],
+        "note": "PRIMARY recommendation — strongest single separator"
+      },
+      "jaccard_alone": {
+        "tau": 0.049999999999999996,
+        "balanced_acc": 0.9166666666666667,
+        "sweep": [
+          {
+            "tau": 0.02,
+            "balanced_acc": 0.8333333333333333,
+            "margin": -0.26534453279360987
+          },
+          {
+            "tau": 0.03,
+            "balanced_acc": 0.8333333333333333,
+            "margin": -0.2553445327936099
+          },
+          {
+            "tau": 0.039999999999999994,
+            "balanced_acc": 0.9166666666666667,
+            "margin": -0.2453445327936099
+          }
+        ],
+        "note": "corroborating signal only; mislabels numeric/taxonomic alone"
+      }
+    },
+    "ablation_combined": {
+      "tau_j": 0.31,
+      "tau_h": 0.7794871794871795,
+      "balanced_acc": 1.0,
+      "margin": 0.016153846153846185,
+      "n_optimal_cells": 7,
+      "degenerate_tau_h": false,
+      "recall_hole_primary_combined": {
+        "tau_j": 0.35,
+        "tau_h": 0.7794871794871795,
+        "balanced_acc": 1.0,
+        "margin": 0.016153846153846185,
+        "n_optimal_cells": 1,
+        "degenerate_tau_h": false
+      },
+      "note": "conjunction ABLATION; claimed as recommendation ONLY if it beats recall-hole-alone out-of-sample (conjunction_beats_primary below)"
+    },
+    "loo": {
+      "recall_hole_alone_acc": 0.8333333333333334,
+      "recall_hole_alone_per_concept": [
+        {
+          "concept": "spelling_L",
+          "tau_fold": 0.7794871794871795,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_O",
+          "tau_fold": 0.7794871794871795,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_T",
+          "tau_fold": 0.7794871794871795,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        }
+      ],
+      "jaccard_alone_acc": 0.8333333333333334,
+      "jaccard_alone_per_concept": [
+        {
+          "concept": "spelling_L",
+          "tau_fold": 0.049999999999999996,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_O",
+          "tau_fold": 0.049999999999999996,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_T",
+          "tau_fold": 0.049999999999999996,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        }
+      ],
+      "combined_acc": 0.8333333333333334,
+      "combined_per_concept": [
+        {
+          "concept": "spelling_L",
+          "tau_j_fold": 0.31,
+          "tau_h_fold": 0.7794871794871795,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_O",
+          "tau_j_fold": 0.31,
+          "tau_h_fold": 0.7794871794871795,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_T",
+          "tau_j_fold": 0.31,
+          "tau_h_fold": 0.7794871794871795,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        }
+      ]
+    },
+    "counterexamples": [
+      "numeric: firing-Jaccard=0.285 is HIGH yet ground-truth=absorption -> jaccard-alone (absorption iff low-J) MISLABELS it; the combined rule routes it correctly only via the relaxed jaccard gate + recall...",
+      "taxonomic: firing-Jaccard=0.058 is LOW (narrow country specialists exist) yet ground-truth=co_firing: the parent already fires on 0.95 of positives (recall_hole_max=0.763) so there are no holes to fil..."
+    ],
+    "derivation_table": [
+      {
+        "concept": "spelling_L",
+        "role": "derivation",
+        "granularity": "token",
+        "parent_latent": 205,
+        "parent_pos_firing": 0.358,
+        "parent_unresolved": false,
+        "n_subcontexts": 52,
+        "jaccard_median": 0.016922305943836917,
+        "jaccard_min": 0.0,
+        "jaccard_max": 0.18381112984822934,
+        "jaccard_median_meanact": 0.016922305943836917,
+        "recall_hole_max": 1.0,
+        "predicted_regime": "absorption",
+        "predicted_regime_combined": "absorption",
+        "predicted_regime_jaccard": "absorption",
+        "ground_truth_regime": "absorption",
+        "ground_truth_regime_vs_h": "absorption",
+        "auc_unit": 0.8553719008264463,
+        "auc_a": 0.8484848484848485,
+        "auc_h": 0.8466483011937557,
+        "auc_d": 0.8714416896235079,
+        "delta_vs_a": 0.00688705234159781,
+        "delta_vs_a_ci": [
+          -0.018365472910927383,
+          0.043629476584022164
+        ],
+        "delta_vs_h": 0.008723599632690648,
+        "delta_vs_h_ci": [
+          0.0,
+          0.031680440771349905
+        ],
+        "k": 8,
+        "unit_members": [
+          205,
+          4736,
+          3069
+        ],
+        "h_members": [
+          205,
+          4736,
+          2425
+        ],
+        "a_latent": 205,
+        "ccrg_helps": true,
+        "ccrg_helps_significant": false,
+        "hit_vs_a": true,
+        "hit_vs_a_combined": true,
+        "hit_vs_a_jaccard": true,
+        "hit_vs_h": true,
+        "power_flag": "inferential"
+      },
+      {
+        "concept": "spelling_O",
+        "role": "derivation",
+        "granularity": "token",
+        "parent_latent": 12334,
+        "parent_pos_firing": 0.3952,
+        "parent_unresolved": false,
+        "n_subcontexts": 55,
+        "jaccard_median": 0.039525691699604744,
+        "jaccard_min": 0.0,
+        "jaccard_max": 0.1325910931174089,
+        "jaccard_median_meanact": 0.04149797570850203,
+        "recall_hole_max": 1.0,
+        "predicted_regime": "absorption",
+        "predicted_regime_combined": "absorption",
+        "predicted_regime_jaccard": "absorption",
+        "ground_truth_regime": "absorption",
+        "ground_truth_regime_vs_h": "co_firing",
+        "auc_unit": 0.6833333333333333,
+        "auc_a": 0.6333333333333333,
+        "auc_h": 0.7833333333333333,
+        "auc_d": 0.9222222222222222,
+        "delta_vs_a": 0.050000000000000044,
+        "delta_vs_a_ci": [
+          0.0,
+          0.10000000000000009
+        ],
+        "delta_vs_h": -0.09999999999999998,
+        "delta_vs_h_ci": [
+          -0.19999999999999996,
+          0.0
+        ],
+        "k": 8,
+        "unit_members": [
+          12334,
+          5767,
+          9488
+        ],
+        "h_members": [
+          12334,
+          9488,
+          12675
+        ],
+        "a_latent": 12334,
+        "ccrg_helps": true,
+        "ccrg_helps_significant": false,
+        "hit_vs_a": true,
+        "hit_vs_a_combined": true,
+        "hit_vs_a_jaccard": true,
+        "hit_vs_h": false,
+        "power_flag": "inferential"
+      },
+      {
+        "concept": "spelling_T",
+        "role": "derivation",
+        "granularity": "token",
+        "parent_latent": 6355,
+        "parent_pos_firing": 0.2672,
+        "parent_unresolved": false,
+        "n_subcontexts": 50,
+        "jaccard_median": 0.0014264044441191061,
+        "jaccard_min": 0.0,
+        "jaccard_max": 0.11874105865522175,
+        "jaccard_median_meanact": 0.0019920281999660774,
+        "recall_hole_max": 1.0,
+        "predicted_regime": "absorption",
+        "predicted_regime_combined": "absorption",
+        "predicted_regime_jaccard": "absorption",
+        "ground_truth_regime": "absorption",
+        "ground_truth_regime_vs_h": "co_firing",
+        "auc_unit": 0.6949375410913873,
+        "auc_a": 0.6666666666666666,
+        "auc_h": 0.7514792899408284,
+        "auc_d": 0.6403681788297173,
+        "delta_vs_a": 0.02827087442472065,
+        "delta_vs_a_ci": [
+          -0.025649243918474708,
+          0.08712195923734395
+        ],
+        "delta_vs_h": -0.056541748849441076,
+        "delta_vs_h_ci": [
+          -0.14792899408284022,
+          0.033867521367521636
+        ],
+        "k": 7,
+        "unit_members": [
+          6355,
+          8925,
+          8938
+        ],
+        "h_members": [
+          6355,
+          8925,
+          10187
+        ],
+        "a_latent": 6355,
+        "ccrg_helps": true,
+        "ccrg_helps_significant": false,
+        "hit_vs_a": true,
+        "hit_vs_a_combined": true,
+        "hit_vs_a_jaccard": true,
+        "hit_vs_h": false,
+        "power_flag": "inferential"
+      }
+    ],
+    "prospective_table": [
+      {
+        "concept": "sentiment",
+        "role": "prospective",
+        "granularity": "sentence",
+        "parent_latent": 10981,
+        "parent_pos_firing": 0.6397540983606558,
+        "parent_unresolved": false,
+        "n_subcontexts": 1,
+        "jaccard_median": 0.4980947196516059,
+        "jaccard_min": 0.4980947196516059,
+        "jaccard_max": 0.4980947196516059,
+        "jaccard_median_meanact": 0.47430025445292623,
+        "recall_hole_max": 0.3602459016393442,
+        "predicted_regime": "co_firing",
+        "predicted_regime_combined": "co_firing",
+        "predicted_regime_jaccard": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "ground_truth_regime_vs_h": "co_firing",
+        "auc_unit": 0.7685329044611663,
+        "auc_a": 0.7685329044611663,
+        "auc_h": 0.7685329044611663,
+        "auc_d": 0.945784903251814,
+        "delta_vs_a": 0.0,
+        "delta_vs_a_ci": [
+          0.0,
+          0.0
+        ],
+        "delta_vs_h": 0.0,
+        "delta_vs_h_ci": [
+          0.0,
+          0.0
+        ],
+        "k": 1,
+        "unit_members": [
+          10981
+        ],
+        "h_members": [
+          10981
+        ],
+        "a_latent": 10981,
+        "ccrg_helps": false,
+        "ccrg_helps_significant": false,
+        "hit_vs_a": true,
+        "hit_vs_a_combined": true,
+        "hit_vs_a_jaccard": true,
+        "hit_vs_h": true,
+        "power_flag": "inferential"
+      },
+      {
+        "concept": "aspect_food",
+        "role": "prospective",
+        "granularity": "sentence",
+        "parent_latent": 4800,
+        "parent_pos_firing": 0.6,
+        "parent_unresolved": false,
+        "n_subcontexts": 1,
+        "jaccard_median": 0.4671814671814672,
+        "jaccard_min": 0.4671814671814672,
+        "jaccard_max": 0.4671814671814672,
+        "jaccard_median_meanact": 0.4671814671814672,
+        "recall_hole_max": 0.4,
+        "predicted_regime": "co_firing",
+        "predicted_regime_combined": "co_firing",
+        "predicted_regime_jaccard": "co_firing",
+        "ground_truth_regime": "absorption",
+        "ground_truth_regime_vs_h": "co_firing",
+        "auc_unit": 0.7322335600907028,
+        "auc_a": 0.6972448979591837,
+        "auc_h": 0.8197845804988663,
+        "auc_d": 0.8863945578231291,
+        "delta_vs_a": 0.03498866213151919,
+        "delta_vs_a_ci": [
+          0.0028214285714285893,
+          0.0671680839002268
+        ],
+        "delta_vs_h": -0.08755102040816343,
+        "delta_vs_h_ci": [
+          -0.13460657596371894,
+          -0.04118650793650784
+        ],
+        "k": 4,
+        "unit_members": [
+          4800,
+          3249,
+          1209
+        ],
+        "h_members": [
+          4800,
+          9425,
+          1382
+        ],
+        "a_latent": 4800,
+        "ccrg_helps": true,
+        "ccrg_helps_significant": true,
+        "hit_vs_a": false,
+        "hit_vs_a_combined": false,
+        "hit_vs_a_jaccard": false,
+        "hit_vs_h": true,
+        "power_flag": "inferential"
+      },
+      {
+        "concept": "aspect_service",
+        "role": "prospective",
+        "granularity": "sentence",
+        "parent_latent": 709,
+        "parent_pos_firing": 0.4123524069028156,
+        "parent_unresolved": false,
+        "n_subcontexts": 1,
+        "jaccard_median": 0.3975346687211094,
+        "jaccard_min": 0.3975346687211094,
+        "jaccard_max": 0.3975346687211094,
+        "jaccard_median_meanact": 0.3975346687211094,
+        "recall_hole_max": 0.5876475930971844,
+        "predicted_regime": "co_firing",
+        "predicted_regime_combined": "co_firing",
+        "predicted_regime_jaccard": "co_firing",
+        "ground_truth_regime": "absorption",
+        "ground_truth_regime_vs_h": "co_firing",
+        "auc_unit": 0.7057920000000001,
+        "auc_a": 0.6339839999999999,
+        "auc_h": 0.765088,
+        "auc_d": 0.856832,
+        "delta_vs_a": 0.0718080000000002,
+        "delta_vs_a_ci": [
+          0.030302400000000004,
+          0.11382960000000017
+        ],
+        "delta_vs_h": -0.059295999999999904,
+        "delta_vs_h_ci": [
+          -0.1275576,
+          0.009894400000000143
+        ],
+        "k": 6,
+        "unit_members": [
+          709,
+          6645,
+          15547
+        ],
+        "h_members": [
+          4800,
+          13245,
+          709
+        ],
+        "a_latent": 709,
+        "ccrg_helps": true,
+        "ccrg_helps_significant": true,
+        "hit_vs_a": false,
+        "hit_vs_a_combined": false,
+        "hit_vs_a_jaccard": false,
+        "hit_vs_h": true,
+        "power_flag": "inferential"
+      }
+    ],
+    "prospective_hitrate": {
+      "existing3": {
+        "hits": 1,
+        "n": 3,
+        "rate": 0.3333333333333333,
+        "wilson_ci": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "new_only": {
+        "hits": 11,
+        "n": 16,
+        "rate": 0.6875,
+        "wilson_ci": [
+          0.44404355834740666,
+          0.8583535614521796
+        ]
+      },
+      "new_only_inferential": {
+        "hits": 10,
+        "n": 15,
+        "rate": 0.6666666666666666,
+        "wilson_ci": [
+          0.41713547738519774,
+          0.8482367556028526
+        ]
+      },
+      "combined_all": {
+        "hits": 12,
+        "n": 19,
+        "rate": 0.631578947368421,
+        "wilson_ci": [
+          0.41039533164803066,
+          0.8085048725486492
+        ]
+      },
+      "combined_all_inferential": {
+        "hits": 11,
+        "n": 18,
+        "rate": 0.6111111111111112,
+        "wilson_ci": [
+          0.3861904160223791,
+          0.7969475342783638
+        ]
+      },
+      "combined_all_vs_h": {
+        "hits": 14,
+        "n": 19,
+        "rate": 0.7368421052631579,
+        "wilson_ci": [
+          0.5120844910218489,
+          0.8819358765321748
+        ]
+      }
+    },
+    "prospective_hitrate_primary": {
+      "absorption_predicted": {
+        "hits": 3,
+        "n": 6,
+        "rate": 0.5,
+        "wilson_ci": [
+          0.1876163064826506,
+          0.8123836935173494
+        ]
+      },
+      "cofiring_predicted": {
+        "hits": 8,
+        "n": 12,
+        "rate": 0.6666666666666666,
+        "wilson_ci": [
+          0.39062208887279953,
+          0.8618799089087867
+        ]
+      },
+      "combined_all": {
+        "hits": 11,
+        "n": 18,
+        "rate": 0.6111111111111112,
+        "wilson_ci": [
+          0.3861904160223791,
+          0.7969475342783638
+        ]
+      }
+    },
+    "prospective_hitrate_ablation_combined": {
+      "absorption_predicted": {
+        "hits": 3,
+        "n": 6,
+        "rate": 0.5,
+        "wilson_ci": [
+          0.1876163064826506,
+          0.8123836935173494
+        ]
+      },
+      "cofiring_predicted": {
+        "hits": 8,
+        "n": 12,
+        "rate": 0.6666666666666666,
+        "wilson_ci": [
+          0.39062208887279953,
+          0.8618799089087867
+        ]
+      },
+      "combined_all": {
+        "hits": 11,
+        "n": 18,
+        "rate": 0.6111111111111112,
+        "wilson_ci": [
+          0.3861904160223791,
+          0.7969475342783638
+        ]
+      }
+    },
+    "prospective_hitrate_ablation_jaccard": {
+      "absorption_predicted": {
+        "hits": 2,
+        "n": 3,
+        "rate": 0.6666666666666666,
+        "wilson_ci": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "cofiring_predicted": {
+        "hits": 10,
+        "n": 15,
+        "rate": 0.6666666666666666,
+        "wilson_ci": [
+          0.41713547738519774,
+          0.8482367556028526
+        ]
+      },
+      "combined_all": {
+        "hits": 12,
+        "n": 18,
+        "rate": 0.6666666666666666,
+        "wilson_ci": [
+          0.43749467295945105,
+          0.837212252491663
+        ]
+      }
+    },
+    "conjunction_beats_primary_out_of_sample": false,
+    "new_letter_report": [
+      {
+        "letter": "B",
+        "built": true,
+        "n_content_pairs": 250,
+        "n_corpus_positives": 300,
+        "n_corpus_words": 13,
+        "corpus_from_templates": false,
+        "parent_latent": 13496,
+        "parent_unresolved": false,
+        "recall_hole_max": 0.7666666666666666,
+        "jaccard_median": 0.104,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.9896934230063761,
+        "auc_a": 0.9896934230063761,
+        "delta_vs_a": 0.0,
+        "hit_vs_a": true
+      },
+      {
+        "letter": "C",
+        "built": true,
+        "n_content_pairs": 250,
+        "n_corpus_positives": 300,
+        "n_corpus_words": 13,
+        "corpus_from_templates": false,
+        "parent_latent": 15631,
+        "parent_unresolved": false,
+        "recall_hole_max": 1.0,
+        "jaccard_median": 0.0,
+        "predicted_regime": "absorption",
+        "ground_truth_regime": "absorption",
+        "auc_unit": 0.9641985061763861,
+        "auc_a": 0.8985205400746912,
+        "delta_vs_a": 0.06567796610169496,
+        "hit_vs_a": true
+      },
+      {
+        "letter": "F",
+        "built": true,
+        "n_content_pairs": 250,
+        "n_corpus_positives": 300,
+        "n_corpus_words": 12,
+        "corpus_from_templates": false,
+        "parent_latent": 1920,
+        "parent_unresolved": false,
+        "recall_hole_max": 1.0,
+        "jaccard_median": 0.08943089430894309,
+        "predicted_regime": "absorption",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.9400042512488043,
+        "auc_a": 0.9400042512488043,
+        "delta_vs_a": 0.0,
+        "hit_vs_a": false
+      }
+    ],
+    "router": {
+      "recommended": "recall_hole_alone",
+      "recommended_rule": {
+        "signal": "parent recall-hole",
+        "tau_h_alone": 0.7794871794871795,
+        "balanced_acc": 1.0,
+        "definition_string": "predict ABSORPTION-regime iff (parent recall-hole > 0.7795); else CO-FIRING",
+        "note": "PRIMARY recommendation — strongest single separator on the derivation set, no derivation counterexample. Firing-Jaccard is a corroborating signal; the combined conjunction is an ablation."
+      },
+      "single_signal_ablations": {
+        "recall_hole_alone": {
+          "tau": 0.7794871794871795,
+          "balanced_acc": 1.0,
+          "sweep": [
+            {
+              "tau": 0.0,
+              "balanced_acc": 0.5,
+              "margin": -0.7633333333333333
+            },
+            {
+              "tau": 0.02435897435897436,
+              "balanced_acc": 0.5833333333333334,
+              "margin": -0.7389743589743589
+            },
+            {
+              "tau": 0.04871794871794872,
+              "balanced_acc": 0.5833333333333334,
+              "margin": -0.7146153846153845
+            }
+          ],
+          "note": "PRIMARY recommendation — strongest single separator"
+        },
+        "jaccard_alone": {
+          "tau": 0.049999999999999996,
+          "balanced_acc": 0.9166666666666667,
+          "sweep": [
+            {
+              "tau": 0.02,
+              "balanced_acc": 0.8333333333333333,
+              "margin": -0.26534453279360987
+            },
+            {
+              "tau": 0.03,
+              "balanced_acc": 0.8333333333333333,
+              "margin": -0.2553445327936099
+            },
+            {
+              "tau": 0.039999999999999994,
+              "balanced_acc": 0.9166666666666667,
+              "margin": -0.2453445327936099
+            }
+          ],
+          "note": "corroborating signal only; mislabels numeric/taxonomic alone"
+        }
+      },
+      "ablation_combined": {
+        "tau_j": 0.31,
+        "tau_h": 0.7794871794871795,
+        "balanced_acc": 1.0,
+        "margin": 0.016153846153846185,
+        "n_optimal_cells": 7,
+        "degenerate_tau_h": false,
+        "recall_hole_primary_combined": {
+          "tau_j": 0.35,
+          "tau_h": 0.7794871794871795,
+          "balanced_acc": 1.0,
+          "margin": 0.016153846153846185,
+          "n_optimal_cells": 1,
+          "degenerate_tau_h": false
+        },
+        "note": "conjunction ABLATION; claimed as recommendation ONLY if it beats recall-hole-alone out-of-sample (conjunction_beats_primary below)"
+      },
+      "loo": {
+        "recall_hole_alone_acc": 0.8333333333333334,
+        "recall_hole_alone_per_concept": [
+          {
+            "concept": "spelling_L",
+            "tau_fold": 0.7794871794871795,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          },
+          {
+            "concept": "spelling_O",
+            "tau_fold": 0.7794871794871795,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          },
+          {
+            "concept": "spelling_T",
+            "tau_fold": 0.7794871794871795,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          }
+        ],
+        "jaccard_alone_acc": 0.8333333333333334,
+        "jaccard_alone_per_concept": [
+          {
+            "concept": "spelling_L",
+            "tau_fold": 0.049999999999999996,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          },
+          {
+            "concept": "spelling_O",
+            "tau_fold": 0.049999999999999996,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          },
+          {
+            "concept": "spelling_T",
+            "tau_fold": 0.049999999999999996,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          }
+        ],
+        "combined_acc": 0.8333333333333334,
+        "combined_per_concept": [
+          {
+            "concept": "spelling_L",
+            "tau_j_fold": 0.31,
+            "tau_h_fold": 0.7794871794871795,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          },
+          {
+            "concept": "spelling_O",
+            "tau_j_fold": 0.31,
+            "tau_h_fold": 0.7794871794871795,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          },
+          {
+            "concept": "spelling_T",
+            "tau_j_fold": 0.31,
+            "tau_h_fold": 0.7794871794871795,
+            "pred": "absorption",
+            "ground_truth": "absorption",
+            "hit": true
+          }
+        ]
+      },
+      "counterexamples": [
+        "numeric: firing-Jaccard=0.285 is HIGH yet ground-truth=absorption -> jaccard-alone (absorption iff low-J) MISLABELS it; the combined rule routes it correctly only via the relaxed jaccard gate + recall...",
+        "taxonomic: firing-Jaccard=0.058 is LOW (narrow country specialists exist) yet ground-truth=co_firing: the parent already fires on 0.95 of positives (recall_hole_max=0.763) so there are no holes to fil..."
+      ],
+      "prospective_hitrate": {
+        "existing3": {
+          "hits": 1,
+          "n": 3,
+          "rate": 0.3333333333333333,
+          "wilson_ci": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "new_only": {
+          "hits": 11,
+          "n": 16,
+          "rate": 0.6875,
+          "wilson_ci": [
+            0.44404355834740666,
+            0.8583535614521796
+          ]
+        },
+        "new_only_inferential": {
+          "hits": 10,
+          "n": 15,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.41713547738519774,
+            0.8482367556028526
+          ]
+        },
+        "combined_all": {
+          "hits": 12,
+          "n": 19,
+          "rate": 0.631578947368421,
+          "wilson_ci": [
+            0.41039533164803066,
+            0.8085048725486492
+          ]
+        },
+        "combined_all_inferential": {
+          "hits": 11,
+          "n": 18,
+          "rate": 0.6111111111111112,
+          "wilson_ci": [
+            0.3861904160223791,
+            0.7969475342783638
+          ]
+        },
+        "combined_all_vs_h": {
+          "hits": 14,
+          "n": 19,
+          "rate": 0.7368421052631579,
+          "wilson_ci": [
+            0.5120844910218489,
+            0.8819358765321748
+          ]
+        }
+      },
+      "prospective_hitrate_primary": {
+        "absorption_predicted": {
+          "hits": 3,
+          "n": 6,
+          "rate": 0.5,
+          "wilson_ci": [
+            0.1876163064826506,
+            0.8123836935173494
+          ]
+        },
+        "cofiring_predicted": {
+          "hits": 8,
+          "n": 12,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.39062208887279953,
+            0.8618799089087867
+          ]
+        },
+        "combined_all": {
+          "hits": 11,
+          "n": 18,
+          "rate": 0.6111111111111112,
+          "wilson_ci": [
+            0.3861904160223791,
+            0.7969475342783638
+          ]
+        }
+      },
+      "prospective_hitrate_ablation_combined": {
+        "absorption_predicted": {
+          "hits": 3,
+          "n": 6,
+          "rate": 0.5,
+          "wilson_ci": [
+            0.1876163064826506,
+            0.8123836935173494
+          ]
+        },
+        "cofiring_predicted": {
+          "hits": 8,
+          "n": 12,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.39062208887279953,
+            0.8618799089087867
+          ]
+        },
+        "combined_all": {
+          "hits": 11,
+          "n": 18,
+          "rate": 0.6111111111111112,
+          "wilson_ci": [
+            0.3861904160223791,
+            0.7969475342783638
+          ]
+        }
+      },
+      "prospective_hitrate_ablation_jaccard": {
+        "absorption_predicted": {
+          "hits": 2,
+          "n": 3,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.2076596008020477,
+            0.9385080552796037
+          ]
+        },
+        "cofiring_predicted": {
+          "hits": 10,
+          "n": 15,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.41713547738519774,
+            0.8482367556028526
+          ]
+        },
+        "combined_all": {
+          "hits": 12,
+          "n": 18,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.43749467295945105,
+            0.837212252491663
+          ]
+        }
+      },
+      "conjunction_beats_primary_out_of_sample": false,
+      "new_letter_report": [
+        {
+          "letter": "B",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 13,
+          "corpus_from_templates": false,
+          "parent_latent": 13496,
+          "parent_unresolved": false,
+          "recall_hole_max": 0.7666666666666666,
+          "jaccard_median": 0.104,
+          "predicted_regime": "co_firing",
+          "ground_truth_regime": "co_firing",
+          "auc_unit": 0.9896934230063761,
+          "auc_a": 0.9896934230063761,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "C",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 13,
+          "corpus_from_templates": false,
+          "parent_latent": 15631,
+          "parent_unresolved": false,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.0,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "absorption",
+          "auc_unit": 0.9641985061763861,
+          "auc_a": 0.8985205400746912,
+          "delta_vs_a": 0.06567796610169496,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "F",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 12,
+          "corpus_from_templates": false,
+          "parent_latent": 1920,
+          "parent_unresolved": false,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.08943089430894309,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "co_firing",
+          "auc_unit": 0.9400042512488043,
+          "auc_a": 0.9400042512488043,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": false
+        }
+      ]
+    },
+    "per_concept_firing_jaccard": [
+      {
+        "concept": "spelling_L",
+        "role": "derivation",
+        "per_subcontext": [
+          {
+            "sub_context": "L",
+            "n_pos": 38,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 6745,
+            "detector_auc": 0.6120927318295739,
+            "detector_meanact_latent": 6745,
+            "jaccard": 0.18381112984822934,
+            "jaccard_meanact": 0.18381112984822934,
+            "jaccard_ci": [
+              0.1626901051030694,
+              0.2058085667770729
+            ]
+          },
+          {
+            "sub_context": "LTD",
+            "n_pos": 58,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 4638,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 4638,
+            "jaccard": 0.06885593220338983,
+            "jaccard_meanact": 0.06885593220338983,
+            "jaccard_ci": [
+              0.05365805542209311,
+              0.08499644059162373
+            ]
+          },
+          {
+            "sub_context": "Lancaster",
+            "n_pos": 16,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 851,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 9340,
+            "jaccard": 0.05339265850945495,
+            "jaccard_meanact": 0.1997874601487779,
+            "jaccard_ci": [
+              0.03927731693094822,
+              0.06823266219239374
+            ]
+          }
+        ]
+      },
+      {
+        "concept": "spelling_O",
+        "role": "derivation",
+        "per_subcontext": [
+          {
+            "sub_context": "O",
+            "n_pos": 35,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 1106,
+            "detector_auc": 0.5104761904761905,
+            "detector_meanact_latent": 1106,
+            "jaccard": 0.01818181818181818,
+            "jaccard_meanact": 0.01818181818181818,
+            "jaccard_ci": [
+              0.010351699242711338,
+              0.026839633838758488
+            ]
+          },
+          {
+            "sub_context": "OF",
+            "n_pos": 18,
+            "parent_recall": 0.1111111111111111,
+            "recall_hole": 0.8888888888888888,
+            "detector_latent": 7333,
+            "detector_auc": 0.6078189300411523,
+            "detector_meanact_latent": 7333,
+            "jaccard": 0.09539748953974896,
+            "jaccard_meanact": 0.09539748953974896,
+            "jaccard_ci": [
+              0.07866016263505803,
+              0.11205432937181664
+            ]
+          },
+          {
+            "sub_context": "ORM",
+            "n_pos": 18,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 10220,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 10220,
+            "jaccard": 0.06747230614300101,
+            "jaccard_meanact": 0.06747230614300101,
+            "jaccard_ci": [
+              0.05268811650226606,
+              0.08367946264512248
+            ]
+          }
+        ]
+      },
+      {
+        "concept": "spelling_T",
+        "role": "derivation",
+        "per_subcontext": [
+          {
+            "sub_context": "T",
+            "n_pos": 24,
+            "parent_recall": 0.9583333333333334,
+            "recall_hole": 0.04166666666666663,
+            "detector_latent": 4438,
+            "detector_auc": 0.5416666666666666,
+            "detector_meanact_latent": 10756,
+            "jaccard": 0.005970149253731343,
+            "jaccard_meanact": 0.1287988422575977,
+            "jaccard_ci": [
+              0.0014683749531696098,
+              0.012589628681177965
+            ]
+          },
+          {
+            "sub_context": "Team",
+            "n_pos": 16,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 13484,
+            "detector_auc": 0.6875,
+            "detector_meanact_latent": 13484,
+            "jaccard": 0.04723346828609987,
+            "jaccard_meanact": 0.04723346828609987,
+            "jaccard_ci": [
+              0.032920683240317945,
+              0.06354252074696742
+            ]
+          },
+          {
+            "sub_context": "That",
+            "n_pos": 17,
+            "parent_recall": 0.0,
+            "recall_hole": 1.0,
+            "detector_latent": 4608,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 4608,
+            "jaccard": 0.0,
+            "jaccard_meanact": 0.0,
+            "jaccard_ci": [
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    ],
+    "reproduction_check": {
+      "spelling_jaccard": {
+        "spelling_L": 0.016922305943836917,
+        "spelling_O": 0.039525691699604744,
+        "spelling_T": 0.0014264044441191061,
+        "spelling_I": 0.008912655971479501,
+        "spelling_D": 0.015968063872255488,
+        "spelling_B": 0.104,
+        "spelling_C": 0.0,
+        "spelling_F": 0.08943089430894309,
+        "spelling_M": 0.08733624454148471,
+        "spelling_P": 0.0,
+        "spelling_R": 0.09049773755656108,
+        "spelling_W": 0.007698184168772404
+      },
+      "spelling_all_below_0_05": false,
+      "spelling_all_below_0_10": false,
+      "spelling_letters_at_or_above_0_05": [
+        "spelling_B",
+        "spelling_F",
+        "spelling_M"
+      ],
+      "toxicity_jaccard": {
+        "threat": 0.6889324672141194,
+        "identity_attack": 0.10693495317641104,
+        "insult": 0.6889324672141194
+      },
+      "toxicity_reference": {
+        "threat": 0.4,
+        "identity_attack": 0.29,
+        "insult": 0.66
+      },
+      "toxicity_within_tol_0_10": false,
+      "note": "Reproduction is reported as actuals + flags; tolerance mismatches (e.g. spelling_O ~0.039, recomputed toxicity firing-Jaccard differing from the prior reference values) are NOT hard failures — the hon..."
+    },
+    "honest_notes": [
+      "PRIMARY RECOMMENDATION = RECALL-HOLE-ALONE. The recommended a-priori screen is the single signal `predict absorption-regime iff parent recall-hole > 0.779`, which is the STRONGEST single separator on ...",
+      "DERIVATION vs PROSPECTIVE: the 12 derivation concepts (spelling L/O/T/I/D, numeric, taxonomic, 5 toxicity sub-attributes) are where tau_h (and the ablation thresholds + LOO) are FIT. They are NEVER co...",
+      "COUNTEREXAMPLE (firing-Jaccard-alone fails; recall-hole-alone routes it correctly) -> numeric: firing-Jaccard=0.285 is HIGH yet ground-truth=absorption -> jaccard-alone (absorption iff low-J) MISLABEL..."
+    ],
+    "derivation_concepts": [
+      "spelling_L",
+      "spelling_O",
+      "spelling_T"
+    ],
+    "prospective_concepts": [
+      "sentiment",
+      "aspect_food",
+      "aspect_service"
+    ],
+    "prospective_existing": [
+      "sentiment",
+      "aspect_food",
+      "aspect_service"
+    ],
+    "prospective_new": [
+      "profession_professor",
+      "profession_physician",
+      "profession_surgeon"
+    ],
+    "prospective_spelling": [
+      "spelling_B",
+      "spelling_C",
+      "spelling_F"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "m6_router_concepts",
+      "examples": [
+        {
+          "input": "Concept 'spelling_L' (token, derivation): parent latent 205, parent recall-hole max=1.0000, firing-Jaccard(detector,parent) median=0.0169. PRIMARY a-priori screen (recall-hole>0.779): route to absorpt...",
+          "output": "absorption",
+          "predict_router": "absorption",
+          "metadata_concept": "spelling_L",
+          "metadata_role": "derivation",
+          "metadata_kind": "established",
+          "metadata_granularity": "token",
+          "metadata_jaccard_median": 0.016922305943836917,
+          "metadata_jaccard_min": 0.0,
+          "metadata_jaccard_max": 0.18381112984822934,
+          "metadata_jaccard_median_meanact": 0.016922305943836917,
+          "metadata_recall_hole_max": 1.0,
+          "metadata_parent_latent": 205,
+          "metadata_parent_pos_firing": 0.358,
+          "metadata_parent_unresolved": false,
+          "metadata_n_subcontexts": 52,
+          "metadata_outcome_auc_unit": 0.8553719008264463,
+          "metadata_outcome_auc_a_rawlatent": 0.8484848484848485,
+          "metadata_outcome_auc_h_attribution": 0.8466483011937557,
+          "metadata_outcome_auc_d_nonsae": 0.8714416896235079,
+          "metadata_outcome_delta_vs_a": 0.00688705234159781,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.018365472910927383,
+            0.043629476584022164
+          ],
+          "metadata_outcome_delta_vs_h": 0.008723599632690648,
+          "metadata_outcome_delta_vs_h_ci": [
+            0.0,
+            0.031680440771349905
+          ],
+          "metadata_outcome_k": 8,
+          "metadata_outcome_s_star": "concept_general",
+          "metadata_unit_members": [
+            205,
+            4736,
+            3069
+          ],
+          "metadata_h_members": [
+            205,
+            4736,
+            2425
+          ],
+          "metadata_a_latent": 205,
+          "metadata_ccrg_helps": true,
+          "metadata_ccrg_helps_significant": false,
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_ground_truth_regime_vs_h": "absorption",
+          "metadata_predicted_regime": "absorption",
+          "metadata_predicted_regime_combined": "absorption",
+          "metadata_predicted_regime_jaccard": "absorption",
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": null,
+          "metadata_power_flag": "inferential",
+          "metadata_per_subcontext": [
+            {
+              "sub_context": "L",
+              "n_pos": 38,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 6745,
+              "detector_auc": 0.6120927318295739,
+              "detector_meanact_latent": 6745,
+              "jaccard": 0.18381112984822934,
+              "jaccard_meanact": 0.18381112984822934,
+              "jaccard_ci": [
+                0.1626901051030694,
+                0.2058085667770729
+              ]
+            },
+            {
+              "sub_context": "LTD",
+              "n_pos": 58,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 4638,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 4638,
+              "jaccard": 0.06885593220338983,
+              "jaccard_meanact": 0.06885593220338983,
+              "jaccard_ci": [
+                0.05365805542209311,
+                0.08499644059162373
+              ]
+            },
+            {
+              "sub_context": "Lancaster",
+              "n_pos": 16,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 851,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 9340,
+              "jaccard": 0.05339265850945495,
+              "jaccard_meanact": 0.1997874601487779,
+              "jaccard_ci": [
+                0.03927731693094822,
+                0.06823266219239374
+              ]
+            }
+          ]
+        },
+        {
+          "input": "Concept 'spelling_O' (token, derivation): parent latent 12334, parent recall-hole max=1.0000, firing-Jaccard(detector,parent) median=0.0395. PRIMARY a-priori screen (recall-hole>0.779): route to absor...",
+          "output": "absorption",
+          "predict_router": "absorption",
+          "metadata_concept": "spelling_O",
+          "metadata_role": "derivation",
+          "metadata_kind": "established",
+          "metadata_granularity": "token",
+          "metadata_jaccard_median": 0.039525691699604744,
+          "metadata_jaccard_min": 0.0,
+          "metadata_jaccard_max": 0.1325910931174089,
+          "metadata_jaccard_median_meanact": 0.04149797570850203,
+          "metadata_recall_hole_max": 1.0,
+          "metadata_parent_latent": 12334,
+          "metadata_parent_pos_firing": 0.3952,
+          "metadata_parent_unresolved": false,
+          "metadata_n_subcontexts": 55,
+          "metadata_outcome_auc_unit": 0.6833333333333333,
+          "metadata_outcome_auc_a_rawlatent": 0.6333333333333333,
+          "metadata_outcome_auc_h_attribution": 0.7833333333333333,
+          "metadata_outcome_auc_d_nonsae": 0.9222222222222222,
+          "metadata_outcome_delta_vs_a": 0.050000000000000044,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.10000000000000009
+          ],
+          "metadata_outcome_delta_vs_h": -0.09999999999999998,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.19999999999999996,
+            0.0
+          ],
+          "metadata_outcome_k": 8,
+          "metadata_outcome_s_star": "concept_general",
+          "metadata_unit_members": [
+            12334,
+            5767,
+            9488
+          ],
+          "metadata_h_members": [
+            12334,
+            9488,
+            12675
+          ],
+          "metadata_a_latent": 12334,
+          "metadata_ccrg_helps": true,
+          "metadata_ccrg_helps_significant": false,
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_predicted_regime": "absorption",
+          "metadata_predicted_regime_combined": "absorption",
+          "metadata_predicted_regime_jaccard": "absorption",
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": false,
+          "metadata_is_prospective_hit": null,
+          "metadata_power_flag": "inferential",
+          "metadata_per_subcontext": [
+            {
+              "sub_context": "O",
+              "n_pos": 35,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 1106,
+              "detector_auc": 0.5104761904761905,
+              "detector_meanact_latent": 1106,
+              "jaccard": 0.01818181818181818,
+              "jaccard_meanact": 0.01818181818181818,
+              "jaccard_ci": [
+                0.010351699242711338,
+                0.026839633838758488
+              ]
+            },
+            {
+              "sub_context": "OF",
+              "n_pos": 18,
+              "parent_recall": 0.1111111111111111,
+              "recall_hole": 0.8888888888888888,
+              "detector_latent": 7333,
+              "detector_auc": 0.6078189300411523,
+              "detector_meanact_latent": 7333,
+              "jaccard": 0.09539748953974896,
+              "jaccard_meanact": 0.09539748953974896,
+              "jaccard_ci": [
+                0.07866016263505803,
+                0.11205432937181664
+              ]
+            },
+            {
+              "sub_context": "ORM",
+              "n_pos": 18,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 10220,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 10220,
+              "jaccard": 0.06747230614300101,
+              "jaccard_meanact": 0.06747230614300101,
+              "jaccard_ci": [
+                0.05268811650226606,
+                0.08367946264512248
+              ]
+            }
+          ]
+        },
+        {
+          "input": "Concept 'spelling_T' (token, derivation): parent latent 6355, parent recall-hole max=1.0000, firing-Jaccard(detector,parent) median=0.0014. PRIMARY a-priori screen (recall-hole>0.779): route to absorp...",
+          "output": "absorption",
+          "predict_router": "absorption",
+          "metadata_concept": "spelling_T",
+          "metadata_role": "derivation",
+          "metadata_kind": "established",
+          "metadata_granularity": "token",
+          "metadata_jaccard_median": 0.0014264044441191061,
+          "metadata_jaccard_min": 0.0,
+          "metadata_jaccard_max": 0.11874105865522175,
+          "metadata_jaccard_median_meanact": 0.0019920281999660774,
+          "metadata_recall_hole_max": 1.0,
+          "metadata_parent_latent": 6355,
+          "metadata_parent_pos_firing": 0.2672,
+          "metadata_parent_unresolved": false,
+          "metadata_n_subcontexts": 50,
+          "metadata_outcome_auc_unit": 0.6949375410913873,
+          "metadata_outcome_auc_a_rawlatent": 0.6666666666666666,
+          "metadata_outcome_auc_h_attribution": 0.7514792899408284,
+          "metadata_outcome_auc_d_nonsae": 0.6403681788297173,
+          "metadata_outcome_delta_vs_a": 0.02827087442472065,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.025649243918474708,
+            0.08712195923734395
+          ],
+          "metadata_outcome_delta_vs_h": -0.056541748849441076,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.14792899408284022,
+            0.033867521367521636
+          ],
+          "metadata_outcome_k": 7,
+          "metadata_outcome_s_star": "concept_general",
+          "metadata_unit_members": [
+            6355,
+            8925,
+            8938
+          ],
+          "metadata_h_members": [
+            6355,
+            8925,
+            10187
+          ],
+          "metadata_a_latent": 6355,
+          "metadata_ccrg_helps": true,
+          "metadata_ccrg_helps_significant": false,
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_predicted_regime": "absorption",
+          "metadata_predicted_regime_combined": "absorption",
+          "metadata_predicted_regime_jaccard": "absorption",
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": false,
+          "metadata_is_prospective_hit": null,
+          "metadata_power_flag": "inferential",
+          "metadata_per_subcontext": [
+            {
+              "sub_context": "T",
+              "n_pos": 24,
+              "parent_recall": 0.9583333333333334,
+              "recall_hole": 0.04166666666666663,
+              "detector_latent": 4438,
+              "detector_auc": 0.5416666666666666,
+              "detector_meanact_latent": 10756,
+              "jaccard": 0.005970149253731343,
+              "jaccard_meanact": 0.1287988422575977,
+              "jaccard_ci": [
+                0.0014683749531696098,
+                0.012589628681177965
+              ]
+            },
+            {
+              "sub_context": "Team",
+              "n_pos": 16,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 13484,
+              "detector_auc": 0.6875,
+              "detector_meanact_latent": 13484,
+              "jaccard": 0.04723346828609987,
+              "jaccard_meanact": 0.04723346828609987,
+              "jaccard_ci": [
+                0.032920683240317945,
+                0.06354252074696742
+              ]
+            },
+            {
+              "sub_context": "That",
+              "n_pos": 17,
+              "parent_recall": 0.0,
+              "recall_hole": 1.0,
+              "detector_latent": 4608,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 4608,
+              "jaccard": 0.0,
+              "jaccard_meanact": 0.0,
+              "jaccard_ci": [
+                0.0,
+                0.0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

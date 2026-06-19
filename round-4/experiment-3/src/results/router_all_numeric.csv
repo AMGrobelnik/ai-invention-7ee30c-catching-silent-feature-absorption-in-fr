@@ -1,0 +1,9 @@
+sub_context,n_pos,homograph,parent_recall_on_s,parent_recall_hole,top_detector_latent,firing_jaccard,absorption_type,eligible
+comma_number,150,False,0.6266666666666667,0.3733333333333333,7517,0.3467680608365019,False,True
+currency,250,False,0.6,0.4,11960,0.16554809843400448,False,True
+date,250,False,0.292,0.708,8233,0.1183774834437086,False,True
+decimal,200,False,0.265,0.735,5031,0.23253588516746412,False,True
+integer,300,False,0.27,0.73,4730,0.25555555555555554,False,True
+ordinal,150,False,0.4666666666666667,0.5333333333333333,13658,0.080773606370876,True,True
+percent,250,False,0.776,0.22399999999999998,12838,0.23113207547169812,False,True
+year,300,False,0.25,0.75,8233,0.1183774834437086,False,True

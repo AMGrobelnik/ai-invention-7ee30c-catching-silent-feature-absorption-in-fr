@@ -1,0 +1,79 @@
+22:23:48|INFO   |RLIMIT_AS set to 44 GB
+22:23:48|INFO   |   0.1s a-priori firing-structure router | scale=smoke smoke=True
+22:24:34|INFO   |  46.3s loading tokenizer + model unsloth/gemma-2-2b (bf16, eager attn)
+22:25:26|INFO   |  98.6s SAE loaded layer_12/width_16k/average_l0_82/params.npz: d_sae=16384 d_model=2304
+22:25:26|INFO   |  98.6s model loaded d_model=2304 n_layers=26 vocab=256000
+22:26:16|INFO   |GATING recon_cos_mean=0.9268 recon_cos_min=0.4444 L0 mean=170.4 median=70
+22:26:16|INFO   |  encode_token token-id mismatches: 0/20
+22:26:17|INFO   |  encode_token token-id mismatches: 0/40
+22:26:17|INFO   |
+===== CONCEPT spelling_L (token, established) =====
+22:26:18|INFO   | 150.0s spelling_L: parent=205 n_responsive=1 parent_pos_firing=0.175 unresolved=True
+22:26:18|INFO   | 150.0s spelling_L: subs=0 jaccard_median=nan [nan,nan] recall_hole_max=nan
+22:27:23|INFO   | 215.5s spelling_L: OUTCOME k=1 auc_unit=0.625 auc_a=0.625 auc_h=0.625 auc_d=0.938 delta(vs_a)=+0.000 ci=[0.0, 0.0] delta(vs_h)=+0.000 CCRG_helps=False (sig=False)
+22:27:30|INFO   |
+===== CONCEPT numeric (token, established) =====
+22:27:31|INFO   | 223.0s numeric: parent=7517 n_responsive=153 parent_pos_firing=0.544 unresolved=False
+22:27:31|INFO   | 223.0s numeric: subs=0 jaccard_median=nan [nan,nan] recall_hole_max=nan
+22:28:26|INFO   | 278.8s numeric: OUTCOME k=1 auc_unit=1.000 auc_a=1.000 auc_h=1.000 auc_d=1.000 delta(vs_a)=+0.000 ci=[0.0, 0.0] delta(vs_h)=+0.000 CCRG_helps=False (sig=False)
+22:28:41|INFO   | 293.2s toxicity: shared parent g=11016 toxic-recall=0.858 n_responsive=188
+22:28:41|WARNING|  toxicity_threat: only 36 positives (<150) -> descriptive_only
+22:28:41|INFO   |
+===== CONCEPT toxicity_threat (sentence, established) =====
+22:29:38|INFO   | 350.8s toxicity_threat: jaccard=0.736 hole=0.194 k=1 auc_unit=0.567 auc_a=0.598 auc_h=0.817 auc_d=0.832 delta(vs_a)=-0.031 CCRG_helps=False
+22:29:38|WARNING|  toxicity_identity_attack: only 35 positives (<150) -> descriptive_only
+22:29:38|INFO   |
+===== CONCEPT toxicity_identity_attack (sentence, established) =====
+22:30:35|INFO   | 407.0s toxicity_identity_attack: jaccard=0.416 hole=0.029 k=1 auc_unit=0.601 auc_a=0.732 auc_h=0.879 auc_d=0.868 delta(vs_a)=-0.131 CCRG_helps=False
+22:30:35|WARNING|  toxicity_insult: only 68 positives (<150) -> descriptive_only
+22:30:35|INFO   |
+===== CONCEPT toxicity_insult (sentence, established) =====
+22:31:34|INFO   | 466.0s toxicity_insult: jaccard=0.648 hole=0.147 k=2 auc_unit=0.490 auc_a=0.829 auc_h=0.811 auc_d=0.789 delta(vs_a)=-0.339 CCRG_helps=False
+22:31:34|WARNING|  toxicity_obscene: only 38 positives (<150) -> descriptive_only
+22:31:34|INFO   |
+===== CONCEPT toxicity_obscene (sentence, established) =====
+22:32:31|INFO   | 523.2s toxicity_obscene: jaccard=0.648 hole=0.105 k=1 auc_unit=0.405 auc_a=0.985 auc_h=0.985 auc_d=0.853 delta(vs_a)=-0.580 CCRG_helps=False
+22:32:31|WARNING|  toxicity_sexual_explicit: only 33 positives (<150) -> descriptive_only
+22:32:31|INFO   |
+===== CONCEPT toxicity_sexual_explicit (sentence, established) =====
+22:33:28|INFO   | 580.4s toxicity_sexual_explicit: jaccard=0.648 hole=0.182 k=1 auc_unit=0.418 auc_a=0.939 auc_h=0.901 auc_d=0.900 delta(vs_a)=-0.521 CCRG_helps=False
+22:33:28|INFO   | 580.5s ===== FROZEN combined rule: absorption iff (jaccard<nan) AND (recall_hole>nan) | balanced_acc=nan margin=nan n_optimal_cells=0 degenerate_tau_h=None =====
+22:33:30|INFO   |
+===== CONCEPT sentiment (sentence, PROSPECTIVE) =====
+22:33:31|INFO   | 583.0s sentiment: parent=1572 n_responsive=51 parent_pos_firing=0.900 unresolved=False
+22:33:31|INFO   | 583.0s sentiment: subs=0 jaccard_median=nan [nan,nan] recall_hole_max=nan
+22:33:31|INFO   | 583.0s sentiment: >>> PREDICT (frozen combined rule j<nan AND h>nan) = co_firing  [logged BEFORE outcome measurement]
+22:34:26|INFO   | 638.8s sentiment: OUTCOME k=1 auc_unit=0.944 auc_a=0.389 auc_h=0.514 auc_d=0.889 delta(vs_a)=+0.556 ci=[0.25, 0.833] delta(vs_h)=+0.431 CCRG_helps=True (sig=True)
+22:34:29|INFO   |
+===== CONCEPT profession_professor (sentence, PROSPECTIVE) =====
+22:34:29|INFO   | 641.5s profession_professor: parent=8922 n_responsive=177 parent_pos_firing=1.000 unresolved=False
+22:34:29|INFO   | 641.5s profession_professor: subs=0 jaccard_median=nan [nan,nan] recall_hole_max=nan
+22:34:29|INFO   | 641.5s profession_professor: >>> PREDICT (frozen combined rule j<nan AND h>nan) = co_firing  [logged BEFORE outcome measurement]
+22:35:26|INFO   | 698.0s profession_professor: OUTCOME k=1 auc_unit=0.857 auc_a=0.952 auc_h=0.905 auc_d=0.952 delta(vs_a)=-0.095 ci=[-0.357, 0.0] delta(vs_h)=-0.048 CCRG_helps=False (sig=False)
+22:35:26|INFO   |
+===== CONCEPT toxicity_severe_toxicity (sentence, PROSPECTIVE) =====
+22:35:26|INFO   | 698.7s toxicity_severe_toxicity: severe positives @ 0.3 = 3 (descriptive_only=True)
+22:35:26|INFO   | 698.8s toxicity_severe_toxicity: >>> PREDICT (frozen combined rule j<nan AND h>nan) = co_firing  [logged BEFORE outcome measurement]
+22:36:23|INFO   | 755.5s ABLATION jaccard-alone:      tau_J*=0.020 balanced_acc=1.000
+22:36:23|INFO   | 755.5s ABLATION recall-hole-alone:  tau_h*=0.195 balanced_acc=1.000 (strongest single separator)
+22:36:23|INFO   | 755.5s COMBINED (LEAD):             tau_J*=nan tau_h*=nan balanced_acc=nan degenerate_tau_h=None
+22:36:23|INFO   | 755.7s LOO (derivation leave-one-out): combined=1.000 jaccard-alone=1.000 recall-hole-alone=1.000
+22:36:23|INFO   | 755.7s COUNTEREXAMPLE numeric: firing-Jaccard=nan is HIGH yet ground-truth=co_firing -> jaccard-alone (absorption iff low-J) MISLABELS it; the combined rule routes it correctly only via the relaxed jaccard gate + recall_hole=nan>tau_h.
+22:36:23|INFO   | 755.7s PROSPECTIVE hit-rate (vs-a primary): existing3=0/1 (rate=0.000); new=2/2 (rate=1.000); combined-all=2/3 (rate=0.667, Wilson95=[0.208, 0.939]); combined-all vs-h rate=0.667
+22:36:23|INFO   | 755.7s REPRO spelling<0.05=False (at/above 0.05: []); toxicity_within_tol_0_10=False
+22:36:23|INFO   | 755.8s wrote method_out_smoke.json (0.059 MB, 6 concepts)
+22:36:23|INFO   |
+================= CONCEPT TABLE (firing structure + outcome) =================
+22:36:23|INFO   |concept                   role         j_med   hole       pred      truth  aucU  aucA  aucH    dVa  hit
+22:36:23|INFO   |spelling_L                derivation     nan    nan  co_firing  co_firing 0.625 0.625 0.625 +0.000 True
+22:36:23|INFO   |numeric                   derivation     nan    nan  co_firing  co_firing 1.000 1.000 1.000 +0.000 True
+22:36:23|INFO   |toxicity_threat           derivation   0.736  0.194  co_firing  co_firing 0.567 0.598 0.817 -0.031 True
+22:36:23|INFO   |sentiment                 prospective    nan    nan  co_firing absorption 0.944 0.389 0.514 +0.556False
+22:36:23|INFO   |profession_professor      prospective    nan    nan  co_firing  co_firing 0.857 0.952 0.905 -0.095 True
+22:36:23|INFO   |toxicity_severe_toxicity  prospective  0.423  0.000  co_firing  co_firing 0.433 0.550 0.492 -0.117 True
+22:36:23|INFO   |
+COMBINED rule: j<nan AND hole>nan | derivation balanced_acc=nan
+22:36:23|INFO   |single-signal: jaccard-alone bacc=1.000 | recall-hole-alone bacc=1.000 (strongest single)
+22:36:23|INFO   |LOO derivation: combined=1.000 jaccard=1.000 recall-hole=1.000
+22:36:23|INFO   |PROSPECTIVE hit-rate (vs-a): existing3=0.000 [0.0, 0.7934506856227626]; new=1.000 [0.34238022750665303, 1.0]; combined-all=0.667 [0.2076596008020477, 0.9385080552796037]; combined-all vs-h=0.667
+22:36:23|INFO   |reproduction: spelling<0.05=False toxicity_within_tol=False

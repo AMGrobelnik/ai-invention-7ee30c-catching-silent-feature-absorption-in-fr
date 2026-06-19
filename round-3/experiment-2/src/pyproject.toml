@@ -1,0 +1,35 @@
+[project]
+name = "ccrg-c3-nonspelling-selection-isolation"
+version = "0.3.0"
+description = "Iter-3 re-analysis: non-spelling SAE-absorption selection-isolation (RE-k controls + AUC-difference CIs + router inputs) reusing frozen Gemma-Scope L12/16k encodings (numeric + taxonomic)"
+requires-python = ">=3.12"
+# Versions below == those installed in the .venv used for the run (importlib.metadata).
+# torch shows locally as 2.6.0+cu124; install the CUDA-12.4 build with:
+#   uv pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+# NOTE: this run reuses the iter-2 cached SAE encodings, so it executes entirely on CPU. The
+# script auto-falls-back to CPU when the GPU is CUDA-present-but-incompatible (e.g. an RTX 5090
+# sm_120 under this cu124 build); torch/triton are only needed for the GPU re-encode fallback.
+# The SAE is loaded directly from the gemma-scope params.npz (no sae_lens/transformer_lens needed).
+dependencies = [
+    "torch==2.6.0",
+    "transformers==5.12.1",
+    "tokenizers==0.22.2",
+    "accelerate==1.14.0",
+    "safetensors==0.8.0",
+    "huggingface-hub==1.19.0",
+    "scikit-learn==1.9.0",
+    "scipy==1.17.1",
+    "numpy==2.4.6",
+    "statsmodels==0.14.6",
+    "pandas==3.0.3",
+    "patsy==1.0.2",
+    "joblib==1.5.3",
+    "threadpoolctl==3.6.0",
+    "loguru==0.7.3",
+    "tqdm==4.68.3",
+    "regex==2026.5.9",
+    "filelock==3.29.4",
+    "pyyaml==6.0.3",
+    "sympy==1.13.1",
+    "triton==3.2.0",
+]

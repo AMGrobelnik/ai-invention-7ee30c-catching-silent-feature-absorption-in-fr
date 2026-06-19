@@ -1,0 +1,784 @@
+{
+  "metadata": {
+    "name": "first_letter_spelling_absorption_testbed",
+    "description": "First-letter-spelling absorption testbed: content-flip + surface-flip minimal pairs (tokenizer-anchored) + frozen pile letter-occurrence corpus.",
+    "schema_note": "Row metadata is flattened to metadata_* keys (exp_sel_data_out compliant). Pairs link via metadata_pair_id + metadata_role; reconstruct (x_on,x_off) to compute r_l = a_l(x_on)-a_l(x_off). output = fir...",
+    "target_letters": [
+      "L",
+      "O",
+      "T"
+    ],
+    "primary_letter": "L",
+    "components": {
+      "A_content_flip": "starts-with-<L> present vs surface-matched absent (Tier-0 K-proposal + C3 spine)",
+      "B_surface_flip": "two different same-first-letter words (unit-level surface-invariance check)",
+      "C_corpus": "frozen pile windows + per-token occurrence table (form-free/Chanin diagnostic substrate)"
+    },
+    "generation_config": {
+      "tokenizer_id": "unsloth/gemma-2-2b",
+      "expected_vocab": 256000,
+      "pile_repo": "monology/pile-uncopyrighted",
+      "pile_revision_full": "3be90335b66f24456a5d6659d9c8d208c0357119",
+      "pile_revision_short": "3be9033",
+      "n_docs_requested": 20000,
+      "n_docs_actual": 20000,
+      "max_chars_per_doc": 20000,
+      "corpus_elapsed_s": 35.9,
+      "get_alpha_tokens": {
+        "allow_leading_space": true,
+        "alpha_set": "a-zA-Z",
+        "slot_eligible": "word-initial ('▁') AND alpha",
+        "single_token": true
+      },
+      "window": {
+        "left": 32,
+        "right": 16,
+        "per_word_cap": 60,
+        "per_letter_cap": 2500
+      },
+      "carriers": [
+        "t_verbose",
+        "t_colon",
+        "t_mention_word"
+      ],
+      "n_folds": 5,
+      "fold_rule": "minimal pairs by target_word; corpus by source_doc_id",
+      "seed": 1234,
+      "usage_contract": {
+        "datasets_grouping": "one dataset group per target letter (first_letter_spelling_<L>); each group holds that letter's content_flip + surface_flip + corpus_context rows. Shared tables live in top-level metadata.",
+        "pairs": "Group rows by metadata_pair_id; metadata_role in {on,off} (content_flip) or {var_a,var_b} (surface_flip). r_l(prompt)=a_l(x_on)-a_l(x_off). metadata_word_char_span indexes the slotted word in `input`.",
+        "corpus": "metadata_token_position is the target-token index within tok(input, add_special_tokens=False) (verified exact on sampled rows: ids[token_position]==metadata_target_token_id). metadata_window_char_span...",
+        "output_field": "first letter (uppercase): target letter for on/surface/corpus rows, the off-word's actual first letter for off rows; binary in metadata_label_starts_with_target."
+      }
+    },
+    "achieved_counts": {
+      "total_examples": 17180,
+      "per_letter_pairs": {
+        "l": {
+          "content_flip_rows": 980,
+          "content_flip_pairs": 490,
+          "surface_flip_rows": 340,
+          "surface_flip_pairs": 170,
+          "n_on_words": 70
+        },
+        "o": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 210,
+          "surface_flip_pairs": 105,
+          "n_on_words": 45
+        },
+        "t": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 190,
+          "surface_flip_pairs": 95,
+          "n_on_words": 45
+        },
+        "i": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 220,
+          "surface_flip_pairs": 110,
+          "n_on_words": 45
+        },
+        "d": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 220,
+          "surface_flip_pairs": 110,
+          "n_on_words": 45
+        }
+      },
+      "corpus_contexts_per_letter": {
+        "I": 2500,
+        "D": 2500,
+        "O": 2500,
+        "T": 2500,
+        "L": 2500
+      },
+      "occurrence_table_sizes": {
+        "l": 2000,
+        "o": 1645,
+        "t": 2000,
+        "i": 2000,
+        "d": 2000
+      }
+    },
+    "absorber_candidates": {
+      "l": [
+        "Let",
+        "London",
+        "land"
+      ],
+      "o": [
+        "object",
+        "observed",
+        "obtained"
+      ],
+      "t": [
+        "The",
+        "This",
+        "table"
+      ],
+      "i": [
+        "idea",
+        "image",
+        "important"
+      ],
+      "d": [
+        "data",
+        "day",
+        "days"
+      ]
+    },
+    "on_words_by_letter": {
+      "l": [
+        "like",
+        "Let",
+        "long"
+      ],
+      "o": [
+        "one",
+        "other",
+        "out"
+      ],
+      "t": [
+        "the",
+        "that",
+        "The"
+      ],
+      "i": [
+        "into",
+        "its",
+        "information"
+      ],
+      "d": [
+        "data",
+        "different",
+        "during"
+      ]
+    },
+    "occurrence_tables": {
+      "l": [
+        {
+          "word": "like",
+          "count": 10100,
+          "token_id": 1154
+        },
+        {
+          "word": "Let",
+          "count": 7799,
+          "token_id": 4371
+        },
+        {
+          "word": "long",
+          "count": 4524,
+          "token_id": 1497
+        }
+      ],
+      "o": [
+        {
+          "word": "of",
+          "count": 309471,
+          "token_id": 576
+        },
+        {
+          "word": "on",
+          "count": 60759,
+          "token_id": 611
+        },
+        {
+          "word": "or",
+          "count": 41996,
+          "token_id": 689
+        }
+      ],
+      "t": [
+        {
+          "word": "the",
+          "count": 524750,
+          "token_id": 573
+        },
+        {
+          "word": "to",
+          "count": 240397,
+          "token_id": 577
+        },
+        {
+          "word": "that",
+          "count": 93169,
+          "token_id": 674
+        }
+      ],
+      "i": [
+        {
+          "word": "in",
+          "count": 184611,
+          "token_id": 575
+        },
+        {
+          "word": "is",
+          "count": 127765,
+          "token_id": 603
+        },
+        {
+          "word": "it",
+          "count": 47990,
+          "token_id": 665
+        }
+      ],
+      "d": [
+        {
+          "word": "do",
+          "count": 11363,
+          "token_id": 749
+        },
+        {
+          "word": "data",
+          "count": 10176,
+          "token_id": 1423
+        },
+        {
+          "word": "different",
+          "count": 6581,
+          "token_id": 2167
+        }
+      ]
+    },
+    "mechanical_validation": {
+      "note": "AUTHORITATIVE deterministic check on every pair: on-word begins with target & off-word does not (content_flip); both begin with target & differ (surface_flip); plus input[word_char_span]==target_word....",
+      "per_bucket": {
+        "L_content_flip": {
+          "checked": 490,
+          "ok": 490,
+          "violations": 0
+        },
+        "L_surface_flip": {
+          "checked": 170,
+          "ok": 170,
+          "violations": 0
+        },
+        "O_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "O_surface_flip": {
+          "checked": 105,
+          "ok": 105,
+          "violations": 0
+        },
+        "T_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "T_surface_flip": {
+          "checked": 95,
+          "ok": 95,
+          "violations": 0
+        },
+        "I_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "I_surface_flip": {
+          "checked": 110,
+          "ok": 110,
+          "violations": 0
+        },
+        "D_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "D_surface_flip": {
+          "checked": 110,
+          "ok": 110,
+          "violations": 0
+        },
+        "corpus_context": {
+          "checked": 12500,
+          "ok": 12500,
+          "violations": 0
+        }
+      },
+      "pairs_dropped": 0
+    },
+    "llm_judge": {
+      "enabled": true,
+      "model": "google/gemini-3.1-flash-lite",
+      "per_bucket_sample": 150,
+      "role": "SECONDARY grammaticality/naturalness + independent audit. Survivors already pass the deterministic check, so judge 'fail' = judge false-negative; pairs are NOT dropped on the judge alone. judge_false_...",
+      "pass_rates": {
+        "L_content_flip": {
+          "judged": 150,
+          "pass": 147,
+          "fail": 3,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "Here is an example word: lost.",
+              "off": "Here is an example word: NULL.",
+              "reason": "NULL is not a valid English word."
+            },
+            {
+              "on": "lost:",
+              "off": "NULL:",
+              "reason": "'NULL' is not a valid English word."
+            },
+            {
+              "on": "less has the first letter:",
+              "off": "They has the first letter:",
+              "reason": "'They has' is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.98,
+          "judge_false_negative_rate": 0.02
+        },
+        "L_surface_flip": {
+          "judged": 150,
+          "pass": 148,
+          "fail": 2,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "letters has the first letter:",
+              "off": "link has the first letter:",
+              "reason": "Grammar error: 'letters' requires plural verb 'have'."
+            },
+            {
+              "on": "likely has the first letter:",
+              "off": "lines has the first letter:",
+              "reason": "Text B is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.9867,
+          "judge_false_negative_rate": 0.0133
+        },
+        "O_content_flip": {
+          "judged": 150,
+          "pass": 145,
+          "fail": 5,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "objects has the first letter:",
+              "off": "appears has the first letter:",
+              "reason": "Grammar error: subject-verb agreement."
+            },
+            {
+              "on": "others has the first letter:",
+              "off": "report has the first letter:",
+              "reason": "TEXT_ON is grammatically incorrect; should be 'others have'."
+            },
+            {
+              "on": "Our has the first letter:",
+              "off": "err has the first letter:",
+              "reason": "'Our' is a determiner, not a noun."
+            }
+          ],
+          "pass_rate": 0.9667,
+          "judge_false_negative_rate": 0.0333
+        },
+        "O_surface_flip": {
+          "judged": 105,
+          "pass": 101,
+          "fail": 4,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "objects has the first letter:",
+              "off": "otherwise has the first letter:",
+              "reason": "'objects' makes the sentence grammatically incorrect."
+            },
+            {
+              "on": "our has the first letter:",
+              "off": "over has the first letter:",
+              "reason": "'our' is not a noun; sentence is ungrammatical."
+            },
+            {
+              "on": "others has the first letter:",
+              "off": "original has the first letter:",
+              "reason": "'others' makes the sentence grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.9619,
+          "judge_false_negative_rate": 0.0381
+        },
+        "T_content_flip": {
+          "judged": 150,
+          "pass": 147,
+          "fail": 3,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "These has the first letter:",
+              "off": "place has the first letter:",
+              "reason": "TEXT_ON is grammatically incorrect."
+            },
+            {
+              "on": "they has the first letter:",
+              "off": "been has the first letter:",
+              "reason": "'they has' is grammatically incorrect."
+            },
+            {
+              "on": "The word two appears in the text.",
+              "off": "The word may appears in the text.",
+              "reason": "TEXT_OFF is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.98,
+          "judge_false_negative_rate": 0.02
+        },
+        "T_surface_flip": {
+          "judged": 95,
+          "pass": 90,
+          "fail": 5,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "they has the first letter:",
+              "off": "time has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "there has the first letter:",
+              "off": "than has the first letter:",
+              "reason": "Sentence structure is grammatically incorrect."
+            },
+            {
+              "on": "things has the first letter:",
+              "off": "top has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.9474,
+          "judge_false_negative_rate": 0.0526
+        },
+        "I_content_flip": {
+          "judged": 150,
+          "pass": 142,
+          "fail": 8,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "yellow has the first letter: Y\nwindow has the first letter: W\nriver has the first letter: R\ngarden has the first letter: G\nisn has the first letter:",
+              "off": "yellow has the first letter: Y\nwindow has the first letter: W\nriver has the first letter: R\ngarden has the first letter: G\nmap has the first letter:",
+              "reason": "'isn' is not a standard English word."
+            },
+            {
+              "on": "inter has the first letter:",
+              "off": "words has the first letter:",
+              "reason": "'inter' is not a standard English noun."
+            },
+            {
+              "on": "int:",
+              "off": "off:",
+              "reason": "Slotted words must be words, not punctuation."
+            }
+          ],
+          "pass_rate": 0.9467,
+          "judge_false_negative_rate": 0.0533
+        },
+        "I_surface_flip": {
+          "judged": 110,
+          "pass": 99,
+          "fail": 11,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "identified has the first letter:",
+              "off": "itself has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "images has the first letter:",
+              "off": "inside has the first letter:",
+              "reason": "Grammar error: 'images' is plural, 'inside' is adverb."
+            },
+            {
+              "on": "The word instance appears in the text.",
+              "off": "The word isn appears in the text.",
+              "reason": "'isn' is not a valid grammatical word."
+            }
+          ],
+          "pass_rate": 0.9,
+          "judge_false_negative_rate": 0.1
+        },
+        "D_content_flip": {
+          "judged": 150,
+          "pass": 146,
+          "fail": 4,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "Here is an example word: didn.",
+              "off": "Here is an example word: cost.",
+              "reason": "'didn' is not a standard English word."
+            },
+            {
+              "on": "Here is an example word: doesn.",
+              "off": "Here is an example word: final.",
+              "reason": "'doesn' is not a valid English word."
+            },
+            {
+              "on": "difficult has the first letter:",
+              "off": "Therefore has the first letter:",
+              "reason": "Both words begin with the letter D."
+            }
+          ],
+          "pass_rate": 0.9733,
+          "judge_false_negative_rate": 0.0267
+        },
+        "D_surface_flip": {
+          "judged": 110,
+          "pass": 98,
+          "fail": 12,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "The word doesn appears in the text.",
+              "off": "The word design appears in the text.",
+              "reason": "'doesn' is not a valid English word."
+            },
+            {
+              "on": "does has the first letter:",
+              "off": "don has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "Here is an example word: doesn.",
+              "off": "Here is an example word: design.",
+              "reason": "'doesn' is not a valid English word."
+            }
+          ],
+          "pass_rate": 0.8909,
+          "judge_false_negative_rate": 0.1091
+        }
+      },
+      "total_usd": 0.1236,
+      "n_calls": 1320,
+      "budget_usd": 3.0
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "first_letter_spelling_L",
+      "examples": [
+        {
+          "input": "like has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "data has the first letter:",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "like:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0002",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "first_letter_spelling_O",
+      "examples": [
+        {
+          "input": "one has the first letter:",
+          "output": "O",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "O",
+          "metadata_pair_id": "O_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "one",
+          "metadata_target_word": "one",
+          "metadata_counterpart_word": "all",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "o",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "all has the first letter:",
+          "output": "A",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "O",
+          "metadata_pair_id": "O_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "one",
+          "metadata_target_word": "all",
+          "metadata_counterpart_word": "one",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "a",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "one:",
+          "output": "O",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "O",
+          "metadata_pair_id": "O_c_0002",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "one",
+          "metadata_target_word": "one",
+          "metadata_counterpart_word": "all",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "o",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "first_letter_spelling_T",
+      "examples": [
+        {
+          "input": "the has the first letter:",
+          "output": "T",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "T",
+          "metadata_pair_id": "T_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "the",
+          "metadata_target_word": "the",
+          "metadata_counterpart_word": "and",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "t",
+          "metadata_fold": 4,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "and has the first letter:",
+          "output": "A",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "T",
+          "metadata_pair_id": "T_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "the",
+          "metadata_target_word": "and",
+          "metadata_counterpart_word": "the",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "a",
+          "metadata_fold": 4,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "the:",
+          "output": "T",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "T",
+          "metadata_pair_id": "T_c_0002",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "the",
+          "metadata_target_word": "the",
+          "metadata_counterpart_word": "and",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "t",
+          "metadata_fold": 4,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        }
+      ]
+    }
+  ]
+}

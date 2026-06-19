@@ -1,0 +1,410 @@
+{
+ "metadata": {
+  "method_name": "M3'''' Absorption-Coverage Screen + Shipped Label-Free Practitioner Screen",
+  "overall_verdict": "COVERAGE_QUANTIFIED",
+  "run_scale": "smoke",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_id": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot_gain": 5000,
+  "B_boot_coverage": 10000,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189,
+   "L0": 87.9,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2827,
+    "13": 0.1928,
+    "14": 0.338
+   }
+  },
+  "screen_thresholds": {
+   "RECALL_HOLE_MIN": 0.5,
+   "JAC_MAX": 0.1,
+   "PREC_MIN": 0.7,
+   "GAIN_MIN": 0.05,
+   "N_ELIGIBLE_MIN": 150,
+   "DECODER_COS_MIN": 0.025,
+   "MIN_FIRE_DIAG": 5
+  },
+  "n_candidates_screened": 5,
+  "n_eligible": 0,
+  "coverage_table": [
+   {
+    "hierarchy": "first_letter_spelling",
+    "gate": "strict",
+    "N": 0,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.0,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "first_letter_spelling",
+    "gate": "relaxed",
+    "N": 5,
+    "n_structured": 1,
+    "fraction": 0.2,
+    "wilson_lo": 0.0362,
+    "wilson_hi": 0.6245,
+    "boot_lo": 0.0,
+    "boot_hi": 0.6
+   },
+   {
+    "hierarchy": "POOLED",
+    "gate": "strict",
+    "N": 0,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.0,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "POOLED",
+    "gate": "relaxed",
+    "N": 5,
+    "n_structured": 1,
+    "fraction": 0.2,
+    "wilson_lo": 0.0362,
+    "wilson_hi": 0.6245,
+    "boot_lo": 0.0,
+    "boot_hi": 0.6
+   }
+  ],
+  "coverage_headline": {
+   "pooled_strict_fraction": 0.0,
+   "pooled_strict_ci_wilson": [
+    0.0,
+    0.0
+   ],
+   "pooled_strict_n": "0/0",
+   "pooled_relaxed_fraction": 0.2,
+   "pooled_relaxed_ci_wilson": [
+    0.0362,
+    0.6245
+   ],
+   "pooled_relaxed_n": "1/5",
+   "per_hierarchy_structured_counts": {
+    "first_letter_spelling": {
+     "strict": "0/0",
+     "relaxed": "1/5"
+    }
+   }
+  },
+  "screen_vs_oracle_agreement": {
+   "status": "oracle_off"
+  },
+  "control_reproduction": {
+   "positive_controls": {
+    "Georgia": {
+     "_": "not_screened"
+    },
+    "large": {
+     "first_letter_spelling": {
+      "predict": "DESCRIPTIVE_ONLY",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 1.0,
+      "firing_jaccard": 0.0019,
+      "precision": 0.5714,
+      "gain": 1.0,
+      "n_eligible": 21
+     }
+    },
+    "Amazon": {
+     "_": "not_screened"
+    },
+    "March": {
+     "_": "not_screened"
+    },
+    "June": {
+     "_": "not_screened"
+    },
+    "February": {
+     "_": "not_screened"
+    },
+    "Apple": {
+     "_": "not_screened"
+    },
+    "Georgia_known_absorber_16009": {}
+   },
+   "negative_summary": {
+    "demographic_safety_eligible_N": 0,
+    "demographic_safety_structured_strict": 0,
+    "cities_relaxed_structured": {},
+    "brands_relaxed_structured": {},
+    "given_names_relaxed_structured": {}
+   },
+   "professions": {
+    "result": "0/28 (carried from prior iteration art_Iy77UHoNaIhS / iter-5 dossier)",
+    "note": "professions are NOT absorption-structured; cited in honest_negatives, no new data built this iteration (optional stretch skipped to keep $0 / bounded)."
+   }
+  },
+  "shipped_screen_spec": {
+   "entrypoint": "screen.py:screen_token",
+   "cli": "python screen.py --token <T> --windows w.jsonl --siblings s.jsonl",
+   "inputs": [
+    "frozen SAE (release/sae_id)",
+    "candidate token",
+    "raw corpus windows containing the token",
+    "surface-matched sibling windows (precision denominator)"
+   ],
+   "outputs": [
+    "predict_absorption enum",
+    "absorption_structured (bool)",
+    "recall_hole",
+    "firing_jaccard",
+    "precision",
+    "hole_coverage_gain + bootstrap CI",
+    "absorber_latent",
+    "parent_latent",
+    "oracle_corroborates (optional)"
+   ],
+   "label_free_guarantee": "the four-way flag uses ONLY model-internal firing statistics from a frozen SAE on raw text -- NO diagnostic probe, NO Chanin diagnostic, NO sub-context labels to flag; the form-free decoder-projection oracle is optional corroboration only.",
+   "readme": "README.md"
+  },
+  "honest_negatives": [
+   "safety absorption is homograph-confined (2/44 demographic-eligible in prior iters; both homographs); 0/28 professions; 3/64 homograph entities structured (months only) in prior breadth counts.",
+   "a non-SAE dense probe matches/beats the single unit on classification (carried).",
+   "the fair d_sub-gated dense control closes the edit gap (0/8 KG-beats-both in iter-8); the KG-absorber advantage over the FOOTPRINT-matched control was a footprint artifact.",
+   "set-cover discovery is inert vs the unconstrained max-precision latent (mostly set_cover_eq=True).",
+   "the clustering / multi-member grouping hypothesis did not pay off; the value is a label-free WHERE-screen.",
+   "the decoder-projection oracle is concept-tuned: it confirms lexical/named-entity homograph absorbers but UNDER-fires for taxonomic (Georgia decoder near-orthogonal to the generic country direction).",
+   "cross-stratum token overlap (Amazon in homograph_brand AND safety_named_entity; Apple likewise) is kept as separate rows under different PARENTS and flagged here; coverage dedups per (hierarchy, token).",
+   "spelling word-types are mostly DESCRIPTIVE_ONLY (<150 corpus positives) so their coverage is the RELAXED breadth number, not the STRICT inferential one (e.g. 'large' is RELAXED-structured, n_eligible<150).",
+   "FIRING-SIGNATURE != EDIT-HANDLE: a clean structured signature (e.g. Bush/Cook) need not yield a meaningful single-latent edit handle (carried iter-8 finding)."
+  ],
+  "cost_usd": 0.0,
+  "budget_cap_usd": 10
+ },
+ "datasets": [
+  {
+   "dataset": "absorption_coverage_screen",
+   "examples": [
+    {
+     "input": "Absorption screen for 'large' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "large",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 33,
+     "metadata_n_eligible": 21,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 1.0,
+     "metadata_firing_jaccard": 0.0019,
+     "metadata_precision": 0.5714,
+     "metadata_hole_coverage_gain": 1.0,
+     "metadata_gain_ci_lo": 1.0,
+     "metadata_gain_ci_hi": 1.0,
+     "metadata_random_latent_gain": 0.0,
+     "metadata_absorber_latent": 8463,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": 8463,
+     "metadata_set_cover_eq_max_precision": true,
+     "metadata_concentration_score": 0.0924,
+     "metadata_oracle_decoder_cos": null,
+     "metadata_oracle_absorption_fraction": null,
+     "metadata_oracle_corroborates": false,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": false
+    },
+    {
+     "input": "Absorption screen for 'levels' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "levels",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 36,
+     "metadata_n_eligible": 16,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 1.0,
+     "metadata_firing_jaccard": 0.0046,
+     "metadata_precision": 0.5556,
+     "metadata_hole_coverage_gain": 1.0,
+     "metadata_gain_ci_lo": 1.0,
+     "metadata_gain_ci_hi": 1.0,
+     "metadata_random_latent_gain": 0.0,
+     "metadata_absorber_latent": 3353,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": 3353,
+     "metadata_set_cover_eq_max_precision": true,
+     "metadata_concentration_score": 0.0959,
+     "metadata_oracle_decoder_cos": null,
+     "metadata_oracle_absorption_fraction": null,
+     "metadata_oracle_corroborates": false,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": false
+    },
+    {
+     "input": "Absorption screen for 'leave' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "leave",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 23,
+     "metadata_n_eligible": 20,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 0.6667,
+     "metadata_firing_jaccard": 0.0059,
+     "metadata_precision": 0.6667,
+     "metadata_hole_coverage_gain": null,
+     "metadata_gain_ci_lo": null,
+     "metadata_gain_ci_hi": null,
+     "metadata_random_latent_gain": null,
+     "metadata_absorber_latent": 3213,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": 3213,
+     "metadata_set_cover_eq_max_precision": true,
+     "metadata_concentration_score": 0.0115,
+     "metadata_oracle_decoder_cos": null,
+     "metadata_oracle_absorption_fraction": null,
+     "metadata_oracle_corroborates": false,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": false
+    },
+    {
+     "input": "Absorption screen for 'Lord' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "Lord",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 20,
+     "metadata_n_eligible": 0,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 0.0,
+     "metadata_firing_jaccard": null,
+     "metadata_precision": null,
+     "metadata_hole_coverage_gain": null,
+     "metadata_gain_ci_lo": null,
+     "metadata_gain_ci_hi": null,
+     "metadata_random_latent_gain": null,
+     "metadata_absorber_latent": null,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": null,
+     "metadata_set_cover_eq_max_precision": false,
+     "metadata_concentration_score": null,
+     "metadata_oracle_decoder_cos": null,
+     "metadata_oracle_absorption_fraction": null,
+     "metadata_oracle_corroborates": false,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": false
+    },
+    {
+     "input": "Absorption screen for 'left' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "left",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 36,
+     "metadata_n_eligible": 22,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 0.8571,
+     "metadata_firing_jaccard": 0.0086,
+     "metadata_precision": 0.7368,
+     "metadata_hole_coverage_gain": 0.8571,
+     "metadata_gain_ci_lo": 0.6429,
+     "metadata_gain_ci_hi": 1.0,
+     "metadata_random_latent_gain": 0.0,
+     "metadata_absorber_latent": 1911,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": 1911,
+     "metadata_set_cover_eq_max_precision": true,
+     "metadata_concentration_score": 0.3062,
+     "metadata_oracle_decoder_cos": null,
+     "metadata_oracle_absorption_fraction": null,
+     "metadata_oracle_corroborates": false,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": true
+    }
+   ]
+  },
+  {
+   "dataset": "coverage_summary",
+   "examples": [
+    {
+     "input": "first_letter_spelling coverage (strict gate)",
+     "output": "0.0",
+     "predict_coverage": "0/0",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_gate": "strict",
+     "metadata_N": 0,
+     "metadata_n_structured": 0,
+     "metadata_fraction": 0.0,
+     "metadata_wilson_lo": 0.0,
+     "metadata_wilson_hi": 0.0,
+     "metadata_boot_lo": 0.0,
+     "metadata_boot_hi": 0.0
+    },
+    {
+     "input": "first_letter_spelling coverage (relaxed gate)",
+     "output": "0.2",
+     "predict_coverage": "1/5",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_gate": "relaxed",
+     "metadata_N": 5,
+     "metadata_n_structured": 1,
+     "metadata_fraction": 0.2,
+     "metadata_wilson_lo": 0.0362,
+     "metadata_wilson_hi": 0.6245,
+     "metadata_boot_lo": 0.0,
+     "metadata_boot_hi": 0.6
+    },
+    {
+     "input": "POOLED coverage (strict gate)",
+     "output": "0.0",
+     "predict_coverage": "0/0",
+     "metadata_hierarchy": "POOLED",
+     "metadata_gate": "strict",
+     "metadata_N": 0,
+     "metadata_n_structured": 0,
+     "metadata_fraction": 0.0,
+     "metadata_wilson_lo": 0.0,
+     "metadata_wilson_hi": 0.0,
+     "metadata_boot_lo": 0.0,
+     "metadata_boot_hi": 0.0
+    },
+    {
+     "input": "POOLED coverage (relaxed gate)",
+     "output": "0.2",
+     "predict_coverage": "1/5",
+     "metadata_hierarchy": "POOLED",
+     "metadata_gate": "relaxed",
+     "metadata_N": 5,
+     "metadata_n_structured": 1,
+     "metadata_fraction": 0.2,
+     "metadata_wilson_lo": 0.0362,
+     "metadata_wilson_hi": 0.6245,
+     "metadata_boot_lo": 0.0,
+     "metadata_boot_hi": 0.6
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,699 @@
+{
+  "metadata": {
+    "method_name": "Model-Diffing M6: shared frozen pt-SAE, co-response unit vs best single latent",
+    "description": "Shared Gemma-Scope pt-SAE on gemma-2-2b vs gemma-2-2b-it; detect the RLHF-detox usage shift on toxic inputs, confound bounded by an in-experiment spelling control floor.",
+    "config": {
+      "models": {
+        "base": "unsloth/gemma-2-2b",
+        "it": "unsloth/gemma-2-2b-it"
+      },
+      "sae_release": "gemma-scope-2b-pt-res-canonical",
+      "sae_id": "layer_12/width_16k/canonical",
+      "hook": "blocks.12.hook_resid_post (forward hook on layers[12])",
+      "max_len": 96,
+      "n_per_concept": 1200,
+      "n_neutral": 1200,
+      "pooling": "max-over-valid-tokens (BOS excluded)",
+      "seed": 1234,
+      "b_null": 2000,
+      "b_boot": 2000,
+      "spell_letter": "L"
+    },
+    "gating_check": {
+      "recon_cos_mean": 0.9232369661331177,
+      "recon_cos_min": 0.8339266777038574,
+      "l0_mean": 82.76237487792969,
+      "l0_median": 79.0
+    },
+    "spelling_token_verify": {
+      "n_total": 1200,
+      "n_exact": 1200,
+      "n_recovered": 0,
+      "n_missing": 0
+    },
+    "units": {
+      "toxicity": {
+        "members": [
+          1920,
+          12714,
+          14630
+        ],
+        "best_single": 12714,
+        "source": "iter2-read",
+        "member_labels": {
+          "1920": "references to specific biological terms and acronyms",
+          "12714": "profanity and vulgar expressions",
+          "14630": "character names and terms in various languages, particularly those with diacritics"
+        },
+        "n_toxic": 1200,
+        "n_neutral": 1200
+      },
+      "spelling": {
+        "members": [
+          205,
+          4736,
+          607,
+          3069,
+          8463,
+          2416,
+          2759,
+          3353,
+          3858,
+          7544,
+          15261,
+          1391,
+          1467,
+          1549,
+          1566
+        ],
+        "best_single": 205,
+        "source": "iter2-read",
+        "member_labels": {
+          "205": "anchor: Lohan,esgue,Ls,LS,LF",
+          "4736": "absorber: ting,ating,izing,ging,\")));",
+          "607": "absorber: ')\"),BibitemShut,']\"),سكانية,كومونز",
+          "3069": "absorber: list,LIST,list,List,List",
+          "8463": "absorber: big,BIG,big,Big,BIG",
+          "2416": "absorber: Line,line,LINE,lines,Line",
+          "2759": "absorber: AlterField,HasForeignKey,Возраст,ọi,Пусть",
+          "3353": "absorber: level,LEVEL,Level,level,levels",
+          "3858": "absorber: low,LOW,Low,Low,Lowry",
+          "7544": "absorber: leaves,leave,Leaves,Leave,Leaves",
+          "15261": "absorber: only,Only,ONLY,ONLY,Only",
+          "1391": "absorber: do,replied,G,zz,B",
+          "1467": "absorber: expandindo,kasarigan,دانشنامهٔ,webElementXpaths,NSCoder",
+          "1549": "absorber: LEG,Leg,leg,LEG,leg",
+          "1566": "absorber: distanciation,SafeAreaView,similarly,тоже,equally"
+        },
+        "n_corpus": 1200
+      }
+    },
+    "diffing": {
+      "toxicity": {
+        "unit": {
+          "auc": 0.43762499999999993,
+          "auc_departure": 0.06237500000000007,
+          "auc_ci": {
+            "mean": 0.4373421977430555,
+            "ci_lo": 0.432920373263889,
+            "ci_hi": 0.44183574652777774
+          },
+          "auc_departure_ci": {
+            "mean": 0.06265780225694445,
+            "ci_lo": 0.05816425347222224,
+            "ci_hi": 0.06707962673611102
+          },
+          "mean_delta": -2.36846923828125,
+          "mean_delta_ci": {
+            "mean": -2.368452455043793,
+            "ci_lo": -2.505051815509796,
+            "ci_hi": -2.231574594974518
+          },
+          "d_z": -0.9574354276012513,
+          "frac_pos": 0.05416666666666667,
+          "n": 1200,
+          "shuffle_auc_p": 0.0,
+          "shuffle_auc_null_95": 0.005300833333333366,
+          "pass95": true,
+          "shuffle_md_p": 0.0,
+          "md_pass95": true,
+          "direction": "it>base"
+        },
+        "single": {
+          "auc": 0.4412680555555556,
+          "auc_departure": 0.058731944444444406,
+          "auc_ci": {
+            "mean": 0.44106572100694447,
+            "ci_lo": 0.43557345486111115,
+            "ci_hi": 0.4465276649305557
+          },
+          "auc_departure_ci": {
+            "mean": 0.058934278993055554,
+            "ci_lo": 0.05347233506944434,
+            "ci_hi": 0.06442654513888885
+          },
+          "mean_delta": -2.1992688179016113,
+          "mean_delta_ci": {
+            "mean": -2.1993987653255465,
+            "ci_lo": -2.34952335357666,
+            "ci_hi": -2.0542349338531496
+          },
+          "d_z": -0.8517559544832738,
+          "frac_pos": 0.065,
+          "n": 1200,
+          "shuffle_auc_p": 0.0,
+          "shuffle_auc_null_95": 0.006043923611111151,
+          "pass95": true,
+          "shuffle_md_p": 0.0,
+          "md_pass95": true,
+          "direction": "it>base"
+        },
+        "oracle_member": {
+          "latent": 12714,
+          "auc": 0.4412680555555556,
+          "auc_departure": 0.058731944444444406,
+          "per_member_auc": {
+            "1920": 0.46516736111111107,
+            "12714": 0.4412680555555556,
+            "14630": 0.46415451388888895
+          }
+        }
+      },
+      "spelling": {
+        "unit": {
+          "auc": 0.43784999999999996,
+          "auc_departure": 0.06215000000000004,
+          "auc_ci": {
+            "mean": 0.4370214043327013,
+            "ci_lo": 0.43038148746046684,
+            "ci_hi": 0.442945316138608
+          },
+          "auc_departure_ci": {
+            "mean": 0.06297859566729867,
+            "ci_lo": 0.05705468386139199,
+            "ci_hi": 0.06961851253953319
+          },
+          "mean_delta": -2.2053043842315674,
+          "mean_delta_ci": {
+            "mean": -2.203601286351681,
+            "ci_lo": -2.36859335899353,
+            "ci_hi": -2.04076544046402
+          },
+          "d_z": -1.1399221452487638,
+          "frac_pos": 0.07416666666666667,
+          "n": 1200,
+          "shuffle_auc_p": 0.0,
+          "shuffle_auc_null_95": 0.0046762673611111276,
+          "pass95": true,
+          "shuffle_md_p": 0.0,
+          "md_pass95": true,
+          "direction": "it>base"
+        },
+        "single": {
+          "auc": 0.4346822916666667,
+          "auc_departure": 0.06531770833333328,
+          "auc_ci": {
+            "mean": 0.43377388182153037,
+            "ci_lo": 0.4263967656657169,
+            "ci_hi": 0.44045174035470314
+          },
+          "auc_departure_ci": {
+            "mean": 0.06622611817846966,
+            "ci_lo": 0.059548259645296836,
+            "ci_hi": 0.07360323433428315
+          },
+          "mean_delta": -1.4352883100509644,
+          "mean_delta_ci": {
+            "mean": -1.4348935194015502,
+            "ci_lo": -1.5783680230379105,
+            "ci_hi": -1.3057541966438293
+          },
+          "d_z": -0.9354206194234906,
+          "frac_pos": 0.030833333333333334,
+          "n": 1200,
+          "shuffle_auc_p": 0.0,
+          "shuffle_auc_null_95": 0.006004895833333315,
+          "pass95": true,
+          "shuffle_md_p": 0.0,
+          "md_pass95": true,
+          "direction": "it>base"
+        },
+        "oracle_member": {
+          "latent": 205,
+          "auc": 0.4346822916666667,
+          "auc_departure": 0.06531770833333328,
+          "per_member_auc": {
+            "205": 0.4346822916666667,
+            "4736": 0.4584736111111111,
+            "607": 0.4823003472222222,
+            "3069": 0.49012395833333333,
+            "8463": 0.49189930555555555,
+            "2416": 0.4905131944444445,
+            "2759": 0.4931027777777777,
+            "3353": 0.4877086805555555,
+            "3858": 0.48440833333333333,
+            "7544": 0.47993298611111107,
+            "15261": 0.49010173611111113,
+            "1391": 0.4950368055555556,
+            "1467": 0.49752569444444444,
+            "1549": 0.47182638888888895,
+            "1566": 0.4432222222222223
+          }
+        }
+      }
+    },
+    "unit_vs_single": {
+      "toxicity": {
+        "vs_anchor": {
+          "auc_unit": 0.43762499999999993,
+          "auc_single": 0.4412680555555556,
+          "auc_diff": -0.003643055555555663,
+          "auc_diff_ci": [
+            -0.007657699652777817,
+            0.0007237152777777583
+          ],
+          "abs_dev_diff": 0.003643055555555663,
+          "abs_dev_diff_ci": [
+            -0.0007237152777777644,
+            0.007657699652777816
+          ],
+          "unit_wins": false
+        },
+        "vs_oracle_member": {
+          "auc_unit": 0.43762499999999993,
+          "auc_single": 0.4412680555555556,
+          "auc_diff": -0.003643055555555663,
+          "auc_diff_ci": [
+            -0.007712239583333261,
+            0.00038638888888888826
+          ],
+          "abs_dev_diff": 0.003643055555555663,
+          "abs_dev_diff_ci": [
+            -0.0003863888888888916,
+            0.00771223958333326
+          ],
+          "unit_wins": false
+        }
+      },
+      "spelling": {
+        "vs_anchor": {
+          "auc_unit": 0.43784999999999996,
+          "auc_single": 0.4346822916666667,
+          "auc_diff": 0.003167708333333241,
+          "auc_diff_ci": [
+            -0.005410122502793329,
+            0.012086674878619821
+          ],
+          "abs_dev_diff": -0.003167708333333241,
+          "abs_dev_diff_ci": [
+            -0.012086674878619825,
+            0.0054101225027933285
+          ],
+          "unit_wins": false
+        },
+        "vs_oracle_member": {
+          "auc_unit": 0.43784999999999996,
+          "auc_single": 0.4346822916666667,
+          "auc_diff": 0.003167708333333241,
+          "auc_diff_ci": [
+            -0.00533179116004012,
+            0.012632665985259204
+          ],
+          "abs_dev_diff": -0.003167708333333241,
+          "abs_dev_diff_ci": [
+            -0.012632665985259205,
+            0.00533179116004011
+          ],
+          "unit_wins": false
+        }
+      }
+    },
+    "sanity": {
+      "toxicity": {
+        "base_toxic_mean": 9.438185691833496,
+        "base_neutral_mean": 3.0978546142578125,
+        "base_auc_toxic_vs_neutral": 0.7101736111111113,
+        "it_toxic_mean": 11.806654930114746,
+        "it_neutral_mean": 4.151433944702148,
+        "it_auc_toxic_vs_neutral": 0.7291986111111112,
+        "note": "AUC>0.5 => unit fires more on toxic than neutral within each model (concept present)."
+      }
+    },
+    "confound": {
+      "recon_parity": {
+        "toxicity": {
+          "fvu": {
+            "base": {
+              "mean": 0.16043028235435486,
+              "ci_lo": 0.1574374046176672,
+              "ci_hi": 0.1632394827902317
+            },
+            "it": {
+              "mean": 0.2042362093925476,
+              "ci_lo": 0.2009612713009119,
+              "ci_hi": 0.20729528963565827
+            },
+            "it_over_base": {
+              "mean": 1.2730742547083418,
+              "ci_lo": 1.2678022277543401,
+              "ci_hi": 1.2784173976773854
+            }
+          },
+          "cos": {
+            "base": {
+              "mean": 0.925260603427887,
+              "ci_lo": 0.9248246997594833,
+              "ci_hi": 0.9257062956690788
+            },
+            "it": {
+              "mean": 0.9128419756889343,
+              "ci_lo": 0.9123230785131454,
+              "ci_hi": 0.9133685305714607
+            },
+            "it_over_base": {
+              "mean": 0.9865784826268741,
+              "ci_lo": 0.9863015995833488,
+              "ci_hi": 0.9868523329091483
+            }
+          },
+          "l0": {
+            "base": {
+              "mean": 83.10987091064453,
+              "ci_lo": 82.76409454345703,
+              "ci_hi": 83.46437397003174
+            },
+            "it": {
+              "mean": 132.9315948486328,
+              "ci_lo": 132.36838493347167,
+              "ci_hi": 133.50493240356445
+            },
+            "it_over_base": {
+              "mean": 1.5994226844141872,
+              "ci_lo": 1.5955403464222857,
+              "ci_hi": 1.6032632176750272
+            }
+          },
+          "rnorm": {
+            "base": {
+              "mean": 169.65277099609375,
+              "ci_lo": 168.21992149353028,
+              "ci_hi": 171.15142707824708
+            },
+            "it": {
+              "mean": 188.5375213623047,
+              "ci_lo": 187.08662528991698,
+              "ci_hi": 190.06835289001464
+            },
+            "it_over_base": {
+              "mean": 1.1113089088581547,
+              "ci_lo": 1.1096350242652573,
+              "ci_hi": 1.1128476931665636
+            }
+          }
+        },
+        "spelling": {
+          "fvu": {
+            "base": {
+              "mean": 0.17372332513332367,
+              "ci_lo": 0.1711696419864893,
+              "ci_hi": 0.17657119818031788
+            },
+            "it": {
+              "mean": 0.21387618780136108,
+              "ci_lo": 0.21179918609559537,
+              "ci_hi": 0.21613545455038546
+            },
+            "it_over_base": {
+              "mean": 1.2313514356753177,
+              "ci_lo": 1.2204110783463566,
+              "ci_hi": 1.242264206825156
+            }
+          },
+          "cos": {
+            "base": {
+              "mean": 0.9247788786888123,
+              "ci_lo": 0.9224123924970626,
+              "ci_hi": 0.9265826568007469
+            },
+            "it": {
+              "mean": 0.9141699075698853,
+              "ci_lo": 0.9125796988606453,
+              "ci_hi": 0.915533746778965
+            },
+            "it_over_base": {
+              "mean": 0.988516385497285,
+              "ci_lo": 0.9877410223937982,
+              "ci_hi": 0.9894726512485216
+            }
+          },
+          "l0": {
+            "base": {
+              "mean": 79.30339813232422,
+              "ci_lo": 78.33719367980957,
+              "ci_hi": 80.16140327453613
+            },
+            "it": {
+              "mean": 127.35161590576172,
+              "ci_lo": 125.88003444671631,
+              "ci_hi": 128.67811164855956
+            },
+            "it_over_base": {
+              "mean": 1.6060097720502204,
+              "ci_lo": 1.5966963150976288,
+              "ci_hi": 1.616042879038698
+            }
+          },
+          "rnorm": {
+            "base": {
+              "mean": 156.7207794189453,
+              "ci_lo": 155.88876571655274,
+              "ci_hi": 157.514066696167
+            },
+            "it": {
+              "mean": 176.37234497070312,
+              "ci_lo": 175.48602752685548,
+              "ci_hi": 177.24178733825684
+            },
+            "it_over_base": {
+              "mean": 1.1253987789184738,
+              "ci_lo": 1.122238216924067,
+              "ci_hi": 1.1285078471641035
+            }
+          }
+        }
+      },
+      "cos_it_catastrophic_flag": false,
+      "genuine_shift_controlled": {
+        "auc_departure": {
+          "tox": 0.06237500000000007,
+          "spelling_floor": 0.06215000000000004,
+          "genuine": 0.00022500000000003073,
+          "ci_lo": -0.008520818435254431,
+          "ci_hi": 0.007184375732091533,
+          "excludes_0": false
+        },
+        "dz": {
+          "tox": 0.9574354290962219,
+          "spelling_floor": 1.1399221420288086,
+          "genuine": -0.18248671293258667,
+          "ci_lo": -0.36755688935518266,
+          "ci_hi": -0.0027619332075119168,
+          "excludes_0": false
+        }
+      },
+      "genuine_shift_controlled_norm_matched": {
+        "auc_departure": {
+          "tox": 0.037511111111111106,
+          "spelling_floor": 0.010365972222222242,
+          "genuine": 0.027145138888888865,
+          "ci_lo": 0.020763124794576884,
+          "ci_hi": 0.03343756540846319,
+          "excludes_0": true
+        },
+        "dz": {
+          "tox": 0.6279791593551636,
+          "spelling_floor": 0.1145249754190445,
+          "genuine": 0.5134541839361191,
+          "ci_lo": 0.41791471354663373,
+          "ci_hi": 0.608135923743248,
+          "excludes_0": true
+        }
+      },
+      "norm_matched_shift": {
+        "toxicity": {
+          "raw": {
+            "auc": 0.43762499999999993,
+            "d_z": -0.9574354276012513
+          },
+          "norm_matched": {
+            "auc": 0.4624888888888889,
+            "auc_departure": 0.037511111111111106,
+            "auc_ci": {
+              "mean": 0.4622899696180555,
+              "ci_lo": 0.4577665972222222,
+              "ci_hi": 0.46646732638888894
+            },
+            "auc_departure_ci": {
+              "mean": 0.03771003038194445,
+              "ci_lo": 0.033532673611111084,
+              "ci_hi": 0.04223340277777783
+            },
+            "mean_delta": -0.006837884429842234,
+            "mean_delta_ci": {
+              "mean": -0.006839618179248646,
+              "ci_lo": -0.007456050545442849,
+              "ci_hi": -0.00624042779672891
+            },
+            "d_z": -0.6279791519874071,
+            "frac_pos": 0.2,
+            "n": 1200,
+            "shuffle_auc_p": 0.0,
+            "shuffle_auc_null_95": 0.0044212673611110755,
+            "pass95": true,
+            "shuffle_md_p": 0.0,
+            "md_pass95": true,
+            "direction": "it>base"
+          },
+          "resid_norm": {
+            "base_mean": 169.65277099609375,
+            "it_mean": 188.5375213623047,
+            "it_over_base": 1.1113141775131226
+          }
+        },
+        "spelling": {
+          "raw": {
+            "auc": 0.43784999999999996,
+            "d_z": -1.1399221452487638
+          },
+          "norm_matched": {
+            "auc": 0.5103659722222222,
+            "auc_departure": 0.010365972222222242,
+            "auc_ci": {
+              "mean": 0.5105279287569406,
+              "ci_lo": 0.5057465143615979,
+              "ci_hi": 0.5153092373656118
+            },
+            "auc_departure_ci": {
+              "mean": 0.010527928756940733,
+              "ci_lo": 0.005746514361597924,
+              "ci_hi": 0.015309237365611864
+            },
+            "mean_delta": 0.0012619239278137684,
+            "mean_delta_ci": {
+              "mean": 0.0012610366647743377,
+              "ci_lo": 0.00027671986681525594,
+              "ci_hi": 0.002301544009242206
+            },
+            "d_z": 0.11452497652415497,
+            "frac_pos": 0.5466666666666666,
+            "n": 1200,
+            "shuffle_auc_p": 0.0,
+            "shuffle_auc_null_95": 0.003135121527777751,
+            "pass95": true,
+            "shuffle_md_p": 0.0,
+            "md_pass95": true,
+            "direction": "base>it"
+          },
+          "resid_norm": {
+            "base_mean": 156.7207794189453,
+            "it_mean": 176.37234497070312,
+            "it_over_base": 1.125392198562622
+          }
+        }
+      },
+      "literature_note": "Standard model-diffing trains a CROSSCODER (Anthropic 2024); applying a single BASE-trained SAE to IT activations is exactly the misattribution risk Latent-Scaling (arXiv 2504.02922) flags. No gemma-scope-2b-it SAE exists, so this is an INFRASTRUCTURE-BOUNDED diffing result: the spelling control floor (B2) and the reconstruction parity (B1) make that explicit rather than leaving it as future work."
+    },
+    "headline_finding": "M6 bounded model-diffing result. The shared BASE-trained Gemma-Scope pt-SAE reconstructs gemma-2-2b-it layer-12 activations almost as well as gemma-2-2b (IT recon cosine=0.913 vs base 0.925; not catastrophic), so the shared-SAE diffing recipe is viable here. A base-vs-IT activation difference IS detectable above the model-label shuffle null for the toxicity unit (AUC=0.438, departure 0.062, direction=it>base). BUT it is NOT concept-specific: the first-letter-spelling CONTROL shows the same direction and a comparable departure (0.062, dir=it>base), and the IT residual-stream norm is 1.11x the base norm. After subtracting the control floor the GENUINE toxicity shift is +0.000 (95% CI [-0.009,0.007]); norm-matched genuine +0.027 (CI [0.021,0.033]). The co-response UNIT does NOT detect the shift more reliably than the best single latent (anchor 12714); abs-dev diff CI [-0.0007237152777777644, 0.007657699652777816]. Note the direction (IT fires the toxicity concept MORE, not less) is opposite the naive detox prediction and is explained by generic OOD/norm drift, not a concept-specific reduction in toxicity-feature usage.",
+    "verdict": "clean-null-limitation",
+    "verdict_conditions": {
+      "detectable_shift": true,
+      "genuine_concept_specific": false,
+      "recon_or_normmatch_ok": true,
+      "unit_beats_anchor": false
+    },
+    "verdict_reasons": [
+      "toxicity unit shift exceeds shuffle-null 95th pct (AUC_dep=0.062 > 0.005, p=0.0000).",
+      "genuine shift CI INCLUDES 0 (0.000, CI[-0.009,0.007]) => shift not separable from generic OOD drift.",
+      "IT recon cosine=0.913 (catastrophic<0.5); norm-matched shift survives=True."
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "toxicity_diffing_civilcomments",
+      "examples": [
+        {
+          "input": "Civil war is the only outcome of all of this. Europe is failing, because of this sickness. Nice thing is, all the useful idiots will be sacrificed in this socialist revolution, and Islam will be the only winner.",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_dd3b8529e73e09b7",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 5.73919,
+          "metadata_unit_it": 8.33704,
+          "metadata_single_base": 5.73919,
+          "metadata_single_it": 8.33704,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "Un-Americans for Disparity needs to stay out of Alaska's politics. Anchorage voters can vote to overwhelmingly vote to cap property taxes but when out comes down to paying for COMMUNITY services somebody's gotta pay and it won't be the low-income workers. They don't have the income to buy a house. V",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_552237f301bcfd43",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 14.10964,
+          "metadata_unit_it": 15.94811,
+          "metadata_single_base": 14.10964,
+          "metadata_single_it": 15.94811,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "What in the heck is wrong with you people down there in Juneau? We have spoken loud and clear and you don't seem to be able to hear us. We want you to stop funding the Susitna Dam and the Knik Arm Bridge and the road to nowhere in Juneau and revisit your tax giveaway to the oil companies. Do all thi",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_16f557901e9b21e0",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 21.18228,
+          "metadata_unit_it": 26.44882,
+          "metadata_single_base": 21.18228,
+          "metadata_single_it": 26.44882,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        }
+      ]
+    },
+    {
+      "dataset": "spelling_diffing_corpus_L",
+      "examples": [
+        {
+          "input": " in this year’s New York Open men’s tennis tournament, which takes place Feb. 9-16 on the unique black courts at NYCB LIVE’s Nassau Veterans Memorial Coliseum.\nmore\n\nThe Kumon Method was founded",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "195",
+          "metadata_fold": "4",
+          "metadata_label": 1,
+          "metadata_unit_base": 13.9486,
+          "metadata_unit_it": 15.44567,
+          "metadata_single_base": 3.88052,
+          "metadata_single_it": 4.90801,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "LIVE"
+        },
+        {
+          "input": " The mechanism of pathogenesis will be explored in animal models with ultralow penetrant (ULP) Pkd1 or Pkd2 alleles. Employing the large clinically, imaging, and genetically well-defined populations phenotypic groupings of patients will be",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "55",
+          "metadata_fold": "2",
+          "metadata_label": 1,
+          "metadata_unit_base": 28.67634,
+          "metadata_unit_it": 31.12562,
+          "metadata_single_base": 10.71634,
+          "metadata_single_it": 11.33021,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "large"
+        },
+        {
+          "input": " is currently not allowed.\n\n3 Responses to ““Survival of the Tastiest” Post-mortem”\n\ndarn it , knowing that I missed your livestream makes me a sad panda ;( but more to the point, the game is …",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "0",
+          "metadata_fold": "2",
+          "metadata_label": 1,
+          "metadata_unit_base": 20.40473,
+          "metadata_unit_it": 23.99986,
+          "metadata_single_base": 0.0,
+          "metadata_single_it": 0.0,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "livestream"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CCRG shared minimal-pair row schema (logical view)",
+  "description": "One row per TEXT. Content-flip minimal pairs are reconstructable via pair_id/partner_id. Surface-flip fields are reserved (always false/null here; sibling ParaDetox/LLM artifacts populate them). In the emitted exp_sel_data_out file every field below except input/output is carried under a 'metadata_' prefix (e.g. metadata_family).",
+  "type": "object",
+  "required": [
+    "id", "input", "output", "family", "dataset_source", "concept", "concept_label",
+    "sub_context", "pair_id", "pair_role", "partner_id", "flip_type",
+    "is_content_pair", "is_surface_pair", "fold", "meta"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "minLength": 1, "description": "Globally unique, family-prefixed id."},
+    "input": {"type": "string", "minLength": 1, "description": "Raw text (movie review / restaurant review / biography)."},
+    "output": {"type": "string", "minLength": 1, "description": "Canonical concept label a classifier predicts for this text."},
+    "family": {"type": "string", "enum": ["sentiment", "restaurant_aspect", "bias_in_bios_boundary"]},
+    "dataset_source": {"type": "string", "minLength": 1},
+    "concept": {"type": "string", "enum": ["sentiment", "food_sentiment", "service_sentiment", "profession"]},
+    "concept_label": {"type": "string", "minLength": 1, "description": "== output; kept explicit for downstream."},
+    "sub_context": {"type": "object", "description": "Independent sub-context labels fixed BEFORE any grouping. {} allowed."},
+    "pair_id": {"type": ["string", "null"], "description": "Links the two members of a content-flip minimal pair; null if unpaired."},
+    "pair_role": {"type": ["string", "null"], "enum": ["content_off", "content_on", null]},
+    "partner_id": {"type": ["string", "null"]},
+    "flip_type": {"type": ["string", "null"], "enum": ["content", null]},
+    "is_content_pair": {"type": "boolean"},
+    "is_surface_pair": {"type": "boolean", "description": "FALSE for all rows in this artifact."},
+    "fold": {"type": "string", "enum": ["train", "dev", "test"]},
+    "meta": {"type": "object", "description": "Source-specific raw fields."}
+  }
+}

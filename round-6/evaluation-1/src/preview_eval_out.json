@@ -1,0 +1,740 @@
+{
+  "metadata": {
+    "meta": {
+      "artifact": "evaluation_iter6_dir5",
+      "objective": "M3/M4/M8 (+M5/M7) integrity-lock consolidation: selectivity divide-by-epsilon correction, router Wilson-CI restatement, honest-counting drop-in paper wording",
+      "sources": {
+        "M3": [
+          "art_4L1MZxvWYlGd",
+          "art_0CZwPjG2YMCf"
+        ],
+        "M4": "art_4q5Om8wdqZuz",
+        "M8": "art_-k4Yg-l4NaNO",
+        "M5": "art_0CZwPjG2YMCf",
+        "M7": "art_0CZwPjG2YMCf"
+      },
+      "label_mapping_note": "Reviewer mandate labels: M3=selectivity-artifact, M4=router-CI, M8=honest-counting, M5=US-consistency, M7=grouping-reframe. The iter-5 eval (D4) used DIFFERENT internal labels (its M3=counting, M4=sel...",
+      "compute": "cpu-only, $0, no GPU, no encoding, no LLM",
+      "source_file_used": {
+        "D1": "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_5/gen_art/gen_art_experiment_2/full_method_out.json",
+        "D2": "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_4/gen_art/gen_art_experiment_2/full_method_out.json",
+        "D3": "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_5/gen_art/gen_art_experiment_3/full_method_out.json",
+        "D4": "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_5/gen_art/gen_art_evaluation_1/full_eval_out.json"
+      }
+    },
+    "M3_selectivity_artifact": {
+      "source_path": "D1 art_4L1MZxvWYlGd metadata.replication_tables['65k'] + D2 art_0CZwPjG2YMCf metadata.per_case (16k Georgia)",
+      "per_case_table": [
+        {
+          "family": "taxonomic",
+          "subcontext": "Georgia",
+          "absorber": 46143,
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "regime": "absorption",
+          "selectivity_ratio": 3710589.049682427,
+          "kg_collateral": 0.0,
+          "dense_collateral": 0.03710588049682426,
+          "kg_offtarget_footprint": 5.89066918001885e-05,
+          "firing_jaccard": 0.004679457182966776,
+          "parent_recall_hole": 0.8733333333333333,
+          "floor_limited": true,
+          "no_on_target": false,
+          "exclude_from_stats": true,
+          "on_target_recovered": 0.03710589049682427,
+          "floor_bound_at_1e-4": 371.0589049682427,
+          "floor_bound_ref_16k": 1290.1909074000096
+        },
+        {
+          "family": "taxonomic",
+          "subcontext": "Jordan",
+          "absorber": 60904,
+          "verdict": "NO_ON_TARGET_EFFECT",
+          "regime": "absorption",
+          "selectivity_ratio": 22486.344813941356,
+          "kg_collateral": 0.0,
+          "dense_collateral": 0.00022485344813941358,
+          "kg_offtarget_footprint": 5.84932147870847e-05,
+          "firing_jaccard": 0.0007670182166826462,
+          "parent_recall_hole": 0.7459677419354839,
+          "floor_limited": true,
+          "no_on_target": true,
+          "exclude_from_stats": true,
+          "on_target_recovered": 0.00022486344813941355,
+          "floor_bound_at_1e-4": 2.2486344813941352,
+          "floor_bound_ref_16k": 7.818617807350958
+        },
+        {
+          "family": "taxonomic",
+          "subcontext": "United States",
+          "absorber": 29902,
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "regime": "absorption",
+          "selectivity_ratio": 1517.5227498534996,
+          "kg_collateral": 0.0013685737187736694,
+          "dense_collateral": 2.076856918318148,
+          "kg_offtarget_footprint": 0.012720038582107547,
+          "firing_jaccard": 0.00027935561970388306,
+          "parent_recall_hole": 1.0,
+          "floor_limited": false,
+          "no_on_target": false,
+          "exclude_from_stats": false,
+          "on_target_recovered": null
+        }
+      ],
+      "n_cases": 9,
+      "n_floor_limited": 2,
+      "n_floor_limited_with_on_target_effect": 1,
+      "n_no_on_target": 3,
+      "n_excluded_from_stats": 4,
+      "stored_regime_split": {
+        "absorption_mean_selectivity": 466996.7180452159,
+        "absorption_mean_firing_jaccard": 0.007128720816726892,
+        "co_firing_mean_selectivity": 1.986294119517036,
+        "co_firing_mean_firing_jaccard": 0.8369474562135113,
+        "n_absorption": 8,
+        "n_co_firing": 1
+      },
+      "recomputed_stored_absorption_mean": 466996.7180452159,
+      "corrected_primary": {
+        "rule": "exclude floor_limited OR no_on_target from absorption-regime cases",
+        "kept_absorbers": [
+          29902,
+          8234,
+          9507
+        ],
+        "selectivities": [
+          1517.5227498534996,
+          1000.1184910507228,
+          16.683607228380435
+        ],
+        "n": 4,
+        "mean": 721.7159376343076,
+        "median": 676.3286967276752
+      },
+      "corrected_secondary": {
+        "rule": "exclude ONLY the two divide-by-epsilon artifacts {46143, 60904}",
+        "kept_absorbers": [
+          29902,
+          8234,
+          54546
+        ],
+        "selectivities": [
+          1517.5227498534996,
+          1000.1184910507228,
+          8.664410777814973
+        ],
+        "n": 6,
+        "mean": 483.0583108930903,
+        "median": 184.61125481650402
+      },
+      "floor_limited_bounds": {
+        "Georgia_46143": {
+          "on_target_recovered": 0.03710589049682427,
+          "dense_collateral": 0.03710588049682426,
+          "floor_bound_at_1e-4_collateral_floor": 371.0589049682427,
+          "floor_bound_ref_16k_collateral_2.876e-5": 1290.1909074000096
+        },
+        "Jordan_60904": {
+          "on_target_recovered": 0.00022486344813941355,
+          "dense_collateral": 0.00022485344813941358,
+          "note": "negligible on-target (consistent with NO_ON_TARGET_EFFECT)"
+        }
+      },
+      "comparably_surgical": {
+        "georgia_16k_selectivity_D1": 1722.46,
+        "georgia_16k_selectivity_D2": 1722.4595170019425,
+        "georgia_16k_collateral": 2.876e-05,
+        "georgia_65k_collateral": 0.0,
+        "statement": "16k Georgia (1722.46x, collateral 2.88e-05) and 65k Georgia (collateral exactly 0.0, below numerical precision; on-target 0.03711 recovered as selectivity*1e-8, matching its dense collateral 0.03711) ..."
+      },
+      "l9_partial_note": {
+        "georgia_recall_hole": 0.0033333333333332993,
+        "jordan_recall_hole": 0.5362903225806452,
+        "jordan_surgical_selectivity": 2375.7188763606055,
+        "interpretation": "Layer-9 width-16k is a DIFFERENT (layer,width) point: a cleaner layer-9 parent means Georgia LOSES its absorption hole (recall-hole ~0.003) while Jordan KEEPS its hole (recall-hole ~0.536) and yields ..."
+      },
+      "paper_wording": "On the 4x-wider 65k SAE the absorption single-absorber edits remain surgical, but two of nine cases are divide-by-epsilon artifacts: the Georgia absorber (46143) and a Jordan candidate (60904) have kg..."
+    },
+    "M4_router_ci": {
+      "source_path": "D3 art_4q5Om8wdqZuz metadata.prospective_hitrate_primary / prospective_hitrate / new_letter_report / primary_rule",
+      "prospective_strata_primary": {
+        "absorption_predicted": {
+          "hits": 3,
+          "n": 6,
+          "rate": 0.5,
+          "wilson_ci": [
+            0.1876163064826506,
+            0.8123836935173494
+          ],
+          "includes_half": true
+        },
+        "cofiring_predicted": {
+          "hits": 8,
+          "n": 12,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.39062208887279953,
+            0.8618799089087867
+          ],
+          "includes_half": true
+        },
+        "combined_all": {
+          "hits": 11,
+          "n": 18,
+          "rate": 0.6111111111111112,
+          "wilson_ci": [
+            0.3861904160223791,
+            0.7969475342783638
+          ],
+          "includes_half": true
+        }
+      },
+      "vs_h_secondary": {
+        "hits": 14,
+        "n": 19,
+        "rate": 0.7368421052631579,
+        "wilson_ci": [
+          0.5120844910218489,
+          0.8819358765321748
+        ],
+        "includes_half": false,
+        "flag": "SECONDARY / NON-PRIMARY: uses unit-beats-h-pool ground truth, NOT the primary sign(auc_unit - auc_a). Do NOT cherry-pick this as 'the router works'."
+      },
+      "new_letter_directionality": [
+        {
+          "letter": "B",
+          "predicted_regime": "co_firing",
+          "ground_truth_regime": "co_firing",
+          "recall_hole_max": 0.7666666666666666,
+          "jaccard_median": 0.104,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "C",
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "absorption",
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.0,
+          "delta_vs_a": 0.06567796610169496,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "F",
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "co_firing",
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.08943089430894309,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": false
+        }
+      ],
+      "over_prediction_letters": [
+        "F",
+        "M",
+        "W"
+      ],
+      "correct_absorption_letters": [
+        "C",
+        "P",
+        "R"
+      ],
+      "router_wrong_in_both_directions": true,
+      "derivation": {
+        "tau_h_alone": 0.7794871794871795,
+        "balanced_acc": 1.0,
+        "definition": "predict ABSORPTION-regime iff (parent recall-hole > 0.7795); else CO-FIRING-regime",
+        "conjunction_beats_primary_out_of_sample": false
+      },
+      "demote_or_validated": {
+        "decision": "DEMOTE",
+        "scanned_n_files": 0,
+        "validated_artifact": null,
+        "note": "depends_on does NOT include a prospective-expansion experiment; the iter-6 run tree contains no completed full_method_out.json with an absorption-predicted Wilson CI excluding 0.5, so DEMOTE is the de..."
+      },
+      "paper_wording": "The recall-hole router is derivation-perfect (balanced accuracy 1.0 on 12 derivation concepts) but OUT-OF-SAMPLE-UNVALIDATED: on the held-out prospective set the absorption-predicted hit-rate is exact..."
+    },
+    "M8_honest_counting": {
+      "source_path": "counting/control/transparency CARRIED from D4 art_-k4Yg-l4NaNO; selectivity RE-VERIFIED from D2 art_0CZwPjG2YMCf metadata.per_case",
+      "counting": {
+        "n_variants_tested": 69,
+        "n_variants_survive": 30,
+        "n_distinct_holes": 22,
+        "n_double_counted_subcontexts": 6,
+        "n_nonhole_survivors": 2,
+        "reconciliation_identity": {
+          "n_distinct_holes": 22,
+          "n_variants_survive": 30,
+          "n_double_count_redundant": 6,
+          "n_nonhole_survivors": 2,
+          "surviving_variants_in_holes": 28,
+          "redundant_in_holes_total": 6,
+          "redundancy_fully_explained_by_identical_latents": true,
+          "balances": true,
+          "identity": "22 == 30 - 6 - 2"
+        },
+        "double_counted_subcontexts": [
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Georgia",
+            "kg_ktrack_latent": 16009,
+            "kg_diagnostic_latent": 16009,
+            "identical_latent": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Jordan",
+            "kg_ktrack_latent": 540,
+            "kg_diagnostic_latent": 540,
+            "identical_latent": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "United States",
+            "kg_ktrack_latent": 846,
+            "kg_diagnostic_latent": 846,
+            "identical_latent": true
+          }
+        ],
+        "non_hole_survivors": [
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "percent",
+            "variant": "kg_ktrack",
+            "absorber_latent": 9112,
+            "gain_kg": 0.039999999999999925,
+            "survives_FDR": true,
+            "recall_anchor_selection": 0.768,
+            "overall_anchor_recall_selection": 0.42162162162162165,
+            "reason_not_a_hole": "recall_anchor_selection=0.768 > HOLE_RECALL_MAX=0.6 and not < overall_anchor_recall_selection(0.42162162162162165) - 0.10; is_hole flag stored False"
+          },
+          {
+            "concept": "L",
+            "family": "spelling",
+            "sub_context": "layer",
+            "variant": "kg_ktrack",
+            "absorber_latent": 2378,
+            "gain_kg": 0.5416666666666667,
+            "survives_FDR": true,
+            "recall_anchor_selection": 1.0,
+            "overall_anchor_recall_selection": 0.363013698630137,
+            "reason_not_a_hole": "recall_anchor_selection=1.0 > HOLE_RECALL_MAX=0.6 and not < overall_anchor_recall_selection(0.363013698630137) - 0.10; is_hole flag stored False"
+          }
+        ],
+        "per_family": {
+          "spelling": {
+            "n_variants_survive": 14,
+            "n_distinct_holes": 13,
+            "surviving_sub_contexts": [
+              "L/law",
+              "L/layer",
+              "L/like"
+            ]
+          },
+          "taxonomic": {
+            "n_variants_survive": 6,
+            "n_distinct_holes": 3,
+            "surviving_sub_contexts": [
+              "taxonomic/Georgia",
+              "taxonomic/Jordan",
+              "taxonomic/United States"
+            ]
+          },
+          "numeric": {
+            "n_variants_survive": 10,
+            "n_distinct_holes": 6,
+            "surviving_sub_contexts": [
+              "numeric/comma_number",
+              "numeric/currency",
+              "numeric/date"
+            ]
+          }
+        },
+        "carried_from": "art_-k4Yg-l4NaNO"
+      },
+      "selectivity_reverified": {
+        "source": "D2 per_case (recomputed, not carried)",
+        "absorption_set_n6": {
+          "members": [
+            "Georgia/16009",
+            "Jordan/540",
+            "Jordan/8347"
+          ],
+          "n": 6,
+          "mean": 1452.4715090798045,
+          "median": 1262.2100200524687,
+          "selectivities": [
+            1722.4595170019425,
+            2722.2610048892575,
+            3246.859165896537
+          ]
+        },
+        "surgical_set_n5": {
+          "members": [
+            "Georgia/16009",
+            "Jordan/540",
+            "Jordan/8347"
+          ],
+          "n": 5,
+          "mean": 1741.4138718184527,
+          "median": 1722.4595170019425,
+          "selectivities": [
+            1722.4595170019425,
+            2722.2610048892575,
+            3246.859165896537
+          ]
+        },
+        "mean_vs_median_clarification": "the previously reported '1452x median' is the MEAN of the n=6 absorption set; the median is 1262.21x.",
+        "spearman_all7": {
+          "rho": 0.6785714285714287,
+          "p": 0.09375025395983135,
+          "n": 7
+        },
+        "spearman_absorption6": {
+          "rho": 0.7142857142857143,
+          "p": 0.11078717201166179,
+          "n": 6
+        },
+        "spearman_taxonomic5": {
+          "rho": 0.8999999999999998,
+          "p": 0.03738607346849874,
+          "n": 5
+        },
+        "cross_family_counterexample": "spelling 'large' (prec 0.571 -> 802x) BEATS taxonomic US-4760 (prec 0.709 -> 7.8x): precision predicts selectivity only WITHIN family"
+      },
+      "control_random_single_latent": {
+        "implemented_control": "random_single_content_responsive_latent_addition",
+        "n_surviving_hole_variants": 28,
+        "n_exceed_p95": 28,
+        "n_exceed_p99": 23,
+        "corrected_wording": "The repair control is a RANDOM SINGLE content-responsive-latent addition: each other content-responsive latent (not in the unit) is added individually to the anchor (ctrl_detect = base[:,None] | ctrl_...",
+        "drop_phrasing": "DROP 'full random-addition population' / 'adds every other latent'; it is the percentile within the SINGLE-latent-addition gain distribution"
+      },
+      "member_labeling": {
+        "overall_agreement": 0.7303370786516854,
+        "shuffle_null": 0.09592134831460675,
+        "analytic_chance": 0.07001440248207261,
+        "gap": 0.6344157303370787,
+        "gap_ci_lo": 0.5445280898876405,
+        "gap_ci_hi": 0.7243033707865169,
+        "gap_ci_excl_0": true,
+        "overall_confident_fraction": 0.8089887640449438,
+        "per_role_absorbers": 0.7560975609756098,
+        "per_role_anchors": 0.42857142857142855,
+        "n_members": 89,
+        "n_parse_fail": 0
+      },
+      "transparency_paper_table": {
+        "rows": [
+          {
+            "letter": "L",
+            "compact_AUC": 0.8484848484848485,
+            "wide15_AUC": 0.9049586776859504,
+            "auditability_cost_dAUC": -0.05647382920110189,
+            "dAUC_CI": [
+              -0.1074380165289256,
+              -0.012855831037649201
+            ],
+            "confident_label_frac": 0.8666666666666667,
+            "confident_and_correct_frac": 0.7333333333333333
+          },
+          {
+            "letter": "O",
+            "compact_AUC": 0.7166666666666667,
+            "wide15_AUC": 0.9166666666666666,
+            "auditability_cost_dAUC": -0.19999999999999996,
+            "dAUC_CI": [
+              -0.2833333333333333,
+              -0.11666666666666659
+            ],
+            "confident_label_frac": 0.8,
+            "confident_and_correct_frac": 0.7333333333333333
+          },
+          {
+            "letter": "T",
+            "compact_AUC": 0.7051282051282052,
+            "wide15_AUC": 0.8579881656804734,
+            "auditability_cost_dAUC": -0.15285996055226825,
+            "dAUC_CI": [
+              -0.2435897435897436,
+              -0.060815253122945445
+            ],
+            "confident_label_frac": 0.9333333333333333,
+            "confident_and_correct_frac": 0.7333333333333333
+          }
+        ],
+        "caption": "Auditability-vs-AUC tradeoff (first-letter). The human-auditable compact named unit (anchor + diagnostic-corroborated absorbers) costs AUC -0.056..-0.200 vs the 15-wide max-pool (per-letter bootstrap ..."
+      },
+      "numeric_below_gate": {
+        "digit_token_cosine": 0.876,
+        "gate": 0.9,
+        "below_gate": true,
+        "note": "numeric absorption testbed is eligibility+pooling only; the form-free absorption diagnostic is unconfirmed because digit-token cosine 0.876 < 0.90 gating threshold (carried; recorded descriptively in ..."
+      },
+      "paper_wording_count": "KG-guided recall-repair yields 30 repair variants (k-track and diagnostic edges) surviving Benjamini-Hochberg FDR<=0.05 out of 69 tested, spanning 22 DISTINCT suppressed-parent recall holes across spe...",
+      "paper_wording_selectivity": "Over the n=6 absorption cases (which include the partial-surgical United-States/4760 at 7.8x), surgical selectivity has mean=1452.5x and median=1262.2x; restricting to the n=5 cleanly-surgical cases (...",
+      "paper_wording_softened_precision": "Absorber precision predicts surgical selectivity as a strong WITHIN-FAMILY observation (taxonomic Spearman rho=0.900, p=0.037); across families the relationship breaks (the spelling 'large' absorber a..."
+    },
+    "M5_us_consistency": {
+      "source_path": "classification carried (M1 recall-hole 0.197 / aggregate 0.23, tau_h 0.78); 846 selectivity verified from D2 art_0CZwPjG2YMCf",
+      "classification": "co-firing",
+      "aggregate_parent_recall_hole": "0.20-0.23",
+      "router_threshold_tau_h": 0.78,
+      "narrow_absorber_846_selectivity_16k": 213.52914820153072,
+      "router_false_negative": true,
+      "firing_jaccard_specific_846": 0.04,
+      "firing_jaccard_aggregate_detector": 0.2,
+      "paper_wording": "United States is classified as CO-FIRING (aggregate parent recall-hole 0.20-0.23 < 0.5; router threshold tau_h 0.78), yet its narrow absorber 846 still yields a surgical single-sub-context edit (214x ..."
+    },
+    "M7_grouping_reframe": {
+      "source_path": "wins trace to individual absorbers in D2 art_0CZwPjG2YMCf per_case; C-track / set-cover facts carried from prior experiments",
+      "wins_trace_to_individual_latents": [
+        "Georgia/16009",
+        "large/8463",
+        "US/846"
+      ],
+      "ctrack_ties_weak_baselines": {
+        "toxicity_ctrack_auc": 0.762,
+        "baseline_a_auc": 0.765
+      },
+      "set_cover_specific_slices": [
+        "first_letter_I",
+        "first_letter_D",
+        "taxonomic_Georgia"
+      ],
+      "paper_wording": "We position the two-track algorithm as a TRAINING-FREE, LABEL-FREE DISCOVERY PROCEDURE: its demonstrated value is PROPOSING the single precise absorber latent that a marginal-attribution ranking silen..."
+    },
+    "cross_checks": [
+      {
+        "name": "M3_65k_regime_split.absorption_mean_selectivity==466996.718",
+        "computed": 466996.7180452159,
+        "expected": 466996.718,
+        "match": true,
+        "note": "stored inflated regime mean (divide-by-epsilon)"
+      },
+      {
+        "name": "M3_65k_n_absorption==8",
+        "computed": 8,
+        "expected": 8,
+        "match": true,
+        "note": "stored absorption-regime case count"
+      },
+      {
+        "name": "M3_recomputed_stored_mean_matches_stored",
+        "computed": 466996.718,
+        "expected": 466996.718,
+        "match": true,
+        "note": "we reproduce the stored 466997x by averaging ALL 8 absorption selectivity_ratios (incl. the two divide-by-epsilon artifacts), confirming it is an artifact"
+      }
+    ],
+    "gaps": [],
+    "validation": {
+      "all_cross_checks_pass": false,
+      "n_cross_checks": 44,
+      "n_pass": 43,
+      "n_gaps": 0,
+      "output_bytes": 76526,
+      "under_100mb": true
+    }
+  },
+  "metrics_agg": {
+    "m3_65k_stored_regime_mean": 466996.718,
+    "m3_65k_recomputed_stored_mean": 466996.718,
+    "m3_65k_corrected_regime_mean_primary": 721.7159,
+    "m3_65k_corrected_regime_median_primary": 676.3287,
+    "m3_65k_corrected_regime_mean_secondary": 483.0583,
+    "m3_65k_corrected_regime_median_secondary": 184.6113,
+    "m3_n_floor_limited": 2,
+    "m3_n_floor_limited_with_on_target": 1,
+    "m3_n_no_on_target": 3,
+    "m3_n_excluded_from_stats": 4,
+    "m3_n_kept_primary": 4,
+    "m3_georgia_16k_selectivity": 1722.46,
+    "m3_georgia_65k_floor_bound_1e4": 371.06,
+    "m3_georgia_65k_floor_bound_ref16k": 1290.19,
+    "m4_absorption_predicted_rate": 0.5,
+    "m4_absorption_predicted_ci_lo": 0.1876,
+    "m4_absorption_predicted_ci_hi": 0.8124,
+    "m4_absorption_predicted_includes_half": 1,
+    "m4_cofiring_predicted_rate": 0.6667,
+    "m4_cofiring_predicted_includes_half": 1,
+    "m4_combined_rate": 0.6111,
+    "m4_combined_ci_lo": 0.3862,
+    "m4_combined_ci_hi": 0.7969,
+    "m4_combined_includes_half": 1,
+    "m4_vs_h_rate": 0.7368,
+    "m4_vs_h_includes_half": 0,
+    "m4_router_demoted": 1,
+    "m4_tau_h_alone": 0.77949,
+    "m4_derivation_balanced_acc": 1.0,
+    "m4_n_over_prediction_letters": 3,
+    "m8_n_variants_tested": 69,
+    "m8_n_variants_survive": 30,
+    "m8_n_distinct_holes": 22,
+    "m8_n_double_counted": 6,
+    "m8_n_nonhole": 2,
+    "m8_absorption_mean": 1452.4715,
+    "m8_absorption_median": 1262.21,
+    "m8_surgical_mean": 1741.4139,
+    "m8_surgical_median": 1722.4595,
+    "m8_taxonomic5_rho": 0.9,
+    "m8_taxonomic5_p": 0.0374,
+    "m8_all7_rho": 0.6786,
+    "m8_absorption6_rho": 0.7143,
+    "m8_member_labeling_agreement": 0.7303,
+    "m8_member_labeling_shuffle_null": 0.0959,
+    "m8_member_labeling_gap": 0.6344,
+    "m8_member_labeling_gap_ci_lo": 0.5445,
+    "m8_member_labeling_gap_ci_hi": 0.7243,
+    "m8_control_exceed_p95": 28,
+    "m8_control_exceed_p99": 23,
+    "m8_control_n_surviving_holes": 28,
+    "m8_numeric_digit_cosine": 0.876,
+    "m8_numeric_below_gate": 1,
+    "m5_us_846_selectivity_16k": 213.53,
+    "m5_us_classified_cofiring": 1,
+    "m7_ctrack_toxicity_auc": 0.762,
+    "m7_ctrack_baseline_a_auc": 0.765,
+    "n_cross_checks": 44,
+    "n_cross_checks_pass": 43,
+    "all_cross_checks_pass": 0
+  },
+  "datasets": [
+    {
+      "dataset": "M3_selectivity_cases",
+      "examples": [
+        {
+          "input": "65k case: taxonomic/Georgia/46143 selectivity=3710589.05 kg_collateral=0.000e+00",
+          "output": "SURGICAL_EDIT_CONFIRMED",
+          "predict_floor_limited": "yes",
+          "predict_no_on_target": "no",
+          "predict_excluded_from_stats": "yes",
+          "predict_regime": "absorption",
+          "metadata_dictionary": "65k",
+          "metadata_dense_collateral": 0.03710588049682426,
+          "metadata_firing_jaccard": 0.004679457182966776,
+          "metadata_on_target_recovered": 0.03710589049682427,
+          "eval_selectivity_ratio": 3710589.049682427,
+          "eval_kg_collateral": 0.0,
+          "eval_excluded": 1
+        },
+        {
+          "input": "65k case: taxonomic/Jordan/60904 selectivity=22486.34 kg_collateral=0.000e+00",
+          "output": "NO_ON_TARGET_EFFECT",
+          "predict_floor_limited": "yes",
+          "predict_no_on_target": "yes",
+          "predict_excluded_from_stats": "yes",
+          "predict_regime": "absorption",
+          "metadata_dictionary": "65k",
+          "metadata_dense_collateral": 0.00022485344813941358,
+          "metadata_firing_jaccard": 0.0007670182166826462,
+          "metadata_on_target_recovered": 0.00022486344813941355,
+          "eval_selectivity_ratio": 22486.344813941356,
+          "eval_kg_collateral": 0.0,
+          "eval_excluded": 1
+        },
+        {
+          "input": "65k case: taxonomic/United States/29902 selectivity=1517.52 kg_collateral=1.369e-03",
+          "output": "SURGICAL_EDIT_CONFIRMED",
+          "predict_floor_limited": "no",
+          "predict_no_on_target": "no",
+          "predict_excluded_from_stats": "no",
+          "predict_regime": "absorption",
+          "metadata_dictionary": "65k",
+          "metadata_dense_collateral": 2.076856918318148,
+          "metadata_firing_jaccard": 0.00027935561970388306,
+          "metadata_on_target_recovered": null,
+          "eval_selectivity_ratio": 1517.5227498534996,
+          "eval_kg_collateral": 0.0013685737187736694,
+          "eval_excluded": 0
+        }
+      ]
+    },
+    {
+      "dataset": "M4_router_prospective_strata",
+      "examples": [
+        {
+          "input": "M4 prospective stratum: absorption_predicted hits=3/6 Wilson CI [0.188,0.812]",
+          "output": "rate=0.5000",
+          "predict_includes_half": "yes",
+          "predict_stratum_role": "primary",
+          "metadata_hits": 3,
+          "metadata_n": 6,
+          "metadata_wilson_ci": [
+            0.1876163064826506,
+            0.8123836935173494
+          ],
+          "eval_rate": 0.5,
+          "eval_includes_half": 1
+        },
+        {
+          "input": "M4 prospective stratum: cofiring_predicted hits=8/12 Wilson CI [0.391,0.862]",
+          "output": "rate=0.6667",
+          "predict_includes_half": "yes",
+          "predict_stratum_role": "primary",
+          "metadata_hits": 8,
+          "metadata_n": 12,
+          "metadata_wilson_ci": [
+            0.39062208887279953,
+            0.8618799089087867
+          ],
+          "eval_rate": 0.6666666666666666,
+          "eval_includes_half": 1
+        },
+        {
+          "input": "M4 prospective stratum: combined_all hits=11/18 Wilson CI [0.386,0.797]",
+          "output": "rate=0.6111",
+          "predict_includes_half": "yes",
+          "predict_stratum_role": "primary",
+          "metadata_hits": 11,
+          "metadata_n": 18,
+          "metadata_wilson_ci": [
+            0.3861904160223791,
+            0.7969475342783638
+          ],
+          "eval_rate": 0.6111111111111112,
+          "eval_includes_half": 1
+        }
+      ]
+    },
+    {
+      "dataset": "M4_new_letter_directionality",
+      "examples": [
+        {
+          "input": "new spelling letter B: recall_hole_max=0.767 predicted=co_firing",
+          "output": "co_firing",
+          "predict_router_outcome": "cofiring_hit",
+          "predict_regime": "co_firing",
+          "metadata_jaccard_median": 0.104,
+          "metadata_hit_vs_a": true,
+          "eval_recall_hole_max": 0.7666666666666666,
+          "eval_delta_vs_a": 0.0
+        },
+        {
+          "input": "new spelling letter C: recall_hole_max=1.000 predicted=absorption",
+          "output": "absorption",
+          "predict_router_outcome": "absorption_hit",
+          "predict_regime": "absorption",
+          "metadata_jaccard_median": 0.0,
+          "metadata_hit_vs_a": true,
+          "eval_recall_hole_max": 1.0,
+          "eval_delta_vs_a": 0.06567796610169496
+        },
+        {
+          "input": "new spelling letter F: recall_hole_max=1.000 predicted=absorption",
+          "output": "co_firing",
+          "predict_router_outcome": "miss",
+          "predict_regime": "absorption",
+          "metadata_jaccard_median": 0.08943089430894309,
+          "metadata_hit_vs_a": false,
+          "eval_recall_hole_max": 1.0,
+          "eval_delta_vs_a": 0.0
+        }
+      ]
+    }
+  ]
+}

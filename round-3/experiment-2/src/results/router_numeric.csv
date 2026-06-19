@@ -1,0 +1,9 @@
+sub_context,parent_latent,top_detector_latent,firing_jaccard,slice_regime,absorption_type,detector_recall_on_s,parent_recall_on_s,parent_recall_hole,kg_top1_formfree,n_pos,absorbed_flag_iter2
+year,14823,8233,0.1183774834437086,co_firing(splitting),False,0.95,0.25,0.75,0.0,300,True
+percent,14823,12838,0.23113207547169812,co_firing(splitting),False,1.0,0.776,0.22399999999999998,0.017857142857142856,250,False
+currency,14823,11960,0.16554809843400448,co_firing(splitting),False,0.86,0.6,0.4,0.0,250,False
+date,14823,8233,0.1183774834437086,co_firing(splitting),False,0.984,0.292,0.708,0.0,250,True
+decimal,14823,5031,0.23253588516746412,co_firing(splitting),False,1.0,0.265,0.735,0.0,200,True
+integer,14823,4730,0.25555555555555554,co_firing(splitting),False,0.43333333333333335,0.27,0.73,0.45662100456621,300,True
+comma_number,14823,7517,0.3467680608365019,co_firing(splitting),False,0.9666666666666667,0.6266666666666667,0.3733333333333333,0.0,150,False
+ordinal,14823,13658,0.080773606370876,absorption(mutually_exclusive),True,1.0,0.4666666666666667,0.5333333333333333,0.0,150,False

@@ -1,0 +1,512 @@
+{
+  "metadata": {
+    "artifact": "CCRG supporting concept families + boundary-null (standardized to shared minimal-pair schema)",
+    "schema_version": "ccrg_minimal_pair_v1",
+    "row_schema_file": "schema.json",
+    "emitted_format": "exp_sel_data_out (custom fields under metadata_* keys; logical view in schema.json)",
+    "families": [
+      "sentiment",
+      "restaurant_aspect",
+      "bias_in_bios_boundary"
+    ],
+    "family_discriminator_field": "metadata_family",
+    "is_surface_pair_note": "FALSE for every row; surface-flip pairs are out of scope here (reserved for sibling ParaDetox/LLM artifacts).",
+    "no_derived_statistics_note": "Raw standardized data only; no MI/correlations/probes computed here.",
+    "llm_spend_usd": 0.0,
+    "total_rows": 30739,
+    "family_summary": {
+      "sentiment": {
+        "family": "sentiment",
+        "n_rows": 4880,
+        "label_balance": {
+          "positive": 2440,
+          "negative": 2440
+        },
+        "fold_sizes": {
+          "train": 3414,
+          "dev": 490,
+          "test": 976
+        },
+        "sub_context_keys": {},
+        "sub_context_value_distributions": {},
+        "n_pairs": 2440,
+        "per_split_pairing": {
+          "train": {
+            "pairing_method": "batch_id_grouped",
+            "n_pairs": 1707,
+            "dropped_batches": 0,
+            "median_true_pair_jaccard": 0.8155,
+            "median_random_pair_jaccard": 0.1084
+          },
+          "dev": {
+            "pairing_method": "batch_id_grouped",
+            "n_pairs": 245,
+            "dropped_batches": 0,
+            "median_true_pair_jaccard": 0.8165,
+            "median_random_pair_jaccard": 0.1095
+          },
+          "test": {
+            "pairing_method": "batch_id_grouped",
+            "n_pairs": 488,
+            "dropped_batches": 0,
+            "median_true_pair_jaccard": 0.8159,
+            "median_random_pair_jaccard": 0.1111
+          }
+        },
+        "license": "Apache-2.0",
+        "source_url": "https://github.com/acmi-lab/counterfactually-augmented-data (sentiment/combined/paired)",
+        "source_paper": "Kaushik, Hovy, Lipton. ICLR 2020. arXiv:1909.12434",
+        "pairing_note": "orig/<->new/ row-index alignment was tested and REJECTED (flip_rate~0.50, aligned Jaccard ~= random). Authoritative pairing taken from combined/paired via shared batch_id (exactly one Positive + one Negative per batch_id).",
+        "concept": "sentiment (positive vs negative); content_on = positive-present."
+      },
+      "restaurant_aspect": {
+        "family": "restaurant_aspect",
+        "n_rows": 5682,
+        "label_balance": {
+          "negative": 2841,
+          "positive": 2841
+        },
+        "fold_sizes": {
+          "train": 4340,
+          "dev": 672,
+          "test": 670
+        },
+        "sub_context_keys": {
+          "edited_aspect": 5682,
+          "food": 5682,
+          "service": 5682,
+          "ambiance": 5682,
+          "noise": 5682,
+          "review_sentiment": 5682
+        },
+        "sub_context_value_distributions": {
+          "edited_aspect": {
+            "food": 3480,
+            "service": 2202
+          },
+          "food": {
+            "positive": 2722,
+            "negative": 2514,
+            "unknown": 416,
+            "no_majority": 30
+          },
+          "service": {
+            "positive": 1997,
+            "negative": 1967,
+            "unknown": 1676,
+            "no_majority": 42
+          },
+          "ambiance": {
+            "unknown": 4136,
+            "positive": 918,
+            "negative": 556,
+            "no_majority": 72
+          },
+          "noise": {
+            "unknown": 5100,
+            "negative": 408,
+            "positive": 150,
+            "no_majority": 24
+          },
+          "review_sentiment": {
+            "negative": 1815,
+            "positive": 1729,
+            "neutral": 1445,
+            "no_majority": 693
+          }
+        },
+        "n_pairs_food": 1740,
+        "n_pairs_service": 1101,
+        "n_pairs_total": 2841,
+        "dropped_pairs": {
+          "service_unknown_aspect": 2145,
+          "food_no_flip": 285,
+          "food_unknown_aspect": 2039,
+          "service_no_flip": 114
+        },
+        "license": "CC-BY-4.0",
+        "source_url": "https://huggingface.co/datasets/CEBaB/CEBaB",
+        "source_paper": "Abraham et al. NeurIPS 2022. arXiv:2205.14140",
+        "split_policy": "train_inclusive->train (superset of edits), validation->dev, test->test.",
+        "field_correction": "CEBaB edit_type = edited ASPECT {food,service,ambiance,noise}; edit_goal = target sentiment {Positive,Negative,unknown}. We pair on edit_type.",
+        "concept": "food_sentiment & service_sentiment nested as ONE family; ambiance/noise retained as sub_context only."
+      },
+      "bias_in_bios_boundary": {
+        "family": "bias_in_bios_boundary",
+        "n_rows": 20177,
+        "label_balance": {
+          "journalist": 752,
+          "poet": 752,
+          "software_engineer": 752,
+          "composer": 752,
+          "nurse": 752,
+          "filmmaker": 752,
+          "painter": 752,
+          "surgeon": 752,
+          "chiropractor": 752,
+          "architect": 752,
+          "psychologist": 752,
+          "personal_trainer": 752,
+          "comedian": 752,
+          "physician": 752,
+          "photographer": 752,
+          "professor": 752,
+          "accountant": 752,
+          "pastor": 752,
+          "model": 752,
+          "dentist": 752,
+          "attorney": 752,
+          "teacher": 752,
+          "dietitian": 642,
+          "interior_designer": 640,
+          "paralegal": 630,
+          "yoga_teacher": 622,
+          "dj": 587,
+          "rapper": 512
+        },
+        "fold_sizes": {
+          "train": 14328,
+          "dev": 2846,
+          "test": 3003
+        },
+        "sub_context_keys": {
+          "gender": 20177
+        },
+        "sub_context_value_distributions": {
+          "gender": {
+            "female": 10123,
+            "male": 10054
+          }
+        },
+        "subsample_seed": 20240617,
+        "per_split_stratum_cap": {
+          "train": 268,
+          "dev": 54,
+          "test": 54
+        },
+        "per_split_kept": {
+          "train": 14328,
+          "dev": 2846,
+          "test": 3003
+        },
+        "stratification": "by (profession x gender), 56 strata, per-stratum cap, fixed seed.",
+        "license": "MIT",
+        "source_url": "https://huggingface.co/datasets/LabHC/bias_in_bios",
+        "source_paper": "De-Arteaga et al. FAT* 2019. arXiv:1901.09451",
+        "boundary_null_rationale": "Profession 'habitat' ~= the class label, so co-response grouping is PREDICTED to give no advantage over raw latents here. A null result is the PRE-REGISTERED EXPECTATION, not method failure. gender is the independent sub-attribute / habitat!=label diagnostic axis.",
+        "profession_int_to_string": {
+          "0": "accountant",
+          "1": "architect",
+          "2": "attorney",
+          "3": "chiropractor",
+          "4": "comedian",
+          "5": "composer",
+          "6": "dentist",
+          "7": "dietitian",
+          "8": "dj",
+          "9": "filmmaker",
+          "10": "interior_designer",
+          "11": "journalist",
+          "12": "model",
+          "13": "nurse",
+          "14": "painter",
+          "15": "paralegal",
+          "16": "pastor",
+          "17": "personal_trainer",
+          "18": "photographer",
+          "19": "physician",
+          "20": "poet",
+          "21": "professor",
+          "22": "psychologist",
+          "23": "rapper",
+          "24": "software_engineer",
+          "25": "surgeon",
+          "26": "teacher",
+          "27": "yoga_teacher"
+        },
+        "full_set_note": "Full 396k bios reproducible from the HF repo if downstream needs more."
+      }
+    },
+    "candidate_alternatives_considered": {
+      "sentiment": [
+        "tasksource/counterfactually-augmented-imdb (HF mirror, 68 dl)"
+      ],
+      "restaurant_aspect": [
+        "EleutherAI/CEBaB (HF mirror, cc-by-4.0)",
+        "KarelDO/CEBaB_train_confounding_* (confound-controlled variants)"
+      ],
+      "bias_in_bios_boundary": [
+        "microsoft/biosbias (original scraper repo)"
+      ]
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "Kaushik, Hovy, Lipton | CAD-IMDB sentiment",
+      "examples": [
+        {
+          "input": "Long, fascinating, soulful. Never have I been so sad to see ending credits roll.",
+          "output": "positive",
+          "metadata_id": "sent_train_4_pos",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_4",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "sent_train_4_neg",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Positive",
+            "char_len": 80,
+            "token_overlap_with_partner": 0.6471,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "Long, boring, blasphemous. Never have I been so glad to see ending credits roll.",
+          "output": "negative",
+          "metadata_id": "sent_train_4_neg",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_4",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "sent_train_4_pos",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Negative",
+            "char_len": 80,
+            "token_overlap_with_partner": 0.6471,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "So good! Rent or buy the original, too! Watch this, too! It's just as good!<br /><br />It is an amazing Elvis impersonator and the real King.",
+          "output": "positive",
+          "metadata_id": "sent_train_40_pos",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_40",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "sent_train_40_neg",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Positive",
+            "char_len": 141,
+            "token_overlap_with_partner": 0.4474,
+            "pairing_method": "batch_id_grouped"
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "CEBaB food+service aspect (Abraham et al. NeurIPS 2022)",
+      "examples": [
+        {
+          "input": "Overbooked and didnot honor reservation time,put on wait list with walk INS",
+          "output": "negative",
+          "metadata_id": "cebab_service_0000_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "unknown",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_service_0000",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_service_0000_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "0",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "1",
+            "raw_aspect_majority": "Negative",
+            "char_len": 75,
+            "token_overlap_with_partner": 0.3636
+          }
+        },
+        {
+          "input": "Overbooked but honored our reservations and we didnt have to go on wait list with walk INS.",
+          "output": "positive",
+          "metadata_id": "cebab_service_0000_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "unknown",
+            "service": "positive",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "no_majority"
+          },
+          "metadata_pair_id": "cebab_service_0000",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_service_0000_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "0",
+            "edit_id": "2",
+            "is_original": false,
+            "edit_goal": "Positive",
+            "edit_type": "service",
+            "member": "edit",
+            "raw_review_majority": "no majority",
+            "raw_aspect_majority": "Positive",
+            "char_len": 91,
+            "token_overlap_with_partner": 0.3636
+          }
+        },
+        {
+          "input": "I was really disappointed with the meal. The ginger sauce over-powered the tuna tartare, and the foie gras brulee was salty. The waiter also was not very helpful with selecting the wine.",
+          "output": "negative",
+          "metadata_id": "cebab_service_0001_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "negative",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_service_0001",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_service_0001_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "1",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "1",
+            "raw_aspect_majority": "Negative",
+            "char_len": 186,
+            "token_overlap_with_partner": 0.92
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "LabHC/bias_in_bios boundary-null (De-Arteaga et al. 2019)",
+      "examples": [
+        {
+          "input": "He regularly contributes to India’s First Online Muslim Newspaper “IndianMuslimObserver.com”. He is Publisher and Editor of “Gujarat Siyasat” fortnightly newspaper. He can be reached at abdulhafizlakhani@gmail.com or on his cell 09228746770]",
+          "output": "journalist",
+          "metadata_id": "bib_train_00000",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "journalist",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 11,
+            "raw_gender_int": 0,
+            "char_len": 241,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "Trained as a doctor, she lives in Algiers where she is now devoting herself exclusively to writing. Anna Moschovakis is a writer, translator, and educator who also edits books with Ugly Duckling Press. Pierre Joris' recent publications include Barzakh: Poems 2000-2012 (Black Widow Press) & Breathturn into Timestead: The Collected Later Poetry of Paul Celan (FSG). Omar Berrada is a writer and translator, and the director of Dar al-Ma'mûn, a library and artists' residency in Marrakech.",
+          "output": "poet",
+          "metadata_id": "bib_train_00001",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "poet",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 20,
+            "raw_gender_int": 1,
+            "char_len": 488,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "He has eight (8) years experience in the antivirus and info-sec industry functioning as a Malware Researcher & Analyst. Berman has given talks at several universities, such as the Mapua School of Technology, to inform and warn students of online threats that are fast becoming more prevalent and complex. He is currently based in Manila where the Philippine office of GFI SecurityLabs, the research and development arm of GFI Software, is located.",
+          "output": "software_engineer",
+          "metadata_id": "bib_train_00002",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "software_engineer",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 24,
+            "raw_gender_int": 0,
+            "char_len": 447,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        }
+      ]
+    }
+  ]
+}

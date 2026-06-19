@@ -1,0 +1,1630 @@
+{
+  "metadata": {
+    "method_name": "M7 iter-5 — SECOND polysemy/absorption case beyond Georgia: bias_in_bios profession is-a hierarchy (NEW, whole-text GPU encode) + homograph scan + Jordan-beside-Georgia side-by-side; reuses iter-4 pre...",
+    "verdict": "absorption_remains_narrow",
+    "second_case_found": false,
+    "professions_verdict": "uniform_high_parent_recall_no_absorption",
+    "interpretation": "Absorption is NARROW / specific to suppressed-parent homograph polysemy (Georgia, and descriptive Jordan). The profession is-a hierarchy shows uniform-high parent recall with no mutually-exclusive spe...",
+    "honest_negatives": [
+      "Professions boundary-null: profession is-a hierarchy verdict = 'uniform_high_parent_recall_no_absorption' (max parent hole 0.11599999999999999 on 'model'; n absorption_type professions = 0).",
+      "Entity scan coverage limit: the taxonomic testbed labels per-COUNTRY, not per-city, so non-country entity absorption is untestable; 'no new homograph case' is expected, not exhaustive.",
+      "Affirmative non-spelling set-cover evidence remains n=1 eligible (Georgia), 1-2 counting descriptive Jordan (n<150). United States is co-firing/splitting, not absorption."
+    ],
+    "sae": {
+      "release": "gemma-scope-2b-pt-res-canonical",
+      "sae_id": "layer_12/width_16k/canonical",
+      "width": 16384,
+      "hook": "blocks.12.hook_resid_post",
+      "hf_hidden_state_idx": 13,
+      "d_model": 2304
+    },
+    "model": "cache-reuse(no-model)",
+    "stats": {
+      "bootstrap_B_auc": 10000,
+      "B_draws": 1000,
+      "n_min_eligible": 150,
+      "seed": 20240617,
+      "auc_diff_ci": "stratified paired bootstrap (resample positives & negatives separately)"
+    },
+    "thresholds": {
+      "G1_recall": 0.6,
+      "jaccard_max": 0.1,
+      "subctx_precision": 0.7,
+      "gain_min": 0.05,
+      "precision_floor": 0.7,
+      "greedy_max_members": 12,
+      "firing_floor_heldout": 0.05,
+      "cap_per_profession": 500
+    },
+    "scale": "full",
+    "parts": [
+      "1",
+      "2",
+      "3"
+    ],
+    "runtime_s": 427.7,
+    "gpu": "NVIDIA L4",
+    "per_family": {
+      "professions": {
+        "professions_verdict": "uniform_high_parent_recall_no_absorption",
+        "n_professions": 28,
+        "professions": [
+          "accountant",
+          "architect",
+          "attorney"
+        ],
+        "n_bios": 13843,
+        "n_neg": 5000,
+        "cap_per_profession": 500,
+        "fold_split": {
+          "selection": 6922,
+          "diagnostic": 6921
+        },
+        "parent": {
+          "anchor": 12692,
+          "anchor_recall_selection": 0.971251083501878,
+          "anchor_recall_heldout": 0.9734142464962279,
+          "anchor_precision_bios_vs_neg": 0.9060646900269542,
+          "anchor_neg_fire_rate": 0.1394,
+          "anchor_firing_floor_ok": true,
+          "n_discriminative": 6158,
+          "n_precision_passing": 3742,
+          "discriminative_precision_passing_pool": [
+            6,
+            16,
+            18
+          ],
+          "top10_by_recall": [
+            {
+              "latent": 12692,
+              "recall_sel": 0.971251083501878,
+              "precision": 0.9060646900269542,
+              "neg_rate": 0.1394
+            },
+            {
+              "latent": 214,
+              "recall_sel": 0.9310892805547529,
+              "precision": 0.754065754065754,
+              "neg_rate": 0.4204
+            },
+            {
+              "latent": 2127,
+              "recall_sel": 0.930511412886449,
+              "precision": 0.8256633764901936,
+              "neg_rate": 0.272
+            }
+          ]
+        },
+        "parent_dense_probe_bios_vs_neg_auc": 0.9999968790637191,
+        "hole_table": {
+          "accountant": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.98,
+            "parent_hole": 0.020000000000000018,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.03200000000000003,
+              "male_n": 125,
+              "female_hole": 0.008000000000000007,
+              "female_n": 125
+            }
+          },
+          "architect": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.988,
+            "parent_hole": 0.01200000000000001,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.015151515151515138,
+              "male_n": 132,
+              "female_hole": 0.008474576271186418,
+              "female_n": 118
+            }
+          },
+          "attorney": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.976,
+            "parent_hole": 0.02400000000000002,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.030303030303030276,
+              "male_n": 132,
+              "female_hole": 0.016949152542372836,
+              "female_n": 118
+            }
+          },
+          "chiropractor": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.944,
+            "parent_hole": 0.05600000000000005,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.07751937984496127,
+              "male_n": 129,
+              "female_hole": 0.03305785123966942,
+              "female_n": 121
+            }
+          },
+          "comedian": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.968,
+            "parent_hole": 0.03200000000000003,
+            "best_specialist": 8804,
+            "best_specialist_precision": 0.8157894736842105,
+            "best_jaccard": 0.005491243692490353,
+            "n_specialists": 1,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.03968253968253965,
+              "male_n": 126,
+              "female_hole": 0.024193548387096753,
+              "female_n": 124
+            }
+          },
+          "composer": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.988,
+            "parent_hole": 0.01200000000000001,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.007692307692307665,
+              "male_n": 130,
+              "female_hole": 0.01666666666666672,
+              "female_n": 120
+            }
+          },
+          "dentist": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.964,
+            "parent_hole": 0.03600000000000003,
+            "best_specialist": 14209,
+            "best_specialist_precision": 0.9032258064516129,
+            "best_jaccard": 0.004601454653406561,
+            "n_specialists": 3,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.023622047244094446,
+              "male_n": 127,
+              "female_hole": 0.04878048780487809,
+              "female_n": 123
+            }
+          },
+          "dietitian": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.964,
+            "parent_hole": 0.03600000000000003,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.05600000000000005,
+              "male_n": 125,
+              "female_hole": 0.016000000000000014,
+              "female_n": 125
+            }
+          },
+          "dj": {
+            "n": 230,
+            "eligible": true,
+            "parent_recall": 0.9521739130434783,
+            "parent_hole": 0.047826086956521685,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.0461538461538461,
+              "male_n": 130,
+              "female_hole": 0.050000000000000044,
+              "female_n": 100
+            }
+          },
+          "filmmaker": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.984,
+            "parent_hole": 0.016000000000000014,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.023809523809523836,
+              "male_n": 126,
+              "female_hole": 0.008064516129032251,
+              "female_n": 124
+            }
+          },
+          "interior_designer": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.98,
+            "parent_hole": 0.020000000000000018,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.03305785123966942,
+              "male_n": 121,
+              "female_hole": 0.007751937984496138,
+              "female_n": 129
+            }
+          },
+          "journalist": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.98,
+            "parent_hole": 0.020000000000000018,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.02564102564102566,
+              "male_n": 117,
+              "female_hole": 0.015037593984962405,
+              "female_n": 133
+            }
+          },
+          "model": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.884,
+            "parent_hole": 0.11599999999999999,
+            "best_specialist": 900,
+            "best_specialist_precision": 1.0,
+            "best_jaccard": 0.0020780762950868338,
+            "n_specialists": 14,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.19047619047619047,
+              "male_n": 126,
+              "female_hole": 0.040322580645161255,
+              "female_n": 124
+            }
+          },
+          "nurse": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.988,
+            "parent_hole": 0.01200000000000001,
+            "best_specialist": 7643,
+            "best_specialist_precision": 0.8666666666666667,
+            "best_jaccard": 0.002226510316164465,
+            "n_specialists": 6,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.008403361344537785,
+              "male_n": 119,
+              "female_hole": 0.01526717557251911,
+              "female_n": 131
+            }
+          },
+          "painter": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.984,
+            "parent_hole": 0.016000000000000014,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.016393442622950838,
+              "male_n": 122,
+              "female_hole": 0.015625,
+              "female_n": 128
+            }
+          },
+          "paralegal": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.988,
+            "parent_hole": 0.01200000000000001,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.025423728813559365,
+              "male_n": 118,
+              "female_hole": 0.0,
+              "female_n": 132
+            }
+          },
+          "pastor": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.976,
+            "parent_hole": 0.02400000000000002,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.023076923076923106,
+              "male_n": 130,
+              "female_hole": 0.025000000000000022,
+              "female_n": 120
+            }
+          },
+          "personal_trainer": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.98,
+            "parent_hole": 0.020000000000000018,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.032258064516129004,
+              "male_n": 124,
+              "female_hole": 0.007936507936507908,
+              "female_n": 126
+            }
+          },
+          "photographer": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.968,
+            "parent_hole": 0.03200000000000003,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.007936507936507908,
+              "male_n": 126,
+              "female_hole": 0.056451612903225756,
+              "female_n": 124
+            }
+          },
+          "physician": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.996,
+            "parent_hole": 0.0040000000000000036,
+            "best_specialist": 13945,
+            "best_specialist_precision": 0.9787234042553191,
+            "best_jaccard": 0.006976398990648657,
+            "n_specialists": 3,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.008130081300813052,
+              "male_n": 123,
+              "female_hole": 0.0,
+              "female_n": 127
+            }
+          },
+          "poet": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.98,
+            "parent_hole": 0.020000000000000018,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.024390243902439046,
+              "male_n": 123,
+              "female_hole": 0.015748031496062964,
+              "female_n": 127
+            }
+          },
+          "professor": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.996,
+            "parent_hole": 0.0040000000000000036,
+            "best_specialist": 13713,
+            "best_specialist_precision": 0.75,
+            "best_jaccard": 0.003413475808845355,
+            "n_specialists": 1,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.00877192982456143,
+              "male_n": 114,
+              "female_hole": 0.0,
+              "female_n": 136
+            }
+          },
+          "psychologist": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.988,
+            "parent_hole": 0.01200000000000001,
+            "best_specialist": 5288,
+            "best_specialist_precision": 0.7037037037037037,
+            "best_jaccard": 0.007865835559513208,
+            "n_specialists": 1,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.024793388429752095,
+              "male_n": 121,
+              "female_hole": 0.0,
+              "female_n": 129
+            }
+          },
+          "rapper": {
+            "n": 193,
+            "eligible": true,
+            "parent_recall": 0.9481865284974094,
+            "parent_hole": 0.051813471502590636,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.058394160583941646,
+              "male_n": 137,
+              "female_hole": 0.0357142857142857,
+              "female_n": 56
+            }
+          },
+          "software_engineer": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 1.0,
+            "parent_hole": 0.0,
+            "best_specialist": 2908,
+            "best_specialist_precision": 0.875,
+            "best_jaccard": 0.003562416505863144,
+            "n_specialists": 1,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.0,
+              "male_n": 128,
+              "female_hole": 0.0,
+              "female_n": 122
+            }
+          },
+          "surgeon": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.976,
+            "parent_hole": 0.02400000000000002,
+            "best_specialist": 13359,
+            "best_specialist_precision": 0.8421052631578947,
+            "best_jaccard": 0.002820246400474989,
+            "n_specialists": 3,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.023622047244094446,
+              "male_n": 127,
+              "female_hole": 0.024390243902439046,
+              "female_n": 123
+            }
+          },
+          "teacher": {
+            "n": 250,
+            "eligible": true,
+            "parent_recall": 0.936,
+            "parent_hole": 0.06399999999999995,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.07258064516129037,
+              "male_n": 124,
+              "female_hole": 0.05555555555555558,
+              "female_n": 126
+            }
+          },
+          "yoga_teacher": {
+            "n": 248,
+            "eligible": true,
+            "parent_recall": 0.9919354838709677,
+            "parent_hole": 0.008064516129032251,
+            "best_specialist": null,
+            "best_specialist_precision": null,
+            "best_jaccard": 1.0,
+            "n_specialists": 0,
+            "absorption_type": false,
+            "gender_split": {
+              "male_hole": 0.0,
+              "male_n": 114,
+              "female_hole": 0.014925373134328401,
+              "female_n": 134
+            }
+          }
+        },
+        "n_absorption_type": 0,
+        "max_parent_hole": 0.11599999999999999,
+        "max_parent_hole_profession": "model",
+        "eligible_professions": [
+          "accountant",
+          "architect",
+          "attorney"
+        ],
+        "qualifying_professions": [],
+        "second_case_professions": [],
+        "descriptive_setcover_profession": "model",
+        "setcover": {
+          "model": {
+            "profession": "model",
+            "n_sel_pos": 250,
+            "n_diag_pos": 250,
+            "n_diag_neg": 2500,
+            "unit": [
+              12692
+            ],
+            "unit_by_variant": {
+              "gated": [
+                12692
+              ],
+              "weighted": [
+                12692
+              ]
+            },
+            "edges": [],
+            "n_absorbers": 0,
+            "g_pool": [
+              12395,
+              7518,
+              8834
+            ],
+            "h_pool": [
+              12395
+            ],
+            "selector_members": {
+              "S_rec": [
+                12692
+              ],
+              "S_prec": [
+                12692
+              ],
+              "S_mag": [
+                12692
+              ]
+            },
+            "auc_point": {
+              "unit": 0.3081152,
+              "anchor": 0.3081152,
+              "g": 0.544072,
+              "h": 0.6323528,
+              "dense_probe": 0.9607856,
+              "rek_anch_mean": 0.3081144,
+              "S_rec_anch": 0.3081152,
+              "S_prec_anch": 0.3081152,
+              "S_mag_anch": 0.3081152
+            },
+            "auc_diff_ci": {
+              "g": {
+                "diff": -0.23595680000000002,
+                "ci_lo": -0.2868548,
+                "ci_hi": -0.18472192
+              },
+              "h": {
+                "diff": -0.32423760000000007,
+                "ci_lo": -0.35767819999999995,
+                "ci_hi": -0.28986924
+              },
+              "dense_probe": {
+                "diff": -0.6526704000000001,
+                "ci_lo": -0.6862704999999999,
+                "ci_hi": -0.6178595800000001
+              },
+              "rek_anch_mean": {
+                "diff": 7.999999999674934e-07,
+                "ci_lo": 0.0,
+                "ci_hi": 4.800000000027005e-06
+              },
+              "S_rec_anch": {
+                "diff": 0.0,
+                "ci_lo": 0.0,
+                "ci_hi": 0.0
+              },
+              "S_prec_anch": {
+                "diff": 0.0,
+                "ci_lo": 0.0,
+                "ci_hi": 0.0
+              },
+              "S_mag_anch": {
+                "diff": 0.0,
+                "ci_lo": 0.0,
+                "ci_hi": 0.0
+              }
+            },
+            "set_cover_established": false,
+            "kg": {
+              "n_hole_tokens": 29
+            },
+            "is_qualifying": false,
+            "is_descriptive_only": true
+          }
+        },
+        "encoding": {
+          "bios": {
+            "cached": true,
+            "n": 13843
+          },
+          "neg": {
+            "cached": true,
+            "n": 5000
+          }
+        },
+        "negative_regime_notes": "PRIMARY per-profession AUC is ONE-VS-REST WITHIN bios (genre-matched: positives=prof-p bios, negatives=other-profession bios). Non-bio negatives (movie+restaurant reviews) are used ONLY for parent pre...",
+        "model": "cache-reuse(no-model)",
+        "layer_idx": 13,
+        "runtime_s": 104.9
+      },
+      "taxonomic": {
+        "hierarchy_verdict": "taxonomic_setcover_isolated",
+        "anchor_latent": 3792,
+        "set_cover_established": true,
+        "setcover_corroborated": true,
+        "homograph_crosstab": {
+          "homographs_hardcoded": [
+            "Chile",
+            "Georgia",
+            "Jordan"
+          ],
+          "homographs_from_data_notes": [
+            "Chile",
+            "Georgia",
+            "Jordan"
+          ],
+          "homograph_set_discrepancy": [],
+          "counts": {
+            "homograph|absorption": 2,
+            "homograph|no_absorption": 2,
+            "non_homograph|absorption": 0,
+            "non_homograph|no_absorption": 48
+          },
+          "members": {
+            "homograph|absorption": [
+              "Georgia",
+              "Jordan"
+            ],
+            "homograph|no_absorption": [
+              "Chile",
+              "Turkey"
+            ],
+            "non_homograph|absorption": [],
+            "non_homograph|no_absorption": [
+              "Argentina",
+              "Australia",
+              "Austria"
+            ]
+          },
+          "absorption_type_slices": [
+            "Georgia",
+            "Jordan"
+          ],
+          "absorption_type_slices_are_exactly_suppressed_homographs": true,
+          "framing": "absorption recurs on polysemous/homograph tokens WHOSE GENERAL PARENT LATENT IS SUPPRESSED (identified a-priori by the router recall-hole signal); it is NOT broad taxonomic absorption."
+        },
+        "entity_scan": {
+          "note": "scan groups diagnostic country-mention surfaces by target token; tests the COUNTRY parent's recall-hole + a mutually-exclusive eligible specialist. COVERAGE LIMIT: the taxonomic testbed has per-COUNTR...",
+          "surfaces_tested": [
+            {
+              "surface": "Australia",
+              "n": 150,
+              "parent_recall": 1.0,
+              "parent_hole": 0.0,
+              "best_specialist": 837,
+              "best_jaccard": 0.011295034079844207,
+              "absorption_type": false
+            },
+            {
+              "surface": "Brazil",
+              "n": 150,
+              "parent_recall": 1.0,
+              "parent_hole": 0.0,
+              "best_specialist": 1414,
+              "best_jaccard": 0.009931840311587148,
+              "absorption_type": false
+            },
+            {
+              "surface": "Canada",
+              "n": 150,
+              "parent_recall": 1.0,
+              "parent_hole": 0.0,
+              "best_specialist": 11719,
+              "best_jaccard": 0.011480832846857365,
+              "absorption_type": false
+            }
+          ],
+          "new_absorption_surfaces": [
+            {
+              "surface": "Georgia",
+              "n": 150,
+              "parent_recall": 0.2,
+              "parent_hole": 0.8,
+              "best_specialist": 3980,
+              "best_jaccard": 0.0013597513597513598,
+              "absorption_type": true
+            }
+          ],
+          "n_surfaces_tested": 20,
+          "new_case_beyond_known": []
+        },
+        "side_by_side": {
+          "Georgia": {
+            "n_pos": 150,
+            "eligible": true,
+            "absorption_type": true,
+            "parent_recall_hole": 0.8,
+            "firing_jaccard": 0.05851063829787234,
+            "unit_auc": 0.9945238095238095,
+            "auc_diff_vs": {
+              "S_rec_anch": {
+                "diff": 0.30729523809523807,
+                "boot_mean": 0.3072460644444444,
+                "ci_lo": 0.26696936507936514,
+                "ci_hi": 0.3480830158730158
+              },
+              "S_prec_anch": {
+                "diff": 0.41579047619047615,
+                "boot_mean": 0.41577722492063496,
+                "ci_lo": 0.38224226190476185,
+                "ci_hi": 0.4478889285714286
+              },
+              "S_mag_anch": {
+                "diff": 0.29371111111111103,
+                "boot_mean": 0.29359015253968257,
+                "ci_lo": 0.2540236507936508,
+                "ci_hi": 0.3337747619047619
+              },
+              "rek_anch_mean": {
+                "diff": 0.08193650793650786,
+                "boot_mean": 0.08194411396825396,
+                "ci_lo": 0.07008230158730154,
+                "ci_hi": 0.0944034126984127
+              },
+              "g": {
+                "diff": 0.5765238095238094,
+                "boot_mean": 0.5765600352380952,
+                "ci_lo": 0.5339136507936507,
+                "ci_hi": 0.6185145238095239
+              },
+              "h": {
+                "diff": 0.6120158730158729,
+                "boot_mean": 0.6120655063492064,
+                "ci_lo": 0.5760878571428572,
+                "ci_hi": 0.6475021428571428
+              },
+              "dense_probe": {
+                "diff": -0.005257142857142849,
+                "boot_mean": -0.005252433650793649,
+                "ci_lo": -0.008019126984126957,
+                "ci_hi": -0.0028412698412698667
+              }
+            },
+            "set_cover_established": true,
+            "status": "eligible_inferential"
+          },
+          "Jordan": {
+            "n_pos": 124,
+            "eligible": false,
+            "absorption_type": true,
+            "parent_recall_hole": 0.7096774193548387,
+            "firing_jaccard": 0.02067777139574957,
+            "unit_auc": 0.9574270353302612,
+            "auc_diff_vs": {
+              "rek_anch_mean": {
+                "diff": 0.14678955453149012,
+                "boot_mean": 0.14702817837941629,
+                "ci_lo": 0.11693447580645162,
+                "ci_hi": 0.17765812211981563
+              },
+              "g": {
+                "diff": 0.5125921658986176,
+                "boot_mean": 0.5126095883256528,
+                "ci_lo": 0.45208136520737335,
+                "ci_hi": 0.5737674251152074
+              },
+              "h": {
+                "diff": 0.4481240399385561,
+                "boot_mean": 0.44784302342549925,
+                "ci_lo": 0.3935656201996928,
+                "ci_hi": 0.5018596870199693
+              },
+              "dense_probe": {
+                "diff": -0.04221198156682027,
+                "boot_mean": -0.04216107507680491,
+                "ci_lo": -0.06454728302611368,
+                "ci_hi": -0.022898617511520808
+              }
+            },
+            "set_cover_established": null,
+            "status": "descriptive_underpowered"
+          },
+          "United States": {
+            "n_pos": 150,
+            "eligible": true,
+            "absorption_type": false,
+            "parent_recall_hole": 0.23333333333333328,
+            "firing_jaccard": 0.20368592820119025,
+            "unit_auc": 0.9740412698412698,
+            "auc_diff_vs": {
+              "rek_anch_mean": {
+                "diff": -0.0050888888888889205,
+                "boot_mean": -0.005190104126984126,
+                "ci_lo": -0.019028888888888856,
+                "ci_hi": 0.005915912698412614
+              },
+              "g": {
+                "diff": 0.36503174603174604,
+                "boot_mean": 0.36522431460317456,
+                "ci_lo": 0.3218570634920635,
+                "ci_hi": 0.4094131746031745
+              },
+              "h": {
+                "diff": 0.24170000000000003,
+                "boot_mean": 0.24161202380952376,
+                "ci_lo": 0.20145206349206357,
+                "ci_hi": 0.28258650793650797
+              },
+              "dense_probe": {
+                "diff": -0.02570793650793657,
+                "boot_mean": -0.025830376190476192,
+                "ci_lo": -0.04087007936507937,
+                "ci_hi": -0.0135728968253968
+              }
+            },
+            "set_cover_established": null,
+            "status": "eligible_inferential"
+          },
+          "_annotation": "Affirmative non-spelling set-cover evidence is currently ONE eligible slice (Georgia), 1-2 counting DESCRIPTIVE Jordan (n<150). United States is co-firing/splitting (firing-Jaccard ~0.20), NOT absorpt..."
+        },
+        "router_all": {
+          "Argentina": {
+            "n_pos": 82,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 3057,
+            "firing_jaccard": 0.01596884128529698,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Australia": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 6211,
+            "firing_jaccard": 0.6084092230187949,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Austria": {
+            "n_pos": 78,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 12691,
+            "firing_jaccard": 0.5965964030168246,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Belgium": {
+            "n_pos": 78,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 4697,
+            "firing_jaccard": 0.05518680068272331,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Brazil": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 878,
+            "firing_jaccard": 0.05061319836480436,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Canada": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 10518,
+            "firing_jaccard": 0.21560418648905805,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Chile": {
+            "n_pos": 40,
+            "homograph": true,
+            "parent_recall_on_s": 0.975,
+            "parent_recall_hole": 0.025000000000000022,
+            "top_detector_latent": 14216,
+            "firing_jaccard": 0.10659404785061272,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "China": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 10518,
+            "firing_jaccard": 0.21560418648905805,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Colombia": {
+            "n_pos": 46,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 10518,
+            "firing_jaccard": 0.21560418648905805,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Costa Rica": {
+            "n_pos": 23,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 250,
+            "firing_jaccard": 0.20368592820119025,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Denmark": {
+            "n_pos": 71,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 2877,
+            "firing_jaccard": 0.1527103166893336,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Egypt": {
+            "n_pos": 88,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 3253,
+            "firing_jaccard": 0.05156821243024822,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Ethiopia": {
+            "n_pos": 25,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 3296,
+            "firing_jaccard": 0.13533834586466165,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Finland": {
+            "n_pos": 49,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1920,
+            "firing_jaccard": 0.043232716650438166,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "France": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1920,
+            "firing_jaccard": 0.043232716650438166,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Georgia": {
+            "n_pos": 150,
+            "homograph": true,
+            "parent_recall_on_s": 0.2,
+            "parent_recall_hole": 0.8,
+            "top_detector_latent": 1966,
+            "firing_jaccard": 0.05851063829787234,
+            "absorption_type": true,
+            "eligible": true
+          },
+          "Germany": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 4984,
+            "firing_jaccard": 0.051540509699505514,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Greece": {
+            "n_pos": 78,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 4984,
+            "firing_jaccard": 0.051540509699505514,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "India": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1634,
+            "firing_jaccard": 0.18303831939311418,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Indonesia": {
+            "n_pos": 78,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1634,
+            "firing_jaccard": 0.18303831939311418,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Iran": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1634,
+            "firing_jaccard": 0.18303831939311418,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Iraq": {
+            "n_pos": 105,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 362,
+            "firing_jaccard": 0.04030710172744722,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Ireland": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1634,
+            "firing_jaccard": 0.18303831939311418,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Israel": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1634,
+            "firing_jaccard": 0.18303831939311418,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Italy": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1634,
+            "firing_jaccard": 0.18303831939311418,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Japan": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 9473,
+            "firing_jaccard": 0.13799143635655897,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Jordan": {
+            "n_pos": 124,
+            "homograph": true,
+            "parent_recall_on_s": 0.2903225806451613,
+            "parent_recall_hole": 0.7096774193548387,
+            "top_detector_latent": 9339,
+            "firing_jaccard": 0.02067777139574957,
+            "absorption_type": true,
+            "eligible": false
+          },
+          "Kenya": {
+            "n_pos": 49,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 4185,
+            "firing_jaccard": 0.09655440918824217,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Mexico": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 0.9466666666666667,
+            "parent_recall_hole": 0.053333333333333344,
+            "top_detector_latent": 13586,
+            "firing_jaccard": 0.05522068831421349,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Morocco": {
+            "n_pos": 27,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 963,
+            "firing_jaccard": 0.03719571567672834,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Netherlands": {
+            "n_pos": 126,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 12691,
+            "firing_jaccard": 0.5965964030168246,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "New Zealand": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 250,
+            "firing_jaccard": 0.20368592820119025,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Nigeria": {
+            "n_pos": 73,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 619,
+            "firing_jaccard": 0.015384615384615385,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Norway": {
+            "n_pos": 89,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 2877,
+            "firing_jaccard": 0.1527103166893336,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Pakistan": {
+            "n_pos": 122,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 3394,
+            "firing_jaccard": 0.08985341709499334,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Peru": {
+            "n_pos": 42,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 4020,
+            "firing_jaccard": 0.09890965732087227,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Poland": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 12186,
+            "firing_jaccard": 0.07067757009345794,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Portugal": {
+            "n_pos": 48,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 7943,
+            "firing_jaccard": 0.05939629990262902,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Russia": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 1855,
+            "firing_jaccard": 0.09038238702201622,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Saudi Arabia": {
+            "n_pos": 53,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 250,
+            "firing_jaccard": 0.20368592820119025,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "South Africa": {
+            "n_pos": 141,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 250,
+            "firing_jaccard": 0.20368592820119025,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "South Korea": {
+            "n_pos": 70,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 2669,
+            "firing_jaccard": 0.016553067185978577,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Spain": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 0.9933333333333333,
+            "parent_recall_hole": 0.00666666666666671,
+            "top_detector_latent": 9473,
+            "firing_jaccard": 0.13799143635655897,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Sri Lanka": {
+            "n_pos": 39,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 250,
+            "firing_jaccard": 0.20368592820119025,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Sweden": {
+            "n_pos": 122,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 2877,
+            "firing_jaccard": 0.1527103166893336,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Switzerland": {
+            "n_pos": 94,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 3296,
+            "firing_jaccard": 0.13533834586466165,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Thailand": {
+            "n_pos": 68,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 3296,
+            "firing_jaccard": 0.13533834586466165,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Turkey": {
+            "n_pos": 106,
+            "homograph": true,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 14119,
+            "firing_jaccard": 0.14566699123661148,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "Ukraine": {
+            "n_pos": 66,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 362,
+            "firing_jaccard": 0.04030710172744722,
+            "absorption_type": false,
+            "eligible": false
+          },
+          "United Kingdom": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 250,
+            "firing_jaccard": 0.20368592820119025,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "United States": {
+            "n_pos": 150,
+            "homograph": false,
+            "parent_recall_on_s": 0.7666666666666667,
+            "parent_recall_hole": 0.23333333333333328,
+            "top_detector_latent": 250,
+            "firing_jaccard": 0.20368592820119025,
+            "absorption_type": false,
+            "eligible": true
+          },
+          "Vietnam": {
+            "n_pos": 88,
+            "homograph": false,
+            "parent_recall_on_s": 1.0,
+            "parent_recall_hole": 0.0,
+            "top_detector_latent": 6922,
+            "firing_jaccard": 0.07555988315481986,
+            "absorption_type": false,
+            "eligible": false
+          }
+        },
+        "auc_diff_ci_defining": {
+          "g": {
+            "diff": 0.5765238095238094,
+            "boot_mean": 0.5765600352380952,
+            "ci_lo": 0.5339136507936507,
+            "ci_hi": 0.6185145238095239
+          },
+          "h": {
+            "diff": 0.6120158730158729,
+            "boot_mean": 0.6120655063492064,
+            "ci_lo": 0.5760878571428572,
+            "ci_hi": 0.6475021428571428
+          },
+          "rek_mean": {
+            "diff": 0.15622222222222215,
+            "boot_mean": 0.15620006603174602,
+            "ci_lo": 0.13876365079365074,
+            "ci_hi": 0.17399063492063488
+          },
+          "rek_anch_mean": {
+            "diff": 0.08193650793650786,
+            "boot_mean": 0.08194411396825396,
+            "ci_lo": 0.07008230158730154,
+            "ci_hi": 0.0944034126984127
+          },
+          "dense_probe": {
+            "diff": -0.005257142857142849,
+            "boot_mean": -0.005252433650793649,
+            "ci_lo": -0.008019126984126957,
+            "ci_hi": -0.0028412698412698667
+          },
+          "S_rec_anch": {
+            "diff": 0.30729523809523807,
+            "boot_mean": 0.3072460644444444,
+            "ci_lo": 0.26696936507936514,
+            "ci_hi": 0.3480830158730158
+          },
+          "S_prec_anch": {
+            "diff": 0.41579047619047615,
+            "boot_mean": 0.41577722492063496,
+            "ci_lo": 0.38224226190476185,
+            "ci_hi": 0.4478889285714286
+          },
+          "S_mag_anch": {
+            "diff": 0.29371111111111103,
+            "boot_mean": 0.29359015253968257,
+            "ci_lo": 0.2540236507936508,
+            "ci_hi": 0.3337747619047619
+          },
+          "S_rec_free": {
+            "diff": 0.30729523809523807,
+            "boot_mean": 0.3072460644444444,
+            "ci_lo": 0.26696936507936514,
+            "ci_hi": 0.3480830158730158
+          },
+          "S_prec_free": {
+            "diff": 0.5009523809523809,
+            "boot_mean": 0.5009698701587302,
+            "ci_lo": 0.4973745238095238,
+            "ci_hi": 0.5045111904761905
+          },
+          "S_mag_free": {
+            "diff": 0.29371111111111103,
+            "boot_mean": 0.29359015253968257,
+            "ci_lo": 0.2540236507936508,
+            "ci_hi": 0.3337747619047619
+          }
+        },
+        "encoding": {
+          "cached": true
+        }
+      }
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "professions",
+      "examples": [
+        {
+          "input": "He combines his intellectual endeavours with a concern for his fellow human beings, adjucating peace, compassion and respect. To honour his lifelong service to his academic discipline as a “working ph...",
+          "output": "positive",
+          "metadata_hierarchy": "professions",
+          "metadata_analyzed_profession": "model",
+          "metadata_sub_context": "model",
+          "metadata_gender": "male",
+          "metadata_fold": "diagnostic",
+          "predict_unit": "negative",
+          "predict_anchor": "negative",
+          "predict_g": "negative",
+          "predict_h": "negative",
+          "predict_dense_probe": "positive",
+          "predict_rek": "negative",
+          "predict_S_rec": "negative",
+          "predict_S_prec": "negative",
+          "predict_S_mag": "negative"
+        },
+        {
+          "input": "Mr. Evans was born on Oct 14, 1981. It is worth mentioning that this Libra has the same birthday as Kristina Nemeth, however, he is 1 years junior to Kristina Nemeth.",
+          "output": "positive",
+          "metadata_hierarchy": "professions",
+          "metadata_analyzed_profession": "model",
+          "metadata_sub_context": "model",
+          "metadata_gender": "male",
+          "metadata_fold": "diagnostic",
+          "predict_unit": "negative",
+          "predict_anchor": "negative",
+          "predict_g": "positive",
+          "predict_h": "negative",
+          "predict_dense_probe": "positive",
+          "predict_rek": "negative",
+          "predict_S_rec": "negative",
+          "predict_S_prec": "negative",
+          "predict_S_mag": "negative"
+        },
+        {
+          "input": "A few months ago, after being asked on MSNBC about attacks on Senator Obama that were being unleashed by Senators McCain and Joe Lieberman, Mr. Biden said:",
+          "output": "positive",
+          "metadata_hierarchy": "professions",
+          "metadata_analyzed_profession": "model",
+          "metadata_sub_context": "model",
+          "metadata_gender": "male",
+          "metadata_fold": "diagnostic",
+          "predict_unit": "negative",
+          "predict_anchor": "negative",
+          "predict_g": "negative",
+          "predict_h": "negative",
+          "predict_dense_probe": "negative",
+          "predict_rek": "negative",
+          "predict_S_rec": "negative",
+          "predict_S_prec": "negative",
+          "predict_S_mag": "negative"
+        }
+      ]
+    },
+    {
+      "dataset": "taxonomic_sidebyside",
+      "examples": [
+        {
+          "input": "Vasa, Minnesota\n\nVasa is an unincorporated community in Vasa Township, Goodhue County, Minnesota, United States. The community is nine miles east of Cannon Falls at the junction of State Highway 19 (M...",
+          "output": "positive",
+          "metadata_hierarchy": "taxonomic_sidebyside",
+          "metadata_sub_context": "United States",
+          "metadata_target_text": "United States",
+          "metadata_fold": "diagnostic",
+          "predict_unit": "negative",
+          "predict_anchor": "positive",
+          "predict_g": "positive",
+          "predict_h": "positive",
+          "predict_dense_probe": "positive",
+          "predict_rek": "negative",
+          "predict_S_rec": "negative",
+          "predict_S_prec": "positive",
+          "predict_S_mag": "positive"
+        },
+        {
+          "input": "Arkansas Department of Health; Namvar Zohoori, individually and in his official capacity\n\n                       lllllllllllllllllllll Defendants - Appellants\n                                        _...",
+          "output": "positive",
+          "metadata_hierarchy": "taxonomic_sidebyside",
+          "metadata_sub_context": "United States",
+          "metadata_target_text": "United States",
+          "metadata_fold": "diagnostic",
+          "predict_unit": "negative",
+          "predict_anchor": "negative",
+          "predict_g": "positive",
+          "predict_h": "positive",
+          "predict_dense_probe": "negative",
+          "predict_rek": "negative",
+          "predict_S_rec": "negative",
+          "predict_S_prec": "negative",
+          "predict_S_mag": "positive"
+        },
+        {
+          "input": "Rakestraw\n\nRakestraw is a surname. Notable people with the surname include:\n\nLarry Rakestraw (born 1942), American football player\nPaulette Rakestraw (born 1967), American politician from the state of...",
+          "output": "positive",
+          "metadata_hierarchy": "taxonomic_sidebyside",
+          "metadata_sub_context": "Georgia",
+          "metadata_target_text": "Georgia",
+          "metadata_fold": "diagnostic",
+          "predict_unit": "positive",
+          "predict_anchor": "negative",
+          "predict_g": "positive",
+          "predict_h": "positive",
+          "predict_dense_probe": "positive",
+          "predict_rek": "negative",
+          "predict_S_rec": "negative",
+          "predict_S_prec": "negative",
+          "predict_S_mag": "negative"
+        }
+      ]
+    }
+  ]
+}

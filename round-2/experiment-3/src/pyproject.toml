@@ -1,0 +1,33 @@
+[project]
+name = "ccrg-c3-nonspelling-absorption"
+version = "0.1.0"
+description = "C3 generality experiment: does SAE feature absorption generalize beyond first-letter spelling? (numeric + taxonomic hierarchies, Gemma-2-2b + Gemma Scope L12/16k)"
+requires-python = ">=3.12"
+# NOTE: torch must be the cu124 build (system NVIDIA driver is CUDA 12.7; the default cu130
+# wheel disables CUDA). Install torch with:
+#   uv pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+# The SAE is loaded directly from the gemma-scope params.npz (no sae_lens/transformer_lens
+# needed), so the heavy SAE-library import is avoided.
+dependencies = [
+    "torch==2.6.0",
+    "transformers==5.12.1",
+    "tokenizers==0.22.2",
+    "accelerate==1.14.0",
+    "safetensors==0.8.0",
+    "huggingface-hub==1.19.0",
+    "scikit-learn==1.9.0",
+    "scipy==1.17.1",
+    "numpy==2.4.6",
+    "statsmodels==0.14.6",
+    "pandas==3.0.3",
+    "patsy==1.0.2",
+    "joblib==1.5.3",
+    "threadpoolctl==3.6.0",
+    "loguru==0.7.3",
+    "tqdm==4.68.3",
+    "regex==2026.5.9",
+    "filelock==3.29.4",
+    "pyyaml==6.0.3",
+    "sympy==1.13.1",
+    "triton==3.2.0",
+]

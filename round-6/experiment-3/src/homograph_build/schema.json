@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Homograph/Polysemy Entity Absorption Testbed (city + month + given-name + brand) — data_out.json",
+  "description": "On-disk format is the AII `exp_sel_data_out` schema: a top-level object {metadata, datasets:[{dataset, examples}]}. Each example carries input, output, and FLAT metadata_<key> fields (the exp_sel schema forbids nested objects inside an example). The 'logical_row_schema' block below documents the equivalent nested {input, output, metadata{...}} view. This is a strict structural drop-in for the iter-1 non-spelling absorption testbed (art_t2uUbjSwpd3t): same on-disk format, same three components per hierarchy, same fold semantics, same gemma-2-2b token anchoring, same pinned pile revision. Sub-context / target-sense / competitor labels are assigned purely from surface form / regex / gazetteer / disambiguating local context, independent of any SAE latent or model — so the degenerate-construction guard holds and absorption presence/absence is a future-iteration empirical finding, not baked into the data.",
+  "type": "object",
+  "required": ["metadata", "datasets"],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {"type": "object", "description": "Top-level build metadata (seed, pile revision, counts, llm cost, eligible-entity counts, ...)."},
+    "datasets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["dataset", "examples"],
+        "additionalProperties": false,
+        "properties": {
+          "dataset": {"type": "string", "enum": ["city_homograph_absorption", "month_name_absorption", "given_name_absorption", "brand_homograph_absorption"]},
+          "examples": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["input", "output"],
+              "additionalProperties": false,
+              "properties": {
+                "input": {"type": "string", "description": "Text the model reads: a content/surface pair sentence, or a pile context window."},
+                "output": {"type": "string", "enum": ["positive", "negative"], "description": "PARENT binary label: positive = parent concept (is-a-city / is-a-month / is-a-given-name / is-a-brand) present at the target, negative = absent."},
+                "metadata_hierarchy": {"type": "string", "enum": ["city", "month", "given_name", "brand"]},
+                "metadata_row_type": {"type": "string", "enum": ["content_pair", "surface_pair", "corpus"]},
+                "metadata_concept_present": {"type": "boolean", "description": "== (output == positive)."},
+                "metadata_sub_context": {"type": ["string", "null"], "description": "Frozen surface-derived sub-context = the specific homograph entity (e.g. Phoenix, May, Grace, Apple) for positives; null for negatives / x_off."},
+                "metadata_pair_id": {"type": ["string", "null"], "description": "Links x_on<->x_off and surface_a<->surface_b; null for corpus rows."},
+                "metadata_pair_role": {"type": ["string", "null"], "enum": ["x_on", "x_off", "surface_a", "surface_b", null]},
+                "metadata_target_text": {"type": "string", "description": "Exact surface token(s) inside input ('' for x_off where the concept is absent). For homograph_competitor negatives this is the competing-sense token."},
+                "metadata_target_char_start": {"type": "integer", "description": "Char offset of target in input (-1 if none; for x_off = the differing slot start, zero-width)."},
+                "metadata_target_char_end": {"type": "integer"},
+                "metadata_target_token_indices": {"type": ["array", "null"], "items": {"type": "integer"}, "description": "gemma-2-2b token indices overlapping the char span (offset-mapping, add_special_tokens=False). null if tokenizer unavailable."},
+                "metadata_source": {"type": "string", "enum": ["templated", "llm_generated", "pile_uncopyrighted"]},
+                "metadata_pile_set_name": {"type": ["string", "null"], "description": "Pile sub-corpus name for corpus rows (e.g. Pile-CC, Wikipedia (en)); null otherwise."},
+                "metadata_llm_judge_pass": {"type": ["boolean", "null"], "description": "content_flipped AND surface_preserved AND grammatical AND sense_correct. null if not judged. Use pass==true for the primary fold."},
+                "metadata_llm_judge_score": {"type": ["number", "null"]},
+                "metadata_fold": {"type": "string", "enum": ["train", "test", "diagnostic"], "description": "pairs -> train/test (by pair_id, stratified by sub_context); corpus -> train/diagnostic (stratified). The diagnostic fold is where the form-free parent-hole / absorption search runs."},
+                "metadata_template_id": {"type": ["string", "null"]},
+                "metadata_neg_family": {"type": ["string", "null"], "enum": ["homograph_competitor", "other_place", "other_entity", "other_time", "other_person_ref", "other_company_ref", "easy", null], "description": "homograph_competitor = the matched hard control (same surface token, NON-target sense). other_* = surface-matched non-member fillers for the content pairs. easy = corpus window with no entity token."},
+                "metadata_entity": {"type": ["string", "null"], "description": "Canonical homograph entity surface (e.g. Phoenix, May, Grace, Apple). Set on positives and on homograph_competitor negatives (records which token's competing sense appeared); null on x_off / easy / other negatives."},
+                "metadata_target_sense": {"type": ["string", "null"], "enum": ["city", "month", "given_name", "brand", "competitor", null], "description": "'city'|'month'|'given_name'|'brand' for target-sense positives; 'competitor' for homograph_competitor negatives; null otherwise."},
+                "metadata_competitor_sense": {"type": ["string", "null"], "description": "Plain-words gloss of the competing (non-target) sense of the entity, e.g. 'mythical bird / comeback' for Phoenix."},
+                "metadata_homograph_strength": {"type": ["number", "null"], "description": "wordfreq Zipf frequency of the lowercase competing common word (higher = stronger competing sense = more likely to absorb the parent). null where no entity."},
+                "metadata_notes": {"type": ["string", "null"], "description": "Free-text flags, e.g. 'collision: ...', 'competitor_token=...', 'no_entity_negative', 'off_filler=...'."}
+              },
+              "patternProperties": {"^metadata_[a-zA-Z_][a-zA-Z0-9_]*$": {}}
+            }
+          }
+        }
+      }
+    }
+  },
+  "logical_row_schema": {
+    "_comment": "Equivalent nested view. On disk these metadata_* keys are flattened to satisfy exp_sel_data_out.",
+    "input": "string",
+    "output": "positive | negative",
+    "metadata": {
+      "hierarchy": "city | month | given_name | brand",
+      "row_type": "content_pair | surface_pair | corpus",
+      "concept_present": "bool",
+      "sub_context": "string (homograph entity) | null",
+      "pair_id": "string | null",
+      "pair_role": "x_on | x_off | surface_a | surface_b | null",
+      "target_text": "string",
+      "target_char_start": "int",
+      "target_char_end": "int",
+      "target_token_indices": "list[int] | null",
+      "source": "templated | llm_generated | pile_uncopyrighted",
+      "pile_set_name": "string | null",
+      "llm_judge_pass": "bool | null",
+      "llm_judge_score": "float | null",
+      "fold": "train | test | diagnostic",
+      "template_id": "string | null",
+      "neg_family": "homograph_competitor | other_place | other_entity | other_time | other_person_ref | other_company_ref | easy | null",
+      "entity": "string | null",
+      "target_sense": "city | month | given_name | brand | competitor | null",
+      "competitor_sense": "string | null",
+      "homograph_strength": "float | null",
+      "notes": "string | null"
+    }
+  },
+  "homograph_entities_per_hierarchy": {
+    "city": ["Phoenix", "Mobile", "Reading", "Bath", "Nice", "Buffalo", "Hull", "Cork", "Split", "Bend", "Worth", "Sandy", "Surprise", "Cologne", "Mercury", "Jackson", "Columbus", "Cleveland", "Florence", "Sydney", "Paris", "Jordan", "Hollywood"],
+    "month": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "given_name": ["Grace", "Hope", "Faith", "Joy", "Mark", "Bill", "Will", "Rose", "Frank", "Pat", "Dawn", "Summer", "Autumn", "Crystal", "Daisy", "Lily", "Violet", "Ivy", "Holly", "Rosemary", "Pearl", "Ruby", "Art", "Earl", "Jack", "Drew", "Sky", "Reed", "Chase", "Wade", "Cliff", "Dean", "Robin", "Carol"],
+    "brand": ["Apple", "Amazon", "Shell", "Gap", "Dove", "Target", "Orange", "Subway", "Tide", "Corona", "Visa", "Polo", "Puma", "Jaguar", "Caterpillar", "Dawn", "Sprint", "Chase", "Square", "Oracle", "Monster", "Patagonia", "Java", "Python"]
+  },
+  "cross_hierarchy_collisions": ["Dawn (given_name + brand)", "Chase (given_name + brand)", "Jordan (city; also a country in dataset_2)", "Mercury (city; also planet/element)", "Paris (city; also myth/celebrity)"]
+}

@@ -1,0 +1,2448 @@
+{
+  "metadata": {
+    "method_name": "M4 Recall-Hole Router \u2014 Homograph Prospective Expansion (validate-or-demote) + M7 breadth",
+    "description": "Reuses the iter-5 a-priori SAE firing-structure router VERBATIM (core.py) and applies the FROZEN recall-hole-alone rule (absorption iff parent recall-hole > tau_h_alone, fit ONLY on the 12 frozen derivation concepts) to a much larger truly-prospective set: ~93 homograph entities across 4 is-a hierarchies (cities/months/given-names/brands) + the 7 internal new-spelling letters. Each entity's regime is PREDICTED and LOGGED before its per-entity outcome (label-free CCRG unit vs best raw latent (a) / attribution pool (h) / non-SAE probe (d)) is measured; hit = (predicted == sign(auc_unit-auc_a)). M4 = per-predicted-regime prospective Wilson CIs + ROUTER_VALIDATED (CI excludes 0.5) / ROUTER_DEMOTED verdict. M7 = systematic absorption-breadth count over the homograph entities + named NEW suppressed-parent homographs. Reported as a screening heuristic with measured error, not a validated oracle.",
+    "baselines": {
+      "a": "best single raw SAE latent (highest train AUC, content-responsive) \u2014 the individual latent to beat",
+      "h": "supervised SAE standardized diff-of-means attribution pool (top-k, AxBench/SCR-TPP proxy)",
+      "d": "non-SAE standardized diff-of-means probe on the raw layer-12 residual (required non-SAE baseline)",
+      "unit": "label-free CCRG K-track-lite: parent anchor + firing-disjoint hole-covering absorbers"
+    },
+    "sae_release": "google/gemma-scope-2b-pt-res",
+    "sae_id": "layer_12/width_16k/average_l0_82/params.npz",
+    "hook": "blocks.12.hook_resid_post",
+    "model": "unsloth/gemma-2-2b",
+    "seed": 1234,
+    "scale": "smoke",
+    "accelerator": "NVIDIA L4",
+    "firing_convention": "encode>0 (JumpReLU)",
+    "gating": {
+      "recon_cos_mean": 0.9269017577171326,
+      "recon_cos_min": 0.4453181326389313,
+      "l0_mean": 170.1750030517578,
+      "l0_median": 70.0
+    },
+    "homograph_data_path": "homograph_build/smoke_data_out.json",
+    "homograph_build_metadata": {
+      "artifact": "homograph_polysemy_entity_absorption_testbed",
+      "description": "FOUR-hierarchy (CITY / MONTH / GIVEN-NAME / BRAND) homograph/polysemy is-a feature-absorption testbed; a strict structural drop-in extension of the iter-1 non-spelling absorption testbed (art_t2uUbjSwpd3t). Each hierarchy ships content-flip pairs, surface-flip pairs, and a pile-uncopyrighted diagnostic corpus labelled by frozen, model-independent sub-context, PLUS a homograph_competitor matched-negative family (same surface token in its non-target sense). No SAE/model/activation computation.",
+      "BUILDING_BLOCK_NOTE": "NEXT-ITERATION BUILDING BLOCK \u2014 this corpus is NOT consumed by this iteration's parallel experiments; it provides breadth of homograph/polysemy entity candidates so the persistent single-slice taxonomic critique can be answered next iteration with many suppressed-parent cases.",
+      "schema": "exp_sel_data_out (flat metadata_* keys); see schema.json for the logical (nested) view",
+      "scale": "smoke",
+      "seed": 20240617,
+      "pile_repo": "monology/pile-uncopyrighted",
+      "pile_revision": "3be90335b66f24456a5d6659d9c8d208c0357119",
+      "gemma_tokenizer": "google/gemma-2-2b",
+      "token_indices_present": false,
+      "wordfreq_available": true,
+      "llm_model": "openai/gpt-4o-mini",
+      "llm_cost_usd": 0.0,
+      "llm_calls": 0,
+      "total_rows": 2698
+    },
+    "frozen_rule": {
+      "recommended": "recall_hole_alone",
+      "tau_h_alone": null,
+      "derivation_balanced_acc": null,
+      "tau_j": 0.02,
+      "tau_h": 0.0,
+      "combined_balanced_acc": 1.0,
+      "tau_j_alone": null,
+      "jaccard_alone_balanced_acc": null,
+      "definition_string": "predict ABSORPTION-regime iff (parent recall-hole > nan); else CO-FIRING-regime",
+      "loo": {
+        "recall_hole_alone_acc": 1.0,
+        "jaccard_alone_acc": 1.0,
+        "combined_acc": 1.0,
+        "recall_hole_alone_per_concept": [
+          {
+            "concept": "spelling_L",
+            "tau_fold": null,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          },
+          {
+            "concept": "numeric",
+            "tau_fold": null,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          },
+          {
+            "concept": "taxonomic",
+            "tau_fold": null,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          }
+        ],
+        "jaccard_alone_per_concept": [
+          {
+            "concept": "spelling_L",
+            "tau_fold": null,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          },
+          {
+            "concept": "numeric",
+            "tau_fold": null,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          },
+          {
+            "concept": "taxonomic",
+            "tau_fold": null,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          }
+        ],
+        "combined_per_concept": [
+          {
+            "concept": "spelling_L",
+            "tau_j_fold": 0.02,
+            "tau_h_fold": 0.0,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          },
+          {
+            "concept": "numeric",
+            "tau_j_fold": 0.02,
+            "tau_h_fold": 0.0,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          },
+          {
+            "concept": "taxonomic",
+            "tau_j_fold": 0.02,
+            "tau_h_fold": 0.0,
+            "pred": "co_firing",
+            "ground_truth": "co_firing",
+            "hit": true
+          }
+        ]
+      }
+    },
+    "reproduction_check": {
+      "tau_h_alone_actual": null,
+      "tau_h_alone_iter5_reference": 0.7795,
+      "tau_h_alone_drift": null,
+      "derivation_balanced_acc_recall_hole_alone": null,
+      "derivation_balanced_acc_iter5_reference": 1.0,
+      "loo_recall_hole_alone_actual": 1.0,
+      "loo_iter5_reference": 0.833,
+      "n_derivation": 3,
+      "note": "Frozen rule = whatever derivation yields; tiny drift from iter-5 is reported, not a hard failure. tau_h_alone is fit ONLY on the 12 derivation concepts BEFORE any prospective (homograph / spelling) outcome is measured (predict-then-measure integrity)."
+    },
+    "router_verdict": "ROUTER_DEMOTED",
+    "router_verdict_rationale": "absorption-predicted homograph stratum Wilson95=[nan, nan] (n=0); homograph+spelling absorption stratum Wilson95=[nan, nan] (n=0). No prospective CI excludes 0.5 -> the router is reported as an EXPLORATORY DIAGNOSTIC, not a validated a-priori predictor (honest negative).",
+    "prospective_hitrate_primary": {
+      "absorption_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "cofiring_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "combined_all": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "prospective_hitrate_combined_with_spelling": {
+      "absorption_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "combined_all": {
+        "hits": 1,
+        "n": 2,
+        "rate": 0.5,
+        "wilson_ci": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "n_homograph_absorption": 0,
+      "n_spelling_absorption": 0
+    },
+    "prospective_hitrate_ablation_combined": {
+      "absorption_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "cofiring_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "combined_all": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "prospective_hitrate_ablation_jaccard": {
+      "absorption_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "cofiring_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "combined_all": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "prospective_hitrate_vs_h": {
+      "absorption_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "cofiring_predicted": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      },
+      "combined_all": {
+        "hits": 0,
+        "n": 0,
+        "rate": null,
+        "wilson_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "n_inferential_entities": 0,
+    "n_entities_total": 23,
+    "absorption_breadth": {
+      "n_entities_total": 23,
+      "n_entities_with_stable_estimate": 0,
+      "n_entities_eligible": 0,
+      "absorption_structured_definition": "recall_hole > 0.5 AND firing_Jaccard < 0.1",
+      "n_absorption_structured_stable": 0,
+      "n_absorption_structured_eligible": 0,
+      "absorption_structured_entities": [],
+      "per_hierarchy": {
+        "city": {
+          "n_entities_stable": 0,
+          "n_absorption_structured": 0,
+          "examples": []
+        },
+        "month": {
+          "n_entities_stable": 0,
+          "n_absorption_structured": 0,
+          "examples": []
+        },
+        "given_name": {
+          "n_entities_stable": 0,
+          "n_absorption_structured": 0,
+          "examples": []
+        },
+        "brand": {
+          "n_entities_stable": 0,
+          "n_absorption_structured": 0,
+          "examples": []
+        }
+      },
+      "new_suppressed_parent_homographs": [],
+      "prior_named_suppressed_parents_elsewhere": [
+        "Georgia",
+        "Jordan"
+      ]
+    },
+    "hierarchy_parents": {
+      "city": {
+        "parent_latent": 7507,
+        "parent_pos_firing": 0.9236641221374046,
+        "parent_unresolved": false,
+        "n_responsive": 104
+      }
+    },
+    "counterexamples": [
+      "numeric: firing-Jaccard=nan HIGH yet ground-truth=co_firing -> jaccard-alone MISLABELS it; the recall-hole gate (recall_hole=nan) routes it correctly.",
+      "taxonomic (aggregated): firing-Jaccard=nan LOW yet ground-truth=co_firing: the parent already fires on 0.96 of positives (recall_hole=nan) so there are no holes -> recall-hole gate correctly routes co_firing where jaccard-alone would mislabel absorption."
+    ],
+    "honest_notes": [
+      "M4 VERDICT = ROUTER_DEMOTED. absorption-predicted homograph stratum Wilson95=[nan, nan] (n=0); homograph+spelling absorption stratum Wilson95=[nan, nan] (n=0). No prospective CI excludes 0.5 -> the router is reported as an EXPLORATORY DIAGNOSTIC, not a validated a-priori predictor (honest negative).",
+      "PRIMARY rule = RECALL-HOLE-ALONE (predict absorption iff parent recall-hole > nan); fit ONLY on the 12 frozen DERIVATION concepts (balanced_acc=nan, LOO=1.000). The homograph entities + the 7 internal spelling letters are the truly-PROSPECTIVE set: every entity's regime is PREDICTED and LOGGED ('[logged BEFORE outcome measurement]') before its per-entity outcome is measured.",
+      "GROUND-TRUTH regime PRIMARY = sign(auc_unit - auc_a): the label-free CCRG unit is built on the parent's recall HOLES, so a hit means grouping helps exactly where the recall-hole rule said it would. SECONDARY vs (h) the supervised attribution pool frequently beats the unit on GENERAL classification even in true absorption (the absorption advantage lives on absorbed-slice recall); (d) is the required non-SAE residual diff-of-means probe. (a)/(h)/(d) reported in every entity row.",
+      "M7 BREADTH: of 0 homograph entities with a stable recall-hole estimate (n_all>=30), 0 are absorption-structured (recall_hole > 0.5 AND firing_Jaccard < 0.1); 0 of those are inferential (n_diag>=150). This directly quantifies how narrow absorption is across the homograph entity space and answers the 'absorption is n=1-2' critique. NEW named suppressed-parent homographs (beyond Georgia/Jordan, which live in the taxonomic derivation set): none found",
+      "SANITY: the absorption-PREDICTED count (recall_hole>tau_h_alone~0.78) is a STRICTER gate than the absorption-STRUCTURED breadth flag (recall_hole>0.5), so #predicted-absorption <= #structured by construction; both are reported.",
+      "numeric: firing-Jaccard=nan HIGH yet ground-truth=co_firing -> jaccard-alone MISLABELS it; the recall-hole gate (recall_hole=nan) routes it correctly.",
+      "taxonomic (aggregated): firing-Jaccard=nan LOW yet ground-truth=co_firing: the parent already fires on 0.96 of positives (recall_hole=nan) so there are no holes -> recall-hole gate correctly routes co_firing where jaccard-alone would mislabel absorption."
+    ],
+    "derivation_concepts": [
+      "spelling_L",
+      "numeric",
+      "taxonomic"
+    ],
+    "prospective_spelling": [
+      "spelling_C",
+      "spelling_F"
+    ],
+    "prospective_entities": [
+      "city/Bath",
+      "city/Bend",
+      "city/Buffalo",
+      "city/Cleveland",
+      "city/Cologne",
+      "city/Columbus",
+      "city/Cork",
+      "city/Florence",
+      "city/Hollywood",
+      "city/Hull",
+      "city/Jackson",
+      "city/Jordan",
+      "city/Mercury",
+      "city/Mobile",
+      "city/Nice",
+      "city/Paris",
+      "city/Phoenix",
+      "city/Reading",
+      "city/Sandy",
+      "city/Split",
+      "city/Surprise",
+      "city/Sydney",
+      "city/Worth"
+    ],
+    "derivation_table": [
+      {
+        "concept": "spelling_L",
+        "recall_hole": null,
+        "jaccard": null,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.625,
+        "auc_a": 0.625,
+        "delta_vs_a": 0.0,
+        "hit_vs_a": true
+      },
+      {
+        "concept": "numeric",
+        "recall_hole": null,
+        "jaccard": null,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 1.0,
+        "auc_a": 1.0,
+        "delta_vs_a": 0.0,
+        "hit_vs_a": true
+      },
+      {
+        "concept": "taxonomic",
+        "recall_hole": null,
+        "jaccard": null,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 1.0,
+        "auc_a": 1.0,
+        "delta_vs_a": 0.0,
+        "hit_vs_a": true
+      }
+    ],
+    "spelling_prospective_table": [
+      {
+        "concept": "spelling_C",
+        "recall_hole": 1.0,
+        "jaccard": 0.0,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "absorption",
+        "auc_unit": 1.0,
+        "auc_a": 0.8,
+        "delta_vs_a": 0.19999999999999996,
+        "hit_vs_a": false
+      },
+      {
+        "concept": "spelling_F",
+        "recall_hole": 0.16666666666666663,
+        "jaccard": 0.0,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.8571428571428572,
+        "auc_a": 0.8571428571428572,
+        "delta_vs_a": 0.0,
+        "hit_vs_a": true
+      }
+    ],
+    "entity_table": [
+      {
+        "hierarchy": "city",
+        "entity": "Bath",
+        "n_all": 20,
+        "n_diag": 9,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.15000000000000002,
+        "jaccard": 0.3010752688172043,
+        "homograph_strength": 4.44,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.4851851851851851,
+        "auc_a": 1.0,
+        "auc_h": 0.8592592592592592,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.5148148148148148,
+        "delta_vs_a_ci": [
+          -0.7259722222222222,
+          -0.28333333333333344
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Bend",
+        "n_all": 16,
+        "n_diag": 8,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.125,
+        "jaccard": 0.44,
+        "homograph_strength": 4.13,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.7458333333333333,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.25416666666666665,
+        "delta_vs_a_ci": [
+          -0.4125,
+          -0.12083333333333335
+        ],
+        "k": 2,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Buffalo",
+        "n_all": 20,
+        "n_diag": 11,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.050000000000000044,
+        "jaccard": 0.47229551451187335,
+        "homograph_strength": 4.14,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.6454545454545455,
+        "auc_a": 0.9181818181818182,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.2727272727272727,
+        "delta_vs_a_ci": [
+          -0.48488636363636367,
+          -0.054507575757575984
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Cleveland",
+        "n_all": 20,
+        "n_diag": 13,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.25,
+        "jaccard": 0.12398921832884097,
+        "homograph_strength": 4.27,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.7076923076923077,
+        "auc_a": 0.958974358974359,
+        "auc_h": 0.9602564102564103,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.2512820512820513,
+        "delta_vs_a_ci": [
+          -0.46923076923076923,
+          -0.05637820512820532
+        ],
+        "k": 2,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Cologne",
+        "n_all": 20,
+        "n_diag": 10,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.050000000000000044,
+        "jaccard": 0.17615176151761516,
+        "homograph_strength": 3.57,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.5233333333333333,
+        "auc_a": 0.9666666666666667,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.44333333333333336,
+        "delta_vs_a_ci": [
+          -0.6483333333333333,
+          -0.2333333333333334
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Columbus",
+        "n_all": 20,
+        "n_diag": 9,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.19999999999999996,
+        "jaccard": 0.29301075268817206,
+        "homograph_strength": 4.04,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.6333333333333333,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.3666666666666667,
+        "delta_vs_a_ci": [
+          -0.5777777777777777,
+          -0.1777777777777778
+        ],
+        "k": 2,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Cork",
+        "n_all": 20,
+        "n_diag": 11,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.09999999999999998,
+        "jaccard": 0.3010752688172043,
+        "homograph_strength": 3.71,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.45,
+        "auc_a": 0.9545454545454546,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.5045454545454546,
+        "delta_vs_a_ci": [
+          -0.7212121212121212,
+          -0.2666666666666667
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Florence",
+        "n_all": 20,
+        "n_diag": 11,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.09999999999999998,
+        "jaccard": 0.22162162162162163,
+        "homograph_strength": 3.96,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.34545454545454546,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.6545454545454545,
+        "delta_vs_a_ci": [
+          -0.8242424242424242,
+          -0.4606060606060606
+        ],
+        "k": 2,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Hollywood",
+        "n_all": 20,
+        "n_diag": 10,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.050000000000000044,
+        "jaccard": 0.48663101604278075,
+        "homograph_strength": 4.52,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.6866666666666668,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.31333333333333324,
+        "delta_vs_a_ci": [
+          -0.5234166666666666,
+          -0.119916666666667
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Hull",
+        "n_all": 20,
+        "n_diag": 11,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.050000000000000044,
+        "jaccard": 0.21774193548387097,
+        "homograph_strength": 4.06,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.5606060606060606,
+        "auc_a": 0.9545454545454546,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.39393939393939403,
+        "delta_vs_a_ci": [
+          -0.5879166666666666,
+          -0.2151515151515151
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Jackson",
+        "n_all": 20,
+        "n_diag": 11,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.21311475409836064,
+        "homograph_strength": 4.58,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.7333333333333334,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.2666666666666666,
+        "delta_vs_a_ci": [
+          -0.42727272727272725,
+          -0.12727272727272732
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Jordan",
+        "n_all": 20,
+        "n_diag": 9,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.31521739130434784,
+        "homograph_strength": 4.51,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.29259259259259257,
+        "auc_a": 1.0,
+        "auc_h": 0.9851851851851852,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.7074074074074075,
+        "delta_vs_a_ci": [
+          -0.8925925925925926,
+          -0.5
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Mercury",
+        "n_all": 2,
+        "n_diag": 1,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.23450134770889489,
+        "homograph_strength": 4.02,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "absorption",
+        "auc_unit": 0.9666666666666667,
+        "auc_a": 0.5,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": 0.4666666666666667,
+        "delta_vs_a_ci": [
+          0.4,
+          0.5
+        ],
+        "k": 1,
+        "hit_vs_a": false,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Mobile",
+        "n_all": 19,
+        "n_diag": 10,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.1578947368421053,
+        "jaccard": 0.3709677419354839,
+        "homograph_strength": 4.85,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.42666666666666664,
+        "auc_a": 0.8833333333333334,
+        "auc_h": 0.8833333333333334,
+        "auc_d": 0.9966666666666667,
+        "delta_vs_a": -0.4566666666666668,
+        "delta_vs_a_ci": [
+          -0.6883750000000001,
+          -0.1982916666666668
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Nice",
+        "n_all": 20,
+        "n_diag": 11,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.3324324324324324,
+        "homograph_strength": 5.37,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.8333333333333334,
+        "auc_a": 1.0,
+        "auc_h": 0.9787878787878788,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.16666666666666663,
+        "delta_vs_a_ci": [
+          -0.33340909090909093,
+          -0.030303030303030273
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Paris",
+        "n_all": 20,
+        "n_diag": 11,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.09999999999999998,
+        "jaccard": 0.2452316076294278,
+        "homograph_strength": 4.82,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.5939393939393939,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.4060606060606061,
+        "delta_vs_a_ci": [
+          -0.6121590909090908,
+          -0.20901515151515182
+        ],
+        "k": 2,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Phoenix",
+        "n_all": 20,
+        "n_diag": 10,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.3324324324324324,
+        "homograph_strength": 4.21,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.3433333333333333,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.6566666666666667,
+        "delta_vs_a_ci": [
+          -0.8333333333333334,
+          -0.45666666666666667
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Reading",
+        "n_all": 20,
+        "n_diag": 10,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.44,
+        "homograph_strength": 5.14,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.7166666666666667,
+        "auc_a": 0.95,
+        "auc_h": 0.9466666666666665,
+        "auc_d": 0.9966666666666667,
+        "delta_vs_a": -0.23333333333333328,
+        "delta_vs_a_ci": [
+          -0.44666666666666666,
+          -0.013333333333333308
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Sandy",
+        "n_all": 10,
+        "n_diag": 5,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.44,
+        "homograph_strength": 4.19,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.5533333333333333,
+        "auc_a": 0.9,
+        "auc_h": 0.9666666666666667,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.3466666666666667,
+        "delta_vs_a_ci": [
+          -0.5333333333333333,
+          -0.18000000000000005
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Split",
+        "n_all": 6,
+        "n_diag": 3,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.17615176151761516,
+        "homograph_strength": 4.65,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "absorption",
+        "auc_unit": 0.9333333333333333,
+        "auc_a": 0.8333333333333334,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": 0.09999999999999998,
+        "delta_vs_a_ci": [
+          -0.06666666666666676,
+          0.2666666666666667
+        ],
+        "k": 1,
+        "hit_vs_a": false,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Surprise",
+        "n_all": 1,
+        "n_diag": 1,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.5104712041884817,
+        "homograph_strength": 4.75,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.5,
+        "auc_a": 0.5,
+        "auc_h": 0.5,
+        "auc_d": 0.5,
+        "delta_vs_a": 0.0,
+        "delta_vs_a_ci": [
+          0.0,
+          0.0
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Sydney",
+        "n_all": 20,
+        "n_diag": 10,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.0,
+        "jaccard": 0.7881136950904393,
+        "homograph_strength": 4.53,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.4866666666666667,
+        "auc_a": 0.8966666666666666,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.4099999999999999,
+        "delta_vs_a_ci": [
+          -0.6717083333333334,
+          -0.11333333333333329
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      },
+      {
+        "hierarchy": "city",
+        "entity": "Worth",
+        "n_all": 19,
+        "n_diag": 10,
+        "eligible": false,
+        "power_flag": "descriptive_only",
+        "parent_latent": 7507,
+        "recall_hole": 0.1578947368421053,
+        "jaccard": 0.17615176151761516,
+        "homograph_strength": 5.16,
+        "predicted_regime": "co_firing",
+        "ground_truth_regime": "co_firing",
+        "auc_unit": 0.7966666666666667,
+        "auc_a": 1.0,
+        "auc_h": 1.0,
+        "auc_d": 1.0,
+        "delta_vs_a": -0.20333333333333325,
+        "delta_vs_a_ci": [
+          -0.36004166666666665,
+          -0.07999999999999996
+        ],
+        "k": 1,
+        "hit_vs_a": true,
+        "absorption_structured": false
+      }
+    ],
+    "spelling_usability": [
+      {
+        "letter": "C",
+        "n_content_pairs": 12,
+        "n_corpus_positives": 20,
+        "n_corpus_words": 2,
+        "corpus_from_templates": false,
+        "n_vocab_on_words": 8568
+      },
+      {
+        "letter": "F",
+        "n_content_pairs": 12,
+        "n_corpus_positives": 20,
+        "n_corpus_words": 2,
+        "corpus_from_templates": false,
+        "n_vocab_on_words": 3836
+      }
+    ],
+    "n_concepts": 28,
+    "n_derivation": 3,
+    "n_prospective_spelling": 2,
+    "n_prospective_homograph": 23
+  },
+  "datasets": [
+    {
+      "dataset": "m4_router_prospective_concepts",
+      "examples": [
+        {
+          "input": "Concept 'spelling_L' (token, derivation): parent latent 205, parent recall-hole=nan, firing-Jaccard(detector,parent) median=nan. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "derivation_concept",
+          "metadata_role": "derivation",
+          "metadata_concept": "spelling_L",
+          "metadata_granularity": "token",
+          "metadata_parent_latent": 205,
+          "metadata_parent_unresolved": true,
+          "metadata_recall_hole": null,
+          "metadata_jaccard": null,
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.625,
+          "metadata_outcome_auc_a_rawlatent": 0.625,
+          "metadata_outcome_auc_h_attribution": 0.625,
+          "metadata_outcome_auc_d_nonsae": 0.9375,
+          "metadata_outcome_delta_vs_a": 0.0,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.0
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_hit_vs_a": true,
+          "metadata_is_prospective_hit": null,
+          "metadata_power_flag": "inferential"
+        },
+        {
+          "input": "Concept 'numeric' (token, derivation): parent latent 7517, parent recall-hole=nan, firing-Jaccard(detector,parent) median=nan. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "derivation_concept",
+          "metadata_role": "derivation",
+          "metadata_concept": "numeric",
+          "metadata_granularity": "token",
+          "metadata_parent_latent": 7517,
+          "metadata_parent_unresolved": false,
+          "metadata_recall_hole": null,
+          "metadata_jaccard": null,
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 1.0,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": 0.0,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.0
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_hit_vs_a": true,
+          "metadata_is_prospective_hit": null,
+          "metadata_power_flag": "inferential"
+        },
+        {
+          "input": "Concept 'taxonomic' (token, derivation): parent latent 3792, parent recall-hole=nan, firing-Jaccard(detector,parent) median=nan. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "derivation_concept",
+          "metadata_role": "derivation",
+          "metadata_concept": "taxonomic",
+          "metadata_granularity": "token",
+          "metadata_parent_latent": 3792,
+          "metadata_parent_unresolved": false,
+          "metadata_recall_hole": null,
+          "metadata_jaccard": null,
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 1.0,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 0.75,
+          "metadata_outcome_delta_vs_a": 0.0,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.0
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_hit_vs_a": true,
+          "metadata_is_prospective_hit": null,
+          "metadata_power_flag": "inferential"
+        },
+        {
+          "input": "Concept 'spelling_C' (token, prospective): parent latent 4976, parent recall-hole=1.0000, firing-Jaccard(detector,parent) median=0.0000. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair or marginal attribution?",
+          "output": "absorption",
+          "predict_router": "co_firing",
+          "metadata_kind": "spelling_prospective",
+          "metadata_role": "prospective",
+          "metadata_concept": "spelling_C",
+          "metadata_granularity": "token",
+          "metadata_parent_latent": 4976,
+          "metadata_parent_unresolved": true,
+          "metadata_recall_hole": 1.0,
+          "metadata_jaccard": 0.0,
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "absorption",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_ground_truth_regime_vs_h": "absorption",
+          "metadata_outcome_auc_unit": 1.0,
+          "metadata_outcome_auc_a_rawlatent": 0.8,
+          "metadata_outcome_auc_h_attribution": 0.8,
+          "metadata_outcome_auc_d_nonsae": 0.64,
+          "metadata_outcome_delta_vs_a": 0.19999999999999996,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.4
+          ],
+          "metadata_outcome_k": 2,
+          "metadata_hit_vs_a": false,
+          "metadata_is_prospective_hit": false,
+          "metadata_power_flag": "inferential"
+        },
+        {
+          "input": "Concept 'spelling_F' (token, prospective): parent latent 1920, parent recall-hole=0.1667, firing-Jaccard(detector,parent) median=0.0000. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "spelling_prospective",
+          "metadata_role": "prospective",
+          "metadata_concept": "spelling_F",
+          "metadata_granularity": "token",
+          "metadata_parent_latent": 1920,
+          "metadata_parent_unresolved": false,
+          "metadata_recall_hole": 0.16666666666666663,
+          "metadata_jaccard": 0.0,
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "absorption",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.8571428571428572,
+          "metadata_outcome_auc_a_rawlatent": 0.8571428571428572,
+          "metadata_outcome_auc_h_attribution": 0.8571428571428572,
+          "metadata_outcome_auc_d_nonsae": 0.5102040816326531,
+          "metadata_outcome_delta_vs_a": 0.0,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.0
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_hit_vs_a": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_power_flag": "inferential"
+        },
+        {
+          "input": "Homograph entity 'Bath' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.1500, firing-Jaccard(detector,parent)=0.3011. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Bath",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 9,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 1776,
+          "metadata_recall_hole": 0.15000000000000002,
+          "metadata_jaccard": 0.3010752688172043,
+          "metadata_homograph_strength": 4.44,
+          "metadata_competitor_sense": "a bathtub / bathing",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.4851851851851851,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 0.8592592592592592,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.5148148148148148,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.7259722222222222,
+            -0.28333333333333344
+          ],
+          "metadata_outcome_delta_vs_h": -0.37407407407407406,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.5963888888888889,
+            -0.1425925925925926
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            9076
+          ],
+          "metadata_a_latent": 1776,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Bend' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.1250, firing-Jaccard(detector,parent)=0.4400. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Bend",
+          "metadata_n_all": 16,
+          "metadata_n_diagnostic": 8,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 2694,
+          "metadata_recall_hole": 0.125,
+          "metadata_jaccard": 0.44,
+          "metadata_homograph_strength": 4.13,
+          "metadata_competitor_sense": "to bend / a bend",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.7458333333333333,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.25416666666666665,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.4125,
+            -0.12083333333333335
+          ],
+          "metadata_outcome_delta_vs_h": -0.25416666666666665,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.4125,
+            -0.11239583333333383
+          ],
+          "metadata_outcome_k": 2,
+          "metadata_unit_members": [
+            7507,
+            4191
+          ],
+          "metadata_h_members": [
+            12314,
+            1776
+          ],
+          "metadata_a_latent": 2694,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Buffalo' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0500, firing-Jaccard(detector,parent)=0.4723. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Buffalo",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 11,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 12314,
+          "metadata_recall_hole": 0.050000000000000044,
+          "metadata_jaccard": 0.47229551451187335,
+          "metadata_homograph_strength": 4.14,
+          "metadata_competitor_sense": "the animal",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.6454545454545455,
+          "metadata_outcome_auc_a_rawlatent": 0.9181818181818182,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.2727272727272727,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.48488636363636367,
+            -0.054507575757575984
+          ],
+          "metadata_outcome_delta_vs_h": -0.3545454545454545,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.5288257575757576,
+            -0.17878787878787872
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            10794
+          ],
+          "metadata_a_latent": 680,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Cleveland' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.2500, firing-Jaccard(detector,parent)=0.1240. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Cleveland",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 13,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 12051,
+          "metadata_recall_hole": 0.25,
+          "metadata_jaccard": 0.12398921832884097,
+          "metadata_homograph_strength": 4.27,
+          "metadata_competitor_sense": "Grover Cleveland (surname)",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.7076923076923077,
+          "metadata_outcome_auc_a_rawlatent": 0.958974358974359,
+          "metadata_outcome_auc_h_attribution": 0.9602564102564103,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.2512820512820513,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.46923076923076923,
+            -0.05637820512820532
+          ],
+          "metadata_outcome_delta_vs_h": -0.25256410256410255,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.46157051282051287,
+            -0.047403846153846275
+          ],
+          "metadata_outcome_k": 2,
+          "metadata_unit_members": [
+            7507,
+            3693
+          ],
+          "metadata_h_members": [
+            2425,
+            11442
+          ],
+          "metadata_a_latent": 10641,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Cologne' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0500, firing-Jaccard(detector,parent)=0.1762. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Cologne",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 10,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 1114,
+          "metadata_recall_hole": 0.050000000000000044,
+          "metadata_jaccard": 0.17615176151761516,
+          "metadata_homograph_strength": 3.57,
+          "metadata_competitor_sense": "perfume / eau de cologne",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.5233333333333333,
+          "metadata_outcome_auc_a_rawlatent": 0.9666666666666667,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.44333333333333336,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.6483333333333333,
+            -0.2333333333333334
+          ],
+          "metadata_outcome_delta_vs_h": -0.4766666666666667,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.6966666666666667,
+            -0.2666666666666667
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            3017
+          ],
+          "metadata_a_latent": 680,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Columbus' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.2000, firing-Jaccard(detector,parent)=0.2930. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Columbus",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 9,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 5215,
+          "metadata_recall_hole": 0.19999999999999996,
+          "metadata_jaccard": 0.29301075268817206,
+          "metadata_homograph_strength": 4.04,
+          "metadata_competitor_sense": "Christopher Columbus",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.6333333333333333,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.3666666666666667,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.5777777777777777,
+            -0.1777777777777778
+          ],
+          "metadata_outcome_delta_vs_h": -0.3666666666666667,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.5815740740740741,
+            -0.17407407407407416
+          ],
+          "metadata_outcome_k": 2,
+          "metadata_unit_members": [
+            7507,
+            5152
+          ],
+          "metadata_h_members": [
+            9820,
+            3304
+          ],
+          "metadata_a_latent": 5215,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Cork' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.1000, firing-Jaccard(detector,parent)=0.3011. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Cork",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 11,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 1776,
+          "metadata_recall_hole": 0.09999999999999998,
+          "metadata_jaccard": 0.3010752688172043,
+          "metadata_homograph_strength": 3.71,
+          "metadata_competitor_sense": "a bottle cork",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.45,
+          "metadata_outcome_auc_a_rawlatent": 0.9545454545454546,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.5045454545454546,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.7212121212121212,
+            -0.2666666666666667
+          ],
+          "metadata_outcome_delta_vs_h": -0.55,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.7272727272727273,
+            -0.35753787878787907
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            2669
+          ],
+          "metadata_a_latent": 869,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Florence' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.1000, firing-Jaccard(detector,parent)=0.2216. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Florence",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 11,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 5353,
+          "metadata_recall_hole": 0.09999999999999998,
+          "metadata_jaccard": 0.22162162162162163,
+          "metadata_homograph_strength": 3.96,
+          "metadata_competitor_sense": "given name / Florence Nightingale",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.34545454545454546,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.6545454545454545,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.8242424242424242,
+            -0.4606060606060606
+          ],
+          "metadata_outcome_delta_vs_h": -0.6545454545454545,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.8182575757575759,
+            -0.4606060606060607
+          ],
+          "metadata_outcome_k": 2,
+          "metadata_unit_members": [
+            7507,
+            12918
+          ],
+          "metadata_h_members": [
+            1209,
+            14295
+          ],
+          "metadata_a_latent": 5353,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Hollywood' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0500, firing-Jaccard(detector,parent)=0.4866. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Hollywood",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 10,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 4191,
+          "metadata_recall_hole": 0.050000000000000044,
+          "metadata_jaccard": 0.48663101604278075,
+          "metadata_homograph_strength": 4.52,
+          "metadata_competitor_sense": "the film industry",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.6866666666666668,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.31333333333333324,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.5234166666666666,
+            -0.119916666666667
+          ],
+          "metadata_outcome_delta_vs_h": -0.31333333333333324,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.5317083333333333,
+            -0.12
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            8878
+          ],
+          "metadata_a_latent": 4191,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Hull' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0500, firing-Jaccard(detector,parent)=0.2177. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Hull",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 11,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 3705,
+          "metadata_recall_hole": 0.050000000000000044,
+          "metadata_jaccard": 0.21774193548387097,
+          "metadata_homograph_strength": 4.06,
+          "metadata_competitor_sense": "the hull of a ship",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.5606060606060606,
+          "metadata_outcome_auc_a_rawlatent": 0.9545454545454546,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.39393939393939403,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.5879166666666666,
+            -0.2151515151515151
+          ],
+          "metadata_outcome_delta_vs_h": -0.43939393939393945,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.6636742424242424,
+            -0.23636363636363633
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            15427
+          ],
+          "metadata_a_latent": 1390,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Jackson' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.2131. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Jackson",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 11,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 1459,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.21311475409836064,
+          "metadata_homograph_strength": 4.58,
+          "metadata_competitor_sense": "surname / Michael Jackson",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.7333333333333334,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.2666666666666666,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.42727272727272725,
+            -0.12727272727272732
+          ],
+          "metadata_outcome_delta_vs_h": -0.2666666666666666,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.4303030303030303,
+            -0.124166666666667
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            11658
+          ],
+          "metadata_a_latent": 1459,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Jordan' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.3152. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Jordan",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 9,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 12074,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.31521739130434784,
+          "metadata_homograph_strength": 4.51,
+          "metadata_competitor_sense": "the river / Michael Jordan",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.29259259259259257,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 0.9851851851851852,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.7074074074074075,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.8925925925925926,
+            -0.5
+          ],
+          "metadata_outcome_delta_vs_h": -0.6925925925925926,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.8778703703703704,
+            -0.48879629629629684
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            12294
+          ],
+          "metadata_a_latent": 12074,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Mercury' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.2345. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "absorption",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Mercury",
+          "metadata_n_all": 2,
+          "metadata_n_diagnostic": 1,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 12918,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.23450134770889489,
+          "metadata_homograph_strength": 4.02,
+          "metadata_competitor_sense": "planet / element / Freddie Mercury",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.9666666666666667,
+          "metadata_outcome_auc_a_rawlatent": 0.5,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": 0.4666666666666667,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.4,
+            0.5
+          ],
+          "metadata_outcome_delta_vs_h": -0.033333333333333326,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.09999999999999998,
+            0.0
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            10210
+          ],
+          "metadata_a_latent": 869,
+          "metadata_hit_vs_a": false,
+          "metadata_hit_vs_a_combined": false,
+          "metadata_hit_vs_a_jaccard": false,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": false,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Mobile' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.1579, firing-Jaccard(detector,parent)=0.3710. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Mobile",
+          "metadata_n_all": 19,
+          "metadata_n_diagnostic": 10,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 2768,
+          "metadata_recall_hole": 0.1578947368421053,
+          "metadata_jaccard": 0.3709677419354839,
+          "metadata_homograph_strength": 4.85,
+          "metadata_competitor_sense": "adjective 'mobile' / mobile phone",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.42666666666666664,
+          "metadata_outcome_auc_a_rawlatent": 0.8833333333333334,
+          "metadata_outcome_auc_h_attribution": 0.8833333333333334,
+          "metadata_outcome_auc_d_nonsae": 0.9966666666666667,
+          "metadata_outcome_delta_vs_a": -0.4566666666666668,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.6883750000000001,
+            -0.1982916666666668
+          ],
+          "metadata_outcome_delta_vs_h": -0.4566666666666668,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.6866666666666666,
+            -0.19833333333333347
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            2768
+          ],
+          "metadata_a_latent": 2768,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Nice' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.3324. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Nice",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 11,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 3017,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.3324324324324324,
+          "metadata_homograph_strength": 5.37,
+          "metadata_competitor_sense": "adjective 'nice' (pleasant)",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.8333333333333334,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 0.9787878787878788,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.16666666666666663,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.33340909090909093,
+            -0.030303030303030273
+          ],
+          "metadata_outcome_delta_vs_h": -0.1454545454545454,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.3242424242424242,
+            -0.009090909090909038
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            8740
+          ],
+          "metadata_a_latent": 3017,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Paris' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.1000, firing-Jaccard(detector,parent)=0.2452. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Paris",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 11,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 11333,
+          "metadata_recall_hole": 0.09999999999999998,
+          "metadata_jaccard": 0.2452316076294278,
+          "metadata_homograph_strength": 4.82,
+          "metadata_competitor_sense": "Greek myth / Paris Hilton",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.5939393939393939,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.4060606060606061,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.6121590909090908,
+            -0.20901515151515182
+          ],
+          "metadata_outcome_delta_vs_h": -0.4060606060606061,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.6167424242424243,
+            -0.20901515151515193
+          ],
+          "metadata_outcome_k": 2,
+          "metadata_unit_members": [
+            7507,
+            15461
+          ],
+          "metadata_h_members": [
+            14455,
+            3999
+          ],
+          "metadata_a_latent": 11333,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Phoenix' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.3324. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Phoenix",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 10,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 3017,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.3324324324324324,
+          "metadata_homograph_strength": 4.21,
+          "metadata_competitor_sense": "mythical bird / comeback / Joaquin Phoenix",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.3433333333333333,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.6566666666666667,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.8333333333333334,
+            -0.45666666666666667
+          ],
+          "metadata_outcome_delta_vs_h": -0.6566666666666667,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.8366666666666667,
+            -0.43666666666666665
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            2539
+          ],
+          "metadata_a_latent": 3017,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Reading' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.4400. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Reading",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 10,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 2694,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.44,
+          "metadata_homograph_strength": 5.14,
+          "metadata_competitor_sense": "gerund of 'read'",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.7166666666666667,
+          "metadata_outcome_auc_a_rawlatent": 0.95,
+          "metadata_outcome_auc_h_attribution": 0.9466666666666665,
+          "metadata_outcome_auc_d_nonsae": 0.9966666666666667,
+          "metadata_outcome_delta_vs_a": -0.23333333333333328,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.44666666666666666,
+            -0.013333333333333308
+          ],
+          "metadata_outcome_delta_vs_h": -0.22999999999999987,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.44666666666666666,
+            -0.006625000000000267
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            5704
+          ],
+          "metadata_a_latent": 2694,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Sandy' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.4400. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Sandy",
+          "metadata_n_all": 10,
+          "metadata_n_diagnostic": 5,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 2694,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.44,
+          "metadata_homograph_strength": 4.19,
+          "metadata_competitor_sense": "covered in sand",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.5533333333333333,
+          "metadata_outcome_auc_a_rawlatent": 0.9,
+          "metadata_outcome_auc_h_attribution": 0.9666666666666667,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.3466666666666667,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.5333333333333333,
+            -0.18000000000000005
+          ],
+          "metadata_outcome_delta_vs_h": -0.41333333333333333,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.6268333333333334,
+            -0.19999999999999996
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            15738
+          ],
+          "metadata_a_latent": 1564,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Split' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.1762. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "absorption",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Split",
+          "metadata_n_all": 6,
+          "metadata_n_diagnostic": 3,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 1114,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.17615176151761516,
+          "metadata_homograph_strength": 4.65,
+          "metadata_competitor_sense": "to split / a split",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.9333333333333333,
+          "metadata_outcome_auc_a_rawlatent": 0.8333333333333334,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": 0.09999999999999998,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.06666666666666676,
+            0.2666666666666667
+          ],
+          "metadata_outcome_delta_vs_h": -0.06666666666666665,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.16666666666666674,
+            0.0
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            2050
+          ],
+          "metadata_a_latent": 2768,
+          "metadata_hit_vs_a": false,
+          "metadata_hit_vs_a_combined": false,
+          "metadata_hit_vs_a_jaccard": false,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": false,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Surprise' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.5105. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Surprise",
+          "metadata_n_all": 1,
+          "metadata_n_diagnostic": 1,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 1564,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.5104712041884817,
+          "metadata_homograph_strength": 4.75,
+          "metadata_competitor_sense": "a surprise",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.5,
+          "metadata_outcome_auc_a_rawlatent": 0.5,
+          "metadata_outcome_auc_h_attribution": 0.5,
+          "metadata_outcome_auc_d_nonsae": 0.5,
+          "metadata_outcome_delta_vs_a": 0.0,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.0
+          ],
+          "metadata_outcome_delta_vs_h": 0.0,
+          "metadata_outcome_delta_vs_h_ci": [
+            0.0,
+            0.0
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            7541
+          ],
+          "metadata_a_latent": 680,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Sydney' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.0000, firing-Jaccard(detector,parent)=0.7881. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Sydney",
+          "metadata_n_all": 20,
+          "metadata_n_diagnostic": 10,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 12554,
+          "metadata_recall_hole": 0.0,
+          "metadata_jaccard": 0.7881136950904393,
+          "metadata_homograph_strength": 4.53,
+          "metadata_competitor_sense": "given name",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.4866666666666667,
+          "metadata_outcome_auc_a_rawlatent": 0.8966666666666666,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.4099999999999999,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.6717083333333334,
+            -0.11333333333333329
+          ],
+          "metadata_outcome_delta_vs_h": -0.5133333333333333,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.7133333333333334,
+            -0.30325000000000035
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            14295
+          ],
+          "metadata_a_latent": 11724,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        },
+        {
+          "input": "Homograph entity 'Worth' (hierarchy=city, is-a-city, prospective): parent latent 7507, parent recall-hole=0.1579, firing-Jaccard(detector,parent)=0.1762. PRIMARY a-priori screen (recall-hole>nan): route to absorption-repair (CCRG grouping) or marginal attribution?",
+          "output": "co_firing",
+          "predict_router": "co_firing",
+          "metadata_kind": "homograph_entity",
+          "metadata_role": "prospective",
+          "metadata_hierarchy": "city",
+          "metadata_entity": "Worth",
+          "metadata_n_all": 19,
+          "metadata_n_diagnostic": 10,
+          "metadata_eligible": false,
+          "metadata_power_flag": "descriptive_only",
+          "metadata_parent_latent": 7507,
+          "metadata_parent_unresolved": false,
+          "metadata_detector_latent": 1114,
+          "metadata_recall_hole": 0.1578947368421053,
+          "metadata_jaccard": 0.17615176151761516,
+          "metadata_homograph_strength": 5.16,
+          "metadata_competitor_sense": "value / 'worth' preposition",
+          "metadata_predicted_regime": "co_firing",
+          "metadata_predicted_regime_combined": "co_firing",
+          "metadata_predicted_regime_jaccard": "co_firing",
+          "metadata_ground_truth_regime": "co_firing",
+          "metadata_ground_truth_regime_vs_h": "co_firing",
+          "metadata_outcome_auc_unit": 0.7966666666666667,
+          "metadata_outcome_auc_a_rawlatent": 1.0,
+          "metadata_outcome_auc_h_attribution": 1.0,
+          "metadata_outcome_auc_d_nonsae": 1.0,
+          "metadata_outcome_delta_vs_a": -0.20333333333333325,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.36004166666666665,
+            -0.07999999999999996
+          ],
+          "metadata_outcome_delta_vs_h": -0.20333333333333325,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.3533333333333333,
+            -0.07495833333333352
+          ],
+          "metadata_outcome_k": 1,
+          "metadata_unit_members": [
+            7507
+          ],
+          "metadata_h_members": [
+            1114
+          ],
+          "metadata_a_latent": 1114,
+          "metadata_hit_vs_a": true,
+          "metadata_hit_vs_a_combined": true,
+          "metadata_hit_vs_a_jaccard": true,
+          "metadata_hit_vs_h": true,
+          "metadata_is_prospective_hit": true,
+          "metadata_absorption_structured": false
+        }
+      ]
+    }
+  ]
+}

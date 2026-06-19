@@ -1,0 +1,36 @@
+05:43:52|INFO   |  31.6s torch 2.6.0+cu124 cuda=True device=cuda
+05:43:52|INFO   |  31.6s loading SAE from /root/.cache/huggingface/hub/models--google--gemma-scope-2b-pt-res/snapshots/fd571b47c1c64851e9b1989792367b9babb4af63/layer_12/width_16k/average_l0_82/params.npz
+05:43:53|INFO   |  32.1s SAE loaded d_sae=16384 d_model=2304
+05:45:55|INFO   | 154.5s loading tokenizer+model google/gemma-2-2b
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+05:46:07|INFO   | 166.7s model loaded (google/gemma-2-2b) d_model=2304 n_layers=26 vocab=256000
+05:46:09|INFO   | 169.0s FVU by hidden_states idx: 12:0.284, 13:0.193, 14:0.339 -> selected 13
+05:46:10|INFO   |    encoded 16/64 (0s)
+05:46:10|INFO   | 169.9s encoded 64 rows in 1s | dropped=0 | align=1.000 | nnz/row=131
+05:46:10|INFO   | 170.0s GATING cosine=0.9189 L0=87.9 layer_idx=13 Rnorm=478.6
+05:46:11|INFO   | 170.9s second judge resolved -> openai/gpt-4o-mini
+05:46:11|INFO   |
+ 170.9s ===== SETUP taxonomic / Georgia (absorber 16009, regime=absorption) =====
+05:46:12|INFO   | 172.0s taxonomic encoding 1988 rows (1440 corpus + 548 cp)
+05:46:13|INFO   |    encoded 16/1988 (0s)
+05:46:26|INFO   |    encoded 976/1988 (13s)
+05:46:33|INFO   |    encoded 1936/1988 (21s)
+05:46:33|INFO   | 192.9s encoded 1988 rows in 21s | dropped=0 | align=1.000 | nnz/row=111
+05:46:40|INFO   | 199.4s taxonomic probe train_auc=1.000 cos(probe,dmu)=0.693
+05:46:43|INFO   | 203.0s u_sub: n_pos=30 n_sib=570 auc=1.000 cos_whole=-0.049 underpowered=False
+05:46:44|INFO   |
+ 203.3s ##### UNLEARN CASE taxonomic_georgia (absorber=16009, regime=absorption) #####
+05:46:57|INFO   | 216.3s FORGET match: max_kg=0.0674 max_sub=6.6233 max_whl=13.0042 target=0.0540 s_kg=3.607 s_sub=0.541 s_whl=0.508
+05:47:00|INFO   | 219.4s M7 unit forget: max_unit=0.2652 s_unit=2.154 unit_members=[3792, 4697, 8442, 9339, 16009]
+05:47:12|INFO   | 231.8s retain collateral KL (n=150): KG=0.00004 SUB=0.10982 WHOLE=0.04091 localizes_better(SUB<WHOLE)=False KGvsSUB_excl0=True
+05:47:51|INFO   | 270.4s curve-dominance KG-vs-SUB=1.000 KG-vs-WHOLE=1.000
+05:47:51|INFO   | 270.4s gen prompts: forget=6 retain=6 unrel=14
+05:48:26|INFO   | 305.4s [PRIMARY anthropic/claude-haiku-4.5] issuing 130 judge calls (SPENT=$0.0000)
+05:48:48|INFO   | 327.1s [PRIMARY] done: model_calls=130 SPENT=$0.0647
+05:48:48|INFO   | 327.1s [SECOND openai/gpt-4o-mini] issuing 60 subsample judge calls
+05:48:58|INFO   | 337.4s FORK taxonomic_georgia: KG_BEATS_USUB (basis=llm_judge; primary_excl0=True favors_kg=True; second=True; localizes_better=False)
+05:49:02|INFO   | 341.1s HUMAN-PROXY taxonomic_georgia: kg_preserve=1.00 whole_corrupt=0.62 passed=True
+05:49:02|INFO   | 341.1s $0.0681 spent after case taxonomic_georgia
+05:49:02|INFO   | 341.4s SAVED /ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_6/gen_art/gen_art_experiment_1/results/mini_georgia.json
+05:49:02|INFO   | 341.4s SUMMARY: n_cases=1 BEATS=1 MATCHES=0 LOSES=0 gate=True judge_spent=$0.0681
+05:49:02|INFO   |  taxonomic_georgia: KG_BEATS_USUB | localizes_better=False | dom_KGvsSUB=1.00 | 2nd=openai/gpt-4o-mini

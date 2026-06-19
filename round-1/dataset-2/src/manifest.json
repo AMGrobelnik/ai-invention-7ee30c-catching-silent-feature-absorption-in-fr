@@ -1,0 +1,552 @@
+{
+  "artifact": "non_spelling_absorption_testbed",
+  "description": "Two-hierarchy (NUMERIC + TAXONOMIC) SAE feature-absorption testbed. Each hierarchy ships content-flip pairs, surface-flip pairs, and a pile-uncopyrighted diagnostic corpus labelled by frozen, model-independent sub-context. No SAE/model computation.",
+  "schema": "exp_sel_data_out (flat metadata_* keys); see schema.json for the logical (nested) view",
+  "scale": "full",
+  "seed": 20240617,
+  "pile_repo": "monology/pile-uncopyrighted",
+  "pile_revision": "3be90335b66f24456a5d6659d9c8d208c0357119",
+  "gemma_tokenizer": "google/gemma-2-2b",
+  "token_indices_present": true,
+  "llm_model": "openai/gpt-4o-mini",
+  "llm_cost_usd": 0.01042,
+  "llm_calls": 250,
+  "total_rows": 24128,
+  "fold_counts": {
+    "diagnostic": 11088,
+    "train": 12424,
+    "test": 616
+  },
+  "rows_by_hierarchy_and_type": {
+    "numeric/corpus": 7200,
+    "taxonomic/corpus": 14960,
+    "numeric/content_pair": 924,
+    "taxonomic/content_pair": 548,
+    "numeric/surface_pair": 256,
+    "taxonomic/surface_pair": 240
+  },
+  "templated_content_counts": {
+    "numeric": {
+      "year": 60,
+      "percent": 60,
+      "currency": 60,
+      "date": 60,
+      "decimal": 45,
+      "integer": 60,
+      "comma_number": 35,
+      "ordinal": 35
+    },
+    "taxonomic": {
+      "Portugal": 6,
+      "Thailand": 6,
+      "Morocco": 6,
+      "Netherlands": 6,
+      "South Africa": 6,
+      "New Zealand": 6,
+      "Germany": 6,
+      "Ireland": 6,
+      "Denmark": 6,
+      "Pakistan": 6,
+      "China": 6,
+      "Japan": 6,
+      "Ethiopia": 6,
+      "United States": 6,
+      "Russia": 6,
+      "Iraq": 6,
+      "France": 6,
+      "Egypt": 6,
+      "Sri Lanka": 6,
+      "Argentina": 6,
+      "Poland": 6,
+      "Brazil": 6,
+      "United Kingdom": 6,
+      "Switzerland": 6,
+      "Saudi Arabia": 6,
+      "Australia": 6,
+      "South Korea": 6,
+      "Israel": 6,
+      "Jordan": 6,
+      "Ukraine": 6,
+      "Norway": 6,
+      "Peru": 6,
+      "Canada": 6,
+      "Indonesia": 6,
+      "Iran": 6,
+      "Costa Rica": 6,
+      "Mexico": 6,
+      "Belgium": 6,
+      "Sweden": 6,
+      "Greece": 6,
+      "Finland": 6,
+      "Georgia": 6,
+      "Nigeria": 6,
+      "Kenya": 2
+    }
+  },
+  "templated_surface_counts": {
+    "numeric": {
+      "year": 16,
+      "percent": 16,
+      "currency": 16,
+      "date": 16,
+      "decimal": 16,
+      "integer": 16,
+      "comma_number": 16,
+      "ordinal": 16
+    },
+    "taxonomic": {
+      "Finland": 3,
+      "Iraq": 3,
+      "Vietnam": 3,
+      "Italy": 3,
+      "Mexico": 3,
+      "Pakistan": 3,
+      "Costa Rica": 3,
+      "Austria": 3,
+      "South Africa": 3,
+      "Norway": 3,
+      "Brazil": 3,
+      "Nigeria": 3,
+      "China": 3,
+      "Switzerland": 3,
+      "Japan": 3,
+      "Ireland": 3,
+      "Indonesia": 3,
+      "Spain": 3,
+      "France": 3,
+      "United Kingdom": 3,
+      "Peru": 3,
+      "Thailand": 3,
+      "Egypt": 3,
+      "India": 3,
+      "South Korea": 3,
+      "Portugal": 3,
+      "Belgium": 3,
+      "Georgia": 3,
+      "Denmark": 3,
+      "Poland": 3,
+      "Russia": 3,
+      "Canada": 3,
+      "Iran": 3,
+      "Kenya": 3,
+      "Israel": 3,
+      "Morocco": 3,
+      "Turkey": 3,
+      "Colombia": 3,
+      "Sri Lanka": 3,
+      "United States": 3
+    }
+  },
+  "corpus_positive_counts_by_sub": {
+    "numeric/year": 600,
+    "numeric/decimal": 400,
+    "numeric/integer": 600,
+    "numeric/date": 500,
+    "taxonomic/Russia": 300,
+    "numeric/currency": 500,
+    "numeric/percent": 500,
+    "numeric/comma_number": 300,
+    "taxonomic/Canada": 300,
+    "numeric/ordinal": 300,
+    "taxonomic/France": 300,
+    "taxonomic/Iran": 300,
+    "taxonomic/India": 300,
+    "taxonomic/United States": 300,
+    "taxonomic/Greece": 155,
+    "taxonomic/Brazil": 300,
+    "taxonomic/Jordan": 248,
+    "taxonomic/Georgia": 300,
+    "taxonomic/New Zealand": 300,
+    "taxonomic/Switzerland": 188,
+    "taxonomic/China": 300,
+    "taxonomic/Turkey": 211,
+    "taxonomic/Spain": 300,
+    "taxonomic/Mexico": 300,
+    "taxonomic/Japan": 300,
+    "taxonomic/Vietnam": 175,
+    "taxonomic/Saudi Arabia": 105,
+    "taxonomic/Italy": 300,
+    "taxonomic/Ireland": 300,
+    "taxonomic/Australia": 300,
+    "taxonomic/Indonesia": 156,
+    "taxonomic/Poland": 300,
+    "taxonomic/Germany": 300,
+    "taxonomic/Nigeria": 146,
+    "taxonomic/Colombia": 91,
+    "taxonomic/Netherlands": 252,
+    "taxonomic/Iraq": 209,
+    "taxonomic/United Kingdom": 300,
+    "taxonomic/Belgium": 156,
+    "taxonomic/Israel": 300,
+    "taxonomic/Thailand": 136,
+    "taxonomic/Sri Lanka": 78,
+    "taxonomic/Portugal": 95,
+    "taxonomic/Costa Rica": 46,
+    "taxonomic/Sweden": 243,
+    "taxonomic/Argentina": 164,
+    "taxonomic/South Africa": 282,
+    "taxonomic/Finland": 98,
+    "taxonomic/Egypt": 175,
+    "taxonomic/Morocco": 53,
+    "taxonomic/Denmark": 141,
+    "taxonomic/Chile": 79,
+    "taxonomic/Pakistan": 243,
+    "taxonomic/Kenya": 98,
+    "taxonomic/South Korea": 140,
+    "taxonomic/Norway": 178,
+    "taxonomic/Ethiopia": 50,
+    "taxonomic/Austria": 155,
+    "taxonomic/Ukraine": 131,
+    "taxonomic/Peru": 83
+  },
+  "corpus_fill_summary": {
+    "num_pos": {
+      "year": 600,
+      "decimal": 400,
+      "integer": 600,
+      "date": 500,
+      "currency": 500,
+      "percent": 500,
+      "comma_number": 300,
+      "ordinal": 300
+    },
+    "num_neg": 3500,
+    "tax_pos": {
+      "Russia": 300,
+      "Canada": 300,
+      "France": 300,
+      "Iran": 300,
+      "India": 300,
+      "United States": 300,
+      "Greece": 155,
+      "Brazil": 300,
+      "Jordan": 248,
+      "Georgia": 300,
+      "New Zealand": 300,
+      "Switzerland": 188,
+      "China": 300,
+      "Turkey": 211,
+      "Spain": 300,
+      "Mexico": 300,
+      "Japan": 300,
+      "Vietnam": 175,
+      "Saudi Arabia": 105,
+      "Italy": 300,
+      "Ireland": 300,
+      "Australia": 300,
+      "Indonesia": 156,
+      "Poland": 300,
+      "Germany": 300,
+      "Nigeria": 146,
+      "Colombia": 91,
+      "Netherlands": 252,
+      "Iraq": 209,
+      "United Kingdom": 300,
+      "Belgium": 156,
+      "Israel": 300,
+      "Thailand": 136,
+      "Sri Lanka": 78,
+      "Portugal": 95,
+      "Costa Rica": 46,
+      "Sweden": 243,
+      "Argentina": 164,
+      "South Africa": 282,
+      "Finland": 98,
+      "Egypt": 175,
+      "Morocco": 53,
+      "Denmark": 141,
+      "Chile": 79,
+      "Pakistan": 243,
+      "Kenya": 98,
+      "South Korea": 140,
+      "Norway": 178,
+      "Ethiopia": 50,
+      "Austria": 155,
+      "Ukraine": 131,
+      "Peru": 83
+    },
+    "tax_neg_city": 1800,
+    "tax_neg_easy": 2400,
+    "scanned": 125524
+  },
+  "source_counts": {
+    "pile_uncopyrighted": 22160,
+    "templated": 1846,
+    "llm_generated": 122
+  },
+  "pile_set_name_counts": {
+    "Pile-CC": 8244,
+    "Github": 1287,
+    "StackExchange": 2018,
+    "Wikipedia (en)": 4843,
+    "PubMed Abstracts": 2772,
+    "USPTO Backgrounds": 749,
+    "FreeLaw": 542,
+    "PubMed Central": 783,
+    "Enron Emails": 105,
+    "HackerNews": 153,
+    "NIH ExPorter": 155,
+    "ArXiv": 408,
+    "DM Mathematics": 56,
+    "Ubuntu IRC": 3,
+    "EuroParl": 14,
+    "PhilPapers": 16,
+    "Gutenberg (PG-19)": 12
+  },
+  "llm_pair_pass_rate": 1.0,
+  "llm_cost_breakdown": {
+    "in_tok": 32636,
+    "out_tok": 9203,
+    "calls": 250,
+    "gen_calls": 5,
+    "judge_calls": 245,
+    "usd": 0.010417199999999998
+  },
+  "absorption_readiness": {
+    "numeric": {
+      "year": {
+        "diagnostic_positives": 300,
+        "status": "eligible"
+      },
+      "integer": {
+        "diagnostic_positives": 300,
+        "status": "eligible"
+      },
+      "currency": {
+        "diagnostic_positives": 250,
+        "status": "eligible"
+      },
+      "percent": {
+        "diagnostic_positives": 250,
+        "status": "eligible"
+      },
+      "date": {
+        "diagnostic_positives": 250,
+        "status": "eligible"
+      },
+      "decimal": {
+        "diagnostic_positives": 200,
+        "status": "eligible"
+      },
+      "ordinal": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "comma_number": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      }
+    },
+    "taxonomic": {
+      "Canada": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "France": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Iran": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "United States": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Brazil": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Georgia": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "New Zealand": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Spain": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Mexico": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "China": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Japan": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "India": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Italy": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Ireland": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Australia": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Poland": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Germany": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "United Kingdom": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Israel": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "Russia": {
+        "diagnostic_positives": 150,
+        "status": "eligible"
+      },
+      "South Africa": {
+        "diagnostic_positives": 141,
+        "status": "descriptive_only"
+      },
+      "Netherlands": {
+        "diagnostic_positives": 126,
+        "status": "descriptive_only"
+      },
+      "Jordan": {
+        "diagnostic_positives": 124,
+        "status": "descriptive_only"
+      },
+      "Sweden": {
+        "diagnostic_positives": 122,
+        "status": "descriptive_only"
+      },
+      "Pakistan": {
+        "diagnostic_positives": 122,
+        "status": "descriptive_only"
+      },
+      "Turkey": {
+        "diagnostic_positives": 106,
+        "status": "descriptive_only"
+      },
+      "Iraq": {
+        "diagnostic_positives": 105,
+        "status": "descriptive_only"
+      },
+      "Switzerland": {
+        "diagnostic_positives": 94,
+        "status": "descriptive_only"
+      },
+      "Norway": {
+        "diagnostic_positives": 89,
+        "status": "descriptive_only"
+      },
+      "Vietnam": {
+        "diagnostic_positives": 88,
+        "status": "descriptive_only"
+      },
+      "Egypt": {
+        "diagnostic_positives": 88,
+        "status": "descriptive_only"
+      },
+      "Argentina": {
+        "diagnostic_positives": 82,
+        "status": "descriptive_only"
+      },
+      "Greece": {
+        "diagnostic_positives": 78,
+        "status": "descriptive_only"
+      },
+      "Belgium": {
+        "diagnostic_positives": 78,
+        "status": "descriptive_only"
+      },
+      "Indonesia": {
+        "diagnostic_positives": 78,
+        "status": "descriptive_only"
+      },
+      "Austria": {
+        "diagnostic_positives": 78,
+        "status": "descriptive_only"
+      },
+      "Nigeria": {
+        "diagnostic_positives": 73,
+        "status": "descriptive_only"
+      },
+      "Denmark": {
+        "diagnostic_positives": 71,
+        "status": "descriptive_only"
+      },
+      "South Korea": {
+        "diagnostic_positives": 70,
+        "status": "descriptive_only"
+      },
+      "Thailand": {
+        "diagnostic_positives": 68,
+        "status": "descriptive_only"
+      },
+      "Ukraine": {
+        "diagnostic_positives": 66,
+        "status": "descriptive_only"
+      },
+      "Saudi Arabia": {
+        "diagnostic_positives": 53,
+        "status": "descriptive_only"
+      },
+      "Finland": {
+        "diagnostic_positives": 49,
+        "status": "descriptive_only"
+      },
+      "Kenya": {
+        "diagnostic_positives": 49,
+        "status": "descriptive_only"
+      },
+      "Portugal": {
+        "diagnostic_positives": 48,
+        "status": "descriptive_only"
+      },
+      "Colombia": {
+        "diagnostic_positives": 46,
+        "status": "descriptive_only"
+      },
+      "Peru": {
+        "diagnostic_positives": 42,
+        "status": "descriptive_only"
+      },
+      "Chile": {
+        "diagnostic_positives": 40,
+        "status": "descriptive_only"
+      },
+      "Sri Lanka": {
+        "diagnostic_positives": 39,
+        "status": "descriptive_only"
+      },
+      "Morocco": {
+        "diagnostic_positives": 27,
+        "status": "descriptive_only"
+      },
+      "Ethiopia": {
+        "diagnostic_positives": 25,
+        "status": "descriptive_only"
+      },
+      "Costa Rica": {
+        "diagnostic_positives": 23,
+        "status": "descriptive_only"
+      }
+    }
+  },
+  "design_note": "Sub-context labels are assigned purely from surface form / regex / gazetteer, independent of any SAE latent or model behaviour. Absorption presence/absence is an iter-2 empirical finding, NOT baked into this data. The same labelled corpus equally supports the honest 'absorption is spelling-specific' null (uniform high parent-probe recall across sub-contexts) and a positive finding (sub-context-specific parent holes)."
+}

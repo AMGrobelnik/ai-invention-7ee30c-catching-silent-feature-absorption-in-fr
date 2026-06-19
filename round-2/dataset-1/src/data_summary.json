@@ -1,0 +1,224 @@
+{
+  "title": "Enlarged & Independently Re-Judged Surface-Invariance Pair Sets (First-Letter + Toxicity)",
+  "purpose": "Drop-in SUPERSET of the two iter-1 surface-flip pair sets for the Step-5 admission AND-gate's shuffled-surface null. Surface rows ONLY; the frozen iter-1 content_flip/content_pair/classification/corpus rows remain canonical at their iter-1 paths.",
+  "merge_contract": {
+    "first_letter": "merge by metadata_pair_id + metadata_role in {var_a,var_b}; iter-1 content_flip/corpus rows live at iter_1/gen_art/gen_art_dataset_1/full_data_out.json",
+    "toxicity": "one row per surface pair (input=source toxic, metadata_text_paired=toxic paraphrase); iter-1 content_pair/classification rows live at iter_1/gen_art/gen_art_dataset_3/full_data_out.json"
+  },
+  "circularity_fixed": "iter-1 generated AND judged the 546 toxicity surface pairs with the SAME model (openai/gpt-4o-mini). Every NEW toxicity pair is judged by a DIFFERENT family (anthropic/claude-haiku-4.5); a stratified sample of both concepts is re-judged by a family different from BOTH the generator and the iter-1 judge.",
+  "model_families": {
+    "toxicity_generator": "openai/gpt-4o-mini",
+    "toxicity_independent_judge_primary": "anthropic/claude-haiku-4.5",
+    "toxicity_second_family_judge": "google/gemini-3.1-flash-lite",
+    "first_letter_iter1_judge": "google/gemini-3.1-flash-lite",
+    "first_letter_independent_judge_primary": "anthropic/claude-haiku-4.5",
+    "first_letter_second_family_judge": "deepseek/deepseek-v4-flash"
+  },
+  "gate_constants": {
+    "jaccard_max": 0.6,
+    "char_change_min": 0.25,
+    "comparators": "token_jaccard < jaccard_max AND norm_edit_distance > char_change_min (strict)"
+  },
+  "first_letter_null_sizes": {
+    "definition": "one surface-response per pair (r_ell pooled over both same-letter words in a fixed carrier)",
+    "total_pairs": 1700,
+    "total_rows": 3400,
+    "orig_pairs": 590,
+    "new_pairs": 1110,
+    "per_letter": {
+      "L": {
+        "total_pairs": 340,
+        "rows": 680,
+        "by_carrier_pairs": {
+          "t_verbose": 68,
+          "t_colon": 68,
+          "t_mention_word": 68,
+          "t_mention_term": 68,
+          "t_mention_example": 68
+        },
+        "orig_pairs": 170,
+        "new_pairs": 170
+      },
+      "O": {
+        "total_pairs": 340,
+        "rows": 680,
+        "by_carrier_pairs": {
+          "t_verbose": 68,
+          "t_colon": 68,
+          "t_mention_word": 68,
+          "t_mention_term": 68,
+          "t_mention_example": 68
+        },
+        "orig_pairs": 105,
+        "new_pairs": 235
+      },
+      "T": {
+        "total_pairs": 340,
+        "rows": 680,
+        "by_carrier_pairs": {
+          "t_verbose": 68,
+          "t_colon": 68,
+          "t_mention_word": 68,
+          "t_mention_term": 68,
+          "t_mention_example": 68
+        },
+        "orig_pairs": 95,
+        "new_pairs": 245
+      },
+      "I": {
+        "total_pairs": 340,
+        "rows": 680,
+        "by_carrier_pairs": {
+          "t_verbose": 68,
+          "t_colon": 68,
+          "t_mention_word": 68,
+          "t_mention_term": 68,
+          "t_mention_example": 68
+        },
+        "orig_pairs": 110,
+        "new_pairs": 230
+      },
+      "D": {
+        "total_pairs": 340,
+        "rows": 680,
+        "by_carrier_pairs": {
+          "t_verbose": 68,
+          "t_colon": 68,
+          "t_mention_word": 68,
+          "t_mention_term": 68,
+          "t_mention_example": 68
+        },
+        "orig_pairs": 110,
+        "new_pairs": 230
+      }
+    },
+    "deterministic_violations": 0,
+    "carriers": [
+      "t_verbose",
+      "t_colon",
+      "t_mention_word",
+      "t_mention_term",
+      "t_mention_example"
+    ]
+  },
+  "toxicity_null_sizes": {
+    "definition": "one surface-response per pair (toxic source vs toxic paraphrase)",
+    "total_pairs": 1631,
+    "orig_pairs": 546,
+    "new_pairs": 1085,
+    "per_origin": {
+      "paradetox": {
+        "total_pairs": 525,
+        "orig_pairs": 243,
+        "new_pairs": 282,
+        "by_fold": {
+          "train": 439,
+          "val": 47,
+          "test": 39
+        },
+        "by_sub_attribute_pairs": {
+          "severe_toxicity": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_attack": 0,
+          "sexual_explicit": 0
+        }
+      },
+      "civil_comments": {
+        "total_pairs": 1106,
+        "orig_pairs": 303,
+        "new_pairs": 803,
+        "by_fold": {
+          "train": 741,
+          "test": 189,
+          "val": 176
+        },
+        "by_sub_attribute_pairs": {
+          "severe_toxicity": 12,
+          "obscene": 226,
+          "threat": 205,
+          "insult": 370,
+          "identity_attack": 211,
+          "sexual_explicit": 216
+        }
+      }
+    },
+    "per_sub_attribute_total_pairs": {
+      "severe_toxicity": 12,
+      "obscene": 226,
+      "threat": 205,
+      "insult": 370,
+      "identity_attack": 211,
+      "sexual_explicit": 216
+    },
+    "leakage_dropped_new": 0
+  },
+  "independent_rejudge": {
+    "toxicity": {
+      "originals_confirmation_rate": 0.8516,
+      "originals_confirmed": 465,
+      "n_originals_judged": 546,
+      "cross_judge_claude_vs_gemini": {
+        "n": 399,
+        "raw_agreement": 0.9398,
+        "kappa": 0.2632,
+        "judge_a_pass_rate": 0.9524,
+        "judge_b_pass_rate": 0.9624
+      },
+      "both_judges_pass_in_sample": 370
+    },
+    "first_letter": {
+      "claude_pass_rate": 0.68,
+      "claude_judge_false_negative_rate": 0.32,
+      "cross_judge_claude_vs_deepseek": {
+        "n": 268,
+        "raw_agreement": 0.7799,
+        "kappa": 0.4333,
+        "judge_a_pass_rate": 0.6642,
+        "judge_b_pass_rate": 0.8396
+      },
+      "claude_vs_stored_gemini": {
+        "n": 130,
+        "raw_agreement": 0.6923,
+        "kappa": 0.1413,
+        "judge_a_pass_rate": 0.6615,
+        "judge_b_pass_rate": 0.9385
+      },
+      "both_judges_pass_in_sample": 172,
+      "note": "deterministic structural check is AUTHORITATIVE; a claude/deepseek 'fail' on a structurally-valid pair is a judge false-negative, NOT a drop."
+    }
+  },
+  "generation_stats": {
+    "gen_model": "openai/gpt-4o-mini",
+    "judge_model": "anthropic/claude-haiku-4.5",
+    "n_candidates": 2800,
+    "n_generated": 1500,
+    "n_refusals": 25,
+    "n_gen_errors": 0,
+    "n_surface_gate_pass": 1462,
+    "n_judged": 1462,
+    "n_toxicity_fail": 362,
+    "n_meaning_fail": 25,
+    "n_surface_fail": 0,
+    "n_fluent_fail": 13,
+    "n_accepted": 1085,
+    "judge_pass_rate": 0.7421,
+    "openrouter_cost_usd": 1.1226,
+    "openrouter_calls": 2955,
+    "in_tok": 692862,
+    "out_tok": 180712,
+    "ceiling_hit": false,
+    "ceiling_usd": 6.0,
+    "jaccard_max": 0.6,
+    "char_change_min": 0.25,
+    "rubric": "ACCEPT iff toxicity_constant AND meaning_preserved AND surface_changed AND fluent (claude-haiku-4.5)"
+  },
+  "rejudge_cost_usd": 0.5996,
+  "rejudge_calls": 1745,
+  "total_openrouter_cost_usd": 1.7222,
+  "iter1_provenance": {
+    "first_letter": "iter_1/gen_art/gen_art_dataset_1 (gemini-3.1-flash-lite secondary judge; unsloth/gemma-2-2b tokenizer vocab 256000; get_alpha_tokens slot-eligible single-token words)",
+    "toxicity": "iter_1/gen_art/gen_art_dataset_3 (s-nlp/paradetox openrail++; google/civil_comments CC0; gpt-4o-mini generate+judge)"
+  }
+}

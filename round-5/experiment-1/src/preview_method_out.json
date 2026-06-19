@@ -1,0 +1,787 @@
+{
+  "metadata": {
+    "method_name": "M1 KG-Localized Single-Absorber Unlearning vs Dense Parent Erasure (joint collateral+fluency)",
+    "description": "At MATCHED forget-quality, ablate ONE KG-named absorber latent (KG-ABL) vs erase the dense diff-of-means parent direction (DENSE-ABL, baseline f). WIN <=> KG-ABL has lower sibling/parent collateral AN...",
+    "sae": {
+      "release": "google/gemma-scope-2b-pt-res",
+      "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+      "width": 16384,
+      "d_model": 2304,
+      "hook": "blocks.12.hook_resid_post"
+    },
+    "model": "google/gemma-2-2b",
+    "seed": 1234,
+    "B_boot": 10000,
+    "Rnorm": 478.6302947998047,
+    "gating_check": {
+      "pass": true,
+      "cosine": 0.9189349412918091,
+      "L0": 87.9375,
+      "align": 1.0,
+      "layer_idx": 13,
+      "fvu_by_idx": {
+        "12": 0.2838386548289832,
+        "13": 0.19299182784889848,
+        "14": 0.3387158481703969
+      },
+      "Rnorm": 478.6302947998047
+    },
+    "forget_grids": {
+      "LAM_GRID": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "BETA_GRID": [
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    "judge": {
+      "model": "anthropic/claude-haiku-4.5",
+      "temp": 0.0,
+      "target_usd": 2.0,
+      "hard_cap_usd": 10.0,
+      "spent_usd": 0.4366980000000001,
+      "n_calls": 876,
+      "n_fail": 0,
+      "n_refusal_or_parsefail": 0
+    },
+    "canonical_units_used": {
+      "taxonomic_anchor": 3792,
+      "georgia_absorber": 16009,
+      "first_letter_L_anchor": 205,
+      "large_absorber": 8463
+    },
+    "per_case": [
+      {
+        "family": "taxonomic",
+        "target_subcontext": "Georgia",
+        "absorber_latent": 16009,
+        "parent_anchor": 3792,
+        "absorber_precision": 0.955,
+        "regime": "absorption",
+        "probe_train_auc": 1.0,
+        "probe_cos_with_diffmean": 0.4671987295150757,
+        "firing_jaccard_with_parent": 0.012505862122870096,
+        "parent_recall_hole": 0.7666666666666666,
+        "matched_target_forget_kl": 0.0517311511002481,
+        "scale_kg_lambda": 3.612672142563084,
+        "scale_dense_beta": 0.5437184876766198,
+        "forget_kg_curve": [
+          0.0,
+          0.0017554167072376004,
+          0.003940632000012556
+        ],
+        "forget_dense_curve": [
+          0.0,
+          0.03318036527489312,
+          0.24534216239117085
+        ],
+        "forget_kg_footprints": [
+          0.0,
+          0.0140625,
+          0.0140625
+        ],
+        "forget_dense_footprints": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "lam_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "beta_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "n_forget": 24,
+        "n_retain_collateral": 150,
+        "retain_collateral_kl_kg_mean": 3.355232950222368e-05,
+        "retain_collateral_kl_dense_mean": 0.10219093191903085,
+        "collateral_diff_CI": {
+          "diff": 0.10215737958952863,
+          "ci_lo": 0.0740893873070163,
+          "ci_hi": 0.13664292182410523,
+          "excl_0": true,
+          "n": 150
+        },
+        "curve_dominance": {
+          "dominance_fraction": 1.0,
+          "n_levels": 5,
+          "area_between_collateral": 0.07118490369955192,
+          "kg_forget_grid": [
+            0.0,
+            0.0017554167072376004,
+            0.003940632000012556
+          ],
+          "kg_collateral_grid": [
+            0.0,
+            3.6963510016600294e-05,
+            1.3503996403111766e-05
+          ],
+          "dense_forget_grid": [
+            0.0,
+            0.03318036527489312,
+            0.24534216239117085
+          ],
+          "dense_collateral_grid": [
+            0.0,
+            0.10352335173956817,
+            0.7747482536011375
+          ]
+        },
+        "judge_available": true,
+        "n_judged_preservation_pairs": 56,
+        "primary_outcome_basis": "llm_judge",
+        "joint_diff_CI": {
+          "diff": 0.42261904757638935,
+          "ci_lo": 0.273809523792659,
+          "ci_hi": 0.5714285713749998,
+          "excl_0": true,
+          "n": 56
+        },
+        "fluency_diff_CI": {
+          "diff": 0.1428571428571428,
+          "ci_lo": 0.03571428571428581,
+          "ci_hi": 0.25,
+          "excl_0": true,
+          "n": 56
+        },
+        "per_role_judge": {
+          "FORGET": {
+            "n_paired": 24,
+            "kg_utility_mean": 0.861111110886574,
+            "dense_utility_mean": 0.749999999798611
+          },
+          "RETAIN": {
+            "n_paired": 24,
+            "kg_utility_mean": 1.888888888412037,
+            "dense_utility_mean": 1.2777777773657408
+          },
+          "UNRELATED": {
+            "n_paired": 32,
+            "kg_utility_mean": 1.6458333329045138,
+            "dense_utility_mean": 1.3645833329305554
+          }
+        },
+        "judged_forget_confirmation": {
+          "kg_mean_forget_quality": 0.9166666666666666,
+          "dense_mean_forget_quality": 0.9166666666666666,
+          "n_kg": 24,
+          "n_dense": 24
+        },
+        "kg_joint_utility_mean": 1.7499999995505955,
+        "dense_joint_utility_mean": 1.3273809519742061,
+        "model_internal_joint": {
+          "collateral_diff_CI_genset": {
+            "diff": 0.03612165555646892,
+            "ci_lo": 0.014481161247515827,
+            "ci_hi": 0.06742875398910785,
+            "excl_0": true,
+            "n": 56
+          },
+          "fluency_diff_CI_ppl": {
+            "diff": 0.49507851260048596,
+            "ci_lo": -0.41106314382382597,
+            "ci_hi": 1.5813308409282172,
+            "excl_0": false,
+            "n": 56
+          },
+          "joint_diff_CI": {
+            "diff": 0.012315126556008638,
+            "ci_lo": 0.0026218487747611376,
+            "ci_hi": 0.023458401114649675,
+            "excl_0": true,
+            "n": 56
+          },
+          "kg_genset_kl_mean": 8.48220765224791e-05,
+          "dense_genset_kl_mean": 0.0362064776329914,
+          "kg_cont_ppl_mean": 32.77741206969534,
+          "dense_cont_ppl_mean": 33.27249058229582,
+          "noop_cont_ppl_mean": 32.71291701708521,
+          "verdict_model_internal": "PARTIAL_WIN"
+        },
+        "win_verdict": "DOWNSTREAM_WIN_CONFIRMED",
+        "case_id": "taxonomic_georgia"
+      },
+      {
+        "family": "first_letter",
+        "target_subcontext": "large",
+        "absorber_latent": 8463,
+        "parent_anchor": 205,
+        "absorber_precision": 1.0,
+        "regime": "absorption",
+        "probe_train_auc": 1.0,
+        "probe_cos_with_diffmean": 0.5598349571228027,
+        "firing_jaccard_with_parent": 0.0018501387604070306,
+        "parent_recall_hole": 1.0,
+        "matched_target_forget_kl": 0.15679913063844045,
+        "scale_kg_lambda": 3.0337481741062082,
+        "scale_dense_beta": 3.595357616981251,
+        "forget_kg_curve": [
+          0.0,
+          0.004732374974992126,
+          0.01228797176736407
+        ],
+        "forget_dense_curve": [
+          0.0,
+          0.003961783911411961,
+          0.009997333923820406
+        ],
+        "forget_kg_footprints": [
+          0.0,
+          0.03,
+          0.03
+        ],
+        "forget_dense_footprints": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "lam_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "beta_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "n_forget": 12,
+        "n_retain_collateral": 150,
+        "retain_collateral_kl_kg_mean": 2.0006768875949394e-05,
+        "retain_collateral_kl_dense_mean": 1.124537905365384,
+        "collateral_diff_CI": {
+          "diff": 1.1245178985965079,
+          "ci_lo": 0.8100990320123462,
+          "ci_hi": 1.4885503152412933,
+          "excl_0": true,
+          "n": 150
+        },
+        "curve_dominance": {
+          "dominance_fraction": 1.0,
+          "n_levels": 5,
+          "area_between_collateral": 0.6160215808881985,
+          "kg_forget_grid": [
+            0.0,
+            0.004732374974992126,
+            0.01228797176736407
+          ],
+          "kg_collateral_grid": [
+            0.0,
+            6.6873850300908085e-06,
+            1.8383379210717975e-05
+          ],
+          "dense_forget_grid": [
+            0.0,
+            0.003961783911411961,
+            0.009997333923820406
+          ],
+          "dense_collateral_grid": [
+            0.0,
+            0.003448827781054812,
+            0.012531880143190696
+          ]
+        },
+        "judge_available": true,
+        "n_judged_preservation_pairs": 48,
+        "primary_outcome_basis": "llm_judge",
+        "joint_diff_CI": {
+          "diff": 1.6458333329340278,
+          "ci_lo": 1.479166666312413,
+          "ci_hi": 1.7986111106782408,
+          "excl_0": true,
+          "n": 48
+        },
+        "fluency_diff_CI": {
+          "diff": 1.4791666666666667,
+          "ci_lo": 1.2708333333333333,
+          "ci_hi": 1.6666666666666667,
+          "excl_0": true,
+          "n": 48
+        },
+        "per_role_judge": {
+          "FORGET": {
+            "n_paired": 12,
+            "kg_utility_mean": 1.611111110699074,
+            "dense_utility_mean": 0.6666666664722222
+          },
+          "RETAIN": {
+            "n_paired": 24,
+            "kg_utility_mean": 1.888888888412037,
+            "dense_utility_mean": 0.30555555543287033
+          },
+          "UNRELATED": {
+            "n_paired": 24,
+            "kg_utility_mean": 1.7499999995347224,
+            "dense_utility_mean": 0.04166666664583333
+          }
+        },
+        "judged_forget_confirmation": {
+          "kg_mean_forget_quality": 1.6666666666666667,
+          "dense_mean_forget_quality": 2.0,
+          "n_kg": 12,
+          "n_dense": 12
+        },
+        "kg_joint_utility_mean": 1.8194444439733797,
+        "dense_joint_utility_mean": 0.1736111110393518,
+        "model_internal_joint": {
+          "collateral_diff_CI_genset": {
+            "diff": 2.44793370210391,
+            "ci_lo": 1.7335614321173731,
+            "ci_hi": 3.2529230111511422,
+            "excl_0": true,
+            "n": 48
+          },
+          "fluency_diff_CI_ppl": {
+            "diff": -0.30808685223261545,
+            "ci_lo": -1.9460723359758658,
+            "ci_hi": 1.4939769240717087,
+            "excl_0": false,
+            "n": 48
+          },
+          "joint_diff_CI": {
+            "diff": 0.26239778976697314,
+            "ci_lo": 0.19392621107790844,
+            "ci_hi": 0.32847266956368254,
+            "excl_0": true,
+            "n": 48
+          },
+          "kg_genset_kl_mean": 7.663897122256458e-06,
+          "dense_genset_kl_mean": 2.4479413660010323,
+          "kg_cont_ppl_mean": 8.045571272571882,
+          "dense_cont_ppl_mean": 7.737484420339267,
+          "noop_cont_ppl_mean": 8.03547796110312,
+          "verdict_model_internal": "PARTIAL_WIN"
+        },
+        "win_verdict": "DOWNSTREAM_WIN_CONFIRMED",
+        "case_id": "first_letter_large"
+      },
+      {
+        "family": "taxonomic",
+        "target_subcontext": "United States",
+        "absorber_latent": 846,
+        "parent_anchor": 3792,
+        "absorber_precision": 0.973,
+        "regime": "absorption",
+        "probe_train_auc": 1.0,
+        "probe_cos_with_diffmean": 0.4671987295150757,
+        "firing_jaccard_with_parent": 0.04023821020441011,
+        "parent_recall_hole": 0.19666666666666666,
+        "matched_target_forget_kl": 0.027814775733277203,
+        "scale_kg_lambda": 3.5084555869822225,
+        "scale_dense_beta": 0.3503246537275741,
+        "forget_kg_curve": [
+          0.0,
+          0.0014632641282787517,
+          0.004035684312293597
+        ],
+        "forget_dense_curve": [
+          0.0,
+          0.039698570222390116,
+          0.34965446150745266
+        ],
+        "forget_kg_footprints": [
+          0.0,
+          0.016666666666666666,
+          0.016666666666666666
+        ],
+        "forget_dense_footprints": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "lam_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "beta_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "n_forget": 24,
+        "n_retain_collateral": 150,
+        "retain_collateral_kl_kg_mean": 0.00011163388087879866,
+        "retain_collateral_kl_dense_mean": 0.03140391997022865,
+        "collateral_diff_CI": {
+          "diff": 0.03129228608934985,
+          "ci_lo": 0.020714004115376158,
+          "ci_hi": 0.044969848805432165,
+          "excl_0": true,
+          "n": 150
+        },
+        "curve_dominance": {
+          "dominance_fraction": 1.0,
+          "n_levels": 5,
+          "area_between_collateral": 0.03946692691763742,
+          "kg_forget_grid": [
+            0.0,
+            0.0014632641282787517,
+            0.004035684312293597
+          ],
+          "kg_collateral_grid": [
+            0.0,
+            8.153729140758514e-06,
+            4.9635178099075955e-05
+          ],
+          "dense_forget_grid": [
+            0.0,
+            0.039698570222390116,
+            0.34965446150745266
+          ],
+          "dense_collateral_grid": [
+            0.0,
+            0.10861340509630585,
+            0.8994442641812687
+          ]
+        },
+        "judge_available": true,
+        "n_judged_preservation_pairs": 56,
+        "primary_outcome_basis": "llm_judge",
+        "joint_diff_CI": {
+          "diff": 0.3571428571101194,
+          "ci_lo": 0.19642857142559533,
+          "ci_hi": 0.5238095237599205,
+          "excl_0": true,
+          "n": 56
+        },
+        "fluency_diff_CI": {
+          "diff": 0.0535714285714286,
+          "ci_lo": -0.08928571428571419,
+          "ci_hi": 0.1785714285714286,
+          "excl_0": false,
+          "n": 56
+        },
+        "per_role_judge": {
+          "FORGET": {
+            "n_paired": 24,
+            "kg_utility_mean": 0.4166666665625,
+            "dense_utility_mean": 0.6249999998194444
+          },
+          "RETAIN": {
+            "n_paired": 24,
+            "kg_utility_mean": 1.7916666661944445,
+            "dense_utility_mean": 1.3194444440324071
+          },
+          "UNRELATED": {
+            "n_paired": 32,
+            "kg_utility_mean": 1.635416666236111,
+            "dense_utility_mean": 1.3645833329149304
+          }
+        },
+        "judged_forget_confirmation": {
+          "kg_mean_forget_quality": 0.4166666666666667,
+          "dense_mean_forget_quality": 0.7083333333333334,
+          "n_kg": 24,
+          "n_dense": 24
+        },
+        "kg_joint_utility_mean": 1.7023809519325397,
+        "dense_joint_utility_mean": 1.3452380948224203,
+        "model_internal_joint": {
+          "collateral_diff_CI_genset": {
+            "diff": 0.009910812507899078,
+            "ci_lo": 0.005480431872079602,
+            "ci_hi": 0.01548902423271231,
+            "excl_0": true,
+            "n": 56
+          },
+          "fluency_diff_CI_ppl": {
+            "diff": 0.5871415521417305,
+            "ci_lo": -0.17432050247277336,
+            "ci_hi": 1.7397455056863176,
+            "excl_0": false,
+            "n": 56
+          },
+          "joint_diff_CI": {
+            "diff": 0.009831870686571209,
+            "ci_lo": -0.00010406470255864818,
+            "ci_hi": 0.02172176205360156,
+            "excl_0": false,
+            "n": 56
+          },
+          "kg_genset_kl_mean": 3.260981923501406e-05,
+          "dense_genset_kl_mean": 0.009943422327134093,
+          "kg_cont_ppl_mean": 32.5190315927778,
+          "dense_cont_ppl_mean": 33.10617314491953,
+          "noop_cont_ppl_mean": 32.62331361430032,
+          "verdict_model_internal": "AUDITABILITY_NO_BETTER_OUTCOME"
+        },
+        "win_verdict": "PARTIAL_WIN",
+        "case_id": "taxonomic_us"
+      }
+    ],
+    "summary": {
+      "n_cases": 4,
+      "n_absorption": 3,
+      "n_downstream_win_confirmed": 2,
+      "win_cases": [
+        "taxonomic_georgia",
+        "first_letter_large"
+      ],
+      "partial_win_cases": [
+        "taxonomic_us"
+      ],
+      "no_better_outcome_cases": [],
+      "m1_gate_passed": true,
+      "cofiring_cases": [
+        {
+          "case_id": "toxicity_insult",
+          "verdict": "EXPECTED_LOSS_ROUTER_CONSISTENT",
+          "firing_jaccard": 0.8821443471005423,
+          "parent_recall_hole": 0.0
+        }
+      ],
+      "per_case_verdicts": [
+        {
+          "case_id": "taxonomic_georgia",
+          "verdict": "DOWNSTREAM_WIN_CONFIRMED",
+          "verdict_model_internal": "PARTIAL_WIN",
+          "joint_diff_CI": {
+            "diff": 0.42261904757638935,
+            "ci_lo": 0.273809523792659,
+            "ci_hi": 0.5714285713749998,
+            "excl_0": true,
+            "n": 56
+          },
+          "collateral_diff_CI": {
+            "diff": 0.10215737958952863,
+            "ci_lo": 0.0740893873070163,
+            "ci_hi": 0.13664292182410523,
+            "excl_0": true,
+            "n": 150
+          },
+          "fluency_diff_CI": {
+            "diff": 0.1428571428571428,
+            "ci_lo": 0.03571428571428581,
+            "ci_hi": 0.25,
+            "excl_0": true,
+            "n": 56
+          },
+          "curve_dominance_fraction": 1.0
+        },
+        {
+          "case_id": "first_letter_large",
+          "verdict": "DOWNSTREAM_WIN_CONFIRMED",
+          "verdict_model_internal": "PARTIAL_WIN",
+          "joint_diff_CI": {
+            "diff": 1.6458333329340278,
+            "ci_lo": 1.479166666312413,
+            "ci_hi": 1.7986111106782408,
+            "excl_0": true,
+            "n": 48
+          },
+          "collateral_diff_CI": {
+            "diff": 1.1245178985965079,
+            "ci_lo": 0.8100990320123462,
+            "ci_hi": 1.4885503152412933,
+            "excl_0": true,
+            "n": 150
+          },
+          "fluency_diff_CI": {
+            "diff": 1.4791666666666667,
+            "ci_lo": 1.2708333333333333,
+            "ci_hi": 1.6666666666666667,
+            "excl_0": true,
+            "n": 48
+          },
+          "curve_dominance_fraction": 1.0
+        },
+        {
+          "case_id": "taxonomic_us",
+          "verdict": "PARTIAL_WIN",
+          "verdict_model_internal": "AUDITABILITY_NO_BETTER_OUTCOME",
+          "joint_diff_CI": {
+            "diff": 0.3571428571101194,
+            "ci_lo": 0.19642857142559533,
+            "ci_hi": 0.5238095237599205,
+            "excl_0": true,
+            "n": 56
+          },
+          "collateral_diff_CI": {
+            "diff": 0.03129228608934985,
+            "ci_lo": 0.020714004115376158,
+            "ci_hi": 0.044969848805432165,
+            "excl_0": true,
+            "n": 150
+          },
+          "fluency_diff_CI": {
+            "diff": 0.0535714285714286,
+            "ci_lo": -0.08928571428571419,
+            "ci_hi": 0.1785714285714286,
+            "excl_0": false,
+            "n": 56
+          },
+          "curve_dominance_fraction": 1.0
+        }
+      ]
+    },
+    "honest_negatives": [
+      "taxonomic_us: PARTIAL_WIN — joint CI excludes 0 favoring KG but not both sub-dimensions (collateral / fluency) are individually significant.",
+      "toxicity_insult: EXPECTED_LOSS_ROUTER_CONSISTENT — co-firing regime (firing-Jaccard 0.8821443471005423, parent recall-hole 0.0); single-latent ablation is NOT a clean handle, dense is the right tool —..."
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "unlearn_per_prompt",
+      "examples": [
+        {
+          "input": "[taxonomic|FORGET|forget='Georgia'] 1982–83 Georgia Tech Yellow Jackets men's basketball team\n\nThe 1982-83 Georgia Tech Yellow Jackets men's basketball team represented the Georgia Institute of",
+          "output": "FORGET",
+          "predict_kg_abl": "Technology during the 1982–83 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+          "predict_dense_abl": "Technology during the 1982–83 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+          "predict_rand": "Technology during the 1982–83 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+          "predict_noop": "Technology during the 1982–83 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+          "metadata_case": "taxonomic_georgia",
+          "metadata_role": "FORGET",
+          "metadata_absorber_latent": 16009,
+          "metadata_regime": "absorption",
+          "metadata_fluency_kg": 2,
+          "metadata_fluency_dense": 2,
+          "metadata_content_pres_kg": 0,
+          "metadata_content_pres_dense": 0,
+          "metadata_utility_kg": 0.0,
+          "metadata_utility_dense": 0.0,
+          "metadata_utility_rand": 0.0,
+          "metadata_mi_lastkl_kg": 1.7e-05,
+          "metadata_mi_lastkl_dense": 1.8e-05,
+          "metadata_mi_contppl_kg": 7.755,
+          "metadata_mi_contppl_dense": 7.755
+        },
+        {
+          "input": "[taxonomic|FORGET|forget='Georgia'] Messer, Jr., was indicted by the grand jury of Polk County,",
+          "output": "FORGET",
+          "predict_kg_abl": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+          "predict_dense_abl": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+          "predict_rand": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+          "predict_noop": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+          "metadata_case": "taxonomic_georgia",
+          "metadata_role": "FORGET",
+          "metadata_absorber_latent": 16009,
+          "metadata_regime": "absorption",
+          "metadata_fluency_kg": 2,
+          "metadata_fluency_dense": 2,
+          "metadata_content_pres_kg": 2,
+          "metadata_content_pres_dense": 2,
+          "metadata_utility_kg": 2.0,
+          "metadata_utility_dense": 2.0,
+          "metadata_utility_rand": 2.0,
+          "metadata_mi_lastkl_kg": 0.0,
+          "metadata_mi_lastkl_dense": 0.017346,
+          "metadata_mi_contppl_kg": 5.958,
+          "metadata_mi_contppl_dense": 5.958
+        },
+        {
+          "input": "[taxonomic|FORGET|forget='Georgia'] Mozas next advised Wilson that Mozas would be smuggling one hundred kilograms of cocaine from\n\nColumbia, for which he would be paid 18,000 pounds of marijuana. Wils...",
+          "output": "FORGET",
+          "predict_kg_abl": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. Feb. 1",
+          "predict_dense_abl": "New York\n     *\n     Honorable John G. Koeltl, U.S. District Judge for the Southern District of New York\n     *\n     Honorable Richard J. Sullivan, U",
+          "predict_rand": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. 199",
+          "predict_noop": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. Feb. 1",
+          "metadata_case": "taxonomic_georgia",
+          "metadata_role": "FORGET",
+          "metadata_absorber_latent": 16009,
+          "metadata_regime": "absorption",
+          "metadata_fluency_kg": 2,
+          "metadata_fluency_dense": 2,
+          "metadata_content_pres_kg": 2,
+          "metadata_content_pres_dense": 2,
+          "metadata_utility_kg": 2.0,
+          "metadata_utility_dense": 2.0,
+          "metadata_utility_rand": 1.3333,
+          "metadata_mi_lastkl_kg": 0.0,
+          "metadata_mi_lastkl_dense": 0.007802,
+          "metadata_mi_contppl_kg": 7.624,
+          "metadata_mi_contppl_dense": 7.012
+        }
+      ]
+    },
+    {
+      "dataset": "kg_vs_dense_per_case",
+      "examples": [
+        {
+          "input": "taxonomic | selectively UNLEARN sub-context 'Georgia' by ablating KG-named absorber 16009 (absorption); KG-ABL vs DENSE-ABL (baseline f) at MATCHED forget-quality on a joint retain-quality x fluency o...",
+          "output": "WIN_EXPECTED",
+          "predict_kg_abl": "DOWNSTREAM_WIN_CONFIRMED",
+          "predict_dense_abl": "joint_util=1.3273809519742061",
+          "predict_model_internal": "PARTIAL_WIN",
+          "metadata_case": "taxonomic_georgia",
+          "metadata_regime": "absorption",
+          "metadata_scale_kg_lambda": 3.6127,
+          "metadata_scale_dense_beta": 0.5437,
+          "metadata_matched_target_forget_kl": 0.051731,
+          "metadata_collateral_diff_ci_lo": 0.0740893873070163,
+          "metadata_collateral_diff_ci_hi": 0.13664292182410523,
+          "metadata_collateral_diff_excl0": true,
+          "metadata_joint_diff": 0.42261904757638935,
+          "metadata_joint_diff_ci_lo": 0.273809523792659,
+          "metadata_joint_diff_ci_hi": 0.5714285713749998,
+          "metadata_joint_diff_excl0": true,
+          "metadata_kg_joint_utility": 1.7499999995505955,
+          "metadata_dense_joint_utility": 1.3273809519742061,
+          "metadata_curve_dominance_fraction": 1.0,
+          "metadata_firing_jaccard_with_parent": 0.012505862122870096,
+          "metadata_parent_recall_hole": 0.7666666666666666,
+          "metadata_primary_basis": "llm_judge"
+        },
+        {
+          "input": "first_letter | selectively UNLEARN sub-context 'large' by ablating KG-named absorber 8463 (absorption); KG-ABL vs DENSE-ABL (baseline f) at MATCHED forget-quality on a joint retain-quality x fluency o...",
+          "output": "WIN_EXPECTED",
+          "predict_kg_abl": "DOWNSTREAM_WIN_CONFIRMED",
+          "predict_dense_abl": "joint_util=0.1736111110393518",
+          "predict_model_internal": "PARTIAL_WIN",
+          "metadata_case": "first_letter_large",
+          "metadata_regime": "absorption",
+          "metadata_scale_kg_lambda": 3.0337,
+          "metadata_scale_dense_beta": 3.5954,
+          "metadata_matched_target_forget_kl": 0.156799,
+          "metadata_collateral_diff_ci_lo": 0.8100990320123462,
+          "metadata_collateral_diff_ci_hi": 1.4885503152412933,
+          "metadata_collateral_diff_excl0": true,
+          "metadata_joint_diff": 1.6458333329340278,
+          "metadata_joint_diff_ci_lo": 1.479166666312413,
+          "metadata_joint_diff_ci_hi": 1.7986111106782408,
+          "metadata_joint_diff_excl0": true,
+          "metadata_kg_joint_utility": 1.8194444439733797,
+          "metadata_dense_joint_utility": 0.1736111110393518,
+          "metadata_curve_dominance_fraction": 1.0,
+          "metadata_firing_jaccard_with_parent": 0.0018501387604070306,
+          "metadata_parent_recall_hole": 1.0,
+          "metadata_primary_basis": "llm_judge"
+        },
+        {
+          "input": "taxonomic | selectively UNLEARN sub-context 'United States' by ablating KG-named absorber 846 (absorption); KG-ABL vs DENSE-ABL (baseline f) at MATCHED forget-quality on a joint retain-quality x fluen...",
+          "output": "WIN_EXPECTED",
+          "predict_kg_abl": "PARTIAL_WIN",
+          "predict_dense_abl": "joint_util=1.3452380948224203",
+          "predict_model_internal": "AUDITABILITY_NO_BETTER_OUTCOME",
+          "metadata_case": "taxonomic_us",
+          "metadata_regime": "absorption",
+          "metadata_scale_kg_lambda": 3.5085,
+          "metadata_scale_dense_beta": 0.3503,
+          "metadata_matched_target_forget_kl": 0.027815,
+          "metadata_collateral_diff_ci_lo": 0.020714004115376158,
+          "metadata_collateral_diff_ci_hi": 0.044969848805432165,
+          "metadata_collateral_diff_excl0": true,
+          "metadata_joint_diff": 0.3571428571101194,
+          "metadata_joint_diff_ci_lo": 0.19642857142559533,
+          "metadata_joint_diff_ci_hi": 0.5238095237599205,
+          "metadata_joint_diff_excl0": true,
+          "metadata_kg_joint_utility": 1.7023809519325397,
+          "metadata_dense_joint_utility": 1.3452380948224203,
+          "metadata_curve_dominance_fraction": 1.0,
+          "metadata_firing_jaccard_with_parent": 0.04023821020441011,
+          "metadata_parent_recall_hole": 0.19666666666666666,
+          "metadata_primary_basis": "llm_judge"
+        }
+      ]
+    }
+  ]
+}

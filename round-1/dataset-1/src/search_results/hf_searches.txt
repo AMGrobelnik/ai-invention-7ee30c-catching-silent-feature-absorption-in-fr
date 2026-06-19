@@ -1,0 +1,733 @@
+Found 4 dataset(s) for query='pile'
+
+============================================================
+Dataset 1: monology/pile-uncopyrighted
+Downloads: 68,643 | Likes: 173
+Description: 
+# Pile Uncopyrighted
+In response to [authors demanding that LLMs stop using their works](https://tcrn.ch/3rtpIDn), here's a copy of [The Pile](https://huggingface.co/datasets/monology/pile) with all ...
+Tags: license:other, size_categories:100M<n<1B, format:json, modality:text, library:datasets
+
+============================================================
+Dataset 2: common-pile/caselaw_access_project
+Downloads: 35,656 | Likes: 215
+Description: # Caselaw Access Project
+
+## Description
+This dataset contains 6.7 million cases from the Caselaw Access Project and Court Listener. 
+The Caselaw Access Project consists of nearly 40 million pages of ...
+Tags: task_categories:text-generation, language:en, size_categories:1M<n<10M, format:json, modality:text
+
+============================================================
+Dataset 3: ArmelR/the-pile-splitted
+Downloads: 28,997 | Likes: 23
+Description: 
+# Dataset description
+
+[The pile](https://arxiv.org/abs/2101.00027) is an 800GB dataset of english text 
+designed by EleutherAI to train large-scale language models. The original version of
+the datas...
+Tags: size_categories:10M<n<100M, format:arrow, modality:text, library:datasets, library:mlcroissant
+
+============================================================
+Dataset 4: EleutherAI/the_pile_deduplicated
+Downloads: 25,325 | Likes: 114
+Tags: size_categories:100M<n<1B, format:parquet, modality:text, library:datasets, library:dask
+Found 4 dataset(s) for query='the pile'
+
+============================================================
+Dataset 1: ArmelR/the-pile-splitted
+Downloads: 28,997 | Likes: 23
+Description: 
+# Dataset description
+
+[The pile](https://arxiv.org/abs/2101.00027) is an 800GB dataset of english text 
+designed by EleutherAI to train large-scale language models. The original version of
+the datas...
+Tags: size_categories:10M<n<100M, format:arrow, modality:text, library:datasets, library:mlcroissant
+
+============================================================
+Dataset 2: EleutherAI/the_pile_deduplicated
+Downloads: 25,325 | Likes: 114
+Tags: size_categories:100M<n<1B, format:parquet, modality:text, library:datasets, library:dask
+
+============================================================
+Dataset 3: SaylorTwift/the_pile_books3_minus_gutenberg
+Downloads: 1,239 | Likes: 14
+Description: # Dataset Card for "the_pile_books3_minus_gutenberg"
+
+[More Information needed](https://github.com/huggingface/datasets/blob/main/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)...
+Tags: size_categories:100K<n<1M, format:parquet, modality:text, library:datasets, library:dask
+
+============================================================
+Dataset 4: JonasGeiping/the_pile_WordPiecex32768_2efdb9d060d1ae95faf952ec1a50f020
+Downloads: 1,147 | Likes: 1
+Description: # Dataset Card for "the_pile_WordPiecex32768_2efdb9d060d1ae95faf952ec1a50f020"
+
+
+## Dataset Description
+
+- **Repository:** https://github.com/JonasGeiping/cramming
+- **Paper:** https://arxiv.org/abs/2...
+Tags: size_categories:10M<n<100M, format:parquet, library:datasets, library:dask, library:mlcroissant
+Found 4 dataset(s) for query='pile uncopyrighted'
+
+============================================================
+Dataset 1: monology/pile-uncopyrighted
+Downloads: 68,643 | Likes: 173
+Description: 
+# Pile Uncopyrighted
+In response to [authors demanding that LLMs stop using their works](https://tcrn.ch/3rtpIDn), here's a copy of [The Pile](https://huggingface.co/datasets/monology/pile) with all ...
+Tags: license:other, size_categories:100M<n<1B, format:json, modality:text, library:datasets
+
+============================================================
+Dataset 2: danbraunai/pile-uncopyrighted-tok-shuffled
+Downloads: 5,009 | Likes: 0
+Description: 
+# Pile Uncopyrighted (Tokenized + Shuffled)
+
+Globally shuffled version of the Pile (uncopyrighted subset), tokenized into
+fixed-length sequences of 513 token IDs using
+[`EleutherAI/gpt-neox-20b`](htt...
+Tags: license:mit, size_categories:100M<n<1B, region:us
+
+============================================================
+Dataset 3: monology/pile-uncopyrighted-parquet
+Downloads: 1,693 | Likes: 0
+Tags: size_categories:100M<n<1B, format:parquet, modality:text, library:datasets, library:dask
+
+============================================================
+Dataset 4: danbraunai/pile-uncopyrighted
+Downloads: 904 | Likes: 0
+Description: 
+# Pile Uncopyrighted (with train/val/test splits)
+
+This is [monology/pile-uncopyrighted](https://huggingface.co/datasets/monology/pile-uncopyrighted)
+re-split into train, val, and test sets.
+
+The ori...
+Tags: license:mit, size_categories:100M<n<1B, format:parquet, format:optimized-parquet, modality:text
+Found 2 dataset(s) for query='language modeling corpus'
+
+============================================================
+Dataset 1: TornikeShatbera/Corpus-for-Language-Modeling
+Downloads: 11 | Likes: 0
+Tags: size_categories:10K<n<100K, format:text, modality:text, library:datasets, library:mlcroissant
+
+============================================================
+Dataset 2: Tia25/corpus_for_language_modeling
+Downloads: 2 | Likes: 0
+Tags: size_categories:n<1K, format:csv, modality:text, library:datasets, library:pandas
+Found 0 dataset(s) for query='web text corpus'
+Found 4 dataset(s) for query='spelling'
+
+============================================================
+Dataset 1: Bayernator/german-spelling-data
+Downloads: 192 | Likes: 0
+Tags: size_categories:10K<n<100K, format:json, modality:text, library:datasets, library:dask
+
+============================================================
+Dataset 2: startc/synthetic-spelling
+Downloads: 191 | Likes: 2
+Tags: license:apache-2.0, size_categories:10M<n<100M, format:parquet, modality:text, library:datasets
+
+============================================================
+Dataset 3: SPEAK-PP/sinhala-spelling-correction-already-corrected-pairs
+Downloads: 113 | Likes: 0
+Description: 
+# Sinhala ASR Prediction-Reference Dataset (3000 no-numbers)
+
+## Dataset Description
+
+This dataset contains sentence pairs for spelling correction:
+
+- `dyslexic_sentence`: noisy / predicted text
+- `c...
+Tags: language:si, license:mit, size_categories:1K<n<10K, format:parquet, format:optimized-parquet
+
+============================================================
+Dataset 4: SPEAK-PP/openslr-sinhala-spelling-correction-prediction-reference-60000
+Downloads: 76 | Likes: 0
+Description: 
+# OpenSLR Sinhala Spelling Correction – Prediction / Reference
+
+This dataset contains Sinhala sentence pairs intended for training and evaluating
+spelling-correction models on ASR output.
+
+| Column  ...
+Tags: language:si, license:cc-by-4.0, size_categories:10K<n<100K, format:parquet, format:optimized-parquet
+Found 1 dataset(s) for query='first letter'
+
+============================================================
+Dataset 1: surindersinghssj/gurbani-anchor-first-letter-v1
+Downloads: 49 | Likes: 0
+Tags: region:us
+Found 0 dataset(s) for query='character spelling'
+Found 0 dataset(s) for query='word spelling task'
+Found 4 dataset(s) for query='tokenization'
+
+============================================================
+Dataset 1: Human-Centric-Machine-Learning/tokenization-multiplicity-data
+Downloads: 478 | Likes: 2
+Description: 
+# Dataset: Tokenization Multiplicity Leads to Arbitrary Price Variation in LLM-as-a-service
+
+This dataset contains the official experiment inference traces for the paper [Tokenization Multiplicity Le...
+Tags: task_categories:text-generation, language:en, language:de, language:fr, language:pt
+
+============================================================
+Dataset 2: r-three/tokenization_robustness_v102
+Downloads: 338 | Likes: 2
+Description: 
+# Dataset Card for Tokenization Robustness
+
+<!-- Provide a quick summary of the dataset. -->
+
+A comprehensive evaluation dataset for testing robustness of different tokenization strategies.
+
+## Datas...
+Tags: task_categories:multiple-choice, multilinguality:multilingual, license:cc, size_categories:n<1K, format:parquet
+
+============================================================
+Dataset 3: timodonnell/protein-tokenization-experiments-mini
+Downloads: 106 | Likes: 0
+Tags: license:apache-2.0, size_categories:100K<n<1M, format:parquet, format:optimized-parquet, modality:text
+
+============================================================
+Dataset 4: idobrovolskyi/cyrillic-vs-latin-tokenization
+Downloads: 57 | Likes: 0
+Description: 
+# Cyrillic vs Latin Tokenization Benchmark
+
+Cross-lingual benchmark measuring the tokenization cost of Cyrillic vs Latin script across 5 languages and 6 modern LLM tokenizers.
+
+## Key Finding
+
+**The ...
+Tags: language:uk, language:sr, language:kk, language:az, language:uz
+Found 2 dataset(s) for query='english word list'
+
+============================================================
+Dataset 1: g2p-exploration/english-word-frequency-list
+Downloads: 44 | Likes: 0
+Tags: size_categories:1M<n<10M, format:parquet, modality:text, library:datasets, library:pandas
+
+============================================================
+Dataset 2: DaliaBarua/English_Word_List
+Downloads: 18 | Likes: 0
+Tags: size_categories:100K<n<1M, format:text, modality:text, library:datasets, library:mlcroissant
+Found 1 dataset(s) for query='dictionary words'
+
+============================================================
+Dataset 1: Phonepadith/laos_words_dictionary
+Downloads: 7 | Likes: 1
+Tags: task_categories:text-classification, language:lo, license:apache-2.0, size_categories:10K<n<100K, format:text
+Found 4 dataset(s) for query='lexicon'
+
+============================================================
+Dataset 1: GiliGold/Hebrew_VAD_lexicon
+Downloads: 855 | Likes: 0
+Description: # Hebrew VAD Lexicon
+
+The **Hebrew VAD Lexicon** is an enhanced version of an automatically translated affective lexicon, originally derived from the English VAD lexicon created by [Mohammad (2018)](h...
+Tags: task_categories:text-classification, task_categories:token-classification, language:he, language:en, license:cc-by-sa-4.0
+
+============================================================
+Dataset 2: textdetox/multilingual_toxic_lexicon
+Downloads: 647 | Likes: 9
+Description: 
+# Multilingual Toxic Lexicon
+
+**[2025]** The lexicon is extended to new languages! Now also included: Italian, French, Hebrew, Hindi, Japanese, Tatar. The list is used on [TextDetox 2025](https://pan...
+Tags: task_categories:token-classification, language:en, language:ru, language:uk, language:es
+
+============================================================
+Dataset 3: neurlang/ipa-lexicon-4v0-7M
+Downloads: 429 | Likes: 5
+Description: 
+# IPA Phonetic Lexicon (6.9M words)
+
+- This is an International Phonetic Language lexicon containing 6.9 million utterances across 350+ languages.
+- All speech files were converted into IPA using our...
+Tags: task_categories:text-classification, task_categories:text-generation, task_categories:translation, language:aa, language:aae
+
+============================================================
+Dataset 4: ryanjgallag/wordlevel-lexicons
+Downloads: 152 | Likes: 0
+Tags: license:mit, size_categories:100K<n<1M, format:parquet, modality:text, library:datasets
+Found 4 dataset(s) for query='word frequency'
+
+============================================================
+Dataset 1: jnext/chinese_word_frequency
+Downloads: 45 | Likes: 1
+Description: 
+# Chinese Word frequency statistics
+
+word segmentation by jieba tool
+
+ - seq_monkey_data : statistics on 13,000,000 document / 6,561,241,266 words / 11,313,242,610 characters
+...
+Tags: language:zh, license:apache-2.0, size_categories:10M<n<100M, format:csv, modality:text
+
+============================================================
+Dataset 2: g2p-exploration/english-word-frequency-list
+Downloads: 44 | Likes: 0
+Tags: size_categories:1M<n<10M, format:parquet, modality:text, library:datasets, library:pandas
+
+============================================================
+Dataset 3: kavyamanohar/ml-word-frequency
+Downloads: 22 | Likes: 0
+Tags: language:ml, license:cc-by-sa-3.0, size_categories:1M<n<10M, format:csv, modality:text
+
+============================================================
+Dataset 4: g-ronimo/kaggle_english_word_frequency
+Downloads: 15 | Likes: 0
+Tags: size_categories:100K<n<1M, format:parquet, modality:text, library:datasets, library:pandas
+Found 0 dataset(s) for query='common english words'
+Found 1 dataset(s) for query='sparse autoencoder'
+
+============================================================
+Dataset 1: BasBuller/SparseAutoencoder
+Downloads: 1 | Likes: 0
+Tags: region:us
+Found 0 dataset(s) for query='interpretability probing'
+Found 0 dataset(s) for query='feature absorption'
+Found 2 dataset(s) for query='mechanistic interpretability'
+
+============================================================
+Dataset 1: fineset-io/mechanistic-interpretability-papers
+Downloads: 77 | Likes: 1
+Description: 
+# Mechanistic Interpretability Papers — FineSet
+
+A research-paper dataset on **Mechanistic Interpretability Papers**, assembled, deduplicated, and quality-scored by
+[FineSet](https://fineset.io) from...
+Tags: task_categories:text-classification, task_categories:text-generation, language:en, license:cc-by-4.0, size_categories:n<1K
+
+============================================================
+Dataset 2: bedderautomation/mechanistic-interpretability-skills
+Downloads: 33 | Likes: 1
+Description: # Mechanistic Interpretability Skills for Claude Code
+
+The first skill set for LLM refusal geometry extraction, boundary surface mapping, and self-referential mechanistic analysis.
+
+Compatible with: C...
+Tags: region:us
+Found 4 dataset(s) for query='gemma'
+
+============================================================
+Dataset 1: roo5150/eagle3-hidden-states-gemma4
+Downloads: 24,414 | Likes: 0
+Tags: region:us
+
+============================================================
+Dataset 2: haoranli-ml/prolong-data-64K-gemma
+Downloads: 9,967 | Likes: 0
+Tags: region:us
+
+============================================================
+Dataset 3: Gladiator/gemma4-mtp-dflash-speed-bench-results
+Downloads: 8,633 | Likes: 0
+Description: 
+# Gemma 4 MTP vs DFlash SPEED-Bench Results
+
+This dataset contains the raw JSON result files from a Gemma 4 speculative decoding benchmark on a single H100 80GB.
+
+Companion GitHub repository:
+
+https:...
+Tags: task_categories:text-generation, language:en, size_categories:n<1K, region:us, benchmark
+
+============================================================
+Dataset 4: kisate-team/gemma-2b-suite-explanations
+Downloads: 8,249 | Likes: 0
+Tags: license:apache-2.0, size_categories:1M<n<10M, modality:text, region:us
+Found 4 dataset(s) for query='SAE features'
+
+============================================================
+Dataset 1: laion/majestrino-1.00-16xk5-sae-features
+Downloads: 426 | Likes: 0
+Description: 
+# Majestrino 1.00 SAE — Feature Audio Samples (16x, k=5)
+
+Top-2000 activating audio samples for each feature in the
+[Majestrino 1.00 SAE](https://huggingface.co/laion/majestrino-1.00-16xk5-sae).
+
+## ...
+Tags: task_categories:audio-classification, language:multilingual, license:apache-2.0, size_categories:10M<n<100M, format:webdataset
+
+============================================================
+Dataset 2: Adam1010/gemma-4-31b-sae-features
+Downloads: 315 | Likes: 1
+Description: 
+# Gemma-4-31B Sparse Autoencoder Features
+
+**3,000 interpreted and verified SAE features** across all 60 layers of Google's Gemma-4-31B-IT model.
+
+## What's in this dataset?
+
+For each of the 60 trans...
+Tags: task_categories:feature-extraction, language:en, license:apache-2.0, size_categories:1K<n<10K, region:us
+
+============================================================
+Dataset 3: auditing-agents/sae-features-llama-70b-layer50
+Downloads: 293 | Likes: 0
+Tags: region:us
+
+============================================================
+Dataset 4: thedarkknight7/SAE_monosemanticity_features_16x_0.0001_sampling
+Downloads: 283 | Likes: 0
+Tags: size_categories:100M<n<1B, format:parquet, modality:tabular, library:datasets, library:dask
+Found 3 dataset(s) for query='minimal pairs'
+
+============================================================
+Dataset 1: facebook/minimal_video_pairs
+Downloads: 350 | Likes: 6
+Description: 
+# Minimal Video Pairs
+
+A shortcut-aware benchmark for spatio-temporal and intuitive physics video understanding (VideoQA) using minimally different video pairs.
+
+- [Github](https://github.com/faceboo...
+Tags: task_categories:question-answering, task_categories:video-text-to-text, language:en, license:apache-2.0, size_categories:10K<n<100K
+
+============================================================
+Dataset 2: Hplm/minimal_pairs
+Downloads: 9 | Likes: 0
+Tags: size_categories:n<1K, format:parquet, modality:tabular, modality:text, library:datasets
+
+============================================================
+Dataset 3: sabrinaxinli/historical-minimal-pairs
+Downloads: 3 | Likes: 0
+Tags: language:en, size_categories:n<1K, format:csv, modality:text, library:datasets
+Found 1 dataset(s) for query='counterfactual text'
+
+============================================================
+Dataset 1: TextCEsInFinance/fomc-communication-counterfactual
+Downloads: 8 | Likes: 0
+Description: 
+Dataset adapted from [original work](https://huggingface.co/datasets/gtfintechlab/fomc_communication/) by Shah et al. 
+
+## About Dataset
+
+The dataset is a collection of sentences from FOMC speeches, ...
+Tags: task_categories:text-classification, language:en, license:cc-by-nc-4.0, size_categories:n<1K, format:csv
+Found 0 dataset(s) for query='concept probing'
+Found 1 dataset(s) for query='linguistic features'
+
+============================================================
+Dataset 1: Ishaank18/screenplay-features-linguistic
+Downloads: 351 | Likes: 1
+Description: 
+# Screenplay Features - Linguistic Categories
+
+This dataset reorganizes the features from [screenplay-features](https://huggingface.co/datasets/Ishaank18/screenplay-features) into theoretically-motiv...
+Tags: task_categories:text-classification, language:en, license:mit, size_categories:1M<n<10M, format:parquet
+Found 4 dataset(s) for query='text classification'
+
+============================================================
+Dataset 1: owaiskha9654/PubMed_MultiLabel_Text_Classification_Dataset_MeSH
+Downloads: 893 | Likes: 24
+Description: 
+This dataset consists of a approx 50k collection of research articles from **PubMed** repository. Originally these documents are manually annotated by Biomedical Experts with their MeSH labels and ea...
+Tags: task_categories:text-classification, task_ids:multi-label-classification, source_datasets:BioASQ Task A, language:en, license:afl-3.0
+
+============================================================
+Dataset 2: ziq/ai-generated-text-classification
+Downloads: 707 | Likes: 0
+Description: # Dataset Card for "ai-generated-text-classification"
+
+[More Information needed](https://github.com/huggingface/datasets/blob/main/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)...
+Tags: size_categories:1K<n<10K, format:parquet, modality:tabular, modality:text, library:datasets
+
+============================================================
+Dataset 3: ourafla/Mental-Health_Text-Classification_Dataset
+Downloads: 512 | Likes: 5
+Description: 
+
+# Mental Health Text Classification Dataset (4-Class)
+
+## Dataset Description
+
+This dataset contains short, user‑generated texts labeled for **4‑class mental health classification**: **Suicidal**, *...
+Tags: task_categories:text-classification, language:en, license:cc-by-4.0, size_categories:10K<n<100K, modality:text
+
+============================================================
+Dataset 4: marcelsun/wos_hierarchical_multi_label_text_classification
+Downloads: 410 | Likes: 0
+Description: Introduced by du Toit and Dunaiski (2024) [Introducing Three New Benchmark Datasets for Hierarchical Text Classification](https://arxiv.org/abs/2411.19119).
+
+The WOS Hierarchical Text Classification a...
+Tags: task_categories:text-classification, language:en, license:cc-by-4.0, size_categories:100K<n<1M, format:json
+Found 4 dataset(s) for query='natural language inference'
+
+============================================================
+Dataset 1: Lots-of-LoRAs/task1516_imppres_naturallanguageinference
+Downloads: 49 | Likes: 0
+Description: 
+# Dataset Card for Natural Instructions (https://github.com/allenai/natural-instructions) Task: task1516_imppres_naturallanguageinference
+
+## Dataset Description
+
+- **Homepage:** https://github.com/a...
+Tags: task_categories:text-generation, annotations_creators:crowdsourced, language_creators:crowdsourced, language:en, license:apache-2.0
+
+============================================================
+Dataset 2: kowndinya23/flan2021-natural-language-inference
+Downloads: 32 | Likes: 0
+Tags: size_categories:100K<n<1M, format:parquet, modality:text, library:datasets, library:dask
+
+============================================================
+Dataset 3: kowndinya23/flan2021-natural-language-inference-held-out
+Downloads: 31 | Likes: 0
+Tags: size_categories:100K<n<1M, format:parquet, modality:text, library:datasets, library:pandas
+
+============================================================
+Dataset 4: Ashima/qwen3_0.6b-rlvr_task1516_imppres_naturallanguageinference
+Downloads: 28 | Likes: 0
+Tags: size_categories:n<1K, format:parquet, format:optimized-parquet, modality:tabular, modality:text
+Found 4 dataset(s) for query='paraphrase'
+
+============================================================
+Dataset 1: cointegrated/ru-paraphrase-NMT-Leipzig
+Downloads: 1,754 | Likes: 11
+Description: 
+# Dataset Card for **cointegrated/ru-paraphrase-NMT-Leipzig**
+
+## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Dataset Description](#dataset-description)
+  - [Dataset Summary](#data...
+Tags: task_categories:text-generation, annotations_creators:no-annotation, language_creators:machine-generated, multilinguality:translation, source_datasets:extended|other
+
+============================================================
+Dataset 2: hpprc/paraphrase-qa
+Downloads: 1,242 | Likes: 2
+Description: 
+日本語Wikipedia中のテキストを元に言い換えを生成し、その言い換えを元にクエリと回答をLLMに生成させたデータセットです。
+出力にライセンス的な制約があるモデルを利用していないことと、元データとして日本語Wikipediaを利用していることから、CC-BY-SA 4.0ライセンスのもとでの配布とします。
+...
+Tags: task_categories:question-answering, language:ja, license:cc-by-sa-4.0, size_categories:10M<n<100M, format:parquet
+
+============================================================
+Dataset 3: lsb/enwiki20250301_paraphrase_multilingual_minilm_l12_v2
+Downloads: 511 | Likes: 0
+Tags: size_categories:10M<n<100M, format:parquet, modality:text, library:datasets, library:dask
+
+============================================================
+Dataset 4: mrbesher/tr-paraphrase-opensubtitles2018
+Downloads: 381 | Likes: 1
+Tags: license:cc-by-4.0, size_categories:100K<n<1M, format:csv, modality:text, library:datasets
+Found 4 dataset(s) for query='wikitext'
+
+============================================================
+Dataset 1: Salesforce/wikitext
+Downloads: 1,327,290 | Likes: 713
+Description: 
+# Dataset Card for "wikitext"
+
+## Table of Contents
+- [Dataset Description](#dataset-description)
+  - [Dataset Summary](#dataset-summary)
+  - [Supported Tasks and Leaderboards](#supported-tasks-and-l...
+Tags: task_categories:text-generation, task_categories:fill-mask, task_ids:language-modeling, task_ids:masked-language-modeling, annotations_creators:no-annotation
+
+============================================================
+Dataset 2: EleutherAI/wikitext_document_level
+Downloads: 57,471 | Likes: 18
+Description: 
+
+# Wikitext Document Level
+
+This is a modified version of [https://huggingface.co/datasets/wikitext](https://huggingface.co/datasets/wikitext) that returns Wiki pages instead of Wiki text line-by-lin...
+Tags: license:cc-by-sa-3.0, size_categories:10K<n<100K, format:parquet, modality:text, library:datasets
+
+============================================================
+Dataset 3: vesteinn/wikitext-220728-250728
+Downloads: 2,868 | Likes: 0
+Tags: license:cc-by-4.0, size_categories:10K<n<100K, format:json, modality:text, library:datasets
+
+============================================================
+Dataset 4: iohadrubin/wikitext-103-raw-v1
+Downloads: 1,639 | Likes: 10
+Tags: size_categories:10K<n<100K, format:parquet, modality:text, library:datasets, library:dask
+Found 0 dataset(s) for query='c4 colossal clean crawl'
+Found 4 dataset(s) for query='openwebtext'
+
+============================================================
+Dataset 1: Skylion007/openwebtext
+Downloads: 72,481 | Likes: 520
+Description: 
+# Dataset Card for "openwebtext"
+
+## Table of Contents
+- [Dataset Description](#dataset-description)
+  - [Dataset Summary](#dataset-summary)
+  - [Supported Tasks and Leaderboards](#supported-tasks-an...
+Tags: task_categories:text-generation, task_categories:fill-mask, task_ids:language-modeling, task_ids:masked-language-modeling, annotations_creators:no-annotation
+
+============================================================
+Dataset 2: apollo-research/Skylion007-openwebtext-tokenizer-gpt2
+Downloads: 22,061 | Likes: 3
+Tags: size_categories:1M<n<10M, format:parquet, library:datasets, library:dask, library:mlcroissant
+
+============================================================
+Dataset 3: embedded-language-flows/openwebtext-t5
+Downloads: 7,459 | Likes: 2
+Tags: size_categories:1M<n<10M, region:us
+
+============================================================
+Dataset 4: veriga/openwebtext-gemma3-tokenized-1024-activations-layer23
+Downloads: 3,188 | Likes: 0
+Description: 
+# OpenWebText — Gemma-3-1B Hidden State Activations (Layer 23)
+
+Precomputed hidden state activations before layer 23 of [Gemma-3-1B-IT](https://huggingface.co/google/gemma-3-1b-it) for the [OpenWebTe...
+Tags: task_categories:other, language:en, license:apache-2.0, size_categories:10K<n<100K, format:parquet
+Found 4 dataset(s) for query='bookcorpus'
+
+============================================================
+Dataset 1: bookcorpus/bookcorpus
+Downloads: 13,694 | Likes: 356
+Description: 
+# Dataset Card for BookCorpus
+
+## Table of Contents
+- [Dataset Description](#dataset-description)
+  - [Dataset Summary](#dataset-summary)
+  - [Supported Tasks and Leaderboards](#supported-tasks-and-l...
+Tags: task_categories:text-generation, task_categories:fill-mask, task_ids:language-modeling, task_ids:masked-language-modeling, annotations_creators:no-annotation
+
+============================================================
+Dataset 2: lucadiliello/bookcorpusopen
+Downloads: 1,273 | Likes: 10
+Description: # Dataset Card for "bookcorpusopen"
+
+[More Information needed](https://github.com/huggingface/datasets/blob/main/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)...
+Tags: size_categories:10K<n<100K, format:parquet, modality:text, library:datasets, library:dask
+
+============================================================
+Dataset 3: hsila/bookcorpus-wikipedia
+Downloads: 1,181 | Likes: 0
+Tags: language:en, size_categories:10M<n<100M, format:parquet, modality:text, library:datasets
+
+============================================================
+Dataset 4: Yuti/bookcorpus
+Downloads: 945 | Likes: 2
+Description: # Bookcorpus
+This dataset is a copy of bookcorpus with the imprintable characters cleaned. <br>
+You may also stream it with `datasets.load_dataset("Yuti/bookcorpus", streaming=True)`, which for some r...
+Tags: language:en, license:mit, size_categories:10M<n<100M, format:parquet, modality:text
+Found 0 dataset(s) for query='character level language model'
+Found 1 dataset(s) for query='letter classification'
+
+============================================================
+Dataset 1: Alshargi/musnad-letter-classification
+Downloads: 45 | Likes: 0
+Description: 
+# Musnad Letter Classification Dataset
+
+A synthetic dataset for Ancient South Arabian (Yemeni Musnad) letter recognition.
+
+## Dataset Overview
+
+* 32 Musnad letter classes
+* 1,000 images per class
+* 3...
+Tags: task_categories:image-classification, language:ar, license:mit, size_categories:10K<n<100K, region:us
+Found 2 dataset(s) for query='probing dataset'
+
+============================================================
+Dataset 1: jjz5463/probing_dataset_9.0
+Downloads: 16 | Likes: 0
+Description: # Dataset Card
+
+[Add more information here](https://huggingface.co/datasets/templates/dataset-card-example)
+
+
+---
+This dataset was produced with [DataDreamer 🤖💤](https://datadreamer.dev). The syntheti...
+Tags: size_categories:n<1K, format:parquet, modality:text, library:datasets, library:pandas
+
+============================================================
+Dataset 2: yuezhengrong/transport_probing_dataset
+Downloads: 3 | Likes: 0
+Tags: region:us
+Found 1 dataset(s) for query='concept erasure'
+
+============================================================
+Dataset 1: milad-cse/ConceptErasure-Datasets
+Downloads: 205 | Likes: 0
+Tags: region:us
+Found 0 dataset(s) for query='word categories'
+Found 0 dataset(s) for query='vocabulary tokens'
+Found 4 dataset(s) for query='toxic comments'
+
+============================================================
+Dataset 1: Morteza-Shahrabi-Farahani/Detecting-toxic-comments
+Downloads: 726 | Likes: 1
+Tags: license:mit, region:us
+
+============================================================
+Dataset 2: AlexSham/Toxic_Russian_Comments
+Downloads: 182 | Likes: 10
+Description: https://www.kaggle.com/datasets/alexandersemiletov/toxic-russian-comments
+
+0 - neutral user comments
+1 - toxic user comments
+
+-----------------------
+
+Toxic Russian Comments Dataset
+
+This dataset cont...
+Tags: task_categories:text-classification, language:ru, size_categories:100K<n<1M, format:json, modality:text
+
+============================================================
+Dataset 3: Xeonil/ru-merged-toxic-comments
+Downloads: 156 | Likes: 0
+Description: 
+
+# Dataset
+ru-merged-toxic-comments
+
+# Combined from 4 Russian toxicity datasets
+* multilingual_toxicity_dataset (ru subset) || https://huggingface.co/datasets/textdetox/multilingual_toxicity_dataset...
+Tags: task_categories:text-classification, language:ru, license:mit, size_categories:100K<n<1M, format:parquet
+
+============================================================
+Dataset 4: Koushim/processed-jigsaw-toxic-comments
+Downloads: 150 | Likes: 3
+Description: 
+# Processed Jigsaw Toxic Comments Dataset
+
+This is a **preprocessed and tokenized** version of the original [Jigsaw Toxic Comment Classification Challenge](https://www.kaggle.com/competitions/jigsaw-...
+Tags: task_categories:text-classification, task_ids:multi-label-classification, annotations_creators:crowdsourced, language_creators:found, multilinguality:monolingual
+Found 4 dataset(s) for query='sentiment'
+
+============================================================
+Dataset 1: hussxamg04/tcc-sentiment-analysis-data
+Downloads: 4,897 | Likes: 0
+Tags: size_categories:n<1K, format:imagefolder, modality:image, library:datasets, library:mlcroissant
+
+============================================================
+Dataset 2: zeroshot/twitter-financial-news-sentiment
+Downloads: 4,764 | Likes: 173
+Description: 
+### Dataset Description
+
+The Twitter Financial News dataset is an English-language dataset containing an annotated corpus of finance-related tweets. This dataset is used to classify finance-related t...
+Tags: task_categories:text-classification, task_ids:multi-class-classification, annotations_creators:other, language_creators:other, multilinguality:monolingual
+
+============================================================
+Dataset 3: chelo1/tcc-sentiment-analysis-data
+Downloads: 3,950 | Likes: 0
+Tags: size_categories:n<1K, format:imagefolder, modality:image, library:datasets, library:mlcroissant
+
+============================================================
+Dataset 4: mteb/tweet_sentiment_extraction
+Downloads: 3,781 | Likes: 38
+Description: <!-- adapted from https://github.com/huggingface/huggingface_hub/blob/v0.30.2/src/huggingface_hub/templates/datasetcard_template.md -->
+
+<div align="center" style="padding: 40px 20px; background-color...
+Tags: task_categories:text-classification, task_ids:sentiment-analysis, task_ids:sentiment-scoring, task_ids:sentiment-classification, task_ids:hate-speech-detection

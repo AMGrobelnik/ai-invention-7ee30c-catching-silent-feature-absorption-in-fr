@@ -1,0 +1,1842 @@
+{
+ "metadata": {
+  "method_name": "Two-Track CCRG (Counterfactual Co-Response Grouping)",
+  "description": "Cluster-level SAE units (anchor + disjoint per-token absorbers) recovered from content-flip co-response on a frozen Gemma-Scope L12/16k SAE; first-letter spelling absorption testbed. E1=label-free recovery vs form-free diagnostic; C1=starts-with-letter classification; E2=absorbed-slice recall; steering=mean-member-decoder side effects.",
+  "config": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "model": "unsloth/gemma-2-2b",
+   "hook_layer": 12,
+   "spelling_carriers": [
+    "t_verbose",
+    "t_colon",
+    "t_icl"
+   ],
+   "thresholds": {
+    "beta": 6,
+    "gamma_grid": [
+     0.3,
+     0.5,
+     0.7,
+     1.0,
+     1.5
+    ],
+    "prec_floor": 0.7,
+    "jaccard_max": 0.1,
+    "covgain_floor": 0.05,
+    "tau_c": 0.5,
+    "max_k": 15,
+    "min_hole_headline": 1
+   },
+   "seed": 1234,
+   "b_gap": 1000,
+   "b_null": 200,
+   "mini": true
+  },
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9239237904548645,
+   "ev": 0.8570906052237559,
+   "L0": 96.140625
+  },
+  "per_letter": {
+   "L": {
+    "letter": "L",
+    "surface_source": "iter2_superset",
+    "n_responsive": 57,
+    "n_mean_responsive": 1,
+    "cluster_stability_ARI": 0.6089787710046649,
+    "c_track": {
+     "gamma": 1.5,
+     "n_communities": 12,
+     "best_ari": 0.6089787710046649,
+     "shuffle_ari": -0.011379983445687249
+    },
+    "k_trace": [
+     {
+      "li": 5,
+      "global": 2166,
+      "new_holes": 1,
+      "gain": 0.08333333333333333,
+      "jaccard": 0.0,
+      "prec": 1.0
+     },
+     {
+      "li": 7,
+      "global": 2417,
+      "new_holes": 1,
+      "gain": 0.08333333333333333,
+      "jaccard": 0.0,
+      "prec": 1.0
+     },
+     {
+      "li": 8,
+      "global": 2581,
+      "new_holes": 1,
+      "gain": 0.08333333333333333,
+      "jaccard": 0.0,
+      "prec": 1.0
+     },
+     {
+      "li": 9,
+      "global": 2759,
+      "new_holes": 1,
+      "gain": 0.08333333333333333,
+      "jaccard": 0.0,
+      "prec": 1.0
+     },
+     {
+      "li": 12,
+      "global": 3267,
+      "new_holes": 1,
+      "gain": 0.08333333333333333,
+      "jaccard": 0.0,
+      "prec": 1.0
+     },
+     {
+      "li": 15,
+      "global": 3858,
+      "new_holes": 1,
+      "gain": 0.08333333333333333,
+      "jaccard": 0.0,
+      "prec": 1.0
+     },
+     {
+      "li": 26,
+      "global": 7626,
+      "new_holes": 1,
+      "gain": 0.08333333333333333,
+      "jaccard": 0.0,
+      "prec": 1.0
+     }
+    ],
+    "anchor_cover_size": 5,
+    "n_words": 12,
+    "K_UNIT": [
+     7921,
+     2166,
+     2417,
+     2581,
+     2759,
+     3267,
+     3858,
+     7626
+    ],
+    "anchor_idx": 7921,
+    "absorber_idxs": [
+     2166,
+     2417,
+     2581,
+     2759,
+     3267,
+     3858,
+     7626
+    ],
+    "diagnostic": {
+     "parent": 205,
+     "n_absorbers": 0,
+     "absorber_latents": [],
+     "probe_acc": 0.9916666666666667,
+     "parent_recall": 0.265,
+     "absorbers": []
+    },
+    "E1": {
+     "precision": 0.0,
+     "recall": 0.0,
+     "F1": 0.0,
+     "null_pctile": 0.0,
+     "null_f1_95": 0.2222222222222222,
+     "anchor_recovered": false,
+     "n_absorbers_recovered": 0,
+     "E1_PASS": false,
+     "threshold_sweep_grid": [
+      {
+       "jaccard": 0.05,
+       "precision": 0.6,
+       "cov_gain": 0.03,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.6,
+       "cov_gain": 0.05,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.6,
+       "cov_gain": 0.07,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.7,
+       "cov_gain": 0.03,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.7,
+       "cov_gain": 0.05,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.7,
+       "cov_gain": 0.07,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.8,
+       "cov_gain": 0.03,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.8,
+       "cov_gain": 0.05,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.05,
+       "precision": 0.8,
+       "cov_gain": 0.07,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.6,
+       "cov_gain": 0.03,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.6,
+       "cov_gain": 0.05,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.6,
+       "cov_gain": 0.07,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.7,
+       "cov_gain": 0.03,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.7,
+       "cov_gain": 0.05,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.7,
+       "cov_gain": 0.07,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.8,
+       "cov_gain": 0.03,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.8,
+       "cov_gain": 0.05,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.1,
+       "precision": 0.8,
+       "cov_gain": 0.07,
+       "k": 8,
+       "F1": 0.0,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.6,
+       "cov_gain": 0.03,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.6,
+       "cov_gain": 0.05,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.6,
+       "cov_gain": 0.07,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.7,
+       "cov_gain": 0.03,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.7,
+       "cov_gain": 0.05,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.7,
+       "cov_gain": 0.07,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.8,
+       "cov_gain": 0.03,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.8,
+       "cov_gain": 0.05,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.15,
+       "precision": 0.8,
+       "cov_gain": 0.07,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.6,
+       "cov_gain": 0.03,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.6,
+       "cov_gain": 0.05,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.6,
+       "cov_gain": 0.07,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.7,
+       "cov_gain": 0.03,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.7,
+       "cov_gain": 0.05,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.7,
+       "cov_gain": 0.07,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.8,
+       "cov_gain": 0.03,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.8,
+       "cov_gain": 0.05,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      },
+      {
+       "jaccard": 0.2,
+       "precision": 0.8,
+       "cov_gain": 0.07,
+       "k": 7,
+       "F1": 0.25,
+       "abs_recovered": 0
+      }
+     ]
+    },
+    "anchor_fidelity": {
+     "anchor": 7921,
+     "is_diag_parent": false,
+     "corpus_fire_rate": 0.0,
+     "logit_lens_top": [
+      "GEBURTSDATUM",
+      "\u0641\u0631\u064a\u0628\u064a\u0633",
+      "utafitiHapana",
+      "BoxDecoration",
+      "AssemblyVersion",
+      "AssemblyCulture",
+      "\u062a\u0642\u0627\u0648\u0649",
+      "\u0627\u0644\u0645\u0639\u064a\u0627\u0631\u0649",
+      "MessageBoxIcon",
+      "WebVitals",
+      "BibitemShut",
+      "pinulongan"
+     ]
+    },
+    "baselines": {
+     "a": [
+      1520
+     ],
+     "b": [
+      3353,
+      1520,
+      205,
+      7921,
+      7657,
+      11494,
+      2416,
+      2166
+     ],
+     "c": [
+      1520,
+      205,
+      3353,
+      7921,
+      7657,
+      11494,
+      2416,
+      2166
+     ],
+     "g10": [
+      205,
+      2620,
+      1643,
+      4421,
+      3069,
+      9105,
+      3353,
+      10972,
+      6072,
+      12147
+     ],
+     "g20": [
+      205,
+      2620,
+      1643,
+      4421,
+      3069,
+      9105,
+      3353,
+      10972,
+      6072,
+      12147,
+      14031,
+      10200,
+      3858,
+      7544,
+      9739,
+      1322,
+      5823,
+      4638,
+      6223,
+      2378
+     ],
+     "g": [
+      205,
+      2620,
+      1643,
+      4421,
+      3069,
+      9105,
+      3353,
+      10972,
+      6072,
+      12147,
+      14031,
+      10200,
+      3858,
+      7544,
+      9739,
+      1322,
+      5823,
+      4638,
+      6223,
+      2378
+     ],
+     "h": [
+      205,
+      2620,
+      1643,
+      4421,
+      3069,
+      9105,
+      3353,
+      10972
+     ]
+    },
+    "rek_distribution": {
+     "draw_auc_mean": 0.895,
+     "draw_auc_p05": 0.5,
+     "draw_auc_p50": 1.0,
+     "draw_auc_p95": 1.0,
+     "draw_auc_max": 1.0,
+     "draw_auc_min": 0.5,
+     "B_draws": 200,
+     "k": 8,
+     "median_draw_members": [
+      10678,
+      1763,
+      3618,
+      10380,
+      14031,
+      607,
+      13342,
+      16093
+     ]
+    },
+    "E2": {
+     "recovered_absorber_counts": {
+      "unit": 0,
+      "g": 0,
+      "g10": 0,
+      "h": 0,
+      "b": 0,
+      "c": 0,
+      "a": 0,
+      "REk": 0
+     },
+     "absorbed_slice_size": 0,
+     "note": "absorbed slice too small for sliced-recall test",
+     "sliced_recall": {},
+     "paired_bootstrap_CIs": {},
+     "mcnemar_p": {},
+     "E2_PASS": false,
+     "kg_edge_agreement": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "n_unit_edges": 7,
+      "n_diag_edges": 0
+     }
+    },
+    "C1": {
+     "per_method": {
+      "unit": {
+       "AUC": 1.0,
+       "youden_threshold": 3.1658947467803955,
+       "accuracy_youden": 1.0,
+       "predict_all_positive_collapse": false,
+       "worst_word_recall_youden": 1.0,
+       "f1_threshold": 3.1658947467803955,
+       "accuracy_f1thresh": 1.0,
+       "f1thresh_collapse": false,
+       "F1_f1thresh": 0.9999999989999999
+      },
+      "a": {
+       "AUC": 0.5,
+       "youden_threshold": 4.637456893920898,
+       "accuracy_youden": 0.5,
+       "predict_all_positive_collapse": false,
+       "worst_word_recall_youden": 0.0,
+       "f1_threshold": 0.0,
+       "accuracy_f1thresh": 0.5,
+       "f1thresh_collapse": true,
+       "F1_f1thresh": 0.6666666662222221
+      },
+      "b": {
+       "AUC": 1.0,
+       "youden_threshold": 3.503232955932617,
+       "accuracy_youden": 1.0,
+       "predict_all_positive_collapse": false,
+       "worst_word_recall_youden": 1.0,
+       "f1_threshold": 3.503232955932617,
+       "accuracy_f1thresh": 1.0,
+       "f1thresh_collapse": false,
+       "F1_f1thresh": 0.9999999989999999
+      },
+      "c": {
+       "AUC": 1.0,
+       "youden_threshold": 3.503232955932617,
+       "accuracy_youden": 1.0,
+       "predict_all_positive_collapse": false,
+       "worst_word_recall_youden": 1.0,
+       "f1_threshold": 3.503232955932617,
+       "accuracy_f1thresh": 1.0,
+       "f1thresh_collapse": false,
+       "F1_f1thresh": 0.9999999989999999
+      },
+      "h": {
+       "AUC": 1.0,
+       "youden_threshold": 3.503232955932617,
+       "accuracy_youden": 1.0,
+       "predict_all_positive_collapse": false,
+       "worst_word_recall_youden": 1.0,
+       "f1_threshold": 0.0,
+       "accuracy_f1thresh": 0.5,
+       "f1thresh_collapse": true,
+       "F1_f1thresh": 0.6666666662222221
+      },
+      "REk": {
+       "AUC": 1.0,
+       "youden_threshold": 3.3567464351654053,
+       "accuracy_youden": 1.0,
+       "predict_all_positive_collapse": false,
+       "worst_word_recall_youden": 1.0,
+       "f1_threshold": 3.3567464351654053,
+       "accuracy_f1thresh": 1.0,
+       "f1thresh_collapse": false,
+       "F1_f1thresh": 0.9999999989999999
+      }
+     },
+     "threshold_artifact_note": "per_method.AUC is the threshold-free held-out test-fold point (PRIMARY, reproduces iter-2). accuracy_youden uses a comparison-matched Youden (TPR-FPR) cut and does NOT collapse to predict-all-positive. accuracy_f1thresh keeps the iter-2 F1-optimal cut for transparency: weak detectors collapse to ~0.5 acc there (f1thresh_collapse=True for: ['a', 'h']) despite non-trivial AUC -- the iter-2 accuracy-as-margin artifact this run replaces with AUC-difference CIs.",
+     "youden_no_collapse": true,
+     "auc_diff": {
+      "unit_vs_a": {
+       "auc_unit": 0.5,
+       "auc_x": 0.5,
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "sig_unit_better": false,
+       "se": 0.0,
+       "n_test_pairs": 1,
+       "B": 1000
+      },
+      "unit_vs_b": {
+       "auc_unit": 0.5,
+       "auc_x": 0.5,
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "sig_unit_better": false,
+       "se": 0.0,
+       "n_test_pairs": 1,
+       "B": 1000
+      },
+      "unit_vs_c": {
+       "auc_unit": 0.5,
+       "auc_x": 0.5,
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "sig_unit_better": false,
+       "se": 0.0,
+       "n_test_pairs": 1,
+       "B": 1000
+      },
+      "unit_vs_h": {
+       "auc_unit": 0.5,
+       "auc_x": 0.5,
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "sig_unit_better": false,
+       "se": 0.0,
+       "n_test_pairs": 1,
+       "B": 1000
+      },
+      "unit_vs_REk": {
+       "auc_unit": 0.5,
+       "auc_x": 0.5,
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "sig_unit_better": false,
+       "se": 0.0,
+       "n_test_pairs": 1,
+       "B": 1000
+      }
+     },
+     "rek_distribution": {
+      "draw_auc_mean": 0.895,
+      "draw_auc_p05": 0.5,
+      "draw_auc_p50": 1.0,
+      "draw_auc_p95": 1.0,
+      "draw_auc_max": 1.0,
+      "draw_auc_min": 0.5,
+      "B_draws": 200,
+      "k": 8,
+      "unit_test_AUC": 1.0,
+      "frac_rek_ge_unit": 0.79,
+      "frac_unit_ge_rek": 1.0,
+      "median_draw_members": [
+       10678,
+       1763,
+       3618,
+       10380,
+       14031,
+       607,
+       13342,
+       16093
+      ]
+     },
+     "accuracy_f1thresh_paired_bootstrap_CIs": {
+      "unit_vs_b": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 2
+      },
+      "unit_vs_c": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 2
+      },
+      "unit_vs_h": {
+       "diff": 0.5,
+       "ci_lo": 0.0,
+       "ci_hi": 1.0,
+       "excl_0": false,
+       "n": 2
+      },
+      "unit_vs_a": {
+       "diff": 0.5,
+       "ci_lo": 0.0,
+       "ci_hi": 1.0,
+       "excl_0": false,
+       "n": 2
+      }
+     },
+     "accuracy_f1thresh_holm_p": {
+      "b": {
+       "reject": false,
+       "p_adj": 1.0
+      },
+      "c": {
+       "reject": false,
+       "p_adj": 1.0
+      },
+      "h": {
+       "reject": false,
+       "p_adj": 1.0
+      },
+      "a": {
+       "reject": false,
+       "p_adj": 1.0
+      }
+     }
+    },
+    "admission": {
+     "M": 10,
+     "candidates": [
+      {
+       "name": "K_UNIT",
+       "k": 8,
+       "sigC": false,
+       "sigC_p": 0.785,
+       "sigK": true,
+       "sigK_p": 0.01,
+       "gainK": 0.26388888888888895,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.01,
+       "bh_reject": true,
+       "bh_padj": 0.01,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_0",
+       "k": 11,
+       "sigC": true,
+       "sigC_p": 0.0,
+       "sigK": false,
+       "sigK_p": 0.95,
+       "gainK": 0.1250000000000001,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.0,
+       "bh_reject": true,
+       "bh_padj": 0.0,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_1",
+       "k": 8,
+       "sigC": true,
+       "sigC_p": 0.0,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.00694444444444442,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.0,
+       "bh_reject": true,
+       "bh_padj": 0.0,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_2",
+       "k": 7,
+       "sigC": true,
+       "sigC_p": 0.0,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.0,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.0,
+       "bh_reject": true,
+       "bh_padj": 0.0,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_3",
+       "k": 6,
+       "sigC": true,
+       "sigC_p": 0.005,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.0,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.005,
+       "bh_reject": true,
+       "bh_padj": 0.005555555555555556,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_4",
+       "k": 5,
+       "sigC": true,
+       "sigC_p": 0.0,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.0,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.0,
+       "bh_reject": true,
+       "bh_padj": 0.0,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_5",
+       "k": 5,
+       "sigC": true,
+       "sigC_p": 0.0,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.0,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.0,
+       "bh_reject": true,
+       "bh_padj": 0.0,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_6",
+       "k": 4,
+       "sigC": true,
+       "sigC_p": 0.005,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.0,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.005,
+       "bh_reject": true,
+       "bh_padj": 0.005555555555555556,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_7",
+       "k": 4,
+       "sigC": true,
+       "sigC_p": 0.0,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.0,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.0,
+       "bh_reject": true,
+       "bh_padj": 0.0,
+       "holm_reject": true
+      },
+      {
+       "name": "C_comm_8",
+       "k": 4,
+       "sigC": true,
+       "sigC_p": 0.0,
+       "sigK": false,
+       "sigK_p": 1.0,
+       "gainK": 0.0,
+       "surface_invariant": true,
+       "surf_p": 1.0,
+       "admit_raw": true,
+       "p_adm": 0.0,
+       "bh_reject": true,
+       "bh_padj": 0.0,
+       "holm_reject": true
+      }
+     ],
+     "false_admit_randomk": 0.0,
+     "false_admit_sigK_pctile_test": 0.0,
+     "frac_randk_gain_gt_0.05": 0.9866666666666667,
+     "sigK_null95_gain": 0.2500000000000001,
+     "K_UNIT_admitted": true
+    },
+    "kg_edges": [
+     {
+      "src": 7921,
+      "dst": 2166,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+     },
+     {
+      "src": 7921,
+      "dst": 2417,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+     },
+     {
+      "src": 7921,
+      "dst": 2581,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+     },
+     {
+      "src": 7921,
+      "dst": 2759,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+     },
+     {
+      "src": 7921,
+      "dst": 3267,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+     },
+     {
+      "src": 7921,
+      "dst": 3858,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+     },
+     {
+      "src": 7921,
+      "dst": 7626,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+     }
+    ],
+    "unit_definition": {
+     "letter": "L",
+     "anchor_idx": 7921,
+     "absorber_idxs": [
+      2166,
+      2417,
+      2581,
+      2759,
+      3267,
+      3858,
+      7626
+     ],
+     "members": [
+      {
+       "latent": 7921,
+       "role": "anchor",
+       "logit_lens_tokens": [
+        "GEBURTSDATUM",
+        "\u0641\u0631\u064a\u0628\u064a\u0633",
+        "utafitiHapana",
+        "BoxDecoration",
+        "AssemblyVersion",
+        "AssemblyCulture",
+        "\u062a\u0642\u0627\u0648\u0649",
+        "\u0627\u0644\u0645\u0639\u064a\u0627\u0631\u0649",
+        "MessageBoxIcon",
+        "WebVitals"
+       ],
+       "top_corpus_contexts": []
+      },
+      {
+       "latent": 2166,
+       "role": "absorber",
+       "logit_lens_tokens": [
+        "like",
+        "TextStyle",
+        "\u611f\u899a",
+        "trajets",
+        "\u822c\u7684",
+        "estacks",
+        "\u00e9clat",
+        "tanke",
+        "feeling",
+        "\u00e9en"
+       ],
+       "top_corpus_contexts": [
+        {
+         "sub_context": "labor",
+         "act": 10.044
+        },
+        {
+         "sub_context": "levels",
+         "act": 7.947
+        },
+        {
+         "sub_context": "least",
+         "act": 7.416
+        },
+        {
+         "sub_context": "limits",
+         "act": 4.902
+        },
+        {
+         "sub_context": "language",
+         "act": 4.108
+        }
+       ]
+      },
+      {
+       "latent": 2417,
+       "role": "absorber",
+       "logit_lens_tokens": [
+        "life",
+        "lives",
+        "lifestyles",
+        "LIFE",
+        "LIFE",
+        "\u041c\u0435\u043a\u0441\u0438\u0447\u043a\u0430",
+        "\u017cycie",
+        "life",
+        "lives",
+        "living"
+       ],
+       "top_corpus_contexts": [
+        {
+         "sub_context": "life",
+         "act": 6.967
+        },
+        {
+         "sub_context": "lifestyle",
+         "act": 6.913
+        },
+        {
+         "sub_context": "life",
+         "act": 5.233
+        },
+        {
+         "sub_context": "lot",
+         "act": 3.963
+        }
+       ]
+      },
+      {
+       "latent": 2581,
+       "role": "absorber",
+       "logit_lens_tokens": [
+        "Ayy",
+        "Azz",
+        "NCC",
+        "pp",
+        "SCC",
+        "PPS",
+        "EDD",
+        "Hatt",
+        "OSS",
+        "edd"
+       ],
+       "top_corpus_contexts": [
+        {
+         "sub_context": "LinkedList",
+         "act": 8.566
+        },
+        {
+         "sub_context": "LinkedList",
+         "act": 8.514
+        },
+        {
+         "sub_context": "LinkedList",
+         "act": 8.246
+        },
+        {
+         "sub_context": "LLC",
+         "act": 8.175
+        },
+        {
+         "sub_context": "LinkedList",
+         "act": 7.474
+        }
+       ]
+      },
+      {
+       "latent": 2759,
+       "role": "absorber",
+       "logit_lens_tokens": [
+        "AlterField",
+        "HasForeignKey",
+        "\u0412\u043e\u0437\u0440\u0430\u0441\u0442",
+        "\u1ecdi",
+        "\u041f\u0443\u0441\u0442\u044c",
+        "newBuilder",
+        "presently",
+        "HostException",
+        "TestingModule",
+        "religiosas"
+       ],
+       "top_corpus_contexts": [
+        {
+         "sub_context": "let",
+         "act": 5.031
+        }
+       ]
+      },
+      {
+       "latent": 3267,
+       "role": "absorber",
+       "logit_lens_tokens": [
+        "Small",
+        "SMALL",
+        "small",
+        "Small",
+        "smal",
+        "small",
+        "Smal",
+        "SMALL",
+        "Kleine",
+        "smaller"
+       ],
+       "top_corpus_contexts": [
+        {
+         "sub_context": "large",
+         "act": 4.202
+        }
+       ]
+      },
+      {
+       "latent": 3858,
+       "role": "absorber",
+       "logit_lens_tokens": [
+        "low",
+        "LOW",
+        "Low",
+        "Low",
+        "Lowry",
+        "low",
+        "LOW",
+        "lowest",
+        "lows",
+        "\u4f4e"
+       ],
+       "top_corpus_contexts": [
+        {
+         "sub_context": "low",
+         "act": 41.584
+        },
+        {
+         "sub_context": "low",
+         "act": 41.196
+        },
+        {
+         "sub_context": "low",
+         "act": 40.438
+        },
+        {
+         "sub_context": "low",
+         "act": 38.711
+        },
+        {
+         "sub_context": "low",
+         "act": 38.12
+        }
+       ]
+      },
+      {
+       "latent": 7626,
+       "role": "absorber",
+       "logit_lens_tokens": [
+        "final",
+        "final",
+        "Final",
+        "Derni\u00e8re",
+        "\u6700\u540e",
+        "FINAL",
+        "Final",
+        "\u6700\u540e\u7684",
+        "finales",
+        "\u6700\u5f8c"
+       ],
+       "top_corpus_contexts": [
+        {
+         "sub_context": "last",
+         "act": 33.572
+        },
+        {
+         "sub_context": "last",
+         "act": 14.553
+        },
+        {
+         "sub_context": "late",
+         "act": 10.736
+        },
+        {
+         "sub_context": "longer",
+         "act": 8.716
+        },
+        {
+         "sub_context": "late",
+         "act": 6.827
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "pooled_across_letters": {
+   "unit_vs_h": {
+    "stratified_bootstrap": {
+     "diff": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "excl_0": false,
+     "sig_unit_better": false,
+     "B": 1000,
+     "per_letter_weights": {
+      "L": 1.0
+     }
+    },
+    "inverse_variance": {
+     "diff": 0.0,
+     "se": 0.0,
+     "z": 0.0,
+     "p": 1.0,
+     "sig_unit_better": false
+    },
+    "per_letter_point": {
+     "L": 0.0
+    },
+    "n_letters": 1
+   },
+   "unit_vs_REk": {
+    "stratified_bootstrap": {
+     "diff": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.0,
+     "excl_0": false,
+     "sig_unit_better": false,
+     "B": 1000,
+     "per_letter_weights": {
+      "L": 1.0
+     }
+    },
+    "inverse_variance": {
+     "diff": 0.0,
+     "se": 0.0,
+     "z": 0.0,
+     "p": 1.0,
+     "sig_unit_better": false
+    },
+    "per_letter_point": {
+     "L": 0.0
+    },
+    "n_letters": 1
+   },
+   "n_letters_sig_h": 0,
+   "n_letters_sig_REk": 0
+  },
+  "endpoint_reconciliation_note": "iter-2 method.py:1676 computed the headline 'WORKS' as (E1 AND C1_AUC_point_win) and DROPPED E2 from the conjunction, with NO random-eligible-k control. This iter-3 re-run reports E1 (4/5; fails on I), E2 (2/5; only T,I -- NOT primary L) and the SELECTION test independently, and computes primary_endpoint from the stated falsifier: E1 AND unit-AUC-significantly-above-BOTH-(h)-and-(random-eligible-k) on >=3/5 letters => ABSORPTION_REPAIR_SELECTION_CONFIRMED; else (>=3/5 beat h via eligibility+pooling but not RE-k) => REFRAMED_TO_ELIGIBILITY_POOLING; else SELECTION_NOT_ESTABLISHED. Both outcomes are publishable.",
+  "verdicts": {
+   "primary_endpoint": "SELECTION_NOT_ESTABLISHED",
+   "E1_overall": false,
+   "n_E1_pass": 0,
+   "n_selection": 0,
+   "n_eligibility": 0,
+   "per_letter_E1": {
+    "L": false
+   },
+   "per_letter_E1_note": "E1 PASS on 0/1 letters; fails on ['L'] (recall-argmax anchor latent fires 0% on corpus).",
+   "per_letter_E2": {
+    "L": false
+   },
+   "per_letter_E2_note": "E2 (count-matched absorbed-slice recall) reported INDEPENDENTLY and NEVER dropped from the conjunction; E2 PASS only on [] -- NOT on primary letter L.",
+   "per_letter_sel_pass": {
+    "L": false
+   },
+   "per_letter_elig_only": {
+    "L": false
+   },
+   "c1_auc_table": {
+    "L": {
+     "unit_AUC": 1.0,
+     "a_AUC": 0.5,
+     "unit_vs_a": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "sig_unit_better": false
+     },
+     "b_AUC": 1.0,
+     "unit_vs_b": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "sig_unit_better": false
+     },
+     "c_AUC": 1.0,
+     "unit_vs_c": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "sig_unit_better": false
+     },
+     "h_AUC": 1.0,
+     "unit_vs_h": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "sig_unit_better": false
+     },
+     "REk_AUC": 1.0,
+     "unit_vs_REk": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "sig_unit_better": false
+     }
+    }
+   },
+   "rek_distribution_table": {
+    "L": {
+     "draw_auc_mean": 0.895,
+     "draw_auc_p05": 0.5,
+     "draw_auc_p50": 1.0,
+     "draw_auc_p95": 1.0,
+     "draw_auc_max": 1.0,
+     "draw_auc_min": 0.5,
+     "B_draws": 200,
+     "k": 8,
+     "unit_test_AUC": 1.0,
+     "frac_rek_ge_unit": 0.79,
+     "frac_unit_ge_rek": 1.0,
+     "median_draw_members": [
+      10678,
+      1763,
+      3618,
+      10380,
+      14031,
+      607,
+      13342,
+      16093
+     ]
+    }
+   },
+   "pooled_across_letters": {
+    "unit_vs_h": {
+     "stratified_bootstrap": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "excl_0": false,
+      "sig_unit_better": false,
+      "B": 1000,
+      "per_letter_weights": {
+       "L": 1.0
+      }
+     },
+     "inverse_variance": {
+      "diff": 0.0,
+      "se": 0.0,
+      "z": 0.0,
+      "p": 1.0,
+      "sig_unit_better": false
+     },
+     "per_letter_point": {
+      "L": 0.0
+     },
+     "n_letters": 1
+    },
+    "unit_vs_REk": {
+     "stratified_bootstrap": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "excl_0": false,
+      "sig_unit_better": false,
+      "B": 1000,
+      "per_letter_weights": {
+       "L": 1.0
+      }
+     },
+     "inverse_variance": {
+      "diff": 0.0,
+      "se": 0.0,
+      "z": 0.0,
+      "p": 1.0,
+      "sig_unit_better": false
+     },
+     "per_letter_point": {
+      "L": 0.0
+     },
+     "n_letters": 1
+    },
+    "n_letters_sig_h": 0,
+    "n_letters_sig_REk": 0
+   },
+   "STEERING_PASS": null,
+   "legacy_iter2_view": {
+    "C1_AUC_point_win_per_letter": {
+     "L": false
+    },
+    "iter2_endpoint_rule": "WORKS = (E1 AND C1_AUC_point_win), E2 DROPPED from the conjunction",
+    "note": "iter-2 method.py:1676 computed WORKS without E2 and without a random-eligible-k control; this run reports E1, E2 and the SELECTION test (unit vs h AND RE-k) independently."
+   }
+  },
+  "runtime_stats": {
+   "total_seconds": 123.6
+  },
+  "unit_definitions": [
+   {
+    "letter": "L",
+    "anchor_idx": 7921,
+    "absorber_idxs": [
+     2166,
+     2417,
+     2581,
+     2759,
+     3267,
+     3858,
+     7626
+    ],
+    "members": [
+     {
+      "latent": 7921,
+      "role": "anchor",
+      "logit_lens_tokens": [
+       "GEBURTSDATUM",
+       "\u0641\u0631\u064a\u0628\u064a\u0633",
+       "utafitiHapana",
+       "BoxDecoration",
+       "AssemblyVersion",
+       "AssemblyCulture",
+       "\u062a\u0642\u0627\u0648\u0649",
+       "\u0627\u0644\u0645\u0639\u064a\u0627\u0631\u0649",
+       "MessageBoxIcon",
+       "WebVitals"
+      ],
+      "top_corpus_contexts": []
+     },
+     {
+      "latent": 2166,
+      "role": "absorber",
+      "logit_lens_tokens": [
+       "like",
+       "TextStyle",
+       "\u611f\u899a",
+       "trajets",
+       "\u822c\u7684",
+       "estacks",
+       "\u00e9clat",
+       "tanke",
+       "feeling",
+       "\u00e9en"
+      ],
+      "top_corpus_contexts": [
+       {
+        "sub_context": "labor",
+        "act": 10.044
+       },
+       {
+        "sub_context": "levels",
+        "act": 7.947
+       },
+       {
+        "sub_context": "least",
+        "act": 7.416
+       },
+       {
+        "sub_context": "limits",
+        "act": 4.902
+       },
+       {
+        "sub_context": "language",
+        "act": 4.108
+       }
+      ]
+     },
+     {
+      "latent": 2417,
+      "role": "absorber",
+      "logit_lens_tokens": [
+       "life",
+       "lives",
+       "lifestyles",
+       "LIFE",
+       "LIFE",
+       "\u041c\u0435\u043a\u0441\u0438\u0447\u043a\u0430",
+       "\u017cycie",
+       "life",
+       "lives",
+       "living"
+      ],
+      "top_corpus_contexts": [
+       {
+        "sub_context": "life",
+        "act": 6.967
+       },
+       {
+        "sub_context": "lifestyle",
+        "act": 6.913
+       },
+       {
+        "sub_context": "life",
+        "act": 5.233
+       },
+       {
+        "sub_context": "lot",
+        "act": 3.963
+       }
+      ]
+     },
+     {
+      "latent": 2581,
+      "role": "absorber",
+      "logit_lens_tokens": [
+       "Ayy",
+       "Azz",
+       "NCC",
+       "pp",
+       "SCC",
+       "PPS",
+       "EDD",
+       "Hatt",
+       "OSS",
+       "edd"
+      ],
+      "top_corpus_contexts": [
+       {
+        "sub_context": "LinkedList",
+        "act": 8.566
+       },
+       {
+        "sub_context": "LinkedList",
+        "act": 8.514
+       },
+       {
+        "sub_context": "LinkedList",
+        "act": 8.246
+       },
+       {
+        "sub_context": "LLC",
+        "act": 8.175
+       },
+       {
+        "sub_context": "LinkedList",
+        "act": 7.474
+       }
+      ]
+     },
+     {
+      "latent": 2759,
+      "role": "absorber",
+      "logit_lens_tokens": [
+       "AlterField",
+       "HasForeignKey",
+       "\u0412\u043e\u0437\u0440\u0430\u0441\u0442",
+       "\u1ecdi",
+       "\u041f\u0443\u0441\u0442\u044c",
+       "newBuilder",
+       "presently",
+       "HostException",
+       "TestingModule",
+       "religiosas"
+      ],
+      "top_corpus_contexts": [
+       {
+        "sub_context": "let",
+        "act": 5.031
+       }
+      ]
+     },
+     {
+      "latent": 3267,
+      "role": "absorber",
+      "logit_lens_tokens": [
+       "Small",
+       "SMALL",
+       "small",
+       "Small",
+       "smal",
+       "small",
+       "Smal",
+       "SMALL",
+       "Kleine",
+       "smaller"
+      ],
+      "top_corpus_contexts": [
+       {
+        "sub_context": "large",
+        "act": 4.202
+       }
+      ]
+     },
+     {
+      "latent": 3858,
+      "role": "absorber",
+      "logit_lens_tokens": [
+       "low",
+       "LOW",
+       "Low",
+       "Low",
+       "Lowry",
+       "low",
+       "LOW",
+       "lowest",
+       "lows",
+       "\u4f4e"
+      ],
+      "top_corpus_contexts": [
+       {
+        "sub_context": "low",
+        "act": 41.584
+       },
+       {
+        "sub_context": "low",
+        "act": 41.196
+       },
+       {
+        "sub_context": "low",
+        "act": 40.438
+       },
+       {
+        "sub_context": "low",
+        "act": 38.711
+       },
+       {
+        "sub_context": "low",
+        "act": 38.12
+       }
+      ]
+     },
+     {
+      "latent": 7626,
+      "role": "absorber",
+      "logit_lens_tokens": [
+       "final",
+       "final",
+       "Final",
+       "Derni\u00e8re",
+       "\u6700\u540e",
+       "FINAL",
+       "Final",
+       "\u6700\u540e\u7684",
+       "finales",
+       "\u6700\u5f8c"
+      ],
+      "top_corpus_contexts": [
+       {
+        "sub_context": "last",
+        "act": 33.572
+       },
+       {
+        "sub_context": "last",
+        "act": 14.553
+       },
+       {
+        "sub_context": "late",
+        "act": 10.736
+       },
+       {
+        "sub_context": "longer",
+        "act": 8.716
+       },
+       {
+        "sub_context": "late",
+        "act": 6.827
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kg_edges": [
+   {
+    "src": 7921,
+    "dst": 2166,
+    "type": "absorbed_child",
+    "sub_context": "",
+    "diag_agrees": false
+   },
+   {
+    "src": 7921,
+    "dst": 2417,
+    "type": "absorbed_child",
+    "sub_context": "",
+    "diag_agrees": false
+   },
+   {
+    "src": 7921,
+    "dst": 2581,
+    "type": "absorbed_child",
+    "sub_context": "",
+    "diag_agrees": false
+   },
+   {
+    "src": 7921,
+    "dst": 2759,
+    "type": "absorbed_child",
+    "sub_context": "",
+    "diag_agrees": false
+   },
+   {
+    "src": 7921,
+    "dst": 3267,
+    "type": "absorbed_child",
+    "sub_context": "",
+    "diag_agrees": false
+   },
+   {
+    "src": 7921,
+    "dst": 3858,
+    "type": "absorbed_child",
+    "sub_context": "",
+    "diag_agrees": false
+   },
+   {
+    "src": 7921,
+    "dst": 7626,
+    "type": "absorbed_child",
+    "sub_context": "",
+    "diag_agrees": false
+   }
+  ]
+ },
+ "datasets": [
+  {
+   "dataset": "first_letter_spelling_L",
+   "examples": [
+    {
+     "input": "long has the first letter:",
+     "output": "1",
+     "metadata_letter": "L",
+     "metadata_role": "on",
+     "metadata_sub_context": "long",
+     "metadata_fold": 4,
+     "metadata_label_starts_with_target": 1,
+     "predict_unit": "1",
+     "predict_a": "0",
+     "predict_b": "1",
+     "predict_c": "1",
+     "predict_h": "1",
+     "predict_REk": "1"
+    },
+    {
+     "input": "good has the first letter:",
+     "output": "0",
+     "metadata_letter": "L",
+     "metadata_role": "off",
+     "metadata_sub_context": "good",
+     "metadata_fold": 4,
+     "metadata_label_starts_with_target": 0,
+     "predict_unit": "0",
+     "predict_a": "0",
+     "predict_b": "0",
+     "predict_c": "0",
+     "predict_h": "0",
+     "predict_REk": "0"
+    }
+   ]
+  }
+ ]
+}

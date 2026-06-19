@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Safety-Relevant Identity Absorption Testbed (nationality + religion + ethnicity-identity + named-entity) — data_out.json",
+  "description": "On-disk format is the AII `exp_sel_data_out` schema: a top-level object {metadata, datasets:[{dataset, examples}]}. Each example carries input, output (the PARENT binary label), and FLAT metadata_<key> fields (the exp_sel schema forbids nested objects inside an example). The 'logical_row_schema' block documents the equivalent nested {input, output, metadata{...}} view. This is a strict structural drop-in for the iter-1 non-spelling/taxonomic absorption testbed (gen_art_dataset_2) and the iter-5 homograph testbed: same on-disk format, same three components per hierarchy (content-flip pairs / surface-flip pairs / diagnostic corpus), same fold semantics, same gemma-2-2b token anchoring, same pinned pile revision. The four hierarchies transpose the Georgia-homograph absorption structure onto SAFETY-RELEVANT identity attributes (nationality, religion, race/ethnicity, public-figure/organization). Sub-context / target-sense / competitor labels are assigned PURELY from surface form / gazetteer / high-precision disambiguating local context, independent of any SAE latent or model — so the degenerate-construction guard holds and absorption presence/absence is an iteration-6+ empirical finding, NOT baked into the data. NEXT-ITERATION (M2') building block — NOT consumed by this iteration's parallel experiments.",
+  "type": "object",
+  "required": ["metadata", "datasets"],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {"type": "object", "description": "Top-level build metadata (seed, pile revision, civil-supplement flag, counts, llm cost, eligible-entity counts, ...)."},
+    "datasets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["dataset", "examples"],
+        "additionalProperties": false,
+        "properties": {
+          "dataset": {"type": "string", "enum": ["nationality_absorption", "religion_absorption", "ethnicity_identity_absorption", "named_entity_safety"]},
+          "examples": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["input", "output"],
+              "additionalProperties": false,
+              "properties": {
+                "input": {"type": "string", "description": "Text the model reads: a content/surface pair sentence, or a pile/civil context window."},
+                "output": {"type": "string", "enum": ["positive", "negative"], "description": "PARENT binary label: positive = the parent identity concept (is-a-nationality / is-a-religion / is-a-ethnicity-identity / is-a-named-entity) is present at the target token; negative = absent."},
+                "metadata_hierarchy": {"type": "string", "enum": ["nationality", "religion", "ethnicity_identity", "named_entity_safety"]},
+                "metadata_row_type": {"type": "string", "enum": ["content_pair", "surface_pair", "corpus"]},
+                "metadata_concept_present": {"type": "boolean", "description": "== (output == positive)."},
+                "metadata_parent_concept": {"type": "string", "description": "Plain-words name of the general parent concept for this hierarchy (e.g. 'a nationality / demonym ...')."},
+                "metadata_sub_context": {"type": ["string", "null"], "description": "Frozen surface-derived sub-context = the canonical identity token (e.g. Polish, Muslim, Black, Apple) for positives; null for negatives / x_off."},
+                "metadata_pair_id": {"type": ["string", "null"], "description": "Links x_on<->x_off and surface_a<->surface_b; null for corpus rows."},
+                "metadata_pair_role": {"type": ["string", "null"], "enum": ["x_on", "x_off", "surface_a", "surface_b", null]},
+                "metadata_target_text": {"type": "string", "description": "Exact surface token(s) inside input ('' for x_off where the concept is absent). For homograph_distractor negatives this is the competing-sense token."},
+                "metadata_target_char_start": {"type": "integer", "description": "Char offset of target in input (-1 if none; for x_off = the differing slot start)."},
+                "metadata_target_char_end": {"type": "integer"},
+                "metadata_target_token_indices": {"type": ["array", "null"], "items": {"type": "integer"}, "description": "gemma-2-2b token indices overlapping the char span (offset-mapping, add_special_tokens=False). null if tokenizer unavailable / no span."},
+                "metadata_multi_token": {"type": ["boolean", "null"], "description": "True iff the target spans more than one gemma-2-2b token (e.g. multi-token demonyms / 'African American')."},
+                "metadata_source": {"type": "string", "enum": ["templated", "llm_generated", "pile_uncopyrighted", "civil_comments"]},
+                "metadata_pile_set_name": {"type": ["string", "null"], "description": "Pile sub-corpus name for pile_uncopyrighted rows (e.g. Pile-CC, Wikipedia (en)); null otherwise."},
+                "metadata_llm_judge_pass": {"type": ["boolean", "null"], "description": "content_flipped AND surface_preserved AND grammatical AND sense_correct. null if not judged. Use pass==true for the primary fold."},
+                "metadata_llm_judge_score": {"type": ["number", "null"]},
+                "metadata_fold": {"type": "string", "enum": ["train", "test", "diagnostic"], "description": "pairs -> train/test (by pair_id, stratified by sub_context); corpus -> train/diagnostic (stratified). The diagnostic fold is where the form-free parent-hole / absorption search runs."},
+                "metadata_template_id": {"type": ["string", "null"]},
+                "metadata_neg_family": {"type": ["string", "null"], "enum": ["non_identity", "other_group", "homograph_distractor", "easy", null], "description": "non_identity = content x_off filler (a surface-matched NON-identity word). other_group = content x_off filler that IS an identity word but of a DIFFERENT parent (parent-specificity control). homograph_distractor = corpus negative: the SAME identity surface in its competing NON-identity sense (the matched hard control). easy = corpus window with no identity token."},
+                "metadata_entity": {"type": ["string", "null"], "description": "Canonical identity token (e.g. Polish, Muslim, Black, Apple). Set on positives and on homograph_distractor negatives (records which token's competing sense appeared); null on x_off / other_group filler / easy."},
+                "metadata_target_sense": {"type": ["string", "null"], "enum": ["nationality", "religion", "ethnicity_identity", "named_entity_safety", "competitor", null], "description": "The hierarchy name for target-sense positives; 'competitor' for homograph_distractor negatives; null otherwise."},
+                "metadata_homograph_sense": {"type": ["boolean", "null"], "description": "True iff this identity token carries a dominant competing NON-identity sense (e.g. Black/White colour, Polish 'to polish', Apple the fruit) — the most likely to be absorption-structured."},
+                "metadata_dominant_other_sense": {"type": ["string", "null"], "description": "Plain-words gloss of the competing (non-identity) sense, e.g. 'the colour black / dark' for Black."},
+                "metadata_homograph_strength": {"type": ["number", "null"], "description": "wordfreq Zipf frequency of the lowercase competing common word (higher = stronger competing sense). null where no homograph / no competing word."},
+                "metadata_safety_relevant": {"type": "boolean", "description": "Always true — every row of this testbed targets a safety-relevant identity attribute."},
+                "metadata_identity_label_source": {"type": ["string", "null"], "description": "Corroborating identity/toxicity flag from a supplement dataset (e.g. 'civil_comments:toxicity>=0.5'); null for pile/templated rows. The sub_context label is ALWAYS surface-derived; this is corroboration only."},
+                "metadata_notes": {"type": ["string", "null"], "description": "Free-text flags, e.g. 'collision: ...', 'competing_sense_token=...', 'no_identity_negative', 'off_filler=...', 'other_group_filler=...'."}
+              },
+              "patternProperties": {"^metadata_[a-zA-Z_][a-zA-Z0-9_]*$": {}}
+            }
+          }
+        }
+      }
+    }
+  },
+  "logical_row_schema": {
+    "_comment": "Equivalent nested view. On disk these metadata_* keys are flattened to satisfy exp_sel_data_out.",
+    "input": "string",
+    "output": "positive | negative",
+    "metadata": {
+      "hierarchy": "nationality | religion | ethnicity_identity | named_entity_safety",
+      "row_type": "content_pair | surface_pair | corpus",
+      "concept_present": "bool",
+      "parent_concept": "string",
+      "sub_context": "string (canonical identity token) | null",
+      "pair_id": "string | null",
+      "pair_role": "x_on | x_off | surface_a | surface_b | null",
+      "target_text": "string",
+      "target_char_start": "int",
+      "target_char_end": "int",
+      "target_token_indices": "list[int] | null",
+      "multi_token": "bool | null",
+      "source": "templated | llm_generated | pile_uncopyrighted | civil_comments",
+      "pile_set_name": "string | null",
+      "llm_judge_pass": "bool | null",
+      "llm_judge_score": "float | null",
+      "fold": "train | test | diagnostic",
+      "template_id": "string | null",
+      "neg_family": "non_identity | other_group | homograph_distractor | easy | null",
+      "entity": "string | null",
+      "target_sense": "nationality | religion | ethnicity_identity | named_entity_safety | competitor | null",
+      "homograph_sense": "bool | null",
+      "dominant_other_sense": "string | null",
+      "homograph_strength": "float | null",
+      "safety_relevant": "bool (always true)",
+      "identity_label_source": "string | null",
+      "notes": "string | null"
+    }
+  },
+  "entities_per_hierarchy": {
+    "nationality": ["Polish", "Dutch", "Turkish", "Indian", "Greek", "Cuban", "American", "Russian", "Chinese", "German", "French", "Japanese", "Mexican", "Italian", "Spanish", "British", "Canadian", "Australian", "Brazilian", "Nigerian", "Egyptian", "Korean", "Iranian", "Pakistani", "Vietnamese", "Irish", "Israeli", "Ukrainian", "Filipino", "Swedish", "Norwegian"],
+    "religion": ["Christian", "Catholic", "Muslim", "Hindu", "Buddhist", "Sikh", "Mormon", "Protestant", "Methodist", "Baptist", "Evangelical", "Atheist"],
+    "ethnicity_identity": ["Black", "White", "Asian", "Native", "Latino", "Latina", "Hispanic", "Indigenous", "Arab", "Jewish", "African American"],
+    "named_entity_safety": ["Apple", "Amazon", "Shell", "Target", "Oracle", "Visa", "Corona", "Subway", "Gap", "Monster", "Tide", "Bush", "Cash", "Stone", "Banks", "West", "Swift", "Gates", "Cook", "Page", "Bell", "King", "Fox", "Snow", "Pope", "Hunt", "Wood", "Bird", "Diamond"]
+  },
+  "strongest_homograph_identity_tokens": ["Black", "White", "Asian", "Native", "Polish", "Dutch", "Indian", "Christian"],
+  "cross_hierarchy_collisions": ["Jewish (religion AND ethnicity; canonical owner = ethnicity_identity)", "Indian (India-nationality vs Native-American vs Indian Ocean)", "Arab (ethnicity; often also Muslim)"]
+}

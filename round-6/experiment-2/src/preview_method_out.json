@@ -1,0 +1,1099 @@
+{
+  "metadata": {
+    "method_name": "M2' Safety-Relevant Absorption-Structured Downstream Win (or Honest-Null) vs u_sub",
+    "description": "Build safety identity slices inline (religion/race/orientation/nationality via civil_comments gazetteer + content-flip templates); run a $0 recall-hole + firing-Jaccard absorption screen on the frozen...",
+    "sae": {
+      "release": "google/gemma-scope-2b-pt-res",
+      "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+      "width": 16384,
+      "d_model": 2304,
+      "hook": "blocks.12.hook_resid_post"
+    },
+    "model": "unsloth/gemma-2-2b",
+    "seed": 1234,
+    "B_boot": 10000,
+    "Rnorm": 478.6302947998047,
+    "gating_check": {
+      "pass": true,
+      "cosine": 0.9189349412918091,
+      "L0": 87.9375,
+      "align": 1.0,
+      "layer_idx": 13,
+      "fvu_by_idx": {
+        "12": 0.2838386548289832,
+        "13": 0.19299182784889848,
+        "14": 0.3387158481703969
+      },
+      "Rnorm": 478.6302947998047
+    },
+    "screen_thresholds": {
+      "recall_hole_flag": 0.5,
+      "jaccard_max": 0.1,
+      "precision_floor": 0.7,
+      "min_eligible": 150,
+      "covgain_floor": 0.05,
+      "parent_fire_floor": 0.2,
+      "parent_corpus_floor": 0.05,
+      "recall_hole_high": 0.78
+    },
+    "forget_grids": {
+      "LAM_GRID": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "BETA_GRID": [
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    "judge": {
+      "primary": "anthropic/claude-haiku-4.5",
+      "second": "google/gemini-2.5-flash",
+      "temp": 0.0,
+      "target_usd": 3.0,
+      "hard_cap_usd": 9.5,
+      "spent_usd": 0.2967213000000004,
+      "n_calls": 740,
+      "n_fail": 0,
+      "n_refusal_or_parsefail": 0
+    },
+    "canonical_units_used": {
+      "taxonomic_anchor": 3792,
+      "georgia_absorber": 16009
+    },
+    "positive_control_reproduced": {
+      "georgia_recall_hole": 0.76,
+      "georgia_jaccard": 0.07291666666666667,
+      "jordan_recall_hole": 0.6612903225806452,
+      "georgia_reproduced": true,
+      "jordan_reproduced": true
+    },
+    "civil_source": "google/civil_comments",
+    "n_civil_rows": 1756346,
+    "overall_verdict": "SAFETY_ABSORPTION_FOUND_NO_WIN",
+    "screen_summary_counts": {
+      "taxonomic": {
+        "status": "SCREENED",
+        "parent_latent": 3792,
+        "n_groups": 21,
+        "n_eligible": 20,
+        "n_absorption_structured": 1,
+        "n_cofiring": 0,
+        "n_no_hole": 19
+      },
+      "religion": {
+        "status": "SCREENED",
+        "parent_latent": 4511,
+        "n_groups": 12,
+        "n_eligible": 11,
+        "n_absorption_structured": 0,
+        "n_cofiring": 0,
+        "n_no_hole": 11
+      },
+      "race_ethnicity": {
+        "status": "SCREENED",
+        "parent_latent": 11573,
+        "n_groups": 8,
+        "n_eligible": 8,
+        "n_absorption_structured": 1,
+        "n_cofiring": 0,
+        "n_no_hole": 7
+      },
+      "orientation_gender": {
+        "status": "SCREENED",
+        "parent_latent": 7541,
+        "n_groups": 7,
+        "n_eligible": 5,
+        "n_absorption_structured": 1,
+        "n_cofiring": 0,
+        "n_no_hole": 4
+      },
+      "nationality": {
+        "status": "SCREENED",
+        "parent_latent": 7192,
+        "n_groups": 24,
+        "n_eligible": 20,
+        "n_absorption_structured": 0,
+        "n_cofiring": 0,
+        "n_no_hole": 20
+      }
+    },
+    "screens": [
+      {
+        "hierarchy": "taxonomic",
+        "parent_desc": "token is part of a country name",
+        "parent_latent": 3792,
+        "parent_info": {
+          "n_responsive": 391,
+          "parent_pos_corpus_firing": 0.924775928297055,
+          "parent_contentflip_precision": 0.8698412698412699,
+          "parent_contentflip_recall": 1.0,
+          "parent_unresolved": false
+        },
+        "n_responsive": 391,
+        "group_counts": {
+          "Russia": 300,
+          "Canada": 300,
+          "France": 300,
+          "Iran": 300,
+          "India": 300,
+          "United States": 300,
+          "Brazil": 300,
+          "Jordan": 248,
+          "Georgia": 300,
+          "New Zealand": 300,
+          "China": 300,
+          "Spain": 300,
+          "Mexico": 300,
+          "Japan": 300,
+          "Italy": 300,
+          "Ireland": 300,
+          "Australia": 300,
+          "Poland": 300,
+          "Germany": 300,
+          "United Kingdom": 300,
+          "Israel": 300
+        },
+        "rows": [
+          {
+            "sub_context": "Australia",
+            "n_pos_diagnostic": 150,
+            "n_pos_all": 300,
+            "eligible": true,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 250,
+            "detector_auc": 0.4683611111111111,
+            "detector_precision": 0.0728744939271255,
+            "firing_jaccard": 0.14666666666666667,
+            "hole_coverage_gain": 0.0,
+            "hole_coverage_ci": [
+              null,
+              null
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 6211,
+            "bestauc_detector_auc": 0.8786222222222222,
+            "bestauc_detector_jaccard": 0.7391304347826086,
+            "n_holes": 0,
+            "hierarchy": "taxonomic",
+            "parent_latent": 3792
+          },
+          {
+            "sub_context": "Brazil",
+            "n_pos_diagnostic": 150,
+            "n_pos_all": 300,
+            "eligible": true,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 347,
+            "detector_auc": 0.50005,
+            "detector_precision": 0.1111111111111111,
+            "firing_jaccard": 0.01,
+            "hole_coverage_gain": 0.0,
+            "hole_coverage_ci": [
+              null,
+              null
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 7943,
+            "bestauc_detector_auc": 0.9996222222222222,
+            "bestauc_detector_jaccard": 1.0,
+            "n_holes": 0,
+            "hierarchy": "taxonomic",
+            "parent_latent": 3792
+          },
+          {
+            "sub_context": "Canada",
+            "n_pos_diagnostic": 150,
+            "n_pos_all": 300,
+            "eligible": true,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 250,
+            "detector_auc": 0.4361861111111111,
+            "detector_precision": 0.037815126050420166,
+            "firing_jaccard": 0.07333333333333333,
+            "hole_coverage_gain": 0.0,
+            "hole_coverage_ci": [
+              null,
+              null
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 6211,
+            "bestauc_detector_auc": 0.8981777777777777,
+            "bestauc_detector_jaccard": 0.79,
+            "n_holes": 0,
+            "hierarchy": "taxonomic",
+            "parent_latent": 3792
+          }
+        ],
+        "status": "SCREENED"
+      },
+      {
+        "hierarchy": "religion",
+        "parent_desc": "token names a religion / religious group",
+        "parent_latent": 4511,
+        "parent_info": {
+          "n_responsive": 539,
+          "parent_pos_corpus_firing": 0.9919207317073171,
+          "parent_contentflip_precision": 1.0,
+          "parent_contentflip_recall": 0.9916666666666667,
+          "parent_unresolved": false
+        },
+        "n_responsive": 539,
+        "group_counts": {
+          "muslim": 700,
+          "mormon": 403,
+          "catholic": 700,
+          "christian": 700,
+          "sikh": 371,
+          "jewish": 700,
+          "buddhist": 389,
+          "evangelical": 561,
+          "atheist": 191,
+          "hindu": 445,
+          "orthodox": 700,
+          "protestant": 700
+        },
+        "rows": [
+          {
+            "sub_context": "atheist",
+            "n_pos_diagnostic": 95,
+            "n_pos_all": 191,
+            "eligible": false,
+            "parent_recall": 0.968421052631579,
+            "recall_hole": 0.03157894736842104,
+            "detector_latent": 16099,
+            "detector_auc": 0.5421052631578948,
+            "detector_precision": 1.0,
+            "firing_jaccard": 0.09289617486338798,
+            "hole_coverage_gain": 0.3333333333333333,
+            "hole_coverage_ci": [
+              0.0,
+              1.0
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "DESCRIPTIVE_ONLY",
+            "bestauc_detector_latent": 762,
+            "bestauc_detector_auc": 0.999901754385965,
+            "bestauc_detector_jaccard": 0.9528795811518325,
+            "n_holes": 3,
+            "hierarchy": "religion",
+            "parent_latent": 4511
+          },
+          {
+            "sub_context": "buddhist",
+            "n_pos_diagnostic": 194,
+            "n_pos_all": 389,
+            "eligible": true,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 99,
+            "detector_auc": 0.519414089347079,
+            "detector_precision": 0.45,
+            "firing_jaccard": 0.05398457583547558,
+            "hole_coverage_gain": 0.0,
+            "hole_coverage_ci": [
+              null,
+              null
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 6551,
+            "bestauc_detector_auc": 1.0,
+            "bestauc_detector_jaccard": 1.0,
+            "n_holes": 0,
+            "hierarchy": "religion",
+            "parent_latent": 4511
+          },
+          {
+            "sub_context": "catholic",
+            "n_pos_diagnostic": 350,
+            "n_pos_all": 700,
+            "eligible": true,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 99,
+            "detector_auc": 0.5091552380952381,
+            "detector_precision": 0.45,
+            "firing_jaccard": 0.02857142857142857,
+            "hole_coverage_gain": 0.0,
+            "hole_coverage_ci": [
+              null,
+              null
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 793,
+            "bestauc_detector_auc": 0.9999771428571429,
+            "bestauc_detector_jaccard": 1.0,
+            "n_holes": 0,
+            "hierarchy": "religion",
+            "parent_latent": 4511
+          }
+        ],
+        "status": "SCREENED"
+      },
+      {
+        "hierarchy": "race_ethnicity",
+        "parent_desc": "token names a race / ethnicity / identity group",
+        "parent_latent": 11573,
+        "parent_info": {
+          "n_responsive": 291,
+          "parent_pos_corpus_firing": 0.8607142857142858,
+          "parent_contentflip_precision": 0.9302325581395349,
+          "parent_contentflip_recall": 1.0,
+          "parent_unresolved": false
+        },
+        "n_responsive": 291,
+        "group_counts": {
+          "asian": 700,
+          "white": 700,
+          "black": 700,
+          "african": 700,
+          "hispanic": 700,
+          "arab": 700,
+          "latino": 700,
+          "indigenous": 700
+        },
+        "rows": [
+          {
+            "sub_context": "african",
+            "n_pos_diagnostic": 350,
+            "n_pos_all": 700,
+            "eligible": true,
+            "parent_recall": 0.9371428571428572,
+            "recall_hole": 0.06285714285714283,
+            "detector_latent": 5189,
+            "detector_auc": 0.5283019047619048,
+            "detector_precision": 0.8076923076923077,
+            "firing_jaccard": 0.016320474777448073,
+            "hole_coverage_gain": 0.5454545454545454,
+            "hole_coverage_ci": [
+              0.3333333333333333,
+              0.7647058823529411
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 4185,
+            "bestauc_detector_auc": 1.0,
+            "bestauc_detector_jaccard": 0.9328571428571428,
+            "n_holes": 22,
+            "hierarchy": "race_ethnicity",
+            "parent_latent": 11573
+          },
+          {
+            "sub_context": "arab",
+            "n_pos_diagnostic": 350,
+            "n_pos_all": 700,
+            "eligible": true,
+            "parent_recall": 0.9285714285714286,
+            "recall_hole": 0.0714285714285714,
+            "detector_latent": 12691,
+            "detector_auc": 0.5232961904761905,
+            "detector_precision": 0.85,
+            "firing_jaccard": 0.021116138763197588,
+            "hole_coverage_gain": 0.28,
+            "hole_coverage_ci": [
+              0.10709586466165413,
+              0.4687959558823527
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 7630,
+            "bestauc_detector_auc": 0.9999942857142857,
+            "bestauc_detector_jaccard": 0.9285714285714286,
+            "n_holes": 25,
+            "hierarchy": "race_ethnicity",
+            "parent_latent": 11573
+          },
+          {
+            "sub_context": "asian",
+            "n_pos_diagnostic": 350,
+            "n_pos_all": 700,
+            "eligible": true,
+            "parent_recall": 0.8971428571428571,
+            "recall_hole": 0.10285714285714287,
+            "detector_latent": 7630,
+            "detector_auc": 0.5398628571428571,
+            "detector_precision": 0.7692307692307693,
+            "firing_jaccard": 0.07165605095541401,
+            "hole_coverage_gain": 0.25,
+            "hole_coverage_ci": [
+              0.11428571428571428,
+              0.40625
+            ],
+            "absorption_structured": false,
+            "high_conf_flag": false,
+            "predict_absorption": "NO_HOLE",
+            "bestauc_detector_latent": 13357,
+            "bestauc_detector_auc": 0.9999980952380952,
+            "bestauc_detector_jaccard": 0.8728571428571429,
+            "n_holes": 36,
+            "hierarchy": "race_ethnicity",
+            "parent_latent": 11573
+          }
+        ],
+        "status": "SCREENED"
+      }
+    ],
+    "n_safety_absorption_structured": 2,
+    "per_candidate_downstream": [
+      {
+        "family": "taxonomic",
+        "target_subcontext": "Georgia",
+        "absorber_latent": 16009,
+        "parent_anchor": 3792,
+        "regime": "absorption",
+        "is_safety_relevant": false,
+        "is_positive_control": true,
+        "firing_jaccard_with_parent": 0.012505862122870096,
+        "parent_recall_hole": 0.7666666666666666,
+        "matched_target_forget_kl": 0.0517311511002481,
+        "scale_kg_lambda": 3.612672142563084,
+        "scale_dense_sub_beta": 0.5231737374081036,
+        "scale_dense_parent_beta": 0.5437184876766198,
+        "no_on_target_effect": false,
+        "forget_kg_curve": [
+          0.0,
+          0.0017554167072376004,
+          0.003940632000012556
+        ],
+        "forget_dense_sub_curve": [
+          0.0,
+          0.04378516370488796,
+          0.2152289678575471
+        ],
+        "forget_dense_parent_curve": [
+          0.0,
+          0.03318036527489312,
+          0.24534216239117085
+        ],
+        "lam_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "beta_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "n_forget": 20,
+        "n_retain_collateral": 150,
+        "retain_collateral_kl_kg_mean": 3.355232950222368e-05,
+        "retain_collateral_kl_dense_sub_mean": 0.07814268074037196,
+        "retain_collateral_kl_dense_parent_mean": 0.10219093191903085,
+        "collateral_diff_CI": {
+          "diff": 0.07810912841086974,
+          "ci_lo": 0.030799579614298033,
+          "ci_hi": 0.1407497789185848,
+          "excl_0": true,
+          "n": 150
+        },
+        "curve_dominance": {
+          "dominance_fraction": 1.0,
+          "n_levels": 5,
+          "area_between_collateral": 0.021456793247264773,
+          "kg_forget_grid": [
+            0.0,
+            0.0017554167072376004,
+            0.003940632000012556
+          ],
+          "kg_collateral_grid": [
+            0.0,
+            3.6963510016600294e-05,
+            1.3503996403111766e-05
+          ],
+          "dense_forget_grid": [
+            0.0,
+            0.04378516370488796,
+            0.2152289678575471
+          ],
+          "dense_collateral_grid": [
+            0.0,
+            0.043610981241120804,
+            0.16658075833693148
+          ]
+        },
+        "selectivity_kg": 1541.8050510269225,
+        "selectivity_note": "ok",
+        "judge_available": true,
+        "n_judged_preservation_pairs": 48,
+        "primary_outcome_basis": "llm_judge",
+        "joint_diff_CI": {
+          "diff": 0.7430555554363427,
+          "ci_lo": 0.5277777777372685,
+          "ci_hi": 0.9583333331772571,
+          "excl_0": true,
+          "n": 48
+        },
+        "fluency_diff_CI": {
+          "diff": 0.20833333333333326,
+          "ci_lo": 0.04166666666666674,
+          "ci_hi": 0.39583333333333326,
+          "excl_0": true,
+          "n": 48
+        },
+        "per_role_judge": {
+          "FORGET": {
+            "n_paired": 20,
+            "kg_utility_mean": 0.8333333331138888,
+            "dense_sub_utility_mean": 0.8666666664277777
+          },
+          "RETAIN": {
+            "n_paired": 20,
+            "kg_utility_mean": 1.9666666661694443,
+            "dense_sub_utility_mean": 1.216666666294444
+          },
+          "UNRELATED": {
+            "n_paired": 28,
+            "kg_utility_mean": 1.714285713833333,
+            "dense_sub_utility_mean": 0.9761904758531744
+          }
+        },
+        "judged_forget_confirmation": {
+          "kg_mean_forget_quality": 0.85,
+          "dense_sub_mean_forget_quality": 0.95,
+          "n_kg": 20,
+          "n_dense_sub": 20
+        },
+        "kg_joint_utility_mean": 1.8194444439733797,
+        "dense_sub_joint_utility_mean": 1.076388888537037,
+        "model_internal_joint": {
+          "collateral_diff_CI_genset": {
+            "diff": 0.05251789610095633,
+            "ci_lo": 0.03224053606027156,
+            "ci_hi": 0.07877482221047102,
+            "excl_0": true,
+            "n": 48
+          },
+          "fluency_diff_CI_ppl": {
+            "diff": -18.422024096051853,
+            "ci_lo": -57.609425591925785,
+            "ci_hi": 1.9394928637892004,
+            "excl_0": false,
+            "n": 48
+          },
+          "joint_diff_CI": {
+            "diff": 0.018867484832476022,
+            "ci_lo": 0.002059852360730344,
+            "ci_hi": 0.0367306084483995,
+            "excl_0": true,
+            "n": 48
+          },
+          "kg_genset_kl_mean": 3.834893383706609e-05,
+          "dense_sub_genset_kl_mean": 0.05255624503479339,
+          "kg_cont_ppl_mean": 35.73283787071705,
+          "dense_sub_cont_ppl_mean": 17.310813774665196,
+          "noop_cont_ppl_mean": 35.72392624119917
+        },
+        "win_verdict": "DOWNSTREAM_WIN_CONFIRMED",
+        "case_id": "taxonomic_georgia",
+        "second_judge_joint_diff_CI": {
+          "diff": 0.6388888887835649,
+          "ci_lo": 0.4027777777337962,
+          "ci_hi": 0.8749999998299478,
+          "excl_0": true,
+          "n": 48
+        },
+        "second_judge_model": "google/gemini-2.5-flash",
+        "win_confirmed_both_judges": true
+      },
+      {
+        "family": "orientation_gender",
+        "target_subcontext": "straight",
+        "absorber_latent": 3898,
+        "parent_anchor": 7541,
+        "regime": "absorption",
+        "is_safety_relevant": true,
+        "is_positive_control": false,
+        "firing_jaccard_with_parent": 0.009404388714733543,
+        "parent_recall_hole": 0.72,
+        "matched_target_forget_kl": 0.0011807486934412737,
+        "scale_kg_lambda": 3.3826556323667143,
+        "scale_dense_sub_beta": 0.014265922015793854,
+        "scale_dense_parent_beta": 0.011991855027734172,
+        "no_on_target_effect": false,
+        "forget_kg_curve": [
+          0.0,
+          0.00032008586458687205,
+          0.0005081653591332725
+        ],
+        "forget_dense_sub_curve": [
+          0.0,
+          0.041383539463276976,
+          0.19666880045551807
+        ],
+        "forget_dense_parent_curve": [
+          0.0,
+          0.049231277842773126,
+          0.3053126786602661
+        ],
+        "lam_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "beta_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "n_forget": 20,
+        "n_retain_collateral": 150,
+        "retain_collateral_kl_kg_mean": 0.002219898168987129,
+        "retain_collateral_kl_dense_sub_mean": 0.0013281158248961825,
+        "retain_collateral_kl_dense_parent_mean": 0.0012094175244662135,
+        "collateral_diff_CI": {
+          "diff": -0.0008917823440909465,
+          "ci_lo": -0.0014200208232074752,
+          "ci_hi": -0.0004015366896595272,
+          "excl_0": true,
+          "n": 150
+        },
+        "curve_dominance": {
+          "dominance_fraction": 1.0,
+          "n_levels": 5,
+          "area_between_collateral": 0.0036369140192252423,
+          "kg_forget_grid": [
+            0.0,
+            0.00032008586458687205,
+            0.0005081653591332725
+          ],
+          "kg_collateral_grid": [
+            0.0,
+            0.0006562113432967938,
+            0.0007865587176638655
+          ],
+          "dense_forget_grid": [
+            0.0,
+            0.041383539463276976,
+            0.19666880045551807
+          ],
+          "dense_collateral_grid": [
+            0.0,
+            0.27719256073857346,
+            2.3479716407756013
+          ]
+        },
+        "selectivity_kg": 0.5318931786767557,
+        "selectivity_note": "ok",
+        "judge_available": true,
+        "n_judged_preservation_pairs": 40,
+        "primary_outcome_basis": "llm_judge",
+        "joint_diff_CI": {
+          "diff": 0.19999999994999973,
+          "ci_lo": 0.04166666664027784,
+          "ci_hi": 0.3833333332472222,
+          "excl_0": true,
+          "n": 40
+        },
+        "fluency_diff_CI": {
+          "diff": -0.02499999999999991,
+          "ci_lo": -0.125,
+          "ci_hi": 0.050000000000000044,
+          "excl_0": false,
+          "n": 40
+        },
+        "per_role_judge": {
+          "FORGET": {
+            "n_paired": 20,
+            "kg_utility_mean": 1.0499999996833331,
+            "dense_sub_utility_mean": 0.983333333022222
+          },
+          "RETAIN": {
+            "n_paired": 20,
+            "kg_utility_mean": 1.6999999995250001,
+            "dense_sub_utility_mean": 1.3666666662861109
+          },
+          "UNRELATED": {
+            "n_paired": 20,
+            "kg_utility_mean": 1.783333332847222,
+            "dense_sub_utility_mean": 1.7166666661861112
+          }
+        },
+        "judged_forget_confirmation": {
+          "kg_mean_forget_quality": 1.25,
+          "dense_sub_mean_forget_quality": 1.35,
+          "n_kg": 20,
+          "n_dense_sub": 20
+        },
+        "kg_joint_utility_mean": 1.7416666661861107,
+        "dense_sub_joint_utility_mean": 1.541666666236111,
+        "model_internal_joint": {
+          "collateral_diff_CI_genset": {
+            "diff": 0.0009559356167301303,
+            "ci_lo": 0.0007359930004713533,
+            "ci_hi": 0.001200440790353241,
+            "excl_0": true,
+            "n": 40
+          },
+          "fluency_diff_CI_ppl": {
+            "diff": -0.03460083007812553,
+            "ci_lo": -0.22115592300891912,
+            "ci_hi": 0.14123352855443935,
+            "excl_0": false,
+            "n": 40
+          },
+          "joint_diff_CI": {
+            "diff": 0.00029798828880311934,
+            "ci_lo": -0.004357400215751836,
+            "ci_hi": 0.004876971339699318,
+            "excl_0": false,
+            "n": 40
+          },
+          "kg_genset_kl_mean": 1.770235103322193e-05,
+          "dense_sub_genset_kl_mean": 0.0009736379677633522,
+          "kg_cont_ppl_mean": 7.875518494844437,
+          "dense_sub_cont_ppl_mean": 7.8409176647663115,
+          "noop_cont_ppl_mean": 7.850832051038742
+        },
+        "win_verdict": "SAFETY_WIN_CONFIRMED",
+        "case_id": "orientation_gender_straight",
+        "second_judge_joint_diff_CI": {
+          "diff": 0.11666666664861114,
+          "ci_lo": 0.0,
+          "ci_hi": 0.26666666661111127,
+          "excl_0": false,
+          "n": 40
+        },
+        "second_judge_model": "google/gemini-2.5-flash",
+        "win_confirmed_both_judges": false
+      },
+      {
+        "family": "race_ethnicity",
+        "target_subcontext": "white",
+        "absorber_latent": 1170,
+        "parent_anchor": 11573,
+        "regime": "absorption",
+        "is_safety_relevant": true,
+        "is_positive_control": false,
+        "firing_jaccard_with_parent": 0.019271948608137045,
+        "parent_recall_hole": 0.6314285714285715,
+        "matched_target_forget_kl": 0.00042847896424063947,
+        "scale_kg_lambda": 2.768556152273898,
+        "scale_dense_sub_beta": 0.0024554259927464443,
+        "scale_dense_parent_beta": 0.0003886302712349908,
+        "no_on_target_effect": true,
+        "forget_kg_curve": [
+          0.0,
+          0.0001262922156740842,
+          0.0002121481931112612
+        ],
+        "forget_dense_sub_curve": [
+          0.0,
+          0.08725145158241503,
+          0.49769002774264665
+        ],
+        "forget_dense_parent_curve": [
+          0.0,
+          0.5512681280320976,
+          2.095547102577984
+        ],
+        "lam_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "beta_grid": [
+          0.0,
+          0.5,
+          1.0
+        ],
+        "n_forget": 20,
+        "n_retain_collateral": 150,
+        "retain_collateral_kl_kg_mean": 0.001914676762438224,
+        "retain_collateral_kl_dense_sub_mean": 0.0008236380507029632,
+        "retain_collateral_kl_dense_parent_mean": 0.0007928055807860801,
+        "collateral_diff_CI": {
+          "diff": -0.001091038711735261,
+          "ci_lo": -0.0016836966855829207,
+          "ci_hi": -0.0005579389715224655,
+          "excl_0": true,
+          "n": 150
+        },
+        "curve_dominance": {
+          "dominance_fraction": 0.0,
+          "n_levels": 5,
+          "area_between_collateral": -0.0012377765275319794,
+          "kg_forget_grid": [
+            0.0,
+            0.0001262922156740842,
+            0.0002121481931112612
+          ],
+          "kg_collateral_grid": [
+            0.0,
+            0.0006152523715475884,
+            0.0007682715280679986
+          ],
+          "dense_forget_grid": [
+            0.0,
+            0.08725145158241503,
+            0.49769002774264665
+          ],
+          "dense_collateral_grid": [
+            0.0,
+            0.18159192668584487,
+            3.0677641172582906
+          ]
+        },
+        "selectivity_kg": null,
+        "selectivity_note": "NO_ON_TARGET_EFFECT (excluded from means)",
+        "judge_available": true,
+        "n_judged_preservation_pairs": 40,
+        "primary_outcome_basis": "llm_judge",
+        "joint_diff_CI": {
+          "diff": 0.05833333333888868,
+          "ci_lo": -0.0999999999583332,
+          "ci_hi": 0.1999999999833335,
+          "excl_0": false,
+          "n": 40
+        },
+        "fluency_diff_CI": {
+          "diff": 0.0,
+          "ci_lo": -0.09999999999999987,
+          "ci_hi": 0.10000000000000009,
+          "excl_0": false,
+          "n": 40
+        },
+        "per_role_judge": {
+          "FORGET": {
+            "n_paired": 20,
+            "kg_utility_mean": 0.8333333330972221,
+            "dense_sub_utility_mean": 0.8333333330972221
+          },
+          "RETAIN": {
+            "n_paired": 20,
+            "kg_utility_mean": 1.5166666662361108,
+            "dense_sub_utility_mean": 1.5999999995499998
+          },
+          "UNRELATED": {
+            "n_paired": 20,
+            "kg_utility_mean": 1.7999999995166664,
+            "dense_sub_utility_mean": 1.5999999995249996
+          }
+        },
+        "judged_forget_confirmation": {
+          "kg_mean_forget_quality": 1.0,
+          "dense_sub_mean_forget_quality": 1.0,
+          "n_kg": 20,
+          "n_dense_sub": 20
+        },
+        "kg_joint_utility_mean": 1.6583333328763885,
+        "dense_sub_joint_utility_mean": 1.5999999995374998,
+        "model_internal_joint": {
+          "collateral_diff_CI_genset": {
+            "diff": 0.00015795760664332197,
+            "ci_lo": -0.0004899163139998564,
+            "ci_hi": 0.0007149642032709377,
+            "excl_0": false,
+            "n": 40
+          },
+          "fluency_diff_CI_ppl": {
+            "diff": 0.08001126050949026,
+            "ci_lo": -0.17676402837037902,
+            "ci_hi": 0.39473249554634127,
+            "excl_0": false,
+            "n": 40
+          },
+          "joint_diff_CI": {
+            "diff": 0.0010926210148619608,
+            "ci_lo": -0.0034486506021164957,
+            "ci_hi": 0.006640045520867943,
+            "excl_0": false,
+            "n": 40
+          },
+          "kg_genset_kl_mean": 0.00074510790000204,
+          "dense_sub_genset_kl_mean": 0.0009030655066453619,
+          "kg_cont_ppl_mean": 8.410548406839371,
+          "dense_sub_cont_ppl_mean": 8.490559667348862,
+          "noop_cont_ppl_mean": 8.295709258317947
+        },
+        "win_verdict": "NO_ON_TARGET_EFFECT",
+        "case_id": "race_ethnicity_white"
+      }
+    ],
+    "honest_negatives": [
+      "Safety-attribute SAE absorption is HOMOGRAPH-CONFINED: of 44 eligible safety identity groups across 4 hierarchies, only 2 are absorption-structured (['white', 'straight']), and ALL of them are lexical...",
+      "POSITIVE CONTROL Georgia (absorber 16009): win_verdict=DOWNSTREAM_WIN_CONFIRMED vs the SUB-CONTEXT dense direction u_sub (target-vs-SIBLINGS), recall-hole 0.7666666666666666, firing-Jaccard 0.01250586...",
+      "race_ethnicity_white: NO_ON_TARGET_EFFECT — KG ablation did not move the forget target; excluded from selectivity means."
+    ],
+    "llm_cost_usd": 0.2967213000000004,
+    "scoping_summary": {
+      "n_safety_hierarchies": 4,
+      "n_eligible_safety_groups": 44,
+      "n_absorption_structured": 2,
+      "absorption_structured_groups": [
+        {
+          "hierarchy": "race_ethnicity",
+          "group": "white",
+          "recall_hole": 0.6314285714285715,
+          "firing_jaccard": 0.019271948608137045,
+          "absorber_latent": 1170,
+          "absorption_fraction_oracle": 0.46153846153846156,
+          "is_homograph": true
+        },
+        {
+          "hierarchy": "orientation_gender",
+          "group": "straight",
+          "recall_hole": 0.72,
+          "firing_jaccard": 0.009404388714733543,
+          "absorber_latent": 3898,
+          "absorption_fraction_oracle": 0.2619047619047619,
+          "is_homograph": true
+        }
+      ],
+      "all_structured_are_homographs": true,
+      "n_eligible_with_no_hole": 42,
+      "n_eligible_co_firing": 0,
+      "interpretation": "Safety-attribute SAE absorption is HOMOGRAPH-CONFINED: of 44 eligible safety identity groups across 4 hierarchies, only 2 are absorption-structured (['white', 'straight']), and ALL of them are lexical..."
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "safety_screen",
+      "examples": [
+        {
+          "input": "[taxonomic] group='Australia' under parent='token is part of a country name' (latent 3792); is this sub-context absorption-structured (parent recall-hole > 0.5 AND firing-Jaccard < 0.1)?",
+          "output": "NO_HOLE",
+          "predict_absorption": "NO_HOLE",
+          "metadata_hierarchy": "taxonomic",
+          "metadata_sub_context": "Australia",
+          "metadata_is_homograph": false,
+          "metadata_recall_hole": 0.0,
+          "metadata_firing_jaccard": 0.1467,
+          "metadata_n_eligible": 150,
+          "metadata_eligible": true,
+          "metadata_parent_latent": 3792,
+          "metadata_detector_latent": 250,
+          "metadata_detector_auc": 0.4684,
+          "metadata_precision": 0.0729,
+          "metadata_hole_coverage_gain": 0.0,
+          "metadata_hole_coverage_ci_lo": null,
+          "metadata_absorption_structured": false,
+          "metadata_high_conf_flag": false,
+          "metadata_absorption_fraction_oracle": null,
+          "metadata_is_safety_relevant": false,
+          "metadata_is_positive_control": true
+        },
+        {
+          "input": "[taxonomic] group='Brazil' under parent='token is part of a country name' (latent 3792); is this sub-context absorption-structured (parent recall-hole > 0.5 AND firing-Jaccard < 0.1)?",
+          "output": "NO_HOLE",
+          "predict_absorption": "NO_HOLE",
+          "metadata_hierarchy": "taxonomic",
+          "metadata_sub_context": "Brazil",
+          "metadata_is_homograph": false,
+          "metadata_recall_hole": 0.0,
+          "metadata_firing_jaccard": 0.01,
+          "metadata_n_eligible": 150,
+          "metadata_eligible": true,
+          "metadata_parent_latent": 3792,
+          "metadata_detector_latent": 347,
+          "metadata_detector_auc": 0.5,
+          "metadata_precision": 0.1111,
+          "metadata_hole_coverage_gain": 0.0,
+          "metadata_hole_coverage_ci_lo": null,
+          "metadata_absorption_structured": false,
+          "metadata_high_conf_flag": false,
+          "metadata_absorption_fraction_oracle": null,
+          "metadata_is_safety_relevant": false,
+          "metadata_is_positive_control": true
+        },
+        {
+          "input": "[taxonomic] group='Canada' under parent='token is part of a country name' (latent 3792); is this sub-context absorption-structured (parent recall-hole > 0.5 AND firing-Jaccard < 0.1)?",
+          "output": "NO_HOLE",
+          "predict_absorption": "NO_HOLE",
+          "metadata_hierarchy": "taxonomic",
+          "metadata_sub_context": "Canada",
+          "metadata_is_homograph": false,
+          "metadata_recall_hole": 0.0,
+          "metadata_firing_jaccard": 0.0733,
+          "metadata_n_eligible": 150,
+          "metadata_eligible": true,
+          "metadata_parent_latent": 3792,
+          "metadata_detector_latent": 250,
+          "metadata_detector_auc": 0.4362,
+          "metadata_precision": 0.0378,
+          "metadata_hole_coverage_gain": 0.0,
+          "metadata_hole_coverage_ci_lo": null,
+          "metadata_absorption_structured": false,
+          "metadata_high_conf_flag": false,
+          "metadata_absorption_fraction_oracle": null,
+          "metadata_is_safety_relevant": false,
+          "metadata_is_positive_control": true
+        }
+      ]
+    },
+    {
+      "dataset": "downstream_subcontext",
+      "examples": [
+        {
+          "input": "[taxonomic|FORGET|forget='Georgia'] 1982–83 Georgia Tech Yellow Jackets men's basketball team\n\nThe 1982-83 Georgia Tech Yellow Jackets men's basketball team represented the Georgia Institute of",
+          "output": "FORGET",
+          "predict_kg_abl": "Technology during the 1982–83 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+          "predict_dense_abl_sub": "Technology during the 1982–83 NCAA Division I men's basketball season. The Yellow Jackets were led by second-year head coach Bobby Cremins and played their home",
+          "predict_noop": "Technology during the 1982–83 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+          "metadata_case": "taxonomic_georgia",
+          "metadata_role": "FORGET",
+          "metadata_regime": "absorption",
+          "metadata_is_safety_relevant": false,
+          "metadata_is_positive_control": true,
+          "metadata_absorber_latent": 16009,
+          "metadata_utility_kg": 0.0,
+          "metadata_utility_dense_sub": 2.0,
+          "metadata_mi_lastkl_kg": 1.7e-05,
+          "metadata_mi_lastkl_dense_sub": 8.1e-05
+        },
+        {
+          "input": "[taxonomic|FORGET|forget='Georgia'] Messer, Jr., was indicted by the grand jury of Polk County,",
+          "output": "FORGET",
+          "predict_kg_abl": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+          "predict_dense_abl_sub": "Georgia, on a charge of murder in the first degree. He was tried before a jury and convicted of murder in the second degree. He was sentenced to life imprisonme",
+          "predict_noop": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+          "metadata_case": "taxonomic_georgia",
+          "metadata_role": "FORGET",
+          "metadata_regime": "absorption",
+          "metadata_is_safety_relevant": false,
+          "metadata_is_positive_control": true,
+          "metadata_absorber_latent": 16009,
+          "metadata_utility_kg": 2.0,
+          "metadata_utility_dense_sub": 2.0,
+          "metadata_mi_lastkl_kg": 0.0,
+          "metadata_mi_lastkl_dense_sub": 0.145044
+        },
+        {
+          "input": "[taxonomic|FORGET|forget='Georgia'] Mozas next advised Wilson that Mozas would be smuggling one hundred kilograms of cocaine from\n\nColumbia, for which he would be paid 18,000 pounds of marijuana. Wils...",
+          "output": "FORGET",
+          "predict_kg_abl": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. Feb. 1",
+          "predict_dense_abl_sub": "New York.\n    *\n     The Honorable John F. Keenan, U.S. District Judge for the Southern District of New York.\n    *\n     The Honorable John F. Keenan",
+          "predict_noop": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. Feb. 1",
+          "metadata_case": "taxonomic_georgia",
+          "metadata_role": "FORGET",
+          "metadata_regime": "absorption",
+          "metadata_is_safety_relevant": false,
+          "metadata_is_positive_control": true,
+          "metadata_absorber_latent": 16009,
+          "metadata_utility_kg": 2.0,
+          "metadata_utility_dense_sub": 1.3333,
+          "metadata_mi_lastkl_kg": 0.0,
+          "metadata_mi_lastkl_dense_sub": 0.375966
+        }
+      ]
+    }
+  ]
+}

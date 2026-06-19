@@ -1,0 +1,10 @@
+[project]
+name = "iter8-integrity-lock-eval"
+version = "0.1.0"
+description = "Iter-8 integrity-lock re-analysis over iter-6/7 edit data (pure CPU, $0, read-only)"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy==2.4.6",
+    "scipy==1.17.1",
+    "loguru==0.7.3",
+]

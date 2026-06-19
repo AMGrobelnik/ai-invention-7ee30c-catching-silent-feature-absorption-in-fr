@@ -1,0 +1,29 @@
+14:15:11|INFO   |=== BUILD scale=full no_llm=False seed=20240617 pile_rev=3be90335b66f24456a5d6659d9c8d208c0357119 ===
+14:15:11|INFO   |[num content] year: 60/60 pairs
+14:15:11|INFO   |[num content] percent: 60/60 pairs
+14:15:11|INFO   |[num content] currency: 60/60 pairs
+14:15:11|INFO   |[num content] date: 60/60 pairs
+14:15:11|INFO   |[num content] decimal: 45/45 pairs
+14:15:11|INFO   |[num content] integer: 60/60 pairs
+14:15:11|INFO   |[num content] comma_number: 35/35 pairs
+14:15:11|INFO   |[num content] ordinal: 35/35 pairs
+14:15:11|INFO   |[tax content] 260 pairs across 44 countries
+14:15:11|INFO   |[num surface] 128 pairs
+14:15:11|INFO   |[tax surface] 120 pairs across 40 countries
+14:15:16|INFO   |[llm] generated numeric=48 taxonomic=14 pairs (cost so far $0.0011)
+14:15:16|INFO   |[llm] judging 246 pairs ...
+14:15:35|INFO   |[llm] judged 246 pairs, pass=246 (100.0%), cost $0.0105
+14:15:35|INFO   |[corpus] opening shard train/00.jsonl.zst
+14:15:58|INFO   |[corpus] scanned=50000 rows=16920 num_pos={'year': 600, 'decimal': 400, 'integer': 600, 'date': 500, 'currency': 500, 'percent': 500, 'comma_number': 300, 'ordinal': 300} num_neg=3500 tax_pos_total=5880 tax_negc=1440 tax_nege=2400 (2185 rec/s)
+14:16:18|INFO   |[corpus] scanned=100000 rows=20884 num_pos={'year': 600, 'decimal': 400, 'integer': 600, 'date': 500, 'currency': 500, 'percent': 500, 'comma_number': 300, 'ordinal': 300} num_neg=3500 tax_pos_total=9484 tax_negc=1800 tax_nege=2400 (2349 rec/s)
+14:16:28|INFO   |[corpus] finished shard train/00.jsonl.zst; scanned=125524 rows=22160
+14:16:28|INFO   |[corpus] DONE scanned=125524 rows=22160 in 53s
+14:16:28|INFO   |[dedup] dropped 0 pairs with duplicate positive inputs; 1970 pair-rows + 22160 corpus-rows kept
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+14:16:31|INFO   |[token] gemma-2-2b token indices computed for 24130 rows
+14:16:31|INFO   |[assert] running sanity checks ...
+14:16:32|INFO   |[assert] OK (24130 rows, 985 pairs; informational: 351 repeated x_off carriers)
+14:16:32|INFO   |[write] /ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_1/gen_art/gen_art_dataset_2/data_out.json (23.45 MB)
+14:16:32|INFO   |[write] mini_data_out.json + preview_data_out.json
+14:16:32|INFO   |[write] manifest.json
+14:16:32|INFO   |=== DONE total_rows=24130 llm_cost=$0.0105 (gen=5 judge=246 calls) ===

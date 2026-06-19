@@ -1,0 +1,24 @@
+[project]
+name = "apriori-firing-structure-router"
+version = "1.0.0"
+description = "A-priori SAE firing-structure router: a combined firing-Jaccard AND parent recall-hole screening rule that predicts whether label-free cluster-level grouping beats the best single SAE latent. Derivation concepts (spelling/numeric/taxonomic/toxicity) are kept strictly separate from a truly-prospective set (sentiment/CEBaB-aspect/bias_in_bios-professions/severe_toxicity); reported as a screening heuristic with a measured error rate. Frozen Gemma-Scope L12/16k SAE on gemma-2-2b."
+requires-python = ">=3.12"
+# torch is the cu126 build (2.7.0+cu126); install from the matching CUDA index:
+#   uv pip install torch==2.7.0 --extra-index-url https://download.pytorch.org/whl/cu126
+dependencies = [
+    "torch==2.7.0",
+    "numpy==2.4.6",
+    "scikit-learn==1.9.0",
+    "scipy==1.17.1",
+    "transformers==4.46.3",
+    "tokenizers==0.20.3",
+    "accelerate==1.14.0",
+    "huggingface-hub==0.36.2",
+    "safetensors==0.8.0",
+    "sentencepiece==0.2.1",
+    "psutil==7.2.2",
+    "loguru==0.7.3",
+]
+
+[tool.uv]
+package = false

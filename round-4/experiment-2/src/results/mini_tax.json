@@ -1,0 +1,839 @@
+{
+ "metadata": {
+  "method_name": "M1b KG-Localized Surgical Sub-Concept Edit with Side-Effect Measurement",
+  "description": "Single named-absorber ablation (KG-ABL) vs dense diff-of-means parent erasure (DENSE-ABL, baseline f) vs random-latent (RAND) vs label-free (k); on_target/collateral via a frozen dense parent probe at matched effect, with KL/PPL/token-footprint side-effects and a toxicity co-firing negative pole.",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "Rnorm": 478.6302947998047,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189349412918091,
+   "L0": 87.9375,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2838386548289832,
+    "13": 0.19299182784889848,
+    "14": 0.3387158481703969
+   },
+   "Rnorm": 478.6302947998047
+  },
+  "canonical_units": {
+   "first_letter": {
+    "L": {
+     "anchor": 205,
+     "absorbers": [
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+     ],
+     "members": [
+      205,
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+     ],
+     "sub_by_absorber": {
+      "4736": "linking",
+      "607": "leads",
+      "3069": "list",
+      "8463": "large",
+      "2416": "line",
+      "2759": "Let",
+      "3353": "level",
+      "3858": "low",
+      "7544": "leave",
+      "15261": "latent_15261",
+      "1391": "L",
+      "1467": "listed",
+      "1549": "legal",
+      "1566": "like"
+     },
+     "anchor_corpus_fire": 0.3572,
+     "spurious_anchor": false
+    },
+    "O": {
+     "anchor": 12334,
+     "absorbers": [
+      14473,
+      12675,
+      1032,
+      1562,
+      4438,
+      8961,
+      9488,
+      9915,
+      15092,
+      782,
+      1127,
+      1925,
+      2101,
+      2768
+     ],
+     "members": [
+      12334,
+      14473,
+      12675,
+      1032,
+      1562,
+      4438,
+      8961,
+      9488,
+      9915,
+      15092,
+      782,
+      1127,
+      1925,
+      2101,
+      2768
+     ],
+     "sub_by_absorber": {
+      "14473": "latent_14473",
+      "12675": "off",
+      "1032": "our",
+      "1562": "outside",
+      "4438": "o",
+      "8961": "options",
+      "9488": "Offering",
+      "9915": "offline",
+      "15092": "offer",
+      "782": "on",
+      "1127": "old",
+      "1925": "only",
+      "2101": "office",
+      "2768": "Object"
+     },
+     "anchor_corpus_fire": 0.3944,
+     "spurious_anchor": false
+    },
+    "T": {
+     "anchor": 6355,
+     "absorbers": [
+      8925,
+      7742,
+      4438,
+      2768,
+      4551,
+      5130,
+      8938,
+      14143,
+      383,
+      1839,
+      4570,
+      5059,
+      12997,
+      13704
+     ],
+     "members": [
+      6355,
+      8925,
+      7742,
+      4438,
+      2768,
+      4551,
+      5130,
+      8938,
+      14143,
+      383,
+      1839,
+      4570,
+      5059,
+      12997,
+      13704
+     ],
+     "sub_by_absorber": {
+      "8925": "That",
+      "7742": "Thornton",
+      "4438": "T",
+      "2768": "Title",
+      "4551": "type",
+      "5130": "they",
+      "8938": "things",
+      "14143": "trial",
+      "383": "themselves",
+      "1839": "treatment",
+      "4570": "than",
+      "5059": "trying",
+      "12997": "time",
+      "13704": "there"
+     },
+     "anchor_corpus_fire": 0.2664,
+     "spurious_anchor": false
+    },
+    "I": {
+     "anchor": 1227,
+     "absorbers": [
+      1634,
+      3967,
+      9741,
+      10756,
+      782,
+      4322,
+      1861,
+      4490,
+      7491,
+      11112,
+      12928,
+      1491,
+      2322,
+      2507
+     ],
+     "members": [
+      1227,
+      1634,
+      3967,
+      9741,
+      10756,
+      782,
+      4322,
+      1861,
+      4490,
+      7491,
+      11112,
+      12928,
+      1491,
+      2322,
+      2507
+     ],
+     "sub_by_absorber": {
+      "1634": "",
+      "3967": "",
+      "9741": "invention",
+      "10756": "",
+      "782": "",
+      "4322": "",
+      "1861": "its",
+      "4490": "issue",
+      "7491": "",
+      "11112": "",
+      "12928": "",
+      "1491": "inside",
+      "2322": "",
+      "2507": ""
+     },
+     "anchor_corpus_fire": 0.0,
+     "spurious_anchor": true
+    },
+    "D": {
+     "anchor": 6210,
+     "absorbers": [
+      10756,
+      782,
+      1970,
+      7293,
+      10769,
+      11069,
+      14014,
+      16173,
+      1197,
+      1298,
+      1459,
+      1724,
+      2354,
+      2568
+     ],
+     "members": [
+      6210,
+      10756,
+      782,
+      1970,
+      7293,
+      10769,
+      11069,
+      14014,
+      16173,
+      1197,
+      1298,
+      1459,
+      1724,
+      2354,
+      2568
+     ],
+     "sub_by_absorber": {
+      "10756": "DN",
+      "782": "don",
+      "1970": "different",
+      "7293": "directory",
+      "10769": "day",
+      "11069": "development",
+      "14014": "did",
+      "16173": "delighted",
+      "1197": "display",
+      "1298": "down",
+      "1459": "Douglas",
+      "1724": "described",
+      "2354": "different",
+      "2568": "latent_2568"
+     },
+     "anchor_corpus_fire": 0.3304,
+     "spurious_anchor": false
+    }
+   },
+   "taxonomic": {
+    "anchor": 3792,
+    "k_track_unit": [
+     3792,
+     4697,
+     9339,
+     8442
+    ],
+    "kg_edges": [
+     {
+      "anchor": 3792,
+      "absorber": 4697,
+      "specializes": "Georgia",
+      "marginal_gain": 0.5454545454545454,
+      "jaccard": 0.05518680068272331,
+      "subctx_precision": 0.34965034965034963
+     },
+     {
+      "anchor": 3792,
+      "absorber": 9339,
+      "specializes": "Jordan",
+      "marginal_gain": 0.2766798418972332,
+      "jaccard": 0.02067777139574957,
+      "subctx_precision": 0.6326530612244898
+     },
+     {
+      "anchor": 3792,
+      "absorber": 8442,
+      "specializes": "United States",
+      "marginal_gain": 0.1422924901185771,
+      "jaccard": 0.06485758275596613,
+      "subctx_precision": 0.34673366834170855
+     }
+    ],
+    "diag_absorbers": [
+     {
+      "latent": 16009,
+      "jaccard": 0.006657789613848202,
+      "subctx_precision": 0.9554140127388535,
+      "specializes": "Georgia",
+      "hole_coverage_gain": 0.48221343873517786,
+      "gain_ci_low": 0.4189723320158103,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 540,
+      "jaccard": 0.007476993865030675,
+      "subctx_precision": 0.975,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.3201581027667984,
+      "gain_ci_low": 0.2608695652173913,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 8347,
+      "jaccard": 0.004057187017001545,
+      "subctx_precision": 1.0,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.16205533596837945,
+      "gain_ci_low": 0.11857707509881422,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 846,
+      "jaccard": 0.023035230352303523,
+      "subctx_precision": 0.9733333333333334,
+      "specializes": "United States",
+      "hole_coverage_gain": 0.1225296442687747,
+      "gain_ci_low": 0.08695652173913043,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 13424,
+      "jaccard": 0.003872216844143272,
+      "subctx_precision": 1.0,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.11857707509881422,
+      "gain_ci_low": 0.07905138339920949,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 4760,
+      "jaccard": 0.006203955021326095,
+      "subctx_precision": 0.7090909090909091,
+      "specializes": "United States",
+      "hole_coverage_gain": 0.09090909090909091,
+      "gain_ci_low": 0.05928853754940711,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 3980,
+      "jaccard": 0.0013597513597513598,
+      "subctx_precision": 0.85,
+      "specializes": "Georgia",
+      "hole_coverage_gain": 0.05138339920948617,
+      "gain_ci_low": 0.02766798418972332,
+      "content_precision": 1.0
+     }
+    ],
+    "anchor_recall_corpus": 0.9530438010393467,
+    "kg_by_country": {
+     "Georgia": 4697,
+     "Jordan": 9339,
+     "United States": 8442
+    },
+    "diag_by_country": {
+     "Georgia": 16009,
+     "Jordan": 540,
+     "United States": 846
+    }
+   }
+  },
+  "scale_grids": {
+   "DET_GRID_ABL": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0
+   ],
+   "KL_GRID_ABL": [
+    0.5,
+    1.0,
+    2.0
+   ],
+   "STEER_C": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+   ],
+   "N_RAND_DRAWS": 12
+  },
+  "k_localization_check": {
+   "taxonomic": {
+    "status": "run",
+    "variant": "JTT(ERM->upweight error set lambda=20->retrain)",
+    "erm_train_acc": 1.0,
+    "error_set_size": 0,
+    "projection_argmax_latent": 3792,
+    "projection_top_abscos": 0.5261510394407061,
+    "projection_second_abscos": 0.3965228294669123,
+    "single_latent_dominates": false,
+    "kg_absorber_is_argmax": false,
+    "kg_absorber_projection_ranks": {
+     "Georgia": {
+      "latent": 4697,
+      "cos": -0.0009867381214090105,
+      "rank_by_abscos": 15848
+     },
+     "Jordan": {
+      "latent": 9339,
+      "cos": 0.062426600057300316,
+      "rank_by_abscos": 1072
+     },
+     "United States": {
+      "latent": 8442,
+      "cos": 0.06487096768132178,
+      "rank_by_abscos": 958
+     }
+    },
+    "conclusion": "The KG names exactly one addable/ablatable auditable latent per sub-context; the label-free (k) reweighting probe yields a dense hyperplane that does NOT localize to any single SAE latent -> no per-sub-context handle to edit."
+   }
+  },
+  "per_case": [
+   {
+    "family": "taxonomic",
+    "target_subcontext": "Georgia",
+    "absorber_latent": 16009,
+    "absorber_precision": 0.955,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.6560831069946289,
+    "firing_jaccard_with_parent": 0.011052631578947368,
+    "parent_recall_hole": 0.8125,
+    "n_target_ctx": 40,
+    "n_sibling_ctx": 180,
+    "siblings": [
+     "Australia",
+     "Brazil",
+     "Canada",
+     "China",
+     "France",
+     "Germany",
+     "India",
+     "Iran",
+     "Ireland",
+     "Israel",
+     "Italy",
+     "Japan"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0017554167072376004,
+       0.003940632000012556,
+       0.012040138596967153
+      ],
+      "beh_collateral": [
+       0.0,
+       2.779249819771697e-05,
+       3.3344539487087684e-05,
+       2.6765914137488127e-05
+      ],
+      "beh_footprint": [
+       0.0,
+       0.0140625,
+       0.0140625,
+       0.0140625
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        -0.014779496006667614,
+        -0.029559075832366943,
+        -0.04433845356106758,
+        -0.059117842465639114,
+        -0.08867661654949188,
+        -0.11823555082082748
+       ],
+       "collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "on_target_prob": [
+        0.0,
+        -9.887991836876608e-06,
+        -1.9809906007139944e-05,
+        -2.976509313157294e-05,
+        -3.97439107473474e-05,
+        -5.9816684370161965e-05,
+        -8.004216942936182e-05
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 3.822418148047291e-05,
+       "ppl": 25.836422628641895,
+       "ppl_ratio": 1.0003018238561547,
+       "token_footprint": 0.0010822510822510823
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.04234530115209054,
+       0.2387503451667726,
+       2.0965635389089585
+      ],
+      "beh_collateral": [
+       0.0,
+       0.03712412384274002,
+       0.3021468335141738,
+       2.406072490827905
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        3.793146848678589,
+        7.5862932205200195,
+        11.379440307617188,
+        15.172587394714355,
+        22.75888442993164,
+        30.345172882080078
+       ],
+       "collateral_margin": [
+        0.0,
+        4.014060974121094,
+        8.028120994567871,
+        12.042173385620117,
+        16.056243896484375,
+        24.084346771240234,
+        32.11248779296875
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        4.014060974121094,
+        8.028120994567871,
+        12.042173385620117,
+        16.056243896484375,
+        24.084346771240234,
+        32.11248779296875
+       ],
+       "on_target_prob": [
+        0.0,
+        0.002582486951723695,
+        0.12251566350460052,
+        0.571081280708313,
+        0.8442912101745605,
+        0.9474672079086304,
+        0.9480875134468079
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.05187200754880905,
+       "ppl": 32.62119044481333,
+       "ppl_ratio": 1.262985854014148,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       478.6302947998047,
+       1914.5211791992188
+      ],
+      "beh_on_target": [
+       0.0,
+       20.63134984970093,
+       18.63645112514496
+      ],
+      "beh_collateral": [
+       0.0,
+       21.492787896262275,
+       19.82986626095242
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       478.6302947998047,
+       1914.5211791992188
+      ]
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.00027003985965166064
+      ],
+      "beh_collateral": [
+       0.0,
+       0.00025230500285168203
+      ],
+      "beh_footprint": [
+       0.0,
+       0.011979166666666666
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0004173173692834098,
+       "ppl_ratio": 1.0003795188941704,
+       "token_footprint": 0.0091991341991342
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.009632110877573723,
+      "collateral": 2.872177552332815e-05,
+      "selectivity": 335.24245202852626,
+      "unrelated_kl": 3.822418148047291e-05,
+      "unrelated_ppl_ratio": 1.0003018238561547,
+      "token_footprint": 0.0010822510822510823
+     },
+     "DENSE-ABL": {
+      "on_target": 0.009632110877573723,
+      "collateral": 0.008444471224840884,
+      "selectivity": 1.1406397410464035,
+      "unrelated_kl": 0.05187200754880905,
+      "unrelated_ppl_ratio": 1.262985854014148,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.009632110877573723,
+      "collateral": 0.00025230500285168203,
+      "selectivity": 38.17494310172175,
+      "unrelated_kl": 0.0004173173692834098,
+      "unrelated_ppl_ratio": 1.0003795188941704,
+      "token_footprint": 0.0091991341991342
+     },
+     "KG-ADD": {
+      "on_target": 0.009632110877573723,
+      "collateral": 0.010248918596698025,
+      "selectivity": 0.9398163707255188
+     }
+    },
+    "matched_scale_kg": 1.702694517182214,
+    "matched_scale_dense": 0.11373293630594708,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.009632110877573725,
+      "ci_lo": 0.004830807538716076,
+      "ci_hi": 0.015447197900639802,
+      "n": 40,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 2.872177552332815e-05,
+      "ci_lo": 4.197111541845594e-06,
+      "ci_hi": 6.446799336449085e-05,
+      "n": 180,
+      "excl_0": true
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.008444471224840884,
+      "ci_lo": 0.0051068406695202306,
+      "ci_hi": 0.013480654132523725,
+      "n": 180,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.008415749449317556,
+      "ci_lo": 0.005104290535131841,
+      "ci_hi": 0.013297005947861555,
+      "excl_0": true,
+      "n": 180
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 645.0485661102043,
+      "ci_lo": 114.83962397330608,
+      "ci_hi": 2351.505543652984,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 293.9073924611644,
+    "random_latent_firing_rate": 0.03525121555915721
+   }
+  ],
+  "summary": {
+   "n_cases": 1,
+   "n_surgical_confirmed": 1,
+   "surgical_cases": [
+    "taxonomic/Georgia"
+   ],
+   "taxonomic_primary_georgia": {
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "on_target": 0.009632110877573725,
+    "kg_collateral": 2.872177552332815e-05,
+    "dense_collateral": 0.008444471224840884,
+    "selectivity_ratio": 293.9073924611644,
+    "dense_minus_kg_collateral_CI": {
+     "diff": 0.008415749449317556,
+     "ci_lo": 0.005104290535131841,
+     "ci_hi": 0.013297005947861555,
+     "excl_0": true,
+     "n": 180
+    }
+   },
+   "first_letter_primary": null,
+   "toxicity_negative_pole": null,
+   "headline_selectivity_ratio": 293.9073924611644
+  },
+  "honest_negatives": [
+   "taxonomic/Jordan: too few eval contexts (0)",
+   "taxonomic/Jordan: too few eval contexts (0)"
+  ]
+ },
+ "datasets": [
+  {
+   "dataset": "kg_surgical_edit",
+   "examples": [
+    {
+     "input": "taxonomic | surgically ablate absorber 16009 for sub-context 'Georgia' (absorption); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "Georgia",
+     "metadata_absorber_latent": 16009,
+     "metadata_regime": "absorption",
+     "metadata_on_target": 0.009632110877573725,
+     "metadata_kg_collateral": 2.872177552332815e-05,
+     "metadata_dense_collateral": 0.008444471224840884,
+     "metadata_selectivity_ratio": 293.9073924611644,
+     "metadata_dense_minus_kg_ci_lo": 0.005104290535131841,
+     "metadata_dense_minus_kg_ci_hi": 0.013297005947861555,
+     "metadata_firing_jaccard_with_parent": 0.011052631578947368,
+     "metadata_parent_recall_hole": 0.8125
+    }
+   ]
+  }
+ ]
+}

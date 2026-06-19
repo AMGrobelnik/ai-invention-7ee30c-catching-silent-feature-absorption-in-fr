@@ -1,0 +1,1220 @@
+{
+  "artifact": "homograph_polysemy_entity_absorption_testbed",
+  "description": "FOUR-hierarchy (CITY / MONTH / GIVEN-NAME / BRAND) homograph/polysemy is-a feature-absorption testbed; a strict structural drop-in extension of the iter-1 non-spelling absorption testbed (art_t2uUbjSwpd3t). Each hierarchy ships content-flip pairs, surface-flip pairs, and a pile-uncopyrighted diagnostic corpus labelled by frozen, model-independent sub-context, PLUS a homograph_competitor matched-negative family (same surface token in its non-target sense). No SAE/model/activation computation.",
+  "BUILDING_BLOCK_NOTE": "NEXT-ITERATION BUILDING BLOCK — this corpus is NOT consumed by this iteration's parallel experiments; it provides breadth of homograph/polysemy entity candidates so the persistent single-slice taxonomic critique can be answered next iteration with many suppressed-parent cases.",
+  "schema": "exp_sel_data_out (flat metadata_* keys); see schema.json for the logical (nested) view",
+  "scale": "full",
+  "seed": 20240617,
+  "pile_repo": "monology/pile-uncopyrighted",
+  "pile_revision": "3be90335b66f24456a5d6659d9c8d208c0357119",
+  "gemma_tokenizer": "google/gemma-2-2b",
+  "token_indices_present": true,
+  "wordfreq_available": true,
+  "llm_model": "openai/gpt-4o-mini",
+  "llm_cost_usd": 0.0,
+  "llm_calls": 0,
+  "total_rows": 34926,
+  "eligible_entities_per_hierarchy": {
+    "city": 18,
+    "month": 12,
+    "given_name": 3,
+    "brand": 1
+  },
+  "fold_counts": {
+    "train": 17602,
+    "diagnostic": 17060,
+    "test": 264
+  },
+  "rows_by_hierarchy_and_type": {
+    "city/corpus": 11079,
+    "month/corpus": 8600,
+    "given_name/corpus": 8126,
+    "brand/corpus": 6289,
+    "city/content_pair": 128,
+    "city/surface_pair": 80,
+    "month/content_pair": 96,
+    "month/surface_pair": 60,
+    "given_name/content_pair": 160,
+    "given_name/surface_pair": 100,
+    "brand/content_pair": 128,
+    "brand/surface_pair": 80
+  },
+  "templated_content_counts": {
+    "city": {
+      "Reading": 3,
+      "Bath": 3,
+      "Paris": 3,
+      "Sydney": 3,
+      "Florence": 3,
+      "Cologne": 3,
+      "Buffalo": 3,
+      "Mobile": 3,
+      "Jackson": 3,
+      "Cork": 3,
+      "Mercury": 3,
+      "Split": 3,
+      "Worth": 3,
+      "Jordan": 3,
+      "Cleveland": 3,
+      "Hull": 3,
+      "Nice": 3,
+      "Hollywood": 3,
+      "Bend": 3,
+      "Columbus": 3,
+      "Phoenix": 3,
+      "Surprise": 1
+    },
+    "month": {
+      "September": 5,
+      "January": 5,
+      "December": 5,
+      "November": 5,
+      "February": 5,
+      "August": 5,
+      "July": 5,
+      "October": 5,
+      "June": 5,
+      "April": 3
+    },
+    "given_name": {
+      "Rosemary": 3,
+      "Robin": 3,
+      "Joy": 3,
+      "Wade": 3,
+      "Summer": 3,
+      "Daisy": 3,
+      "Faith": 3,
+      "Pat": 3,
+      "Carol": 3,
+      "Rose": 3,
+      "Frank": 3,
+      "Dawn": 3,
+      "Bill": 3,
+      "Hope": 3,
+      "Chase": 3,
+      "Crystal": 3,
+      "Grace": 3,
+      "Mark": 3,
+      "Will": 3,
+      "Violet": 3,
+      "Earl": 3,
+      "Jack": 3,
+      "Reed": 3,
+      "Holly": 3,
+      "Cliff": 3,
+      "Dean": 3,
+      "Ruby": 2
+    },
+    "brand": {
+      "Square": 3,
+      "Polo": 3,
+      "Java": 3,
+      "Caterpillar": 3,
+      "Gap": 3,
+      "Shell": 3,
+      "Target": 3,
+      "Sprint": 3,
+      "Dawn": 3,
+      "Patagonia": 3,
+      "Monster": 3,
+      "Jaguar": 3,
+      "Chase": 3,
+      "Corona": 3,
+      "Amazon": 3,
+      "Apple": 3,
+      "Puma": 3,
+      "Orange": 3,
+      "Dove": 3,
+      "Subway": 3,
+      "Tide": 3,
+      "Oracle": 1
+    }
+  },
+  "templated_surface_counts": {
+    "city": {
+      "Worth": 3,
+      "Nice": 3,
+      "Split": 3,
+      "Hull": 3,
+      "Bath": 3,
+      "Cork": 3,
+      "Sandy": 3,
+      "Sydney": 3,
+      "Hollywood": 3,
+      "Paris": 3,
+      "Bend": 3,
+      "Mobile": 3,
+      "Cologne": 3,
+      "Reading": 1
+    },
+    "month": {
+      "October": 3,
+      "July": 3,
+      "March": 3,
+      "November": 3,
+      "June": 3,
+      "August": 3,
+      "May": 3,
+      "January": 3,
+      "December": 3,
+      "February": 3
+    },
+    "given_name": {
+      "Art": 3,
+      "Lily": 3,
+      "Violet": 3,
+      "Ruby": 3,
+      "Faith": 3,
+      "Daisy": 3,
+      "Will": 3,
+      "Bill": 3,
+      "Rose": 3,
+      "Earl": 3,
+      "Joy": 3,
+      "Hope": 3,
+      "Robin": 3,
+      "Drew": 3,
+      "Frank": 3,
+      "Pearl": 3,
+      "Ivy": 2
+    },
+    "brand": {
+      "Dawn": 3,
+      "Subway": 3,
+      "Chase": 3,
+      "Tide": 3,
+      "Amazon": 3,
+      "Target": 3,
+      "Puma": 3,
+      "Jaguar": 3,
+      "Shell": 3,
+      "Oracle": 3,
+      "Patagonia": 3,
+      "Caterpillar": 3,
+      "Dove": 3,
+      "Visa": 1
+    }
+  },
+  "corpus_positive_counts_by_entity": {
+    "brand/Amazon": 288,
+    "month/July": 300,
+    "month/January": 300,
+    "given_name/Rose": 220,
+    "month/December": 300,
+    "month/October": 300,
+    "month/February": 300,
+    "month/March": 300,
+    "month/June": 300,
+    "month/September": 300,
+    "month/November": 300,
+    "month/May": 300,
+    "month/August": 300,
+    "month/April": 300,
+    "city/Jackson": 300,
+    "brand/Apple": 300,
+    "city/Paris": 300,
+    "city/Hollywood": 300,
+    "city/Phoenix": 300,
+    "given_name/Carol": 76,
+    "city/Florence": 300,
+    "city/Columbus": 300,
+    "given_name/Mark": 300,
+    "given_name/Dean": 190,
+    "brand/Target": 153,
+    "given_name/Pearl": 39,
+    "city/Bath": 300,
+    "given_name/Joy": 34,
+    "city/Jordan": 300,
+    "city/Cork": 300,
+    "city/Cleveland": 300,
+    "city/Sydney": 300,
+    "city/Cologne": 300,
+    "given_name/Bill": 300,
+    "city/Worth": 300,
+    "city/Mobile": 300,
+    "city/Reading": 300,
+    "city/Hull": 300,
+    "city/Buffalo": 300,
+    "city/Sandy": 139,
+    "city/Nice": 288,
+    "given_name/Earl": 78,
+    "given_name/Drew": 135,
+    "given_name/Will": 111,
+    "brand/Oracle": 79,
+    "brand/Java": 112,
+    "city/Bend": 300,
+    "city/Split": 159,
+    "given_name/Jack": 279,
+    "brand/Gap": 37,
+    "given_name/Frank": 300,
+    "given_name/Grace": 86,
+    "given_name/Reed": 209,
+    "brand/Chase": 21,
+    "given_name/Pat": 139,
+    "brand/Sprint": 57,
+    "brand/Orange": 10,
+    "given_name/Lily": 44,
+    "brand/Square": 59,
+    "given_name/Dawn": 30,
+    "brand/Python": 42,
+    "city/Mercury": 62,
+    "given_name/Robin": 84,
+    "given_name/Ruby": 50,
+    "given_name/Daisy": 48,
+    "given_name/Cliff": 26,
+    "given_name/Wade": 94,
+    "given_name/Hope": 41,
+    "given_name/Art": 25,
+    "brand/Dove": 7,
+    "brand/Caterpillar": 35,
+    "given_name/Chase": 22,
+    "brand/Tide": 4,
+    "given_name/Violet": 29,
+    "brand/Corona": 6,
+    "city/Surprise": 31,
+    "brand/Visa": 30,
+    "given_name/Holly": 32,
+    "given_name/Ivy": 15,
+    "brand/Shell": 12,
+    "brand/Dawn": 8,
+    "given_name/Crystal": 19,
+    "brand/Puma": 4,
+    "given_name/Sky": 21,
+    "brand/Jaguar": 5,
+    "given_name/Autumn": 12,
+    "given_name/Faith": 18,
+    "given_name/Summer": 14,
+    "given_name/Rosemary": 6,
+    "brand/Monster": 8,
+    "brand/Subway": 8,
+    "brand/Patagonia": 3,
+    "brand/Polo": 1
+  },
+  "corpus_negative_family_counts": {
+    "city/easy": 2500,
+    "month/easy": 2500,
+    "given_name/easy": 2500,
+    "brand/easy": 2500,
+    "city/homograph_competitor": 2500,
+    "given_name/homograph_competitor": 2500,
+    "brand/homograph_competitor": 2500,
+    "month/homograph_competitor": 2500
+  },
+  "corpus_fill_summary": {
+    "pos_by_entity": {
+      "city/Phoenix": 300,
+      "city/Mobile": 300,
+      "city/Reading": 300,
+      "city/Bath": 300,
+      "city/Nice": 288,
+      "city/Buffalo": 300,
+      "city/Hull": 300,
+      "city/Cork": 300,
+      "city/Split": 159,
+      "city/Bend": 300,
+      "city/Worth": 300,
+      "city/Sandy": 139,
+      "city/Surprise": 31,
+      "city/Cologne": 300,
+      "city/Mercury": 62,
+      "city/Jackson": 300,
+      "city/Columbus": 300,
+      "city/Cleveland": 300,
+      "city/Florence": 300,
+      "city/Sydney": 300,
+      "city/Paris": 300,
+      "city/Jordan": 300,
+      "city/Hollywood": 300,
+      "month/January": 300,
+      "month/February": 300,
+      "month/March": 300,
+      "month/April": 300,
+      "month/May": 300,
+      "month/June": 300,
+      "month/July": 300,
+      "month/August": 300,
+      "month/September": 300,
+      "month/October": 300,
+      "month/November": 300,
+      "month/December": 300,
+      "given_name/Grace": 86,
+      "given_name/Hope": 41,
+      "given_name/Faith": 18,
+      "given_name/Joy": 34,
+      "given_name/Mark": 300,
+      "given_name/Bill": 300,
+      "given_name/Will": 111,
+      "given_name/Rose": 220,
+      "given_name/Frank": 300,
+      "given_name/Pat": 139,
+      "given_name/Dawn": 30,
+      "given_name/Summer": 14,
+      "given_name/Autumn": 12,
+      "given_name/Crystal": 19,
+      "given_name/Daisy": 48,
+      "given_name/Lily": 44,
+      "given_name/Violet": 29,
+      "given_name/Ivy": 15,
+      "given_name/Holly": 32,
+      "given_name/Rosemary": 6,
+      "given_name/Pearl": 39,
+      "given_name/Ruby": 50,
+      "given_name/Art": 25,
+      "given_name/Earl": 78,
+      "given_name/Jack": 279,
+      "given_name/Drew": 135,
+      "given_name/Sky": 21,
+      "given_name/Reed": 209,
+      "given_name/Chase": 22,
+      "given_name/Wade": 94,
+      "given_name/Cliff": 26,
+      "given_name/Dean": 190,
+      "given_name/Robin": 84,
+      "given_name/Carol": 76,
+      "brand/Apple": 300,
+      "brand/Amazon": 288,
+      "brand/Shell": 12,
+      "brand/Gap": 37,
+      "brand/Dove": 7,
+      "brand/Target": 153,
+      "brand/Orange": 10,
+      "brand/Subway": 8,
+      "brand/Tide": 4,
+      "brand/Corona": 6,
+      "brand/Visa": 30,
+      "brand/Polo": 1,
+      "brand/Puma": 4,
+      "brand/Jaguar": 5,
+      "brand/Caterpillar": 35,
+      "brand/Dawn": 8,
+      "brand/Sprint": 57,
+      "brand/Chase": 21,
+      "brand/Square": 59,
+      "brand/Oracle": 79,
+      "brand/Monster": 8,
+      "brand/Patagonia": 3,
+      "brand/Java": 112,
+      "brand/Python": 42
+    },
+    "comp_by_hierarchy": {
+      "city": 2500,
+      "given_name": 2500,
+      "brand": 2500,
+      "month": 2500
+    },
+    "easy_by_hierarchy": {
+      "city": 2500,
+      "month": 2500,
+      "given_name": 2500,
+      "brand": 2500
+    },
+    "scanned": 2561796,
+    "elapsed_s": 3000.0
+  },
+  "source_counts": {
+    "pile_uncopyrighted": 34094,
+    "templated": 832
+  },
+  "pile_set_name_counts": {
+    "Pile-CC": 15599,
+    "Github": 1332,
+    "StackExchange": 3797,
+    "Wikipedia (en)": 5169,
+    "PubMed Abstracts": 2544,
+    "USPTO Backgrounds": 1526,
+    "FreeLaw": 1890,
+    "PubMed Central": 841,
+    "Enron Emails": 137,
+    "HackerNews": 284,
+    "NIH ExPorter": 428,
+    "ArXiv": 411,
+    "DM Mathematics": 74,
+    "Ubuntu IRC": 15,
+    "PhilPapers": 8,
+    "EuroParl": 14,
+    "Gutenberg (PG-19)": 25
+  },
+  "llm_pair_pass_rate": null,
+  "llm_corpus_sense_precision": {},
+  "llm_cost_breakdown": {
+    "in_tok": 0,
+    "out_tok": 0,
+    "calls": 0,
+    "gen_calls": 0,
+    "judge_calls": 0,
+    "usd": 0.0
+  },
+  "absorption_readiness": {
+    "city": {
+      "Phoenix": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.21,
+        "competitor_sense": "mythical bird / comeback / Joaquin Phoenix"
+      },
+      "Mobile": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.85,
+        "competitor_sense": "adjective 'mobile' / mobile phone"
+      },
+      "Reading": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.14,
+        "competitor_sense": "gerund of 'read'"
+      },
+      "Bath": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.44,
+        "competitor_sense": "a bathtub / bathing"
+      },
+      "Buffalo": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.14,
+        "competitor_sense": "the animal"
+      },
+      "Hull": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.06,
+        "competitor_sense": "the hull of a ship"
+      },
+      "Cork": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 3.71,
+        "competitor_sense": "a bottle cork"
+      },
+      "Bend": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.13,
+        "competitor_sense": "to bend / a bend"
+      },
+      "Worth": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.16,
+        "competitor_sense": "value / 'worth' preposition"
+      },
+      "Cologne": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 3.57,
+        "competitor_sense": "perfume / eau de cologne"
+      },
+      "Jackson": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.58,
+        "competitor_sense": "surname / Michael Jackson"
+      },
+      "Columbus": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.04,
+        "competitor_sense": "Christopher Columbus"
+      },
+      "Cleveland": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.27,
+        "competitor_sense": "Grover Cleveland (surname)"
+      },
+      "Florence": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 3.96,
+        "competitor_sense": "given name / Florence Nightingale"
+      },
+      "Sydney": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.53,
+        "competitor_sense": "given name"
+      },
+      "Paris": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.82,
+        "competitor_sense": "Greek myth / Paris Hilton"
+      },
+      "Jordan": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.51,
+        "competitor_sense": "the river / Michael Jordan"
+      },
+      "Hollywood": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.52,
+        "competitor_sense": "the film industry"
+      },
+      "Nice": {
+        "diagnostic_positives": 144,
+        "status": "descriptive_only",
+        "homograph_strength": 5.37,
+        "competitor_sense": "adjective 'nice' (pleasant)"
+      },
+      "Split": {
+        "diagnostic_positives": 80,
+        "status": "descriptive_only",
+        "homograph_strength": 4.65,
+        "competitor_sense": "to split / a split"
+      },
+      "Sandy": {
+        "diagnostic_positives": 70,
+        "status": "descriptive_only",
+        "homograph_strength": 4.19,
+        "competitor_sense": "covered in sand"
+      },
+      "Mercury": {
+        "diagnostic_positives": 31,
+        "status": "descriptive_only",
+        "homograph_strength": 4.02,
+        "competitor_sense": "planet / element / Freddie Mercury"
+      },
+      "Surprise": {
+        "diagnostic_positives": 16,
+        "status": "descriptive_only",
+        "homograph_strength": 4.75,
+        "competitor_sense": "a surprise"
+      }
+    },
+    "month": {
+      "January": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.09,
+        "competitor_sense": "non-month sense of 'january'"
+      },
+      "February": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.03,
+        "competitor_sense": "non-month sense of 'february'"
+      },
+      "March": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.26,
+        "competitor_sense": "to march / a protest march"
+      },
+      "April": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.19,
+        "competitor_sense": "given name"
+      },
+      "May": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.98,
+        "competitor_sense": "modal verb 'may'"
+      },
+      "June": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.21,
+        "competitor_sense": "given name"
+      },
+      "July": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.17,
+        "competitor_sense": "non-month sense of 'july'"
+      },
+      "August": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.1,
+        "competitor_sense": "adjective 'august' (distinguished)"
+      },
+      "September": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.15,
+        "competitor_sense": "non-month sense of 'september'"
+      },
+      "October": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.11,
+        "competitor_sense": "non-month sense of 'october'"
+      },
+      "November": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.1,
+        "competitor_sense": "non-month sense of 'november'"
+      },
+      "December": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.07,
+        "competitor_sense": "non-month sense of 'december'"
+      }
+    },
+    "given_name": {
+      "Mark": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.05,
+        "competitor_sense": "a mark / to mark"
+      },
+      "Bill": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 5.15,
+        "competitor_sense": "an invoice / a bird's beak"
+      },
+      "Frank": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.75,
+        "competitor_sense": "adjective 'frank' / to frank"
+      },
+      "Jack": {
+        "diagnostic_positives": 140,
+        "status": "descriptive_only",
+        "homograph_strength": 4.82,
+        "competitor_sense": "to jack / a playing card / a device"
+      },
+      "Rose": {
+        "diagnostic_positives": 110,
+        "status": "descriptive_only",
+        "homograph_strength": 4.82,
+        "competitor_sense": "the flower / past tense of 'rise'"
+      },
+      "Reed": {
+        "diagnostic_positives": 105,
+        "status": "descriptive_only",
+        "homograph_strength": 4.07,
+        "competitor_sense": "a reed (plant)"
+      },
+      "Dean": {
+        "diagnostic_positives": 95,
+        "status": "descriptive_only",
+        "homograph_strength": 4.4,
+        "competitor_sense": "an academic dean"
+      },
+      "Pat": {
+        "diagnostic_positives": 70,
+        "status": "descriptive_only",
+        "homograph_strength": 4.24,
+        "competitor_sense": "to pat"
+      },
+      "Drew": {
+        "diagnostic_positives": 68,
+        "status": "descriptive_only",
+        "homograph_strength": 4.46,
+        "competitor_sense": "past tense of 'draw'"
+      },
+      "Will": {
+        "diagnostic_positives": 56,
+        "status": "descriptive_only",
+        "homograph_strength": 6.45,
+        "competitor_sense": "modal verb 'will' / a testament"
+      },
+      "Wade": {
+        "diagnostic_positives": 47,
+        "status": "descriptive_only",
+        "homograph_strength": 3.98,
+        "competitor_sense": "to wade"
+      },
+      "Grace": {
+        "diagnostic_positives": 43,
+        "status": "descriptive_only",
+        "homograph_strength": 4.56,
+        "competitor_sense": "gracefulness / elegance"
+      },
+      "Robin": {
+        "diagnostic_positives": 42,
+        "status": "descriptive_only",
+        "homograph_strength": 4.33,
+        "competitor_sense": "the bird"
+      },
+      "Earl": {
+        "diagnostic_positives": 39,
+        "status": "descriptive_only",
+        "homograph_strength": 4.18,
+        "competitor_sense": "a noble rank"
+      },
+      "Carol": {
+        "diagnostic_positives": 38,
+        "status": "descriptive_only",
+        "homograph_strength": 4.02,
+        "competitor_sense": "a carol / to sing"
+      },
+      "Ruby": {
+        "diagnostic_positives": 25,
+        "status": "descriptive_only",
+        "homograph_strength": 3.98,
+        "competitor_sense": "the gem / colour"
+      },
+      "Daisy": {
+        "diagnostic_positives": 24,
+        "status": "descriptive_only",
+        "homograph_strength": 3.78,
+        "competitor_sense": "the flower"
+      },
+      "Lily": {
+        "diagnostic_positives": 22,
+        "status": "descriptive_only",
+        "homograph_strength": 3.95,
+        "competitor_sense": "the flower"
+      },
+      "Hope": {
+        "diagnostic_positives": 21,
+        "status": "descriptive_only",
+        "homograph_strength": 5.44,
+        "competitor_sense": "to hope / hope (noun)"
+      },
+      "Pearl": {
+        "diagnostic_positives": 20,
+        "status": "descriptive_only",
+        "homograph_strength": 4.14,
+        "competitor_sense": "the gem"
+      },
+      "Joy": {
+        "diagnostic_positives": 17,
+        "status": "descriptive_only",
+        "homograph_strength": 4.55,
+        "competitor_sense": "joy (emotion)"
+      },
+      "Holly": {
+        "diagnostic_positives": 16,
+        "status": "descriptive_only",
+        "homograph_strength": 3.88,
+        "competitor_sense": "the plant"
+      },
+      "Dawn": {
+        "diagnostic_positives": 15,
+        "status": "descriptive_only",
+        "homograph_strength": 4.27,
+        "competitor_sense": "daybreak"
+      },
+      "Violet": {
+        "diagnostic_positives": 15,
+        "status": "descriptive_only",
+        "homograph_strength": 3.84,
+        "competitor_sense": "the flower / colour"
+      },
+      "Art": {
+        "diagnostic_positives": 13,
+        "status": "descriptive_only",
+        "homograph_strength": 5.29,
+        "competitor_sense": "art"
+      },
+      "Cliff": {
+        "diagnostic_positives": 13,
+        "status": "descriptive_only",
+        "homograph_strength": 4.1,
+        "competitor_sense": "a cliff"
+      },
+      "Sky": {
+        "diagnostic_positives": 11,
+        "status": "descriptive_only",
+        "homograph_strength": 4.72,
+        "competitor_sense": "the sky"
+      },
+      "Chase": {
+        "diagnostic_positives": 11,
+        "status": "descriptive_only",
+        "homograph_strength": 4.44,
+        "competitor_sense": "to chase"
+      },
+      "Crystal": {
+        "diagnostic_positives": 10,
+        "status": "descriptive_only",
+        "homograph_strength": 4.4,
+        "competitor_sense": "a crystal"
+      },
+      "Faith": {
+        "diagnostic_positives": 9,
+        "status": "descriptive_only",
+        "homograph_strength": 4.82,
+        "competitor_sense": "religious faith"
+      },
+      "Ivy": {
+        "diagnostic_positives": 8,
+        "status": "descriptive_only",
+        "homograph_strength": 3.83,
+        "competitor_sense": "the plant"
+      },
+      "Summer": {
+        "diagnostic_positives": 7,
+        "status": "descriptive_only",
+        "homograph_strength": 5.23,
+        "competitor_sense": "the season"
+      },
+      "Autumn": {
+        "diagnostic_positives": 6,
+        "status": "descriptive_only",
+        "homograph_strength": 4.26,
+        "competitor_sense": "the season"
+      },
+      "Rosemary": {
+        "diagnostic_positives": 3,
+        "status": "descriptive_only",
+        "homograph_strength": 3.57,
+        "competitor_sense": "the herb"
+      }
+    },
+    "brand": {
+      "Apple": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_strength": 4.76,
+        "competitor_sense": "the fruit"
+      },
+      "Amazon": {
+        "diagnostic_positives": 144,
+        "status": "descriptive_only",
+        "homograph_strength": 4.55,
+        "competitor_sense": "the river / rainforest / warrior"
+      },
+      "Target": {
+        "diagnostic_positives": 77,
+        "status": "descriptive_only",
+        "homograph_strength": 4.82,
+        "competitor_sense": "a target / to aim at"
+      },
+      "Java": {
+        "diagnostic_positives": 56,
+        "status": "descriptive_only",
+        "homograph_strength": 4.0,
+        "competitor_sense": "the island / coffee"
+      },
+      "Oracle": {
+        "diagnostic_positives": 40,
+        "status": "descriptive_only",
+        "homograph_strength": 3.7,
+        "competitor_sense": "a prophet / an oracle"
+      },
+      "Square": {
+        "diagnostic_positives": 30,
+        "status": "descriptive_only",
+        "homograph_strength": 4.84,
+        "competitor_sense": "a square / a town square"
+      },
+      "Sprint": {
+        "diagnostic_positives": 29,
+        "status": "descriptive_only",
+        "homograph_strength": 3.96,
+        "competitor_sense": "to sprint"
+      },
+      "Python": {
+        "diagnostic_positives": 21,
+        "status": "descriptive_only",
+        "homograph_strength": 3.78,
+        "competitor_sense": "the snake"
+      },
+      "Gap": {
+        "diagnostic_positives": 19,
+        "status": "descriptive_only",
+        "homograph_strength": 4.47,
+        "competitor_sense": "a gap"
+      },
+      "Caterpillar": {
+        "diagnostic_positives": 18,
+        "status": "descriptive_only",
+        "homograph_strength": 3.38,
+        "competitor_sense": "the insect"
+      },
+      "Visa": {
+        "diagnostic_positives": 15,
+        "status": "descriptive_only",
+        "homograph_strength": 4.13,
+        "competitor_sense": "a travel visa"
+      },
+      "Chase": {
+        "diagnostic_positives": 11,
+        "status": "descriptive_only",
+        "homograph_strength": 4.44,
+        "competitor_sense": "to chase (bank brand)"
+      },
+      "Shell": {
+        "diagnostic_positives": 6,
+        "status": "descriptive_only",
+        "homograph_strength": 4.39,
+        "competitor_sense": "a seashell / a shell"
+      },
+      "Orange": {
+        "diagnostic_positives": 5,
+        "status": "descriptive_only",
+        "homograph_strength": 4.62,
+        "competitor_sense": "the fruit / the colour"
+      },
+      "Dove": {
+        "diagnostic_positives": 4,
+        "status": "descriptive_only",
+        "homograph_strength": 3.67,
+        "competitor_sense": "the bird / past tense of 'dive'"
+      },
+      "Subway": {
+        "diagnostic_positives": 4,
+        "status": "descriptive_only",
+        "homograph_strength": 4.05,
+        "competitor_sense": "the underground railway"
+      },
+      "Dawn": {
+        "diagnostic_positives": 4,
+        "status": "descriptive_only",
+        "homograph_strength": 4.27,
+        "competitor_sense": "daybreak (dish-soap brand)"
+      },
+      "Monster": {
+        "diagnostic_positives": 4,
+        "status": "descriptive_only",
+        "homograph_strength": 4.49,
+        "competitor_sense": "a monster"
+      },
+      "Corona": {
+        "diagnostic_positives": 3,
+        "status": "descriptive_only",
+        "homograph_strength": 3.42,
+        "competitor_sense": "a crown / the sun's corona"
+      },
+      "Jaguar": {
+        "diagnostic_positives": 3,
+        "status": "descriptive_only",
+        "homograph_strength": 3.51,
+        "competitor_sense": "the animal"
+      },
+      "Tide": {
+        "diagnostic_positives": 2,
+        "status": "descriptive_only",
+        "homograph_strength": 4.05,
+        "competitor_sense": "the ocean tide"
+      },
+      "Puma": {
+        "diagnostic_positives": 2,
+        "status": "descriptive_only",
+        "homograph_strength": 3.22,
+        "competitor_sense": "the animal"
+      },
+      "Patagonia": {
+        "diagnostic_positives": 2,
+        "status": "descriptive_only",
+        "homograph_strength": 2.96,
+        "competitor_sense": "the region"
+      },
+      "Polo": {
+        "diagnostic_positives": 1,
+        "status": "descriptive_only",
+        "homograph_strength": 3.77,
+        "competitor_sense": "the sport"
+      }
+    }
+  },
+  "homograph_entities_per_hierarchy": {
+    "city": [
+      "Phoenix",
+      "Mobile",
+      "Reading",
+      "Bath",
+      "Nice",
+      "Buffalo",
+      "Hull",
+      "Cork",
+      "Split",
+      "Bend",
+      "Worth",
+      "Sandy",
+      "Surprise",
+      "Cologne",
+      "Mercury",
+      "Jackson",
+      "Columbus",
+      "Cleveland",
+      "Florence",
+      "Sydney",
+      "Paris",
+      "Jordan",
+      "Hollywood"
+    ],
+    "month": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "given_name": [
+      "Grace",
+      "Hope",
+      "Faith",
+      "Joy",
+      "Mark",
+      "Bill",
+      "Will",
+      "Rose",
+      "Frank",
+      "Pat",
+      "Dawn",
+      "Summer",
+      "Autumn",
+      "Crystal",
+      "Daisy",
+      "Lily",
+      "Violet",
+      "Ivy",
+      "Holly",
+      "Rosemary",
+      "Pearl",
+      "Ruby",
+      "Art",
+      "Earl",
+      "Jack",
+      "Drew",
+      "Sky",
+      "Reed",
+      "Chase",
+      "Wade",
+      "Cliff",
+      "Dean",
+      "Robin",
+      "Carol"
+    ],
+    "brand": [
+      "Apple",
+      "Amazon",
+      "Shell",
+      "Gap",
+      "Dove",
+      "Target",
+      "Orange",
+      "Subway",
+      "Tide",
+      "Corona",
+      "Visa",
+      "Polo",
+      "Puma",
+      "Jaguar",
+      "Caterpillar",
+      "Dawn",
+      "Sprint",
+      "Chase",
+      "Square",
+      "Oracle",
+      "Monster",
+      "Patagonia",
+      "Java",
+      "Python"
+    ]
+  },
+  "city_geonames_provenance": {
+    "Phoenix": {
+      "in_geonames": true,
+      "max_population": 1650070
+    },
+    "Mobile": {
+      "in_geonames": true,
+      "max_population": 183289
+    },
+    "Reading": {
+      "in_geonames": true,
+      "max_population": 318014
+    },
+    "Bath": {
+      "in_geonames": true,
+      "max_population": 101557
+    },
+    "Nice": {
+      "in_geonames": true,
+      "max_population": 342669
+    },
+    "Buffalo": {
+      "in_geonames": true,
+      "max_population": 258071
+    },
+    "Hull": {
+      "in_geonames": false,
+      "max_population": 0
+    },
+    "Cork": {
+      "in_geonames": true,
+      "max_population": 190384
+    },
+    "Split": {
+      "in_geonames": true,
+      "max_population": 149830
+    },
+    "Bend": {
+      "in_geonames": true,
+      "max_population": 87014
+    },
+    "Worth": {
+      "in_geonames": false,
+      "max_population": 0
+    },
+    "Sandy": {
+      "in_geonames": true,
+      "max_population": 87461
+    },
+    "Surprise": {
+      "in_geonames": true,
+      "max_population": 143148
+    },
+    "Cologne": {
+      "in_geonames": false,
+      "max_population": 0
+    },
+    "Mercury": {
+      "in_geonames": false,
+      "max_population": 0
+    },
+    "Jackson": {
+      "in_geonames": true,
+      "max_population": 153701
+    },
+    "Columbus": {
+      "in_geonames": true,
+      "max_population": 913175
+    },
+    "Cleveland": {
+      "in_geonames": true,
+      "max_population": 365379
+    },
+    "Florence": {
+      "in_geonames": true,
+      "max_population": 367150
+    },
+    "Sydney": {
+      "in_geonames": true,
+      "max_population": 5557233
+    },
+    "Paris": {
+      "in_geonames": true,
+      "max_population": 2138551
+    },
+    "Jordan": {
+      "in_geonames": true,
+      "max_population": 41537
+    },
+    "Hollywood": {
+      "in_geonames": true,
+      "max_population": 167664
+    }
+  },
+  "cross_hierarchy_collisions": {
+    "Dawn": "Dawn is also a documented dish-soap BRAND (given_name vs brand)",
+    "Chase": "Chase is also a documented BANK BRAND (given_name vs brand)",
+    "Jordan": "Jordan is also a country (dataset_2 taxonomic); here the city/place sense is the target",
+    "Mercury": "Mercury is also a planet/element (city homograph)",
+    "Paris": "Paris is a homograph (myth / celebrity); city sense is the target"
+  },
+  "design_note": "Sub-context / target-sense / competitor labels are assigned PURELY from surface form / regex / gazetteer / disambiguating local context, independent of any SAE latent or model. Absorption presence/absence is a future-iteration EMPIRICAL finding, NOT baked into this data: the same labelled corpus equally supports the 'absorption is spelling-specific' null (uniform high parent-probe recall across homograph entities) and a positive homograph-absorption finding (suppressed-parent recall holes concentrated on high-strength homographs). The homograph_competitor family is the matched hard control that makes a suppressed parent visible. llm_corpus_sense_precision MEASURES the heuristic target-sense precision per hierarchy on a stratified sample; it does NOT relabel the corpus."
+}

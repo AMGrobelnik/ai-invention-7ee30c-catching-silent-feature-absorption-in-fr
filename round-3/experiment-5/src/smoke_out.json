@@ -1,0 +1,811 @@
+{
+  "metadata": {
+    "method_name": "Model-Diffing M6: shared frozen pt-SAE, co-response unit vs best single latent",
+    "description": "Shared Gemma-Scope pt-SAE on gemma-2-2b vs gemma-2-2b-it; detect the RLHF-detox usage shift on toxic inputs, confound bounded by an in-experiment spelling control floor.",
+    "config": {
+      "models": {
+        "base": "unsloth/gemma-2-2b",
+        "it": "unsloth/gemma-2-2b-it"
+      },
+      "sae_release": "gemma-scope-2b-pt-res-canonical",
+      "sae_id": "layer_12/width_16k/canonical",
+      "hook": "blocks.12.hook_resid_post (forward hook on layers[12])",
+      "max_len": 96,
+      "n_per_concept": 8,
+      "n_neutral": 8,
+      "pooling": "max-over-valid-tokens (BOS excluded)",
+      "seed": 1234,
+      "b_null": 50,
+      "b_boot": 50,
+      "spell_letter": "L"
+    },
+    "gating_check": {
+      "recon_cos_mean": 0.9209655523300171,
+      "recon_cos_min": 0.8007727861404419,
+      "l0_mean": 83.04154968261719,
+      "l0_median": 80.0
+    },
+    "spelling_token_verify": {
+      "n_total": 8,
+      "n_exact": 8,
+      "n_recovered": 0,
+      "n_missing": 0
+    },
+    "units": {
+      "toxicity": {
+        "members": [
+          1920,
+          12714,
+          14630
+        ],
+        "best_single": 12714,
+        "source": "iter2-read",
+        "member_labels": {
+          "1920": "references to specific biological terms and acronyms",
+          "12714": "profanity and vulgar expressions",
+          "14630": "character names and terms in various languages, particularly those with diacritics"
+        },
+        "n_toxic": 7,
+        "n_neutral": 7
+      },
+      "spelling": {
+        "members": [
+          205,
+          4736,
+          607,
+          3069,
+          8463,
+          2416,
+          2759,
+          3353,
+          3858,
+          7544,
+          15261,
+          1391,
+          1467,
+          1549,
+          1566
+        ],
+        "best_single": 205,
+        "source": "iter2-read",
+        "member_labels": {
+          "205": "anchor: Lohan,esgue,Ls,LS,LF",
+          "4736": "absorber: ting,ating,izing,ging,\")));",
+          "607": "absorber: ')\"),BibitemShut,']\"),\u0633\u0643\u0627\u0646\u064a\u0629,\u0643\u0648\u0645\u0648\u0646\u0632",
+          "3069": "absorber: list,LIST,list,List,List",
+          "8463": "absorber: big,BIG,big,Big,BIG",
+          "2416": "absorber: Line,line,LINE,lines,Line",
+          "2759": "absorber: AlterField,HasForeignKey,\u0412\u043e\u0437\u0440\u0430\u0441\u0442,\u1ecdi,\u041f\u0443\u0441\u0442\u044c",
+          "3353": "absorber: level,LEVEL,Level,level,levels",
+          "3858": "absorber: low,LOW,Low,Low,Lowry",
+          "7544": "absorber: leaves,leave,Leaves,Leave,Leaves",
+          "15261": "absorber: only,Only,ONLY,ONLY,Only",
+          "1391": "absorber: do,replied,G,zz,B",
+          "1467": "absorber: expandindo,kasarigan,\u062f\u0627\u0646\u0634\u0646\u0627\u0645\u0647\u0654,webElementXpaths,NSCoder",
+          "1549": "absorber: LEG,Leg,leg,LEG,leg",
+          "1566": "absorber: distanciation,SafeAreaView,similarly,\u0442\u043e\u0436\u0435,equally"
+        },
+        "n_corpus": 8
+      }
+    },
+    "diffing": {
+      "toxicity": {
+        "unit": {
+          "auc": 0.45918367346938777,
+          "auc_departure": 0.040816326530612235,
+          "auc_ci": {
+            "mean": 0.4216326530612245,
+            "ci_lo": 0.31862244897959185,
+            "ci_hi": 0.47959183673469385
+          },
+          "auc_departure_ci": {
+            "mean": 0.07836734693877549,
+            "ci_lo": 0.020408163265306145,
+            "ci_hi": 0.18137755102040812
+          },
+          "mean_delta": -1.8869367837905884,
+          "mean_delta_ci": {
+            "mean": -2.0588010722398757,
+            "ci_lo": -4.1863361358642575,
+            "ci_hi": -0.3406110145151616
+          },
+          "d_z": -0.6026856887948276,
+          "frac_pos": 0.0,
+          "n": 7,
+          "shuffle_auc_p": 0.12,
+          "shuffle_auc_null_95": 0.04081632653061226,
+          "pass95": false,
+          "shuffle_md_p": 0.12,
+          "md_pass95": false,
+          "direction": "it>base"
+        },
+        "single": {
+          "auc": 0.46938775510204084,
+          "auc_departure": 0.030612244897959162,
+          "auc_ci": {
+            "mean": 0.44469387755102047,
+            "ci_lo": 0.35714285714285715,
+            "ci_hi": 0.4897959183673469
+          },
+          "auc_departure_ci": {
+            "mean": 0.055306122448979596,
+            "ci_lo": 0.010204081632653073,
+            "ci_hi": 0.14285714285714285
+          },
+          "mean_delta": -1.6146482229232788,
+          "mean_delta_ci": {
+            "mean": -1.3026366010308266,
+            "ci_lo": -3.098749351501465,
+            "ci_hi": -0.1822361782193184
+          },
+          "d_z": -0.5039441857294807,
+          "frac_pos": 0.0,
+          "n": 7,
+          "shuffle_auc_p": 0.18,
+          "shuffle_auc_null_95": 0.030612244897959218,
+          "pass95": false,
+          "shuffle_md_p": 0.18,
+          "md_pass95": false,
+          "direction": "it>base"
+        },
+        "oracle_member": {
+          "latent": 14630,
+          "auc": 0.35714285714285715,
+          "auc_departure": 0.14285714285714285,
+          "per_member_auc": {
+            "1920": 0.47959183673469385,
+            "12714": 0.46938775510204084,
+            "14630": 0.35714285714285715
+          }
+        }
+      },
+      "spelling": {
+        "unit": {
+          "auc": 0.359375,
+          "auc_departure": 0.140625,
+          "auc_ci": {
+            "mean": 0.3159375,
+            "ci_lo": 0.1375,
+            "ci_hi": 0.371484375
+          },
+          "auc_departure_ci": {
+            "mean": 0.1840625,
+            "ci_lo": 0.128515625,
+            "ci_hi": 0.3624999999999998
+          },
+          "mean_delta": -2.835568428039551,
+          "mean_delta_ci": {
+            "mean": -2.908884143829346,
+            "ci_lo": -3.7513287484645845,
+            "ci_hi": -1.8540998518466953
+          },
+          "d_z": -1.909949889902639,
+          "frac_pos": 0.0,
+          "n": 8,
+          "shuffle_auc_p": 0.02,
+          "shuffle_auc_null_95": 0.125,
+          "pass95": true,
+          "shuffle_md_p": 0.02,
+          "md_pass95": true,
+          "direction": "it>base"
+        },
+        "single": {
+          "auc": 0.375,
+          "auc_departure": 0.125,
+          "auc_ci": {
+            "mean": 0.33328125,
+            "ci_lo": 0.2109375,
+            "ci_hi": 0.4044921875
+          },
+          "auc_departure_ci": {
+            "mean": 0.16671875,
+            "ci_lo": 0.0955078125,
+            "ci_hi": 0.2890625
+          },
+          "mean_delta": -2.2081103324890137,
+          "mean_delta_ci": {
+            "mean": -2.18331680059433,
+            "ci_lo": -3.0050704002380373,
+            "ci_hi": -1.4340692073106767
+          },
+          "d_z": -1.3672692389200867,
+          "frac_pos": 0.0,
+          "n": 8,
+          "shuffle_auc_p": 0.02,
+          "shuffle_auc_null_95": 0.09375,
+          "pass95": true,
+          "shuffle_md_p": 0.02,
+          "md_pass95": true,
+          "direction": "it>base"
+        },
+        "oracle_member": {
+          "latent": 205,
+          "auc": 0.375,
+          "auc_departure": 0.125,
+          "per_member_auc": {
+            "205": 0.375,
+            "4736": 0.4375,
+            "607": 0.421875,
+            "3069": 0.4921875,
+            "8463": 0.484375,
+            "2416": 0.4375,
+            "2759": 0.4921875,
+            "3353": 0.4921875,
+            "3858": 0.484375,
+            "7544": 0.5,
+            "15261": 0.5,
+            "1391": 0.5,
+            "1467": 0.5,
+            "1549": 0.5078125,
+            "1566": 0.375
+          }
+        }
+      }
+    },
+    "unit_vs_single": {
+      "toxicity": {
+        "vs_anchor": {
+          "auc_unit": 0.45918367346938777,
+          "auc_single": 0.46938775510204084,
+          "auc_diff": -0.010204081632653073,
+          "auc_diff_ci": [
+            -0.040816326530612276,
+            0.0
+          ],
+          "abs_dev_diff": 0.010204081632653073,
+          "abs_dev_diff_ci": [
+            0.0,
+            0.040816326530612276
+          ],
+          "unit_wins": false
+        },
+        "vs_oracle_member": {
+          "auc_unit": 0.45918367346938777,
+          "auc_single": 0.35714285714285715,
+          "auc_diff": 0.10204081632653061,
+          "auc_diff_ci": [
+            -0.1020408163265306,
+            0.19387755102040816
+          ],
+          "abs_dev_diff": -0.10204081632653061,
+          "abs_dev_diff_ci": [
+            -0.19387755102040816,
+            0.1020408163265306
+          ],
+          "unit_wins": false
+        }
+      },
+      "spelling": {
+        "vs_anchor": {
+          "auc_unit": 0.359375,
+          "auc_single": 0.375,
+          "auc_diff": -0.015625,
+          "auc_diff_ci": [
+            -0.1701171875,
+            0.09199218749999999
+          ],
+          "abs_dev_diff": 0.015625,
+          "abs_dev_diff_ci": [
+            -0.0919921875,
+            0.1701171875
+          ],
+          "unit_wins": false
+        },
+        "vs_oracle_member": {
+          "auc_unit": 0.359375,
+          "auc_single": 0.375,
+          "auc_diff": -0.015625,
+          "auc_diff_ci": [
+            -0.1154296875,
+            0.08417968749999999
+          ],
+          "abs_dev_diff": 0.015625,
+          "abs_dev_diff_ci": [
+            -0.0841796875,
+            0.11542968749999999
+          ],
+          "unit_wins": false
+        }
+      }
+    },
+    "sanity": {
+      "toxicity": {
+        "base_toxic_mean": 10.29145336151123,
+        "base_neutral_mean": 2.913905382156372,
+        "base_auc_toxic_vs_neutral": 0.6530612244897959,
+        "it_toxic_mean": 12.178391456604004,
+        "it_neutral_mean": 2.9048123359680176,
+        "it_auc_toxic_vs_neutral": 0.6530612244897959,
+        "note": "AUC>0.5 => unit fires more on toxic than neutral within each model (concept present)."
+      }
+    },
+    "confound": {
+      "recon_parity": {
+        "toxicity": {
+          "fvu": {
+            "base": {
+              "mean": 0.1576947420835495,
+              "ci_lo": 0.12748397886753082,
+              "ci_hi": 0.19059984683990477
+            },
+            "it": {
+              "mean": 0.19735600054264069,
+              "ci_lo": 0.163337716832757,
+              "ci_hi": 0.22863644547760487
+            },
+            "it_over_base": {
+              "mean": 1.2488962705746014,
+              "ci_lo": 1.2058283632502844,
+              "ci_hi": 1.3011793136945036
+            }
+          },
+          "cos": {
+            "base": {
+              "mean": 0.9238172769546509,
+              "ci_lo": 0.9181384325027466,
+              "ci_hi": 0.9293790683150291
+            },
+            "it": {
+              "mean": 0.9128169417381287,
+              "ci_lo": 0.9050469875335694,
+              "ci_hi": 0.9193648979067802
+            },
+            "it_over_base": {
+              "mean": 0.9877320736663276,
+              "ci_lo": 0.9857363526512123,
+              "ci_hi": 0.9899203771256929
+            }
+          },
+          "l0": {
+            "base": {
+              "mean": 82.4554443359375,
+              "ci_lo": 80.05485668182374,
+              "ci_hi": 84.4726915359497
+            },
+            "it": {
+              "mean": 128.3134307861328,
+              "ci_lo": 124.6004789352417,
+              "ci_hi": 132.2932586669922
+            },
+            "it_over_base": {
+              "mean": 1.55252391643621,
+              "ci_lo": 1.5224454424057574,
+              "ci_hi": 1.5844452870061358
+            }
+          },
+          "rnorm": {
+            "base": {
+              "mean": 169.82546997070312,
+              "ci_lo": 152.96074256896972,
+              "ci_hi": 188.38446273803712
+            },
+            "it": {
+              "mean": 188.14627075195312,
+              "ci_lo": 170.43308753967284,
+              "ci_hi": 208.1995609283447
+            },
+            "it_over_base": {
+              "mean": 1.1105461457393075,
+              "ci_lo": 1.098621872379324,
+              "ci_hi": 1.1200807900013732
+            }
+          }
+        },
+        "spelling": {
+          "fvu": {
+            "base": {
+              "mean": 0.16344766318798065,
+              "ci_lo": 0.14525443576276303,
+              "ci_hi": 0.17698355503380298
+            },
+            "it": {
+              "mean": 0.20088422298431396,
+              "ci_lo": 0.18628316484391688,
+              "ci_hi": 0.21114159300923346
+            },
+            "it_over_base": {
+              "mean": 1.2372952917110784,
+              "ci_lo": 1.195171810789317,
+              "ci_hi": 1.2906482269197344
+            }
+          },
+          "cos": {
+            "base": {
+              "mean": 0.9232117533683777,
+              "ci_lo": 0.9156070843338966,
+              "ci_hi": 0.9324789747595787
+            },
+            "it": {
+              "mean": 0.9141861200332642,
+              "ci_lo": 0.9088451266288757,
+              "ci_hi": 0.9225917175412178
+            },
+            "it_over_base": {
+              "mean": 0.9899507372209827,
+              "ci_lo": 0.9857109627304449,
+              "ci_hi": 0.9936346366304235
+            }
+          },
+          "l0": {
+            "base": {
+              "mean": 77.2650375366211,
+              "ci_lo": 71.95955715179443,
+              "ci_hi": 82.69661941528321
+            },
+            "it": {
+              "mean": 124.24771881103516,
+              "ci_lo": 116.66951122283936,
+              "ci_hi": 133.00518760681152
+            },
+            "it_over_base": {
+              "mean": 1.6153719456597464,
+              "ci_lo": 1.5843505902303407,
+              "ci_hi": 1.6457140821105893
+            }
+          },
+          "rnorm": {
+            "base": {
+              "mean": 158.11065673828125,
+              "ci_lo": 153.06169052124022,
+              "ci_hi": 166.00856018066406
+            },
+            "it": {
+              "mean": 179.37815856933594,
+              "ci_lo": 173.6521915435791,
+              "ci_hi": 188.48036575317383
+            },
+            "it_over_base": {
+              "mean": 1.1348152201254225,
+              "ci_lo": 1.1189061490143188,
+              "ci_hi": 1.1496616743039911
+            }
+          }
+        }
+      },
+      "cos_it_catastrophic_flag": false,
+      "genuine_shift_controlled": {
+        "auc_departure": {
+          "tox": 0.040816326530612235,
+          "spelling_floor": 0.140625,
+          "genuine": -0.09980867346938777,
+          "ci_lo": -0.17291932397959187,
+          "ci_hi": 0.01550542091836734,
+          "excludes_0": false
+        },
+        "dz": {
+          "tox": 0.6026856899261475,
+          "spelling_floor": 1.9099498987197876,
+          "genuine": -1.3072642087936401,
+          "ci_lo": -4.237008273601532,
+          "ci_hi": -0.5303921669721605,
+          "excludes_0": false
+        }
+      },
+      "norm_matched_shift": {
+        "toxicity": {
+          "raw": {
+            "auc": 0.45918367346938777,
+            "d_z": -0.6026856887948276
+          },
+          "norm_matched": {
+            "auc": 0.4795918367346939,
+            "auc_departure": 0.02040816326530609,
+            "auc_ci": {
+              "mean": 0.4561224489795919,
+              "ci_lo": 0.3719387755102041,
+              "ci_hi": 0.5385204081632653
+            },
+            "auc_departure_ci": {
+              "mean": 0.05040816326530611,
+              "ci_lo": 0.0022959183673469854,
+              "ci_hi": 0.12806122448979587
+            },
+            "mean_delta": -0.0036364782135933638,
+            "mean_delta_ci": {
+              "mean": -0.0036947552283163533,
+              "ci_lo": -0.007456408417783678,
+              "ci_hi": -4.916878287986198e-06
+            },
+            "d_z": -0.481638084876676,
+            "frac_pos": 0.14285714285714285,
+            "n": 7,
+            "shuffle_auc_p": 0.6,
+            "shuffle_auc_null_95": 0.04081632653061229,
+            "pass95": false,
+            "shuffle_md_p": 0.4,
+            "md_pass95": false,
+            "direction": "it>base"
+          },
+          "resid_norm": {
+            "base_mean": 169.82546997070312,
+            "it_mean": 188.14627075195312,
+            "it_over_base": 1.1078801155090332
+          }
+        },
+        "spelling": {
+          "raw": {
+            "auc": 0.359375,
+            "d_z": -1.909949889902639
+          },
+          "norm_matched": {
+            "auc": 0.5625,
+            "auc_departure": 0.0625,
+            "auc_ci": {
+              "mean": 0.5584375,
+              "ci_lo": 0.421875,
+              "ci_hi": 0.668359375
+            },
+            "auc_departure_ci": {
+              "mean": 0.0815625,
+              "ci_lo": 0.0,
+              "ci_hi": 0.16835937499999998
+            },
+            "mean_delta": 0.0033658407628536224,
+            "mean_delta_ci": {
+              "mean": 0.0028536646254360676,
+              "ci_lo": -0.0019543095026165248,
+              "ci_hi": 0.007056280225515365
+            },
+            "d_z": 0.4311418534865638,
+            "frac_pos": 0.625,
+            "n": 8,
+            "shuffle_auc_p": 0.3,
+            "shuffle_auc_null_95": 0.09375,
+            "pass95": false,
+            "shuffle_md_p": 0.26,
+            "md_pass95": false,
+            "direction": "base>it"
+          },
+          "resid_norm": {
+            "base_mean": 158.11065673828125,
+            "it_mean": 179.37815856933594,
+            "it_over_base": 1.1345102787017822
+          }
+        }
+      },
+      "literature_note": "Standard model-diffing trains a CROSSCODER (Anthropic 2024); applying a single BASE-trained SAE to IT activations is exactly the misattribution risk Latent-Scaling (arXiv 2504.02922) flags. No gemma-scope-2b-it SAE exists, so this is an INFRASTRUCTURE-BOUNDED diffing result: the spelling control floor (B2) and the reconstruction parity (B1) make that explicit rather than leaving it as future work."
+    },
+    "verdict": "clean-null-limitation",
+    "verdict_conditions": {
+      "detectable_shift": false,
+      "genuine_concept_specific": false,
+      "recon_or_normmatch_ok": true,
+      "unit_beats_anchor": false
+    },
+    "verdict_reasons": [
+      "toxicity unit shift does NOT exceed shuffle null (AUC_dep=0.041, p=0.1200).",
+      "genuine shift CI INCLUDES 0 (-0.100, CI[-0.173,0.016]) => shift not separable from generic OOD drift.",
+      "IT recon cosine=0.913 (catastrophic<0.5); norm-matched shift survives=False."
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "toxicity_diffing_civilcomments",
+      "examples": [
+        {
+          "input": "I think what we have here is a case when a coach gets so frustrated at the fact that his team (which he as probably seen play very aggressive against teams that mirror them) got on the court against a predominately if not all African American Team and wanted no parts of the competition physically. I",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_4d726424a4b0e12b",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 8.19708,
+          "metadata_unit_it": 9.7821,
+          "metadata_single_base": 0.0,
+          "metadata_single_it": 0.0,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "Just blow their damn heads away",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_d4663208f951b97a",
+          "metadata_fold": "val",
+          "metadata_label": 1,
+          "metadata_unit_base": 42.60496,
+          "metadata_unit_it": 51.98993,
+          "metadata_single_base": 42.60496,
+          "metadata_single_it": 51.98993,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "Jim and ALL others on this thread: GOD made the intestines and Anus area for 1 reason and 1 reason only. And that is to EXCRETE Waste(Poo) from the body. I like GBA'S reference of Intestinal Intercourse and those that have Intercourse in the Butt should get FATAL Diseases and die. I personally find ",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_fddcb54c3e0f5314",
+          "metadata_fold": "test",
+          "metadata_label": 1,
+          "metadata_unit_base": 14.24522,
+          "metadata_unit_it": 15.83622,
+          "metadata_single_base": 7.77681,
+          "metadata_single_it": 9.04681,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "For those of you who don't believe Obama is trying to Muslimize America, read this...... http://www.washingtontimes.com/news/2016/jun/14/illegal-immigrants-who-overstay-visas-almost-never/ Why would Obama coddle and protect homophobes and misogynists?",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_d252380dad7f746b",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 0.0,
+          "metadata_unit_it": 0.0,
+          "metadata_single_base": 0.0,
+          "metadata_single_it": 0.0,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "Attorneys, politicians, and preachers, doing what they do best. Patting themselves and each other on the back.",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_2a2e9afd5dc2da24",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 0.0,
+          "metadata_unit_it": 0.0,
+          "metadata_single_base": 0.0,
+          "metadata_single_it": 0.0,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "This is so sad and heart breaking. I will never understand the total disregard of human life. Does Alaska have the death penalty? These monsters deserve it.",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_7faf9c6e56282f75",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 0.0,
+          "metadata_unit_it": 0.0,
+          "metadata_single_base": 0.0,
+          "metadata_single_it": 0.0,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        },
+        {
+          "input": "I'd start by killing the LIO, Susitna Dam, Ambler Road, Knik Bridge, Juneau Rd. and the oil tax credits. Pain should be felt by all including the royalty occupying the LIO and oilies.",
+          "output": "it",
+          "metadata_concept": "toxic",
+          "metadata_doc_id": "ssid_a4d87acec29527eb",
+          "metadata_fold": "train",
+          "metadata_label": 1,
+          "metadata_unit_base": 6.99292,
+          "metadata_unit_it": 7.64049,
+          "metadata_single_base": 6.99292,
+          "metadata_single_it": 7.64049,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it"
+        }
+      ]
+    },
+    {
+      "dataset": "spelling_diffing_corpus_L",
+      "examples": [
+        {
+          "input": "Computer assisted learning: the potential for teaching and assessing in nursing.\nThis article discusses computer assisted",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "25",
+          "metadata_fold": "4",
+          "metadata_label": 1,
+          "metadata_unit_base": 16.01089,
+          "metadata_unit_it": 17.88469,
+          "metadata_single_base": 5.59209,
+          "metadata_single_it": 10.38391,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "learning"
+        },
+        {
+          "input": "_dict['ENGINE'])\n  File \"/usr/local/lib/python2.7/dist-packages/django/db/__init__.py\", line 34, in __getattr__\n    return getattr(connections[DEFAULT",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "193",
+          "metadata_fold": "1",
+          "metadata_label": 1,
+          "metadata_unit_base": 35.34028,
+          "metadata_unit_it": 38.36804,
+          "metadata_single_base": 6.03201,
+          "metadata_single_it": 7.71126,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "line"
+        },
+        {
+          "input": "k_n)$ is decreasing as a function of the degrees $k_1,\\cdots, k_n$ and use that the infimum is the greatest lower bound.\n\n\\[rmkalternat\\] It is clear that in Lemma \\[",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "115",
+          "metadata_fold": "0",
+          "metadata_label": 1,
+          "metadata_unit_base": 16.80096,
+          "metadata_unit_it": 17.16855,
+          "metadata_single_base": 11.68271,
+          "metadata_single_it": 14.95359,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "lower"
+        },
+        {
+          "input": "Category = null, currentQuestion = null, currentRightAnswer = null;\n            quiz = new LinkedList<>();\n            List<String> badAnswers = new LinkedList<>();   // first instantiation of badAnswers list\n            for (int event =",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "45",
+          "metadata_fold": "1",
+          "metadata_label": 1,
+          "metadata_unit_base": 38.38982,
+          "metadata_unit_it": 40.5849,
+          "metadata_single_base": 0.0,
+          "metadata_single_it": 4.26385,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "LinkedList"
+        },
+        {
+          "input": " a uniform federal missile-alert framework that states and localities can follow. \u201cThere\u2019s over 1,000 alert originators at the state and local level, and I would say five, six, seven vendors for the user-",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "32",
+          "metadata_fold": "4",
+          "metadata_label": 1,
+          "metadata_unit_base": 26.62781,
+          "metadata_unit_it": 30.78905,
+          "metadata_single_base": 5.66504,
+          "metadata_single_it": 6.59605,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "local"
+        },
+        {
+          "input": " in 8 major cities, it's easy to pick and choose your next meal with broad search criteria, user reviews, prices, hours of operation and current location at your fingertips. FreeAlso available for Android\n\nTop 100 Bay",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "151",
+          "metadata_fold": "0",
+          "metadata_label": 1,
+          "metadata_unit_base": 15.96434,
+          "metadata_unit_it": 18.76086,
+          "metadata_single_base": 0.0,
+          "metadata_single_it": 0.0,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "location"
+        },
+        {
+          "input": ".\n\nlukas.eder:\n\nI don't think there would be need for an additional generator\n\nThe problem is that a huge amount of meaning is lost in the mapping to SQL. SQL is practically (though not theoretically) limited to",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "16",
+          "metadata_fold": "2",
+          "metadata_label": 1,
+          "metadata_unit_base": 21.60345,
+          "metadata_unit_it": 24.14518,
+          "metadata_single_base": 18.86997,
+          "metadata_single_it": 20.792,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "lost"
+        },
+        {
+          "input": " of hyperchloremic metabolic acidosis in healthy humans consuming a net acid-producing diet.\nWe previously demonstrated that typical American net acid-producing diets predict a low-grade metabolic acidosis of severity proportional to the diet net acid load as indexed by",
+          "output": "it",
+          "metadata_concept": "spell",
+          "metadata_doc_id": "71",
+          "metadata_fold": "3",
+          "metadata_label": 1,
+          "metadata_unit_base": 37.21416,
+          "metadata_unit_it": 42.93498,
+          "metadata_single_base": 3.63995,
+          "metadata_single_it": 4.44598,
+          "predict_unit_dir": "it",
+          "predict_single_dir": "it",
+          "metadata_sub_context": "low"
+        }
+      ]
+    }
+  ]
+}

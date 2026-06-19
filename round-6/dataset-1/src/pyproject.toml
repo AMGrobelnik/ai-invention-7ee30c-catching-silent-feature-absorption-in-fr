@@ -1,0 +1,53 @@
+[project]
+name = "safety-relevant-identity-absorption-testbed"
+version = "1.0.0"
+description = "Text-only SAE feature-absorption testbed across FOUR SAFETY-RELEVANT identity hierarchies (nationality / religion / ethnicity-identity / named-entity public-figure-or-org). A strict structural drop-in of the iter-1 taxonomic testbed (gen_art_dataset_2) and the iter-5 homograph testbed: content-flip pairs, surface-flip pairs, and a pile-uncopyrighted diagnostic corpus with frozen surface-derived sub-context labels, a homograph_distractor matched-negative family (same token in its competing non-identity sense), and parent-specificity other_group negatives. Optional CC0 google/civil_comments identity-rich supplement. Next-iteration (M2') building block."
+requires-python = ">=3.12"
+# Exact versions pinned from the build .venv (`uv pip freeze`) for reproducibility.
+dependencies = [
+    "requests==2.34.2",
+    "zstandard==0.25.0",
+    "transformers==5.12.1",
+    "tokenizers==0.22.2",
+    "wordfreq==3.1.1",
+    "pycountry==26.2.16",
+    "loguru==0.7.3",
+    "jsonschema==4.26.0",
+    "aiohttp==3.14.1",
+    "numpy==2.4.6",
+    "regex==2026.5.9",
+    "huggingface-hub==1.19.0",
+    "safetensors==0.8.0",
+    # optional CC0 civil_comments supplement (--with-civil); Pile is the default, so these are not
+    # required to reproduce the shipped Pile-only deliverable:
+    "datasets==5.0.0",
+    "pyarrow==24.0.0",
+    "pandas==3.0.3",
+    "dill==0.4.1",
+    "multiprocess==0.70.19",
+    "fsspec==2026.4.0",
+    "xxhash==3.7.0",
+]
+
+# Reproducibility notes:
+#   - Pinned pile-uncopyrighted revision: 3be90335b66f24456a5d6659d9c8d208c0357119
+#   - Optional CC0 supplement: google/civil_comments (identity-rich real comments; sub_context STILL
+#     surface-derived, toxicity recorded only as metadata_identity_label_source corroboration). Pile is
+#     the guaranteed-reproducible default; civil is opt-in via `--with-civil`. google/jigsaw_unintended_bias
+#     (the per-identity-column source named in the plan) is a manual-download dataset and is NOT loadable
+#     here, so it is intentionally omitted (fallback scenario 1).
+#   - Fixed RNG seed: 20240617
+#   - Gemma tokenizer: google/gemma-2-2b (gated; HF_TOKEN; falls back to unsloth/gemma-2-2b mirror, then
+#     null with token_indices_present=false). transformers is used for the TOKENIZER ONLY (no torch).
+#   - homograph_strength = wordfreq.zipf_frequency(lowercase_competitor, 'en')
+#   - LLM (OpenRouter): generator openai/gpt-4o-mini ; judge anthropic/claude-haiku-4.5 (DIFFERENT family,
+#     rubric extended with sense_correct). Templated backbone is free; LLM use is small, hard $10 cap.
+#   - Entry point: `python3 data.py --scale full`  (use the local .venv python; `uv run` is unavailable
+#     because the ambient uv workspace pyproject references a non-member 'aii-server').
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["data", "pipeline", "build_dataset"]

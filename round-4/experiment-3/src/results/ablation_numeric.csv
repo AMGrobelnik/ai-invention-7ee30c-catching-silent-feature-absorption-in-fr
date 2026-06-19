@@ -1,0 +1,4 @@
+defining_member_latent,defining_member_subctx_precision_heldout,defining_member_subctx_precision_sel,defining_per_edge_kg_above_null,defining_per_edge_kg_top1,defining_slice_auc,holes_remaining_sel,members,n_members,recovered_absorbers,rek_anch_ci_hi,rek_anch_ci_lo,rek_anch_p95,unit_above_rek_anch_95th,unit_minus_rek_anch_diff,variant
+,,,,,0.7174038095238096,309,"[14823, 11011, 14413, 2285, 15076]",5,4,0.05743638095238089,-0.00987740476190482,0.6656481904761905,True,0.024179047619047656,original
+,,,,,0.635,578,"[14823, 8684, 7983, 13658, 2842]",5,4,-0.025295047619047672,-0.0820748571428572,0.6611035714285715,False,-0.05377142857142858,gated
+,,,,,0.635,578,"[14823, 8684, 7983, 13658, 2842]",5,4,0.0004243809523809567,-0.05670866666666668,0.6612055238095238,False,-0.028291428571428523,weighted

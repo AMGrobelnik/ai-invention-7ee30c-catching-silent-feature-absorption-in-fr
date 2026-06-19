@@ -1,0 +1,1303 @@
+{
+ "metadata": {
+  "method_name": "M1''''' Averted-Cost Auditing Scenario",
+  "overall_verdict": "AVERTED_COST_DEMONSTRATED",
+  "demonstrated_arms": [
+   "amazon_classifier"
+  ],
+  "primary_arm_verdict": "HN_SIBLING_COLLATERAL",
+  "run_scale": "mini",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_id": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "N_topN_SCR_TPP": 20,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189,
+   "L0": 87.9,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2838,
+    "13": 0.193,
+    "14": 0.3387
+   }
+  },
+  "anchors": {
+   "tax_parent": 3792,
+   "L_anchor": 205,
+   "NE_parent_fallback": 2768,
+   "georgia_abs": 16009,
+   "amazon_abs": 6846,
+   "large_abs": 8463
+  },
+  "selector": "SCR/TPP marginal-attribution top-N over content-responsive SAE latents (|probe weight| x mean positive activation); absorber excluded from selection",
+  "baselines": {
+   "raw_sae_latents": "SCR/TPP top-N classifier + single parent latent",
+   "non_sae": "dense diff-of-means parent probe on residual (ParentProbe)",
+   "our_unit": "parent latent + screen-named absorber (2-member auditable group)"
+  },
+  "averted_cost_table": [
+   {
+    "scenario": "georgia_classifier",
+    "arm_type": "classifier",
+    "concept": "country",
+    "absorbed_slice": "Georgia",
+    "siblings": [
+     "Australia",
+     "Brazil",
+     "Canada",
+     "China",
+     "France",
+     "Germany",
+     "India",
+     "Iran",
+     "Ireland",
+     "Israel",
+     "Italy",
+     "Japan",
+     "Jordan",
+     "Mexico",
+     "New Zealand",
+     "Poland",
+     "Russia",
+     "Spain",
+     "United Kingdom",
+     "United States"
+    ],
+    "parent_latent": 3792,
+    "absorber_latent": 16009,
+    "absorber_in_cr_pool": true,
+    "metric": "per_slice_recall",
+    "headline_N": 5,
+    "by_N": {
+     "1": {
+      "N": 1,
+      "n_selected": 1,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 42,
+      "baseline_absorbed_recall": 0.19333333333333333,
+      "baseline_sibling_recall": 0.9593140551445865,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.9572965702757229,
+      "silent_failure_gap": {
+       "diff": 0.7659807218112531,
+       "ci_lo": 0.700659045057162,
+       "ci_hi": 0.8279982066801166,
+       "excl_0": true,
+       "n_a": 2974,
+       "n_b": 150,
+       "mean_a": 0.9593140551445865,
+       "mean_b": 0.19333333333333333
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.8066666666666666,
+       "ci_lo": 0.74,
+       "ci_hi": 0.8666666666666667,
+       "excl_0": true,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": -0.0020174848688635505,
+       "ci_lo": -0.0036987222595831204,
+       "ci_hi": -0.0006724949562877391,
+       "excl_0": true,
+       "n": 2974
+      }
+     },
+     "2": {
+      "N": 2,
+      "n_selected": 2,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 42,
+      "baseline_absorbed_recall": 0.18,
+      "baseline_sibling_recall": 0.960659045057162,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.9583053127101546,
+      "silent_failure_gap": {
+       "diff": 0.780659045057162,
+       "ci_lo": 0.7163461107375028,
+       "ci_hi": 0.840659045057162,
+       "excl_0": true,
+       "n_a": 2974,
+       "n_b": 150,
+       "mean_a": 0.960659045057162,
+       "mean_b": 0.18
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.8200000000000001,
+       "ci_lo": 0.7533333333333333,
+       "ci_hi": 0.88,
+       "excl_0": true,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": -0.00235373234700742,
+       "ci_lo": -0.00403496973772699,
+       "ci_hi": -0.0006724949562878502,
+       "excl_0": true,
+       "n": 2974
+      }
+     },
+     "5": {
+      "N": 5,
+      "n_selected": 5,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 42,
+      "baseline_absorbed_recall": 0.10666666666666667,
+      "baseline_sibling_recall": 0.968728984532616,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.9663752521856086,
+      "silent_failure_gap": {
+       "diff": 0.8620623178659493,
+       "ci_lo": 0.8090652320107599,
+       "ci_hi": 0.9097377269670477,
+       "excl_0": true,
+       "n_a": 2974,
+       "n_b": 150,
+       "mean_a": 0.968728984532616,
+       "mean_b": 0.10666666666666667
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.8933333333333333,
+       "ci_lo": 0.84,
+       "ci_hi": 0.94,
+       "excl_0": true,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": -0.00235373234700742,
+       "ci_lo": -0.0043712172158708595,
+       "ci_hi": -0.0006724949562878502,
+       "excl_0": true,
+       "n": 2974
+      }
+     },
+     "10": {
+      "N": 10,
+      "n_selected": 10,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 42,
+      "baseline_absorbed_recall": 0.9933333333333333,
+      "baseline_sibling_recall": 0.968392737054472,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.968392737054472,
+      "silent_failure_gap": {
+       "diff": -0.02494059627886125,
+       "ci_lo": -0.03665097511768667,
+       "ci_hi": -0.008303071060300482,
+       "excl_0": true,
+       "n_a": 2974,
+       "n_b": 150,
+       "mean_a": 0.968392737054472,
+       "mean_b": 0.9933333333333333
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.00666666666666671,
+       "ci_lo": 0.0,
+       "ci_hi": 0.020000000000000018,
+       "excl_0": false,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 2974
+      }
+     },
+     "20": {
+      "N": 20,
+      "n_selected": 20,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 42,
+      "baseline_absorbed_recall": 0.9933333333333333,
+      "baseline_sibling_recall": 0.9909213180901143,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.9905850706119704,
+      "silent_failure_gap": {
+       "diff": -0.00241201524321899,
+       "ci_lo": -0.01176866173503699,
+       "ci_hi": 0.013275050437121738,
+       "excl_0": false,
+       "n_a": 2974,
+       "n_b": 150,
+       "mean_a": 0.9909213180901143,
+       "mean_b": 0.9933333333333333
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.00666666666666671,
+       "ci_lo": 0.0,
+       "ci_hi": 0.020000000000000018,
+       "excl_0": false,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": -0.00033624747814386957,
+       "ci_lo": -0.0010087424344318308,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 2974
+      }
+     }
+    },
+    "n_curve": [
+     {
+      "N": 1,
+      "baseline_absorbed_recall": 0.19333333333333333,
+      "baseline_sibling_recall": 0.9593140551445865,
+      "repair_delta": 0.8066666666666666,
+      "gap_excl0": true,
+      "repair_excl0": true
+     },
+     {
+      "N": 2,
+      "baseline_absorbed_recall": 0.18,
+      "baseline_sibling_recall": 0.960659045057162,
+      "repair_delta": 0.8200000000000001,
+      "gap_excl0": true,
+      "repair_excl0": true
+     },
+     {
+      "N": 5,
+      "baseline_absorbed_recall": 0.10666666666666667,
+      "baseline_sibling_recall": 0.968728984532616,
+      "repair_delta": 0.8933333333333333,
+      "gap_excl0": true,
+      "repair_excl0": true
+     },
+     {
+      "N": 10,
+      "baseline_absorbed_recall": 0.9933333333333333,
+      "baseline_sibling_recall": 0.968392737054472,
+      "repair_delta": 0.00666666666666671,
+      "gap_excl0": true,
+      "repair_excl0": false
+     },
+     {
+      "N": 20,
+      "baseline_absorbed_recall": 0.9933333333333333,
+      "baseline_sibling_recall": 0.9909213180901143,
+      "repair_delta": 0.00666666666666671,
+      "gap_excl0": false,
+      "repair_excl0": false
+     }
+    ],
+    "hole_closes_at_N": 10,
+    "baseline_absorbed_metric": 0.10666666666666667,
+    "baseline_sibling_metric": 0.968728984532616,
+    "silent_failure_gap": {
+     "diff": 0.8620623178659493,
+     "ci_lo": 0.8090652320107599,
+     "ci_hi": 0.9097377269670477,
+     "excl_0": true,
+     "n_a": 2974,
+     "n_b": 150,
+     "mean_a": 0.968728984532616,
+     "mean_b": 0.10666666666666667
+    },
+    "standard_practice_miss": {
+     "absorber_attr_rank": 42,
+     "in_topN": false,
+     "oracle_decoder_cos": -0.0235,
+     "oracle_corroborates": false
+    },
+    "screen_catch": {
+     "predict_absorption": "ABSORPTION_STRUCTURED",
+     "recall_hole": 0.7333,
+     "firing_jaccard": 0.0126,
+     "precision": 0.974,
+     "hole_coverage_gain": 0.7333,
+     "named_absorber": 16009,
+     "discovered_label_free": 4697,
+     "discovered_eq_pinned": false,
+     "structured_strict": true
+    },
+    "repaired_absorbed_metric": 1.0,
+    "kg_minus_baseline": {
+     "diff": 0.8933333333333333,
+     "ci_lo": 0.84,
+     "ci_hi": 0.94,
+     "excl_0": true,
+     "n": 150
+    },
+    "sibling_collateral": {
+     "diff": -0.00235373234700742,
+     "ci_lo": -0.0043712172158708595,
+     "ci_hi": -0.0006724949562878502,
+     "excl_0": true,
+     "n": 2974
+    },
+    "raw_parent_latent_baseline": {
+     "absorbed_recall": 0.26666666666666666,
+     "sibling_recall": 0.9636852723604573
+    },
+    "nonSAE_dense_probe": {
+     "absorbed_recall": 0.9866666666666667,
+     "sibling_recall": 0.9986550100874243,
+     "probe_train_auc": 1.0,
+     "has_hole": false
+    },
+    "per_sibling": {
+     "Australia": {
+      "n": 150,
+      "baseline_recall": 0.9933333333333333,
+      "repaired_recall": 0.9866666666666667,
+      "dense_recall": 1.0
+     },
+     "Brazil": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Canada": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "China": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "France": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 0.9933333333333333
+     },
+     "Germany": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "India": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Iran": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Ireland": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Israel": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Italy": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 0.9933333333333333
+     },
+     "Japan": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Jordan": {
+      "n": 124,
+      "baseline_recall": 0.31451612903225806,
+      "repaired_recall": 0.29838709677419356,
+      "dense_recall": 1.0
+     },
+     "Mexico": {
+      "n": 150,
+      "baseline_recall": 0.96,
+      "repaired_recall": 0.9333333333333333,
+      "dense_recall": 1.0
+     },
+     "New Zealand": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Poland": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Russia": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Spain": {
+      "n": 150,
+      "baseline_recall": 0.9933333333333333,
+      "repaired_recall": 0.9933333333333333,
+      "dense_recall": 0.9866666666666667
+     },
+     "United Kingdom": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "United States": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     }
+    },
+    "arm_fork_verdict": "HN_SIBLING_COLLATERAL"
+   },
+   {
+    "scenario": "amazon_classifier",
+    "arm_type": "classifier",
+    "concept": "named_entity_safety",
+    "absorbed_slice": "Amazon",
+    "siblings": [
+     "Apple",
+     "Bush",
+     "Cook",
+     "King"
+    ],
+    "parent_latent": 2768,
+    "absorber_latent": 6846,
+    "absorber_in_cr_pool": true,
+    "metric": "per_slice_recall",
+    "headline_N": 5,
+    "by_N": {
+     "1": {
+      "N": 1,
+      "n_selected": 1,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 14,
+      "baseline_absorbed_recall": 0.006666666666666667,
+      "baseline_sibling_recall": 0.5066666666666667,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.5066666666666667,
+      "silent_failure_gap": {
+       "diff": 0.5,
+       "ci_lo": 0.45666666666666667,
+       "ci_hi": 0.5416666666666666,
+       "excl_0": true,
+       "n_a": 600,
+       "n_b": 150,
+       "mean_a": 0.5066666666666667,
+       "mean_b": 0.006666666666666667
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.9933333333333333,
+       "ci_lo": 0.98,
+       "ci_hi": 1.0,
+       "excl_0": true,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 600
+      }
+     },
+     "2": {
+      "N": 2,
+      "n_selected": 2,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 14,
+      "baseline_absorbed_recall": 0.09333333333333334,
+      "baseline_sibling_recall": 0.7166666666666667,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.7166666666666667,
+      "silent_failure_gap": {
+       "diff": 0.6233333333333333,
+       "ci_lo": 0.5633333333333334,
+       "ci_hi": 0.6799999999999999,
+       "excl_0": true,
+       "n_a": 600,
+       "n_b": 150,
+       "mean_a": 0.7166666666666667,
+       "mean_b": 0.09333333333333334
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.9066666666666666,
+       "ci_lo": 0.86,
+       "ci_hi": 0.9466666666666667,
+       "excl_0": true,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 600
+      }
+     },
+     "5": {
+      "N": 5,
+      "n_selected": 5,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 14,
+      "baseline_absorbed_recall": 0.08666666666666667,
+      "baseline_sibling_recall": 0.76,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.755,
+      "silent_failure_gap": {
+       "diff": 0.6733333333333333,
+       "ci_lo": 0.6133333333333334,
+       "ci_hi": 0.7283333333333333,
+       "excl_0": true,
+       "n_a": 600,
+       "n_b": 150,
+       "mean_a": 0.76,
+       "mean_b": 0.08666666666666667
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.9133333333333333,
+       "ci_lo": 0.8666666666666667,
+       "ci_hi": 0.9533333333333334,
+       "excl_0": true,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": -0.0050000000000000044,
+       "ci_lo": -0.011666666666666603,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 600
+      }
+     },
+     "10": {
+      "N": 10,
+      "n_selected": 10,
+      "absorber_in_topN": false,
+      "absorber_attr_rank": 14,
+      "baseline_absorbed_recall": 1.0,
+      "baseline_sibling_recall": 0.985,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.985,
+      "silent_failure_gap": {
+       "diff": -0.015000000000000013,
+       "ci_lo": -0.025000000000000022,
+       "ci_hi": -0.00666666666666671,
+       "excl_0": true,
+       "n_a": 600,
+       "n_b": 150,
+       "mean_a": 0.985,
+       "mean_b": 1.0
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 600
+      }
+     },
+     "20": {
+      "N": 20,
+      "n_selected": 19,
+      "absorber_in_topN": true,
+      "absorber_attr_rank": 14,
+      "baseline_absorbed_recall": 1.0,
+      "baseline_sibling_recall": 0.9966666666666667,
+      "repaired_absorbed_recall": 1.0,
+      "repaired_sibling_recall": 0.9966666666666667,
+      "silent_failure_gap": {
+       "diff": -0.0033333333333332993,
+       "ci_lo": -0.008333333333333304,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n_a": 600,
+       "n_b": 150,
+       "mean_a": 0.9966666666666667,
+       "mean_b": 1.0
+      },
+      "repair_kg_minus_baseline": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 150
+      },
+      "sibling_collateral": {
+       "diff": 0.0,
+       "ci_lo": 0.0,
+       "ci_hi": 0.0,
+       "excl_0": false,
+       "n": 600
+      }
+     }
+    },
+    "n_curve": [
+     {
+      "N": 1,
+      "baseline_absorbed_recall": 0.006666666666666667,
+      "baseline_sibling_recall": 0.5066666666666667,
+      "repair_delta": 0.9933333333333333,
+      "gap_excl0": true,
+      "repair_excl0": true
+     },
+     {
+      "N": 2,
+      "baseline_absorbed_recall": 0.09333333333333334,
+      "baseline_sibling_recall": 0.7166666666666667,
+      "repair_delta": 0.9066666666666666,
+      "gap_excl0": true,
+      "repair_excl0": true
+     },
+     {
+      "N": 5,
+      "baseline_absorbed_recall": 0.08666666666666667,
+      "baseline_sibling_recall": 0.76,
+      "repair_delta": 0.9133333333333333,
+      "gap_excl0": true,
+      "repair_excl0": true
+     },
+     {
+      "N": 10,
+      "baseline_absorbed_recall": 1.0,
+      "baseline_sibling_recall": 0.985,
+      "repair_delta": 0.0,
+      "gap_excl0": true,
+      "repair_excl0": false
+     },
+     {
+      "N": 20,
+      "baseline_absorbed_recall": 1.0,
+      "baseline_sibling_recall": 0.9966666666666667,
+      "repair_delta": 0.0,
+      "gap_excl0": false,
+      "repair_excl0": false
+     }
+    ],
+    "hole_closes_at_N": 10,
+    "baseline_absorbed_metric": 0.08666666666666667,
+    "baseline_sibling_metric": 0.76,
+    "silent_failure_gap": {
+     "diff": 0.6733333333333333,
+     "ci_lo": 0.6133333333333334,
+     "ci_hi": 0.7283333333333333,
+     "excl_0": true,
+     "n_a": 600,
+     "n_b": 150,
+     "mean_a": 0.76,
+     "mean_b": 0.08666666666666667
+    },
+    "standard_practice_miss": {
+     "absorber_attr_rank": 14,
+     "in_topN": false,
+     "oracle_decoder_cos": 0.1157,
+     "oracle_corroborates": true
+    },
+    "screen_catch": {
+     "predict_absorption": "ABSORPTION_STRUCTURED",
+     "recall_hole": 0.62,
+     "firing_jaccard": 0.0428,
+     "precision": 0.9934,
+     "hole_coverage_gain": 0.62,
+     "named_absorber": 6846,
+     "discovered_label_free": 6846,
+     "discovered_eq_pinned": true,
+     "structured_strict": true
+    },
+    "repaired_absorbed_metric": 1.0,
+    "kg_minus_baseline": {
+     "diff": 0.9133333333333333,
+     "ci_lo": 0.8666666666666667,
+     "ci_hi": 0.9533333333333334,
+     "excl_0": true,
+     "n": 150
+    },
+    "sibling_collateral": {
+     "diff": -0.0050000000000000044,
+     "ci_lo": -0.011666666666666603,
+     "ci_hi": 0.0,
+     "excl_0": false,
+     "n": 600
+    },
+    "raw_parent_latent_baseline": {
+     "absorbed_recall": 0.38,
+     "sibling_recall": 0.455
+    },
+    "nonSAE_dense_probe": {
+     "absorbed_recall": 1.0,
+     "sibling_recall": 1.0,
+     "probe_train_auc": 1.0,
+     "has_hole": false
+    },
+    "per_sibling": {
+     "Apple": {
+      "n": 150,
+      "baseline_recall": 0.14,
+      "repaired_recall": 0.12,
+      "dense_recall": 1.0
+     },
+     "Bush": {
+      "n": 150,
+      "baseline_recall": 1.0,
+      "repaired_recall": 1.0,
+      "dense_recall": 1.0
+     },
+     "Cook": {
+      "n": 150,
+      "baseline_recall": 0.9933333333333333,
+      "repaired_recall": 0.9933333333333333,
+      "dense_recall": 1.0
+     },
+     "King": {
+      "n": 150,
+      "baseline_recall": 0.9066666666666666,
+      "repaired_recall": 0.9066666666666666,
+      "dense_recall": 1.0
+     }
+    },
+    "arm_fork_verdict": "AVERTED_COST_DEMONSTRATED"
+   }
+  ],
+  "per_arm_fork": {
+   "georgia_classifier": "HN_SIBLING_COLLATERAL",
+   "amazon_classifier": "AVERTED_COST_DEMONSTRATED"
+  },
+  "honest_negatives": [
+   "AVERTED-COST is contingent: each arm reports a FORK; honest nulls (HN_NO_HOLE / HN_SCREEN_MISS / HN_REPAIR_NULL / HN_SIBLING_COLLATERAL) are first-class results, not failures.",
+   "the decoder-projection oracle is concept-tuned: it corroborates lexical/named-entity absorbers but UNDER-fires for taxonomic Georgia (decoder near-orthogonal to the generic country direction, cos~0.01) -> exactly why standard tooling would ship the broken Georgia classifier.",
+   "FIRING-SIGNATURE != EDIT-HANDLE (carried iter-8): a clean structured signature need not yield a strong single-latent EDIT handle; Georgia/US are weak edit handles but strong label-free LOCALIZERS.",
+   "where-to-gate net label saving is handled by the sibling M1'''' label-scarce experiment (n_breakeven 5-20); this experiment isolates the AVERTED downstream cost of the silent hole.",
+   "a non-SAE dense diff-of-means probe is reported as the proper control: where it ALSO has the slice hole, the absorber repair is specific to the SAE artifact's hole, not a generic distributed-sense gap.",
+   "absorption is homograph- and named-entity-confined (iter-9 screen: pooled STRICT 6/110=5.5%); demographic safety groups / months / professions are NOT structured -> averted cost applies to the confined cases.",
+   "the clustering / multi-member grouping hypothesis did not pay off; the shipped value is the label-free WHERE-screen + the named-absorber 2-member repair unit.",
+   "'large' first-letter is a RELAXED (n_eligible<150) case whose absorber is partly DISTRIBUTED across an L-word cluster in this corpus (precision<0.70) -> reported as the secondary/demotable steer demo."
+  ],
+  "llm_cost_usd": 0.0,
+  "budget_cap_usd": 10,
+  "runtime_sec": 318.8
+ },
+ "datasets": [
+  {
+   "dataset": "averted_cost_per_slice",
+   "examples": [
+    {
+     "input": "classifier of 'country' on ABSORBED slice 'Georgia'",
+     "output": "RECALL_HOLE",
+     "predict_marginal_attr": "0.1067",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "0.9867",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Georgia",
+     "metadata_slice_role": "absorbed",
+     "metadata_absorber_latent": 16009,
+     "metadata_parent_latent": 3792,
+     "metadata_baseline_metric": 0.1067,
+     "metadata_repaired_metric": 1.0,
+     "metadata_kg_minus_baseline": 0.8933,
+     "metadata_kg_ci_lo": 0.84,
+     "metadata_kg_ci_hi": 0.94,
+     "metadata_kg_excl0": true,
+     "metadata_absorber_attr_rank": 42,
+     "metadata_absorber_in_topN": false
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Australia'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "0.9933",
+     "predict_repaired": "0.9867",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Australia",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 0.9933,
+     "metadata_repaired_metric": 0.9867
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Brazil'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Brazil",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Canada'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Canada",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'China'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "China",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'France'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "0.9933",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "France",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Germany'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Germany",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'India'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "India",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Iran'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Iran",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Ireland'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Ireland",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Israel'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Israel",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Italy'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "0.9933",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Italy",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Japan'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Japan",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Jordan'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "0.3145",
+     "predict_repaired": "0.2984",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Jordan",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 124,
+     "metadata_baseline_metric": 0.3145,
+     "metadata_repaired_metric": 0.2984
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Mexico'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "0.96",
+     "predict_repaired": "0.9333",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Mexico",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 0.96,
+     "metadata_repaired_metric": 0.9333
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'New Zealand'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "New Zealand",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Poland'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Poland",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Russia'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Russia",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'Spain'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "0.9933",
+     "predict_repaired": "0.9933",
+     "predict_dense_probe": "0.9867",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "Spain",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 0.9933,
+     "metadata_repaired_metric": 0.9933
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'United Kingdom'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "United Kingdom",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'country' on SIBLING slice 'United States'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_slice": "United States",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'named_entity_safety' on ABSORBED slice 'Amazon'",
+     "output": "RECALL_HOLE",
+     "predict_marginal_attr": "0.0867",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "amazon_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "named_entity_safety",
+     "metadata_slice": "Amazon",
+     "metadata_slice_role": "absorbed",
+     "metadata_absorber_latent": 6846,
+     "metadata_parent_latent": 2768,
+     "metadata_baseline_metric": 0.0867,
+     "metadata_repaired_metric": 1.0,
+     "metadata_kg_minus_baseline": 0.9133,
+     "metadata_kg_ci_lo": 0.8667,
+     "metadata_kg_ci_hi": 0.9533,
+     "metadata_kg_excl0": true,
+     "metadata_absorber_attr_rank": 14,
+     "metadata_absorber_in_topN": false
+    },
+    {
+     "input": "classifier of 'named_entity_safety' on SIBLING slice 'Apple'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "0.14",
+     "predict_repaired": "0.12",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "amazon_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "named_entity_safety",
+     "metadata_slice": "Apple",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 0.14,
+     "metadata_repaired_metric": 0.12
+    },
+    {
+     "input": "classifier of 'named_entity_safety' on SIBLING slice 'Bush'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "1.0",
+     "predict_repaired": "1.0",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "amazon_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "named_entity_safety",
+     "metadata_slice": "Bush",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 1.0,
+     "metadata_repaired_metric": 1.0
+    },
+    {
+     "input": "classifier of 'named_entity_safety' on SIBLING slice 'Cook'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "0.9933",
+     "predict_repaired": "0.9933",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "amazon_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "named_entity_safety",
+     "metadata_slice": "Cook",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 0.9933,
+     "metadata_repaired_metric": 0.9933
+    },
+    {
+     "input": "classifier of 'named_entity_safety' on SIBLING slice 'King'",
+     "output": "NO_HOLE",
+     "predict_marginal_attr": "0.9067",
+     "predict_repaired": "0.9067",
+     "predict_dense_probe": "1.0",
+     "metadata_scenario": "amazon_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "named_entity_safety",
+     "metadata_slice": "King",
+     "metadata_slice_role": "sibling",
+     "metadata_n_rows": 150,
+     "metadata_baseline_metric": 0.9067,
+     "metadata_repaired_metric": 0.9067
+    }
+   ]
+  },
+  {
+   "dataset": "averted_cost_per_case",
+   "examples": [
+    {
+     "input": "Averted-cost scenario [georgia_classifier]: a practitioner ships a classifier for parent concept 'country' selected by SCR/TPP marginal-attribution. Does absorption silently break the 'Georgia' slice, does standard practice miss it, does the label-free screen catch + name the absorber, and does the named-absorber repair fix it without sibling collateral?",
+     "output": "AVERTED_COST_EXPECTED",
+     "predict_verdict": "HN_SIBLING_COLLATERAL",
+     "metadata_scenario": "georgia_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "country",
+     "metadata_absorbed_slice": "Georgia",
+     "metadata_parent_latent": 3792,
+     "metadata_absorber_latent": 16009,
+     "metadata_baseline_absorbed_metric": 0.1067,
+     "metadata_baseline_sibling_metric": 0.9687,
+     "metadata_silent_gap": 0.8621,
+     "metadata_silent_ci_lo": 0.8091,
+     "metadata_silent_ci_hi": 0.9097,
+     "metadata_silent_excl0": true,
+     "metadata_absorber_attr_rank": 42,
+     "metadata_absorber_in_topN": false,
+     "metadata_oracle_decoder_cos": -0.0235,
+     "metadata_oracle_corroborates": false,
+     "metadata_screen_predict": "ABSORPTION_STRUCTURED",
+     "metadata_screen_recall_hole": 0.7333,
+     "metadata_screen_firing_jaccard": 0.0126,
+     "metadata_screen_named_absorber": 16009,
+     "metadata_screen_discovered_eq_pinned": false,
+     "metadata_repaired_absorbed_metric": 1.0,
+     "metadata_kg_minus_baseline": 0.8933,
+     "metadata_kg_ci_lo": 0.84,
+     "metadata_kg_ci_hi": 0.94,
+     "metadata_kg_excl0": true,
+     "metadata_sibling_collateral": -0.0024,
+     "metadata_collateral_ci_lo": -0.0044,
+     "metadata_collateral_ci_hi": -0.0007,
+     "metadata_dense_absorbed_recall": 0.9867,
+     "metadata_dense_sibling_recall": 0.9987,
+     "metadata_dense_has_hole": false,
+     "metadata_headline_N": 5,
+     "metadata_hole_closes_at_N": 10,
+     "metadata_raw_parent_latent_absorbed_recall": 0.2667,
+     "metadata_arm_fork_verdict": "HN_SIBLING_COLLATERAL"
+    },
+    {
+     "input": "Averted-cost scenario [amazon_classifier]: a practitioner ships a classifier for parent concept 'named_entity_safety' selected by SCR/TPP marginal-attribution. Does absorption silently break the 'Amazon' slice, does standard practice miss it, does the label-free screen catch + name the absorber, and does the named-absorber repair fix it without sibling collateral?",
+     "output": "AVERTED_COST_EXPECTED",
+     "predict_verdict": "AVERTED_COST_DEMONSTRATED",
+     "metadata_scenario": "amazon_classifier",
+     "metadata_arm_type": "classifier",
+     "metadata_concept": "named_entity_safety",
+     "metadata_absorbed_slice": "Amazon",
+     "metadata_parent_latent": 2768,
+     "metadata_absorber_latent": 6846,
+     "metadata_baseline_absorbed_metric": 0.0867,
+     "metadata_baseline_sibling_metric": 0.76,
+     "metadata_silent_gap": 0.6733,
+     "metadata_silent_ci_lo": 0.6133,
+     "metadata_silent_ci_hi": 0.7283,
+     "metadata_silent_excl0": true,
+     "metadata_absorber_attr_rank": 14,
+     "metadata_absorber_in_topN": false,
+     "metadata_oracle_decoder_cos": 0.1157,
+     "metadata_oracle_corroborates": true,
+     "metadata_screen_predict": "ABSORPTION_STRUCTURED",
+     "metadata_screen_recall_hole": 0.62,
+     "metadata_screen_firing_jaccard": 0.0428,
+     "metadata_screen_named_absorber": 6846,
+     "metadata_screen_discovered_eq_pinned": true,
+     "metadata_repaired_absorbed_metric": 1.0,
+     "metadata_kg_minus_baseline": 0.9133,
+     "metadata_kg_ci_lo": 0.8667,
+     "metadata_kg_ci_hi": 0.9533,
+     "metadata_kg_excl0": true,
+     "metadata_sibling_collateral": -0.005,
+     "metadata_collateral_ci_lo": -0.0117,
+     "metadata_collateral_ci_hi": 0.0,
+     "metadata_dense_absorbed_recall": 1.0,
+     "metadata_dense_sibling_recall": 1.0,
+     "metadata_dense_has_hole": false,
+     "metadata_headline_N": 5,
+     "metadata_hole_closes_at_N": 10,
+     "metadata_raw_parent_latent_absorbed_recall": 0.38,
+     "metadata_arm_fork_verdict": "AVERTED_COST_DEMONSTRATED"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+  "artifact": "CCRG supporting concept families + boundary-null (standardized to shared minimal-pair schema)",
+  "schema_version": "ccrg_minimal_pair_v1",
+  "emitted_format": "exp_sel_data_out (custom fields under metadata_* keys; logical view in schema.json)",
+  "total_rows": 30739,
+  "llm_spend_usd": 0.0,
+  "deliverables": {
+    "full": "full_data_out.json",
+    "mini": "mini_data_out.json",
+    "preview": "preview_data_out.json",
+    "row_schema": "schema.json",
+    "summary": "data_summary.json",
+    "pipeline": [
+      "data.py",
+      "build_dataset.py",
+      "qc.py",
+      "explore.py",
+      "verify.py"
+    ]
+  },
+  "validated_against": [
+    "exp_sel_data_out (aii-json)",
+    "schema.json (jsonschema Draft7, every row)"
+  ],
+  "families": {
+    "sentiment": {
+      "role": "supporting",
+      "n_rows": 4880,
+      "n_pairs": 2440,
+      "label_balance": {
+        "positive": 2440,
+        "negative": 2440
+      },
+      "fold_sizes": {
+        "train": 3414,
+        "dev": 490,
+        "test": 976
+      },
+      "license": "Apache-2.0",
+      "source_url": "https://github.com/acmi-lab/counterfactually-augmented-data (sentiment/combined/paired)",
+      "source_paper": "Kaushik, Hovy, Lipton. ICLR 2020. arXiv:1909.12434"
+    },
+    "restaurant_aspect": {
+      "role": "supporting",
+      "n_rows": 5682,
+      "n_pairs": 2841,
+      "label_balance": {
+        "negative": 2841,
+        "positive": 2841
+      },
+      "fold_sizes": {
+        "train": 4340,
+        "dev": 672,
+        "test": 670
+      },
+      "license": "CC-BY-4.0",
+      "source_url": "https://huggingface.co/datasets/CEBaB/CEBaB",
+      "source_paper": "Abraham et al. NeurIPS 2022. arXiv:2205.14140"
+    },
+    "bias_in_bios_boundary": {
+      "role": "boundary-null",
+      "n_rows": 20177,
+      "n_pairs": null,
+      "label_balance": "28 professions, ~balanced (capped)",
+      "fold_sizes": {
+        "train": 14328,
+        "dev": 2846,
+        "test": 3003
+      },
+      "license": "MIT",
+      "source_url": "https://huggingface.co/datasets/LabHC/bias_in_bios",
+      "source_paper": "De-Arteaga et al. FAT* 2019. arXiv:1901.09451"
+    }
+  },
+  "discriminator_field": "metadata_family",
+  "is_surface_pair": "false for all rows (out of scope here)"
+}

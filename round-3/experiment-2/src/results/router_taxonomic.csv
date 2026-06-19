@@ -1,0 +1,22 @@
+sub_context,parent_latent,top_detector_latent,firing_jaccard,slice_regime,absorption_type,detector_recall_on_s,parent_recall_on_s,parent_recall_hole,kg_top1_formfree,n_pos,absorbed_flag_iter2
+Canada,3792,10518,0.21560418648905805,co_firing(splitting),False,0.98,1.0,0.0,,150,False
+France,3792,1920,0.043232716650438166,absorption(mutually_exclusive),False,1.0,1.0,0.0,,150,False
+Iran,3792,1634,0.18303831939311418,co_firing(splitting),False,1.0,1.0,0.0,,150,False
+United States,3792,250,0.20368592820119025,co_firing(splitting),False,1.0,0.7666666666666667,0.23333333333333328,0.0,150,True
+Brazil,3792,878,0.05061319836480436,absorption(mutually_exclusive),False,1.0,1.0,0.0,,150,False
+Georgia,3792,1966,0.05851063829787234,absorption(mutually_exclusive),True,1.0,0.2,0.8,1.0,150,True
+New Zealand,3792,250,0.20368592820119025,co_firing(splitting),False,1.0,1.0,0.0,,150,False
+Spain,3792,9473,0.13799143635655897,co_firing(splitting),False,0.9,0.9933333333333333,0.00666666666666671,0.0,150,False
+Mexico,3792,13586,0.05522068831421349,absorption(mutually_exclusive),False,0.96,0.9466666666666667,0.053333333333333344,0.0,150,False
+China,3792,10518,0.21560418648905805,co_firing(splitting),False,0.8266666666666667,1.0,0.0,,150,False
+Japan,3792,9473,0.13799143635655897,co_firing(splitting),False,1.0,1.0,0.0,,150,False
+India,3792,1634,0.18303831939311418,co_firing(splitting),False,0.9866666666666667,1.0,0.0,,150,False
+Italy,3792,1634,0.18303831939311418,co_firing(splitting),False,1.0,1.0,0.0,,150,False
+Ireland,3792,1634,0.18303831939311418,co_firing(splitting),False,1.0,1.0,0.0,,150,False
+Australia,3792,6211,0.6084092230187949,co_firing(splitting),False,0.78,1.0,0.0,,150,False
+Poland,3792,12186,0.07067757009345794,absorption(mutually_exclusive),False,1.0,1.0,0.0,,150,False
+Germany,3792,4984,0.051540509699505514,absorption(mutually_exclusive),False,1.0,1.0,0.0,,150,False
+United Kingdom,3792,250,0.20368592820119025,co_firing(splitting),False,1.0,1.0,0.0,,150,False
+Israel,3792,1634,0.18303831939311418,co_firing(splitting),False,1.0,1.0,0.0,,150,False
+Russia,3792,1855,0.09038238702201622,absorption(mutually_exclusive),False,1.0,1.0,0.0,,150,False
+Jordan,3792,9339,0.02067777139574957,absorption(mutually_exclusive),True,1.0,0.2903225806451613,0.7096774193548387,0.9545454545454546,124,False

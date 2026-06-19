@@ -1,0 +1,48 @@
+[project]
+name = "ccrg-m5pppp-strengthened-controls"
+version = "0.1.0"
+description = "M5'''' (reviewer R5): strengthen the now-headline KG-repair/localization spine. Replaces the weak single-random-latent control with STRONGER, NON-EVAL-ALIGNED controls (dense-probe decoder-projection argmax [JTT + diff-of-means], label-free S_mag / S_rec magnitude-and-recall rankings, and a same-pool-matched variant that holds candidate eligibility fixed and varies only the ranking criterion), re-runs KG-minus-control paired bootstrap CIs (B>=10,000) + one-sided p + an augmented Benjamini-Hochberg FDR, and adds a downstream-capability test ((parent+KG absorber) vs (parent+dense-probe) worst-sub-context recall at matched pool size). PURE reuse of the iter-4 repair loop on cached Gemma-Scope L12/16k SAE encodings; $0 LLM. Numpy SAE (params.npz) + cached lat_csr/resid -> no torch/transformers needed."
+requires-python = ">=3.12"
+# SAE-ONLY path: cached encodings (lat_csr + resid) are reused VERBATIM from iter-4, so we never
+# re-run gemma-2-2b. The JumpReLU SAE forward (encode/decode) is reimplemented in pure numpy from
+# params.npz; gating (encode->decode cosine) is computed from the CACHED layer-13 residuals.
+dependencies = [
+    "numpy==2.4.6",
+    "scipy==1.17.1",
+    "scikit-learn==1.9.0",
+    "statsmodels==0.14.6",
+    "loguru==0.7.3",
+    "huggingface-hub==1.19.0",
+    "hf-xet==1.5.1",
+    "psutil==7.2.2",
+    "requests==2.34.2",
+    "annotated-doc==0.0.4",
+    "anyio==4.14.0",
+    "certifi==2026.6.17",
+    "charset-normalizer==3.4.7",
+    "click==8.4.1",
+    "filelock==3.29.4",
+    "fsspec==2026.6.0",
+    "h11==0.16.0",
+    "httpcore==1.0.9",
+    "httpx==0.28.1",
+    "idna==3.18",
+    "joblib==1.5.3",
+    "markdown-it-py==4.2.0",
+    "mdurl==0.1.2",
+    "narwhals==2.22.1",
+    "packaging==26.2",
+    "pandas==3.0.3",
+    "patsy==1.0.2",
+    "pygments==2.20.0",
+    "python-dateutil==2.9.0.post0",
+    "pyyaml==6.0.3",
+    "rich==15.0.0",
+    "shellingham==1.5.4",
+    "six==1.17.0",
+    "threadpoolctl==3.6.0",
+    "tqdm==4.68.3",
+    "typer==0.25.1",
+    "typing-extensions==4.15.0",
+    "urllib3==2.7.0",
+]

@@ -1,0 +1,24 @@
+[project]
+name = "m4-router-prospective-homograph"
+version = "1.0.0"
+description = "M4 — expand the a-priori SAE firing-structure recall-hole router prospective set onto the homograph/polysemy entity testbed (cities/months/given-names/brands) with predict-then-measure per-entity routing + Wilson-CI validate-or-demote verdict, plus an M7 absorption-breadth count over ~93 homograph entities. Reuses the iter-5 router (core.py) verbatim. Frozen Gemma-Scope L12/16k JumpReLU SAE on unsloth/gemma-2-2b."
+requires-python = ">=3.12"
+# torch is the cu126 build (2.7.0+cu126); install from the matching CUDA index:
+#   uv pip install torch==2.7.0 --extra-index-url https://download.pytorch.org/whl/cu126
+dependencies = [
+    "torch==2.7.0",
+    "numpy==2.4.6",
+    "scikit-learn==1.9.0",
+    "scipy==1.17.1",
+    "transformers==4.46.3",
+    "tokenizers==0.20.3",
+    "accelerate==1.14.0",
+    "huggingface-hub==0.36.2",
+    "safetensors==0.8.0",
+    "sentencepiece==0.2.1",
+    "psutil==7.2.2",
+    "loguru==0.7.3",
+]
+
+[tool.uv]
+package = false

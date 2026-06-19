@@ -1,0 +1,1087 @@
+{
+  "metadata": {
+    "method_name": "M5 Auditability for Two-Track CCRG Units (KG repair loop + LLM member-labeling)",
+    "description": "Measured KG-utility (repair loop vs random-addition control, paired bootstrap) + LLM-judge member-labeling vs shuffle null, replacing the iter-2 70-edge-graph assertion.",
+    "sae": {
+      "release": "google/gemma-scope-2b-pt-res",
+      "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+      "width": 16384,
+      "d_model": 2304,
+      "hook": "blocks.12.hook_resid_post"
+    },
+    "model": "google/gemma-2-2b",
+    "seed": 1234,
+    "B_boot": 10000,
+    "n_shuffles": 2000,
+    "llm_model": "anthropic/claude-haiku-4.5",
+    "gating_check": {
+      "pass": true,
+      "cosine": 0.9189719557762146,
+      "L0": 87.953125,
+      "align": 1.0,
+      "layer_idx": 13,
+      "fvu_by_idx": {
+        "12": 0.28351586269711565,
+        "13": 0.19342726020192202,
+        "14": 0.3396493984616463
+      }
+    },
+    "canonical_units": {
+      "first_letter": {
+        "L": {
+          "anchor": 205,
+          "absorbers": [
+            4736,
+            607,
+            3069
+          ],
+          "members": [
+            205,
+            4736,
+            607
+          ],
+          "sub_by_absorber": {
+            "4736": "linking",
+            "607": "leads",
+            "3069": "list",
+            "8463": "large",
+            "2416": "line",
+            "2759": "Let",
+            "3353": "level",
+            "3858": "low",
+            "7544": "leave",
+            "15261": "latent_15261",
+            "1391": "L",
+            "1467": "listed",
+            "1549": "legal",
+            "1566": "like"
+          },
+          "anchor_corpus_fire": 0.3572,
+          "spurious_anchor": false
+        },
+        "O": {
+          "anchor": 12334,
+          "absorbers": [
+            14473,
+            12675,
+            1032
+          ],
+          "members": [
+            12334,
+            14473,
+            12675
+          ],
+          "sub_by_absorber": {
+            "14473": "latent_14473",
+            "12675": "off",
+            "1032": "our",
+            "1562": "outside",
+            "4438": "o",
+            "8961": "options",
+            "9488": "Offering",
+            "9915": "offline",
+            "15092": "offer",
+            "782": "on",
+            "1127": "old",
+            "1925": "only",
+            "2101": "office",
+            "2768": "Object"
+          },
+          "anchor_corpus_fire": 0.3944,
+          "spurious_anchor": false
+        },
+        "T": {
+          "anchor": 6355,
+          "absorbers": [
+            8925,
+            7742,
+            4438
+          ],
+          "members": [
+            6355,
+            8925,
+            7742
+          ],
+          "sub_by_absorber": {
+            "8925": "That",
+            "7742": "Thornton",
+            "4438": "T",
+            "2768": "Title",
+            "4551": "type",
+            "5130": "they",
+            "8938": "things",
+            "14143": "trial",
+            "383": "themselves",
+            "1839": "treatment",
+            "4570": "than",
+            "5059": "trying",
+            "12997": "time",
+            "13704": "there"
+          },
+          "anchor_corpus_fire": 0.2664,
+          "spurious_anchor": false
+        },
+        "I": {
+          "anchor": 1227,
+          "absorbers": [
+            1634,
+            3967,
+            9741
+          ],
+          "members": [
+            1227,
+            1634,
+            3967
+          ],
+          "sub_by_absorber": {
+            "1634": "",
+            "3967": "",
+            "9741": "invention",
+            "10756": "",
+            "782": "",
+            "4322": "",
+            "1861": "its",
+            "4490": "issue",
+            "7491": "",
+            "11112": "",
+            "12928": "",
+            "1491": "inside",
+            "2322": "",
+            "2507": ""
+          },
+          "anchor_corpus_fire": 0.0,
+          "spurious_anchor": true
+        },
+        "D": {
+          "anchor": 6210,
+          "absorbers": [
+            10756,
+            782,
+            1970
+          ],
+          "members": [
+            6210,
+            10756,
+            782
+          ],
+          "sub_by_absorber": {
+            "10756": "DN",
+            "782": "don",
+            "1970": "different",
+            "7293": "directory",
+            "10769": "day",
+            "11069": "development",
+            "14014": "did",
+            "16173": "delighted",
+            "1197": "display",
+            "1298": "down",
+            "1459": "Douglas",
+            "1724": "described",
+            "2354": "different",
+            "2568": "latent_2568"
+          },
+          "anchor_corpus_fire": 0.3304,
+          "spurious_anchor": false
+        }
+      },
+      "taxonomic": {
+        "anchor": 3792,
+        "k_track_unit": [
+          3792,
+          4697,
+          9339
+        ],
+        "kg_edges": [
+          {
+            "anchor": 3792,
+            "absorber": 4697,
+            "specializes": "Georgia",
+            "marginal_gain": 0.5454545454545454,
+            "jaccard": 0.05518680068272331,
+            "subctx_precision": 0.34965034965034963
+          },
+          {
+            "anchor": 3792,
+            "absorber": 9339,
+            "specializes": "Jordan",
+            "marginal_gain": 0.2766798418972332,
+            "jaccard": 0.02067777139574957,
+            "subctx_precision": 0.6326530612244898
+          },
+          {
+            "anchor": 3792,
+            "absorber": 8442,
+            "specializes": "United States",
+            "marginal_gain": 0.1422924901185771,
+            "jaccard": 0.06485758275596613,
+            "subctx_precision": 0.34673366834170855
+          }
+        ],
+        "diag_absorbers": [
+          {
+            "latent": 16009,
+            "jaccard": 0.006657789613848202,
+            "subctx_precision": 0.9554140127388535,
+            "specializes": "Georgia",
+            "hole_coverage_gain": 0.48221343873517786,
+            "gain_ci_low": 0.4189723320158103,
+            "content_precision": 1.0
+          },
+          {
+            "latent": 540,
+            "jaccard": 0.007476993865030675,
+            "subctx_precision": 0.975,
+            "specializes": "Jordan",
+            "hole_coverage_gain": 0.3201581027667984,
+            "gain_ci_low": 0.2608695652173913,
+            "content_precision": 1.0
+          },
+          {
+            "latent": 8347,
+            "jaccard": 0.004057187017001545,
+            "subctx_precision": 1.0,
+            "specializes": "Jordan",
+            "hole_coverage_gain": 0.16205533596837945,
+            "gain_ci_low": 0.11857707509881422,
+            "content_precision": 1.0
+          }
+        ],
+        "anchor_recall_corpus": 0.9530438010393467,
+        "kg_by_country": {
+          "Georgia": 4697,
+          "Jordan": 9339,
+          "United States": 8442
+        },
+        "diag_by_country": {
+          "Georgia": 16009,
+          "Jordan": 540,
+          "United States": 846
+        }
+      }
+    },
+    "reproduction_crosscheck": {
+      "taxonomic": {
+        "n_content_responsive_rederived": 682,
+        "n_content_responsive_iter2": 684,
+        "anchor_iter2": 3792,
+        "anchor_rederived": 3792,
+        "anchor_match": true,
+        "kg_absorbers_in_responsive": {
+          "Georgia": true,
+          "Jordan": true,
+          "United States": true
+        }
+      },
+      "L": {
+        "n_content_responsive_rederived": 474,
+        "anchor_iter2": 205,
+        "anchor_rederived": 205,
+        "anchor_match": true
+      },
+      "O": {
+        "n_content_responsive_rederived": 393,
+        "anchor_iter2": 12334,
+        "anchor_rederived": 12334,
+        "anchor_match": true
+      },
+      "T": {
+        "n_content_responsive_rederived": 307,
+        "anchor_iter2": 6355,
+        "anchor_rederived": 1123,
+        "anchor_match": false
+      },
+      "D": {
+        "n_content_responsive_rederived": 384,
+        "anchor_iter2": 6210,
+        "anchor_rederived": 6210,
+        "anchor_match": true
+      }
+    },
+    "repair_loop": {
+      "taxonomic": {
+        "per_subcontext": {
+          "Georgia": {
+            "status": "measured",
+            "is_hole": true,
+            "n_eval": 150,
+            "n_sel": 150,
+            "recall_anchor_selection": 0.2733333333333333,
+            "recall_anchor_eval": 0.2,
+            "random_gain": {
+              "mean": 0.03472181191531265,
+              "sd": 0.10270896124026407,
+              "p5": 0.0,
+              "p50": 0.0,
+              "p95": 0.1759999999999991
+            },
+            "variants": {
+              "kg_ktrack": {
+                "absorber_latent": 4697,
+                "recall_anchor_plus_kg": 1.0,
+                "gain_kg": 0.8,
+                "kg_percentile_vs_random": 0.9940915805022157,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.7652781880846874,
+                  "ci_lo": 0.7026381093057608,
+                  "ci_hi": 0.8232200886262925,
+                  "excl_0": true,
+                  "n": 150
+                },
+                "measured_success": true
+              },
+              "kg_diagnostic": {
+                "absorber_latent": 16009,
+                "recall_anchor_plus_kg": 1.0,
+                "gain_kg": 0.8,
+                "kg_percentile_vs_random": 0.9940915805022157,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.7652781880846874,
+                  "ci_lo": 0.7012304283604136,
+                  "ci_hi": 0.8234862136878384,
+                  "excl_0": true,
+                  "n": 150
+                },
+                "measured_success": true
+              }
+            }
+          },
+          "Jordan": {
+            "status": "measured",
+            "is_hole": true,
+            "n_eval": 124,
+            "n_sel": 124,
+            "recall_anchor_selection": 0.3467741935483871,
+            "recall_anchor_eval": 0.2903225806451613,
+            "random_gain": {
+              "mean": 0.020179158526707004,
+              "sd": 0.07707919024708734,
+              "p5": 0.0,
+              "p50": 0.0,
+              "p95": 0.08064516129032256
+            },
+            "variants": {
+              "kg_ktrack": {
+                "absorber_latent": 9339,
+                "recall_anchor_plus_kg": 1.0,
+                "gain_kg": 0.7096774193548387,
+                "kg_percentile_vs_random": 0.9985228951255539,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.6894982608281317,
+                  "ci_lo": 0.6108063920522229,
+                  "ci_hi": 0.7671901057797684,
+                  "excl_0": true,
+                  "n": 124
+                },
+                "measured_success": true
+              },
+              "kg_diagnostic": {
+                "absorber_latent": 540,
+                "recall_anchor_plus_kg": 0.9354838709677419,
+                "gain_kg": 0.6451612903225805,
+                "kg_percentile_vs_random": 0.9955686853766618,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.6249821317958737,
+                  "ci_lo": 0.5450034545194644,
+                  "ci_hi": 0.7043172559203317,
+                  "excl_0": true,
+                  "n": 124
+                },
+                "measured_success": true
+              }
+            }
+          },
+          "United States": {
+            "status": "measured",
+            "is_hole": true,
+            "n_eval": 150,
+            "n_sel": 150,
+            "recall_anchor_selection": 0.8466666666666667,
+            "recall_anchor_eval": 0.7666666666666667,
+            "random_gain": {
+              "mean": 0.011019202363367786,
+              "sd": 0.03944588032603815,
+              "p5": 0.0,
+              "p50": 0.0,
+              "p95": 0.05333333333333323
+            },
+            "variants": {
+              "kg_ktrack": {
+                "absorber_latent": 8442,
+                "recall_anchor_plus_kg": 0.9866666666666667,
+                "gain_kg": 0.21999999999999997,
+                "kg_percentile_vs_random": 0.983751846381093,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.20898079763663222,
+                  "ci_lo": 0.14604554406696207,
+                  "ci_hi": 0.2730974889217134,
+                  "excl_0": true,
+                  "n": 150
+                },
+                "measured_success": true
+              },
+              "kg_diagnostic": {
+                "absorber_latent": 846,
+                "recall_anchor_plus_kg": 0.9733333333333334,
+                "gain_kg": 0.20666666666666667,
+                "kg_percentile_vs_random": 0.9778434268833087,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.19564746430329888,
+                  "ci_lo": 0.13276218611521418,
+                  "ci_hi": 0.2589177744953225,
+                  "excl_0": true,
+                  "n": 150
+                },
+                "measured_success": true
+              }
+            }
+          }
+        },
+        "honest_negatives": [],
+        "n_measured_successful_repairs": 6,
+        "n_control_latents": 677,
+        "overall_anchor_recall_selection": 0.9590469099032017
+      },
+      "L": {
+        "per_subcontext": {
+          "list": {
+            "status": "skip_too_few_eval",
+            "n_eval": 1,
+            "n_sel": 43,
+            "recall_anchor_selection": 0.06976744186046512
+          },
+          "line": {
+            "status": "skip_too_few_eval",
+            "n_eval": 5,
+            "n_sel": 55,
+            "recall_anchor_selection": 0.0
+          },
+          "level": {
+            "status": "skip_too_few_eval",
+            "n_eval": 12,
+            "n_sel": 21,
+            "recall_anchor_selection": 0.0
+          },
+          "low": {
+            "status": "skip_too_few_eval",
+            "n_eval": 9,
+            "n_sel": 49,
+            "recall_anchor_selection": 0.10204081632653061
+          },
+          "leave": {
+            "status": "skip_too_few_eval",
+            "n_eval": 0,
+            "n_sel": 23,
+            "recall_anchor_selection": 0.21739130434782608
+          }
+        },
+        "honest_negatives": [],
+        "n_measured_successful_repairs": 0,
+        "n_control_latents": 463,
+        "overall_anchor_recall_selection": 0.3408973697782362
+      },
+      "O": {
+        "per_subcontext": {
+          "our": {
+            "status": "measured",
+            "is_hole": true,
+            "n_eval": 25,
+            "n_sel": 35,
+            "recall_anchor_selection": 0.0,
+            "recall_anchor_eval": 0.0,
+            "random_gain": {
+              "mean": 0.010078740157480316,
+              "sd": 0.07472956734575102,
+              "p5": 0.0,
+              "p50": 0.0,
+              "p95": 0.04
+            },
+            "variants": {
+              "kg_ktrack": {
+                "absorber_latent": 1032,
+                "recall_anchor_plus_kg": 1.0,
+                "gain_kg": 1.0,
+                "kg_percentile_vs_random": 0.9973753280839895,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.9899212598425197,
+                  "ci_lo": 0.9883464566929133,
+                  "ci_hi": 0.9912860892388451,
+                  "excl_0": true,
+                  "n": 25
+                },
+                "measured_success": true
+              }
+            }
+          },
+          "outside": {
+            "status": "skip_too_few_eval",
+            "n_eval": 4,
+            "n_sel": 14,
+            "recall_anchor_selection": 0.0
+          },
+          "options": {
+            "status": "skip_too_few_eval",
+            "n_eval": 3,
+            "n_sel": 13,
+            "recall_anchor_selection": 0.38461538461538464
+          },
+          "offer": {
+            "status": "skip_too_few_eval",
+            "n_eval": 4,
+            "n_sel": 42,
+            "recall_anchor_selection": 0.07142857142857142
+          },
+          "old": {
+            "status": "skip_too_few_eval",
+            "n_eval": 4,
+            "n_sel": 21,
+            "recall_anchor_selection": 0.19047619047619047
+          }
+        },
+        "honest_negatives": [],
+        "n_measured_successful_repairs": 1,
+        "n_control_latents": 381,
+        "overall_anchor_recall_selection": 0.40763723150357994
+      },
+      "T": {
+        "per_subcontext": {
+          "type": {
+            "status": "skip_too_few_eval",
+            "n_eval": 4,
+            "n_sel": 4,
+            "recall_anchor_selection": 0.0
+          },
+          "things": {
+            "status": "skip_too_few_eval",
+            "n_eval": 2,
+            "n_sel": 26,
+            "recall_anchor_selection": 0.0
+          },
+          "treatment": {
+            "status": "skip_too_few_eval",
+            "n_eval": 13,
+            "n_sel": 9,
+            "recall_anchor_selection": 0.3333333333333333
+          },
+          "there": {
+            "status": "skip_too_few_eval",
+            "n_eval": 11,
+            "n_sel": 49,
+            "recall_anchor_selection": 0.0
+          }
+        },
+        "honest_negatives": [],
+        "n_measured_successful_repairs": 0,
+        "n_control_latents": 294,
+        "overall_anchor_recall_selection": 0.24255096706743334
+      },
+      "D": {
+        "per_subcontext": {
+          "different": {
+            "status": "skip_too_few_eval",
+            "n_eval": 8,
+            "n_sel": 33,
+            "recall_anchor_selection": 0.0
+          },
+          "day": {
+            "status": "measured",
+            "is_hole": true,
+            "n_eval": 15,
+            "n_sel": 9,
+            "recall_anchor_selection": 0.0,
+            "recall_anchor_eval": 0.0,
+            "random_gain": {
+              "mean": 0.005898123324396784,
+              "sd": 0.026306873269668057,
+              "p5": 0.0,
+              "p50": 0.0,
+              "p95": 0.06666666666666667
+            },
+            "variants": {
+              "kg_ktrack": {
+                "absorber_latent": 10769,
+                "recall_anchor_plus_kg": 1.0,
+                "gain_kg": 1.0,
+                "kg_percentile_vs_random": 1.0,
+                "paired_bootstrap_CI_kg_minus_random": {
+                  "diff": 0.994101876675603,
+                  "ci_lo": 0.9910634495084896,
+                  "ci_hi": 0.9967828418230561,
+                  "excl_0": true,
+                  "n": 15
+                },
+                "measured_success": true
+              }
+            }
+          },
+          "development": {
+            "status": "skip_too_few_eval",
+            "n_eval": 0,
+            "n_sel": 13,
+            "recall_anchor_selection": 0.0
+          },
+          "did": {
+            "status": "skip_too_few_eval",
+            "n_eval": 13,
+            "n_sel": 37,
+            "recall_anchor_selection": 0.02702702702702703
+          },
+          "display": {
+            "status": "skip_too_few_eval",
+            "n_eval": 1,
+            "n_sel": 3,
+            "recall_anchor_selection": 0.0
+          },
+          "down": {
+            "status": "skip_too_few_eval",
+            "n_eval": 8,
+            "n_sel": 19,
+            "recall_anchor_selection": 0.0
+          },
+          "described": {
+            "status": "skip_too_few_eval",
+            "n_eval": 7,
+            "n_sel": 19,
+            "recall_anchor_selection": 0.0
+          }
+        },
+        "honest_negatives": [],
+        "n_measured_successful_repairs": 1,
+        "n_control_latents": 373,
+        "overall_anchor_recall_selection": 0.32109589041095893
+      }
+    },
+    "k_localization_check": {
+      "taxonomic": {
+        "status": "run",
+        "variant": "JTT(ERM->upweight error set lambda=20->retrain)",
+        "erm_train_acc": 1.0,
+        "error_set_size": 0,
+        "hard_set_size": 1495,
+        "hard_set_mode": "lowest-margin-20pct (linearly separable)",
+        "projection_argmax_latent": 3792,
+        "projection_top_abscos": 0.44086421756926536,
+        "projection_second_abscos": 0.26394802134983364,
+        "single_latent_dominates": false,
+        "kg_absorber_is_argmax": false,
+        "kg_absorber_projection_ranks": {
+          "Georgia": {
+            "latent": 4697,
+            "cos": 0.046892629129500846,
+            "rank_by_abscos": 1728
+          },
+          "Jordan": {
+            "latent": 9339,
+            "cos": 0.13025916065129872,
+            "rank_by_abscos": 52
+          },
+          "United States": {
+            "latent": 8442,
+            "cos": -0.009444576452071592,
+            "rank_by_abscos": 11015
+          }
+        },
+        "k_worstgroup_recall_on_X": {
+          "Georgia": 1.0,
+          "Jordan": 1.0,
+          "United States": 1.0
+        },
+        "conclusion": "KG names exactly one addable, auditable latent per sub-context; the (k) example-reweighting probe yields a dense hyperplane that does NOT localize to any single SAE latent (KG absorber is not the deco..."
+      }
+    },
+    "member_labeling": {
+      "per_member": [
+        {
+          "concept": "taxonomic",
+          "member": 3792,
+          "role": "anchor",
+          "ground_truth": 0,
+          "ground_truth_label": "GENERAL parent (any country name)",
+          "judge_index": 0,
+          "judge_label": "GENERAL parent (any country name)",
+          "candidates": [
+            "GENERAL parent (any country name)",
+            "Georgia",
+            "Jordan"
+          ],
+          "correct": true,
+          "n_candidates": 4,
+          "model": "anthropic/claude-haiku-4.5",
+          "logit_lens_tokens": [
+            "LookAnd",
+            "Мексичка",
+            "Majefty"
+          ],
+          "top_windows": [
+            "Cabra\n\nCabra may refer to:\n\n**Ireland**\nCabra, Dublin, a district in north Dublin, Ireland\nCabra, County Down, a townland in County Down, Northern Ireland\nCabragh, Fertiana, County Tipperary, a townl....",
+            "...n football defenders\nCategory:La Liga players\nCategory:Tercera División players\nCategory:Sporting de Gijón players\nCategory:Real Burgos CF footballers\nCategory:**Spain** B international",
+            "Share Attraction:\n\nLocation\n\nAdd to Custom Tour\n\nCreate your very own **Ireland** tour with our Tailor Made Tours section. Once you've created an account and logged in, you can add your favourite attr..."
+          ]
+        },
+        {
+          "concept": "taxonomic",
+          "member": 4697,
+          "role": "absorber",
+          "ground_truth": 1,
+          "ground_truth_label": "Georgia",
+          "judge_index": 1,
+          "judge_label": "Georgia",
+          "candidates": [
+            "GENERAL parent (any country name)",
+            "Georgia",
+            "Jordan"
+          ],
+          "correct": true,
+          "n_candidates": 4,
+          "model": "anthropic/claude-haiku-4.5",
+          "logit_lens_tokens": [
+            "CTP",
+            "twister",
+            "CommandText"
+          ],
+          "top_windows": [
+            "... in 1988 by mycologists James E. Adaskaveg and Robert Lee Gilbertson, it is found in the southeastern United States in the Gulf Coast region from east Texas to **Georgia**.",
+            "Two **Georgia** police officers have been fired today after videos surfaced online showing a man being punched and kicked during a traffic stop, police said. The Gwinnett Coun...",
+            "Bigvava appeared for the **Georgia** national football team in a 1990 friendly against Lithuania. He made his final appearance for Georgia in a 1993 friendly against Azerbaijan. FC Saarbrücken pla..."
+          ]
+        },
+        {
+          "concept": "taxonomic",
+          "member": 9339,
+          "role": "absorber",
+          "ground_truth": 2,
+          "ground_truth_label": "Jordan",
+          "judge_index": 2,
+          "judge_label": "Jordan",
+          "candidates": [
+            "GENERAL parent (any country name)",
+            "Georgia",
+            "Jordan"
+          ],
+          "correct": true,
+          "n_candidates": 4,
+          "model": "anthropic/claude-haiku-4.5",
+          "logit_lens_tokens": [
+            "Basket",
+            "Syr",
+            "Schal"
+          ],
+          "top_windows": [
+            "Initially in Tunisia, popular revolt spread regionally across North Africa and the Middle East, erupting in Algeria, **Jordan**, Egypt and Yemen. On January 27, Al Jazeera reported revolutionary fervo...",
+            "Roseman practiced addition by subtraction in getting rid of many of Kelly’s favorite players, including Kiko Alonso, DeMarco Murray, Ryan Mathews, **Jordan** Matthews, Sam Bradford and Byron Maxwell, ...",
+            "...th it as much as we could, but you are fighting the clock and you are fighting the score,\" offensive coordinator Dowell Loggains said. \"A lot of credit goes to **Jordan** because Jordan has made so..."
+          ]
+        }
+      ],
+      "scoring": {
+        "status": "scored",
+        "agreement": 0.7164179104477612,
+        "null_mean_shuffle": 0.08982089552238806,
+        "analytic_chance": 0.08688699360341148,
+        "gap": 0.6265970149253731,
+        "gap_bootstrap_CI": {
+          "lo": 0.5221194029850746,
+          "hi": 0.7310746268656717,
+          "excl_0": true
+        },
+        "n_members": 67,
+        "n_parse_fail": 0,
+        "per_role_accuracy": {
+          "anchor": {
+            "n": 5,
+            "acc": 0.2
+          },
+          "absorber": {
+            "n": 62,
+            "acc": 0.7580645161290323
+          }
+        },
+        "confusion": {
+          "GENERAL parent (any country name)": {
+            "GENERAL parent (any country name)": 1
+          },
+          "Georgia": {
+            "Georgia": 2
+          },
+          "Jordan": {
+            "Jordan": 2
+          },
+          "United States": {
+            "United States": 2
+          },
+          "GENERAL parent (any word starting with 'L')": {
+            "legal": 1
+          },
+          "linking": {
+            "linking": 1
+          },
+          "leads": {
+            "leads": 1
+          },
+          "list": {
+            "list": 1
+          },
+          "large": {
+            "large": 1
+          },
+          "line": {
+            "line": 1
+          },
+          "Let": {
+            "Let": 1
+          },
+          "level": {
+            "level": 1
+          },
+          "low": {
+            "listed": 1
+          },
+          "leave": {
+            "leave": 1
+          },
+          "latent_15261": {
+            "L": 1
+          },
+          "L": {
+            "L": 1
+          },
+          "listed": {
+            "list": 1
+          },
+          "legal": {
+            "legal": 1
+          },
+          "like": {
+            "like": 1
+          },
+          "GENERAL parent (any word starting with 'O')": {
+            "Object": 1
+          },
+          "latent_14473": {
+            "options": 1
+          },
+          "off": {
+            "Object": 1
+          },
+          "our": {
+            "our": 1
+          },
+          "outside": {
+            "outside": 1
+          },
+          "o": {
+            "o": 1
+          },
+          "options": {
+            "Offering": 1
+          },
+          "Offering": {
+            "on": 1
+          },
+          "offline": {
+            "offline": 1
+          },
+          "offer": {
+            "offer": 1
+          },
+          "on": {
+            "on": 1
+          },
+          "old": {
+            "old": 1
+          },
+          "only": {
+            "only": 1
+          },
+          "office": {
+            "office": 1
+          },
+          "Object": {
+            "offer": 1
+          },
+          "GENERAL parent (any word starting with 'T')": {
+            "Title": 1
+          },
+          "That": {
+            "That": 1
+          },
+          "Thornton": {
+            "GENERAL parent (any word starting with 'T')": 1
+          },
+          "T": {
+            "T": 1
+          },
+          "Title": {
+            "Title": 1
+          },
+          "type": {
+            "trying": 1
+          },
+          "they": {
+            "they": 1
+          },
+          "things": {
+            "things": 1
+          },
+          "trial": {
+            "Title": 1
+          },
+          "themselves": {
+            "themselves": 1
+          },
+          "treatment": {
+            "treatment": 1
+          },
+          "than": {
+            "than": 1
+          },
+          "trying": {
+            "trying": 1
+          },
+          "time": {
+            "time": 1
+          },
+          "there": {
+            "there": 1
+          },
+          "GENERAL parent (any word starting with 'D')": {
+            "DN": 1
+          },
+          "DN": {
+            "DN": 1
+          },
+          "don": {
+            "don": 1
+          },
+          "different": {
+            "different": 1,
+            "described": 1
+          },
+          "directory": {
+            "directory": 1
+          },
+          "day": {
+            "day": 1
+          },
+          "development": {
+            "development": 1
+          },
+          "did": {
+            "did": 1
+          },
+          "delighted": {
+            "GENERAL parent (any word starting with 'D')": 1
+          },
+          "display": {
+            "display": 1
+          },
+          "down": {
+            "down": 1
+          },
+          "Douglas": {
+            "GENERAL parent (any word starting with 'D')": 1
+          },
+          "described": {
+            "described": 1
+          },
+          "latent_2568": {
+            "GENERAL parent (any word starting with 'D')": 1
+          }
+        }
+      },
+      "llm_cost_usd": 0.04656,
+      "llm_calls": 84,
+      "llm_errors": 0
+    },
+    "verdict": {
+      "kg_utility_measured": true,
+      "n_measured_successful_repairs": 8,
+      "member_labeling_above_null": true,
+      "replaces_iter2_assertion": true,
+      "notes": "At least one KG-named repair beats the random-addition control (paired-bootstrap CI excludes 0): the emitted feature knowledge-graph carries MEASURED localization utility, not just a 70-edge assertion..."
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "kg_repair_loop",
+      "examples": [
+        {
+          "input": "taxonomic | under-served sub-context 'Georgia' | add KG-named absorber 4697 (kg_ktrack) to anchor 3792",
+          "output": "repair_significant",
+          "metadata_concept": "taxonomic",
+          "metadata_subcontext": "Georgia",
+          "metadata_variant": "kg_ktrack",
+          "metadata_recall_anchor_eval": 0.2,
+          "metadata_recall_anchor_plus_kg": 1.0,
+          "metadata_gain_kg": 0.8,
+          "metadata_kg_percentile_vs_random": 0.9940915805022157,
+          "metadata_ci_lo": 0.7026381093057608,
+          "metadata_ci_hi": 0.8232200886262925,
+          "metadata_n_eval": 150
+        },
+        {
+          "input": "taxonomic | under-served sub-context 'Georgia' | add KG-named absorber 16009 (kg_diagnostic) to anchor 3792",
+          "output": "repair_significant",
+          "metadata_concept": "taxonomic",
+          "metadata_subcontext": "Georgia",
+          "metadata_variant": "kg_diagnostic",
+          "metadata_recall_anchor_eval": 0.2,
+          "metadata_recall_anchor_plus_kg": 1.0,
+          "metadata_gain_kg": 0.8,
+          "metadata_kg_percentile_vs_random": 0.9940915805022157,
+          "metadata_ci_lo": 0.7012304283604136,
+          "metadata_ci_hi": 0.8234862136878384,
+          "metadata_n_eval": 150
+        },
+        {
+          "input": "taxonomic | under-served sub-context 'Jordan' | add KG-named absorber 9339 (kg_ktrack) to anchor 3792",
+          "output": "repair_significant",
+          "metadata_concept": "taxonomic",
+          "metadata_subcontext": "Jordan",
+          "metadata_variant": "kg_ktrack",
+          "metadata_recall_anchor_eval": 0.2903225806451613,
+          "metadata_recall_anchor_plus_kg": 1.0,
+          "metadata_gain_kg": 0.7096774193548387,
+          "metadata_kg_percentile_vs_random": 0.9985228951255539,
+          "metadata_ci_lo": 0.6108063920522229,
+          "metadata_ci_hi": 0.7671901057797684,
+          "metadata_n_eval": 124
+        }
+      ]
+    },
+    {
+      "dataset": "member_labeling",
+      "examples": [
+        {
+          "input": "taxonomic member 3792 (anchor); candidates=['GENERAL parent (any country name)', 'Georgia', 'Jordan', 'United States']",
+          "output": "GENERAL parent (any country name)",
+          "predict_judge": "GENERAL parent (any country name)",
+          "metadata_concept": "taxonomic",
+          "metadata_member": 3792,
+          "metadata_role": "anchor",
+          "metadata_correct": true,
+          "metadata_model": "anthropic/claude-haiku-4.5"
+        },
+        {
+          "input": "taxonomic member 4697 (absorber); candidates=['GENERAL parent (any country name)', 'Georgia', 'Jordan', 'United States']",
+          "output": "Georgia",
+          "predict_judge": "Georgia",
+          "metadata_concept": "taxonomic",
+          "metadata_member": 4697,
+          "metadata_role": "absorber",
+          "metadata_correct": true,
+          "metadata_model": "anthropic/claude-haiku-4.5"
+        },
+        {
+          "input": "taxonomic member 9339 (absorber); candidates=['GENERAL parent (any country name)', 'Georgia', 'Jordan', 'United States']",
+          "output": "Jordan",
+          "predict_judge": "Jordan",
+          "metadata_concept": "taxonomic",
+          "metadata_member": 9339,
+          "metadata_role": "absorber",
+          "metadata_correct": true,
+          "metadata_model": "anthropic/claude-haiku-4.5"
+        }
+      ]
+    }
+  ]
+}

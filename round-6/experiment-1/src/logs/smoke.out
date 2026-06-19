@@ -1,0 +1,31 @@
+05:35:04|INFO   |  53.8s torch 2.6.0+cu124 cuda=True device=cuda
+05:35:15|INFO   |  64.7s loading SAE from /root/.cache/huggingface/hub/models--google--gemma-scope-2b-pt-res/snapshots/fd571b47c1c64851e9b1989792367b9babb4af63/layer_12/width_16k/average_l0_82/params.npz
+05:35:16|INFO   |  65.2s SAE loaded d_sae=16384 d_model=2304
+05:37:22|INFO   | 191.2s loading tokenizer+model google/gemma-2-2b
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+05:38:26|INFO   | 255.7s model loaded (google/gemma-2-2b) d_model=2304 n_layers=26 vocab=256000
+05:38:28|INFO   | 258.1s FVU by hidden_states idx: 12:0.284, 13:0.193, 14:0.339 -> selected 13
+05:38:29|INFO   |    encoded 16/64 (0s)
+05:38:29|INFO   | 259.0s encoded 64 rows in 1s | dropped=0 | align=1.000 | nnz/row=131
+05:38:30|INFO   | 259.1s GATING cosine=0.9189 L0=87.9 layer_idx=13 Rnorm=478.6
+05:38:30|INFO   | 259.3s ===== SMOKE =====
+05:38:30|INFO   |    encoded 8/8 (0s)
+05:38:30|INFO   | 259.4s encoded 8 rows in 0s | dropped=0 | align=1.000 | nnz/row=100
+05:38:38|INFO   | 267.2s SMOKE gen base='New York
+Robert Rakestraw (born 1951), American po' kg='New York
+Robert Rakestraw (born 1951), American po' sub='Georgia
+William Rakestraw (1899–1981), American fo' whole='Georgia
+William Rakestraw (1899–1981), American fo'
+05:38:38|INFO   | 267.2s SMOKE u_sub norm_ok=True cos_with_whole=1.000 sub_distinct=False unit_gen='New York
+Robert Rakestraw (born 1951), American po'
+05:38:38|INFO   | 267.2s SMOKE footprint KG=0.00000 SUB=1.00000
+05:38:41|INFO   | 270.3s second judge resolved -> openai/gpt-4o-mini
+Traceback (most recent call last):
+  File "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_6/gen_art/gen_art_experiment_1/method.py", line 1788, in <module>
+    main()
+  File "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_6/gen_art/gen_art_experiment_1/method.py", line 1634, in main
+    run_smoke(torch, sae, mb, canon, gating, tax_rows, out)
+  File "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_6/gen_art/gen_art_experiment_1/method.py", line 1455, in run_smoke
+    assert abs(cos_sw) < 1.0, "u_sub not distinct from whole-parent direction"
+           ^^^^^^^^^^^^^^^^^
+AssertionError: u_sub not distinct from whole-parent direction

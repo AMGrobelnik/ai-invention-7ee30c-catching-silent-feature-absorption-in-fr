@@ -1,0 +1,101 @@
+{
+ "metadata": {
+  "method_name": "M2' Safety-Relevant Absorption-Structured Downstream Win (or Honest-Null) vs u_sub",
+  "description": "Build safety identity slices inline (religion/race/orientation/nationality via civil_comments gazetteer + content-flip templates); run a $0 recall-hole + firing-Jaccard absorption screen on the frozen Gemma-Scope L12/16k JumpReLU SAE; CONDITIONALLY run KG-named single-absorber ablation vs u_sub=diff-of-means(target, SIBLINGS) at matched forget on a joint retain-utility x fluency LLM judge. Georgia/Jordan are an end-to-end positive control. NO_SAFETY_ABSORPTION is the publishable capping limitation.",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "unsloth/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "Rnorm": 478.6302947998047,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189349412918091,
+   "L0": 87.9375,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2838386548289832,
+    "13": 0.19299182784889848,
+    "14": 0.3387158481703969
+   },
+   "Rnorm": 478.6302947998047
+  },
+  "screen_thresholds": {
+   "recall_hole_flag": 0.5,
+   "jaccard_max": 0.1,
+   "precision_floor": 0.7,
+   "min_eligible": 150,
+   "covgain_floor": 0.05,
+   "parent_fire_floor": 0.2,
+   "parent_corpus_floor": 0.05,
+   "recall_hole_high": 0.78
+  },
+  "forget_grids": {
+   "LAM_GRID": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "BETA_GRID": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0
+   ]
+  },
+  "judge": {
+   "primary": "anthropic/claude-haiku-4.5",
+   "second": "google/gemini-2.5-flash",
+   "temp": 0.0,
+   "target_usd": 3.0,
+   "hard_cap_usd": 9.5,
+   "spent_usd": 0.00048800000000000004,
+   "n_calls": 1
+  },
+  "canonical_units_used": {
+   "taxonomic_anchor": 3792,
+   "georgia_absorber": 16009
+  },
+  "smoke": {
+   "civil_source": "google/civil_comments",
+   "n_civil": 19493,
+   "z_georgia_16009": 10.36216926574707,
+   "z_france_16009": 0.0,
+   "token_locality_ok": true,
+   "gen_base": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby C",
+   "gen_kg": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby C",
+   "gen_dense_sub": "Technology in the 1982-83 season. The Yellow Jackets were coached by Bobby Crean in his first season as head coach. The ",
+   "gen_diff": true,
+   "judge_result": {
+    "fluency": 2,
+    "content_pres": 0
+   },
+   "judge_spent_usd": 0.00048800000000000004
+  }
+ },
+ "datasets": [
+  {
+   "dataset": "smoke",
+   "examples": [
+    {
+     "input": "smoke",
+     "output": "ok",
+     "predict_kg_abl": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yello",
+     "predict_absorption": "SMOKE"
+    }
+   ]
+  }
+ ]
+}

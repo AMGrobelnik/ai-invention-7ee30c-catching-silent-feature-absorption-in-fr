@@ -1,0 +1,1049 @@
+{
+ "metadata": {
+  "method_name": "M3'''' Absorption-Coverage Screen + Shipped Label-Free Practitioner Screen",
+  "overall_verdict": "COVERAGE_QUANTIFIED",
+  "run_scale": "full",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_id": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot_gain": 5000,
+  "B_boot_coverage": 10000,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189,
+   "L0": 87.9,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2827,
+    "13": 0.1928,
+    "14": 0.338
+   }
+  },
+  "screen_thresholds": {
+   "RECALL_HOLE_MIN": 0.5,
+   "JAC_MAX": 0.1,
+   "PREC_MIN": 0.7,
+   "GAIN_MIN": 0.05,
+   "N_ELIGIBLE_MIN": 150,
+   "DECODER_COS_MIN": 0.025,
+   "MIN_FIRE_DIAG": 5
+  },
+  "n_candidates_screened": 336,
+  "n_eligible": 110,
+  "coverage_table": [
+   {
+    "hierarchy": "first_letter_spelling",
+    "gate": "strict",
+    "N": 0,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.0,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "first_letter_spelling",
+    "gate": "relaxed",
+    "N": 154,
+    "n_structured": 20,
+    "fraction": 0.1299,
+    "wilson_lo": 0.0857,
+    "wilson_hi": 0.1921,
+    "boot_lo": 0.0779,
+    "boot_hi": 0.1883
+   },
+   {
+    "hierarchy": "homograph_brand",
+    "gate": "strict",
+    "N": 1,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.7935,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "homograph_brand",
+    "gate": "relaxed",
+    "N": 13,
+    "n_structured": 1,
+    "fraction": 0.0769,
+    "wilson_lo": 0.0137,
+    "wilson_hi": 0.3331,
+    "boot_lo": 0.0,
+    "boot_hi": 0.2308
+   },
+   {
+    "hierarchy": "homograph_city",
+    "gate": "strict",
+    "N": 18,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.1759,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "homograph_city",
+    "gate": "relaxed",
+    "N": 23,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.1431,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "homograph_given_name",
+    "gate": "strict",
+    "N": 3,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.5615,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "homograph_given_name",
+    "gate": "relaxed",
+    "N": 33,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.1043,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "homograph_month",
+    "gate": "strict",
+    "N": 12,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.2425,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "homograph_month",
+    "gate": "relaxed",
+    "N": 12,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.2425,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "safety_ethnicity_identity",
+    "gate": "strict",
+    "N": 10,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.2775,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "safety_ethnicity_identity",
+    "gate": "relaxed",
+    "N": 11,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.2588,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "safety_named_entity_safety",
+    "gate": "strict",
+    "N": 5,
+    "n_structured": 3,
+    "fraction": 0.6,
+    "wilson_lo": 0.2307,
+    "wilson_hi": 0.8824,
+    "boot_lo": 0.2,
+    "boot_hi": 1.0
+   },
+   {
+    "hierarchy": "safety_named_entity_safety",
+    "gate": "relaxed",
+    "N": 26,
+    "n_structured": 6,
+    "fraction": 0.2308,
+    "wilson_lo": 0.1103,
+    "wilson_hi": 0.4205,
+    "boot_lo": 0.0769,
+    "boot_hi": 0.3846
+   },
+   {
+    "hierarchy": "safety_nationality",
+    "gate": "strict",
+    "N": 31,
+    "n_structured": 2,
+    "fraction": 0.0645,
+    "wilson_lo": 0.0179,
+    "wilson_hi": 0.2072,
+    "boot_lo": 0.0,
+    "boot_hi": 0.1613
+   },
+   {
+    "hierarchy": "safety_nationality",
+    "gate": "relaxed",
+    "N": 31,
+    "n_structured": 2,
+    "fraction": 0.0645,
+    "wilson_lo": 0.0179,
+    "wilson_hi": 0.2072,
+    "boot_lo": 0.0,
+    "boot_hi": 0.1613
+   },
+   {
+    "hierarchy": "safety_religion",
+    "gate": "strict",
+    "N": 10,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.2775,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "safety_religion",
+    "gate": "relaxed",
+    "N": 12,
+    "n_structured": 0,
+    "fraction": 0.0,
+    "wilson_lo": 0.0,
+    "wilson_hi": 0.2425,
+    "boot_lo": 0.0,
+    "boot_hi": 0.0
+   },
+   {
+    "hierarchy": "taxonomic_country",
+    "gate": "strict",
+    "N": 20,
+    "n_structured": 1,
+    "fraction": 0.05,
+    "wilson_lo": 0.0089,
+    "wilson_hi": 0.2361,
+    "boot_lo": 0.0,
+    "boot_hi": 0.15
+   },
+   {
+    "hierarchy": "taxonomic_country",
+    "gate": "relaxed",
+    "N": 21,
+    "n_structured": 2,
+    "fraction": 0.0952,
+    "wilson_lo": 0.0265,
+    "wilson_hi": 0.2891,
+    "boot_lo": 0.0,
+    "boot_hi": 0.2381
+   },
+   {
+    "hierarchy": "POOLED",
+    "gate": "strict",
+    "N": 110,
+    "n_structured": 6,
+    "fraction": 0.0545,
+    "wilson_lo": 0.0252,
+    "wilson_hi": 0.1139,
+    "boot_lo": 0.0182,
+    "boot_hi": 0.1
+   },
+   {
+    "hierarchy": "POOLED",
+    "gate": "relaxed",
+    "N": 336,
+    "n_structured": 31,
+    "fraction": 0.0923,
+    "wilson_lo": 0.0658,
+    "wilson_hi": 0.128,
+    "boot_lo": 0.0625,
+    "boot_hi": 0.125
+   }
+  ],
+  "coverage_headline": {
+   "pooled_strict_fraction": 0.0545,
+   "pooled_strict_ci_wilson": [
+    0.0252,
+    0.1139
+   ],
+   "pooled_strict_n": "6/110",
+   "pooled_relaxed_fraction": 0.0923,
+   "pooled_relaxed_ci_wilson": [
+    0.0658,
+    0.128
+   ],
+   "pooled_relaxed_n": "31/336",
+   "per_hierarchy_structured_counts": {
+    "first_letter_spelling": {
+     "strict": "0/0",
+     "relaxed": "20/154"
+    },
+    "homograph_brand": {
+     "strict": "0/1",
+     "relaxed": "1/13"
+    },
+    "homograph_city": {
+     "strict": "0/18",
+     "relaxed": "0/23"
+    },
+    "homograph_given_name": {
+     "strict": "0/3",
+     "relaxed": "0/33"
+    },
+    "homograph_month": {
+     "strict": "0/12",
+     "relaxed": "0/12"
+    },
+    "safety_ethnicity_identity": {
+     "strict": "0/10",
+     "relaxed": "0/11"
+    },
+    "safety_named_entity_safety": {
+     "strict": "3/5",
+     "relaxed": "6/26"
+    },
+    "safety_nationality": {
+     "strict": "2/31",
+     "relaxed": "2/31"
+    },
+    "safety_religion": {
+     "strict": "0/10",
+     "relaxed": "0/12"
+    },
+    "taxonomic_country": {
+     "strict": "1/20",
+     "relaxed": "2/21"
+    }
+   }
+  },
+  "screen_vs_oracle_agreement": {
+   "per_hierarchy": {
+    "first_letter_spelling": {
+     "n": 133,
+     "acc": 0.5188,
+     "kappa": 0.1572
+    },
+    "homograph_brand": {
+     "n": 13,
+     "acc": 0.4615,
+     "kappa": 0.099
+    },
+    "homograph_city": {
+     "n": 23,
+     "acc": 0.4783,
+     "kappa": 0.0
+    },
+    "homograph_given_name": {
+     "n": 33,
+     "acc": 0.4848,
+     "kappa": 0.0
+    },
+    "homograph_month": {
+     "n": 12,
+     "acc": 0.0833,
+     "kappa": -0.0
+    },
+    "safety_ethnicity_identity": {
+     "n": 11,
+     "acc": 0.1818,
+     "kappa": 0.0
+    },
+    "safety_named_entity_safety": {
+     "n": 26,
+     "acc": 0.4615,
+     "kappa": 0.1078
+    },
+    "safety_nationality": {
+     "n": 31,
+     "acc": 0.2581,
+     "kappa": 0.0326
+    },
+    "safety_religion": {
+     "n": 12,
+     "acc": 0.0833,
+     "kappa": -0.0
+    },
+    "taxonomic_country": {
+     "n": 21,
+     "acc": 0.2857,
+     "kappa": -0.0606
+    }
+   },
+   "lexical_pooled": {
+    "n": 294,
+    "acc": 0.4286,
+    "kappa": 0.0785
+   },
+   "structured_corroboration": {
+    "all_structured": {
+     "n": 31,
+     "n_corroborated": 27,
+     "frac": 0.871
+    },
+    "lexical_structured": {
+     "n": 29,
+     "n_corroborated": 26,
+     "frac": 0.8966
+    },
+    "taxonomic_structured": {
+     "n": 2,
+     "n_corroborated": 1,
+     "frac": 0.5
+    },
+    "structured_tokens": [
+     {
+      "token": "left",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.2689,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "little",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.0327,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "long",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.2587,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "light",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.3302,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "own",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.2395,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "overall",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.0485,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "open",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": -0.0212,
+      "oracle_corroborates": false
+     },
+     {
+      "token": "outside",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.1687,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "our",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.1971,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "only",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.0334,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "online",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.0691,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "think",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.1922,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "The",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.1299,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "that",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.1057,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "treatment",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.0298,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "its",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.0405,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "invention",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.0768,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "does",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": -0.0024,
+      "oracle_corroborates": false
+     },
+     {
+      "token": "don",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.1869,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "decision",
+      "hierarchy": "first_letter_spelling",
+      "oracle_decoder_cos": 0.227,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "Georgia",
+      "hierarchy": "taxonomic_country",
+      "oracle_decoder_cos": 0.0121,
+      "oracle_corroborates": false
+     },
+     {
+      "token": "Jordan",
+      "hierarchy": "taxonomic_country",
+      "oracle_decoder_cos": 0.0593,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "Amazon",
+      "hierarchy": "homograph_brand",
+      "oracle_decoder_cos": 0.254,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "British",
+      "hierarchy": "safety_nationality",
+      "oracle_decoder_cos": 0.1184,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "Greek",
+      "hierarchy": "safety_nationality",
+      "oracle_decoder_cos": 0.037,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "Amazon",
+      "hierarchy": "safety_named_entity_safety",
+      "oracle_decoder_cos": 0.1189,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "Bell",
+      "hierarchy": "safety_named_entity_safety",
+      "oracle_decoder_cos": 0.0708,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "Bush",
+      "hierarchy": "safety_named_entity_safety",
+      "oracle_decoder_cos": 0.035,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "West",
+      "hierarchy": "safety_named_entity_safety",
+      "oracle_decoder_cos": 0.1399,
+      "oracle_corroborates": true
+     },
+     {
+      "token": "Hunt",
+      "hierarchy": "safety_named_entity_safety",
+      "oracle_decoder_cos": 0.0035,
+      "oracle_corroborates": false
+     },
+     {
+      "token": "Cook",
+      "hierarchy": "safety_named_entity_safety",
+      "oracle_decoder_cos": 0.0343,
+      "oracle_corroborates": true
+     }
+    ]
+   },
+   "note_on_full_agreement": "per-hierarchy acc/kappa are computed over ALL candidates with an absorber (mostly non-structured negatives), so they are diluted; the load-bearing quantity is structured_corroboration.",
+   "taxonomic": {
+    "n": 21,
+    "acc": 0.2857,
+    "kappa": -0.0606,
+    "caveat": "decoder-projection oracle is concept-tuned and UNDER-fires for the taxonomic 'country' direction (Georgia's decoder is near-orthogonal to the generic country direction) -> low agreement is EXPECTED, n"
+   }
+  },
+  "control_reproduction": {
+   "positive_controls": {
+    "Georgia": {
+     "taxonomic_country": {
+      "predict": "ABSORPTION_STRUCTURED",
+      "strict": true,
+      "relaxed": true,
+      "recall_hole": 0.7333,
+      "firing_jaccard": 0.0218,
+      "precision": 0.8021,
+      "gain": 0.7333,
+      "n_eligible": 150
+     }
+    },
+    "Amazon": {
+     "homograph_brand": {
+      "predict": "DESCRIPTIVE_ONLY",
+      "strict": false,
+      "relaxed": true,
+      "recall_hole": 0.5556,
+      "firing_jaccard": 0.0886,
+      "precision": 0.96,
+      "gain": 0.5556,
+      "n_eligible": 144
+     },
+     "safety_named_entity_safety": {
+      "predict": "ABSORPTION_STRUCTURED",
+      "strict": true,
+      "relaxed": true,
+      "recall_hole": 0.62,
+      "firing_jaccard": 0.0428,
+      "precision": 0.9934,
+      "gain": 0.62,
+      "n_eligible": 150
+     }
+    },
+    "Bush": {
+     "safety_named_entity_safety": {
+      "predict": "ABSORPTION_STRUCTURED",
+      "strict": true,
+      "relaxed": true,
+      "recall_hole": 0.7933,
+      "firing_jaccard": 0.0252,
+      "precision": 0.9241,
+      "gain": 0.7667,
+      "n_eligible": 150
+     }
+    },
+    "Cook": {
+     "safety_named_entity_safety": {
+      "predict": "ABSORPTION_STRUCTURED",
+      "strict": true,
+      "relaxed": true,
+      "recall_hole": 0.72,
+      "firing_jaccard": 0.0525,
+      "precision": 0.848,
+      "gain": 0.7,
+      "n_eligible": 150
+     }
+    },
+    "Georgia_known_absorber_16009": {
+     "known_16009": {
+      "absorber_latent": 16009,
+      "recall_hole": 0.7333,
+      "firing_jaccard": 0.0126,
+      "precision": 0.974,
+      "hole_coverage_gain": 0.7333,
+      "gain_ci_lo": 0.66,
+      "gain_ci_hi": 0.8,
+      "oracle_decoder_cos": -0.0235,
+      "absorption_structured_strict": true,
+      "predict_absorption": "ABSORPTION_STRUCTURED"
+     },
+     "discovered": {
+      "absorber_latent": 4697,
+      "absorption_structured_strict": true,
+      "predict_absorption": "ABSORPTION_STRUCTURED"
+     },
+     "passed": true
+    }
+   },
+   "homograph_informational": {
+    "large": {
+     "first_letter_spelling": {
+      "predict": "DESCRIPTIVE_ONLY",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 1.0,
+      "firing_jaccard": 0.0026,
+      "precision": 0.5217,
+      "gain": 1.0,
+      "n_eligible": 21
+     }
+    },
+    "March": {
+     "homograph_month": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.0867,
+      "firing_jaccard": 0.0949,
+      "precision": 0.0905,
+      "gain": 0.0067,
+      "n_eligible": 150
+     }
+    },
+    "June": {
+     "homograph_month": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.0667,
+      "firing_jaccard": 0.0645,
+      "precision": 1.0,
+      "gain": 0.0667,
+      "n_eligible": 150
+     }
+    },
+    "February": {
+     "homograph_month": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.0733,
+      "firing_jaccard": 0.064,
+      "precision": 1.0,
+      "gain": 0.0733,
+      "n_eligible": 150
+     }
+    },
+    "May": {
+     "homograph_month": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.0933,
+      "firing_jaccard": 0.0906,
+      "precision": 0.061,
+      "gain": 0.0133,
+      "n_eligible": 150
+     }
+    },
+    "Apple": {
+     "homograph_brand": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.1667,
+      "firing_jaccard": 0.0548,
+      "precision": 0.8889,
+      "gain": 0.0733,
+      "n_eligible": 150
+     },
+     "safety_named_entity_safety": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.2533,
+      "firing_jaccard": 0.0265,
+      "precision": 0.625,
+      "gain": 0.1133,
+      "n_eligible": 150
+     }
+    },
+    "King": {
+     "safety_named_entity_safety": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.4133,
+      "firing_jaccard": 0.0674,
+      "precision": 0.8982,
+      "gain": 0.4133,
+      "n_eligible": 150
+     }
+    },
+    "Paris": {
+     "homograph_city": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.2867,
+      "firing_jaccard": 0.0349,
+      "precision": 1.0,
+      "gain": 0.2867,
+      "n_eligible": 150
+     }
+    },
+    "Phoenix": {
+     "homograph_city": {
+      "predict": "NO_HOLE",
+      "strict": false,
+      "relaxed": false,
+      "recall_hole": 0.1067,
+      "firing_jaccard": 0.0474,
+      "precision": 0.961,
+      "gain": 0.1067,
+      "n_eligible": 150
+     }
+    }
+   },
+   "spelling_absorption": {
+    "n_screened": 154,
+    "n_relaxed_structured": 20,
+    "examples": [
+     "The",
+     "decision",
+     "does",
+     "don",
+     "invention",
+     "its",
+     "left",
+     "light",
+     "little",
+     "long",
+     "online",
+     "only",
+     "open",
+     "our",
+     "outside"
+    ],
+    "note": "spelling first-letter absorption reproduces broadly (parent 'starts-with-L' is suppressed and a precise word-specific latent re-encodes it); the canonical 'large' has a strong recall-hole here but a D"
+   },
+   "negative_summary": {
+    "demographic_safety_eligible_N": 51,
+    "demographic_safety_structured_strict": 2,
+    "cities_relaxed_structured": {
+     "Paris": false,
+     "Florence": false,
+     "Columbus": false,
+     "Cleveland": false,
+     "Phoenix": false,
+     "Mobile": false,
+     "Reading": false
+    },
+    "brands_relaxed_structured": {
+     "Shell": false,
+     "Target": false,
+     "Gap": false,
+     "Visa": false
+    },
+    "given_names_relaxed_structured": {
+     "Grace": false,
+     "Hope": false,
+     "Faith": false,
+     "Will": false,
+     "Mark": false
+    }
+   },
+   "professions": {
+    "result": "0/28 (carried from prior iteration art_Iy77UHoNaIhS / iter-5 dossier)",
+    "note": "professions are NOT absorption-structured; cited in honest_negatives, no new data built this iteration (optional stretch skipped to keep $0 / bounded)."
+   }
+  },
+  "shipped_screen_spec": {
+   "entrypoint": "screen.py:screen_token",
+   "cli": "python screen.py --token <T> --windows w.jsonl --siblings s.jsonl [--parent_latent L]",
+   "inputs": [
+    "frozen SAE (release/sae_id)",
+    "candidate token",
+    "raw corpus windows containing the token",
+    "surface-matched sibling windows (precision denominator)",
+    "OPTIONAL pinned parent latent id (else unsupervised highest-sibling-recall parent)"
+   ],
+   "worked_example": "python screen.py --token Georgia --windows example_windows_georgia.jsonl --siblings example_siblings_countries.jsonl --parent_latent 3792 -> ABSORPTION_STRUCTURED, absorber 16009 (canonical Georgia ab",
+   "outputs": [
+    "predict_absorption enum",
+    "absorption_structured (bool)",
+    "recall_hole",
+    "firing_jaccard",
+    "precision",
+    "hole_coverage_gain + bootstrap CI",
+    "absorber_latent",
+    "parent_latent",
+    "oracle_corroborates (optional)"
+   ],
+   "label_free_guarantee": "the four-way flag uses ONLY model-internal firing statistics from a frozen SAE on raw text -- NO diagnostic probe, NO Chanin diagnostic, NO sub-context labels to flag; the form-free decoder-projection",
+   "readme": "README.md"
+  },
+  "honest_negatives": [
+   "absorption is homograph-confined and, within homographs, NAMED-ENTITY-confined in this run (run_4i): structured = Georgia (taxonomic) + spelling word-types + the named-entity homographs Amazon/Bush/Co",
+   "the cross-run 'months only' homograph claim does NOT reproduce here: ALL calendar months are NO_HOLE (the is-a-month parent fires reliably even on homograph-strong May/March), matching this run's iter",
+   "a non-SAE dense probe matches/beats the single unit on classification (carried).",
+   "the fair d_sub-gated dense control closes the edit gap (0/8 KG-beats-both in iter-8); the KG-absorber advantage over the FOOTPRINT-matched control was a footprint artifact.",
+   "set-cover discovery is inert vs the unconstrained max-precision latent (mostly set_cover_eq=True).",
+   "the clustering / multi-member grouping hypothesis did not pay off; the value is a label-free WHERE-screen.",
+   "the decoder-projection oracle is concept-tuned: it confirms lexical/named-entity homograph absorbers but UNDER-fires for taxonomic (Georgia decoder near-orthogonal to the generic country direction).",
+   "cross-stratum token overlap (Amazon in homograph_brand AND safety_named_entity; Apple likewise) is kept as separate rows under different PARENTS and flagged here; coverage dedups per (hierarchy, token",
+   "spelling word-types are mostly DESCRIPTIVE_ONLY (<150 corpus positives) so their coverage is the RELAXED breadth number, not the STRICT inferential one (e.g. 'large' is RELAXED-structured, n_eligible<",
+   "FIRING-SIGNATURE != EDIT-HANDLE: a clean structured signature (e.g. Bush/Cook) need not yield a meaningful single-latent edit handle (carried iter-8 finding)."
+  ],
+  "cost_usd": 0.0,
+  "budget_cap_usd": 10
+ },
+ "datasets": [
+  {
+   "dataset": "absorption_coverage_screen",
+   "examples": [
+    {
+     "input": "Absorption screen for 'left' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "left",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 36,
+     "metadata_n_eligible": 22,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 0.8571,
+     "metadata_firing_jaccard": 0.0081,
+     "metadata_precision": 0.7368,
+     "metadata_hole_coverage_gain": 0.8571,
+     "metadata_gain_ci_lo": 0.6429,
+     "metadata_gain_ci_hi": 1.0,
+     "metadata_random_latent_gain": 0.0,
+     "metadata_absorber_latent": 1911,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": 1911,
+     "metadata_set_cover_eq_max_precision": true,
+     "metadata_concentration_score": 0.3071,
+     "metadata_oracle_decoder_cos": 0.2689,
+     "metadata_oracle_absorption_fraction": 1.0,
+     "metadata_oracle_corroborates": true,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": true
+    },
+    {
+     "input": "Absorption screen for 'load' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "load",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 32,
+     "metadata_n_eligible": 28,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 0.0,
+     "metadata_firing_jaccard": 0.0036,
+     "metadata_precision": 0.0,
+     "metadata_hole_coverage_gain": null,
+     "metadata_gain_ci_lo": null,
+     "metadata_gain_ci_hi": null,
+     "metadata_random_latent_gain": null,
+     "metadata_absorber_latent": 474,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": 8033,
+     "metadata_set_cover_eq_max_precision": false,
+     "metadata_concentration_score": 0.0185,
+     "metadata_oracle_decoder_cos": -0.0061,
+     "metadata_oracle_absorption_fraction": null,
+     "metadata_oracle_corroborates": false,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": false
+    },
+    {
+     "input": "Absorption screen for 'like' (first_letter_spelling): is the parent concept suppressed on this token with a precise, mutually-exclusive absorber latent?",
+     "output": "DESCRIPTIVE_ONLY",
+     "predict_absorption": "DESCRIPTIVE_ONLY",
+     "metadata_token": "like",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_parent": "L",
+     "metadata_family": "first_letter_spelling",
+     "metadata_n_x": 60,
+     "metadata_n_eligible": 29,
+     "metadata_eligible": false,
+     "metadata_anchor": 205,
+     "metadata_recall_hole": 1.0,
+     "metadata_firing_jaccard": 0.0015,
+     "metadata_precision": 0.3,
+     "metadata_hole_coverage_gain": 0.1935,
+     "metadata_gain_ci_lo": 0.0645,
+     "metadata_gain_ci_hi": 0.3226,
+     "metadata_random_latent_gain": 0.0968,
+     "metadata_absorber_latent": 859,
+     "metadata_parent_latent": 205,
+     "metadata_max_prec_latent": 427,
+     "metadata_set_cover_eq_max_precision": false,
+     "metadata_concentration_score": 0.0041,
+     "metadata_oracle_decoder_cos": 0.0436,
+     "metadata_oracle_absorption_fraction": 0.0,
+     "metadata_oracle_corroborates": true,
+     "metadata_absorption_structured_strict": false,
+     "metadata_absorption_structured_relaxed": false
+    }
+   ]
+  },
+  {
+   "dataset": "coverage_summary",
+   "examples": [
+    {
+     "input": "first_letter_spelling coverage (strict gate)",
+     "output": "0.0",
+     "predict_coverage": "0/0",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_gate": "strict",
+     "metadata_N": 0,
+     "metadata_n_structured": 0,
+     "metadata_fraction": 0.0,
+     "metadata_wilson_lo": 0.0,
+     "metadata_wilson_hi": 0.0,
+     "metadata_boot_lo": 0.0,
+     "metadata_boot_hi": 0.0
+    },
+    {
+     "input": "first_letter_spelling coverage (relaxed gate)",
+     "output": "0.1299",
+     "predict_coverage": "20/154",
+     "metadata_hierarchy": "first_letter_spelling",
+     "metadata_gate": "relaxed",
+     "metadata_N": 154,
+     "metadata_n_structured": 20,
+     "metadata_fraction": 0.1299,
+     "metadata_wilson_lo": 0.0857,
+     "metadata_wilson_hi": 0.1921,
+     "metadata_boot_lo": 0.0779,
+     "metadata_boot_hi": 0.1883
+    },
+    {
+     "input": "homograph_brand coverage (strict gate)",
+     "output": "0.0",
+     "predict_coverage": "0/1",
+     "metadata_hierarchy": "homograph_brand",
+     "metadata_gate": "strict",
+     "metadata_N": 1,
+     "metadata_n_structured": 0,
+     "metadata_fraction": 0.0,
+     "metadata_wilson_lo": 0.0,
+     "metadata_wilson_hi": 0.7935,
+     "metadata_boot_lo": 0.0,
+     "metadata_boot_hi": 0.0
+    }
+   ]
+  }
+ ]
+}

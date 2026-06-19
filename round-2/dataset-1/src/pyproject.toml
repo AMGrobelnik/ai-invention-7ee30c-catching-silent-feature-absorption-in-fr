@@ -1,0 +1,10 @@
+[project]
+name = "surface-invariance-superset"
+version = "0.1.0"
+description = "Iter-2 enlargement + independent re-judge of the surface-invariance pair sets (first-letter + toxicity)"
+requires-python = ">=3.12"
+dependencies = [
+    "loguru==0.7.3",
+    "httpx==0.28.1",
+    "numpy==2.4.6",
+]

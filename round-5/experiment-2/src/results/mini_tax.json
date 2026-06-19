@@ -1,0 +1,2508 @@
+{
+ "metadata": {
+  "method_name": "M2 \u2014 Cross-Dictionary Replication of the iter-4 auditability spine on a second Gemma-Scope SAE",
+  "description": "Re-run the homograph recall-holes + KG-repair FDR survivors + Georgia/Jordan surgical edits + recall-hole/firing-Jaccard router on a SECOND Gemma-Scope SAE dictionary of the SAME frozen gemma-2-2b (PRIMARY width-65k layer-12 canonical; SECONDARY reduced layer-9 width-16k), with anchors AND absorbers RE-DERIVED per dictionary (16k latent ids do not carry over). Per-piece REPLICATES / PARTIAL / DICTIONARY-DEPENDENT verdict + honest deltas vs the 16k counts.",
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "release": "google/gemma-scope-2b-pt-res",
+  "thresholds": {
+   "N_MIN_EVAL": 30,
+   "N_MIN_RELAX": 15,
+   "N_MIN_SEL": 10,
+   "HOLE_RECALL_MAX": 0.6,
+   "KG_JACCARD_MAX": 0.1,
+   "KG_PREC_MIN": 0.7,
+   "SPURIOUS_FIRE_FLOOR": 0.01,
+   "FDR_ALPHA": 0.05
+  },
+  "reference_16k_iter4": {
+   "gating_cosine": 0.9189,
+   "gating_L0": 87.9,
+   "gating_layer_idx": 13,
+   "per_family_survive_FDR": {
+    "spelling": 14,
+    "homograph_taxonomic": 6,
+    "numeric": 10
+   },
+   "n_repairs_tested": 69,
+   "n_holes": 54,
+   "n_survive_FDR": 30,
+   "router_tau_h": 0.7774337479718767,
+   "router_tau_j": 0.05,
+   "router_recall_hole_balanced_acc": 1.0,
+   "router_firing_jaccard_balanced_acc": 0.9167,
+   "surgical_georgia": {
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "selectivity_ratio": 1722.46,
+    "kg_collateral": 2.876e-05,
+    "dense_collateral": 0.04955,
+    "firing_jaccard": 0.012,
+    "parent_recall_hole": 0.77
+   },
+   "surgical_jordan": {
+    "selectivity_ratio": 2722.0,
+    "kg_collateral": 0.0,
+    "dense_collateral": 0.0721,
+    "firing_jaccard": 0.014,
+    "parent_recall_hole": 0.68
+   },
+   "regime_router_map": {
+    "absorption_mean_selectivity": 1452.47,
+    "absorption_mean_firing_jaccard": 0.0141,
+    "co_firing_mean_selectivity": 2.377,
+    "co_firing_mean_firing_jaccard": 0.8776
+   },
+   "member_labeling_agreement": 0.7303,
+   "member_labeling_gap": 0.6344
+  },
+  "dictionaries": {
+   "65k": {
+    "layer": 12,
+    "width": "65k",
+    "sae_id": "layer_12/width_65k/average_l0_72",
+    "avg_l0": 72,
+    "expect_dsae": 65536,
+    "d_sae": 65536,
+    "gating": {
+     "pass": true,
+     "cosine": 0.9280143976211548,
+     "L0": 70.796875,
+     "align": 1.0,
+     "layer_idx": 13,
+     "expected_layer_idx": 13,
+     "spelling_cosine_descriptive": 0.9353140592575073,
+     "numeric_digit_cosine_descriptive": 0.8761566877365112,
+     "avg_l0": 72,
+     "gate_concept": "taxonomic (global SAE/layer mapping check)",
+     "fvu_by_idx": {
+      "11": 0.3715206939290231,
+      "12": 0.2783902326851278,
+      "13": 0.17014060046184715,
+      "14": 0.3339469267840578
+     },
+     "delta_cosine_vs_16k": 0.009114397621154735
+    },
+    "reduced": false,
+    "multiplicity": {
+     "method": "Benjamini-Hochberg FDR",
+     "alpha": 0.05,
+     "n_repairs_tested": 14,
+     "n_holes": 1,
+     "n_measured_success_uncorrected": 4,
+     "n_survive_FDR": 4,
+     "statsmodels_crosscheck_matches": true,
+     "per_family_tested": {
+      "spelling": 0,
+      "homograph_taxonomic": 14,
+      "numeric": 0
+     },
+     "per_family_survive_FDR": {
+      "spelling": 0,
+      "homograph_taxonomic": 4,
+      "numeric": 0
+     },
+     "distinct_hole_count_survive_FDR": {
+      "homograph_taxonomic": 2
+     },
+     "distinct_total_survive_FDR": 2
+    }
+   }
+  },
+  "replication_tables": {
+   "65k": {
+    "dictionary": "65k",
+    "layer": 12,
+    "width": "65k",
+    "sae_id": "layer_12/width_65k/average_l0_72",
+    "avg_l0": 72,
+    "gating": {
+     "pass": true,
+     "cosine": 0.9280143976211548,
+     "L0": 70.796875,
+     "align": 1.0,
+     "layer_idx": 13,
+     "expected_layer_idx": 13,
+     "spelling_cosine_descriptive": 0.9353140592575073,
+     "numeric_digit_cosine_descriptive": 0.8761566877365112,
+     "avg_l0": 72,
+     "gate_concept": "taxonomic (global SAE/layer mapping check)",
+     "fvu_by_idx": {
+      "11": 0.3715206939290231,
+      "12": 0.2783902326851278,
+      "13": 0.17014060046184715,
+      "14": 0.3339469267840578
+     },
+     "delta_cosine_vs_16k": 0.009114397621154735
+    },
+    "reduced_run": false,
+    "re_derived_anchors": {
+     "taxonomic": {
+      "anchor": 31478,
+      "firing_floor_validated": true,
+      "corpus_fire_rate": 0.7518427518427518,
+      "spurious": false
+     }
+    },
+    "homograph_holes": {
+     "per_country": {
+      "United States": {
+       "recall_hole": 1.0,
+       "firing_jaccard": 0.017879948914431672,
+       "n_pos": 170,
+       "detector_latent": 9410
+      }
+     },
+     "Georgia": {
+      "hole_ok": false
+     },
+     "Jordan": {
+      "hole_ok": false
+     },
+     "verdict": "DICTIONARY_DEPENDENT"
+    },
+    "repair_fdr": {
+     "per_family_survivors": {
+      "spelling": 0,
+      "homograph_taxonomic": 4,
+      "numeric": 0
+     },
+     "deltas_vs_16k": {
+      "spelling": -14,
+      "homograph_taxonomic": -2,
+      "numeric": -10
+     },
+     "n_repairs_tested": 14,
+     "n_survive_FDR": 4,
+     "distinct_hole_count": {
+      "homograph_taxonomic": 2
+     },
+     "distinct_total": 2,
+     "statsmodels_crosscheck": true,
+     "ref_16k": {
+      "spelling": 14,
+      "homograph_taxonomic": 6,
+      "numeric": 10
+     },
+     "verdict": "REPLICATES"
+    },
+    "surgical": {
+     "n_cases": 3,
+     "n_confirmed": 1,
+     "best_selectivity_ratio": 995739.0875640218,
+     "cases": [
+      {
+       "family": "taxonomic",
+       "subcontext": "Georgia",
+       "absorber": -1,
+       "verdict": "NON_REPLICATED_NO_PRECISE_ABSORBER",
+       "selectivity_ratio": null,
+       "kg_collateral": null,
+       "dense_collateral": null,
+       "dense_minus_kg_excl0": null,
+       "kg_offtarget_footprint": null,
+       "firing_jaccard": null,
+       "parent_recall_hole": null,
+       "regime": "absorption"
+      },
+      {
+       "family": "taxonomic",
+       "subcontext": "Jordan",
+       "absorber": -1,
+       "verdict": "NON_REPLICATED_NO_PRECISE_ABSORBER",
+       "selectivity_ratio": null,
+       "kg_collateral": null,
+       "dense_collateral": null,
+       "dense_minus_kg_excl0": null,
+       "kg_offtarget_footprint": null,
+       "firing_jaccard": null,
+       "parent_recall_hole": null,
+       "regime": "absorption"
+      },
+      {
+       "family": "taxonomic",
+       "subcontext": "United States",
+       "absorber": 9410,
+       "verdict": "SURGICAL_EDIT_CONFIRMED",
+       "selectivity_ratio": 995739.0875640218,
+       "kg_collateral": 0.0,
+       "dense_collateral": 0.009957380875640217,
+       "dense_minus_kg_excl0": true,
+       "kg_offtarget_footprint": 0.0,
+       "firing_jaccard": 0.019801980198019802,
+       "parent_recall_hole": 1.0,
+       "regime": "absorption"
+      }
+     ],
+     "ref_16k_georgia": {
+      "verdict": "SURGICAL_EDIT_CONFIRMED",
+      "selectivity_ratio": 1722.46,
+      "kg_collateral": 2.876e-05,
+      "dense_collateral": 0.04955,
+      "firing_jaccard": 0.012,
+      "parent_recall_hole": 0.77
+     },
+     "verdict": "REPLICATES"
+    },
+    "router": {
+     "frozen_16k_recall_hole_balanced_acc": null,
+     "frozen_16k_firing_jaccard_balanced_acc": null,
+     "rederived_65k_tau_h": null,
+     "rederived_65k_recall_hole_balanced_acc": null,
+     "tau_h": null,
+     "tau_j": null,
+     "balanced_acc_recall_hole_alone": null,
+     "balanced_acc_combined": null,
+     "transfers": false,
+     "ref_16k_tau_h": 0.7774337479718767,
+     "verdict": "DICTIONARY_DEPENDENT"
+    },
+    "regime_split": {
+     "absorption_mean_selectivity": 995739.0875640218,
+     "absorption_mean_firing_jaccard": 0.019801980198019802,
+     "co_firing_mean_selectivity": null,
+     "co_firing_mean_firing_jaccard": null,
+     "n_absorption": 1,
+     "n_co_firing": 0
+    },
+    "per_piece_verdicts": {
+     "homograph_holes": "DICTIONARY_DEPENDENT",
+     "repair_fdr": "REPLICATES",
+     "surgical": "REPLICATES",
+     "router": "DICTIONARY_DEPENDENT"
+    },
+    "overall_verdict": "partial"
+   }
+  },
+  "router_transfer": {
+   "65k": {
+    "status": "insufficient_concepts",
+    "n_concepts": 1,
+    "concepts": [
+     {
+      "concept": "taxonomic",
+      "ground_truth_regime": "absorption",
+      "recall_hole_max": 1.0,
+      "firing_jaccard_median": 0.06199021207177814
+     }
+    ]
+   }
+  },
+  "per_dictionary_concept_results": {
+   "65k": [
+    {
+     "concept": "taxonomic",
+     "dictionary": "65k",
+     "anchor": 31478,
+     "anchor_info": {
+      "anchor": 31478,
+      "content_cover": 181,
+      "content_prec": 0.9281767955801105,
+      "corpus_fire_rate": 0.7518427518427518,
+      "firing_floor_validated": true,
+      "candidates_tried": [
+       {
+        "latent": 31478,
+        "content_cover": 181,
+        "content_prec": 0.9281767955801105,
+        "corpus_fire": 0.7518427518427518
+       }
+      ]
+     },
+     "spurious_anchor": false,
+     "n_content_responsive": 728,
+     "eligible_subcontexts": [
+      "Canada",
+      "China",
+      "France",
+      "Germany",
+      "India",
+      "Mexico",
+      "United States"
+     ],
+     "eligibility": {
+      "Canada": {
+       "n_sel": 18,
+       "n_eval": 19
+      },
+      "China": {
+       "n_sel": 20,
+       "n_eval": 24
+      },
+      "France": {
+       "n_sel": 10,
+       "n_eval": 16
+      },
+      "Germany": {
+       "n_sel": 13,
+       "n_eval": 18
+      },
+      "India": {
+       "n_sel": 24,
+       "n_eval": 20
+      },
+      "Mexico": {
+       "n_sel": 12,
+       "n_eval": 15
+      },
+      "United States": {
+       "n_sel": 83,
+       "n_eval": 87
+      }
+     },
+     "n_named_absorber": 7,
+     "broad_kg": {
+      "Canada": {
+       "kg_absorber": 10815,
+       "recall_on_X_selection": 0.05555555555555555,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.0034482758620689655,
+       "n_sel_pos": 18,
+       "anchor_recall_selection": 0.9444444444444444,
+       "diag_absorber": 54510
+      },
+      "China": {
+       "kg_absorber": 43751,
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.06896551724137931,
+       "n_sel_pos": 20,
+       "anchor_recall_selection": 1.0,
+       "diag_absorber": 43751
+      },
+      "France": {
+       "kg_absorber": 7055,
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.034482758620689655,
+       "n_sel_pos": 10,
+       "anchor_recall_selection": 1.0,
+       "diag_absorber": 7055
+      },
+      "Germany": {
+       "kg_absorber": 65450,
+       "recall_on_X_selection": 0.15384615384615385,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.006896551724137931,
+       "n_sel_pos": 13,
+       "anchor_recall_selection": 1.0,
+       "diag_absorber": 54510
+      },
+      "India": {
+       "kg_absorber": 42569,
+       "recall_on_X_selection": 0.08333333333333333,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.006896551724137931,
+       "n_sel_pos": 24,
+       "anchor_recall_selection": 1.0,
+       "diag_absorber": 53510
+      },
+      "Mexico": {
+       "kg_absorber": 52542,
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.027210884353741496,
+       "n_sel_pos": 12,
+       "anchor_recall_selection": 0.6666666666666666,
+       "diag_absorber": 52542
+      },
+      "United States": {
+       "kg_absorber": 9410,
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 0.9431818181818182,
+       "jaccard_anchor": 0.013404825737265416,
+       "n_sel_pos": 83,
+       "anchor_recall_selection": 0.0,
+       "diag_absorber": 9410
+      }
+     },
+     "repair": {
+      "per_subcontext": {
+       "Canada": {
+        "status": "measured",
+        "is_hole": false,
+        "n_eval": 19,
+        "n_sel": 18,
+        "recall_anchor_selection": 0.9444444444444444,
+        "recall_anchor_eval": 1.0,
+        "n_eval_ge_pref": false,
+        "kg_derivation": {
+         "recall_on_X_selection": 0.05555555555555555,
+         "subctx_precision_selection": 1.0,
+         "jaccard_anchor": 0.0034482758620689655,
+         "n_sel_pos": 18
+        },
+        "random_gain": {
+         "mean": 0.0,
+         "sd": 0.0,
+         "p5": 0.0,
+         "p50": 0.0,
+         "p95": 0.0
+        },
+        "variants": {
+         "kg_ktrack": {
+          "absorber_latent": 10815,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 19,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         },
+         "kg_diagnostic": {
+          "absorber_latent": 54510,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 19,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         }
+        }
+       },
+       "China": {
+        "status": "measured",
+        "is_hole": false,
+        "n_eval": 24,
+        "n_sel": 20,
+        "recall_anchor_selection": 1.0,
+        "recall_anchor_eval": 1.0,
+        "n_eval_ge_pref": false,
+        "kg_derivation": {
+         "recall_on_X_selection": 1.0,
+         "subctx_precision_selection": 1.0,
+         "jaccard_anchor": 0.06896551724137931,
+         "n_sel_pos": 20
+        },
+        "random_gain": {
+         "mean": 0.0,
+         "sd": 0.0,
+         "p5": 0.0,
+         "p50": 0.0,
+         "p95": 0.0
+        },
+        "variants": {
+         "kg_ktrack": {
+          "absorber_latent": 43751,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 24,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         },
+         "kg_diagnostic": {
+          "absorber_latent": 43751,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 24,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": true,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         }
+        }
+       },
+       "France": {
+        "status": "measured",
+        "is_hole": false,
+        "n_eval": 16,
+        "n_sel": 10,
+        "recall_anchor_selection": 1.0,
+        "recall_anchor_eval": 1.0,
+        "n_eval_ge_pref": false,
+        "kg_derivation": {
+         "recall_on_X_selection": 1.0,
+         "subctx_precision_selection": 1.0,
+         "jaccard_anchor": 0.034482758620689655,
+         "n_sel_pos": 10
+        },
+        "random_gain": {
+         "mean": 0.0,
+         "sd": 0.0,
+         "p5": 0.0,
+         "p50": 0.0,
+         "p95": 0.0
+        },
+        "variants": {
+         "kg_ktrack": {
+          "absorber_latent": 7055,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 16,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         },
+         "kg_diagnostic": {
+          "absorber_latent": 7055,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 16,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": true,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         }
+        }
+       },
+       "Germany": {
+        "status": "measured",
+        "is_hole": false,
+        "n_eval": 18,
+        "n_sel": 13,
+        "recall_anchor_selection": 1.0,
+        "recall_anchor_eval": 1.0,
+        "n_eval_ge_pref": false,
+        "kg_derivation": {
+         "recall_on_X_selection": 0.15384615384615385,
+         "subctx_precision_selection": 1.0,
+         "jaccard_anchor": 0.006896551724137931,
+         "n_sel_pos": 13
+        },
+        "random_gain": {
+         "mean": 0.0,
+         "sd": 0.0,
+         "p5": 0.0,
+         "p50": 0.0,
+         "p95": 0.0
+        },
+        "variants": {
+         "kg_ktrack": {
+          "absorber_latent": 65450,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 18,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         },
+         "kg_diagnostic": {
+          "absorber_latent": 54510,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 18,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         }
+        }
+       },
+       "India": {
+        "status": "measured",
+        "is_hole": false,
+        "n_eval": 20,
+        "n_sel": 24,
+        "recall_anchor_selection": 1.0,
+        "recall_anchor_eval": 1.0,
+        "n_eval_ge_pref": false,
+        "kg_derivation": {
+         "recall_on_X_selection": 0.08333333333333333,
+         "subctx_precision_selection": 1.0,
+         "jaccard_anchor": 0.006896551724137931,
+         "n_sel_pos": 24
+        },
+        "random_gain": {
+         "mean": 0.0,
+         "sd": 0.0,
+         "p5": 0.0,
+         "p50": 0.0,
+         "p95": 0.0
+        },
+        "variants": {
+         "kg_ktrack": {
+          "absorber_latent": 42569,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 20,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         },
+         "kg_diagnostic": {
+          "absorber_latent": 53510,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.0,
+          "kg_percentile_vs_random": 0.0,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.0,
+           "ci_lo": 0.0,
+           "ci_hi": 0.0,
+           "excl_0": false,
+           "n": 20,
+           "p_one_sided": 1.0
+          },
+          "p_value_one_sided": 1.0,
+          "measured_success": false,
+          "same_as_ktrack": false,
+          "bh_q": 1.0,
+          "survives_FDR": false
+         }
+        }
+       },
+       "Mexico": {
+        "status": "measured",
+        "is_hole": false,
+        "n_eval": 15,
+        "n_sel": 12,
+        "recall_anchor_selection": 0.6666666666666666,
+        "recall_anchor_eval": 0.6666666666666666,
+        "n_eval_ge_pref": false,
+        "kg_derivation": {
+         "recall_on_X_selection": 1.0,
+         "subctx_precision_selection": 1.0,
+         "jaccard_anchor": 0.027210884353741496,
+         "n_sel_pos": 12
+        },
+        "random_gain": {
+         "mean": 0.011234911792014858,
+         "sd": 0.04122907712229179,
+         "p5": 0.0,
+         "p50": 0.0,
+         "p95": 0.06666666666666665
+        },
+        "variants": {
+         "kg_ktrack": {
+          "absorber_latent": 52542,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.33333333333333337,
+          "kg_percentile_vs_random": 0.9958217270194986,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.32209842154131846,
+           "ci_lo": 0.12794800371402043,
+           "ci_hi": 0.5788300835654596,
+           "excl_0": true,
+           "n": 15,
+           "p_one_sided": 0.0027997200279972004
+          },
+          "p_value_one_sided": 0.0027997200279972004,
+          "measured_success": true,
+          "same_as_ktrack": false,
+          "bh_q": 0.009799020097990201,
+          "survives_FDR": true
+         },
+         "kg_diagnostic": {
+          "absorber_latent": 52542,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 0.33333333333333337,
+          "kg_percentile_vs_random": 0.9958217270194986,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.32209842154131846,
+           "ci_lo": 0.12794800371402043,
+           "ci_hi": 0.5787372330547818,
+           "excl_0": true,
+           "n": 15,
+           "p_one_sided": 0.0023997600239976003
+          },
+          "p_value_one_sided": 0.0023997600239976003,
+          "measured_success": true,
+          "same_as_ktrack": true,
+          "bh_q": 0.009799020097990201,
+          "survives_FDR": true
+         }
+        }
+       },
+       "United States": {
+        "status": "measured",
+        "is_hole": true,
+        "n_eval": 87,
+        "n_sel": 83,
+        "recall_anchor_selection": 0.0,
+        "recall_anchor_eval": 0.0,
+        "n_eval_ge_pref": true,
+        "kg_derivation": {
+         "recall_on_X_selection": 1.0,
+         "subctx_precision_selection": 0.9431818181818182,
+         "jaccard_anchor": 0.013404825737265416,
+         "n_sel_pos": 83
+        },
+        "random_gain": {
+         "mean": 0.03858098805750328,
+         "sd": 0.12637180174179452,
+         "p5": 0.0,
+         "p50": 0.0,
+         "p95": 0.19540229885057472
+        },
+        "variants": {
+         "kg_ktrack": {
+          "absorber_latent": 9410,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 1.0,
+          "kg_percentile_vs_random": 0.9944289693593314,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.9614190119424969,
+           "ci_lo": 0.9591938014279768,
+           "ci_hi": 0.963596196330804,
+           "excl_0": true,
+           "n": 87,
+           "p_one_sided": 9.999000099990002e-05
+          },
+          "p_value_one_sided": 9.999000099990002e-05,
+          "measured_success": true,
+          "same_as_ktrack": false,
+          "bh_q": 0.0006999300069993001,
+          "survives_FDR": true
+         },
+         "kg_diagnostic": {
+          "absorber_latent": 9410,
+          "recall_anchor_plus_kg": 1.0,
+          "gain_kg": 1.0,
+          "kg_percentile_vs_random": 0.9944289693593314,
+          "paired_bootstrap_CI_kg_minus_random": {
+           "diff": 0.9614190119424969,
+           "ci_lo": 0.9592098101367142,
+           "ci_hi": 0.9636762398744916,
+           "excl_0": true,
+           "n": 87,
+           "p_one_sided": 9.999000099990002e-05
+          },
+          "p_value_one_sided": 9.999000099990002e-05,
+          "measured_success": true,
+          "same_as_ktrack": true,
+          "bh_q": 0.0006999300069993001,
+          "survives_FDR": true
+         }
+        }
+       }
+      },
+      "honest_negatives": [],
+      "n_measured_successful_repairs": 4,
+      "n_control_latents": 718,
+      "overall_anchor_recall_selection": 0.7360406091370558
+     },
+     "router_per_subcontext": [
+      {
+       "sub_context": "Australia",
+       "n_pos": 36,
+       "parent_recall": 0.9722222222222222,
+       "recall_hole": 0.02777777777777779,
+       "detector_latent": 4983,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.06199021207177814
+      },
+      {
+       "sub_context": "Brazil",
+       "n_pos": 19,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 1603,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.03104575163398693
+      },
+      {
+       "sub_context": "Canada",
+       "n_pos": 37,
+       "parent_recall": 0.972972972972973,
+       "recall_hole": 0.027027027027026973,
+       "detector_latent": 46277,
+       "detector_auc": 0.7543325768516608,
+       "firing_jaccard": 0.5854037267080745
+      },
+      {
+       "sub_context": "China",
+       "n_pos": 44,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 43751,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.0718954248366013
+      },
+      {
+       "sub_context": "France",
+       "n_pos": 26,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 7055,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.042483660130718956
+      },
+      {
+       "sub_context": "Germany",
+       "n_pos": 31,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 8838,
+       "detector_auc": 0.8301116309611755,
+       "firing_jaccard": 0.7287899860917941
+      },
+      {
+       "sub_context": "India",
+       "n_pos": 44,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 43065,
+       "detector_auc": 0.7440724034235484,
+       "firing_jaccard": 0.5122349102773246
+      },
+      {
+       "sub_context": "Ireland",
+       "n_pos": 18,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 8838,
+       "detector_auc": 0.8556333050607859,
+       "firing_jaccard": 0.7287899860917941
+      },
+      {
+       "sub_context": "Italy",
+       "n_pos": 17,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 42343,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.027777777777777776
+      },
+      {
+       "sub_context": "Japan",
+       "n_pos": 29,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 43065,
+       "detector_auc": 0.8935246117399316,
+       "firing_jaccard": 0.5122349102773246
+      },
+      {
+       "sub_context": "Mexico",
+       "n_pos": 27,
+       "parent_recall": 0.6666666666666666,
+       "recall_hole": 0.33333333333333337,
+       "detector_latent": 52542,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.028985507246376812
+      },
+      {
+       "sub_context": "New Zealand",
+       "n_pos": 24,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 132,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.05228758169934641
+      },
+      {
+       "sub_context": "Russia",
+       "n_pos": 19,
+       "parent_recall": 1.0,
+       "recall_hole": 0.0,
+       "detector_latent": 38264,
+       "detector_auc": 0.762186955939467,
+       "firing_jaccard": 0.21904761904761905
+      },
+      {
+       "sub_context": "United Kingdom",
+       "n_pos": 15,
+       "parent_recall": 0.9333333333333333,
+       "recall_hole": 0.06666666666666665,
+       "detector_latent": 3487,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.022838499184339316
+      },
+      {
+       "sub_context": "United States",
+       "n_pos": 170,
+       "parent_recall": 0.0,
+       "recall_hole": 1.0,
+       "detector_latent": 9410,
+       "detector_auc": 1.0,
+       "firing_jaccard": 0.017879948914431672
+      }
+     ],
+     "router_agg": {
+      "recall_hole_max": 1.0,
+      "firing_jaccard_median": 0.06199021207177814,
+      "n_subcontexts": 15
+     },
+     "k_localization": {
+      "status": "run",
+      "variant": "JTT(ERM->upweight error set lambda=20->retrain)",
+      "n_train": 793,
+      "erm_train_acc": 1.0,
+      "error_set_size": 0,
+      "projection_argmax_latent": 31478,
+      "projection_top_abscos": 0.46046173151581815,
+      "projection_second_abscos": 0.33925327150122153,
+      "single_latent_dominates": false,
+      "anchor_projection_rank_by_abscos": 1,
+      "argmax_is_anchor": true,
+      "kg_absorber_is_argmax": false,
+      "kg_absorber_projection_ranks": {
+       "Canada": {
+        "latent": 10815,
+        "cos": 0.01310842860268293,
+        "rank_by_abscos": 40720
+       },
+       "China": {
+        "latent": 43751,
+        "cos": 0.17054702078291167,
+        "rank_by_abscos": 64
+       },
+       "France": {
+        "latent": 7055,
+        "cos": 0.11652999381200088,
+        "rank_by_abscos": 416
+       },
+       "Germany": {
+        "latent": 65450,
+        "cos": 0.010677013825409615,
+        "rank_by_abscos": 44841
+       },
+       "India": {
+        "latent": 42569,
+        "cos": 0.07243305194081733,
+        "rank_by_abscos": 2540
+       },
+       "Mexico": {
+        "latent": 52542,
+        "cos": 0.11091271141005851,
+        "rank_by_abscos": 523
+       },
+       "United States": {
+        "latent": 9410,
+        "cos": 0.21191073848719819,
+        "rank_by_abscos": 27
+       }
+      },
+      "conclusion": "KG names exactly one addable auditable latent per sub-context; the (k) example-reweighting probe yields a dense hyperplane that does NOT localize to any single SAE latent -> no per-sub-context handle."
+     },
+     "regime": "absorption",
+     "surgical_cases": [
+      {
+       "family": "taxonomic",
+       "target_subcontext": "Georgia",
+       "regime": "absorption",
+       "verdict": "NON_REPLICATED_NO_PRECISE_ABSORBER",
+       "absorber_latent": -1,
+       "reason": "no precision>=0.70 absorber on this dictionary",
+       "note": "KEY dictionary-dependence outcome: wider/different SAE did not expose a clean high-precision absorber for this sub-context"
+      },
+      {
+       "family": "taxonomic",
+       "target_subcontext": "Jordan",
+       "regime": "absorption",
+       "verdict": "NON_REPLICATED_NO_PRECISE_ABSORBER",
+       "absorber_latent": -1,
+       "reason": "no precision>=0.70 absorber on this dictionary",
+       "note": "KEY dictionary-dependence outcome: wider/different SAE did not expose a clean high-precision absorber for this sub-context"
+      },
+      {
+       "decision_threshold_tau": 0.03870900916323693,
+       "family": "taxonomic",
+       "target_subcontext": "United States",
+       "absorber_latent": 9410,
+       "absorber_precision": 0.9431818181818182,
+       "regime": "absorption",
+       "probe_train_auc": 1.0,
+       "probe_cos_with_diffmean": 0.6232316493988037,
+       "firing_jaccard_with_parent": 0.019801980198019802,
+       "parent_recall_hole": 1.0,
+       "n_target_ctx": 60,
+       "n_sibling_ctx": 97,
+       "siblings": [
+        "Canada",
+        "China",
+        "France",
+        "Germany",
+        "India",
+        "Mexico"
+       ],
+       "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+       "matched": {
+        "KG-ABL": {
+         "on_target": 0.012280072361851732,
+         "collateral": 0.0,
+         "reaches_matched": true,
+         "max_on_target": 0.015350090452314665,
+         "selectivity": 1228007.2361851733,
+         "token_footprint_offtarget": 0.0,
+         "unrelated_kl": 5.303275611368008e-05,
+         "unrelated_ppl_ratio": 0.9996131512937044,
+         "token_footprint_unrelated": 0.0010822510822510823
+        },
+        "DENSE-ABL": {
+         "on_target": 0.012280072361851732,
+         "collateral": 0.009957380875640217,
+         "reaches_matched": true,
+         "max_on_target": 1.891797088738531,
+         "selectivity": 1.2332620578241764,
+         "token_footprint_offtarget": 1.0,
+         "unrelated_kl": 0.047437720000743866,
+         "unrelated_ppl_ratio": 1.20317353977228,
+         "token_footprint_unrelated": 1.0
+        },
+        "RAND": {
+         "on_target": 0.012280072361851732,
+         "collateral": 6.586558537670958e-05,
+         "reaches_matched": true,
+         "max_on_target": 0.07385258684583582,
+         "selectivity": 186.4131042119494,
+         "token_footprint_offtarget": 0.007992895204262877,
+         "unrelated_kl": 0.0005414682655100478,
+         "unrelated_ppl_ratio": 0.9995664682083294,
+         "token_footprint_unrelated": 0.0091991341991342
+        },
+        "KG-ADD": {
+         "on_target": 0.012280072361851732,
+         "collateral": 0.004910925552360832,
+         "reaches_matched": true,
+         "max_on_target": 5.390833690886696,
+         "selectivity": 2.500556611040912,
+         "token_footprint_offtarget": 1.0
+        }
+       },
+       "matched_scale_kg": 1.6897964769948364,
+       "matched_scale_dense": 0.20105541225274856,
+       "selectivity_CIs": {
+        "KG-ABL_on_target": {
+         "mean": 0.01228007236185173,
+         "ci_lo": 0.008479417567982319,
+         "ci_hi": 0.016969000262172594,
+         "n": 60,
+         "excl_0": true
+        },
+        "KG-ABL_collateral": {
+         "mean": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "n": 97,
+         "excl_0": false
+        },
+        "DENSE-ABL_collateral": {
+         "mean": 0.009957380875640217,
+         "ci_lo": 0.007291355597830483,
+         "ci_hi": 0.01336412056097086,
+         "n": 97,
+         "excl_0": true
+        },
+        "dense_minus_kg_collateral": {
+         "diff": 0.009957380875640217,
+         "ci_lo": 0.007203501492159935,
+         "ci_hi": 0.013508413836666011,
+         "excl_0": true,
+         "n": 97
+        }
+       },
+       "verdict": "SURGICAL_EDIT_CONFIRMED",
+       "headline_selectivity_ratio": 995739.0875640218
+      }
+     ]
+    }
+   ]
+  },
+  "verdict": {
+   "cross_dictionary_replicates": "partial",
+   "per_dictionary": {
+    "65k": "partial"
+   },
+   "primary_dictionary": "65k",
+   "n_dictionaries": 1,
+   "notes": "Per-piece REPLICATES/PARTIAL/DICTIONARY-DEPENDENT for homograph-holes, repair-FDR, surgical edit, and router transfer on each dictionary; anchors+absorbers re-derived per dictionary. A clean non-replication is the publishable wider-SAE-absorbs-more (dictionary-dependence) finding."
+  },
+  "member_labeling": {
+   "status": "skipped (core spine is $0 LLM; run with --member_labeling)"
+  }
+ },
+ "datasets": [
+  {
+   "dataset": "cross_dictionary_replication",
+   "examples": [
+    {
+     "input": "[65k|homograph_hole|United States] does the parent recall-hole + low firing-Jaccard reappear on this dictionary?",
+     "output": "HOLE_REPLICATES",
+     "predict_hole_recall": "1.0000",
+     "metadata_dictionary": "65k",
+     "metadata_layer": 12,
+     "metadata_width": "65k",
+     "metadata_piece": "homograph_holes",
+     "metadata_subcontext": "United States",
+     "metadata_recall_hole": 1.0,
+     "metadata_firing_jaccard": 0.017879948914431672
+    },
+    {
+     "input": "[65k|repair_fdr|spelling] how many KG-repairs survive BH FDR<=0.05 vs 16k?",
+     "output": "0",
+     "predict_delta_vs_16k": "-14",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "repair_fdr",
+     "metadata_subcontext": "spelling",
+     "metadata_survivors": 0,
+     "metadata_ref_16k": 14,
+     "metadata_delta_vs_16k": -14
+    },
+    {
+     "input": "[65k|repair_fdr|homograph_taxonomic] how many KG-repairs survive BH FDR<=0.05 vs 16k?",
+     "output": "4",
+     "predict_delta_vs_16k": "-2",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "repair_fdr",
+     "metadata_subcontext": "homograph_taxonomic",
+     "metadata_survivors": 4,
+     "metadata_ref_16k": 6,
+     "metadata_delta_vs_16k": -2
+    },
+    {
+     "input": "[65k|repair_fdr|numeric] how many KG-repairs survive BH FDR<=0.05 vs 16k?",
+     "output": "0",
+     "predict_delta_vs_16k": "-10",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "repair_fdr",
+     "metadata_subcontext": "numeric",
+     "metadata_survivors": 0,
+     "metadata_ref_16k": 10,
+     "metadata_delta_vs_16k": -10
+    },
+    {
+     "input": "[65k|surgical|taxonomic/Georgia] KG-ABL single re-derived absorber -1; surgical edit verdict?",
+     "output": "NON_REPLICATED_NO_PRECISE_ABSORBER",
+     "predict_selectivity_ratio": "NA",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "surgical",
+     "metadata_subcontext": "Georgia",
+     "metadata_family": "taxonomic",
+     "metadata_absorber_latent": -1,
+     "metadata_regime": "absorption",
+     "metadata_selectivity_ratio": null,
+     "metadata_kg_collateral": null,
+     "metadata_dense_collateral": null,
+     "metadata_dense_minus_kg_excl0": null,
+     "metadata_firing_jaccard": null,
+     "metadata_parent_recall_hole": null
+    },
+    {
+     "input": "[65k|surgical|taxonomic/Jordan] KG-ABL single re-derived absorber -1; surgical edit verdict?",
+     "output": "NON_REPLICATED_NO_PRECISE_ABSORBER",
+     "predict_selectivity_ratio": "NA",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "surgical",
+     "metadata_subcontext": "Jordan",
+     "metadata_family": "taxonomic",
+     "metadata_absorber_latent": -1,
+     "metadata_regime": "absorption",
+     "metadata_selectivity_ratio": null,
+     "metadata_kg_collateral": null,
+     "metadata_dense_collateral": null,
+     "metadata_dense_minus_kg_excl0": null,
+     "metadata_firing_jaccard": null,
+     "metadata_parent_recall_hole": null
+    },
+    {
+     "input": "[65k|surgical|taxonomic/United States] KG-ABL single re-derived absorber 9410; surgical edit verdict?",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "predict_selectivity_ratio": "995739.09",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "surgical",
+     "metadata_subcontext": "United States",
+     "metadata_family": "taxonomic",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_selectivity_ratio": 995739.0875640218,
+     "metadata_kg_collateral": 0.0,
+     "metadata_dense_collateral": 0.009957380875640217,
+     "metadata_dense_minus_kg_excl0": true,
+     "metadata_firing_jaccard": 0.019801980198019802,
+     "metadata_parent_recall_hole": 1.0
+    },
+    {
+     "input": "[65k|router] do FROZEN 16k thresholds (recall-hole lead) still classify absorption vs co-firing?",
+     "output": "DICTIONARY_SPECIFIC",
+     "predict_balanced_acc": "NA",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "router",
+     "metadata_subcontext": "ALL",
+     "metadata_frozen_16k_balanced_acc": null,
+     "metadata_rederived_65k_balanced_acc": null,
+     "metadata_tau_h": null
+    },
+    {
+     "input": "[65k|OVERALL] cross-dictionary replication verdict for the auditability spine",
+     "output": "PARTIAL",
+     "metadata_dictionary": "65k",
+     "metadata_piece": "overall",
+     "metadata_subcontext": "ALL",
+     "metadata_per_piece": "{\"homograph_holes\": \"DICTIONARY_DEPENDENT\", \"repair_fdr\": \"REPLICATES\", \"surgical\": \"REPLICATES\", \"router\": \"DICTIONARY_DEPENDENT\"}"
+    }
+   ]
+  },
+  {
+   "dataset": "kg_repair_loop",
+   "examples": [
+    {
+     "input": "[65k] taxonomic | sub-context 'Canada' | add re-derived KG absorber 10815 (kg_ktrack) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Canada",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 19
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'Canada' | add re-derived KG absorber 54510 (kg_diagnostic) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Canada",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 19
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'China' | add re-derived KG absorber 43751 (kg_ktrack) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "China",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 24
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'China' | add re-derived KG absorber 43751 (kg_diagnostic) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "China",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 24
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'France' | add re-derived KG absorber 7055 (kg_ktrack) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "France",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 16
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'France' | add re-derived KG absorber 7055 (kg_diagnostic) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "France",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 16
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'Germany' | add re-derived KG absorber 65450 (kg_ktrack) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Germany",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 18
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'Germany' | add re-derived KG absorber 54510 (kg_diagnostic) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Germany",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 18
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'India' | add re-derived KG absorber 42569 (kg_ktrack) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "India",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 20
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'India' | add re-derived KG absorber 53510 (kg_diagnostic) to re-derived anchor 31478",
+     "output": "tie_with_random",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "India",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 20
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'Mexico' | add re-derived KG absorber 52542 (kg_ktrack) to re-derived anchor 31478",
+     "output": "survives_FDR",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Mexico",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 0.6666666666666666,
+     "metadata_gain_kg": 0.33333333333333337,
+     "metadata_kg_percentile_vs_random": 0.9958217270194986,
+     "metadata_p_value": 0.0027997200279972004,
+     "metadata_bh_q": 0.009799020097990201,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 15
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'Mexico' | add re-derived KG absorber 52542 (kg_diagnostic) to re-derived anchor 31478",
+     "output": "survives_FDR",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Mexico",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 0.6666666666666666,
+     "metadata_gain_kg": 0.33333333333333337,
+     "metadata_kg_percentile_vs_random": 0.9958217270194986,
+     "metadata_p_value": 0.0023997600239976003,
+     "metadata_bh_q": 0.009799020097990201,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 15
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'United States' | add re-derived KG absorber 9410 (kg_ktrack) to re-derived anchor 31478",
+     "output": "survives_FDR",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.0,
+     "metadata_gain_kg": 1.0,
+     "metadata_kg_percentile_vs_random": 0.9944289693593314,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0006999300069993001,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 87
+    },
+    {
+     "input": "[65k] taxonomic | sub-context 'United States' | add re-derived KG absorber 9410 (kg_diagnostic) to re-derived anchor 31478",
+     "output": "survives_FDR",
+     "metadata_dictionary": "65k",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.0,
+     "metadata_gain_kg": 1.0,
+     "metadata_kg_percentile_vs_random": 0.9944289693593314,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0006999300069993001,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 87
+    }
+   ]
+  },
+  {
+   "dataset": "edit_locality_per_context",
+   "examples": [
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): XEMS-AM\n\nXEMS (branded as Radio Mexicana) is a Regional Mexican radio station that serves the Brownsville, Texas (United States) / Matamoros, Tamaulipas (Mexico) border area. History\nXEMS began broadc",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.004283,
+     "metadata_kl_dense_abl": 0.597693,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Florida National Cemetery\n\nFlorida National Cemetery is a United States National Cemetery located near the city of Bushnell in Sumter County, Florida. Administered by the United States Department of V",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.019103,
+     "metadata_kl_dense_abl": 0.586676,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): App.2d 144 (1966)\n220 N.E.2d 590\nDecatur and Macon County Hospital Association, a Corporation Not For Profit of Illinois, for the Use of Niagara Fire Insurance Company, Phoenix Assurance Company, Stan",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.010335,
+     "metadata_kl_dense_abl": 0.120451,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Cryopreserved (frozen) Donor vials are available to individual Client(s)/Recipient(s), within the United States and Worldwide to achieve Assisted Reproduction. BioGenetics Corporation was established ",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.003277,
+     "metadata_kl_dense_abl": 0.365999,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): News & World Report\n\nCategory:Hoaxes in the United States\nCategory:Parodies\nCategory:Central Park",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.001929,
+     "metadata_kl_dense_abl": 0.340101,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): OPINION OF THE COURT BY JUSTICE VENTERS\n\n                            CERTIFYING THE LAW\n\n      Pursuant to CR 76.37(1), we granted the certification request of the\n\nUnited States District Court for th",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.026294,
+     "metadata_kl_dense_abl": 0.172009,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): \"I am obviously mistaken.\"\n\nBarkley referred questions about the timing of the public hearing to MDE. There are about 170 sewage sludge incinerators in the United States, according to the Environmenta",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.001385,
+     "metadata_kl_dense_abl": 0.041889,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Appeal from the United States District Court for the District of\nMaryland, at Greenbelt. Peter J. Messitte, Senior District\nJudge. (8:10-cv-00896-PJM)\n\n\nARGUED:   January 31, 2013                   De",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "UNAFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.010195,
+     "metadata_kl_dense_abl": 0.014341,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Cummings Machine Works\n\nCummings Machine Works was a Boston, Massachusetts based business. It was founded by Henry Havelock Cummings in 1881, when Cummings was 23 years old. The company was awarded a ",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.004951,
+     "metadata_kl_dense_abl": 0.083035,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 1942 Iowa Pre-Flight Seahawks football team\n\nThe 1942 Iowa Pre-Flight Seahawks football team represented the United States Navy pre-flight aviation training school at the University of Iowa as an inde",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.011265,
+     "metadata_kl_dense_abl": 0.058732,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 154 F.3d 417\nU.S.v.Chukwuma*\nNO. 97-11093\nUnited States Court of Appeals,Fifth Circuit. July 29, 1998\nAppeal From:  N.D.Tex. ,No397CR104D\n\n1\nAffirmed. *\n Fed.R.App.P. 34(a); 5th Cir.R. 34-2",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.021237,
+     "metadata_kl_dense_abl": 0.222936,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): There is no denying the fact that night shift workers are fast losing on their health. Long and hectic work schedules lead to irregular appetites, rapid changes in weight and a high risk of gastro-int",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.00288,
+     "metadata_kl_dense_abl": 0.363165,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Helderberg Escarpment\n\nThe Helderberg Escarpment, also known as the Helderberg Mountains, is an escarpment and mountain range in eastern New York, United States, roughly  west of the city of Albany. T",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.000906,
+     "metadata_kl_dense_abl": 1.175309,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): A nonsurgical approach to low back pain. Low back pain, a leading cause of disability in the United States, has a significant economic impact not only on lost productivity but also on healthcare expen",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.000467,
+     "metadata_kl_dense_abl": 0.056849,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): The United States and Japan will step up their defence cooperation to deal with the threat from nuclear-armed North Korea as tensions in East Asia remain high, officials from the two allies said on Th",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.012894,
+     "metadata_kl_dense_abl": 0.359528,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Club career\n\nEarly Career in US\nJohn was born in Tunapuna, Trinidad and Tobago and moved to the United States to attend Mercer County Community College in 1995. He joined the Columbus Crew of Major Le",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0018,
+     "metadata_kl_dense_abl": 0.168267,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 832 F.Supp. 209 (1993)\nSuella DEBOLT, et al., Plaintiffs,\nv. Mike ESPY, Secretary, U.S. Department of Agriculture, et al., Defendants. No. C2-91-157. United States District Court, S.D. Ohio, E.D. July",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.000501,
+     "metadata_kl_dense_abl": 0.076682,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): For more than 20 years, families and couples have traveled to Evergreen from every region of the United States and from other countries to receive therapy for attachment-related trauma. Professional T",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.000361,
+     "metadata_kl_dense_abl": 0.068141,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 636 F.2d 761\n205 U.S.App.D.C. 53\nUNITED STATES of Americav.Bernard GIBSON, Appellant.UNITED STATES of Americav.Deborah Y. HAGANS, Appellant. Nos. 80-1225, 80-1228. United States Court of Appeals,Distr",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "UNAFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.004961,
+     "metadata_kl_dense_abl": 0.008584,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Peshekee River\n\nThe Peshekee River is a  river on the Upper Peninsula of Michigan in the United States. It is a tributary of Lake Michigamme, and its waters flow via the Michigamme River and the Menom",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.000945,
+     "metadata_kl_dense_abl": 1.149602,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Tremendous strides have been made in carrier detection and prenatal diagnosis. Already diagnosis is possible in 70% of cases with the factor VIII intragenic polymorphisms. Although there is still room",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.004681,
+     "metadata_kl_dense_abl": 0.12405,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 337 F.Supp. 150 (1972)\nCITY OF NEW YORK, Plaintiff, and Bush Terminal Railroad Users Association, Inc., et al., Intervening Plaintiffs,\nv. The UNITED STATES of America et al., Defendants. Civ. No. 71-",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.002922,
+     "metadata_kl_dense_abl": 0.083927,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Although the specific effects of sequestration mandated cuts are still uncertain, the DOE anticipates a $215 million decrease for the Office of Science in FY 2013. Both academia and industry in the Un",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 1.3e-05,
+     "metadata_kl_dense_abl": 0.094412,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 1844 United States presidential election in North Carolina\n\nThe 1844 United States presidential election in North Carolina took place between November 1 and December 4, 1844, as part of the 1844 Unite",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "AFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.043775,
+     "metadata_kl_dense_abl": 0.285939,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 476 F.Supp. 974 (1979)\nShirley A. ONLEY\nv. Detective Herman W. SIMMS and City of Lancaster and Penn Supreme and Penn Dairies, Inc. and Caroline Pratt and Phillip A. Kliewer and Marge Breniser c/o Nati",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.000365,
+     "metadata_kl_dense_abl": 0.064609,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Ortega-Guzman, a Mexican citizen, was deported by the United States\n\nin August 2001. He had previously been convicted of an aggravated felony in\n\nColorado state court.",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.002653,
+     "metadata_kl_dense_abl": 0.143306,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): 202 F.2d 530\nWOODWORKERS TOOL WORKSv.BYRNE. No. 13236. United States Court of Appeals Ninth Circuit. March 10, 1953. Tripp & Calloway, Los Angeles, Cal., for appellant. John W. Olson, Los Angeles, Cal",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.009231,
+     "metadata_kl_dense_abl": 0.108301,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): Cloud State)\nD Mikey Anderson (Minnesota\u2013Duluth)\nG Hunter Shepard* (Minnesota\u2013Duluth)\n* Most Valuable Player(s)\n\nReferences\n\nNCHC Men's Ice Hockey Tournament\n2019\nCategory:Ice hockey in Minnesota\nCate",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 1.8e-05,
+     "metadata_kl_dense_abl": 1.935155,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): For instance, in the United States, Occupational Health and Safety Administration (OSHA) standards require contractors to install protective railings about a rooftop worksite according to specific gui",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.001314,
+     "metadata_kl_dense_abl": 0.148291,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|United States] edit-locality probe (target): You will be notified via e-mail if you are the winner! *Please note that while international readers may submit their Collections, we are only able to award and ship prizes to winners within the Unite",
+     "output": "ON_TARGET",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "target",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.004067,
+     "metadata_kl_dense_abl": 0.174877,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": false,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Chronic energy deficiency and its association with dietary factors in adults of drought affected desert areas of Western Rajasthan, India. To asses the impact of drought on nutritional status of adult",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.111703,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Carpenter (1985: 577) proposed a new replacement name for the fossil genus, but overlooked the fact that his newly proposed generic name Protochrysidis was also preoccupied, again by the name of anoth",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.819204,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): However, its two stars, James McAvoy and Keira Knightley, were omitted for the top acting \u2026\n\nThe British dominance of Hollywood has been a big story throughout award season. But one could be forgiven ",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "UNAFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.032023,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Material and methods {#sec2}\n====================\n\nStudy population {#sec2.1}\n----------------\n\nA single-center, prospective cohort study was conducted in Fuwai Hospital (the National Center for Cardi",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 1.277208,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Fenugreek (*Trigonella foenum-graecum* L) belongs to the Leguminosae family and is cultivated predominantly in India, West Asia, the Mediterranean, North Africa, and Canada ([@bib29]).",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.229162,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Fast forward a few years and envision a teenage boy in El Paso who is intent on buying 4 acres of land in Chaparral, New Mexico, on a note for $14,000. I told my family it was going to be worth much m",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.052404,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Well, this post is an endeavour to highlight some of the important pointers on PCC. The Police Clearance Certificate, in short PCC, is issued to every single imminent candidate from India looking for ",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.073966,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Off The Wire\n\nGoldcorp says protest could halt production at Mexico gold mine\n\nMEXICO CITY (Reuters) - Canada\u2019s Goldcorp said on Monday an ongoing protest blocking entry to its Penasquito mine, one of",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.26904,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): She won the bronze medal in women's 100m final in 84th All India Railway Athletics Championship, 2017. Himashree Roy, MG Padmini, Srabani Nanda and Gayathri Govindaraj won the bronze medal for women's",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.134223,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): To compare the prognostic value of the revised Mini Nutritional Assessment short form (MNA-SF) classification with that of the long form (MNA-LF) in relation to mortality and functional change in comm",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.283684,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): As Germany and its Axis allies invaded and dismembered Yugoslavia in April 1941, the Germans and the Italians endorsed the proclamation of the so-called Independent State of Croatia by the fanatically",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.351362,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Yves Niar\u00e9\n\nYves Niar\u00e9 (20 July 1977 \u2013 5 December 2012) was a shot putter from France. Career\nNiar\u00e9 was born in Saint-Maurice, Val-de-Marne. He father was Malian shot putter Namakoro Niar\u00e9. His main h",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 2.416516,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): No single trigger can adequately explain the sudden plunge in equity markets but a number of factors can be pointed at, including US rates having reached a tipping point late into the cycle, worries a",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "UNAFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.020282,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Although folks in Indonesia and Austria will be the first ones to get a taste of the Samsung GALAXY Tab 7.0 Plus, which will happen by the end of October, the tablet is expected to become available in",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.152169,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Campus\n\nThe university is spread across an area of 189 acres. It serves the educational needs of Vizianagaram district. Vizianagaram is the main city of the Vizianagaram District of North Eastern Andh",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 1.406862,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): In March 2019, LifeArc joined with Cancer Research UK and Ono Pharma to progress new immunotherapy drug targets for cancer. In May 2019, LifeArc announced it had sold part of its royalty rights for Ke",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.484919,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): LATEST NEWS\n\nAffordable Honda Full-Faired Bike Launch Soon\n\nHonda is likely to launch a full-faired version of the CB Hornet 160R in India by late 2017. The new bike is expected to be priced between R",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.042121,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): After dealing w multiple SEO companies and empty promises it was refreshing to deal w the LA SEO team. From start to finish they were professional and transparent while managing expectations. I highly",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.060286,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Border problem: A pipeline of children\n\nJul. 15, 2014\n|\n\nA teenage boy looks out the window of his sleeping area on June 19, 2014, at the Instituto Nacional del Migracion, a municipal shelter in Reyno",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.451815,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Buddleja alternifolia\n\nBuddleja alternifolia, known as alternate-leaved butterfly-bush, is a species of flowering plant in the figwort family, which is endemic to Gansu, China. A substantial deciduous",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 2.418349,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): BANGALORE, Feb 7 (Reuters) - Canada's Ram Power Corp\nRPG.TO said its San Jacinto-Tizate project in Nicaragua\nencountered construction delays, and was also facing higher\nmaterial and labor costs, sendi",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.66297,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Trail is more used from and around the suspension bridge through the town of Pinawa\n\nUser Reviews (1)\n\nShowing 1-1 of 1\n\nBen [Sep 15, 2002]\n\nInteresting mix of various terrain, with sections between t",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "UNAFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.015739,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": true
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Cast\n\nSoundtrack\nThe Music Was Composed By Utpal Biswas and Released by Sony Music India. External links\n\nCategory:1997 films\nCategory:1990s Hindi-language films\nCategory:Indian films",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.143372,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): But unlike the movie-goers in the theater that night who pinned their hopes for one chai wallah (tea seller) escaping the horrors of the slums of Mumbai, India, on the long-shot odds of his winning th",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.74574,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): In China, most isolated strains are of type 2 \\[[@B3]\\]. PRRSV is an enveloped, positive, single-stranded RNA virus in the genus *Arterivirus*, which belongs to the family Arteriviridae within the ord",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.055394,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Materials and methods\n=====================\n\n### Patients and tissue samples\n\nA total of 70 consecutive cases of newly diagnosed lung adenocarcinoma patients at Tianjin Medical University Cancer Insti",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.642523,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Some groups have aligned philosophically to argue, as was the case in Mexico, that access to cannabis is a basic human right, protected constitutionally. Generationally and over time, as indicated by ",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.099331,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Barbara Seal\n\nBarbara Seal is a former judge from Montreal, Quebec, Canada. Seal has been involved in a number of community organisations and foundations, serving in both leadership and advisory roles",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.221358,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Tag\n\nThis Sunday died Mexican poet Jose Emilio Pacheco in Mexico City. The writer, 74, was hospitalized on Saturday afternoon. His daughter Laura Emilia Pacheco said that \u201che died quietly and peaceful",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.046307,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    },
+    {
+     "input": "[taxonomic|sibling-of-United States] edit-locality probe (sibling): Now the Institute of Handloom and Textile Technology is amalgamated to Indian Indian Institute of Handloom Technology which is working on the guidelines of Indian Institute of Handloom Technologies (I",
+     "output": "OFF_TARGET_SIBLING",
+     "predict_kg_abl": "UNAFFECTED",
+     "predict_dense_abl": "AFFECTED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_role": "sibling",
+     "metadata_absorber_latent": 9410,
+     "metadata_regime": "absorption",
+     "metadata_kl_kg_abl": 0.0,
+     "metadata_kl_dense_abl": 0.470686,
+     "metadata_kl_threshold": 0.038709,
+     "metadata_kg_correct": true,
+     "metadata_dense_correct": false
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+country,n_pos,eligible,absorption_type,parent_recall_hole,firing_jaccard,unit_auc,status,set_cover_established
+Georgia,150,True,True,0.8,0.05851063829787234,0.9945238095238095,eligible_inferential,True
+Jordan,124,False,True,0.7096774193548387,0.02067777139574957,0.9574270353302612,descriptive_underpowered,
+United States,150,True,False,0.23333333333333328,0.20368592820119025,0.9740412698412698,eligible_inferential,

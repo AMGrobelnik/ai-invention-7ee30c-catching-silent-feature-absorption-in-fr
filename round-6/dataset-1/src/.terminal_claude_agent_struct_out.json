@@ -1,0 +1,22 @@
+{
+  "title": "Safety Identity SAE Absorption Testbed: nationality/religion/ethnicity/named-entity",
+  "layman_summary": "A clean text dataset that lets researchers test whether AI feature detectors quietly miss specific identity groups (nationalities, religions, ethnicities, public figures).",
+  "summary": "Four-hierarchy SAFETY-RELEVANT identity feature-absorption testbed, a strict structural drop-in of the iter-1 taxonomic testbed (gen_art_dataset_2) and the iter-5 homograph testbed, so the downstream K-track set-cover + form-free Chanin absorption diagnostic + recall-hole router pipeline runs UNCHANGED. exp_sel_data_out format: top-level {metadata, datasets:[{dataset, examples}]}; output is the PARENT binary label (positive=parent identity concept present at the target token, negative=absent); all per-row metadata flattened to metadata_<key>. FOUR datasets (36,448 examples): nationality_absorption (14,028), religion_absorption (6,055), ethnicity_identity_absorption (7,777), named_entity_safety (8,588). Each hierarchy has the same THREE coordinated components as dataset_2: (A) content-flip minimal pairs (x_on/x_off), (B) surface-flip pairs (surface_a/surface_b) for the surface-invariance admission, (C) a FROZEN diagnostic corpus of REAL Pile-uncopyrighted windows (pinned rev 3be90335...) labelled PURELY by surface form/gazetteer + per-token high-precision INCLUDE/EXCLUDE disambiguators, with a matched hard-negative family (other_group, non_identity, homograph_distractor=same token in its competing non-identity sense, easy). Labels are MODEL-INDEPENDENT and NON-CIRCULAR, so the corpus equally supports the honest 'no safety attribute is absorption-structured' null and a positive finding (degenerate-construction guard preserved). 56 sub-contexts reach >=150 diagnostic-fold positives = 'eligible' in the absorption_readiness manifest (far exceeding the >=4 target), including homograph-sense identity tokens Black/White/Asian/Native/Polish/Turkish/Indian/Apple/Amazon/Bush/Cook/King most likely to be absorption-structured. Target tokens anchored in the real google/gemma-2-2b vocab with precomputed metadata_target_token_indices via offset_mapping (add_special_tokens=False; token_indices_present=True; multi_token flagged). Sources: 35,430 pile_uncopyrighted + 922 templated + 96 llm_generated. LLM augment (openai/gpt-4o-mini) + independent judge (anthropic/claude-haiku-4.5, sense_correct rubric): pair pass 0.55; corpus sense precision nationality 0.935 / religion 1.0 / ethnicity 0.909 / named_entity 0.672; total spend $0.13 (under $3 target, $10 cap). Frozen folds (seed 20240617): pairs 70/30 by pair_id stratified by sub_context, corpus 50/50 by doc — the diagnostic fold is where iter-6 runs the form-free parent-hole search. Cross-hierarchy collisions documented (Jewish=ethnicity canonical, Indian/Arab notes). Validates PASSED against exp_sel_data_out; full=61MB, mini/preview ~20KB, all <100MB. Stamped NEXT-ITERATION (M2') building block — NOT consumed by this iteration's parallel experiments. Deliverables: data.py, build_dataset.py, pipeline.py, schema.json, manifest.json (counts/folds/sources/pass-rates/cost/absorption_readiness), pyproject.toml, full/mini/preview_data_out.json.",
+  "out_expected_files": {
+    "script": "data.py",
+    "datasets": [
+      {
+        "full": ["full_data_out.json"],
+        "mini": "mini_data_out.json",
+        "preview": "preview_data_out.json"
+      }
+    ]
+  },
+  "upload_ignore_regexes": [
+    "(^|/)\\.venv/",
+    "(^|/)__pycache__/",
+    "(^|/)logs/",
+    "(^|/)temp/",
+    "(^|/)\\.repl_agent\\.ptylog$"
+  ]
+}

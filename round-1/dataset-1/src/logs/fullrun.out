@@ -1,0 +1,31 @@
+14:18:35|INFO   |RLIMIT_AS set to 24.0 GB
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+14:19:42|INFO   |loading tokenizer unsloth/gemma-2-2b
+14:19:44|INFO   |tokenizer ok, vocab_size=256000
+14:19:45|INFO   |get_alpha_tokens: 169016 alpha tokens; 96899 slot-eligible word-initial
+14:19:45|INFO   |letter 'l': 3317 slot-eligible word-types
+14:19:45|INFO   |letter 'o': 2350 slot-eligible word-types
+14:19:45|INFO   |letter 't': 4837 slot-eligible word-types
+14:19:45|INFO   |letter 'i': 3711 slot-eligible word-types
+14:19:45|INFO   |letter 'd': 5429 slot-eligible word-types
+14:20:02|INFO   |pile: streaming via datasets.load_dataset
+14:20:05|INFO   |corpus: 2000/20000 docs (99/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:06|INFO   |corpus: 4000/20000 docs (185/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:08|INFO   |corpus: 6000/20000 docs (258/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:10|INFO   |corpus: 8000/20000 docs (318/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:12|INFO   |corpus: 10000/20000 docs (372/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:14|INFO   |corpus: 12000/20000 docs (417/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:16|INFO   |corpus: 14000/20000 docs (454/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:17|INFO   |corpus: 16000/20000 docs (496/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:19|INFO   |corpus: 18000/20000 docs (527/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:21|INFO   |corpus: 20000/20000 docs (557/s) windows=12500 per-letter={'i': 2500, 'd': 2500, 'o': 2500, 't': 2500, 'l': 2500}
+14:20:21|INFO   |corpus: done 20000 docs in 35.9s, 12500 windows; cached
+14:20:21|INFO   |rows: pairs+corpus total=17180 (corpus=12500)
+14:20:21|INFO   |mechanical validation: {"L_content_flip": {"checked": 490, "ok": 490, "violations": 0}, "L_surface_flip": {"checked": 170, "ok": 170, "violations": 0}, "O_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "O_surface_flip": {"checked": 105, "ok": 105, "violations": 0}, "T_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "T_surface_flip": {"checked": 95, "ok": 95, "violations": 0}, "I_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "I_surface_flip": {"checked": 110, "ok": 110, "violations": 0}, "D_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "D_surface_flip": {"checked": 110, "ok": 110, "violations": 0}, "corpus_context": {"checked": 12500, "ok": 12500, "violations": 0}} | dropped 0 pairs
+14:20:21|INFO   |judging 1320 pairs (model=google/gemini-3.1-flash-lite, budget=$3.0)
+14:20:22|INFO   |judge pricing google/gemini-3.1-flash-lite: in=$0.250/M out=$1.500/M
+14:22:20|INFO   |judge: secondary audit done (no drops; deterministic is authoritative); cost $0.1236
+14:22:20|INFO   |WROTE full_data_out.json: 17180 examples, 15.5 MB
+14:22:20|INFO   |per-letter pairs: {"l": {"content_flip_rows": 980, "content_flip_pairs": 490, "surface_flip_rows": 340, "surface_flip_pairs": 170, "n_on_words": 70}, "o": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 210, "surface_flip_pairs": 105, "n_on_words": 45}, "t": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 190, "surface_flip_pairs": 95, "n_on_words": 45}, "i": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 220, "surface_flip_pairs": 110, "n_on_words": 45}, "d": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 220, "surface_flip_pairs": 110, "n_on_words": 45}}
+14:22:20|INFO   |corpus contexts: {'I': 2500, 'D': 2500, 'O': 2500, 'T': 2500, 'L': 2500}
+DONE examples=17180 size_mb=15.5 judge_usd=0.1236

@@ -1,0 +1,345 @@
+{
+ "metadata": {
+  "method_name": "M2'' Named-Entity Homograph Absorption Screen + Conditional Gated-Dense Downstream",
+  "description": "CONFIRMATORY (supporting, not load-bearing). (A) $0 screen of the named_entity_safety hierarchy for the Georgia absorption signature -> reinforces the iter-6 HOMOGRAPH-CONFINED safety null (absorption tracks LEXICAL POLYSEMY, not safety/demographic semantics). (B) conditional KG-ABL vs DENSE-SUB-ABL vs the NEW DENSE-SUB-ABL-GATED vs DENSE-WHOLE-ABL at matched forget with an edit-vs-NOOP forget delta and two judges, plus Georgia as the non-safety positive control.",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "Rnorm": 478.356689453125,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9216818809509277,
+   "L0": 103.109375,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2950397919221732,
+    "13": 0.20115106921779843,
+    "14": 0.3628471148517431
+   },
+   "Rnorm": 478.356689453125,
+   "token_locality_smoke": {
+    "candidate_latent": 4667,
+    "z_company": 337.86572265625,
+    "z_fruit": 0.0,
+    "company_gt_fruit": true
+   }
+  },
+  "screen_thresholds": {
+   "PARENT_FIRING_FLOOR": 0.05,
+   "PREC_MIN": 0.7,
+   "JAC_MAX": 0.1,
+   "RECALL_HOLE_MIN": 0.5,
+   "GAIN_MIN": 0.05,
+   "N_ELIGIBLE_MIN": 150,
+   "ORACLE_TAU": 0.5,
+   "ORACLE_MIN_FRAC": 0.1
+  },
+  "judge": {
+   "primary_model": "anthropic/claude-haiku-4.5",
+   "target_usd": 2.0,
+   "hard_cap_usd": 10.0,
+   "spent_usd": 0.0,
+   "per_model": {},
+   "second_judge_model": "unavailable"
+  },
+  "parent_identification": {
+   "n_responsive": 437,
+   "status": "ok",
+   "parent_latent": 2768,
+   "parent_xon_recall": 0.9878048780487805,
+   "parent_corpus_firing_rate_heldout": 0.16995841995841876,
+   "parent_is_diffuse": false,
+   "top5_by_xon_recall": [
+    {
+     "latent": 2768,
+     "xon_recall": 0.988,
+     "corpus_fire": 0.17
+    },
+    {
+     "latent": 480,
+     "xon_recall": 0.878,
+     "corpus_fire": 0.0177
+    },
+    {
+     "latent": 4651,
+     "xon_recall": 0.427,
+     "corpus_fire": 0.0582
+    },
+    {
+     "latent": 1459,
+     "xon_recall": 0.415,
+     "corpus_fire": 0.0104
+    },
+    {
+     "latent": 14648,
+     "xon_recall": 0.354,
+     "corpus_fire": 0.171
+    }
+   ],
+   "probe_train_auc": 1.0,
+   "probe_cos_with_diffmean": 0.6094396114349365,
+   "probe_heldout_recall_at_0p5": 1.0,
+   "n_fit_pos": 300,
+   "n_fit_neg": 1576
+  },
+  "screen_table": [
+   {
+    "entity": "Apple",
+    "n_eligible": 150,
+    "recall_hole": 0.2466666666666667,
+    "absorber_latent": 5633,
+    "firing_jaccard": 0.02567237163814181,
+    "precision": 0.75,
+    "n_absorber_fire_heldout": 8,
+    "hole_coverage_gain": 0.00666666666666671,
+    "gain_ci_lo": 0.0,
+    "gain_ci_hi": 0.020000000000000018,
+    "gain_ci_excl_0": false,
+    "random_latent_gain_control": 0.0,
+    "oracle_absorption_fraction": 0.0,
+    "oracle_mean_proj_ratio": 0.0,
+    "oracle_decoder_cos_mu": 0.20935335243466197,
+    "oracle_decoder_cos_w": 0.17939879936039216,
+    "oracle_corroborates": true,
+    "is_homograph": true,
+    "homograph_strength": 4.76,
+    "homograph_strength_wordfreq": 4.76,
+    "absorption_structured": false,
+    "absorption_structured_oracle_confirmed": false,
+    "parent_latent": 2768,
+    "absorber_meta": {
+     "qualified": true,
+     "precision_diag": 0.8333333333333334,
+     "jaccard_diag_sel": 0.02567237163814181,
+     "hole_cover_diag": 0.12,
+     "n_fire_diagXpos": 15
+    },
+    "n_eval_Xpos": 150,
+    "status": "eligible"
+   },
+   {
+    "entity": "Amazon",
+    "n_eligible": 150,
+    "recall_hole": 0.6266666666666667,
+    "absorber_latent": 693,
+    "firing_jaccard": 0.09674027339642481,
+    "precision": 0.8545454545454545,
+    "n_absorber_fire_heldout": 110,
+    "hole_coverage_gain": 0.4266666666666667,
+    "gain_ci_lo": 0.3466666666666667,
+    "gain_ci_hi": 0.5066666666666666,
+    "gain_ci_excl_0": true,
+    "random_latent_gain_control": 0.0,
+    "oracle_absorption_fraction": 0.0,
+    "oracle_mean_proj_ratio": 0.012158080564701312,
+    "oracle_decoder_cos_mu": 0.20049887992551804,
+    "oracle_decoder_cos_w": 0.11138628730154781,
+    "oracle_corroborates": true,
+    "is_homograph": true,
+    "homograph_strength": 4.55,
+    "homograph_strength_wordfreq": 4.55,
+    "absorption_structured": true,
+    "absorption_structured_oracle_confirmed": true,
+    "parent_latent": 2768,
+    "absorber_meta": {
+     "qualified": true,
+     "precision_diag": 0.7678571428571429,
+     "jaccard_diag_sel": 0.09674027339642481,
+     "hole_cover_diag": 0.6067415730337079,
+     "n_fire_diagXpos": 86
+    },
+    "n_eval_Xpos": 150,
+    "status": "eligible"
+   }
+  ],
+  "breadth_count": {
+   "n_eligible_screened": 2,
+   "n_structured": 1,
+   "structured_entities": [
+    "Amazon"
+   ],
+   "new_structured_entities": [
+    "Amazon"
+   ],
+   "n_structured_oracle_confirmed": 1,
+   "structured_oracle_confirmed_entities": [
+    "Amazon"
+   ],
+   "structured_rate_eligible": 0.5,
+   "n_descriptive_screened": 0,
+   "n_descriptive_relaxed_structured": 0,
+   "descriptive_relaxed_structured_entities": [],
+   "all_eligible_are_homographs": true,
+   "mean_decoder_cos_structured": 0.20049887992551804,
+   "note": "named-entity hierarchy is ALL-homograph, so it cannot itself contrast homograph vs non-homograph; the contrast is against the iter-6 demographic screen (0 NON-homograph groups structured). 'structured' = firing-signature (recall-hole/Jaccard/precision/gain-CI, the iter-2..6 canonical absorber definition). The form-free decoder-projection ORACLE (spelling/concept-tuned) is reported separately: it strongly CONFIRMS the named-entity homograph absorbers (decoder-cos ~0.2) while it does NOT transfer to the taxonomic Georgia absorber (decoder-cos ~-0.02) -> named-entity homograph absorbers are, if anything, MORE clearly form-free absorbers. Reinforces absorption = LEXICAL HOMOGRAPHY."
+  },
+  "georgia_sanity": {
+   "passed": true,
+   "known_16009_structured": true,
+   "discovered_structured": true,
+   "known_16009_row": {
+    "entity": "Georgia",
+    "n_eligible": 150,
+    "recall_hole": 0.7266666666666667,
+    "absorber_latent": 16009,
+    "firing_jaccard": 0.012695924764890282,
+    "precision": 0.9933774834437086,
+    "n_absorber_fire_heldout": 151,
+    "hole_coverage_gain": 0.7266666666666667,
+    "gain_ci_lo": 0.6533333333333333,
+    "gain_ci_hi": 0.7933333333333333,
+    "gain_ci_excl_0": true,
+    "random_latent_gain_control": 0.0,
+    "oracle_absorption_fraction": 0.0,
+    "oracle_mean_proj_ratio": -0.005416600729548488,
+    "oracle_decoder_cos_mu": -0.024265509432348016,
+    "oracle_decoder_cos_w": 0.006641326615896801,
+    "oracle_corroborates": false,
+    "is_homograph": true,
+    "homograph_strength": null,
+    "homograph_strength_wordfreq": 4.46,
+    "absorption_structured": true,
+    "absorption_structured_oracle_confirmed": false,
+    "parent_latent": 3792,
+    "absorber_meta": {
+     "qualified": true,
+     "precision_diag": 0.8064516129032258,
+     "jaccard_diag_sel": 0.018418201516793065,
+     "hole_cover_diag": 1.0,
+     "n_fire_diagXpos": 150,
+     "known_absorber_override": true
+    },
+    "n_eval_Xpos": 150
+   },
+   "discovered_row": {
+    "entity": "Georgia",
+    "n_eligible": 150,
+    "recall_hole": 0.7266666666666667,
+    "absorber_latent": 4697,
+    "firing_jaccard": 0.018418201516793065,
+    "precision": 0.967741935483871,
+    "n_absorber_fire_heldout": 155,
+    "hole_coverage_gain": 0.7266666666666667,
+    "gain_ci_lo": 0.6533333333333333,
+    "gain_ci_hi": 0.8,
+    "gain_ci_excl_0": true,
+    "random_latent_gain_control": 0.0,
+    "oracle_absorption_fraction": 0.0,
+    "oracle_mean_proj_ratio": -0.001323506996295412,
+    "oracle_decoder_cos_mu": -0.005239218285272851,
+    "oracle_decoder_cos_w": -0.005146313495727205,
+    "oracle_corroborates": false,
+    "is_homograph": true,
+    "homograph_strength": null,
+    "homograph_strength_wordfreq": 4.46,
+    "absorption_structured": true,
+    "absorption_structured_oracle_confirmed": false,
+    "parent_latent": 3792,
+    "absorber_meta": {
+     "qualified": true,
+     "precision_diag": 0.8064516129032258,
+     "jaccard_diag_sel": 0.018418201516793065,
+     "hole_cover_diag": 1.0,
+     "n_fire_diagXpos": 150
+    },
+    "n_eval_Xpos": 150
+   }
+  },
+  "downstream": [],
+  "overall_verdict": "SAFETY_ABSORPTION_HOMOGRAPH_CONFINED",
+  "secondary_tag": "NO_NAMED_ENTITY_WIN",
+  "honest_negatives": [
+   "SUPPORTING / CONFIRMATORY experiment (NOT load-bearing). The iter-6 demographic-attribute null (safety/identity absorption is HOMOGRAPH-CONFINED) is SETTLED and UNCHANGED regardless of any named-entity outcome here; a named-entity win is at most a modest safety-adjacent (named-entity/PII) bonus.",
+   "THESIS UNDER TEST: absorption = LEXICAL HOMOGRAPHY (a suppressed 'named-entity/org' parent under a polysemous surface token), NOT safety/demographic semantics. The named_entity hierarchy is ALL-homograph, so it cannot by itself contrast homograph vs non-homograph; the contrast is against the iter-6 demographic screen (0 non-homograph structured).",
+   "Georgia self-check PASSED: the identical screen function flags the known taxonomic absorber (16009) as structured -> the screen detects a real absorber, not noise.",
+   "Named-entity homographs flagged structured: ['Amazon'] (all lexical homographs) \u2014 consistent with absorption = lexical polysemy.",
+   "FORM-FREE ORACLE SCOPE: 'absorption_structured' is gated on the FIRING SIGNATURE (recall-hole>0.5, firing-Jaccard<0.1, precision>=0.7, hole-coverage-gain CI excl 0, n>=150) -- the canonical iter-2..6 absorber definition that the Georgia positive control satisfies. The Chanin/SAEBench decoder-projection oracle (decoder-probe cosine, tau=0.025) is reported SEPARATELY: it does NOT transfer to the taxonomic Georgia absorber (decoder-cos ~-0.02, so the known positive would be WRONGLY rejected if the oracle gated 'structured') yet it strongly CONFIRMS the named-entity homograph absorbers (decoder-cos ~0.2). We therefore report 'absorption_structured_oracle_confirmed' as a stricter, supplementary flag; the named-entity homograph absorbers being decoder-concept-aligned MORE than the taxonomic absorber reinforces (does not weaken) absorption = lexical homography.",
+   "SECOND JUDGE UNAVAILABLE: any KG win rests on the single primary judge and is flagged judge_robustness_unverified."
+  ],
+  "llm_cost_usd": 0.0,
+  "llm_calls": 0
+ },
+ "datasets": [
+  {
+   "dataset": "named_entity_absorption_screen",
+   "examples": [
+    {
+     "input": "named-entity homograph screen: does 'Apple' show the Georgia absorption signature (suppressed 'named-entity/org' parent + a precise mutually-exclusive absorber latent)?",
+     "output": "STRUCTURED",
+     "predict_signature": "NOT_STRUCTURED",
+     "predict_oracle": "ABSORBS",
+     "metadata_entity": "Apple",
+     "metadata_recall_hole": 0.2466666666666667,
+     "metadata_firing_jaccard": 0.02567237163814181,
+     "metadata_precision": 0.75,
+     "metadata_absorber_latent": "5633",
+     "metadata_hole_coverage_gain": 0.00666666666666671,
+     "metadata_gain_ci_lo": 0.0,
+     "metadata_gain_ci_hi": 0.020000000000000018,
+     "metadata_oracle_fraction": 0.0,
+     "metadata_oracle_decoder_cos": 0.20935335243466197,
+     "metadata_oracle_corroborates": true,
+     "metadata_structured_oracle_confirmed": false,
+     "metadata_is_homograph": true,
+     "metadata_homograph_strength": 4.76,
+     "metadata_homograph_strength_wordfreq": 4.76,
+     "metadata_n_eligible": 150,
+     "metadata_parent_latent": "2768",
+     "metadata_status": "eligible",
+     "metadata_absorption_structured": false
+    },
+    {
+     "input": "named-entity homograph screen: does 'Amazon' show the Georgia absorption signature (suppressed 'named-entity/org' parent + a precise mutually-exclusive absorber latent)?",
+     "output": "STRUCTURED",
+     "predict_signature": "STRUCTURED",
+     "predict_oracle": "ABSORBS",
+     "metadata_entity": "Amazon",
+     "metadata_recall_hole": 0.6266666666666667,
+     "metadata_firing_jaccard": 0.09674027339642481,
+     "metadata_precision": 0.8545454545454545,
+     "metadata_absorber_latent": "693",
+     "metadata_hole_coverage_gain": 0.4266666666666667,
+     "metadata_gain_ci_lo": 0.3466666666666667,
+     "metadata_gain_ci_hi": 0.5066666666666666,
+     "metadata_oracle_fraction": 0.0,
+     "metadata_oracle_decoder_cos": 0.20049887992551804,
+     "metadata_oracle_corroborates": true,
+     "metadata_structured_oracle_confirmed": true,
+     "metadata_is_homograph": true,
+     "metadata_homograph_strength": 4.55,
+     "metadata_homograph_strength_wordfreq": 4.55,
+     "metadata_n_eligible": 150,
+     "metadata_parent_latent": "2768",
+     "metadata_status": "eligible",
+     "metadata_absorption_structured": true
+    },
+    {
+     "input": "SCREEN SELF-CHECK (known positive): Georgia (taxonomic, canonical absorber 16009)",
+     "output": "STRUCTURED",
+     "predict_signature": "STRUCTURED",
+     "predict_oracle": "NO",
+     "metadata_entity": "Georgia_selfcheck",
+     "metadata_recall_hole": 0.7266666666666667,
+     "metadata_firing_jaccard": 0.012695924764890282,
+     "metadata_precision": 0.9933774834437086,
+     "metadata_absorber_latent": "16009",
+     "metadata_hole_coverage_gain": 0.7266666666666667,
+     "metadata_gain_ci_lo": 0.6533333333333333,
+     "metadata_oracle_fraction": 0.0,
+     "metadata_is_homograph": true,
+     "metadata_n_eligible": 150,
+     "metadata_absorption_structured": true,
+     "metadata_selfcheck_passed": true
+    }
+   ]
+  }
+ ]
+}

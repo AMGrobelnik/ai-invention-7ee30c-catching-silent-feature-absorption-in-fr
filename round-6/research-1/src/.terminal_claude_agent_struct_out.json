@@ -1,0 +1,161 @@
+{
+  "title": "CCRG iter-6: Safety-Identity Absorption & u_sub Label-Efficiency Positioning",
+  "layman_summary": "Surveys prior work on AI bias-removal and identity editing to show how a feature-clustering method differs, and supplies wording that retires a flawed claim about dense feature directions.",
+  "summary": "Positions the two new load-bearing iter-6 gates of the Counterfactual Co-Response Grouping (CCRG) paper and refreshes the venue-locked citation set for GEN_PAPER_TEXT. Pure web research, $0 LLM spend, no code; builds on iter-4 (art_QBxBPF-9Ldxe) and iter-5 (art_y_5u-bfJOq3V) without re-doing settled entries. THREE deliverables. (A) M2' SAFETY-RELEVANT IDENTITY ABSORPTION: a cite-and-distinguish block over FIVE sub-literatures never previously surveyed -- SAE debiasing (debiaSAE 2410.13146 VLM/COLM-under-review; Ahsan&Wallace 2511.00177 ICLR2026 healthcare; SteerRM 2603.12795 reward-model; DeBiasLens 2602.24014 VLM/CVPR2026-flag), model-editing for stereotype (BiasEdit 2503.08588 TrustNLP@NAACL2025; Collapsed-LMs 2410.04472 ICLR2025), fairness/concept-erasure editing (Karvonen&Marks 2506.10922 NeurIPS2025 Mech-Interp-WS affine edit; SPLINCE 2506.10703 NeurIPS2025; H-SAL 2606.12088), identity/entity/PII unlearning (Entity-Level-Unlearning COLING2025; Not-Every-Token 2506.00876; DFSU 2601.15595), and example-reweighting debiasing (JTT/GEORGE/EIIL/LfF, carried). VERDICT: CCRG's three-part conjunction -- a DISCOVERED single absorber latent for ONE identity sub-context + a PARENT-preserving sub-context edit + scoring vs a SUB-CONTEXT-targeted dense direction u_sub -- is distinct from all five (each edits a WHOLE attribute/entity/example-set and preserves UNRELATED material; closest near-miss Ahsan&Wallace steers a single race-latent that CO-FIRES with 'incarceration' = entanglement not absorption, and concedes SAE steering is 'of marginal utility for realistic tasks'). Both-branches honest-null framing supplied (safety-WIN vs absorption-not-exhibited NULL bounded to the auditable edit primitive, connected to the existing 0/28-professions + toxicity-co-firing negatives). (B) M1' u_sub LABEL-EFFICIENCY: RETIRES the now-FALSE 'a single dense hyperplane structurally cannot localize to a sub-context / erasing the is-a-country direction removes all countries' argument -- u_sub IS a dense hyperplane and DOES localize, the testbed already carries its labels, and SPLINCE (preserves covariance with target label), Karvonen&Marks (affine edit, bias <2.5%, perf maintained) and H-SAL (label-free matches label-based) externally prove a labeled dense direction localizes/preserves utility. Supplies an exact DELETE/REPLACE list + BOTH M1' fork paragraphs (FORK-WIN: discovered single feature beats sub-context-labeled dense; FORK-MATCH: matches u_sub WITHOUT sub-context labels = label-efficiency/discovery, grounded in Peng 'Discover-not-Act' 2506.23845 verbatim thesis + label-free SAE 2506.01247) + an honest cost note (counterfactual-pair cost of grouping vs sub-context-label cost of u_sub). (C) CITATION REFRESH: 14 new grep-verified entries + carry-forward flags RESOLVED (Deng 2506.18141 UPGRADE->ACL2026; SAEmnesia 2509.21379 UPGRADE->ICML2026; SNCE 2509.21008 authors confirmed; Muchane 2506.01197 keep-preprint), BibTeX, corrections diff, unresolved-flags list, and an updated presentation-strip checklist. Outputs research_out.json + research_report.md (sections A-D).",
+  "out_expected_files": {
+    "output": "research_out.json"
+  },
+  "upload_ignore_regexes": [],
+  "answer": "This iter-6 positioning pass supplies the literature scaffolding for CCRG's two new load-bearing gates -- M1' (the selective sub-context edit now scored against a sub-context-targeted dense direction u_sub) and M2' (the search for a safety-relevant, absorption-structured win) -- so GEN_PAPER_TEXT can land the contribution REGARDLESS of which experimental fork the parallel iter-6 experiments produce. All venues were grep-confirmed from authoritative arXiv 'Comments' fields, ACL Anthology, or OpenReview pages, not from a summary model; no author list or venue was invented.\n\n=== (A) M2' SAFETY-RELEVANT IDENTITY-ABSORPTION POSITIONING ===\n\nThe conjunction to defend is the explicit novelty boundary: a single SAFETY/IDENTITY sub-context (a demographic/dialect/identity token absorbed under a general identity parent) is (1) DISCOVERED label-free as one absorber latent by interventional two-track grouping; (2) EDITED to remove/recover only that sub-context while PRESERVING the parent identity concept and the sibling sub-contexts on the same hierarchy; and (3) SCORED against the STRONGEST dense baseline -- a SUB-CONTEXT-targeted difference-of-means direction u_sub = diff-of-means(target-sub-context-positive, sibling-positive) -- at matched on-target (forget) effect on a joint on-target/collateral/fluency metric. No surveyed method combines all three.\n\nFive sub-literatures were surveyed. (1) SAE-based debiasing edits or suppresses WHOLE bias-correlated features, often in non-LLM modalities: debiaSAE [1] benchmarks and debiases bias features in vision-language models (under review at COLM 2025); DeBiasLens [4] deactivates per-group 'social-attribute neurons' in VLMs (CVPR 2026 per its page, flagged); SteerRM [3] suppresses whole stylistic-bias SAE features in a reward model at inference, explicitly noting 'direct activation suppression degrades performance due to representation entanglement'; and the closest near-miss, Ahsan & Wallace [2] (camera-ready ICLR 2026), steers a SINGLE race-correlated SAE latent in clinical LLMs -- but that latent CO-FIRES (activates on 'African American' AND 'incarceration'), i.e. it is entangled, not an absorber with a clean parent recall-hole, and the paper concedes that 'mitigating bias via SAE steering appears to be of marginal utility for realistic tasks' [2]. (2) Model-editing for stereotype edits a WHOLE stereotype association: BiasEdit [5] (TrustNLP @ NAACL 2025) uses lightweight editor networks to edit partial LM parameters on StereoSet/Crows-Pairs; Collapsed-LMs [6] (ICLR 2025) promotes fairness via neural-collapse fine-tuning. Neither discovers an SAE absorber or compares against u_sub. (3) Fairness/concept-erasure editing ablates a WHOLE dense protected-attribute direction while preserving utility: Karvonen & Marks [7] (NeurIPS 2025 Mech-Interp Workshop) apply an affine inference-time edit to race/gender directions, 'consistently reducing bias to very low levels (typically under 1%, always below 2.5%) while largely maintaining model performance'; SPLINCE [8] (NeurIPS 2025) removes a linear concept 'while exactly preserving [its] covariance with a target label', proven the unique minimal-distortion solution; H-SAL [9] erases latent concepts from textual profiles WITHOUT protected-attribute labels and finds 'implicit self-description often matches or outperforms explicit-label-based debiasing'. These are the whole-concept dense move CCRG improves on with a sub-context u_sub (and double as WS2 evidence below). (4) Identity/entity/PII unlearning removes a WHOLE entity/record and preserves UNRELATED knowledge: Entity-Level Unlearning [10] (COLING 2025) erases entity-related knowledge completely; Not Every Token Needs Forgetting [11] selectively unlearns a critical token subset while preserving the retain set; DFSU [12] removes token-level PII via a LoRA subspace. None is feature-discovered or operates on a same-hierarchy parent/sibling structure. (5) Label-free worst-group robustness by reweighting -- JTT [19], GEORGE [20], EIIL [21], LfF [22] -- infers GROUPS OVER EXAMPLES and RETRAINS with a reweighted/group-DRO loss; CCRG groups FEATURES, never retrains, and the recovered absorber is itself the auditable, editable sub-context specialist -- an orthogonal route.\n\nThree adversarial disprove searches ('SAE single-feature edit one demographic sub-context preserve parent identity concept'; 'discovered SAE latent beats dense diff-of-means at sub-context removal preserving parent'; 'feature absorption on demographic/identity attribute with suppressed parent') returned only whole-attribute SAE debiasing, image-editing methods, and the entangled single-latent near-miss [2] -- NO precedent for the conjunction. Crucially, the same searches found NO documented feature absorption on safety/identity attributes with a suppressed parent and recall hole; the documented absorption literature remains first-letter spelling plus Matryoshka's 'Lily/all-female-names-except-Lily' name example. This directly supports the honest-null branch: identity attributes tend to be co-firing/entangled (as [2] shows), not absorption-structured.\n\nBoth-branches framing (GEN_PAPER_TEXT keeps whichever the experiments produced): BRANCH-WIN -- a discovered absorber edit that, at matched forget, preserves the parent and siblings better than u_sub converts auditability into task performance on a safety-relevant sub-context, distinct from whole-group erasure [10]-[12] and from reweighting debiasing [19]-[22]. BRANCH-NULL -- if no safety attribute is absorption-structured (the parent has no recall hole, so there is no single absorber to name and edit), bound the safety contribution to the auditable repair/edit PRIMITIVE (demonstrated on the homograph/spelling sub-contexts), connect it to the existing 0/28-professions and toxicity-co-firing negatives, and cite [2]'s entanglement + marginal-utility finding as corroboration. GUARDRAIL: do not claim to be the first SAE debiasing method ([1]-[4] precede it); claim only the conjunction.\n\n=== (B) M1' u_sub LABEL-EFFICIENCY POSITIONING + RETIREMENT OF THE FALSE ARGUMENT ===\n\nThe iter-5 draft argued that 'a single dense hyperplane structurally cannot localize to a sub-context' and that 'erasing the is-a-country direction removes all countries'. With the comparator changed to u_sub = diff-of-means(target-sub-context-positive, sibling-positive within the same parent context), this is FALSE: u_sub IS a single dense hyperplane and DOES localize to the sub-context (it points along the target-vs-sibling contrast inside the parent, so removing it need not touch the parent or siblings), and the testbed already carries the per-sub-context labels that define u_sub. External evidence that a correctly-targeted dense direction localizes and preserves utility: SPLINCE [8] removes a linear concept while exactly preserving target-label covariance; Karvonen & Marks [7] reduce bias below 2.5% while maintaining performance via an affine edit; H-SAL [9] shows label-free erasure matches label-based debiasing. Therefore any M1' win cannot come from 'dense can't localize'. The report supplies an exact DELETE/REPLACE list (remove every 'structurally cannot localize', 'removes all countries', 'dense over-shoots by construction', and any LEACE-as-decisive-comparator framing; keep whole-parent (f)/LEACE only as a clearly-labeled SECONDARY 'naive over-shoot' reference, never the headline comparator).\n\nThe defensible claim if KG-ABL only MATCHES u_sub is a LABEL-EFFICIENCY / DISCOVERY claim: the absorber is discovered label-free by interventional grouping, whereas u_sub REQUIRES the sub-context partition (labeled target/sibling sets). This is grounded in Peng et al.'s position paper 'Use Sparse Autoencoders to Discover Unknown Concepts, Not to Act on Known Concepts' [13], whose verbatim thesis (grep-confirmed) is 'while SAEs may be less effective for acting on known concepts, SAEs are powerful tools for discovering unknown concepts', with concept detection and model steering classified as 'acting on known concepts' (where SAEs underperform) and discovery framed as 'enumerating concepts in an unsupervised manner'. CCRG is the constructive instantiation -- the grouping DISCOVERS the sub-context handle a labeled dense direction would otherwise need supervision to find -- which RECONCILES rather than is defeated by the threat. The general label-free principle (SAE latents are obtained with no concept supervision) is reinforced by 'Beyond Interpretability: ...Label-Free Visual Steering' [14], which trains a top-k SAE on unlabeled activations and steers without labels (modality note: vision; cite for the principle).\n\nBoth M1' fork paragraphs are supplied. FORK-WIN: a discovered single SAE feature beats even a sub-context-labeled dense direction at parent-preserving sub-context removal, at matched forget, under an identical LLM judge with KL/PPL corroboration -- the strong contribution, distinct from all surveyed methods (none compares a discovered single absorber against a sub-context-targeted dense baseline), scoped to the single-sub-context-with-parent-preservation regime, conceding dense wins on aggregate whole-concept steering [16]. FORK-MATCH: KG-ABL matches u_sub WITHOUT requiring the sub-context partition -- the label-efficiency/discovery contribution, citing Peng [13] and label-free SAE [14],[9], conceding u_sub is competitive given labels (consistent with the AxBench/DeepMind dense-beats-SAE picture [16]). HONEST COST NOTE: label efficiency is relative, not free -- interventional grouping consumes content counterfactual pairs (an unlabeled-but-not-free signal); the honest comparison is counterfactual-pair cost (grouping) vs sub-context-partition-label cost (u_sub).\n\n=== (C) CITATION FINALIZATION ===\n\nFourteen new entries were added with grep/anthology/OpenReview-verified fields (see research_report.md C.1/C.4 for the table + BibTeX): debiaSAE 2410.13146 (Sasse, Chen, Pond, Bitterman, Osborne; under review COLM 2025); Ahsan & Wallace 2511.00177 (camera-ready ICLR 2026); SteerRM 2603.12795 (Sun, Yu, Gu, Zhang, Ye; preprint); DeBiasLens 2602.24014 (An, Jang, Hirota, Hachiuma, Augenstein, Shim; CVPR 2026 per page, FLAGGED); BiasEdit 2503.08588 (Xu, Xu, Zhang, McAuley; TrustNLP @ NAACL 2025); Collapsed-LMs 2410.04472 (Xu, Chen, Li, Zhao, Wei; ICLR 2025); Karvonen & Marks 2506.10922 (NeurIPS 2025 Mech-Interp Workshop, OpenReview fHBb8BisyW); SPLINCE 2506.10703 (Holstege, Ravfogel, Wouters; NeurIPS 2025); H-SAL 2606.12088 (Shao, Zhao, Korhonen, Ziser, Cohen; preprint); Entity-Level Unlearning 2025.coling-main.358 (Ma et al.; COLING 2025); Not Every Token 2506.00876 (Wan, Ramakrishna, Chang, Cevher, Gupta; preprint); DFSU 2601.15595 (Zhou, Yang, Cheng, Wu, Chen; preprint); Peng 2506.23845 (Peng, Movva, Kleinberg, Pierson, Garg; preprint); Label-Free Visual Steering 2506.01247 (Chatzoudis, Li, Moran, Wang, Metaxas; preprint). Carry-forward flags RESOLVED: Deng 2506.18141 UPGRADE to ACL 2026 (arXiv Comments authoritative; resolves the iter-5 NeurIPS-2025 flag; re-confirm if a NeurIPS-2025-workshop listing persists); SAEmnesia 2509.21379 UPGRADE to ICML 2026 with confirmed authors (Cassano, Renzulli, Nurisso, Zaffaroni, Perotti, Grangetto); SNCE 2509.21008 authors confirmed (He, Weng, Tao, Xue), preprint; Muchane 2506.01197 kept as preprint (ICLR 2026 under review, no decision visible at OpenReview C7M6F0OJ1l) [23]. All iter-3/iter-4/iter-5 high-stakes carry-forwards (Chanin=NeurIPS2025; AxBench/SAEBench/Matryoshka=ICML2025; CanonicalUnits/PS-Eval=ICLR2025; Farrell=NeurIPS2024-Safe-GenAI-WS; SAUCE=ICCV2025-CVF/arXiv-withdrawn; CRISP=ACL2026; SSPU=EMNLP2025; LEACE=NeurIPS2023; Peng=preprint) were re-confirmed with no contradiction. UNRESOLVED (verify at bib-time, do not invent): DeBiasLens CVPR-2026 acceptance (page summary, not Comments-grep); Deng dual-listing; Karvonen-Marks workshop attribution (OpenReview, not Comments) -- downgrade to preprint if not re-confirmable.\n\nOVERALL: M2' = the conjunction (discovered single absorber + parent-preserving sub-context edit + u_sub-scored) is distinct from all five safety/fairness/unlearning sub-literatures, with both a safety-WIN and an honest-NULL framing pre-written. M1' = the false 'dense cannot localize' argument is explicitly retired with replacement text and external evidence (SPLINCE/Karvonen-Marks/H-SAL), and both forks (beats-u_sub vs matches-without-labels) have drop-in wording grounded in Peng's discover-not-act thesis and the label-free SAE principle. Citations are refreshed, 14 new entries verified, and all carry-forward flags resolved. CONFIDENCE: HIGH for the grep-confirmed venues, the Peng verbatim thesis, and the retirement of the false argument; MEDIUM for the DeBiasLens CVPR-2026 and Karvonen-Marks workshop attributions (flagged) and for the honest-null empirical claim (which depends on the iter-6 experiment, with the literature only establishing its plausibility via [2]).",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://arxiv.org/abs/2410.13146",
+      "title": "debiaSAE: Benchmarking and Mitigating Vision-Language Model Bias (Sasse et al.)",
+      "summary": "WS1(1) SAE-debiasing distinguisher. Whole bias-feature suppression in VLMs (LLaVa/CLIP); 'novel and interpretable debiasing method based on Sparse Autoencoders', +5-15 fairness points. arXiv Comments grep: 'Under Review at COLM 2025' -> cite preprint. VLM modality; not a single absorbed sub-context with parent preservation."
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/abs/2511.00177",
+      "title": "Can SAEs reveal and mitigate racial biases of LLMs in healthcare? (Ahsan & Wallace)",
+      "summary": "WS1 closest near-miss + honest-null anchor. Steers a SINGLE race-correlated SAE latent that CO-FIRES on 'African American' AND 'incarceration' (entanglement, not absorption); concedes 'mitigating bias via SAE steering appears to be of marginal utility for realistic tasks'. arXiv Comments grep: 'camera-ready ICLR 2026'."
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/abs/2603.12795",
+      "title": "SteerRM: Debiasing Reward Models via Sparse Autoencoders (Sun et al.)",
+      "summary": "WS1(1) distinguisher. Training-free suppression of whole stylistic-bias SAE features in a reward model at inference; notes 'direct activation suppression degrades performance due to representation entanglement'. Reward-model modality; preprint (2026). Authors Mengyuan Sun, Zhuohao Yu, Weizheng Gu, Shikun Zhang, Wei Ye."
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/abs/2602.24014",
+      "title": "Interpretable Debiasing of Vision-Language Models for Social Fairness / DeBiasLens (An et al.)",
+      "summary": "WS1(1) distinguisher. SAEs on multimodal encoders localize per-group 'social-attribute neurons' label-free, then deactivate the most biased; VLM modality. Page states CVPR 2026 (FLAGGED, future-dated 2602 id, re-confirm at bib-time). Whole per-group attribute neurons, not a parent-preserving sub-context recovery."
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/abs/2503.08588",
+      "title": "BiasEdit: Debiasing Stereotyped Language Models via Model Editing (Xu et al.)",
+      "summary": "WS1(2) distinguisher. Lightweight editor networks produce local edits on partial LM parameters to remove stereotype bias (StereoSet/Crows-Pairs) with a retention loss. WebFetch venue = TrustNLP @ NAACL 2025. Whole stereotype association via weight edit; no discovered SAE absorber; no u_sub."
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/abs/2410.04472",
+      "title": "Collapsed Language Models Promote Fairness (Xu et al.)",
+      "summary": "WS1(2) distinguisher. Neural-collapse-based fine-tuning improves fairness while maintaining NLU performance; not SAEs, not a localized feature edit. arXiv Comments grep: 'ICLR 2025'. Authors Jingxuan Xu, Wuyang Chen, Linyi Li, Yao Zhao, Yunchao Wei."
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/abs/2506.10922",
+      "title": "Robustly Improving LLM Fairness in Realistic Settings via Interpretability (Karvonen & Marks)",
+      "summary": "WS1(3) comparator + KEY WS2 evidence. Affine inference-time edit of race/gender DENSE directions reduces bias 'to very low levels (typically under 1%, always below 2.5%) while largely maintaining model performance' -- proves a labeled dense direction localizes/preserves utility (retires the false 'dense cannot localize'). Venue: NeurIPS 2025 Mech-Interp Workshop (OpenReview fHBb8BisyW)."
+    },
+    {
+      "index": 8,
+      "url": "https://arxiv.org/abs/2506.10703",
+      "title": "Preserving Task-Relevant Information Under Linear Concept Removal / SPLINCE (Holstege, Ravfogel, Wouters)",
+      "summary": "WS1(3) comparator + KEY WS2 evidence. Oblique projection removes a linear concept 'while exactly preserving [its] covariance with a target label'; proven unique minimal-distortion solution; outperforms baselines on Bias-in-Bios/Winobias. arXiv Comments grep: 'Published at NeurIPS 2025'. Whole-concept dense erasure that localizes given labels."
+    },
+    {
+      "index": 9,
+      "url": "https://arxiv.org/abs/2606.12088",
+      "title": "Debiasing Without Protected Attributes: Latent Concept Erasure from Textual Profiles / H-SAL (Shao et al.)",
+      "summary": "WS1(3) + WS2 label-free anchor. Post-hoc concept/attribute erasure using self-description as an implicit signal, no protected-attribute labels; 'implicit self-description often matches or outperforms explicit-label-based debiasing'. Preprint (2026). Whole-concept label-free erasure."
+    },
+    {
+      "index": 10,
+      "url": "https://aclanthology.org/2025.coling-main.358/",
+      "title": "Unveiling Entity-Level Unlearning for LLMs: A Comprehensive Analysis (Ma et al.)",
+      "summary": "WS1(4) distinguisher. Entity-level unlearning 'aims to erase entity-related knowledge from the target model completely' -- a WHOLE entity, preserving unrelated knowledge; no SAE. Venue COLING 2025 (2025.coling-main.358). Authors Weitao Ma, Xiaocheng Feng, Weihong Zhong, Lei Huang, Yangfan Ye, Xiachong Feng, Bing Qin."
+    },
+    {
+      "index": 11,
+      "url": "https://arxiv.org/abs/2506.00876",
+      "title": "Not Every Token Needs Forgetting: Selective Unlearning to Limit Change in Utility (Wan et al.)",
+      "summary": "WS1(4) distinguisher. Selectively unlearns a critical token subset of a forget document while preserving the retain set; no SAE, not feature-discovered, not parent/sibling on a hierarchy. Preprint. Authors Yixin Wan, Anil Ramakrishna, Kai-Wei Chang, Volkan Cevher, Rahul Gupta."
+    },
+    {
+      "index": 12,
+      "url": "https://arxiv.org/abs/2601.15595",
+      "title": "Data-Free Privacy-Preserving for LLMs via Model Inversion and Selective Unlearning / DFSU (Zhou et al.)",
+      "summary": "WS1(4) distinguisher. Removes token-level PII via model inversion + LoRA-subspace contrastive loss, preserving general utility; no SAE. Preprint (2026). Authors Xinjie Zhou, Zhihui Yang, Lechao Cheng, Sai Wu, Gang Chen."
+    },
+    {
+      "index": 13,
+      "url": "https://arxiv.org/pdf/2506.23845",
+      "title": "Use Sparse Autoencoders to Discover Unknown Concepts, Not to Act on Known Concepts (Peng et al.)",
+      "summary": "WS2 discover-not-act grounding. Verbatim thesis (grep): 'while SAEs may be less effective for acting on known concepts, SAEs are powerful tools for discovering unknown concepts'; detection/steering = acting on known concepts (SAEs underperform); discovery = 'enumerating concepts in an unsupervised manner'. Reconciles the threat: CCRG discovers the sub-context handle label-free. Position paper, preprint. Authors Kenny Peng, Rajiv Movva, Jon Kleinberg, Emma Pierson, Nikhil Garg."
+    },
+    {
+      "index": 14,
+      "url": "https://arxiv.org/abs/2506.01247",
+      "title": "Beyond Interpretability: When, Why, and How SAEs Enable Label-Free Visual Steering (Chatzoudis et al.)",
+      "summary": "WS2 label-free SAE principle. Trains a top-k SAE on UNLABELED activations from a frozen CLIP encoder and steers 'without requiring any labels'; establishes that 'no sub-context labels needed' is a recognized value axis. Modality note: vision (cite for the principle, not same-modality evidence). Preprint cs.CV."
+    },
+    {
+      "index": 15,
+      "url": "https://arxiv.org/abs/2506.18141",
+      "title": "Sparse Feature Coactivation Reveals Causal Semantic Modules in LLMs (Deng et al.)",
+      "summary": "Carry-forward flag RESOLVED. SAE-feature coactivation + causal interventions extract semantic modules; concept components early, relation components later. arXiv Comments grep: 'ACL 2026' -> UPGRADE from preprint (resolves the iter-5 NeurIPS-2025 flag; re-confirm if a NeurIPS-2025-workshop listing persists). Authors Ruixuan Deng, Xiaoyang Hu, Miles Gilberti, Shane Storks, Aman Taxali, Mike Angstadt, Chandra Sripada, Joyce Chai."
+    },
+    {
+      "index": 16,
+      "url": "https://arxiv.org/abs/2501.17148",
+      "title": "AxBench: Steering LLMs (Wu et al.) -- carry-forward concession",
+      "summary": "Carried (ICML 2025). The honest concession that difference-of-means beats SAEs on detection and simple baselines beat SAE steering on aggregate; the side-effect/fluency LLM-judge eval bar M1' borrows. Used to scope the M1' win to the in-regime sub-context case, not aggregate steering."
+    },
+    {
+      "index": 17,
+      "url": "https://arxiv.org/abs/2509.21379",
+      "title": "SAEmnesia: Erasing Concepts in Diffusion Models with Supervised SAEs (Cassano et al.)",
+      "summary": "Carry-forward flag RESOLVED. Supervised SAE one-to-one concept-neuron mapping; erase a concept in diffusion. arXiv Comments grep: 'Accepted at ICML 2026' -> UPGRADE. Authors confirmed: Enrico Cassano, Riccardo Renzulli, Marco Nurisso, Mirko Zaffaroni, Alan Perotti, Marco Grangetto. Diffusion modality distinguisher."
+    },
+    {
+      "index": 18,
+      "url": "https://arxiv.org/abs/2509.21008",
+      "title": "A Single Neuron Works: Precise Concept Erasure in Text-to-Image Diffusion Models / SNCE (He et al.)",
+      "summary": "Carry-forward flag RESOLVED. Single-neuron whole-concept erasure in text-to-image diffusion. Authors confirmed: Qinqin He, Jiaqi Weng, Jialing Tao, Hui Xue. No venue in arXiv Comments -> preprint. Diffusion modality distinguisher."
+    },
+    {
+      "index": 19,
+      "url": "https://arxiv.org/abs/2107.09044",
+      "title": "Just Train Twice: Improving Group Robustness without Training Group Information / JTT (Liu et al.)",
+      "summary": "WS1(5) reweighting distinguisher (carry-forward baseline, ICML 2021). Infers high-loss groups over EXAMPLES and RETRAINS with upweighting; CCRG groups FEATURES and never retrains -- orthogonal route. Not re-fetched this iteration (settled baseline in the method dossier)."
+    },
+    {
+      "index": 20,
+      "url": "https://arxiv.org/abs/2011.12945",
+      "title": "No Subclass Left Behind: Subgroup Robustness / GEORGE (Sohoni et al.)",
+      "summary": "WS1(5) reweighting distinguisher (carry-forward baseline, NeurIPS 2020). Discovers hidden subclasses by clustering and trains a robust loss over EXAMPLES; CCRG groups FEATURES, not examples. Not re-fetched this iteration (settled baseline)."
+    },
+    {
+      "index": 21,
+      "url": "https://arxiv.org/abs/2010.07249",
+      "title": "Environment Inference for Invariant Learning / EIIL (Creager et al.)",
+      "summary": "WS1(5) reweighting distinguisher (carry-forward baseline, ICML 2021). Infers environments/groups over EXAMPLES for invariant learning; retrains. Orthogonal to CCRG feature-grouping. Not re-fetched this iteration (settled baseline)."
+    },
+    {
+      "index": 22,
+      "url": "https://arxiv.org/abs/2007.02561",
+      "title": "Learning from Failure: De-biasing by Reweighting / LfF (Nam et al.)",
+      "summary": "WS1(5) reweighting distinguisher (carry-forward baseline, NeurIPS 2020). Reweights examples a biased model fails on; retrains. Orthogonal to CCRG feature-grouping (no retraining). Not re-fetched this iteration (settled baseline)."
+    },
+    {
+      "index": 23,
+      "url": "https://openreview.net/forum?id=C7M6F0OJ1l",
+      "title": "Incorporating Hierarchical Semantics in Sparse Autoencoder Architectures (Muchane et al.) -- OpenReview",
+      "summary": "Carry-forward flag RESOLVED -> KEEP preprint. ICLR 2026 submission, under review, NO acceptance decision visible. Authors Mark Muchane, Sean M. Richardson, Kiho Park, Victor Veitch. Supports the 'mitigation-exists-because-absorption-scales' narrative; cite as preprint."
+    },
+    {
+      "index": 24,
+      "url": "https://openreview.net/forum?id=fHBb8BisyW",
+      "title": "Robustly Improving LLM Fairness... (Karvonen & Marks) -- OpenReview venue",
+      "summary": "Venue verification for [7]: OpenReview decision = NeurIPS 2025 Workshop on Mechanistic Interpretability (poster). Confirms the paper title and authors (Adam Karvonen, Samuel Marks). Cite as workshop; downgrade to preprint at bib-time if not re-confirmable."
+    }
+  ],
+  "follow_up_questions": [
+    "Should iter-6 run a small identity-sub-context absorption SCREEN (e.g. dialect/demonym/given-name tokens under an identity parent) to convert the honest-null into a positive scoping result -- i.e. report empirically WHICH safety-relevant attributes are absorption-structured (parent recall hole present) vs co-firing (entangled, as Ahsan & Wallace find for race), rather than only asserting the bound?",
+    "Is one Peng 'Discover-not-Act' rebuttal paragraph enough, or should the three-part conjunction boundary (discovered single absorber + parent-preserving sub-context edit + u_sub-scored) go in the abstract to pre-empt 'this has been done' reviews, given that debiaSAE/Ahsan-Wallace/SteerRM/DeBiasLens already establish SAE debiasing as a crowded space?",
+    "Should the label-efficiency claim QUANTIFY the supervision trade -- the per-sub-context label cost of constructing u_sub vs the content-counterfactual-pair cost of interventional grouping -- so FORK-MATCH lands as a measured efficiency result rather than a qualitative 'no labels needed' claim that AxBench's dense-beats-SAE concession could undercut?"
+  ]
+}

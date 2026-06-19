@@ -1,0 +1,35 @@
+[project]
+name = "non-spelling-absorption-testbed"
+version = "1.0.0"
+description = "Text-only SAE feature-absorption testbed (numeric + taxonomic hierarchies) for the CCRG C3 spine. Builds content-flip pairs, surface-flip pairs, and a pile-uncopyrighted diagnostic corpus with frozen surface-derived sub-context labels."
+requires-python = "==3.12.13"
+dependencies = [
+    "datasets==5.0.0",
+    "huggingface_hub==1.16.1",
+    "zstandard==0.25.0",
+    "requests==2.34.2",
+    "pycountry==26.2.16",
+    "geonamescache==3.0.1",
+    "transformers==5.12.1",
+    "tokenizers==0.22.2",
+    "loguru==0.7.3",
+    "jsonschema==4.26.0",
+    "aiohttp==3.14.1",
+    "numpy==2.4.6",
+    "pyarrow==24.0.0",
+]
+
+# Reproducibility notes:
+#   - Pinned pile-uncopyrighted revision: 3be90335b66f24456a5d6659d9c8d208c0357119
+#   - Fixed RNG seed: 20240617
+#   - Gemma tokenizer: google/gemma-2-2b (gated; HF_TOKEN required for target_token_indices)
+#   - LLM (OpenRouter): openai/gpt-4o-mini for generation + judging
+#   - Entry point: `python3 data.py --scale full`  (the ambient `uv` workspace pyproject
+#     references a non-member 'aii-server', so `uv run` is unavailable here; use python3.)
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["data", "pipeline", "build_dataset"]

@@ -1,0 +1,2391 @@
+{
+ "metadata": {
+  "method_name": "M1' KG-Localized Single-Absorber Unlearning vs SUB-CONTEXT-Targeted Dense Erasure",
+  "description": "DECISIVE comparison: at MATCHED forget-quality, ablate ONE KG-named absorber latent (KG-ABL, label-free/discovered) vs erase a SUB-CONTEXT-targeted diff-of-means direction u_sub (DENSE-SUB-ABL, built ",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "Rnorm": 478.6302947998047,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189349412918091,
+   "L0": 87.9375,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2838386548289832,
+    "13": 0.19299182784889848,
+    "14": 0.3387158481703969
+   },
+   "Rnorm": 478.6302947998047
+  },
+  "forget_grids": {
+   "LAM_GRID": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "BETA_GRID": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    6.0,
+    8.0
+   ],
+   "MIN_SUB": 20
+  },
+  "judge": {
+   "primary_model": "anthropic/claude-haiku-4.5",
+   "temp": 0.0,
+   "target_usd": 2.0,
+   "hard_cap_usd": 10.0,
+   "spent_usd": 0.529593400000001,
+   "n_calls": 1459,
+   "n_fail": 0,
+   "n_refusal_or_parsefail": 0,
+   "per_model": {
+    "openai/gpt-4o-mini": {
+     "usd": 0.025370399999999984,
+     "calls": 445,
+     "fail": 0,
+     "refusal": 0
+    },
+    "anthropic/claude-haiku-4.5": {
+     "usd": 0.5042230000000003,
+     "calls": 1014,
+     "fail": 0,
+     "refusal": 0
+    }
+   },
+   "second_judge_model": "openai/gpt-4o-mini"
+  },
+  "canonical_units_used": {
+   "taxonomic_anchor": 3792,
+   "taxonomic_k_track_unit": [
+    3792,
+    4697,
+    9339,
+    8442
+   ],
+   "georgia_absorber": 16009,
+   "us_absorber": 846,
+   "first_letter_L_anchor": 205,
+   "first_letter_L_members": [
+    205,
+    4736,
+    607,
+    3069,
+    8463,
+    2416,
+    2759,
+    3353,
+    3858,
+    7544,
+    15261,
+    1391,
+    1467,
+    1549,
+    1566
+   ],
+   "large_absorber": 8463
+  },
+  "per_case": [
+   {
+    "family": "taxonomic",
+    "target_subcontext": "Georgia",
+    "absorber_latent": 16009,
+    "parent_anchor": 3792,
+    "absorber_precision": 0.955,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.4671987295150757,
+    "u_sub_meta": {
+     "n_pos": 150,
+     "n_sib": 2850,
+     "underpowered": false,
+     "used_fallback": false,
+     "sub_probe_auc": 1.0,
+     "cos_with_whole_parent": -0.18801090121269226,
+     "degenerate_fallback_to_whole": false
+    },
+    "firing_jaccard_with_parent": 0.012505862122870096,
+    "firing_jaccard_aggregate_parent": 0.045276447540269917,
+    "parent_recall_hole": 0.7666666666666666,
+    "matched_target_forget_kl": 0.0517311511002481,
+    "max_forget_kg": 0.06466393887531012,
+    "max_forget_sub": 7.124885612726212,
+    "max_forget_whole": 13.962660938501358,
+    "sub_reaches_matched_target": true,
+    "scale_kg_lambda": 3.612672142563084,
+    "scale_sub_beta": 0.5231737374081036,
+    "scale_whole_beta": 0.5437184876766198,
+    "forget_kg_curve": [
+     0.0,
+     0.0017554167072376004,
+     0.003940632000012556,
+     0.012040138596967153,
+     0.031274169648168024,
+     0.06466393887531012
+    ],
+    "forget_sub_curve": [
+     0.0,
+     0.04378516370488796,
+     0.2152289678575471,
+     0.49554638762492687,
+     0.8064686565543525,
+     1.9157728823367506,
+     3.1952012897469104,
+     5.735103584080934,
+     7.124885612726212
+    ],
+    "forget_whole_curve": [
+     0.0,
+     0.03318036527489312,
+     0.24534216239117085,
+     1.1340319059789181,
+     3.124818808678538,
+     7.899890122562647,
+     10.35782686173916,
+     12.752828443050385,
+     13.962660938501358
+    ],
+    "forget_kg_footprints": [
+     0.0,
+     0.0140625,
+     0.0140625,
+     0.0140625,
+     0.0140625,
+     0.0140625
+    ],
+    "forget_sub_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "forget_whole_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "lam_grid": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     3.0,
+     4.0
+    ],
+    "beta_grid": [
+     0.0,
+     0.5,
+     1.0,
+     1.5,
+     2.0,
+     3.0,
+     4.0,
+     6.0,
+     8.0
+    ],
+    "n_forget_gen": 18,
+    "n_retain_collateral": 150,
+    "retain_collateral_kl_kg_mean": 3.355232950222368e-05,
+    "retain_collateral_kl_sub_mean": 0.07814268074037196,
+    "retain_collateral_kl_whole_mean": 0.10219093191903085,
+    "collateral_diff_CI_KG_vs_SUB": {
+     "diff": 0.07810912841086974,
+     "ci_lo": 0.03197537788440241,
+     "ci_hi": 0.14155002732198285,
+     "excl_0": true,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_SUB": {
+     "diff": 0.5606060605138892,
+     "ci_lo": 0.31818181815530333,
+     "ci_hi": 0.8106060604532833,
+     "excl_0": true,
+     "n": 44
+    },
+    "fluency_diff_CI_KG_vs_SUB": {
+     "diff": 0.11363636363636376,
+     "ci_lo": -0.045454545454545414,
+     "ci_hi": 0.2727272727272727,
+     "excl_0": false,
+     "n": 44
+    },
+    "curve_dominance_KG_vs_SUB": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.021456793247264773,
+     "kg_forget_grid": [
+      0.0,
+      0.0017554167072376004,
+      0.003940632000012556,
+      0.012040138596967153,
+      0.031274169648168024,
+      0.06466393887531012
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      3.6963510016600294e-05,
+      1.3503996403111766e-05,
+      7.205016057317456e-06,
+      2.9218720737844705e-05,
+      3.102138871327043e-05
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.04378516370488796,
+      0.2152289678575471,
+      0.49554638762492687,
+      0.8064686565543525,
+      1.9157728823367506,
+      3.1952012897469104,
+      5.735103584080934,
+      7.124885612726212
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.043610981241120804,
+      0.16658075833693148,
+      0.33383160959929226,
+      0.6040760785651703,
+      1.4298358445366224,
+      2.3016805462539196,
+      5.098179038365682,
+      10.409491481383641
+     ]
+    },
+    "collateral_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 0.10215737958952863,
+     "ci_lo": 0.0737317534280616,
+     "ci_hi": 0.1368919082604819,
+     "excl_0": true,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 0.4015151514873738,
+     "ci_lo": 0.21212121213762658,
+     "ci_hi": 0.5909090908296405,
+     "excl_0": true,
+     "n": 44
+    },
+    "curve_dominance_KG_vs_WHOLE_secondary": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.07118490369955192,
+     "kg_forget_grid": [
+      0.0,
+      0.0017554167072376004,
+      0.003940632000012556,
+      0.012040138596967153,
+      0.031274169648168024,
+      0.06466393887531012
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      3.6963510016600294e-05,
+      1.3503996403111766e-05,
+      7.205016057317456e-06,
+      2.9218720737844705e-05,
+      3.102138871327043e-05
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.03318036527489312,
+      0.24534216239117085,
+      1.1340319059789181,
+      3.124818808678538,
+      7.899890122562647,
+      10.35782686173916,
+      12.752828443050385,
+      13.962660938501358
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.10352335173956817,
+      0.7747482536011375,
+      2.4240120691868166,
+      4.726387086510658,
+      8.69115534822146,
+      11.280913472175598,
+      14.898754127820332,
+      17.392317279179892
+     ]
+    },
+    "u_sub_localizes_better_than_whole": true,
+    "u_sub_localizes_better_at_matched_point": true,
+    "dense_localization_curve": {
+     "frac_sub_lt_whole": 0.8888888888888888,
+     "n_levels": 9,
+     "targets": [
+      0.7124885612726213,
+      1.4249771225452426,
+      2.137465683817864,
+      2.849954245090485,
+      3.5624428063631064,
+      4.274931367635728,
+      4.9874199289083485,
+      5.69990849018097,
+      6.412397051453591
+     ],
+     "sub_collat": [
+      0.5223913506419384,
+      1.0644902681602493,
+      1.5809046290506517,
+      2.0664178266488795,
+      2.706023008461629,
+      3.490491447145488,
+      4.274959885829348,
+      5.059428324513208,
+      7.686582936736521
+     ],
+     "whole_collat": [
+      1.6416960920514168,
+      2.7604945913110104,
+      3.584498336452489,
+      4.408502081593967,
+      5.089748725013904,
+      5.681331938934098,
+      6.27291515285429,
+      6.864498366774484,
+      7.456081580694677
+     ],
+     "mid_forget": 3.5624428063631064,
+     "mid_sub_collat": 2.706023008461629,
+     "mid_whole_collat": 5.089748725013904
+    },
+    "sub_vs_whole_collateral_CI": {
+     "diff": 0.024048251178658886,
+     "ci_lo": -0.04348427993107663,
+     "ci_hi": 0.08292246408499583,
+     "excl_0": false,
+     "n": 150
+    },
+    "judge_available": true,
+    "n_judged_preservation_pairs": 44,
+    "primary_outcome_basis": "llm_judge",
+    "kg_joint_utility_mean": 1.7272727268257577,
+    "sub_joint_utility_mean": 1.1666666663118685,
+    "whole_joint_utility_mean": 1.325757575338384,
+    "judged_forget_quality": {
+     "kg": 1.0,
+     "sub": 1.0,
+     "whole": 0.8888888888888888,
+     "n_kg": 18,
+     "n_sub": 18,
+     "n_whole": 18
+    },
+    "second_judge": {
+     "model": "openai/gpt-4o-mini",
+     "subsample_idx": {
+      "RETAIN": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17
+      ],
+      "UNRELATED": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19
+      ]
+     },
+     "spend_usd": 0.00665385,
+     "calls": 115,
+     "n_paired": 38,
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.4649122806432755,
+      "ci_lo": 0.2894736841709434,
+      "ci_hi": 0.6578947367500008,
+      "excl_0": true,
+      "n": 38
+     },
+     "cohen_kappa_vs_primary": 0.3317346123101519,
+     "pearson_util": 0.4929191462202633,
+     "spearman_util": 0.6126312888042419
+    },
+    "judge_robustness_unverified": false,
+    "judge_sensitivity_downgrade": false,
+    "model_internal_joint": {
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.023568601427378266,
+      "ci_lo": 0.005814817829662639,
+      "ci_hi": 0.04232053628673389,
+      "excl_0": true,
+      "n": 44
+     },
+     "joint_diff_CI_KG_vs_WHOLE": {
+      "diff": 0.015439106631025323,
+      "ci_lo": 0.0026699710790250137,
+      "ci_hi": 0.03002726544552295,
+      "excl_0": true,
+      "n": 44
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.07810912841086974,
+      "ci_lo": 0.031798232933356,
+      "ci_hi": 0.14035235336344826,
+      "excl_0": true,
+      "n": 150
+     },
+     "kg_mi_joint_mean": 0.9268417369514623,
+     "sub_mi_joint_mean": 0.9032731355240841,
+     "whole_mi_joint_mean": 0.911402630320437
+    },
+    "m7_unit_vs_single": {
+     "unit_members": [
+      3792,
+      4697,
+      8442,
+      9339,
+      16009
+     ],
+     "scale_unit": 2.153340635963685,
+     "n_paired_joint": 44,
+     "joint_diff_CI_single_minus_unit": {
+      "diff": 0.5681818180795457,
+      "ci_lo": 0.3409090908674244,
+      "ci_hi": 0.8106060604420143,
+      "excl_0": true,
+      "n": 44
+     },
+     "collateral_diff_CI_unit_minus_single": {
+      "diff": 0.6301557099928808,
+      "ci_lo": 0.43040742907302043,
+      "ci_hi": 0.856529495511655,
+      "excl_0": true,
+      "n": 150
+     },
+     "retain_kl_single_mean": 3.355232950222368e-05,
+     "retain_kl_unit_mean": 0.630189262322383,
+     "single_joint_utility_mean": 1.7272727268257577,
+     "unit_joint_utility_mean": 1.159090908746212,
+     "win_traces_to_single_absorber": true
+    },
+    "fork_verdict": "KG_BEATS_USUB",
+    "case_id": "taxonomic_georgia",
+    "human_proxy": {
+     "n": 8,
+     "kg_preserve_rate": 1.0,
+     "whole_corrupt_rate": 0.75,
+     "passed": true,
+     "rows": [
+      {
+       "prompt": "France is a country in",
+       "expect": "Europe",
+       "noop": "Western Europe. It is bordered by the Atlantic Ocean to the west, the English Ch",
+       "kg": "Western Europe. It is bordered by the Atlantic Ocean to the west, the English Ch",
+       "whole": "Western Europe. It is bordered by the English Channel to the north, the North Se",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.615,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "The capital of Germany is",
+       "expect": "Berlin",
+       "noop": "a city that is full of history and culture. It is also a city that is full of li",
+       "kg": "a city that is full of history and culture. It is also a city that is full of li",
+       "whole": "a city that is full of history and culture. It is also a city that is full of li",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.792,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "Spain is a country located in",
+       "expect": "Europe",
+       "noop": "the south of Europe. It is bordered by Portugal to the north, France to the nort",
+       "kg": "the south of Europe. It is bordered by Portugal to the north, France to the nort",
+       "whole": "the south of Europe, on the Iberian Peninsula. It is bordered by Portugal to the",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.8,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "Italy is a country in",
+       "expect": "Europe",
+       "noop": "the Mediterranean region of Europe. It is bordered by France to the north, Switz",
+       "kg": "the Mediterranean region of Europe. It is bordered by France to the north, Switz",
+       "whole": "the heart of Europe, with a rich history and culture. It is also a country with ",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.339,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "The capital of Japan is",
+       "expect": "Tokyo",
+       "noop": "a city of contrasts. It is a city of contrasts. It is a city of contrasts. It is",
+       "kg": "a city of contrasts. It is a city of contrasts. It is a city of contrasts. It is",
+       "whole": "a city of contrasts. It is a city of contrasts. It is a city of contrasts. It is",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 1.0,
+       "kg_preserves": true,
+       "whole_corrupts": false
+      },
+      {
+       "prompt": "Brazil is a country in",
+       "expect": "South America",
+       "noop": "South America. It is the largest country in South America and the fifth largest ",
+       "kg": "South America. It is the largest country in South America and the fifth largest ",
+       "whole": "South America, with a population of 207 million people. It is the fifth largest ",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.396,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "Canada is a country in",
+       "expect": "North America",
+       "noop": "the northern part of North America. It is bordered by the United States to the s",
+       "kg": "the northern part of North America. It is bordered by the United States to the s",
+       "whole": "North America, bordered by the United States to the south and by the Pacific and",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.532,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "The capital of Russia is",
+       "expect": "Moscow",
+       "noop": "a city of contrasts. It is a city of contrasts. It is a city of contrasts. It is",
+       "kg": "a city of contrasts. It is a city of contrasts. It is a city of contrasts. It is",
+       "whole": "a city of contrasts. It is a city of contrasts. It is a city of contrasts. It is",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 1.0,
+       "kg_preserves": true,
+       "whole_corrupts": false
+      }
+     ]
+    },
+    "mi_corroborates_fork": true
+   },
+   {
+    "family": "first_letter",
+    "target_subcontext": "large",
+    "absorber_latent": 8463,
+    "parent_anchor": 205,
+    "absorber_precision": 1.0,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.5598349571228027,
+    "u_sub_meta": {
+     "n_pos": 21,
+     "n_sib": 1585,
+     "underpowered": false,
+     "used_fallback": false,
+     "sub_probe_auc": 1.0,
+     "cos_with_whole_parent": -0.06014203280210495,
+     "degenerate_fallback_to_whole": false
+    },
+    "firing_jaccard_with_parent": 0.0018501387604070306,
+    "firing_jaccard_aggregate_parent": 0.0018501387604070306,
+    "parent_recall_hole": 1.0,
+    "matched_target_forget_kl": 0.35963342785835267,
+    "max_forget_kg": 0.4495417848229408,
+    "max_forget_sub": 7.728207429250081,
+    "max_forget_whole": 0.9757574126124382,
+    "sub_reaches_matched_target": true,
+    "scale_kg_lambda": 3.703240669446852,
+    "scale_sub_beta": 0.6485656425208902,
+    "scale_whole_beta": 5.1168697667461585,
+    "forget_kg_curve": [
+     0.0,
+     0.004732374974992126,
+     0.01228797176736407,
+     0.04720289275671045,
+     0.14657453928763667,
+     0.4495417848229408
+    ],
+    "forget_sub_curve": [
+     0.0,
+     0.03921301282631854,
+     1.1175929450740416,
+     5.142684544126193,
+     6.457680145899455,
+     7.106025119622548,
+     7.4209286371866865,
+     7.6754774649937945,
+     7.728207429250081
+    ],
+    "forget_whole_curve": [
+     0.0,
+     0.003961783911411961,
+     0.009997333923820406,
+     0.021419130847789347,
+     0.03902896082339188,
+     0.09912378527224064,
+     0.19599891329805055,
+     0.4890223604937394,
+     0.9757574126124382
+    ],
+    "forget_kg_footprints": [
+     0.0,
+     0.03,
+     0.03,
+     0.03,
+     0.03,
+     0.03
+    ],
+    "forget_sub_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "forget_whole_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "lam_grid": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     3.0,
+     4.0
+    ],
+    "beta_grid": [
+     0.0,
+     0.5,
+     1.0,
+     1.5,
+     2.0,
+     3.0,
+     4.0,
+     6.0,
+     8.0
+    ],
+    "n_forget_gen": 12,
+    "n_retain_collateral": 150,
+    "retain_collateral_kl_kg_mean": 4.8990996789749866e-05,
+    "retain_collateral_kl_sub_mean": 0.02104022199792477,
+    "retain_collateral_kl_whole_mean": 2.593538557817616,
+    "collateral_diff_CI_KG_vs_SUB": {
+     "diff": 0.020991231001135018,
+     "ci_lo": 0.01729361941069025,
+     "ci_hi": 0.025110594614652954,
+     "excl_0": true,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_SUB": {
+     "diff": 0.9999999998379633,
+     "ci_lo": 0.7962962961697531,
+     "ci_hi": 1.2129629627438274,
+     "excl_0": true,
+     "n": 36
+    },
+    "fluency_diff_CI_KG_vs_SUB": {
+     "diff": 0.25,
+     "ci_lo": 0.05555555555555536,
+     "ci_hi": 0.44444444444444464,
+     "excl_0": true,
+     "n": 36
+    },
+    "curve_dominance_KG_vs_SUB": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.011482009229607251,
+     "kg_forget_grid": [
+      0.0,
+      0.004732374974992126,
+      0.01228797176736407,
+      0.04720289275671045,
+      0.14657453928763667,
+      0.4495417848229408
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      6.6873850300908085e-06,
+      1.8383379210717975e-05,
+      1.332227693637833e-05,
+      4.561029102963706e-06,
+      1.9700239257266124e-05
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.03921301282631854,
+      1.1175929450740416,
+      5.142684544126193,
+      6.457680145899455,
+      7.106025119622548,
+      7.4209286371866865,
+      7.6754774649937945,
+      7.728207429250081
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.011615133772041493,
+      0.04769056644581724,
+      0.11626518821867649,
+      0.26443856675953914,
+      1.5729837130444746,
+      3.9132468757471845,
+      7.170097520361499,
+      9.387633634669085
+     ]
+    },
+    "collateral_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 2.5934895668208267,
+     "ci_lo": 2.0789466241289993,
+     "ci_hi": 3.1359239748598178,
+     "excl_0": true,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 1.8703703698904321,
+     "ci_lo": 1.7222222217824072,
+     "ci_hi": 1.981481480983025,
+     "excl_0": true,
+     "n": 36
+    },
+    "curve_dominance_KG_vs_WHOLE_secondary": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.9137954868889813,
+     "kg_forget_grid": [
+      0.0,
+      0.004732374974992126,
+      0.01228797176736407,
+      0.04720289275671045,
+      0.14657453928763667,
+      0.4495417848229408
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      6.6873850300908085e-06,
+      1.8383379210717975e-05,
+      1.332227693637833e-05,
+      4.561029102963706e-06,
+      1.9700239257266124e-05
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.003961783911411961,
+      0.009997333923820406,
+      0.021419130847789347,
+      0.03902896082339188,
+      0.09912378527224064,
+      0.19599891329805055,
+      0.4890223604937394,
+      0.9757574126124382
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.003448827781054812,
+      0.012531880143190696,
+      0.032339566045508646,
+      0.12755264393805799,
+      0.5922729198212134,
+      1.7224473968769114,
+      3.4431571115002346,
+      4.511025649390649
+     ]
+    },
+    "u_sub_localizes_better_than_whole": true,
+    "u_sub_localizes_better_at_matched_point": true,
+    "dense_localization_curve": {
+     "frac_sub_lt_whole": 1.0,
+     "n_levels": 9,
+     "targets": [
+      0.09757574126124383,
+      0.19515148252248765,
+      0.2927272237837315,
+      0.3903029650449753,
+      0.4878787063062191,
+      0.5854544475674629,
+      0.6830301888287068,
+      0.7806059300899506,
+      0.8781816713511944
+     ],
+     "sub_collat": [
+      0.013567563168537664,
+      0.016831799621015657,
+      0.020096036073493646,
+      0.023360272525971636,
+      0.02662450897844963,
+      0.02988874543092762,
+      0.03315298188340561,
+      0.0364172183358836,
+      0.039681454788361596
+     ],
+     "whole_collat": [
+      0.5803017152047153,
+      1.71256101372439,
+      2.2904611347695596,
+      2.863451206064661,
+      3.436441277359762,
+      3.6547235301933054,
+      3.868799059992641,
+      4.082874589791977,
+      4.296950119591313
+     ],
+     "mid_forget": 0.4878787063062191,
+     "mid_sub_collat": 0.02662450897844963,
+     "mid_whole_collat": 3.436441277359762
+    },
+    "sub_vs_whole_collateral_CI": {
+     "diff": 2.5724983358196916,
+     "ci_lo": 2.0533884300522427,
+     "ci_hi": 3.1293597554526253,
+     "excl_0": true,
+     "n": 150
+    },
+    "judge_available": true,
+    "n_judged_preservation_pairs": 36,
+    "primary_outcome_basis": "llm_judge",
+    "kg_joint_utility_mean": 1.8703703698904321,
+    "sub_joint_utility_mean": 0.8703703700524689,
+    "whole_joint_utility_mean": 0.0,
+    "judged_forget_quality": {
+     "kg": 1.6666666666666667,
+     "sub": 1.6666666666666667,
+     "whole": 2.0,
+     "n_kg": 12,
+     "n_sub": 12,
+     "n_whole": 12
+    },
+    "second_judge": {
+     "model": "openai/gpt-4o-mini",
+     "subsample_idx": {
+      "RETAIN": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17
+      ],
+      "UNRELATED": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17
+      ]
+     },
+     "spend_usd": 0.01270409999999999,
+     "calls": 223,
+     "n_paired": 36,
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.5740740740169759,
+      "ci_lo": 0.425925925876544,
+      "ci_hi": 0.7407407406558648,
+      "excl_0": true,
+      "n": 36
+     },
+     "cohen_kappa_vs_primary": 0.673024523160763,
+     "pearson_util": 0.8630940683793256,
+     "spearman_util": 0.8890864782987047
+    },
+    "judge_robustness_unverified": false,
+    "judge_sensitivity_downgrade": false,
+    "model_internal_joint": {
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.007158093311396718,
+      "ci_lo": -0.011331961250049327,
+      "ci_hi": 0.027497740114391767,
+      "excl_0": false,
+      "n": 36
+     },
+     "joint_diff_CI_KG_vs_WHOLE": {
+      "diff": 0.38461161247102604,
+      "ci_lo": 0.2956632408471488,
+      "ci_hi": 0.4690507281489635,
+      "excl_0": true,
+      "n": 36
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.020991231001135018,
+      "ci_lo": 0.017275653649517456,
+      "ci_hi": 0.025341772816107548,
+      "excl_0": true,
+      "n": 150
+     },
+     "kg_mi_joint_mean": 0.9767847768199834,
+     "sub_mi_joint_mean": 0.9696266835085867,
+     "whole_mi_joint_mean": 0.5921731643489574
+    },
+    "m7_unit_vs_single": {
+     "unit_members": [
+      205,
+      607,
+      1391,
+      1467,
+      1549,
+      1566,
+      2416,
+      2759,
+      3069,
+      3353,
+      3858,
+      4736,
+      7544,
+      8463,
+      15261
+     ],
+     "scale_unit": 3.571830403633531,
+     "n_paired_joint": 36,
+     "joint_diff_CI_single_minus_unit": {
+      "diff": 0.49074074068364193,
+      "ci_lo": 0.31481481477469186,
+      "ci_hi": 0.6761574073418566,
+      "excl_0": true,
+      "n": 36
+     },
+     "collateral_diff_CI_unit_minus_single": {
+      "diff": 0.5257878743687979,
+      "ci_lo": 0.27383869797429033,
+      "ci_hi": 0.8139212356099675,
+      "excl_0": true,
+      "n": 150
+     },
+     "retain_kl_single_mean": 4.8990996789749866e-05,
+     "retain_kl_unit_mean": 0.5258368653655877,
+     "single_joint_utility_mean": 1.8703703698904321,
+     "unit_joint_utility_mean": 1.3796296292067902,
+     "win_traces_to_single_absorber": true
+    },
+    "fork_verdict": "KG_BEATS_USUB",
+    "case_id": "first_letter_large",
+    "human_proxy": {
+     "n": 8,
+     "kg_preserve_rate": 1.0,
+     "whole_corrupt_rate": 1.0,
+     "passed": true,
+     "rows": [
+      {
+       "prompt": "lemon starts with the letter",
+       "expect": "L",
+       "noop": "L.\n\nlemon starts with the letter L.\n\nlemon starts with the letter L.\n\nlemon star",
+       "kg": "L.\n\nlemon starts with the letter L.\n\nlemon starts with the letter L.\n\nlemon star",
+       "whole": "m\n\nlemon is\n\nlemon is\n\nlemon is\n\nlemon is\n\nlemon is\n\nlemon is\n\nlemon is\n\nlemon i",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.325,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "london starts with the letter",
+       "expect": "L",
+       "noop": "l and ends with the letter n.\n\nLondon is the capital of England and the United K",
+       "kg": "l and ends with the letter n.\n\nLondon is the capital of England and the United K",
+       "whole": "L.\n\nLondon is is.\n\nLondon is.\n\nLondon is.\n\nLondon is.\n\nLondon is.\n\nLondon is.\n\nL",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.217,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "level starts with the letter",
+       "expect": "L",
+       "noop": "\"A\" and ends with the letter \"Z\".\n\nThe level starts with the letter \"A\" and ends",
+       "kg": "\"A\" and ends with the letter \"Z\".\n\nThe level starts with the letter \"A\" and ends",
+       "whole": "A.\n\nThe of is 1.\n\nThe of is .\n\nThe of is .\n\nThe of is .\n\nThe of is .\n\nThe of is ",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.228,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "little starts with the letter",
+       "expect": "L",
+       "noop": "\"a\" and ends with the letter \"a\"\n\n[User 0001]\n\nI'm looking for a little game tha",
+       "kg": "\"a\" and ends with the letter \"a\"\n\n[User 0001]\n\nI'm looking for a little game tha",
+       "whole": "a.\n\nlittle starts with a.\n\n little starts with a.\n\n little starts with a.\n\n litt",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.23,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "lion starts with the letter",
+       "expect": "L",
+       "noop": "L.\n\nThe lion is the king of the jungle.\n\nThe lion is a big cat.\n\nThe lion is a c",
+       "kg": "L.\n\nThe lion is the king of the jungle.\n\nThe lion is a big animal.\n\nThe lion is ",
+       "whole": "A.\n\nThe of of is.\n\nThe of is.\n\nThe of is.\n\nThe of is.\n\nThe of is.\n\nThe of is.\n\nT",
+       "kg_noop_ratio": 0.973,
+       "whole_noop_ratio": 0.516,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "light starts with the letter",
+       "expect": "L",
+       "noop": "\"L\" and ends with the letter \"T\"\n\nlight is a form of energy that travels in wave",
+       "kg": "\"L\" and ends with the letter \"T\"\n\nlight is a form of energy that travels in wave",
+       "whole": "L and ends with letter S.\n\nThe of of is.\n\nThe of is.\n\nThe of is.\n\nThe of is.\n\nTh",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.344,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "local starts with the letter",
+       "expect": "L",
+       "noop": "a, and ends with the letter z.\n\nlocal starts with the letter a, and ends with th",
+       "kg": "a, and ends with the letter z.\n\nlocal starts with the letter a, and ends with th",
+       "whole": "A\n\nA.A.\n\nA.A. is a organization that for of of of of of of of of of of of of of ",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.22,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      },
+      {
+       "prompt": "line starts with the letter",
+       "expect": "L",
+       "noop": "A.\n\nThe line starts with the letter A.\n\nThe line starts with the letter A.\n\nThe ",
+       "kg": "A.\n\nThe line starts with the letter A.\n\nThe line starts with the letter A.\n\nThe ",
+       "whole": "A.\n\nThe of is 1.\n\nThe of is .\n\nThe of is .\n\nThe of is .\n\nThe of is .\n\nThe of is ",
+       "kg_noop_ratio": 1.0,
+       "whole_noop_ratio": 0.384,
+       "kg_preserves": true,
+       "whole_corrupts": true
+      }
+     ]
+    },
+    "mi_corroborates_fork": false
+   },
+   {
+    "family": "taxonomic",
+    "target_subcontext": "United States",
+    "absorber_latent": 846,
+    "parent_anchor": 3792,
+    "absorber_precision": 0.973,
+    "regime": "co-firing",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.4671987295150757,
+    "u_sub_meta": {
+     "n_pos": 150,
+     "n_sib": 2850,
+     "underpowered": false,
+     "used_fallback": false,
+     "sub_probe_auc": 1.0,
+     "cos_with_whole_parent": -0.39867517352104187,
+     "degenerate_fallback_to_whole": false
+    },
+    "firing_jaccard_with_parent": 0.04023821020441011,
+    "firing_jaccard_aggregate_parent": 0.04369918699186992,
+    "parent_recall_hole": 0.19666666666666666,
+    "matched_target_forget_kl": 0.027814775733277203,
+    "max_forget_kg": 0.0347684696665965,
+    "max_forget_sub": 11.094824075698853,
+    "max_forget_whole": 17.005003341659904,
+    "sub_reaches_matched_target": true,
+    "scale_kg_lambda": 3.5084555869822225,
+    "scale_sub_beta": 0.153296342408299,
+    "scale_whole_beta": 0.3503246537275741,
+    "forget_kg_curve": [
+     0.0,
+     0.0014632641282787517,
+     0.004035684312293597,
+     0.011278587785636774,
+     0.020621845782443415,
+     0.0347684696665965
+    ],
+    "forget_sub_curve": [
+     0.0,
+     0.09072224195406306,
+     1.1200275813229381,
+     2.487845315039158,
+     4.412529040873051,
+     6.5641272336244585,
+     6.9043358027935025,
+     8.64083576798439,
+     11.094824075698853
+    ],
+    "forget_whole_curve": [
+     0.0,
+     0.039698570222390116,
+     0.34965446150745266,
+     1.2978935644379817,
+     3.4090630340622736,
+     8.219611774710938,
+     11.221002085786314,
+     14.684656881913543,
+     17.005003341659904
+    ],
+    "forget_kg_footprints": [
+     0.0,
+     0.016666666666666666,
+     0.016666666666666666,
+     0.016666666666666666,
+     0.016666666666666666,
+     0.016666666666666666
+    ],
+    "forget_sub_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "forget_whole_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "lam_grid": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     3.0,
+     4.0
+    ],
+    "beta_grid": [
+     0.0,
+     0.5,
+     1.0,
+     1.5,
+     2.0,
+     3.0,
+     4.0,
+     6.0,
+     8.0
+    ],
+    "n_forget_gen": 18,
+    "n_retain_collateral": 150,
+    "retain_collateral_kl_kg_mean": 0.00011163388087879866,
+    "retain_collateral_kl_sub_mean": 0.01831126007406662,
+    "retain_collateral_kl_whole_mean": 0.03140391997022865,
+    "collateral_diff_CI_KG_vs_SUB": {
+     "diff": 0.01819962619318782,
+     "ci_lo": 0.013472045712944237,
+     "ci_hi": 0.02374222925998522,
+     "excl_0": true,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_SUB": {
+     "diff": 0.4393939393421715,
+     "ci_lo": 0.2424242424228854,
+     "ci_hi": 0.6439393938383842,
+     "excl_0": true,
+     "n": 44
+    },
+    "fluency_diff_CI_KG_vs_SUB": {
+     "diff": 0.045454545454545414,
+     "ci_lo": -0.13636363636363624,
+     "ci_hi": 0.2272727272727273,
+     "excl_0": false,
+     "n": 44
+    },
+    "curve_dominance_KG_vs_SUB": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.07224022267199541,
+     "kg_forget_grid": [
+      0.0,
+      0.0014632641282787517,
+      0.004035684312293597,
+      0.011278587785636774,
+      0.020621845782443415,
+      0.0347684696665965
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      8.153729140758514e-06,
+      4.9635178099075955e-05,
+      2.292973610262076e-05,
+      1.0139464090267817e-05,
+      2.2326332206527393e-05
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.09072224195406306,
+      1.1200275813229381,
+      2.487845315039158,
+      4.412529040873051,
+      6.5641272336244585,
+      6.9043358027935025,
+      8.64083576798439,
+      11.094824075698853
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.4542083820638557,
+      2.980202065904935,
+      10.64694631844759,
+      13.061834174394608,
+      14.456870579719544,
+      15.584058984120686,
+      17.908159820238748,
+      20.117520093917847
+     ]
+    },
+    "collateral_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 0.03129228608934985,
+     "ci_lo": 0.02074437203889829,
+     "ci_hi": 0.04503315261142173,
+     "excl_0": true,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 0.3409090908825758,
+     "ci_lo": 0.18162878786085893,
+     "ci_hi": 0.5075757575239905,
+     "excl_0": true,
+     "n": 44
+    },
+    "curve_dominance_KG_vs_WHOLE_secondary": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.03946692691763742,
+     "kg_forget_grid": [
+      0.0,
+      0.0014632641282787517,
+      0.004035684312293597,
+      0.011278587785636774,
+      0.020621845782443415,
+      0.0347684696665965
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      8.153729140758514e-06,
+      4.9635178099075955e-05,
+      2.292973610262076e-05,
+      1.0139464090267817e-05,
+      2.2326332206527393e-05
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.039698570222390116,
+      0.34965446150745266,
+      1.2978935644379817,
+      3.4090630340622736,
+      8.219611774710938,
+      11.221002085786314,
+      14.684656881913543,
+      17.005003341659904
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.10861340509630585,
+      0.8994442641812687,
+      3.1428248273829618,
+      5.671265851178517,
+      9.13597920971612,
+      11.22330141812563,
+      14.560328423976898,
+      17.209019565582274
+     ]
+    },
+    "u_sub_localizes_better_than_whole": false,
+    "u_sub_localizes_better_at_matched_point": true,
+    "dense_localization_curve": {
+     "frac_sub_lt_whole": 0.0,
+     "n_levels": 9,
+     "targets": [
+      1.1094824075698853,
+      2.2189648151397705,
+      3.3284472227096558,
+      4.437929630279541,
+      5.547412037849426,
+      6.6568944454193115,
+      7.766376852989197,
+      8.875859260559082,
+      9.985341668128967
+     ],
+     "sub_collat": [
+      2.9543234065058197,
+      9.139846376393388,
+      11.701643935137769,
+      13.078303209857708,
+      13.797660734344333,
+      14.764229461652427,
+      16.737799476886934,
+      18.119754784340042,
+      19.118637439128946
+     ],
+     "whole_collat": [
+      2.6970744613603537,
+      4.245945334581057,
+      5.574716366391397,
+      6.412288971876886,
+      7.211374216786286,
+      8.010459461695685,
+      8.809544706605086,
+      9.592367686206186,
+      10.363959191854288
+     ],
+     "mid_forget": 5.547412037849426,
+     "mid_sub_collat": 13.797660734344333,
+     "mid_whole_collat": 7.211374216786286
+    },
+    "sub_vs_whole_collateral_CI": {
+     "diff": 0.01309265989616203,
+     "ci_lo": 0.002642453820541657,
+     "ci_hi": 0.026242459552566287,
+     "excl_0": true,
+     "n": 150
+    },
+    "judge_available": true,
+    "n_judged_preservation_pairs": 44,
+    "primary_outcome_basis": "llm_judge",
+    "kg_joint_utility_mean": 1.7424242419646463,
+    "sub_joint_utility_mean": 1.3030303026224748,
+    "whole_joint_utility_mean": 1.4015151510820705,
+    "judged_forget_quality": {
+     "kg": 0.5555555555555556,
+     "sub": 0.9444444444444444,
+     "whole": 0.6666666666666666,
+     "n_kg": 18,
+     "n_sub": 18,
+     "n_whole": 18
+    },
+    "second_judge": {
+     "model": "openai/gpt-4o-mini",
+     "subsample_idx": {
+      "RETAIN": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17
+      ],
+      "UNRELATED": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17,
+       18,
+       19
+      ]
+     },
+     "spend_usd": 0.019351349999999982,
+     "calls": 337,
+     "n_paired": 38,
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.2894736841842114,
+      "ci_lo": 0.15789473682456223,
+      "ci_hi": 0.4385964911697013,
+      "excl_0": true,
+      "n": 38
+     },
+     "cohen_kappa_vs_primary": 0.39732888146911516,
+     "pearson_util": 0.48857161126264403,
+     "spearman_util": 0.5866232562949425
+    },
+    "judge_robustness_unverified": false,
+    "judge_sensitivity_downgrade": false,
+    "model_internal_joint": {
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.012203152366645043,
+      "ci_lo": 0.0008036672489974835,
+      "ci_hi": 0.025373244049759686,
+      "excl_0": true,
+      "n": 44
+     },
+     "joint_diff_CI_KG_vs_WHOLE": {
+      "diff": 0.010711952854262186,
+      "ci_lo": -4.655609612096431e-05,
+      "ci_hi": 0.02415262405189121,
+      "excl_0": false,
+      "n": 44
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.01819962619318782,
+      "ci_lo": 0.01350646514543041,
+      "ci_hi": 0.023750814403654657,
+      "excl_0": true,
+      "n": 150
+     },
+     "kg_mi_joint_mean": 0.9254300699132788,
+     "sub_mi_joint_mean": 0.9132269175466338,
+     "whole_mi_joint_mean": 0.9147181170590166
+    },
+    "m7_unit_vs_single": null,
+    "fork_verdict": "KG_BEATS_USUB",
+    "case_id": "taxonomic_us",
+    "mi_corroborates_fork": true
+   },
+   {
+    "family": "toxicity",
+    "target_subcontext": "insult",
+    "absorber_latent": 13367,
+    "parent_anchor": 2291,
+    "absorber_precision": 0.7409747292418771,
+    "regime": "co-firing",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.20797696709632874,
+    "u_sub_meta": {
+     "n_pos": 554,
+     "n_sib": 570,
+     "underpowered": false,
+     "used_fallback": false,
+     "sub_probe_auc": 1.0,
+     "cos_with_whole_parent": -0.18774178624153137,
+     "degenerate_fallback_to_whole": false
+    },
+    "firing_jaccard_with_parent": 0.8821443471005423,
+    "firing_jaccard_aggregate_parent": 0.8821443471005423,
+    "parent_recall_hole": 0.0,
+    "matched_target_forget_kl": 0.04363082539988682,
+    "max_forget_kg": 0.054538531749858524,
+    "max_forget_sub": 12.583688253164292,
+    "max_forget_whole": 10.551815366744995,
+    "sub_reaches_matched_target": true,
+    "scale_kg_lambda": 3.3712386653375814,
+    "scale_sub_beta": 0.15848549166900192,
+    "scale_whole_beta": 0.2829150395348377,
+    "forget_kg_curve": [
+     0.0,
+     0.0021645299697411247,
+     0.00517644903738983,
+     0.01835564612702001,
+     0.03719060377043206,
+     0.054538531749858524
+    ],
+    "forget_sub_curve": [
+     0.0,
+     0.13764927294105292,
+     0.6905270537361503,
+     1.587206181511283,
+     2.633952713757753,
+     3.8641655281186105,
+     5.115784734487534,
+     8.674625819921493,
+     12.583688253164292
+    ],
+    "forget_whole_curve": [
+     0.0,
+     0.07710941325640305,
+     0.35968464841134845,
+     0.7360206724144518,
+     1.0792015586048365,
+     1.7446090534329415,
+     2.46421132683754,
+     6.054552237689495,
+     10.551815366744995
+    ],
+    "forget_kg_footprints": [
+     0.0,
+     0.16591928251121077,
+     0.16591928251121077,
+     0.16591928251121077,
+     0.16591928251121077,
+     0.16591928251121077
+    ],
+    "forget_sub_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "forget_whole_footprints": [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "lam_grid": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     3.0,
+     4.0
+    ],
+    "beta_grid": [
+     0.0,
+     0.5,
+     1.0,
+     1.5,
+     2.0,
+     3.0,
+     4.0,
+     6.0,
+     8.0
+    ],
+    "n_forget_gen": 18,
+    "n_retain_collateral": 150,
+    "retain_collateral_kl_kg_mean": 0.012272270779600756,
+    "retain_collateral_kl_sub_mean": 0.013904638149542735,
+    "retain_collateral_kl_whole_mean": 0.02333175351144746,
+    "collateral_diff_CI_KG_vs_SUB": {
+     "diff": 0.001632367369941979,
+     "ci_lo": -0.003316627357059286,
+     "ci_hi": 0.005668697243855906,
+     "excl_0": false,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_SUB": {
+     "diff": 0.3518518517947532,
+     "ci_lo": 0.06481481482561724,
+     "ci_hi": 0.6388888887731479,
+     "excl_0": true,
+     "n": 36
+    },
+    "fluency_diff_CI_KG_vs_SUB": {
+     "diff": 0.08333333333333326,
+     "ci_lo": -0.19444444444444442,
+     "ci_hi": 0.3333333333333335,
+     "excl_0": false,
+     "n": 36
+    },
+    "curve_dominance_KG_vs_SUB": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.02098898698766794,
+     "kg_forget_grid": [
+      0.0,
+      0.0021645299697411247,
+      0.00517644903738983,
+      0.01835564612702001,
+      0.03719060377043206,
+      0.054538531749858524
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      0.0010678496839318541,
+      0.0019505538216435525,
+      0.005876022900338285,
+      0.011051207767256226,
+      0.01624627481554247
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.13764927294105292,
+      0.6905270537361503,
+      1.587206181511283,
+      2.633952713757753,
+      3.8641655281186105,
+      5.115784734487534,
+      8.674625819921493,
+      12.583688253164292
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.1654439693937699,
+      0.9711686059832573,
+      2.1955637166897457,
+      3.7850797047217686,
+      6.318698620796203,
+      8.0744347234567,
+      12.726042644182842,
+      16.027093036969504
+     ]
+    },
+    "collateral_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 0.011059482731846705,
+     "ci_lo": 0.006809625134467448,
+     "ci_hi": 0.014577353160519124,
+     "excl_0": true,
+     "n": 150
+    },
+    "joint_diff_CI_KG_vs_WHOLE_secondary": {
+     "diff": 0.20370370367283952,
+     "ci_lo": -0.06481481477943689,
+     "ci_hi": 0.49074074065586415,
+     "excl_0": false,
+     "n": 36
+    },
+    "curve_dominance_KG_vs_WHOLE_secondary": {
+     "dominance_fraction": 1.0,
+     "n_levels": 5,
+     "area_between_collateral": 0.015207058173298918,
+     "kg_forget_grid": [
+      0.0,
+      0.0021645299697411247,
+      0.00517644903738983,
+      0.01835564612702001,
+      0.03719060377043206,
+      0.054538531749858524
+     ],
+     "kg_collateral_grid": [
+      0.0,
+      0.0010678496839318541,
+      0.0019505538216435525,
+      0.005876022900338285,
+      0.011051207767256226,
+      0.01624627481554247
+     ],
+     "comparator_forget_grid": [
+      0.0,
+      0.07710941325640305,
+      0.35968464841134845,
+      0.7360206724144518,
+      1.0792015586048365,
+      1.7446090534329415,
+      2.46421132683754,
+      6.054552237689495,
+      10.551815366744995
+     ],
+     "comparator_collateral_grid": [
+      0.0,
+      0.07369569917209447,
+      0.3134729440013568,
+      0.6240667516986529,
+      0.9465381114433209,
+      1.5323492800196012,
+      2.1232461015383404,
+      5.400394999980927,
+      10.138911962509155
+     ]
+    },
+    "u_sub_localizes_better_than_whole": false,
+    "u_sub_localizes_better_at_matched_point": true,
+    "dense_localization_curve": {
+     "frac_sub_lt_whole": 0.0,
+     "n_levels": 9,
+     "targets": [
+      1.0551815366744994,
+      2.110363073348999,
+      3.165544610023498,
+      4.220726146697998,
+      5.275907683372497,
+      6.331089220046997,
+      7.386270756721496,
+      8.441452293395995,
+      9.496633830070495
+     ],
+     "sub_collat": [
+      1.4690960720933917,
+      2.989993139866842,
+      4.879891324539361,
+      6.818871794586782,
+      8.283724534224552,
+      9.662906879254878,
+      11.042089224285204,
+      12.421271569315532,
+      13.420196270817335
+     ],
+     "whole_collat": [
+      0.9239675970450468,
+      1.8326858628983274,
+      2.7634007981263595,
+      3.7265369170720235,
+      4.6896730360176875,
+      5.6917666951796,
+      6.803553012011989,
+      7.915339328844377,
+      9.027125645676767
+     ],
+     "mid_forget": 5.275907683372497,
+     "mid_sub_collat": 8.283724534224552,
+     "mid_whole_collat": 4.6896730360176875
+    },
+    "sub_vs_whole_collateral_CI": {
+     "diff": 0.009427115361904726,
+     "ci_lo": 0.007551140794860355,
+     "ci_hi": 0.0113477392969653,
+     "excl_0": true,
+     "n": 150
+    },
+    "judge_available": true,
+    "n_judged_preservation_pairs": 36,
+    "primary_outcome_basis": "llm_judge",
+    "kg_joint_utility_mean": 1.1851851848271604,
+    "sub_joint_utility_mean": 0.8333333330324072,
+    "whole_joint_utility_mean": 0.9814814811543209,
+    "judged_forget_quality": {
+     "kg": 1.5555555555555556,
+     "sub": 1.1111111111111112,
+     "whole": 1.3333333333333333,
+     "n_kg": 18,
+     "n_sub": 18,
+     "n_whole": 18
+    },
+    "second_judge": {
+     "model": "openai/gpt-4o-mini",
+     "subsample_idx": {
+      "RETAIN": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17
+      ],
+      "UNRELATED": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12,
+       13,
+       14,
+       15,
+       16,
+       17
+      ]
+     },
+     "spend_usd": 0.025370399999999984,
+     "calls": 445,
+     "n_paired": 36,
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.20370370369598767,
+      "ci_lo": 0.05555555555092595,
+      "ci_hi": 0.35185185183642,
+      "excl_0": true,
+      "n": 36
+     },
+     "cohen_kappa_vs_primary": 0.10802775024777,
+     "pearson_util": 0.613520173914274,
+     "spearman_util": 0.6527882599206567
+    },
+    "judge_robustness_unverified": false,
+    "judge_sensitivity_downgrade": false,
+    "model_internal_joint": {
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.01614798813210805,
+      "ci_lo": -0.008937175472807223,
+      "ci_hi": 0.04202804944192603,
+      "excl_0": false,
+      "n": 36
+     },
+     "joint_diff_CI_KG_vs_WHOLE": {
+      "diff": 0.03714675607276097,
+      "ci_lo": 0.017770955619328545,
+      "ci_hi": 0.059403764662958436,
+      "excl_0": true,
+      "n": 36
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.001632367369941979,
+      "ci_lo": -0.00332021807099833,
+      "ci_hi": 0.005557484752616194,
+      "excl_0": false,
+      "n": 150
+     },
+     "kg_mi_joint_mean": 0.9922150416383848,
+     "sub_mi_joint_mean": 0.9760670535062768,
+     "whole_mi_joint_mean": 0.9550682855656238
+    },
+    "m7_unit_vs_single": null,
+    "fork_verdict": "KG_BEATS_USUB",
+    "case_id": "toxicity_insult",
+    "mi_corroborates_fork": false
+   }
+  ],
+  "summary": {
+   "n_cases": 4,
+   "n_absorption": 2,
+   "n_KG_BEATS_USUB": 2,
+   "n_KG_MATCHES_USUB_LABEL_FREE": 0,
+   "n_KG_LOSES_TO_USUB": 0,
+   "kg_beats_usub_cases": [
+    "taxonomic_georgia",
+    "first_letter_large"
+   ],
+   "kg_matches_usub_cases": [],
+   "kg_loses_to_usub_cases": [],
+   "router_false_negatives": [
+    "taxonomic_us"
+   ],
+   "m1prime_gate_passed": true,
+   "all_localize_better_than_whole": false,
+   "cofiring_cases": [
+    {
+     "case_id": "taxonomic_us",
+     "fork_verdict": "KG_BEATS_USUB",
+     "firing_jaccard_absorber": 0.04023821020441011,
+     "firing_jaccard_aggregate": 0.04369918699186992,
+     "parent_recall_hole": 0.19666666666666666
+    },
+    {
+     "case_id": "toxicity_insult",
+     "fork_verdict": "KG_BEATS_USUB",
+     "firing_jaccard_absorber": 0.8821443471005423,
+     "firing_jaccard_aggregate": 0.8821443471005423,
+     "parent_recall_hole": 0.0
+    }
+   ],
+   "per_case_fork": [
+    {
+     "case_id": "taxonomic_georgia",
+     "regime": "absorption",
+     "fork_verdict": "KG_BEATS_USUB",
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.5606060605138892,
+      "ci_lo": 0.31818181815530333,
+      "ci_hi": 0.8106060604532833,
+      "excl_0": true,
+      "n": 44
+     },
+     "second_judge_CI": {
+      "diff": 0.4649122806432755,
+      "ci_lo": 0.2894736841709434,
+      "ci_hi": 0.6578947367500008,
+      "excl_0": true,
+      "n": 38
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.07810912841086974,
+      "ci_lo": 0.03197537788440241,
+      "ci_hi": 0.14155002732198285,
+      "excl_0": true,
+      "n": 150
+     },
+     "u_sub_localizes_better_than_whole": true,
+     "curve_dominance_KG_vs_SUB": 1.0,
+     "m7": {
+      "unit_members": [
+       3792,
+       4697,
+       8442,
+       9339,
+       16009
+      ],
+      "scale_unit": 2.153340635963685,
+      "n_paired_joint": 44,
+      "joint_diff_CI_single_minus_unit": {
+       "diff": 0.5681818180795457,
+       "ci_lo": 0.3409090908674244,
+       "ci_hi": 0.8106060604420143,
+       "excl_0": true,
+       "n": 44
+      },
+      "collateral_diff_CI_unit_minus_single": {
+       "diff": 0.6301557099928808,
+       "ci_lo": 0.43040742907302043,
+       "ci_hi": 0.856529495511655,
+       "excl_0": true,
+       "n": 150
+      },
+      "retain_kl_single_mean": 3.355232950222368e-05,
+      "retain_kl_unit_mean": 0.630189262322383,
+      "single_joint_utility_mean": 1.7272727268257577,
+      "unit_joint_utility_mean": 1.159090908746212,
+      "win_traces_to_single_absorber": true
+     },
+     "mi_corroborates_fork": true
+    },
+    {
+     "case_id": "first_letter_large",
+     "regime": "absorption",
+     "fork_verdict": "KG_BEATS_USUB",
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.9999999998379633,
+      "ci_lo": 0.7962962961697531,
+      "ci_hi": 1.2129629627438274,
+      "excl_0": true,
+      "n": 36
+     },
+     "second_judge_CI": {
+      "diff": 0.5740740740169759,
+      "ci_lo": 0.425925925876544,
+      "ci_hi": 0.7407407406558648,
+      "excl_0": true,
+      "n": 36
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.020991231001135018,
+      "ci_lo": 0.01729361941069025,
+      "ci_hi": 0.025110594614652954,
+      "excl_0": true,
+      "n": 150
+     },
+     "u_sub_localizes_better_than_whole": true,
+     "curve_dominance_KG_vs_SUB": 1.0,
+     "m7": {
+      "unit_members": [
+       205,
+       607,
+       1391,
+       1467,
+       1549,
+       1566,
+       2416,
+       2759,
+       3069,
+       3353,
+       3858,
+       4736,
+       7544,
+       8463,
+       15261
+      ],
+      "scale_unit": 3.571830403633531,
+      "n_paired_joint": 36,
+      "joint_diff_CI_single_minus_unit": {
+       "diff": 0.49074074068364193,
+       "ci_lo": 0.31481481477469186,
+       "ci_hi": 0.6761574073418566,
+       "excl_0": true,
+       "n": 36
+      },
+      "collateral_diff_CI_unit_minus_single": {
+       "diff": 0.5257878743687979,
+       "ci_lo": 0.27383869797429033,
+       "ci_hi": 0.8139212356099675,
+       "excl_0": true,
+       "n": 150
+      },
+      "retain_kl_single_mean": 4.8990996789749866e-05,
+      "retain_kl_unit_mean": 0.5258368653655877,
+      "single_joint_utility_mean": 1.8703703698904321,
+      "unit_joint_utility_mean": 1.3796296292067902,
+      "win_traces_to_single_absorber": true
+     },
+     "mi_corroborates_fork": false
+    },
+    {
+     "case_id": "taxonomic_us",
+     "regime": "co-firing",
+     "fork_verdict": "KG_BEATS_USUB",
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.4393939393421715,
+      "ci_lo": 0.2424242424228854,
+      "ci_hi": 0.6439393938383842,
+      "excl_0": true,
+      "n": 44
+     },
+     "second_judge_CI": {
+      "diff": 0.2894736841842114,
+      "ci_lo": 0.15789473682456223,
+      "ci_hi": 0.4385964911697013,
+      "excl_0": true,
+      "n": 38
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.01819962619318782,
+      "ci_lo": 0.013472045712944237,
+      "ci_hi": 0.02374222925998522,
+      "excl_0": true,
+      "n": 150
+     },
+     "u_sub_localizes_better_than_whole": false,
+     "curve_dominance_KG_vs_SUB": 1.0,
+     "m7": null,
+     "mi_corroborates_fork": true
+    },
+    {
+     "case_id": "toxicity_insult",
+     "regime": "co-firing",
+     "fork_verdict": "KG_BEATS_USUB",
+     "joint_diff_CI_KG_vs_SUB": {
+      "diff": 0.3518518517947532,
+      "ci_lo": 0.06481481482561724,
+      "ci_hi": 0.6388888887731479,
+      "excl_0": true,
+      "n": 36
+     },
+     "second_judge_CI": {
+      "diff": 0.20370370369598767,
+      "ci_lo": 0.05555555555092595,
+      "ci_hi": 0.35185185183642,
+      "excl_0": true,
+      "n": 36
+     },
+     "collateral_diff_CI_KG_vs_SUB": {
+      "diff": 0.001632367369941979,
+      "ci_lo": -0.003316627357059286,
+      "ci_hi": 0.005668697243855906,
+      "excl_0": false,
+      "n": 150
+     },
+     "u_sub_localizes_better_than_whole": false,
+     "curve_dominance_KG_vs_SUB": 1.0,
+     "m7": null,
+     "mi_corroborates_fork": false
+    }
+   ],
+   "human_proxy_passed": {
+    "taxonomic_georgia": true,
+    "first_letter_large": true
+   }
+  },
+  "honest_negatives": [
+   "HEADLINE REFRAMED: 'beats WHOLE-parent erasure' is RETIRED as the headline \u2014 the decisive comparator is now DENSE-SUB-ABL (a sub-context-labeled diff-of-means). WHOLE-parent erasure is reported only a",
+   "DELETED FRAMING: the claim that 'a single dense hyperplane structurally cannot localize' / 'erasing is-a-country removes all countries' is FALSE and removed \u2014 u_sub is itself a single dense direction ",
+   "The win (where present) traces to the SINGLE discovered absorber, not to multi-member grouping (M7): the two-track algorithm is the label-free DISCOVERY PROCEDURE that surfaces the precise single abso",
+   "Absorption regime is NARROW (documented ~only for these structured sub-contexts); numeric sub-contexts sit below the SAE-reconstruction gate (taxonomic cosine ~0.876 region) and are out of scope here.",
+   "REGIME SPLIT (mechanism, reported INDEPENDENTLY of the KG-vs-u_sub joint verdict): absorption sub-contexts give a CLEAN surgical KG edit (token-footprint ~0.01-0.03, firing-Jaccard ~0.002-0.04, high p",
+   "first_letter_large: the KG_BEATS_USUB verdict rests on the pre-registered LLM-judge joint (BOTH the primary and the 2nd-family judge CIs exclude 0); the noisier $0 model-internal joint (continuation-P",
+   "taxonomic_us (CO-FIRING: firing-Jaccard 0.0402, parent recall-hole 0.197, KG token-footprint 0.017) \u2014 the absorber's token-footprint is actually LOW (surgical-looking): this is a ROUTER FALSE-NEGATIVE",
+   "toxicity_insult (CO-FIRING: firing-Jaccard 0.8821, parent recall-hole 0.0, KG token-footprint 0.166) \u2014 the single latent fires on a LARGE token fraction so the edit is NOT a clean surgical handle (co-"
+  ]
+ },
+ "datasets": [
+  {
+   "dataset": "unlearn_per_prompt",
+   "examples": [
+    {
+     "input": "[taxonomic|FORGET|forget='Georgia'] 1982\u201383 Georgia Tech Yellow Jackets men's basketball team\n\nThe 1982-83 Georgia Tech Yellow Jackets men's basketball team represented the Georgia Institute of",
+     "output": "FORGET",
+     "predict_kg_abl": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+     "predict_dense_sub_abl": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by second-year head coach Bobby Cremins and played their home",
+     "predict_dense_whole_abl": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+     "predict_rand": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+     "predict_noop": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+     "metadata_case": "taxonomic_georgia",
+     "metadata_role": "FORGET",
+     "metadata_absorber_latent": 16009,
+     "metadata_regime": "absorption",
+     "metadata_fluency_kg": 2,
+     "metadata_fluency_sub": 2,
+     "metadata_fluency_whole": 2,
+     "metadata_content_pres_kg": 0,
+     "metadata_content_pres_sub": 2,
+     "metadata_content_pres_whole": 0,
+     "metadata_utility_kg": 0.0,
+     "metadata_utility_sub": 2.0,
+     "metadata_utility_whole": 0.0,
+     "metadata_utility_rand": 0.0,
+     "metadata_utility_kg_judge2": null,
+     "metadata_utility_sub_judge2": null,
+     "predict_kg_abl_unit": "Technology during the 1982\u201383 NCAA Division I men's basketball season. The Yellow Jackets were led by head coach Bobby Cremins and played their home games at Al",
+     "metadata_mi_lastkl_kg": 1.7e-05,
+     "metadata_mi_lastkl_sub": 8.1e-05,
+     "metadata_mi_lastkl_whole": 1.8e-05,
+     "metadata_mi_contppl_kg": 7.755,
+     "metadata_mi_contppl_sub": 8.774
+    },
+    {
+     "input": "[taxonomic|FORGET|forget='Georgia'] Messer, Jr., was indicted by the grand jury of Polk County,",
+     "output": "FORGET",
+     "predict_kg_abl": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+     "predict_dense_sub_abl": "Georgia, on a charge of murder in the first degree. He was tried before a jury and convicted of murder in the second degree. He was sentenced to life imprisonme",
+     "predict_dense_whole_abl": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+     "predict_rand": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+     "predict_noop": "Iowa, on the charge of murder in the first degree. He was tried by a jury and found guilty of murder in the second degree. He was sentenced to imprisonment in t",
+     "metadata_case": "taxonomic_georgia",
+     "metadata_role": "FORGET",
+     "metadata_absorber_latent": 16009,
+     "metadata_regime": "absorption",
+     "metadata_fluency_kg": 2,
+     "metadata_fluency_sub": 2,
+     "metadata_fluency_whole": 2,
+     "metadata_content_pres_kg": 2,
+     "metadata_content_pres_sub": 2,
+     "metadata_content_pres_whole": 2,
+     "metadata_utility_kg": 2.0,
+     "metadata_utility_sub": 2.0,
+     "metadata_utility_whole": 2.0,
+     "metadata_utility_rand": 2.0,
+     "metadata_utility_kg_judge2": null,
+     "metadata_utility_sub_judge2": null,
+     "predict_kg_abl_unit": "Texas, on a charge of murder. He was tried by a jury and found guilty of murder. The punishment was assessed at life imprisonment.\n\nThe evidence shows that on t",
+     "metadata_mi_lastkl_kg": 0.0,
+     "metadata_mi_lastkl_sub": 0.145044,
+     "metadata_mi_lastkl_whole": 0.017346,
+     "metadata_mi_contppl_kg": 5.958,
+     "metadata_mi_contppl_sub": 5.668
+    },
+    {
+     "input": "[taxonomic|FORGET|forget='Georgia'] Mozas next advised Wilson that Mozas would be smuggling one hundred kilograms of cocaine from\n\nColumbia, for which he would be paid 18,000 pounds of marijuana. Wils",
+     "output": "FORGET",
+     "predict_kg_abl": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. Feb. 1",
+     "predict_dense_sub_abl": "New York.\n    *\n     The Honorable John F. Keenan, U.S. District Judge for the Southern District of New York.\n    *\n     The Honorable John F. Keenan",
+     "predict_dense_whole_abl": "New York\n     *\n     Honorable John G. Koeltl, U.S. District Judge for the Southern District of New York\n     *\n     Honorable Richard J. Sullivan, U",
+     "predict_rand": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. 199",
+     "predict_noop": "New York.\n    *\n     United States v. Wilson, 1999 WL 101111 (S.D.N.Y. Feb. 1",
+     "metadata_case": "taxonomic_georgia",
+     "metadata_role": "FORGET",
+     "metadata_absorber_latent": 16009,
+     "metadata_regime": "absorption",
+     "metadata_fluency_kg": 2,
+     "metadata_fluency_sub": 1,
+     "metadata_fluency_whole": 2,
+     "metadata_content_pres_kg": 2,
+     "metadata_content_pres_sub": 2,
+     "metadata_content_pres_whole": 2,
+     "metadata_utility_kg": 2.0,
+     "metadata_utility_sub": 1.3333,
+     "metadata_utility_whole": 2.0,
+     "metadata_utility_rand": 1.3333,
+     "metadata_utility_kg_judge2": null,
+     "metadata_utility_sub_judge2": null,
+     "predict_kg_abl_unit": "New York\n     *\n     *\n     *\n     *\n     *\n     *\n     *\n     *\n     *\n     *\n     *\n     *",
+     "metadata_mi_lastkl_kg": 0.0,
+     "metadata_mi_lastkl_sub": 0.375966,
+     "metadata_mi_lastkl_whole": 0.007802,
+     "metadata_mi_contppl_kg": 7.624,
+     "metadata_mi_contppl_sub": 6.321
+    }
+   ]
+  },
+  {
+   "dataset": "kg_vs_dense_per_case",
+   "examples": [
+    {
+     "input": "taxonomic | selectively UNLEARN sub-context 'Georgia' by ablating KG-named absorber 16009 (absorption); DECISIVE KG-ABL vs DENSE-SUB-ABL (sub-context diff-of-means, baseline) at MATCHED forget on a jo",
+     "output": "WIN_EXPECTED",
+     "predict_kg_abl": "KG_BEATS_USUB",
+     "predict_dense_sub_abl": "joint_util=1.1666666663118685",
+     "predict_dense_whole_abl": "joint_util=1.325757575338384",
+     "predict_model_internal": "0.023568601427378266",
+     "metadata_case": "taxonomic_georgia",
+     "metadata_regime": "absorption",
+     "metadata_fork_verdict": "KG_BEATS_USUB",
+     "metadata_scale_kg_lambda": 3.6127,
+     "metadata_scale_sub_beta": 0.5232,
+     "metadata_scale_whole_beta": 0.5437,
+     "metadata_matched_target_forget_kl": 0.051731,
+     "metadata_collateral_KGvsSUB_diff": 0.07810912841086974,
+     "metadata_collateral_KGvsSUB_ci_lo": 0.03197537788440241,
+     "metadata_collateral_KGvsSUB_ci_hi": 0.14155002732198285,
+     "metadata_collateral_KGvsSUB_excl0": true,
+     "metadata_joint_KGvsSUB_diff": 0.5606060605138892,
+     "metadata_joint_KGvsSUB_ci_lo": 0.31818181815530333,
+     "metadata_joint_KGvsSUB_ci_hi": 0.8106060604532833,
+     "metadata_joint_KGvsSUB_excl0": true,
+     "metadata_joint_KGvsSUB_judge2_diff": 0.4649122806432755,
+     "metadata_joint_KGvsSUB_judge2_excl0": true,
+     "metadata_kg_joint_utility": 1.7272727268257577,
+     "metadata_sub_joint_utility": 1.1666666663118685,
+     "metadata_whole_joint_utility": 1.325757575338384,
+     "metadata_u_sub_localizes_better_than_whole": true,
+     "metadata_u_sub_localizes_frac_sub_lt_whole": 0.8888888888888888,
+     "metadata_u_sub_localizes_at_matched_point": true,
+     "metadata_u_sub_probe_auc": 1.0,
+     "metadata_u_sub_cos_with_whole": -0.18801090121269226,
+     "metadata_u_sub_underpowered": false,
+     "metadata_curve_dominance_KGvsSUB": 1.0,
+     "metadata_firing_jaccard_absorber": 0.012505862122870096,
+     "metadata_firing_jaccard_aggregate": 0.045276447540269917,
+     "metadata_parent_recall_hole": 0.7666666666666666,
+     "metadata_primary_basis": "llm_judge",
+     "metadata_cohen_kappa_judges": 0.3317346123101519,
+     "metadata_m7_win_traces_to_single": true
+    },
+    {
+     "input": "first_letter | selectively UNLEARN sub-context 'large' by ablating KG-named absorber 8463 (absorption); DECISIVE KG-ABL vs DENSE-SUB-ABL (sub-context diff-of-means, baseline) at MATCHED forget on a jo",
+     "output": "WIN_EXPECTED",
+     "predict_kg_abl": "KG_BEATS_USUB",
+     "predict_dense_sub_abl": "joint_util=0.8703703700524689",
+     "predict_dense_whole_abl": "joint_util=0.0",
+     "predict_model_internal": "0.007158093311396718",
+     "metadata_case": "first_letter_large",
+     "metadata_regime": "absorption",
+     "metadata_fork_verdict": "KG_BEATS_USUB",
+     "metadata_scale_kg_lambda": 3.7032,
+     "metadata_scale_sub_beta": 0.6486,
+     "metadata_scale_whole_beta": 5.1169,
+     "metadata_matched_target_forget_kl": 0.359633,
+     "metadata_collateral_KGvsSUB_diff": 0.020991231001135018,
+     "metadata_collateral_KGvsSUB_ci_lo": 0.01729361941069025,
+     "metadata_collateral_KGvsSUB_ci_hi": 0.025110594614652954,
+     "metadata_collateral_KGvsSUB_excl0": true,
+     "metadata_joint_KGvsSUB_diff": 0.9999999998379633,
+     "metadata_joint_KGvsSUB_ci_lo": 0.7962962961697531,
+     "metadata_joint_KGvsSUB_ci_hi": 1.2129629627438274,
+     "metadata_joint_KGvsSUB_excl0": true,
+     "metadata_joint_KGvsSUB_judge2_diff": 0.5740740740169759,
+     "metadata_joint_KGvsSUB_judge2_excl0": true,
+     "metadata_kg_joint_utility": 1.8703703698904321,
+     "metadata_sub_joint_utility": 0.8703703700524689,
+     "metadata_whole_joint_utility": 0.0,
+     "metadata_u_sub_localizes_better_than_whole": true,
+     "metadata_u_sub_localizes_frac_sub_lt_whole": 1.0,
+     "metadata_u_sub_localizes_at_matched_point": true,
+     "metadata_u_sub_probe_auc": 1.0,
+     "metadata_u_sub_cos_with_whole": -0.06014203280210495,
+     "metadata_u_sub_underpowered": false,
+     "metadata_curve_dominance_KGvsSUB": 1.0,
+     "metadata_firing_jaccard_absorber": 0.0018501387604070306,
+     "metadata_firing_jaccard_aggregate": 0.0018501387604070306,
+     "metadata_parent_recall_hole": 1.0,
+     "metadata_primary_basis": "llm_judge",
+     "metadata_cohen_kappa_judges": 0.673024523160763,
+     "metadata_m7_win_traces_to_single": true
+    },
+    {
+     "input": "taxonomic | selectively UNLEARN sub-context 'United States' by ablating KG-named absorber 846 (co-firing); DECISIVE KG-ABL vs DENSE-SUB-ABL (sub-context diff-of-means, baseline) at MATCHED forget on a",
+     "output": "LOSS_EXPECTED",
+     "predict_kg_abl": "KG_BEATS_USUB",
+     "predict_dense_sub_abl": "joint_util=1.3030303026224748",
+     "predict_dense_whole_abl": "joint_util=1.4015151510820705",
+     "predict_model_internal": "0.012203152366645043",
+     "metadata_case": "taxonomic_us",
+     "metadata_regime": "co-firing",
+     "metadata_fork_verdict": "KG_BEATS_USUB",
+     "metadata_scale_kg_lambda": 3.5085,
+     "metadata_scale_sub_beta": 0.1533,
+     "metadata_scale_whole_beta": 0.3503,
+     "metadata_matched_target_forget_kl": 0.027815,
+     "metadata_collateral_KGvsSUB_diff": 0.01819962619318782,
+     "metadata_collateral_KGvsSUB_ci_lo": 0.013472045712944237,
+     "metadata_collateral_KGvsSUB_ci_hi": 0.02374222925998522,
+     "metadata_collateral_KGvsSUB_excl0": true,
+     "metadata_joint_KGvsSUB_diff": 0.4393939393421715,
+     "metadata_joint_KGvsSUB_ci_lo": 0.2424242424228854,
+     "metadata_joint_KGvsSUB_ci_hi": 0.6439393938383842,
+     "metadata_joint_KGvsSUB_excl0": true,
+     "metadata_joint_KGvsSUB_judge2_diff": 0.2894736841842114,
+     "metadata_joint_KGvsSUB_judge2_excl0": true,
+     "metadata_kg_joint_utility": 1.7424242419646463,
+     "metadata_sub_joint_utility": 1.3030303026224748,
+     "metadata_whole_joint_utility": 1.4015151510820705,
+     "metadata_u_sub_localizes_better_than_whole": false,
+     "metadata_u_sub_localizes_frac_sub_lt_whole": 0.0,
+     "metadata_u_sub_localizes_at_matched_point": true,
+     "metadata_u_sub_probe_auc": 1.0,
+     "metadata_u_sub_cos_with_whole": -0.39867517352104187,
+     "metadata_u_sub_underpowered": false,
+     "metadata_curve_dominance_KGvsSUB": 1.0,
+     "metadata_firing_jaccard_absorber": 0.04023821020441011,
+     "metadata_firing_jaccard_aggregate": 0.04369918699186992,
+     "metadata_parent_recall_hole": 0.19666666666666666,
+     "metadata_primary_basis": "llm_judge",
+     "metadata_cohen_kappa_judges": 0.39732888146911516,
+     "metadata_m7_win_traces_to_single": null
+    }
+   ]
+  }
+ ]
+}

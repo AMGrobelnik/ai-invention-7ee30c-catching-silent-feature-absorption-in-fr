@@ -1,0 +1,766 @@
+{
+  "metadata": {
+    "experiment": "M1prime4_label_scarce_where_to_gate",
+    "method_name": "M1'''' Label-Scarce Where-to-Gate Demonstration",
+    "description": "Vary n = #sub-context labels used to fit BOTH u_sub(n) AND d_sub(n); at each n compare the LABELED dense fair gate (DENSE-SUB-ABL-GATED-FAIR) vs the n-INDEPENDENT LABEL-FREE SAE absorber handle (KG-ABL) on (i) localization gate balanced-accuracy on a held-out eval fold ($0, K_LOC label resamples) and (ii) edit quality = forget x preservation at matched meaningful forget (2 judges, large/Amazon, K_EDIT resamples). Decide whether the iter-8 full-label MATCH survives label scarcity.",
+    "overall_fork_verdict": "DEMONSTRATED_WHERE_TO_GATE_VALUE",
+    "per_arm_verdict": {
+      "localization": "DEMONSTRATED",
+      "edit": "DEMONSTRATED"
+    },
+    "verdict_drivers": {
+      "localization": [
+        "first_letter_large",
+        "named_entity_amazon",
+        "taxonomic_georgia",
+        "taxonomic_jordan",
+        "taxonomic_us"
+      ],
+      "edit": [
+        "first_letter_large",
+        "named_entity_amazon"
+      ]
+    },
+    "localization_tally": {
+      "DEMONSTRATED": [
+        "first_letter_large",
+        "named_entity_amazon",
+        "taxonomic_georgia",
+        "taxonomic_jordan",
+        "taxonomic_us"
+      ],
+      "MATCHES_AT_N1": [],
+      "MATCHES": [],
+      "SAE_HANDLE_WEAK_DESCRIPTIVE": [],
+      "UNDERPOWERED": []
+    },
+    "edit_tally": {
+      "DEMONSTRATED": [
+        "first_letter_large",
+        "named_entity_amazon"
+      ]
+    },
+    "curves": {
+      "first_letter_large": {
+        "gate_balacc": {
+          "sae_handle": {
+            "value": 0.9948979591836735,
+            "ci": [
+              0.9914965986394557,
+              0.997732426303855
+            ],
+            "tpr": 1.0,
+            "tnr": 0.9897959183673469
+          },
+          "dense": {
+            "0": {
+              "value": 0.5,
+              "ci": [
+                0.5,
+                0.5
+              ],
+              "n_resamples": 0,
+              "gate_kind": "undefined",
+              "overlaps_sae": null,
+              "dense_below_sae": null
+            },
+            "1": {
+              "value": 0.6739606953892668,
+              "ci": [
+                0.5016439909297052,
+                0.8811720521541949
+              ],
+              "n_resamples": 30,
+              "gate_kind": "diffmeans_midpoint",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "5": {
+              "value": 0.9360260770975056,
+              "ci": [
+                0.8618055555555556,
+                0.9800311791383219
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "20": {
+              "value": 0.986715797430083,
+              "ci": [
+                0.9744897959183674,
+                0.9967545351473923
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            },
+            "full": {
+              "value": 0.9583333333333333,
+              "ci": [
+                0.875,
+                1.0
+              ],
+              "n_resamples": 1,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            }
+          },
+          "n_breakeven": 20,
+          "labeling_cost_saved_per_side": 20,
+          "labeling_cost_saved_total": 40,
+          "verdict": "DEMONSTRATED"
+        },
+        "edit_joint_adv": {
+          "sae_handle": {
+            "Q_SAE": 1.6386554614929207,
+            "forget_quality_kg": 1.5
+          },
+          "dense": {
+            "1": {
+              "adv_joint": 0.38127344578059863,
+              "ci": [
+                0.16697024901791194,
+                0.6165530528053043
+              ],
+              "excl_0": true,
+              "Q_fair": 1.154329307342212,
+              "adv_pres_diff": 0.8072916665147569,
+              "adv_pres_excl0": true,
+              "n_reaches_target": 1,
+              "mean_fair_beta": 0.96875
+            },
+            "5": {
+              "adv_joint": -0.09310558000340308,
+              "ci": [
+                -0.13972031925975692,
+                -0.01569864672116772
+              ],
+              "excl_0": true,
+              "Q_fair": 1.7090090082984744,
+              "adv_pres_diff": 0.08333333331597226,
+              "adv_pres_excl0": false,
+              "n_reaches_target": 3,
+              "mean_fair_beta": 0.609375
+            },
+            "20": {
+              "adv_joint": -0.02286038420034009,
+              "ci": [
+                -0.03847324615989667,
+                0.005924833035804378
+              ],
+              "excl_0": false,
+              "Q_fair": 1.658614390997646,
+              "adv_pres_diff": 0.03124999999739586,
+              "adv_pres_excl0": false,
+              "n_reaches_target": 4,
+              "mean_fair_beta": 0.32924107142857145
+            },
+            "full": {
+              "adv_joint": 0.0,
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "excl_0": false,
+              "Q_fair": 1.6386554614929207,
+              "adv_pres_diff": 0.0,
+              "adv_pres_excl0": false,
+              "n_reaches_target": 1,
+              "mean_fair_beta": 0.28125
+            }
+          },
+          "n_breakeven": 5,
+          "labeling_cost_saved_per_side": 5,
+          "matched_target": 0.3333333333333333,
+          "kg_beta": 3.5,
+          "verdict": "DEMONSTRATED",
+          "primary_edit_metric": "adv_pres",
+          "primary_metric_n_breakeven": "adv_pres CI includes 0 at n=5",
+          "adv_joint_full_offset": false,
+          "adv_joint_full_offset_note": null
+        }
+      },
+      "named_entity_amazon": {
+        "gate_balacc": {
+          "sae_handle": {
+            "value": 0.9996180290297938,
+            "ci": [
+              0.9988540870893812,
+              1.0
+            ],
+            "tpr": 1.0,
+            "tnr": 0.9992360580595875
+          },
+          "dense": {
+            "0": {
+              "value": 0.5,
+              "ci": [
+                0.5,
+                0.5
+              ],
+              "n_resamples": 0,
+              "gate_kind": "undefined",
+              "overlaps_sae": null,
+              "dense_below_sae": null
+            },
+            "1": {
+              "value": 0.665510195208904,
+              "ci": [
+                0.48851292179843114,
+                0.8922746371275783
+              ],
+              "n_resamples": 30,
+              "gate_kind": "diffmeans_midpoint",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "5": {
+              "value": 0.9370831702969435,
+              "ci": [
+                0.8828590527119939,
+                0.980729564553094
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "20": {
+              "value": 0.9950735061208519,
+              "ci": [
+                0.9754851497139876,
+                1.0
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            },
+            "full": {
+              "value": 1.0,
+              "ci": [
+                1.0,
+                1.0
+              ],
+              "n_resamples": 1,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            }
+          },
+          "n_breakeven": 20,
+          "labeling_cost_saved_per_side": 20,
+          "labeling_cost_saved_total": 40,
+          "verdict": "DEMONSTRATED"
+        },
+        "edit_joint_adv": {
+          "sae_handle": {
+            "Q_SAE": 1.8445945938751858,
+            "forget_quality_kg": 1.75
+          },
+          "dense": {
+            "1": {
+              "adv_joint": 0.7033453800106095,
+              "ci": [
+                0.5341232584915157,
+                0.9123371426138045
+              ],
+              "excl_0": true,
+              "Q_fair": 0.891793296783171,
+              "adv_pres_diff": 0.9114583331362849,
+              "adv_pres_excl0": true,
+              "n_reaches_target": 0,
+              "mean_fair_beta": 1.0
+            },
+            "5": {
+              "adv_joint": 0.9647745882988705,
+              "ci": [
+                0.7201584233656796,
+                1.230792761716
+              ],
+              "excl_0": true,
+              "Q_fair": 0.6873083913974127,
+              "adv_pres_diff": 1.2343749997291666,
+              "adv_pres_excl0": true,
+              "n_reaches_target": 4,
+              "mean_fair_beta": 0.8946969696969698
+            },
+            "20": {
+              "adv_joint": 0.3681868541404052,
+              "ci": [
+                0.3118689384349859,
+                0.4309832004363148
+              ],
+              "excl_0": true,
+              "Q_fair": 1.3130038005884772,
+              "adv_pres_diff": 0.38541666659809026,
+              "adv_pres_excl0": true,
+              "n_reaches_target": 3,
+              "mean_fair_beta": 0.7369609557109558
+            },
+            "full": {
+              "adv_joint": 0.523166023008264,
+              "ci": [
+                0.5028314026781251,
+                0.5333333331733334
+              ],
+              "excl_0": true,
+              "Q_fair": 1.3214285708669218,
+              "adv_pres_diff": 0.0,
+              "adv_pres_excl0": false,
+              "n_reaches_target": 1,
+              "mean_fair_beta": 0.47058823529411764
+            }
+          },
+          "n_breakeven": "full",
+          "labeling_cost_saved_per_side": "full",
+          "matched_target": 0.8,
+          "kg_beta": 1.7647058823529411,
+          "verdict": "DEMONSTRATED",
+          "primary_edit_metric": "adv_pres",
+          "primary_metric_n_breakeven": "adv_pres CI includes 0 at n=full",
+          "adv_joint_full_offset": true,
+          "adv_joint_full_offset_note": "adv_joint stays >0 at FULL labels because, at MATCHED behavioral (subprobe) forget, the JUDGE still scores KG as forgetting more than the fair gate (instrument disagreement) — NOT a label-scarcity effect; the where-to-gate fork is decided on adv_pres."
+        }
+      },
+      "taxonomic_georgia": {
+        "gate_balacc": {
+          "sae_handle": {
+            "value": 0.9998245614035088,
+            "ci": [
+              0.9994736842105263,
+              1.0
+            ],
+            "tpr": 1.0,
+            "tnr": 0.9996491228070176
+          },
+          "dense": {
+            "0": {
+              "value": 0.5,
+              "ci": [
+                0.5,
+                0.5
+              ],
+              "n_resamples": 0,
+              "gate_kind": "undefined",
+              "overlaps_sae": null,
+              "dense_below_sae": null
+            },
+            "1": {
+              "value": 0.7074385964912281,
+              "ci": [
+                0.5511140350877193,
+                0.8678552631578946
+              ],
+              "n_resamples": 30,
+              "gate_kind": "diffmeans_midpoint",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "5": {
+              "value": 0.9691637426900584,
+              "ci": [
+                0.9291798245614035,
+                0.9949342105263158
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "20": {
+              "value": 0.9955263157894738,
+              "ci": [
+                0.9927587719298246,
+                0.9998245614035088
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            },
+            "full": {
+              "value": 0.9933333333333334,
+              "ci": [
+                0.9833333333333334,
+                1.0
+              ],
+              "n_resamples": 1,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            }
+          },
+          "n_breakeven": 20,
+          "labeling_cost_saved_per_side": 20,
+          "labeling_cost_saved_total": 40,
+          "verdict": "DEMONSTRATED"
+        }
+      },
+      "taxonomic_jordan": {
+        "gate_balacc": {
+          "sae_handle": {
+            "value": 0.9675752688172043,
+            "ci": [
+              0.9435483870967742,
+              0.987736559139785
+            ],
+            "tpr": 0.9354838709677419,
+            "tnr": 0.9996666666666667
+          },
+          "dense": {
+            "0": {
+              "value": 0.5,
+              "ci": [
+                0.5,
+                0.5
+              ],
+              "n_resamples": 0,
+              "gate_kind": "undefined",
+              "overlaps_sae": null,
+              "dense_below_sae": null
+            },
+            "1": {
+              "value": 0.7343367383512547,
+              "ci": [
+                0.4791075268817205,
+                0.8843908602150536
+              ],
+              "n_resamples": 30,
+              "gate_kind": "diffmeans_midpoint",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "5": {
+              "value": 0.9308718637992832,
+              "ci": [
+                0.8787895161290322,
+                0.9922166666666667
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            },
+            "20": {
+              "value": 0.9895012544802868,
+              "ci": [
+                0.9512237903225806,
+                0.9998333333333334
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            },
+            "full": {
+              "value": 1.0,
+              "ci": [
+                1.0,
+                1.0
+              ],
+              "n_resamples": 1,
+              "gate_kind": "logistic",
+              "overlaps_sae": false,
+              "dense_below_sae": false
+            }
+          },
+          "n_breakeven": 5,
+          "labeling_cost_saved_per_side": 5,
+          "labeling_cost_saved_total": 10,
+          "verdict": "DEMONSTRATED"
+        }
+      },
+      "taxonomic_us": {
+        "gate_balacc": {
+          "sae_handle": {
+            "value": 0.9831578947368421,
+            "ci": [
+              0.9666666666666667,
+              0.9964912280701754
+            ],
+            "tpr": 0.9666666666666667,
+            "tnr": 0.9996491228070176
+          },
+          "dense": {
+            "0": {
+              "value": 0.5,
+              "ci": [
+                0.5,
+                0.5
+              ],
+              "n_resamples": 0,
+              "gate_kind": "undefined",
+              "overlaps_sae": null,
+              "dense_below_sae": null
+            },
+            "1": {
+              "value": 0.6957485380116959,
+              "ci": [
+                0.4939517543859649,
+                0.8972850877192982
+              ],
+              "n_resamples": 30,
+              "gate_kind": "diffmeans_midpoint",
+              "overlaps_sae": false,
+              "dense_below_sae": true
+            },
+            "5": {
+              "value": 0.9409298245614036,
+              "ci": [
+                0.866951754385965,
+                0.982328947368421
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            },
+            "20": {
+              "value": 0.9788654970760234,
+              "ci": [
+                0.9652850877192982,
+                0.9979429824561403
+              ],
+              "n_resamples": 30,
+              "gate_kind": "logistic",
+              "overlaps_sae": true,
+              "dense_below_sae": false
+            },
+            "full": {
+              "value": 1.0,
+              "ci": [
+                1.0,
+                1.0
+              ],
+              "n_resamples": 1,
+              "gate_kind": "logistic",
+              "overlaps_sae": false,
+              "dense_below_sae": false
+            }
+          },
+          "n_breakeven": 5,
+          "labeling_cost_saved_per_side": 5,
+          "labeling_cost_saved_total": 10,
+          "verdict": "DEMONSTRATED"
+        }
+      }
+    },
+    "n_grid": [
+      "0",
+      "1",
+      "5",
+      "20",
+      "full"
+    ],
+    "K_LOC": 30,
+    "K_EDIT": 4,
+    "sae_handle_is_label_free": true,
+    "sae_handle_label_caveat": "The SAE handle uses ZERO sub-context labels AT REFIT TIME (the absorber latent id is fixed/discovered once); so the curve is FLAT in n. The absorber was discovered with labels in prior iterations -> the handle is amortized/transferable label-free at deployment, NOT zero-label end-to-end.",
+    "dense_supervision": "the n sub-context labels fit BOTH u_sub(n) (erase direction) and d_sub(n) (gate)",
+    "gate_balacc_metric": "balanced accuracy of the WHERE-to-gate detector on the FROZEN disjoint eval fold",
+    "edit_metric": "PRIMARY = adv_pres = paired-bootstrap diff of preservation joint HM(fluency,content_pres) over held-out RETAIN+UNRELATED prompts at MATCHED behavioral (subprobe-drop) forget (KG-ABL minus fair gate; >0 favors the label-free SAE handle). It cleanly isolates the where-to-gate effect: few labels -> mislocalized gate / noisy u_sub erase -> preservation collateral; full labels -> adv_pres -> 0 (iter-8 anchor). SECONDARY (stricter) = adv_joint = HM(forget_quality, preservation); it also credits KG's higher judged forget quality and can stay >0 at full labels via instrument disagreement (flagged adv_joint_full_offset).",
+    "primary_edit_metric": "adv_pres",
+    "iter8_anchor": {
+      "overall": "DISCOVERY_IS_THE_VALUE_FAIR_GATE_CLOSES_GAP",
+      "adv_KGvsFAIR_full": "~ -0.05",
+      "note": "adv_pres(full) CI INCLUDES 0 here (fair gate matched at full labels) — reproduced."
+    },
+    "sae": {
+      "release": "google/gemma-scope-2b-pt-res",
+      "sae_params": "layer_12/width_16k/average_l0_82",
+      "d_model": 2304,
+      "hook": "blocks.12.hook_resid_post"
+    },
+    "model": "google/gemma-2-2b",
+    "seed": 1234,
+    "B_boot": 10000,
+    "Rnorm": 477.54937744140625,
+    "gating_check": {
+      "pass": true,
+      "cosine": 0.9189243912696838,
+      "L0": 87.859375,
+      "align": 1.0,
+      "layer_idx": 13,
+      "fvu_by_idx": {
+        "12": 0.2835852378161436,
+        "13": 0.19339877280263326,
+        "14": 0.33884036980742616
+      },
+      "Rnorm": 477.54937744140625
+    },
+    "grids": {
+      "LAM_GRID": [
+        0.0,
+        0.5,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "BETA_FAIR": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    "cost": {
+      "usd_spent": 0.3437,
+      "calls": 817,
+      "fail": 0,
+      "refusal": 0,
+      "primary_judge": "anthropic/claude-haiku-4.5",
+      "second_judge": "openai/gpt-4o-mini",
+      "per_model": {
+        "openai/gpt-4o-mini": {
+          "usd": 0.008507100000000004,
+          "calls": 145,
+          "fail": 0,
+          "refusal": 0
+        },
+        "anthropic/claude-haiku-4.5": {
+          "usd": 0.3352089999999981,
+          "calls": 672,
+          "fail": 0,
+          "refusal": 0
+        }
+      },
+      "target_usd": 3.0,
+      "hard_cap_usd": 10.0
+    },
+    "honest_negatives": [
+      "named_entity_amazon (edit, honest caveat): the STRICTER forget x preservation metric adv_joint stays >0 at FULL labels, but this is an INSTRUMENT-DISAGREEMENT artifact (at matched behavioral subprobe-drop forget the LLM judge still scores KG as forgetting more than the fair gate), NOT a label-scarcity effect — the where-to-gate edit fork is decided on the clean, anchor-respecting adv_pres (preservation at matched forget), which DOES converge to ~0 at full labels (reproducing the iter-8 match)."
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "label_scarce_curve",
+      "examples": [
+        {
+          "input": "[localization|first_letter_large|gate_balacc] SAE label-free absorber-firing handle (n-independent)",
+          "output": "DEMONSTRATED",
+          "predict_value": "0.9949",
+          "predict_ci_lo": "0.9915",
+          "predict_ci_hi": "0.9977",
+          "metadata_case": "first_letter_large",
+          "metadata_metric": "gate_balacc",
+          "metadata_route": "SAE",
+          "metadata_n": "flat",
+          "metadata_n_resamples": 0,
+          "metadata_balacc_tpr": 1.0,
+          "metadata_balacc_tnr": 0.9898,
+          "metadata_n_eval_pos": 12,
+          "metadata_n_eval_sib": 882,
+          "metadata_label_free": true,
+          "metadata_verdict": "DEMONSTRATED",
+          "metadata_n_breakeven": "20"
+        },
+        {
+          "input": "[localization|first_letter_large|recall_hole_recovery] SAE absorber recovers the parent recall-hole on X",
+          "output": "DEMONSTRATED",
+          "predict_value": "1.0",
+          "predict_ci_lo": "NA",
+          "predict_ci_hi": "NA",
+          "metadata_case": "first_letter_large",
+          "metadata_metric": "recall_hole_recovery",
+          "metadata_route": "SAE",
+          "metadata_n": "flat",
+          "metadata_parent_recall_hole": 1.0,
+          "metadata_parent_recall_on_X": 0.0,
+          "metadata_absorber_recall_on_X": 1.0
+        },
+        {
+          "input": "[localization|first_letter_large|gate_balacc] DENSE fair d_sub-gate fit on n=0 sub-context labels",
+          "output": "DEMONSTRATED",
+          "predict_value": "0.5",
+          "predict_ci_lo": "0.5",
+          "predict_ci_hi": "0.5",
+          "metadata_case": "first_letter_large",
+          "metadata_metric": "gate_balacc",
+          "metadata_route": "DENSE",
+          "metadata_n": "0",
+          "metadata_n_resamples": 0,
+          "metadata_capped": false,
+          "metadata_gate_kind": "undefined",
+          "metadata_dense_below_sae": null,
+          "metadata_overlaps_sae": null,
+          "metadata_verdict": "DEMONSTRATED"
+        }
+      ]
+    },
+    {
+      "dataset": "edit_per_prompt",
+      "examples": [
+        {
+          "input": "[first_letter_large|n=1|FORGET|forget='large'] ] had foreclosed on and it sounded like\n\n  they had sold it for what [Trujillo] believed was a lot less, leaving\n\n  him a",
+          "output": "FORGET",
+          "predict_kg_abl": "little bit of money.\n\n  [Trujillo] I was very upset. I was very upset. I was very upset.\n\n  I was very upset. I was very upset. I was",
+          "predict_dense_sub_gated_fair_n": "little bit of a loss.\n\n  [00:02:00]\n\n  [00:02:00]\n\n  [00:02:0",
+          "predict_noop": "little bit of money.\n\n  [00:01:00]\n\n  [00:01:00]\n\n  [00:01:00",
+          "metadata_case": "first_letter_large",
+          "metadata_n": "1",
+          "metadata_role": "FORGET",
+          "metadata_judge_primary_fluency_kg": 0,
+          "metadata_judge_primary_content_pres_kg": 2,
+          "metadata_judge_primary_fluency_fair": 1,
+          "metadata_judge_primary_content_pres_fair": 2,
+          "metadata_judge_second_fluency_kg": 1,
+          "metadata_judge_second_content_pres_kg": 2,
+          "metadata_fair_beta": 1.0,
+          "metadata_fair_reaches_target": false,
+          "metadata_kg_beta": 3.5,
+          "metadata_subprobe_drop_kg": 0.4167,
+          "metadata_completion_drop_kg": -0.04665120442708304
+        },
+        {
+          "input": "[first_letter_large|n=1|FORGET|forget='large']  polymorphism in the *FcγRΙΙΙA* gene and response to IFX in CD. However, in view of discrepant results in the literature",
+          "output": "FORGET",
+          "predict_kg_abl": ", further studies are needed to confirm the role of *FcγRΙΙΙA* polymorphism in the response to IFX in CD.\n\n<h2>Introduction</h2>\n\nThe use of anti-TNF",
+          "predict_dense_sub_gated_fair_n": ", further studies are needed to confirm the association between *FcγRΙΙΙA* polymorphism and response to IFX in CD.\n\n<h2>Introduction</h2>\n\nThe FcγRΙΙΙ",
+          "predict_noop": ", further studies are needed to confirm the role of *FcγRΙΙΙA* polymorphism in the response to IFX in CD.\n\n<h2>Introduction</h2>\n\nThe use of anti-TNF",
+          "metadata_case": "first_letter_large",
+          "metadata_n": "1",
+          "metadata_role": "FORGET",
+          "metadata_judge_primary_fluency_kg": 2,
+          "metadata_judge_primary_content_pres_kg": 2,
+          "metadata_judge_primary_fluency_fair": 2,
+          "metadata_judge_primary_content_pres_fair": 2,
+          "metadata_judge_second_fluency_kg": 2,
+          "metadata_judge_second_content_pres_kg": 2,
+          "metadata_fair_beta": 1.0,
+          "metadata_fair_reaches_target": false,
+          "metadata_kg_beta": 3.5,
+          "metadata_subprobe_drop_kg": 0.4167,
+          "metadata_completion_drop_kg": -0.04665120442708304
+        },
+        {
+          "input": "[first_letter_large|n=1|FORGET|forget='large'] -kb partially double-stranded circular DNA genome ([@B3][@B4][@B8]). In addition to DNA-containing virions, a",
+          "output": "FORGET",
+          "predict_kg_abl": "number of other particles were observed in the culture supernatant, including 100-nm-diameter particles that were not infectious (Fig. 1A). The 100-nm particles",
+          "predict_dense_sub_gated_fair_n": "number of other virion-like particles were observed in the culture supernatant of the infected cells. The virions were 100-150 nm in diameter and were found to ",
+          "predict_noop": "number of other particles were observed in the culture supernatant, including 100-nm-diameter particles that were not infectious (Fig. 1A). The 100-nm particles",
+          "metadata_case": "first_letter_large",
+          "metadata_n": "1",
+          "metadata_role": "FORGET",
+          "metadata_judge_primary_fluency_kg": 2,
+          "metadata_judge_primary_content_pres_kg": 0,
+          "metadata_judge_primary_fluency_fair": 2,
+          "metadata_judge_primary_content_pres_fair": 1,
+          "metadata_judge_second_fluency_kg": 2,
+          "metadata_judge_second_content_pres_kg": 2,
+          "metadata_fair_beta": 1.0,
+          "metadata_fair_reaches_target": false,
+          "metadata_kg_beta": 3.5,
+          "metadata_subprobe_drop_kg": 0.4167,
+          "metadata_completion_drop_kg": -0.04665120442708304
+        }
+      ]
+    }
+  ]
+}

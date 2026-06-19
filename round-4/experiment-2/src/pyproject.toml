@@ -1,0 +1,42 @@
+[project]
+name = "ccrg-m1b-surgical-edit"
+version = "0.1.0"
+description = "M1b: KG-localized surgical sub-concept edit with side-effect measurement on a frozen Gemma-Scope L12/16k JumpReLU SAE. Single named-absorber ablation (KG-ABL) vs dense diff-of-means parent erasure (DENSE-ABL, baseline f) vs random-latent (RAND) vs label-free (k), measured by behavioral next-token KL at the edited token, at matched on-target effect, with paired bootstrap CIs and a toxicity co-firing negative pole. Reuses iter-2/iter-3 SAE loader/encoder/hook + canonical units/KG."
+requires-python = ">=3.12"
+# torch is the cu124 build (system NVIDIA driver supports CUDA 12.x):
+#   uv pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+# SAE loaded directly from gemma-scope params.npz (no sae_lens / transformer_lens).
+dependencies = [
+    "torch==2.6.0+cu124",
+    "transformers==5.12.1",
+    "tokenizers==0.22.2",
+    "accelerate==1.14.0",
+    "safetensors==0.8.0",
+    "huggingface-hub==1.19.0",
+    "scikit-learn==1.9.0",
+    "scipy==1.17.1",
+    "numpy==2.4.6",
+    "statsmodels==0.14.6",
+    "pandas==3.0.3",
+    "loguru==0.7.3",
+    "requests==2.32.3",
+    "tqdm==4.68.3",
+    "regex==2026.5.9",
+    "filelock==3.29.0",
+    "pyyaml==6.0.3",
+    "sympy==1.13.1",
+    "mpmath==1.3.0",
+    "networkx==3.6.1",
+    "jinja2==3.1.6",
+    "triton==3.2.0",
+    "joblib==1.5.3",
+    "threadpoolctl==3.6.0",
+    "psutil==7.2.2",
+    "fsspec==2026.4.0",
+    "packaging==26.2",
+    "typing-extensions==4.15.0",
+    "certifi==2026.6.17",
+    "charset-normalizer==3.4.7",
+    "idna==3.18",
+    "urllib3==2.7.0",
+]

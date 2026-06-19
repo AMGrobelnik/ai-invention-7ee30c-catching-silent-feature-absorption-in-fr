@@ -1,0 +1,53 @@
+22:38:08|INFO   |RLIMIT_AS set to 44 GB
+22:38:08|INFO   |   0.1s a-priori firing-structure router | scale=mini smoke=False
+22:38:40|INFO   |  32.2s loading tokenizer + model unsloth/gemma-2-2b (bf16, eager attn)
+22:38:59|INFO   |  51.3s SAE loaded layer_12/width_16k/average_l0_82/params.npz: d_sae=16384 d_model=2304
+22:39:00|INFO   |  51.3s model loaded d_model=2304 n_layers=26 vocab=256000
+22:39:24|INFO   |GATING recon_cos_mean=0.9268 recon_cos_min=0.4444 L0 mean=170.4 median=70
+22:39:24|INFO   |  encode_token token-id mismatches: 0/20
+22:39:29|INFO   |  encode_token token-id mismatches: 0/300
+22:39:29|INFO   |
+===== CONCEPT spelling_L (token, established) =====
+22:39:30|INFO   |  81.9s spelling_L: parent=205 n_responsive=18 parent_pos_firing=0.293 unresolved=False
+22:39:30|INFO   |  82.0s spelling_L: subs=3 jaccard_median=0.010 [0.010,0.011] recall_hole_max=1.000
+22:40:34|INFO   | 145.8s spelling_L: OUTCOME k=6 auc_unit=0.840 auc_a=0.722 auc_h=0.691 auc_d=0.827 delta(vs_a)=+0.117 ci=[-0.025, 0.278] delta(vs_h)=+0.148 CCRG_helps=True (sig=False)
+22:40:39|INFO   |  encode_token token-id mismatches: 5/300
+22:40:39|INFO   |
+===== CONCEPT spelling_O (token, established) =====
+22:40:40|INFO   | 151.8s spelling_O: parent=12334 n_responsive=24 parent_pos_firing=0.247 unresolved=False
+22:40:40|INFO   | 152.0s spelling_O: subs=6 jaccard_median=0.029 [0.000,0.145] recall_hole_max=1.000
+22:41:36|INFO   | 207.7s spelling_O: OUTCOME k=7 auc_unit=0.792 auc_a=0.542 auc_h=0.667 auc_d=0.542 delta(vs_a)=+0.250 ci=[0.125, 0.375] delta(vs_h)=+0.125 CCRG_helps=True (sig=True)
+22:41:41|INFO   |  encode_token token-id mismatches: 0/300
+22:41:41|INFO   |
+===== CONCEPT spelling_T (token, established) =====
+22:41:42|INFO   | 213.7s spelling_T: parent=5511 n_responsive=24 parent_pos_firing=0.203 unresolved=False
+22:41:42|INFO   | 213.8s spelling_T: subs=4 jaccard_median=0.007 [0.000,0.180] recall_hole_max=1.000
+22:42:37|INFO   | 269.3s spelling_T: OUTCOME k=5 auc_unit=0.753 auc_a=0.500 auc_h=0.722 auc_d=0.620 delta(vs_a)=+0.253 ci=[0.119, 0.383] delta(vs_h)=+0.031 CCRG_helps=True (sig=True)
+22:42:43|INFO   |  encode_token token-id mismatches: 3/300
+22:42:43|INFO   |
+===== CONCEPT spelling_I (token, established) =====
+22:42:44|INFO   | 275.4s spelling_I: parent=4848 n_responsive=20 parent_pos_firing=0.033 unresolved=True
+22:42:44|INFO   | 275.6s spelling_I: subs=5 jaccard_median=0.000 [0.000,0.000] recall_hole_max=1.000
+22:43:39|INFO   | 331.1s spelling_I: OUTCOME k=5 auc_unit=0.688 auc_a=0.500 auc_h=0.688 auc_d=0.938 delta(vs_a)=+0.188 ci=[0.083, 0.292] delta(vs_h)=+0.000 CCRG_helps=True (sig=True)
+22:43:45|INFO   |  encode_token token-id mismatches: 0/300
+22:43:45|INFO   |
+===== CONCEPT spelling_D (token, established) =====
+22:43:45|INFO   | 337.2s spelling_D: parent=6210 n_responsive=20 parent_pos_firing=0.227 unresolved=False
+22:43:45|INFO   | 337.3s spelling_D: subs=2 jaccard_median=0.026 [0.000,0.053] recall_hole_max=1.000
+22:44:41|INFO   | 392.5s spelling_D: OUTCOME k=8 auc_unit=0.827 auc_a=0.500 auc_h=0.660 auc_d=0.648 delta(vs_a)=+0.327 ci=[0.179, 0.444] delta(vs_h)=+0.167 CCRG_helps=True (sig=True)
+22:44:56|INFO   |
+===== CONCEPT numeric (token, established) =====
+22:44:57|INFO   | 408.4s numeric: parent=7517 n_responsive=601 parent_pos_firing=0.581 unresolved=False
+22:44:57|INFO   | 408.5s numeric: subs=0 jaccard_median=nan [nan,nan] recall_hole_max=nan
+22:45:54|INFO   | 465.4s numeric: OUTCOME k=3 auc_unit=1.000 auc_a=1.000 auc_h=1.000 auc_d=1.000 delta(vs_a)=+0.000 ci=[0.0, 0.0] delta(vs_h)=+0.000 CCRG_helps=False (sig=False)
+22:47:01|INFO   |
+===== CONCEPT taxonomic (token, established) =====
+22:47:02|INFO   | 534.0s taxonomic: parent=3792 n_responsive=180 parent_pos_firing=0.964 unresolved=False
+22:47:02|INFO   | 534.1s taxonomic: subs=0 jaccard_median=nan [nan,nan] recall_hole_max=nan
+22:47:57|INFO   | 589.3s taxonomic: OUTCOME k=1 auc_unit=1.000 auc_a=1.000 auc_h=1.000 auc_d=1.000 delta(vs_a)=+0.000 ci=[0.0, 0.0] delta(vs_h)=+0.000 CCRG_helps=False (sig=False)
+22:49:40|INFO   | 691.7s toxicity: shared parent g=7903 toxic-recall=0.841 n_responsive=549
+22:49:40|INFO   |
+===== CONCEPT toxicity_threat (sentence, established) =====
+22:50:43|INFO   | 754.8s toxicity_threat: jaccard=0.478 hole=0.306 k=6 auc_unit=0.567 auc_a=0.833 auc_h=0.925 auc_d=0.868 delta(vs_a)=-0.267 CCRG_helps=False
+22:50:43|INFO   |
+===== CONCEPT toxicity_identity_attack (sentence, established) =====

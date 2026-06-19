@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "artifact": "non_spelling_absorption_testbed",
+    "description": "Two-hierarchy (NUMERIC + TAXONOMIC) SAE feature-absorption testbed. Each hierarchy ships content-flip pairs, surface-flip pairs, and a pile-uncopyrighted diagnostic corpus labelled by frozen, model-in...",
+    "schema": "exp_sel_data_out (flat metadata_* keys); see schema.json for the logical (nested) view",
+    "scale": "full",
+    "seed": 20240617,
+    "pile_repo": "monology/pile-uncopyrighted",
+    "pile_revision": "3be90335b66f24456a5d6659d9c8d208c0357119",
+    "gemma_tokenizer": "google/gemma-2-2b",
+    "token_indices_present": true,
+    "llm_model": "openai/gpt-4o-mini",
+    "llm_cost_usd": 0.01042,
+    "llm_calls": 250,
+    "total_rows": 24128
+  },
+  "datasets": [
+    {
+      "dataset": "numeric_absorption",
+      "examples": [
+        {
+          "input": "My initial idea was to create something where humanity tried to evolve to a next level but had some kind of foe trying to stop them from doing so. I kind of had this image of human souls flying in spa...",
+          "output": "positive",
+          "metadata_hierarchy": "numeric",
+          "metadata_row_type": "corpus",
+          "metadata_concept_present": true,
+          "metadata_sub_context": "year",
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_target_text": "2001",
+          "metadata_target_char_start": 252,
+          "metadata_target_char_end": 256,
+          "metadata_target_token_indices": [
+            55,
+            56,
+            57
+          ],
+          "metadata_source": "pile_uncopyrighted",
+          "metadata_pile_set_name": "Pile-CC",
+          "metadata_llm_judge_pass": null,
+          "metadata_llm_judge_score": null,
+          "metadata_fold": "diagnostic",
+          "metadata_template_id": null,
+          "metadata_neg_family": null,
+          "metadata_multi_token": false,
+          "metadata_notes": null
+        },
+        {
+          "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<segment>\r\n    <name>PD1</name>\r\n    <description>Patient Additional Demographic</description>\r\n    <elements>\r\n        <field minOccurs=\"0\" maxOccurs=\"0\">\r\n   ...",
+          "output": "positive",
+          "metadata_hierarchy": "numeric",
+          "metadata_row_type": "corpus",
+          "metadata_concept_present": true,
+          "metadata_sub_context": "decimal",
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_target_text": "1.0",
+          "metadata_target_char_start": 15,
+          "metadata_target_char_end": 18,
+          "metadata_target_token_indices": [
+            4,
+            5,
+            6
+          ],
+          "metadata_source": "pile_uncopyrighted",
+          "metadata_pile_set_name": "Github",
+          "metadata_llm_judge_pass": null,
+          "metadata_llm_judge_score": null,
+          "metadata_fold": "diagnostic",
+          "metadata_template_id": null,
+          "metadata_neg_family": null,
+          "metadata_multi_token": false,
+          "metadata_notes": null
+        },
+        {
+          "input": "Andrea has worked as concierge for many International resorts and fully understands the high expectations of international visitors. “Life’s A Game But Fishing Is Serious!”\n\nUnlike many tour operators...",
+          "output": "positive",
+          "metadata_hierarchy": "numeric",
+          "metadata_row_type": "corpus",
+          "metadata_concept_present": true,
+          "metadata_sub_context": "integer",
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_target_text": "1",
+          "metadata_target_char_start": 261,
+          "metadata_target_char_end": 262,
+          "metadata_target_token_indices": [
+            49
+          ],
+          "metadata_source": "pile_uncopyrighted",
+          "metadata_pile_set_name": "Pile-CC",
+          "metadata_llm_judge_pass": null,
+          "metadata_llm_judge_score": null,
+          "metadata_fold": "train",
+          "metadata_template_id": null,
+          "metadata_neg_family": null,
+          "metadata_multi_token": false,
+          "metadata_notes": null
+        }
+      ]
+    },
+    {
+      "dataset": "taxonomic_absorption",
+      "examples": [
+        {
+          "input": "Topic: reinvent midnight madness\n\nAmazon announced a new service at the AWS re:Invent Midnight Madness event. Amazon Sumerian is a solution that aims to make it easier for developers to build virtual ...",
+          "output": "negative",
+          "metadata_hierarchy": "taxonomic",
+          "metadata_row_type": "corpus",
+          "metadata_concept_present": false,
+          "metadata_sub_context": null,
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_target_text": "applications",
+          "metadata_target_char_start": 235,
+          "metadata_target_char_end": 247,
+          "metadata_target_token_indices": [
+            47
+          ],
+          "metadata_source": "pile_uncopyrighted",
+          "metadata_pile_set_name": "Pile-CC",
+          "metadata_llm_judge_pass": null,
+          "metadata_llm_judge_score": null,
+          "metadata_fold": "train",
+          "metadata_template_id": null,
+          "metadata_neg_family": "easy",
+          "metadata_multi_token": false,
+          "metadata_notes": "no_country_negative"
+        },
+        {
+          "input": "If the UK introduces such an initiative, it would not be the first country in the contemporary world to do so. Many countries in Asia already make the provision and Russia debated introducing a law in...",
+          "output": "positive",
+          "metadata_hierarchy": "taxonomic",
+          "metadata_row_type": "corpus",
+          "metadata_concept_present": true,
+          "metadata_sub_context": "Russia",
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_target_text": "Russia",
+          "metadata_target_char_start": 165,
+          "metadata_target_char_end": 171,
+          "metadata_target_token_indices": [
+            32
+          ],
+          "metadata_source": "pile_uncopyrighted",
+          "metadata_pile_set_name": "Pile-CC",
+          "metadata_llm_judge_pass": null,
+          "metadata_llm_judge_score": null,
+          "metadata_fold": "train",
+          "metadata_template_id": null,
+          "metadata_neg_family": null,
+          "metadata_multi_token": false,
+          "metadata_notes": null
+        },
+        {
+          "input": "jOOQ on The ORM Foundation? I am the developer of jOOQ, a Java database abstraction framework. I was wondering whether jOOQ might be an interesting tool for discussion on your website, even if it is n...",
+          "output": "negative",
+          "metadata_hierarchy": "taxonomic",
+          "metadata_row_type": "corpus",
+          "metadata_concept_present": false,
+          "metadata_sub_context": null,
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_target_text": "abstraction",
+          "metadata_target_char_start": 72,
+          "metadata_target_char_end": 83,
+          "metadata_target_token_indices": [
+            20
+          ],
+          "metadata_source": "pile_uncopyrighted",
+          "metadata_pile_set_name": "Pile-CC",
+          "metadata_llm_judge_pass": null,
+          "metadata_llm_judge_score": null,
+          "metadata_fold": "train",
+          "metadata_template_id": null,
+          "metadata_neg_family": "easy",
+          "metadata_multi_token": false,
+          "metadata_notes": "no_country_negative"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,618 @@
+{
+ "metadata": {
+  "experiment": "M2prime5_genuine_cross_deployment_zero_label_transfer",
+  "method_name": "M2''''' Genuine Cross-Deployment Zero-Label Transfer + Break-Even K* + Selection-Independent KL Localization + Amazon Caveat",
+  "description": "Fix the SAE absorber id ONCE on deployment A (diagnostic fold; discovered with full labels+oracle in prior iters); on a DISJOINT deployment B (eval-fold halves split by doc-hash) + a template->natural carrier-shift deployment C, score the n-INDEPENDENT fixed-id SAE firing gate vs an n-label dense gate fit FRESH on the deployment's OWN labels. Net out the one-time discovery cost D and report break-even K*=D/n*. Add the selection-independent next-token behavioral-KL targeting (random-latent null) and diagnose the Amazon adv_joint-vs-adv_pres instrument disagreement at matched forget.",
+  "overall_transfer_fork_verdict": "REAL_WHERE_TO_GATE_SAVING",
+  "transfer_confirmed_on_B": [
+   "named_entity_amazon"
+  ],
+  "transferB_tally": {
+   "TRANSFER_CONFIRMED": [
+    "named_entity_amazon"
+   ]
+  },
+  "transferC_tally": {},
+  "kl_tally": {},
+  "r1_fix": "GENUINE cross-deployment: the dense gate is fit FRESH on B's OWN labels and BOTH gates are scored on a B_eval DISJOINT from the A discovery fold AND from B_fit \u2014 so the label saving is realized on a DIFFERENT deployment, not the same eval fold (iter-9 circularity removed).",
+  "deployments": {
+   "same_deployment_A": "fit dense on diagnostic fold -> score eval fold (== iter-9 reproduction/contrast)",
+   "corpus_fold_B": "split eval fold into DISJOINT B_fit/B_eval by stable doc-hash (DECISIVE transfer)",
+   "carrier_shift_C": "fit dense on TEMPLATED content x_on pairs -> deploy on NATURAL eval corpus"
+  },
+  "per_case": {
+   "named_entity_amazon": {
+    "transferB": {
+     "verdict": "TRANSFER_CONFIRMED",
+     "powered": true,
+     "sae_balacc": 0.9992125984251968,
+     "sae_ci": [
+      0.9976377952755906,
+      1.0
+     ],
+     "dense": {
+      "1": {
+       "value": 0.67443418130426,
+       "ci": [
+        0.4915051483949122,
+        0.9414214869775893
+       ],
+       "dense_below_sae": true,
+       "gate_kind": "diffmeans_midpoint",
+       "capped": false
+      },
+      "5": {
+       "value": 0.9403023420149406,
+       "ci": [
+        0.8955682162325863,
+        0.9861220472440945
+       ],
+       "dense_below_sae": true,
+       "gate_kind": "logistic",
+       "capped": false
+      },
+      "20": {
+       "value": 0.9903810821724207,
+       "ci": [
+        0.9575564052089642,
+        1.0
+       ],
+       "dense_below_sae": false,
+       "gate_kind": "logistic",
+       "capped": false
+      },
+      "full": {
+       "value": 1.0,
+       "ci": [
+        1.0,
+        1.0
+       ],
+       "dense_below_sae": false,
+       "gate_kind": "logistic",
+       "capped": false
+      }
+     },
+     "n_breakeven": 20,
+     "n_star": 20,
+     "K_star": 69.7,
+     "K_star_dmin": 69.7,
+     "D_full": 1394,
+     "D_min": 1394,
+     "n5_honest": 0.9403023420149406,
+     "n1_midpoint_artifact": true,
+     "fit_pool": {
+      "n_fit_pos": 30,
+      "n_fit_sib": 674
+     }
+    },
+    "transferC": null,
+    "A_eval_contrast": {
+     "verdict": "DEMONSTRATED",
+     "sae_balacc": 0.9996180290297938,
+     "n_breakeven": 20,
+     "dense": {
+      "0": 0.5,
+      "1": 0.6654847304775569,
+      "5": 0.9368412553491464,
+      "20": 0.9950480413895048,
+      "full": 1.0
+     }
+    },
+    "discovery_cost": {
+     "D_full": 1394,
+     "D_min": 1394,
+     "D_min_trace": {
+      "5": {
+       "match_rate": 0.0,
+       "n_pos": 5,
+       "n_sib": 5
+      },
+      "10": {
+       "match_rate": 0.0,
+       "n_pos": 10,
+       "n_sib": 10
+      },
+      "20": {
+       "match_rate": 0.0,
+       "n_pos": 20,
+       "n_sib": 20
+      },
+      "40": {
+       "match_rate": 0.0,
+       "n_pos": 40,
+       "n_sib": 40
+      },
+      "80": {
+       "match_rate": 0.0,
+       "n_pos": 68,
+       "n_sib": 80
+      }
+     },
+     "rediscovered": false
+    },
+    "kl_targeting": null,
+    "amazon_caveat": {
+     "verdict": "MATERIAL_REPORT_BOTH",
+     "fq_kg": 1.3333333333333333,
+     "fq_fair": 0.6666666666666666,
+     "forget_gap": 0.6666666666666666,
+     "forget_gap_ci": null,
+     "both_forget_well": false,
+     "adv_pres": {
+      "diff": 0.0,
+      "ci_lo": 0.0,
+      "ci_hi": 0.0,
+      "excl_0": false
+     },
+     "adv_joint": {
+      "diff": 0.5740740738754886,
+      "ci_lo": 0.522222222031466,
+      "ci_hi": 0.5999999997974997,
+      "excl_0": true
+     },
+     "adv_joint_full_offset": true
+    }
+   }
+  },
+  "n_grid": [
+   "1",
+   "5",
+   "20",
+   "full"
+  ],
+  "K_LOC": 30,
+  "K_STAR_SMALL": 3.0,
+  "kl_scales": [
+   1.0,
+   2.0
+  ],
+  "kl_null_draws": 3,
+  "kl_cap": 60,
+  "material_threshold": 0.3,
+  "primary_edit_metric": "adv_pres",
+  "sae_handle_label_caveat": "The fixed-id SAE handle uses ZERO labels AT DEPLOYMENT (the absorber id is discovered ONCE on A). The discovery cost D is paid once and amortized over redeployments (break-even K*=D/n*); the handle is transferable label-free at deployment, NOT zero-label end-to-end.",
+  "kl_selection_caveat": "balanced-accuracy ~ the firing-precision selection criterion (mild circularity); the localization claim leans on (i) held-out generalization to the eval fold (disjoint from the diagnostic fold the absorber was selected on) and (ii) the selection-independent next-token behavioral-KL targeting reported here.",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82",
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "Rnorm": 478.1510314941406,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.918907880783081,
+   "L0": 87.96875,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2827152663939862,
+    "13": 0.19281299647645794,
+    "14": 0.33801938728707287
+   },
+   "Rnorm": 478.1510314941406
+  },
+  "cost": {
+   "usd_spent": 0.0105,
+   "calls": 37,
+   "fail": 0,
+   "refusal": 0,
+   "primary_judge": "anthropic/claude-haiku-4.5",
+   "second_judge": "openai/gpt-4o-mini",
+   "per_model": {
+    "openai/gpt-4o-mini": {
+     "usd": 0.0011478,
+     "calls": 19,
+     "fail": 0,
+     "refusal": 0
+    },
+    "anthropic/claude-haiku-4.5": {
+     "usd": 0.009354,
+     "calls": 18,
+     "fail": 0,
+     "refusal": 0
+    }
+   },
+   "target_usd": 3.0,
+   "hard_cap_usd": 10.0
+  },
+  "honest_negatives": [
+   "named_entity_amazon (edit, honest caveat): at MATCHED behavioral forget the judged forget gap (KG - fair = 0.6666666666666666) EXCEEDS 0.3 -> report BOTH adv_pres and adv_joint and SOFTEN 'demonstrated' to 'preservation-advantage-only at matched forget' for the Amazon edit arm."
+  ]
+ },
+ "datasets": [
+  {
+   "dataset": "transfer_curve",
+   "examples": [
+    {
+     "input": "[transfer|named_entity_amazon|same_deployment_A|gate_balacc|A_eval] fixed-id SAE handle (iter-9 reproduction)",
+     "output": "DEMONSTRATED",
+     "predict_value": "0.9996",
+     "predict_ci_lo": "0.9989",
+     "predict_ci_hi": "1.0",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "same_deployment_A",
+     "metadata_deployment": "A_eval",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "SAE",
+     "metadata_n": "flat",
+     "metadata_balacc_tpr": 1.0,
+     "metadata_balacc_tnr": 0.9992,
+     "metadata_label_free": true,
+     "metadata_iter9_contrast": true,
+     "metadata_verdict": "DEMONSTRATED",
+     "metadata_n_breakeven": "20"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|same_deployment_A|gate_balacc|A_eval] dense gate fit on diagnostic n=0 (iter-9)",
+     "output": "DEMONSTRATED",
+     "predict_value": "0.5",
+     "predict_ci_lo": "0.5",
+     "predict_ci_hi": "0.5",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "same_deployment_A",
+     "metadata_deployment": "A_eval",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "0",
+     "metadata_n_resamples": 0,
+     "metadata_gate_kind": "undefined",
+     "metadata_dense_below_sae": null,
+     "metadata_overlaps_sae": null,
+     "metadata_iter9_contrast": true,
+     "metadata_verdict": "DEMONSTRATED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|same_deployment_A|gate_balacc|A_eval] dense gate fit on diagnostic n=1 (iter-9)",
+     "output": "DEMONSTRATED",
+     "predict_value": "0.6655",
+     "predict_ci_lo": "0.4885",
+     "predict_ci_hi": "0.8914",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "same_deployment_A",
+     "metadata_deployment": "A_eval",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "1",
+     "metadata_n_resamples": 30,
+     "metadata_gate_kind": "diffmeans_midpoint",
+     "metadata_dense_below_sae": true,
+     "metadata_overlaps_sae": false,
+     "metadata_iter9_contrast": true,
+     "metadata_verdict": "DEMONSTRATED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|same_deployment_A|gate_balacc|A_eval] dense gate fit on diagnostic n=5 (iter-9)",
+     "output": "DEMONSTRATED",
+     "predict_value": "0.9368",
+     "predict_ci_lo": "0.8829",
+     "predict_ci_hi": "0.9807",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "same_deployment_A",
+     "metadata_deployment": "A_eval",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "5",
+     "metadata_n_resamples": 30,
+     "metadata_gate_kind": "logistic",
+     "metadata_dense_below_sae": true,
+     "metadata_overlaps_sae": false,
+     "metadata_iter9_contrast": true,
+     "metadata_verdict": "DEMONSTRATED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|same_deployment_A|gate_balacc|A_eval] dense gate fit on diagnostic n=20 (iter-9)",
+     "output": "DEMONSTRATED",
+     "predict_value": "0.995",
+     "predict_ci_lo": "0.9754",
+     "predict_ci_hi": "1.0",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "same_deployment_A",
+     "metadata_deployment": "A_eval",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "20",
+     "metadata_n_resamples": 30,
+     "metadata_gate_kind": "logistic",
+     "metadata_dense_below_sae": false,
+     "metadata_overlaps_sae": true,
+     "metadata_iter9_contrast": true,
+     "metadata_verdict": "DEMONSTRATED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|same_deployment_A|gate_balacc|A_eval] dense gate fit on diagnostic n=full (iter-9)",
+     "output": "DEMONSTRATED",
+     "predict_value": "1.0",
+     "predict_ci_lo": "1.0",
+     "predict_ci_hi": "1.0",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "same_deployment_A",
+     "metadata_deployment": "A_eval",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "full",
+     "metadata_n_resamples": 1,
+     "metadata_gate_kind": "logistic",
+     "metadata_dense_below_sae": false,
+     "metadata_overlaps_sae": true,
+     "metadata_iter9_contrast": true,
+     "metadata_verdict": "DEMONSTRATED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|corpus_fold_B|gate_balacc|B_corpus] fixed-id SAE absorber-firing gate (0 deploy labels)",
+     "output": "TRANSFER_CONFIRMED",
+     "predict_value": "0.9992",
+     "predict_ci_lo": "0.9976",
+     "predict_ci_hi": "1.0",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "corpus_fold_B",
+     "metadata_deployment": "B_corpus",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "SAE",
+     "metadata_n": "flat",
+     "metadata_label_free": true,
+     "metadata_balacc_tpr": 1.0,
+     "metadata_balacc_tnr": 0.9984,
+     "metadata_n_eval_pos": 52,
+     "metadata_n_eval_sib": 635,
+     "metadata_powered": true,
+     "metadata_verdict": "TRANSFER_CONFIRMED",
+     "metadata_n_breakeven": "20",
+     "metadata_K_star": "69.7",
+     "metadata_D_full": 1394,
+     "metadata_D_min": 1394,
+     "metadata_n5_honest": "0.9403023420149406",
+     "metadata_n1_midpoint_artifact": true
+    },
+    {
+     "input": "[transfer|named_entity_amazon|corpus_fold_B|gate_balacc|B_corpus] dense fair d_sub-gate fit on n=1 deploy labels",
+     "output": "TRANSFER_CONFIRMED",
+     "predict_value": "0.6744",
+     "predict_ci_lo": "0.4915",
+     "predict_ci_hi": "0.9414",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "corpus_fold_B",
+     "metadata_deployment": "B_corpus",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "1",
+     "metadata_n_resamples": 30,
+     "metadata_gate_kind": "diffmeans_midpoint",
+     "metadata_capped": false,
+     "metadata_dense_below_sae": true,
+     "metadata_overlaps_sae": false,
+     "metadata_verdict": "TRANSFER_CONFIRMED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|corpus_fold_B|gate_balacc|B_corpus] dense fair d_sub-gate fit on n=5 deploy labels",
+     "output": "TRANSFER_CONFIRMED",
+     "predict_value": "0.9403",
+     "predict_ci_lo": "0.8956",
+     "predict_ci_hi": "0.9861",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "corpus_fold_B",
+     "metadata_deployment": "B_corpus",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "5",
+     "metadata_n_resamples": 30,
+     "metadata_gate_kind": "logistic",
+     "metadata_capped": false,
+     "metadata_dense_below_sae": true,
+     "metadata_overlaps_sae": false,
+     "metadata_verdict": "TRANSFER_CONFIRMED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|corpus_fold_B|gate_balacc|B_corpus] dense fair d_sub-gate fit on n=20 deploy labels",
+     "output": "TRANSFER_CONFIRMED",
+     "predict_value": "0.9904",
+     "predict_ci_lo": "0.9576",
+     "predict_ci_hi": "1.0",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "corpus_fold_B",
+     "metadata_deployment": "B_corpus",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "20",
+     "metadata_n_resamples": 30,
+     "metadata_gate_kind": "logistic",
+     "metadata_capped": false,
+     "metadata_dense_below_sae": false,
+     "metadata_overlaps_sae": true,
+     "metadata_verdict": "TRANSFER_CONFIRMED"
+    },
+    {
+     "input": "[transfer|named_entity_amazon|corpus_fold_B|gate_balacc|B_corpus] dense fair d_sub-gate fit on n=full deploy labels",
+     "output": "TRANSFER_CONFIRMED",
+     "predict_value": "1.0",
+     "predict_ci_lo": "1.0",
+     "predict_ci_hi": "1.0",
+     "metadata_case": "named_entity_amazon",
+     "metadata_axis": "corpus_fold_B",
+     "metadata_deployment": "B_corpus",
+     "metadata_metric": "gate_balacc",
+     "metadata_route": "DENSE",
+     "metadata_n": "full",
+     "metadata_n_resamples": 1,
+     "metadata_gate_kind": "logistic",
+     "metadata_capped": false,
+     "metadata_dense_below_sae": false,
+     "metadata_overlaps_sae": true,
+     "metadata_verdict": "TRANSFER_CONFIRMED"
+    },
+    {
+     "input": "[amazon_caveat|named_entity_amazon|instrument_disagreement] judged FORGET gap KG-ABL minus dense fair (matched forget)",
+     "output": "MATERIAL_REPORT_BOTH",
+     "predict_value": "0.6667",
+     "predict_ci_lo": "NA",
+     "predict_ci_hi": "NA",
+     "metadata_case": "named_entity_amazon",
+     "metadata_metric": "instrument_disagreement",
+     "metadata_route": "DIAGNOSTIC",
+     "metadata_fq_kg": 1.3333333333333333,
+     "metadata_fq_fair": 0.6666666666666666,
+     "metadata_both_forget_well": false,
+     "metadata_material_threshold": 0.3,
+     "metadata_adv_pres_diff": 0.0,
+     "metadata_adv_pres_excl0": false,
+     "metadata_adv_joint_diff": 0.5740740738754886,
+     "metadata_adv_joint_excl0": true,
+     "metadata_adv_joint_full_offset": true,
+     "metadata_verdict": "MATERIAL_REPORT_BOTH"
+    }
+   ]
+  },
+  {
+   "dataset": "edit_per_prompt",
+   "examples": [
+    {
+     "input": "[named_entity_amazon|n=full|FORGET] 14, 2015\n\nAmazon says it has signed director Woody Allen to write and direct his first television series; show, as yet untitled, will debut on service in 2016; move points to Amazon's intention to continue delivering",
+     "output": "FORGET",
+     "predict_kg_abl": "original content to its subscribers.\n\n13, 2015\n\nNetflix has announced that it will be releasing the first season of its new original series, <em>Bloodline</em>, on",
+     "predict_dense_fair": "original content to its subscribers.\n\n13, 2015\n\nAmazon has announced that it will be launching a new service called Amazon Prime Video Channels, which will allow subscribers to add additional",
+     "predict_noop": "original content to its Prime members.\n\n14, 2015\n\nAmazon has announced that it will be launching a new service called Amazon Prime Video Channels, which will allow Prime members to",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "FORGET",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 1,
+     "metadata_judge_primary_content_pres_fair": 0,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|FORGET] And the company's losses doubled in the most recent quarter due in part to rising expenses and the stronger dollar, which dampened demand for US products. CEO Chad Dickerson rejected the notion that",
+     "output": "FORGET",
+     "predict_kg_abl": "the company is in trouble.\n\n\"We're not in trouble,\" he said. \"We're in a growth mode.\"\n\nDickerson said the company is on track to meet its goal",
+     "predict_dense_fair": "the company is in trouble.\n\n\"We're not in trouble,\" he said. \"We're in a growth mode.\"\n\nDickerson said the company is on track to meet its goal",
+     "predict_noop": "the company is in trouble.\n\n\"We're not in trouble,\" he said. \"We're in a growth mode.\"\n\nDickerson said the company is on track to meet its goal",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "FORGET",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 0,
+     "metadata_judge_primary_fluency_fair": 2,
+     "metadata_judge_primary_content_pres_fair": 0,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|FORGET] Lewis Uniform boot while the above are two of the best combat boots money can buy the right news is that you have plenty of more options (including different colors, styles, and knee high and mid calf options), many of them also made by Dan",
+     "output": "FORGET",
+     "predict_kg_abl": "The Danner boots are made in the USA and are made to last. They are also made to be comfortable and to be able to withstand the rigors of the military.\n\nThe Danner",
+     "predict_dense_fair": "The Danner boots are made in the USA and are made to last. They are also made to be comfortable and to be able to withstand the rigors of the military.\n\nThe Danner",
+     "predict_noop": "The Danner boots are made in the USA and are made to last. They are also made to be comfortable and to be able to withstand the rigors of the military.\n\nThe Danner",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "FORGET",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 2,
+     "metadata_judge_primary_content_pres_fair": 2,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|RETAIN] The Herald understands some smaller claims have been settled and that NZTA has agreed to \"relevel\" one home in Manurewa East, near Dutt's, after the owner complained her foundations had sunk because of the roadworks. NZTA senior manager pro",
+     "output": "RETAIN",
+     "predict_kg_abl": "Hunt said the agency was \"working through\" the claims.\n\n\"We are working through the claims and will be in touch with those who have made a claim,\" he said.\n\n\"We are",
+     "predict_dense_fair": "Hunt said the agency was \"working through\" the claims.\n\n\"We are working through the claims and will be in touch with those who have made a claim,\" he said.\n\n\"We are",
+     "predict_noop": "Hunt said the agency was \"working through\" the claims.\n\n\"We are working through the claims and will be in touch with those who have made a claim,\" he said.\n\n\"We are",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "RETAIN",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 2,
+     "metadata_judge_primary_content_pres_fair": 2,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|RETAIN] 29, 2000\n\n\nDear Colleague:\n\nWe are honored to have Chairman Pat Wood of the Public Utility Commission of \nTexas as the distinguish speaker for the meeting of the Central Texas Chapter \nof the United States Association for Energy Economics. ",
+     "output": "RETAIN",
+     "predict_kg_abl": "Wood's remarks at 11:30 a.m. on Thursday, March 29, \n2001, at the Hilton Austin Hotel, 110",
+     "predict_dense_fair": "Wood's remarks at 11:30 a.m. on Thursday, March 29, \n2001, at the Hilton Austin Hotel, 110",
+     "predict_noop": "Wood's remarks at 11:30 a.m. on Thursday, March 29, \n2001, at the Hilton Austin Hotel, 110",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "RETAIN",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 2,
+     "metadata_judge_primary_content_pres_fair": 2,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|RETAIN] It operates six branches in Columbia, Rensselaer and Albany counties, and is planning a new two-story branch at 782 Troy-Schenectady Road in Colonie. \u201cThis is an exciting time for Kinderhook Bank,\u201d",
+     "output": "RETAIN",
+     "predict_kg_abl": "said President and CEO John J. O\u2019Brien. \u201cWe are growing our footprint in the Capital Region and are looking forward to serving the needs of our new customers.\u201d\n\nThe bank has been in",
+     "predict_dense_fair": "said President and CEO John J. O\u2019Brien. \u201cWe are growing our footprint in the Capital Region and are looking forward to serving the needs of our new customers.\u201d\n\nThe bank has been in",
+     "predict_noop": "said President and CEO John J. O\u2019Brien. \u201cWe are growing our footprint in the Capital Region and are looking forward to serving the needs of our new customers.\u201d\n\nThe bank has been in",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "RETAIN",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 2,
+     "metadata_judge_primary_content_pres_fair": 2,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|UNRELATED] Cast metal bases as an economical alternative for the severely resorbed mandible. Resorption of the alveolar ridge is a common problem in edentulous patients and can compromise the stability and function of dentures. Resorption and its cons",
+     "output": "UNRELATED",
+     "predict_kg_abl": "the patient is treated with a fixed prosthesis. The use of cast metal bases is an economical alternative to the use of acrylic resin bases. The cast metal base is a simple, reliable, and economical al",
+     "predict_dense_fair": "the patient is treated with a fixed prosthesis. The use of cast metal bases is an economical alternative to the use of acrylic resin bases. The cast metal base is a simple, reliable, and economical al",
+     "predict_noop": "the patient is treated with a fixed prosthesis. The use of cast metal bases is an economical alternative to the use of acrylic resin bases. The cast metal base is a simple, reliable, and economical al",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "UNRELATED",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 2,
+     "metadata_judge_primary_content_pres_fair": 2,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|UNRELATED] The obtained results indicated that the absorption of emodin in Caco-2 cells was enhanced and the metabolism of emodin in human liver microsomes was inhibited after TSG treatment. The effects of the transport inhibitors on the cellular emod",
+     "output": "UNRELATED",
+     "predict_kg_abl": "uptake were also investigated. The results showed that the uptake of emodin was inhibited by the transport inhibitors, suggesting that the uptake of emodin was mediated by the passive diffusion. The r",
+     "predict_dense_fair": "uptake were also investigated. The results showed that the uptake of emodin was inhibited by the transport inhibitors, suggesting that the uptake of emodin was mediated by the passive diffusion. The r",
+     "predict_noop": "uptake were also investigated. The results showed that the uptake of emodin was inhibited by the transport inhibitors, suggesting that the uptake of emodin was mediated by the passive diffusion. The r",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "UNRELATED",
+     "metadata_judge_primary_fluency_kg": 2,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 2,
+     "metadata_judge_primary_content_pres_fair": 2,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    },
+    {
+     "input": "[named_entity_amazon|n=full|UNRELATED] Taking advantage of the physical \u201cspin\u201d of quantum elements, a quantum computer will be able to process",
+     "output": "UNRELATED",
+     "predict_kg_abl": "information in a way that is fundamentally different from a classical computer.\n\nThe quantum computer will be able to process information in a way that is fundamentally different from a classical comp",
+     "predict_dense_fair": "information in a way that is fundamentally different from a classical computer.\n\nThe quantum computer will be able to process information in a way that is fundamentally different from a classical comp",
+     "predict_noop": "information in a way that is fundamentally different from a classical computer.\n\nThe quantum computer will be able to process information in a way that is fundamentally different from a classical comp",
+     "metadata_case": "named_entity_amazon",
+     "metadata_role": "UNRELATED",
+     "metadata_judge_primary_fluency_kg": 1,
+     "metadata_judge_primary_content_pres_kg": 2,
+     "metadata_judge_primary_fluency_fair": 1,
+     "metadata_judge_primary_content_pres_fair": 2,
+     "metadata_judge_second_content_pres_kg": 2,
+     "metadata_kg_beta": 1.7714,
+     "metadata_matched_target": 0.8
+    }
+   ]
+  }
+ ]
+}

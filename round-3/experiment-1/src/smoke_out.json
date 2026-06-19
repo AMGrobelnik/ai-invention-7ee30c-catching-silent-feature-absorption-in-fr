@@ -1,0 +1,54 @@
+{
+ "metadata": {
+  "method_name": "Two-Track CCRG (Counterfactual Co-Response Grouping)",
+  "description": "Cluster-level SAE units (anchor + disjoint per-token absorbers) recovered from content-flip co-response on a frozen Gemma-Scope L12/16k SAE; first-letter spelling absorption testbed. E1=label-free recovery vs form-free diagnostic; C1=starts-with-letter classification; E2=absorbed-slice recall; steering=mean-member-decoder side effects.",
+  "config": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "model": "unsloth/gemma-2-2b",
+   "hook_layer": 12,
+   "spelling_carriers": [
+    "t_verbose",
+    "t_colon",
+    "t_icl"
+   ],
+   "thresholds": {
+    "beta": 6,
+    "gamma_grid": [
+     0.3,
+     0.5,
+     0.7,
+     1.0,
+     1.5
+    ],
+    "prec_floor": 0.7,
+    "jaccard_max": 0.1,
+    "covgain_floor": 0.05,
+    "tau_c": 0.5,
+    "max_k": 15,
+    "min_hole_headline": 1
+   },
+   "seed": 1234,
+   "b_gap": 10000,
+   "b_null": 1000,
+   "mini": false
+  },
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9239237904548645,
+   "ev": 0.8570906052237559,
+   "L0": 96.140625
+  }
+ },
+ "datasets": [
+  {
+   "dataset": "first_letter_spelling_pending",
+   "examples": [
+    {
+     "input": "pending",
+     "output": "0"
+    }
+   ]
+  }
+ ]
+}

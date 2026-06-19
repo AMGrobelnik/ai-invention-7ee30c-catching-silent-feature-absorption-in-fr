@@ -1,0 +1,24 @@
+05:40:34|INFO   |  31.5s torch 2.6.0+cu124 cuda=True device=cuda
+05:40:34|INFO   |  31.5s loading SAE from /root/.cache/huggingface/hub/models--google--gemma-scope-2b-pt-res/snapshots/fd571b47c1c64851e9b1989792367b9babb4af63/layer_12/width_16k/average_l0_82/params.npz
+05:40:35|INFO   |  32.1s SAE loaded d_sae=16384 d_model=2304
+05:42:19|INFO   | 136.4s loading tokenizer+model google/gemma-2-2b
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+05:42:30|INFO   | 147.4s model loaded (google/gemma-2-2b) d_model=2304 n_layers=26 vocab=256000
+05:42:33|INFO   | 149.8s FVU by hidden_states idx: 12:0.284, 13:0.193, 14:0.339 -> selected 13
+05:42:33|INFO   |    encoded 16/64 (0s)
+05:42:34|INFO   | 150.7s encoded 64 rows in 1s | dropped=0 | align=1.000 | nnz/row=131
+05:42:34|INFO   | 150.8s GATING cosine=0.9189 L0=87.9 layer_idx=13 Rnorm=478.6
+05:42:34|INFO   | 151.0s ===== SMOKE =====
+05:42:34|INFO   |    encoded 14/14 (0s)
+05:42:34|INFO   | 151.2s encoded 14 rows in 0s | dropped=0 | align=1.000 | nnz/row=118
+05:42:42|INFO   | 158.7s SMOKE gen base='New York
+Robert Rakestraw (born 1951), American po' kg='New York
+Robert Rakestraw (born 1951), American po' sub='Georgia
+William Rakestraw (1899–1981), American fo' whole='New York
+Rakestraw, a character in the 1998 film T'
+05:42:42|INFO   | 158.7s SMOKE u_sub norm_ok=True cos_with_whole=0.086 sub_distinct=True unit_gen='New York
+Robert Rakestraw (born 1951), American po'
+05:42:42|INFO   | 158.7s SMOKE footprint KG=0.00000 SUB=1.00000
+05:42:44|INFO   | 161.0s second judge resolved -> openai/gpt-4o-mini
+05:42:45|INFO   | 161.7s SMOKE PASS
+05:42:45|INFO   | 161.7s SMOKE saved -> /ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_6/gen_art/gen_art_experiment_1/method_out.json

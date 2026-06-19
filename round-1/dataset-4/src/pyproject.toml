@@ -1,0 +1,14 @@
+[project]
+name = "ccrg-supporting-datasets"
+version = "0.1.0"
+description = "CCRG supporting concept families + boundary-null dataset standardization (CAD-IMDB / CEBaB / bias_in_bios)"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets==5.0.0",
+    "pandas==3.0.3",
+    "numpy==2.4.6",
+    "pyarrow==24.0.0",
+    "jsonschema==4.26.0",
+    "loguru==0.7.3",
+    "huggingface-hub==1.19.0",
+]

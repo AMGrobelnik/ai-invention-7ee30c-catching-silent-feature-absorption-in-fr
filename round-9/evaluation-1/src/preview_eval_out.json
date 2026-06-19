@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "evaluation_name": "Iter-9 M4''''+M6'''' Selectivity-Localization & Spine-Consolidation Integrity-Lock",
+    "description": "Pure-CPU, $0, read-only integrity-lock over EXISTING iter-4/5/8 experiment JSONs. Recomputes the 16k surgical selectivity and RE-FRAMES it strictly as a LOCALIZATION claim (denominator = the disowned ...",
+    "seed": 1234,
+    "B_boot": 10000,
+    "tol_point": 0.001,
+    "llm_cost_usd": 0.0,
+    "gpu_used": false,
+    "inputs": {
+      "surgical_16k": "art_0CZwPjG2YMCf iter-4 exp2 (KG-localized surgical edit, 16k)",
+      "fair_gate": "art_Qdoz9eH0AGjh iter-8 exp1 (de-inflated fair-gated unlearning)",
+      "repair_spine": "art_sxwT7hK6YFEA iter-4 exp1 (KG-repair + member-labeling spine)",
+      "cross_dict": "art_4L1MZxvWYlGd iter-5 exp2 (cross-dictionary replication, 65k/l9)",
+      "carry_template": "iter-8 integrity-lock eval (schema/template + carried numbers; not a formal dep)"
+    },
+    "canonical_name": "label-free single-specialist localization",
+    "deprecated_aliases": [
+      "two-track CCRG",
+      "clustering",
+      "KG-ABL-as-method"
+    ],
+    "cross_checks": [
+      {
+        "name": "A1.selectivity_16k_mean_absorption",
+        "kind": "point",
+        "computed": 1452.4715090798045,
+        "stored": 1452.4715090798045,
+        "abs_diff": 0.0,
+        "rel_diff": 0.0,
+        "match": true,
+        "status": "PASS",
+        "provenance": "recomputed",
+        "note": "mean over 6 absorption headline_selectivity_ratio vs stored regime_router_map.absorption.mean"
+      },
+      {
+        "name": "A1.selectivity_16k_median_absorption",
+        "kind": "point",
+        "computed": 1262.2100200524687,
+        "stored": 1262.21,
+        "abs_diff": 2.0052468698850134e-05,
+        "rel_diff": 1.588679276732884e-08,
+        "match": true,
+        "status": "PASS",
+        "provenance": "recomputed",
+        "note": "median over 6 absorption cases vs carried 1262.21 (=(801.96+1722.46)/2)"
+      },
+      {
+        "name": "A1.selectivity_16k_median_cleanly_surgical_n5",
+        "kind": "point",
+        "computed": 1722.4595170019425,
+        "stored": 1722.46,
+        "abs_diff": 0.00048299805757778813,
+        "rel_diff": 2.8041177012980745e-07,
+        "match": true,
+        "status": "PASS",
+        "provenance": "recomputed",
+        "note": "median over 5 SURGICAL_EDIT_CONFIRMED absorption cases vs carried 1722.46"
+      }
+    ],
+    "cross_check_summary": {
+      "n_total": 49,
+      "n_pass": 38,
+      "n_carried": 9,
+      "n_findings_reported": 2,
+      "n_unexpected_failures": 0,
+      "n_passed": 47,
+      "findings": [
+        {
+          "name": "A4.65k_corrected_selectivity_mean",
+          "computed": 828.4603109919701,
+          "carried_or_stored": 721.7,
+          "resolution": "USE the corrected MEDIAN ~676x (RAW median 676.3 reproduces carried 676.3 exactly -- median is robust to the divide-by-eps outlier). The MEAN is floor-recipe-dependent: carried 721.7 vs robust-recompu..."
+        },
+        {
+          "name": "B1.distinct_holes",
+          "computed": 24,
+          "carried_or_stored": 22,
+          "resolution": "USE 24 distinct holes (source-authoritative recompute over the 30 FDR survivors; 6 carry a 2nd variant). The carried 22 (implying 8 second-variants) could not be reproduced from art_sxwT7hK6YFEA and a..."
+        }
+      ],
+      "note": "n_passed = PASS (recompute matched) + CARRIED (carried-consistent). FINDINGS are documented carried-figure drifts surfaced by the lock (recompute authoritative; never overwritten). 0 unexpected failur..."
+    },
+    "paper_wording": {
+      "W_selectivity_as_localization": "The ~1262x median / 1452x mean selectivity means the KG-named absorber's ablation is LOCALIZED (near-zero collateral on sibling sub-contexts -- mean KG collateral 1.49e-4 -- and a tiny token footprint...",
+      "W_section56_reconciliation": "Against the genuinely-fair d_sub-gated CONDITIONAL dense control the surgical advantage disappears (fair retain-collateral 2.8e-6 vs KG 5.1e-5 on 'large', with the FAIR-minus-KG collateral CI excludin...",
+      "W_section56_inconsistency_flag": "FLAG: the prior draft was internally inconsistent -- Section 5 advertised 1262x selectivity computed against DENSE-WHOLE-ABL, while Section 6 disowned DENSE-WHOLE-ABL as a strawman. The selectivity de...",
+      "W_operator_table": "Six operators, defined once: (1) KG-ABL -- single named-absorber ablation gated by the latent's own sparse firing, ZERO labels, the label-free SAE handle (collateral 5.1e-5); (2) DENSE-SUB-ABL -- stro...",
+      "W_canonical_name": "Use one stable name throughout: 'label-free single-specialist localization' -- anchored recall-hole-guided precision selection of a single absorber latent that marginal attribution drops. Retire to th...",
+      "W_presentation_strip": "(i) Present the corrected results AS the results; move all self-correction ('a prior version claimed...') to a brief changelog/limitations note. (ii) Use ONE stable name. (iii) Define the operators ON...",
+      "W_65k_correction": "Report 65k absorption selectivity as the corrected median ~676x (which the raw cases reproduce exactly, since the median is robust to Georgia's divide-by-epsilon inflation) or corrected mean ~722x; NE...",
+      "W_numeric_below_gate": "Numeric digit-token reconstruction cosine is 0.876 (65k) / 0.8911 (16k), both below the 0.9 editing gate, so numeric concepts are reported as 'numeric below-gate': their KG-repairs still survive FDR (..."
+    },
+    "second_variant_holes": [
+      "numeric/date",
+      "numeric/decimal",
+      "numeric/ordinal"
+    ],
+    "distinct_holes_note": "RECOMPUTE: 24 distinct (concept,subcontext) holes among 30 FDR survivors (6 carry a 2nd variant); carried settled-spine figure was 22 -> MISMATCH reported, not overwritten.",
+    "fdr_recompute_note": "hand-rolled BH (alpha=0.05) -> 30 survivors; row-by-row match with stored=True; statsmodels agrees=True.",
+    "selectivity_65k_correction_note": "raw stored mean=466996.7 (divide-by-eps); raw median=676.33 reproduces carried 676.3 EXACTLY; robust(eps=1e-5) mean=828.5; carried corrected 721.7/676.3.",
+    "metrics_dropped_non_numeric": []
+  },
+  "metrics_agg": {
+    "selectivity_16k_mean_absorption": 1452.4715090798045,
+    "selectivity_16k_median_absorption": 1262.2100200524687,
+    "selectivity_16k_median_cleanly_surgical_n5": 1722.4595170019425,
+    "n_absorption_cases": 6.0,
+    "n_cleanly_surgical": 5.0,
+    "A2_denominator_is_whole_parent": 1.0,
+    "fair_collateral_large": 2.7893486306614554e-06,
+    "kg_collateral_large": 5.0747140048770236e-05,
+    "sub_ungated_collateral_large": 0.020798109325308664,
+    "footprint_gated_collateral_large": 0.2947271220541249,
+    "whole_collateral_large": 2.6097950187077124,
+    "maxprec_collateral_large": 5.0747140048770236e-05,
+    "kg_minus_fair_collateral": 4.7957791418108784e-05,
+    "fair_is_cleaner_than_kg": 1.0,
+    "adv_KG_vs_FAIR_large": -0.050000000000000044,
+    "adv_KG_vs_SUB_large": 0.9666666665111107,
+    "over_erasure_footprint_gated_over_sub_large": 14.170861276100675,
+    "footprint_gate_beta_large": 3.012815975599599,
+    "selectivity_65k_mean_corrected": 721.7,
+    "selectivity_65k_median_corrected": 676.3,
+    "selectivity_65k_mean_raw_divbyeps": 466996.7180452159,
+    "selectivity_65k_median_raw": 676.3286967276752,
+    "selectivity_65k_mean_robust_recompute": 828.4603109919701,
+    "selectivity_65k_median_robust_recompute": 187.51278345019003,
+    "georgia_65k_raw_ratio": 3710589.049682427,
+    "georgia_65k_robust_ratio": 3710.588049682426,
+    "n_absorption_cases_65k": 8.0,
+    "n_distinct_holes": 24.0,
+    "n_distinct_holes_carried_prior": 22.0,
+    "n_second_variant_holes": 6.0,
+    "n_fdr_survivors": 30.0,
+    "n_repairs_tested": 69.0,
+    "n_holes_total": 54.0,
+    "fdr_spelling": 14.0,
+    "fdr_taxonomic": 6.0,
+    "fdr_numeric": 10.0,
+    "fdr_handBH_matches_stored_rowwise": 1.0,
+    "fdr_statsmodels_agrees": 1.0,
+    "member_labeling_agreement": 0.7303370786516854,
+    "member_labeling_null": 0.09592134831460675,
+    "member_labeling_gap": 0.6344157303370787,
+    "member_labeling_gap_ci_lo": 0.5445280898876405,
+    "member_labeling_gap_ci_hi": 0.7243033707865169,
+    "member_labeling_n_members": 89.0,
+    "member_labeling_per_role_absorber": 0.7560975609756098,
+    "member_labeling_per_role_anchor": 0.42857142857142855,
+    "crossdict_65k_overall": 1.0,
+    "crossdict_l9_overall": 0.5,
+    "crossdict_replicates_full": 1.0,
+    "crossdict_65k_fdr_survivors": 55.0,
+    "crossdict_65k_repairs_tested": 154.0,
+    "crossdict_65k_fdr_spelling": 29.0,
+    "crossdict_65k_fdr_taxonomic": 11.0,
+    "crossdict_65k_fdr_numeric": 15.0,
+    "gating_cosine_65k": 0.9280143976211548,
+    "numeric_digit_cosine_65k": 0.8761566877365112,
+    "numeric_digit_cosine_16k": 0.8911,
+    "editing_gate_threshold": 0.9,
+    "safety_homograph_groups": 2.0,
+    "safety_total_groups": 44.0,
+    "named_entity_structured": 3.0,
+    "named_entity_total": 5.0,
+    "professions_structured": 0.0,
+    "professions_total": 28.0,
+    "model_diffing_effect": 0.0,
+    "router_demoted": 1.0,
+    "router_frozen_tau_balacc": 1.0,
+    "n_operators_defined": 6.0,
+    "n_cross_checks": 49.0,
+    "n_cross_checks_passed": 47.0,
+    "cross_check_pass_fraction": 0.9591836734693877,
+    "n_cross_checks_pass_recompute": 38.0,
+    "n_cross_checks_carried": 9.0,
+    "n_cross_checks_findings_reported": 2.0,
+    "n_cross_checks_unexpected_failures": 0.0,
+    "cross_check_resolved_fraction": 1.0,
+    "seed": 1234.0,
+    "B_boot": 10000.0,
+    "llm_cost_usd": 0.0,
+    "gpu_used": 0.0
+  },
+  "datasets": [
+    {
+      "dataset": "selectivity_localization_rows",
+      "examples": [
+        {
+          "input": "16k absorption case: taxonomic/Georgia (absorber 16009)",
+          "output": "selectivity 1722.5x = LOCALIZED ablation (KG collateral 2.88e-05 vs DENSE-WHOLE collateral 0.0496; KG footprint 0.0015)",
+          "predict_localization": "LOCALIZED",
+          "metadata_case_id": "taxonomic_Georgia_16009",
+          "metadata_target_subcontext": "Georgia",
+          "metadata_regime": "absorption",
+          "metadata_verdict": "SURGICAL_EDIT_CONFIRMED",
+          "metadata_headline_selectivity_ratio": 1722.4595170019425,
+          "metadata_kg_collateral": 2.875819098183208e-05,
+          "metadata_dense_whole_collateral_denominator": 0.04955203434358612,
+          "metadata_kg_offtarget_footprint": 0.0014623303696771174,
+          "metadata_fair_collateral_xref": 2.7893486306614554e-06,
+          "eval_selectivity_ratio": 1722.4595170019425,
+          "eval_localized": 1.0
+        },
+        {
+          "input": "16k absorption case: taxonomic/Jordan (absorber 540)",
+          "output": "selectivity 2722.3x = LOCALIZED ablation (KG collateral 2.65e-05 vs DENSE-WHOLE collateral 0.0721; KG footprint 0.0010)",
+          "predict_localization": "LOCALIZED",
+          "metadata_case_id": "taxonomic_Jordan_540",
+          "metadata_target_subcontext": "Jordan",
+          "metadata_regime": "absorption",
+          "metadata_verdict": "SURGICAL_EDIT_CONFIRMED",
+          "metadata_headline_selectivity_ratio": 2722.2610048892575,
+          "metadata_kg_collateral": 2.6491441840984194e-05,
+          "metadata_dense_whole_collateral_denominator": 0.07214383169705185,
+          "metadata_kg_offtarget_footprint": 0.0009981211836542978,
+          "metadata_fair_collateral_xref": 2.7893486306614554e-06,
+          "eval_selectivity_ratio": 2722.2610048892575,
+          "eval_localized": 1.0
+        },
+        {
+          "input": "16k absorption case: taxonomic/Jordan (absorber 8347)",
+          "output": "selectivity 3246.9x = LOCALIZED ablation (KG collateral 8.86e-06 vs DENSE-WHOLE collateral 0.0288; KG footprint 0.0002)",
+          "predict_localization": "LOCALIZED",
+          "metadata_case_id": "taxonomic_Jordan_8347",
+          "metadata_target_subcontext": "Jordan",
+          "metadata_regime": "absorption",
+          "metadata_verdict": "SURGICAL_EDIT_CONFIRMED",
+          "metadata_headline_selectivity_ratio": 3246.859165896537,
+          "metadata_kg_collateral": 8.862467273717952e-06,
+          "metadata_dense_whole_collateral_denominator": 0.028807641691788188,
+          "metadata_kg_offtarget_footprint": 0.00023485204321277596,
+          "metadata_fair_collateral_xref": 2.7893486306614554e-06,
+          "eval_selectivity_ratio": 3246.859165896537,
+          "eval_localized": 1.0
+        }
+      ]
+    },
+    {
+      "dataset": "operator_definition_rows",
+      "examples": [
+        {
+          "input": "KG-ABL",
+          "output": "formula: h -= lambda * z_l * W_dec[l]  (single named-absorber ablation) | gate: the latent's OWN sparse JumpReLU firing | label-cost: ZERO sub-context labels | role: the label-free SAE handle under te...",
+          "predict_role": "LABEL_FREE_SAE_HANDLE",
+          "metadata_operator": "KG-ABL",
+          "metadata_formula": "h -= lambda * z_l * W_dec[l]  (single named-absorber ablation)",
+          "metadata_gate": "the latent's OWN sparse JumpReLU firing",
+          "metadata_label_cost": "ZERO sub-context labels",
+          "metadata_role": "LABEL_FREE_SAE_HANDLE",
+          "metadata_collateral_large": 5.0747140048770236e-05,
+          "eval_collateral_large": 5.0747140048770236e-05
+        },
+        {
+          "input": "DENSE-SUB-ABL",
+          "output": "formula: h -= beta * (h . u_sub) u_sub  (everywhere; strongest UNGATED diff-of-means) | gate: none (unconditional) | label-cost: needs sub-context labels to fit u_sub | role: LEAD reference, NOT the f...",
+          "predict_role": "LEAD_UNGATED",
+          "metadata_operator": "DENSE-SUB-ABL",
+          "metadata_formula": "h -= beta * (h . u_sub) u_sub  (everywhere; strongest UNGATED diff-of-means)",
+          "metadata_gate": "none (unconditional)",
+          "metadata_label_cost": "needs sub-context labels to fit u_sub",
+          "metadata_role": "LEAD_UNGATED",
+          "metadata_collateral_large": 0.020798109325308664,
+          "eval_collateral_large": 0.020798109325308664
+        },
+        {
+          "input": "DENSE-SUB-ABL-GATED-FAIR",
+          "output": "formula: erase u_sub ONLY where a precise logistic d_sub detector fires, beta<=1 | gate: ONE unified logistic d_sub gate (balacc 0.96-1.00) | label-cost: needs sub-context labels for d_sub | role: GEN...",
+          "predict_role": "FAIR_CONDITIONAL_CONTROL",
+          "metadata_operator": "DENSE-SUB-ABL-GATED-FAIR",
+          "metadata_formula": "erase u_sub ONLY where a precise logistic d_sub detector fires, beta<=1",
+          "metadata_gate": "ONE unified logistic d_sub gate (balacc 0.96-1.00)",
+          "metadata_label_cost": "needs sub-context labels for d_sub",
+          "metadata_role": "FAIR_CONDITIONAL_CONTROL",
+          "metadata_collateral_large": 2.7893486306614554e-06,
+          "eval_collateral_large": 2.7893486306614554e-06
+        }
+      ]
+    },
+    {
+      "dataset": "settled_spine_rows",
+      "examples": [
+        {
+          "input": "crossdict.65k.per_piece_verdicts",
+          "output": "overall=full; homograph_holes=REPLICATES; repair_fdr=REPLICATES; surgical=REPLICATES; router=REPLICATES",
+          "predict_status": "RECOMPUTED_MATCH",
+          "metadata_computed": "{\"homograph_holes\": \"REPLICATES\", \"repair_fdr\": \"REPLICATES\", \"surgical\": \"REPLICATES\", \"router\": \"REPLICATES\"}",
+          "metadata_stored_or_carried": "{\"homograph_holes\": \"REPLICATES\", \"repair_fdr\": \"REPLICATES\", \"surgical\": \"REPLICATES\", \"router\": \"REPLICATES\"}",
+          "metadata_provenance": "recomputed",
+          "metadata_note": "65k per-piece replication verdicts (read from source)",
+          "eval_status_score": 1.0
+        },
+        {
+          "input": "crossdict.l9_16k.per_piece_verdicts",
+          "output": "overall=partial; homograph_holes=PARTIAL; repair_fdr=REPLICATES; surgical=REPLICATES; router=NOT_RUN_REDUCED",
+          "predict_status": "RECOMPUTED_MATCH",
+          "metadata_computed": "{\"homograph_holes\": \"PARTIAL\", \"repair_fdr\": \"REPLICATES\", \"surgical\": \"REPLICATES\", \"router\": \"NOT_RUN_REDUCED\"}",
+          "metadata_stored_or_carried": "{\"homograph_holes\": \"PARTIAL\", \"repair_fdr\": \"REPLICATES\", \"surgical\": \"REPLICATES\", \"router\": \"NOT_RUN_REDUCED\"}",
+          "metadata_provenance": "recomputed",
+          "metadata_note": "l9_16k per-piece replication verdicts (read from source)",
+          "eval_status_score": 1.0
+        },
+        {
+          "input": "settled_spine::safety_absorption",
+          "output": "2/44 homograph-confined (white, straight)",
+          "predict_status": "CARRIED",
+          "metadata_computed": 2,
+          "metadata_stored_or_carried": 44,
+          "metadata_provenance": "carried",
+          "metadata_note": "iter-6 exp2 safety screen on full civil_comments",
+          "eval_status_score": 0.5
+        }
+      ]
+    }
+  ]
+}

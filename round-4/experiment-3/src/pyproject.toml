@@ -1,0 +1,56 @@
+[project]
+name = "ccrg-c3-taxonomic-conflation-fix"
+version = "0.4.0"
+description = "Iter-4 re-analysis: taxonomic unit/specialist CONFLATION fix — precision-gated/weighted K-track rebuild (M2) + TRAIN/HELD-OUT fold split (M7) + non-random label-free count-matched selectors S-rec/S-prec/S-mag (M5) + homograph scope cross-tab (M3) + per-edge form-free KG, reusing frozen Gemma-Scope L12/16k encodings (taxonomic + numeric contrast)"
+requires-python = ">=3.12"
+# Versions below are EXACTLY those installed in the .venv used for the run (`uv pip freeze`).
+# This run reuses the frozen iter-2/3 cached SAE encodings, so it executes entirely on CPU
+# (torch==2.6.0+cpu). Install the CPU wheel via the PyTorch CPU index:
+#   uv pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+# Core run-path deps: numpy/scipy/scikit-learn/statsmodels/loguru/torch; huggingface-hub (+hf-xet)
+# fetch the gemma-scope params.npz once for W_dec. transformers/the model are NOT needed on the
+# cache-reuse path (only a GPU re-encode cache-miss would load them, which never occurs here).
+# The full freeze (incl. transitive deps) is listed for exact reproducibility.
+dependencies = [
+    "torch==2.6.0+cpu",
+    "numpy==2.4.6",
+    "scipy==1.17.1",
+    "scikit-learn==1.9.0",
+    "statsmodels==0.14.6",
+    "pandas==3.0.3",
+    "patsy==1.0.2",
+    "joblib==1.5.3",
+    "threadpoolctl==3.6.0",
+    "loguru==0.7.3",
+    "huggingface-hub==1.19.0",
+    "hf-xet==1.5.1",
+    "filelock==3.29.0",
+    "fsspec==2026.4.0",
+    "pyyaml==6.0.3",
+    "sympy==1.13.1",
+    "mpmath==1.3.0",
+    "networkx==3.6.1",
+    "jinja2==3.1.6",
+    "markupsafe==3.0.3",
+    "tqdm==4.68.3",
+    "packaging==26.2",
+    "python-dateutil==2.9.0.post0",
+    "six==1.17.0",
+    "typing-extensions==4.15.0",
+    "annotated-doc==0.0.4",
+    "anyio==4.14.0",
+    "certifi==2026.6.17",
+    "click==8.4.1",
+    "h11==0.16.0",
+    "httpcore==1.0.9",
+    "httpx==0.28.1",
+    "idna==3.18",
+    "markdown-it-py==4.2.0",
+    "mdurl==0.1.2",
+    "narwhals==2.22.1",
+    "pygments==2.20.0",
+    "rich==15.0.0",
+    "setuptools==70.2.0",
+    "shellingham==1.5.4",
+    "typer==0.25.1",
+]

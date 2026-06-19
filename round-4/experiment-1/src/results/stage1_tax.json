@@ -1,0 +1,6256 @@
+{
+ "metadata": {
+  "method_name": "M1a+M7 Auditability Spine (expanded): broad K-track KG repair loop + BH FDR + ensemble member-labeling",
+  "description": "Expansion of the iter-3 measured auditability result to the FULL set of eligible absorbed sub-contexts across spelling (L/O/T/I/D), homograph-taxonomic and numeric. Broad K-track KG names a covering absorber per eligible sub-context (selection-split only); repair loop measures recall recovery vs a random-addition control with paired bootstrap CI + one-sided p; Benjamini-Hochberg FDR<=0.05 across ALL repairs; (k) JTT localization check per concept; ensemble (J=3, shuffled-order) LLM-judge member-labeling with a 15-wide confident-label fraction.",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "n_shuffles": 2000,
+  "j_ensemble": 3,
+  "llm_model": "anthropic/claude-haiku-4.5",
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189349412918091,
+   "L0": 87.9375,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2838386548289832,
+    "13": 0.19299182784889848,
+    "14": 0.3387158481703969
+   }
+  },
+  "thresholds": {
+   "N_MIN_EVAL": 30,
+   "N_MIN_RELAX": 15,
+   "N_MIN_SEL": 10,
+   "HOLE_RECALL_MAX": 0.6,
+   "KG_JACCARD_MAX": 0.1,
+   "KG_PREC_MIN": 0.7,
+   "FDR_ALPHA": 0.05
+  },
+  "canonical_units": {
+   "first_letter": {
+    "L": {
+     "anchor": 205,
+     "k_unit": [
+      205,
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+     ],
+     "absorbers": [
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+     ],
+     "members": [
+      205,
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+     ],
+     "sub_by_absorber": {
+      "4736": "",
+      "607": "",
+      "3069": "list",
+      "8463": "",
+      "2416": "line",
+      "2759": "",
+      "3353": "level",
+      "3858": "low",
+      "7544": "leave",
+      "15261": "",
+      "1391": "",
+      "1467": "",
+      "1549": "",
+      "1566": ""
+     },
+     "anchor_corpus_fire_iter2": 0.3572
+    },
+    "O": {
+     "anchor": 12334,
+     "k_unit": [
+      12334,
+      14473,
+      12675,
+      1032,
+      1562,
+      4438,
+      8961,
+      9488,
+      9915,
+      15092,
+      782,
+      1127,
+      1925,
+      2101,
+      2768
+     ],
+     "absorbers": [
+      14473,
+      12675,
+      1032,
+      1562,
+      4438,
+      8961,
+      9488,
+      9915,
+      15092,
+      782,
+      1127,
+      1925,
+      2101,
+      2768
+     ],
+     "members": [
+      12334,
+      14473,
+      12675,
+      1032,
+      1562,
+      4438,
+      8961,
+      9488,
+      9915,
+      15092,
+      782,
+      1127,
+      1925,
+      2101,
+      2768
+     ],
+     "sub_by_absorber": {
+      "14473": "",
+      "12675": "",
+      "1032": "our",
+      "1562": "outside",
+      "4438": "",
+      "8961": "options",
+      "9488": "",
+      "9915": "",
+      "15092": "offer",
+      "782": "",
+      "1127": "old",
+      "1925": "",
+      "2101": "",
+      "2768": ""
+     },
+     "anchor_corpus_fire_iter2": 0.3944
+    },
+    "T": {
+     "anchor": 6355,
+     "k_unit": [
+      6355,
+      8925,
+      7742,
+      4438,
+      2768,
+      4551,
+      5130,
+      8938,
+      14143,
+      383,
+      1839,
+      4570,
+      5059,
+      12997,
+      13704
+     ],
+     "absorbers": [
+      8925,
+      7742,
+      4438,
+      2768,
+      4551,
+      5130,
+      8938,
+      14143,
+      383,
+      1839,
+      4570,
+      5059,
+      12997,
+      13704
+     ],
+     "members": [
+      6355,
+      8925,
+      7742,
+      4438,
+      2768,
+      4551,
+      5130,
+      8938,
+      14143,
+      383,
+      1839,
+      4570,
+      5059,
+      12997,
+      13704
+     ],
+     "sub_by_absorber": {
+      "8925": "",
+      "7742": "",
+      "4438": "",
+      "2768": "",
+      "4551": "type",
+      "5130": "",
+      "8938": "things",
+      "14143": "",
+      "383": "",
+      "1839": "treatment",
+      "4570": "",
+      "5059": "",
+      "12997": "",
+      "13704": "there"
+     },
+     "anchor_corpus_fire_iter2": 0.2664
+    },
+    "I": {
+     "anchor": 1227,
+     "k_unit": [
+      1227,
+      1634,
+      3967,
+      9741,
+      10756,
+      782,
+      4322,
+      1861,
+      4490,
+      7491,
+      11112,
+      12928,
+      1491,
+      2322,
+      2507
+     ],
+     "absorbers": [
+      1634,
+      3967,
+      9741,
+      10756,
+      782,
+      4322,
+      1861,
+      4490,
+      7491,
+      11112,
+      12928,
+      1491,
+      2322,
+      2507
+     ],
+     "members": [
+      1227,
+      1634,
+      3967,
+      9741,
+      10756,
+      782,
+      4322,
+      1861,
+      4490,
+      7491,
+      11112,
+      12928,
+      1491,
+      2322,
+      2507
+     ],
+     "sub_by_absorber": {
+      "1634": "",
+      "3967": "",
+      "9741": "invention",
+      "10756": "",
+      "782": "",
+      "4322": "",
+      "1861": "its",
+      "4490": "issue",
+      "7491": "",
+      "11112": "",
+      "12928": "",
+      "1491": "inside",
+      "2322": "",
+      "2507": ""
+     },
+     "anchor_corpus_fire_iter2": 0.0
+    },
+    "D": {
+     "anchor": 6210,
+     "k_unit": [
+      6210,
+      10756,
+      782,
+      1970,
+      7293,
+      10769,
+      11069,
+      14014,
+      16173,
+      1197,
+      1298,
+      1459,
+      1724,
+      2354,
+      2568
+     ],
+     "absorbers": [
+      10756,
+      782,
+      1970,
+      7293,
+      10769,
+      11069,
+      14014,
+      16173,
+      1197,
+      1298,
+      1459,
+      1724,
+      2354,
+      2568
+     ],
+     "members": [
+      6210,
+      10756,
+      782,
+      1970,
+      7293,
+      10769,
+      11069,
+      14014,
+      16173,
+      1197,
+      1298,
+      1459,
+      1724,
+      2354,
+      2568
+     ],
+     "sub_by_absorber": {
+      "10756": "",
+      "782": "",
+      "1970": "different",
+      "7293": "",
+      "10769": "day",
+      "11069": "development",
+      "14014": "did",
+      "16173": "",
+      "1197": "display",
+      "1298": "down",
+      "1459": "",
+      "1724": "described",
+      "2354": "",
+      "2568": ""
+     },
+     "anchor_corpus_fire_iter2": 0.3304
+    }
+   },
+   "taxonomic": {
+    "anchor": 3792,
+    "k_track_unit": [
+     3792,
+     4697,
+     9339,
+     8442
+    ],
+    "kg_edges": [
+     {
+      "anchor": 3792,
+      "absorber": 4697,
+      "specializes": "Georgia",
+      "marginal_gain": 0.5454545454545454,
+      "jaccard": 0.05518680068272331,
+      "subctx_precision": 0.34965034965034963
+     },
+     {
+      "anchor": 3792,
+      "absorber": 9339,
+      "specializes": "Jordan",
+      "marginal_gain": 0.2766798418972332,
+      "jaccard": 0.02067777139574957,
+      "subctx_precision": 0.6326530612244898
+     },
+     {
+      "anchor": 3792,
+      "absorber": 8442,
+      "specializes": "United States",
+      "marginal_gain": 0.1422924901185771,
+      "jaccard": 0.06485758275596613,
+      "subctx_precision": 0.34673366834170855
+     }
+    ],
+    "diag_absorbers": [
+     {
+      "latent": 16009,
+      "jaccard": 0.006657789613848202,
+      "subctx_precision": 0.9554140127388535,
+      "specializes": "Georgia",
+      "hole_coverage_gain": 0.48221343873517786,
+      "gain_ci_low": 0.4189723320158103,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 540,
+      "jaccard": 0.007476993865030675,
+      "subctx_precision": 0.975,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.3201581027667984,
+      "gain_ci_low": 0.2608695652173913,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 8347,
+      "jaccard": 0.004057187017001545,
+      "subctx_precision": 1.0,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.16205533596837945,
+      "gain_ci_low": 0.11857707509881422,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 846,
+      "jaccard": 0.023035230352303523,
+      "subctx_precision": 0.9733333333333334,
+      "specializes": "United States",
+      "hole_coverage_gain": 0.1225296442687747,
+      "gain_ci_low": 0.08695652173913043,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 13424,
+      "jaccard": 0.003872216844143272,
+      "subctx_precision": 1.0,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.11857707509881422,
+      "gain_ci_low": 0.07905138339920949,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 4760,
+      "jaccard": 0.006203955021326095,
+      "subctx_precision": 0.7090909090909091,
+      "specializes": "United States",
+      "hole_coverage_gain": 0.09090909090909091,
+      "gain_ci_low": 0.05928853754940711,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 3980,
+      "jaccard": 0.0013597513597513598,
+      "subctx_precision": 0.85,
+      "specializes": "Georgia",
+      "hole_coverage_gain": 0.05138339920948617,
+      "gain_ci_low": 0.02766798418972332,
+      "content_precision": 1.0
+     }
+    ],
+    "anchor_recall_corpus": 0.9530438010393467,
+    "eligible_subcontexts": [
+     "Canada",
+     "France",
+     "Iran",
+     "United States",
+     "Brazil",
+     "Georgia",
+     "New Zealand",
+     "Spain",
+     "Mexico",
+     "China",
+     "Japan",
+     "India",
+     "Italy",
+     "Ireland",
+     "Australia",
+     "Poland",
+     "Germany",
+     "United Kingdom",
+     "Israel",
+     "Russia"
+    ],
+    "absorbed_subcontexts": [
+     "Georgia",
+     "United States"
+    ],
+    "kg_by_sub": {
+     "Georgia": 4697,
+     "Jordan": 9339,
+     "United States": 8442
+    },
+    "diag_by_sub": {
+     "Georgia": 16009,
+     "Jordan": 540,
+     "United States": 846
+    },
+    "n_content_responsive": 684
+   },
+   "numeric": {
+    "anchor": 14823,
+    "k_track_unit": [
+     14823,
+     11011,
+     14413,
+     2285
+    ],
+    "kg_edges": [
+     {
+      "anchor": 14823,
+      "absorber": 11011,
+      "specializes": "year",
+      "marginal_gain": 0.3632075471698113,
+      "jaccard": 0.09787234042553192,
+      "subctx_precision": 0.46
+     },
+     {
+      "anchor": 14823,
+      "absorber": 14413,
+      "specializes": "decimal",
+      "marginal_gain": 0.19528301886792454,
+      "jaccard": 0.08366141732283465,
+      "subctx_precision": 0.2379421221864952
+     },
+     {
+      "anchor": 14823,
+      "absorber": 2285,
+      "specializes": "decimal",
+      "marginal_gain": 0.09528301886792453,
+      "jaccard": 0.05914567360350493,
+      "subctx_precision": 0.4689265536723164
+     }
+    ],
+    "diag_absorbers": [
+     {
+      "latent": 8684,
+      "jaccard": 0.05656759348034516,
+      "subctx_precision": 0.7307692307692307,
+      "specializes": "date",
+      "hole_coverage_gain": 0.23867924528301887,
+      "gain_ci_low": 0.21320754716981133,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 9027,
+      "jaccard": 0.06591143151390319,
+      "subctx_precision": 0.8734693877551021,
+      "specializes": "date",
+      "hole_coverage_gain": 0.17075471698113207,
+      "gain_ci_low": 0.1490566037735849,
+      "content_precision": 0.75
+     },
+     {
+      "latent": 13492,
+      "jaccard": 0.06418219461697723,
+      "subctx_precision": 0.8529411764705882,
+      "specializes": "date",
+      "hole_coverage_gain": 0.1660377358490566,
+      "gain_ci_low": 0.14433962264150943,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 8287,
+      "jaccard": 0.04801670146137787,
+      "subctx_precision": 0.9906542056074766,
+      "specializes": "date",
+      "hole_coverage_gain": 0.15849056603773584,
+      "gain_ci_low": 0.13773584905660377,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 547,
+      "jaccard": 0.07001044932079414,
+      "subctx_precision": 0.7649572649572649,
+      "specializes": "date",
+      "hole_coverage_gain": 0.15754716981132075,
+      "gain_ci_low": 0.13679245283018868,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 8223,
+      "jaccard": 0.04407135362014691,
+      "subctx_precision": 0.9951219512195122,
+      "specializes": "date",
+      "hole_coverage_gain": 0.15377358490566037,
+      "gain_ci_low": 0.13299528301886793,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 14067,
+      "jaccard": 0.07247899159663866,
+      "subctx_precision": 0.7662337662337663,
+      "specializes": "date",
+      "hole_coverage_gain": 0.15283018867924528,
+      "gain_ci_low": 0.1311320754716981,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 10357,
+      "jaccard": 0.054910242872228086,
+      "subctx_precision": 0.9712918660287081,
+      "specializes": "date",
+      "hole_coverage_gain": 0.1481132075471698,
+      "gain_ci_low": 0.12830188679245283,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 8828,
+      "jaccard": 0.06976744186046512,
+      "subctx_precision": 0.8378378378378378,
+      "specializes": "date",
+      "hole_coverage_gain": 0.1471698113207547,
+      "gain_ci_low": 0.12641509433962264,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 11852,
+      "jaccard": 0.08395324123273114,
+      "subctx_precision": 0.7652173913043478,
+      "specializes": "date",
+      "hole_coverage_gain": 0.14245283018867924,
+      "gain_ci_low": 0.12169811320754717,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 1571,
+      "jaccard": 0.06702127659574468,
+      "subctx_precision": 0.8544600938967136,
+      "specializes": "date",
+      "hole_coverage_gain": 0.14150943396226415,
+      "gain_ci_low": 0.12075471698113208,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 13756,
+      "jaccard": 0.05561497326203209,
+      "subctx_precision": 0.8477157360406091,
+      "specializes": "date",
+      "hole_coverage_gain": 0.13679245283018868,
+      "gain_ci_low": 0.1160377358490566,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 14554,
+      "jaccard": 0.02795698924731183,
+      "subctx_precision": 0.9939759036144579,
+      "specializes": "date",
+      "hole_coverage_gain": 0.1320754716981132,
+      "gain_ci_low": 0.11226415094339623,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 15869,
+      "jaccard": 0.023655913978494623,
+      "subctx_precision": 1.0,
+      "specializes": "date",
+      "hole_coverage_gain": 0.1320754716981132,
+      "gain_ci_low": 0.11226415094339623,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 4913,
+      "jaccard": 0.05726872246696035,
+      "subctx_precision": 0.7411764705882353,
+      "specializes": "date",
+      "hole_coverage_gain": 0.11132075471698114,
+      "gain_ci_low": 0.09245283018867924,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 442,
+      "jaccard": 0.037527593818984545,
+      "subctx_precision": 0.7666666666666667,
+      "specializes": "date",
+      "hole_coverage_gain": 0.10943396226415095,
+      "gain_ci_low": 0.09150943396226414,
+      "content_precision": 0.9615384615384616
+     },
+     {
+      "latent": 5463,
+      "jaccard": 0.04083885209713024,
+      "subctx_precision": 0.8954248366013072,
+      "specializes": "date",
+      "hole_coverage_gain": 0.10943396226415095,
+      "gain_ci_low": 0.09150943396226414,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 3411,
+      "jaccard": 0.07341490545050056,
+      "subctx_precision": 0.7542857142857143,
+      "specializes": "date",
+      "hole_coverage_gain": 0.10283018867924529,
+      "gain_ci_low": 0.08396226415094339,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 9240,
+      "jaccard": 0.041340782122905026,
+      "subctx_precision": 0.8450704225352113,
+      "specializes": "date",
+      "hole_coverage_gain": 0.09905660377358491,
+      "gain_ci_low": 0.0820754716981132,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 11994,
+      "jaccard": 0.026845637583892617,
+      "subctx_precision": 0.75,
+      "specializes": "date",
+      "hole_coverage_gain": 0.09811320754716982,
+      "gain_ci_low": 0.08018867924528301,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 7983,
+      "jaccard": 0.07126696832579185,
+      "subctx_precision": 0.8407643312101911,
+      "specializes": "decimal",
+      "hole_coverage_gain": 0.08867924528301886,
+      "gain_ci_low": 0.07261792452830189,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 13658,
+      "jaccard": 0.080773606370876,
+      "subctx_precision": 0.9375,
+      "specializes": "ordinal",
+      "hole_coverage_gain": 0.08396226415094339,
+      "gain_ci_low": 0.0669811320754717,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 15580,
+      "jaccard": 0.03103448275862069,
+      "subctx_precision": 0.8878504672897196,
+      "specializes": "date",
+      "hole_coverage_gain": 0.07547169811320754,
+      "gain_ci_low": 0.06037735849056604,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 10570,
+      "jaccard": 0.03009259259259259,
+      "subctx_precision": 0.72,
+      "specializes": "date",
+      "hole_coverage_gain": 0.06981132075471698,
+      "gain_ci_low": 0.05471698113207547,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 14802,
+      "jaccard": 0.03948896631823461,
+      "subctx_precision": 0.7142857142857143,
+      "specializes": "date",
+      "hole_coverage_gain": 0.0669811320754717,
+      "gain_ci_low": 0.05188679245283019,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 12935,
+      "jaccard": 0.025611175785797437,
+      "subctx_precision": 0.9230769230769231,
+      "specializes": "date",
+      "hole_coverage_gain": 0.06509433962264151,
+      "gain_ci_low": 0.0509433962264151,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 3283,
+      "jaccard": 0.01750291715285881,
+      "subctx_precision": 0.8902439024390244,
+      "specializes": "date",
+      "hole_coverage_gain": 0.06320754716981132,
+      "gain_ci_low": 0.04905660377358491,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 12664,
+      "jaccard": 0.01633605600933489,
+      "subctx_precision": 0.7777777777777778,
+      "specializes": "date",
+      "hole_coverage_gain": 0.06320754716981132,
+      "gain_ci_low": 0.04905660377358491,
+      "content_precision": 0.95
+     },
+     {
+      "latent": 14926,
+      "jaccard": 0.0304093567251462,
+      "subctx_precision": 0.8131868131868132,
+      "specializes": "decimal",
+      "hole_coverage_gain": 0.06132075471698113,
+      "gain_ci_low": 0.04716981132075472,
+      "content_precision": 1.0
+     }
+    ],
+    "anchor_recall_corpus": 0.42702702702702705,
+    "eligible_subcontexts": [
+     "year",
+     "percent",
+     "currency",
+     "date",
+     "decimal",
+     "integer",
+     "comma_number",
+     "ordinal"
+    ],
+    "absorbed_subcontexts": [
+     "date",
+     "decimal",
+     "integer",
+     "year"
+    ],
+    "kg_by_sub": {
+     "year": 11011,
+     "decimal": 14413
+    },
+    "diag_by_sub": {
+     "date": 8684,
+     "decimal": 7983,
+     "ordinal": 13658
+    },
+    "n_content_responsive": 2180
+   }
+  },
+  "reproduction_crosscheck": {
+   "taxonomic": {
+    "n_content_responsive_rederived": 691,
+    "n_content_responsive_iter2": 684,
+    "anchor_iter2": 3792,
+    "anchor_rederived": 3792,
+    "anchor_match": true,
+    "kg_absorbers_in_responsive": {
+     "Georgia": true,
+     "Jordan": true,
+     "United States": true
+    }
+   }
+  },
+  "broad_kg": {
+   "taxonomic": {
+    "n_eligible": 52,
+    "n_named_absorber": 31,
+    "anchor_fire_rate_corpus": 0.9560408921933086,
+    "spurious_anchor": false,
+    "eligibility": {
+     "Argentina": {
+      "n_sel": 82,
+      "n_eval": 82,
+      "readiness": "descriptive_only"
+     },
+     "Australia": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Austria": {
+      "n_sel": 77,
+      "n_eval": 78,
+      "readiness": "descriptive_only"
+     },
+     "Belgium": {
+      "n_sel": 78,
+      "n_eval": 78,
+      "readiness": "descriptive_only"
+     },
+     "Brazil": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Canada": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Chile": {
+      "n_sel": 39,
+      "n_eval": 40,
+      "readiness": "descriptive_only"
+     },
+     "China": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Colombia": {
+      "n_sel": 45,
+      "n_eval": 46,
+      "readiness": "descriptive_only"
+     },
+     "Costa Rica": {
+      "n_sel": 23,
+      "n_eval": 23,
+      "readiness": "descriptive_only"
+     },
+     "Denmark": {
+      "n_sel": 70,
+      "n_eval": 71,
+      "readiness": "descriptive_only"
+     },
+     "Egypt": {
+      "n_sel": 87,
+      "n_eval": 88,
+      "readiness": "descriptive_only"
+     },
+     "Ethiopia": {
+      "n_sel": 25,
+      "n_eval": 25,
+      "readiness": "descriptive_only"
+     },
+     "Finland": {
+      "n_sel": 49,
+      "n_eval": 49,
+      "readiness": "descriptive_only"
+     },
+     "France": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Georgia": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Germany": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Greece": {
+      "n_sel": 77,
+      "n_eval": 78,
+      "readiness": "descriptive_only"
+     },
+     "India": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Indonesia": {
+      "n_sel": 78,
+      "n_eval": 78,
+      "readiness": "descriptive_only"
+     },
+     "Iran": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Iraq": {
+      "n_sel": 104,
+      "n_eval": 105,
+      "readiness": "descriptive_only"
+     },
+     "Ireland": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Israel": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Italy": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Japan": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Jordan": {
+      "n_sel": 124,
+      "n_eval": 124,
+      "readiness": "descriptive_only"
+     },
+     "Kenya": {
+      "n_sel": 49,
+      "n_eval": 49,
+      "readiness": "descriptive_only"
+     },
+     "Mexico": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Morocco": {
+      "n_sel": 26,
+      "n_eval": 27,
+      "readiness": "descriptive_only"
+     },
+     "Netherlands": {
+      "n_sel": 126,
+      "n_eval": 126,
+      "readiness": "descriptive_only"
+     },
+     "New Zealand": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Nigeria": {
+      "n_sel": 73,
+      "n_eval": 73,
+      "readiness": "descriptive_only"
+     },
+     "Norway": {
+      "n_sel": 89,
+      "n_eval": 89,
+      "readiness": "descriptive_only"
+     },
+     "Pakistan": {
+      "n_sel": 121,
+      "n_eval": 122,
+      "readiness": "descriptive_only"
+     },
+     "Peru": {
+      "n_sel": 41,
+      "n_eval": 42,
+      "readiness": "descriptive_only"
+     },
+     "Poland": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Portugal": {
+      "n_sel": 47,
+      "n_eval": 48,
+      "readiness": "descriptive_only"
+     },
+     "Russia": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Saudi Arabia": {
+      "n_sel": 52,
+      "n_eval": 53,
+      "readiness": "descriptive_only"
+     },
+     "South Africa": {
+      "n_sel": 141,
+      "n_eval": 141,
+      "readiness": "descriptive_only"
+     },
+     "South Korea": {
+      "n_sel": 70,
+      "n_eval": 70,
+      "readiness": "descriptive_only"
+     },
+     "Spain": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Sri Lanka": {
+      "n_sel": 39,
+      "n_eval": 39,
+      "readiness": "descriptive_only"
+     },
+     "Sweden": {
+      "n_sel": 121,
+      "n_eval": 122,
+      "readiness": "descriptive_only"
+     },
+     "Switzerland": {
+      "n_sel": 94,
+      "n_eval": 94,
+      "readiness": "descriptive_only"
+     },
+     "Thailand": {
+      "n_sel": 68,
+      "n_eval": 68,
+      "readiness": "descriptive_only"
+     },
+     "Turkey": {
+      "n_sel": 105,
+      "n_eval": 106,
+      "readiness": "descriptive_only"
+     },
+     "Ukraine": {
+      "n_sel": 65,
+      "n_eval": 66,
+      "readiness": "descriptive_only"
+     },
+     "United Kingdom": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "United States": {
+      "n_sel": 150,
+      "n_eval": 150,
+      "readiness": "eligible"
+     },
+     "Vietnam": {
+      "n_sel": 87,
+      "n_eval": 88,
+      "readiness": "descriptive_only"
+     }
+    },
+    "per_subcontext_derivation": {
+     "Argentina": {
+      "kg_absorber": 3057,
+      "recall_on_X_selection": 0.9878048780487805,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.015722049689440992,
+      "n_sel_pos": 82,
+      "anchor_recall_selection": 1.0
+     },
+     "Australia": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 0.9933333333333333
+     },
+     "Austria": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 77,
+      "anchor_recall_selection": 1.0
+     },
+     "Belgium": {
+      "kg_absorber": 3741,
+      "recall_on_X_selection": 0.01282051282051282,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.00019409937888198756,
+      "n_sel_pos": 78,
+      "anchor_recall_selection": 1.0
+     },
+     "Brazil": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Canada": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Chile": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 39,
+      "anchor_recall_selection": 0.9743589743589743
+     },
+     "China": {
+      "kg_absorber": 15293,
+      "recall_on_X_selection": 0.23333333333333334,
+      "subctx_precision_selection": 0.7446808510638298,
+      "jaccard_anchor": 0.009122670807453416,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Colombia": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 45,
+      "anchor_recall_selection": 1.0
+     },
+     "Costa Rica": {
+      "kg_absorber": 15055,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.004464285714285714,
+      "n_sel_pos": 23,
+      "anchor_recall_selection": 1.0
+     },
+     "Denmark": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 70,
+      "anchor_recall_selection": 1.0
+     },
+     "Egypt": {
+      "kg_absorber": 12371,
+      "recall_on_X_selection": 0.09195402298850575,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.0015527950310559005,
+      "n_sel_pos": 87,
+      "anchor_recall_selection": 1.0
+     },
+     "Ethiopia": {
+      "kg_absorber": 7735,
+      "recall_on_X_selection": 0.92,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.004464285714285714,
+      "n_sel_pos": 25,
+      "anchor_recall_selection": 1.0
+     },
+     "Finland": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 49,
+      "anchor_recall_selection": 1.0
+     },
+     "France": {
+      "kg_absorber": 10325,
+      "recall_on_X_selection": 0.8066666666666666,
+      "subctx_precision_selection": 0.8287671232876712,
+      "jaccard_anchor": 0.028138948185522997,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Georgia": {
+      "kg_absorber": 16009,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 0.967741935483871,
+      "jaccard_anchor": 0.007977207977207978,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 0.26666666666666666
+     },
+     "Germany": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Greece": {
+      "kg_absorber": 8161,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.014945652173913044,
+      "n_sel_pos": 77,
+      "anchor_recall_selection": 1.0
+     },
+     "India": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Indonesia": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 78,
+      "anchor_recall_selection": 1.0
+     },
+     "Iran": {
+      "kg_absorber": 14600,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 0.9615384615384616,
+      "jaccard_anchor": 0.030279503105590064,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Iraq": {
+      "kg_absorber": 8875,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 0.7172413793103448,
+      "jaccard_anchor": 0.0281444099378882,
+      "n_sel_pos": 104,
+      "anchor_recall_selection": 1.0
+     },
+     "Ireland": {
+      "kg_absorber": 1274,
+      "recall_on_X_selection": 0.3333333333333333,
+      "subctx_precision_selection": 0.9803921568627451,
+      "jaccard_anchor": 0.009899068322981366,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Israel": {
+      "kg_absorber": 9168,
+      "recall_on_X_selection": 0.9733333333333334,
+      "subctx_precision_selection": 0.906832298136646,
+      "jaccard_anchor": 0.03125,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Italy": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Japan": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Jordan": {
+      "kg_absorber": 540,
+      "recall_on_X_selection": 0.9354838709677419,
+      "subctx_precision_selection": 0.9914529914529915,
+      "jaccard_anchor": 0.008614088820826952,
+      "n_sel_pos": 124,
+      "anchor_recall_selection": 0.3548387096774194
+     },
+     "Kenya": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 49,
+      "anchor_recall_selection": 1.0
+     },
+     "Mexico": {
+      "kg_absorber": 15978,
+      "recall_on_X_selection": 0.66,
+      "subctx_precision_selection": 0.868421052631579,
+      "jaccard_anchor": 0.022127329192546584,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 0.98
+     },
+     "Morocco": {
+      "kg_absorber": 8204,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.005046583850931677,
+      "n_sel_pos": 26,
+      "anchor_recall_selection": 1.0
+     },
+     "Netherlands": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 126,
+      "anchor_recall_selection": 1.0
+     },
+     "New Zealand": {
+      "kg_absorber": 7078,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 0.7653061224489796,
+      "jaccard_anchor": 0.03743937924345296,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Nigeria": {
+      "kg_absorber": 619,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 0.9125,
+      "jaccard_anchor": 0.015527950310559006,
+      "n_sel_pos": 73,
+      "anchor_recall_selection": 1.0
+     },
+     "Norway": {
+      "kg_absorber": 1279,
+      "recall_on_X_selection": 0.1348314606741573,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.002329192546583851,
+      "n_sel_pos": 89,
+      "anchor_recall_selection": 0.9887640449438202
+     },
+     "Pakistan": {
+      "kg_absorber": 253,
+      "recall_on_X_selection": 0.9752066115702479,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.022903726708074536,
+      "n_sel_pos": 121,
+      "anchor_recall_selection": 1.0
+     },
+     "Peru": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 41,
+      "anchor_recall_selection": 1.0
+     },
+     "Poland": {
+      "kg_absorber": 5938,
+      "recall_on_X_selection": 0.96,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.027950310559006212,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Portugal": {
+      "kg_absorber": 13730,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.009122670807453416,
+      "n_sel_pos": 47,
+      "anchor_recall_selection": 1.0
+     },
+     "Russia": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "Saudi Arabia": {
+      "kg_absorber": 8183,
+      "recall_on_X_selection": 0.9615384615384616,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.009704968944099378,
+      "n_sel_pos": 52,
+      "anchor_recall_selection": 1.0
+     },
+     "South Africa": {
+      "kg_absorber": 12190,
+      "recall_on_X_selection": 0.574468085106383,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.015722049689440992,
+      "n_sel_pos": 141,
+      "anchor_recall_selection": 1.0
+     },
+     "South Korea": {
+      "kg_absorber": 2669,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 0.8536585365853658,
+      "jaccard_anchor": 0.01591614906832298,
+      "n_sel_pos": 70,
+      "anchor_recall_selection": 1.0
+     },
+     "Spain": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 0.9933333333333333
+     },
+     "Sri Lanka": {
+      "kg_absorber": 8838,
+      "recall_on_X_selection": 1.0,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.007569875776397516,
+      "n_sel_pos": 39,
+      "anchor_recall_selection": 1.0
+     },
+     "Sweden": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 121,
+      "anchor_recall_selection": 1.0
+     },
+     "Switzerland": {
+      "kg_absorber": 6620,
+      "recall_on_X_selection": 0.1276595744680851,
+      "subctx_precision_selection": 0.8571428571428571,
+      "jaccard_anchor": 0.002328288707799767,
+      "n_sel_pos": 94,
+      "anchor_recall_selection": 1.0
+     },
+     "Thailand": {
+      "kg_absorber": 1492,
+      "recall_on_X_selection": 0.2647058823529412,
+      "subctx_precision_selection": 0.9473684210526315,
+      "jaccard_anchor": 0.003687888198757764,
+      "n_sel_pos": 68,
+      "anchor_recall_selection": 1.0
+     },
+     "Turkey": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 105,
+      "anchor_recall_selection": 1.0
+     },
+     "Ukraine": {
+      "kg_absorber": 6520,
+      "recall_on_X_selection": 0.07692307692307693,
+      "subctx_precision_selection": 1.0,
+      "jaccard_anchor": 0.0009704968944099379,
+      "n_sel_pos": 65,
+      "anchor_recall_selection": 1.0
+     },
+     "United Kingdom": {
+      "kg_absorber": 12885,
+      "recall_on_X_selection": 0.5133333333333333,
+      "subctx_precision_selection": 0.8651685393258427,
+      "jaccard_anchor": 0.016880093131548313,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 1.0
+     },
+     "United States": {
+      "kg_absorber": 846,
+      "recall_on_X_selection": 0.9666666666666667,
+      "subctx_precision_selection": 0.9931506849315068,
+      "jaccard_anchor": 0.024758220502901353,
+      "n_sel_pos": 150,
+      "anchor_recall_selection": 0.8466666666666667
+     },
+     "Vietnam": {
+      "kg_absorber": null,
+      "reason": "no_low_jaccard_high_precision_covering_latent",
+      "n_sel_pos": 87,
+      "anchor_recall_selection": 1.0
+     }
+    }
+   }
+  },
+  "repair_loop": {
+   "taxonomic": {
+    "per_subcontext": {
+     "Argentina": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 82,
+      "n_sel": 82,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.9878048780487805,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.015722049689440992,
+       "n_sel_pos": 82
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 3057,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 82,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Australia": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 0.9933333333333333,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Austria": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 78,
+      "n_sel": 77,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 77,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Belgium": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 78,
+      "n_sel": 78,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.01282051282051282,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.00019409937888198756,
+       "n_sel_pos": 78
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 3741,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 78,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Brazil": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Canada": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Chile": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 40,
+      "n_sel": 39,
+      "recall_anchor_selection": 0.9743589743589743,
+      "recall_anchor_eval": 0.975,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 39,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0010670731707317083,
+       "sd": 0.005053531845808168,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "China": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.23333333333333334,
+       "subctx_precision_selection": 0.7446808510638298,
+       "jaccard_anchor": 0.009122670807453416,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 15293,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Colombia": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 46,
+      "n_sel": 45,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 45,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Costa Rica": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 23,
+      "n_sel": 23,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": false,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.004464285714285714,
+       "n_sel_pos": 23
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 15055,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 23,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Denmark": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 71,
+      "n_sel": 70,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 70,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Egypt": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 88,
+      "n_sel": 87,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.09195402298850575,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.0015527950310559005,
+       "n_sel_pos": 87
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 12371,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 88,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Ethiopia": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 25,
+      "n_sel": 25,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": false,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.92,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.004464285714285714,
+       "n_sel_pos": 25
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 7735,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 25,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Finland": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 49,
+      "n_sel": 49,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 49,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "France": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.8066666666666666,
+       "subctx_precision_selection": 0.8287671232876712,
+       "jaccard_anchor": 0.028138948185522997,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 10325,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Georgia": {
+      "status": "measured",
+      "is_hole": true,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 0.26666666666666666,
+      "recall_anchor_eval": 0.2,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 0.967741935483871,
+       "jaccard_anchor": 0.007977207977207978,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.03623983739837398,
+       "sd": 0.10458373772331682,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.18666666666666665
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 16009,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.8,
+        "kg_percentile_vs_random": 0.9939024390243902,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.763760162601626,
+         "ci_lo": 0.7008010670731707,
+         "ci_hi": 0.8212705792682927,
+         "excl_0": true,
+         "n": 150,
+         "p_one_sided": 9.999000099990002e-05
+        },
+        "p_value_one_sided": 9.999000099990002e-05,
+        "measured_success": true,
+        "bh_q": 0.0005666100056661,
+        "survives_FDR": true
+       },
+       "kg_diagnostic": {
+        "absorber_latent": 16009,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.8,
+        "kg_percentile_vs_random": 0.9939024390243902,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.763760162601626,
+         "ci_lo": 0.7003861788617887,
+         "ci_hi": 0.8219723069105691,
+         "excl_0": true,
+         "n": 150,
+         "p_one_sided": 9.999000099990002e-05
+        },
+        "p_value_one_sided": 9.999000099990002e-05,
+        "measured_success": true,
+        "bh_q": 0.0005666100056661,
+        "survives_FDR": true
+       }
+      }
+     },
+     "Germany": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Greece": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 78,
+      "n_sel": 77,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.014945652173913044,
+       "n_sel_pos": 77
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 8161,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 78,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "India": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Indonesia": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 78,
+      "n_sel": 78,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 78,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Iran": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 0.9615384615384616,
+       "jaccard_anchor": 0.030279503105590064,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 14600,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Iraq": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 105,
+      "n_sel": 104,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 0.7172413793103448,
+       "jaccard_anchor": 0.0281444099378882,
+       "n_sel_pos": 104
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 8875,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 105,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Ireland": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.3333333333333333,
+       "subctx_precision_selection": 0.9803921568627451,
+       "jaccard_anchor": 0.009899068322981366,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 1274,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Israel": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.9733333333333334,
+       "subctx_precision_selection": 0.906832298136646,
+       "jaccard_anchor": 0.03125,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 9168,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Italy": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Japan": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Jordan": {
+      "status": "measured",
+      "is_hole": true,
+      "n_eval": 124,
+      "n_sel": 124,
+      "recall_anchor_selection": 0.3548387096774194,
+      "recall_anchor_eval": 0.2903225806451613,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.9354838709677419,
+       "subctx_precision_selection": 0.9914529914529915,
+       "jaccard_anchor": 0.008614088820826952,
+       "n_sel_pos": 124
+      },
+      "random_gain": {
+       "mean": 0.021181648308418562,
+       "sd": 0.07808402327300372,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.08870967741935482
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 540,
+        "recall_anchor_plus_kg": 0.9435483870967742,
+        "gain_kg": 0.653225806451613,
+        "kg_percentile_vs_random": 0.9954268292682927,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.6320441581431945,
+         "ci_lo": 0.552493115656963,
+         "ci_hi": 0.7116323883752951,
+         "excl_0": true,
+         "n": 124,
+         "p_one_sided": 9.999000099990002e-05
+        },
+        "p_value_one_sided": 9.999000099990002e-05,
+        "measured_success": true,
+        "bh_q": 0.0005666100056661,
+        "survives_FDR": true
+       },
+       "kg_diagnostic": {
+        "absorber_latent": 540,
+        "recall_anchor_plus_kg": 0.9435483870967742,
+        "gain_kg": 0.653225806451613,
+        "kg_percentile_vs_random": 0.9954268292682927,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.6320441581431945,
+         "ci_lo": 0.5520109043076318,
+         "ci_hi": 0.711018329563336,
+         "excl_0": true,
+         "n": 124,
+         "p_one_sided": 9.999000099990002e-05
+        },
+        "p_value_one_sided": 9.999000099990002e-05,
+        "measured_success": true,
+        "bh_q": 0.0005666100056661,
+        "survives_FDR": true
+       }
+      }
+     },
+     "Kenya": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 49,
+      "n_sel": 49,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 49,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Mexico": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 0.98,
+      "recall_anchor_eval": 0.9466666666666667,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.66,
+       "subctx_precision_selection": 0.868421052631579,
+       "jaccard_anchor": 0.022127329192546584,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0025813008130081334,
+       "sd": 0.008732909903408846,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.020000000000000018
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 15978,
+        "recall_anchor_plus_kg": 0.9466666666666667,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": -0.0025813008130081304,
+         "ci_lo": -0.004461382113821138,
+         "ci_hi": -0.0009451219512195123,
+         "excl_0": true,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Morocco": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 27,
+      "n_sel": 26,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": false,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.005046583850931677,
+       "n_sel_pos": 26
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 8204,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 27,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Netherlands": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 126,
+      "n_sel": 126,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 126,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "New Zealand": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 0.7653061224489796,
+       "jaccard_anchor": 0.03743937924345296,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 7078,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Nigeria": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 73,
+      "n_sel": 73,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 0.9125,
+       "jaccard_anchor": 0.015527950310559006,
+       "n_sel_pos": 73
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 619,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 73,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Norway": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 89,
+      "n_sel": 89,
+      "recall_anchor_selection": 0.9887640449438202,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.1348314606741573,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.002329192546583851,
+       "n_sel_pos": 89
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 1279,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 89,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Pakistan": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 122,
+      "n_sel": 121,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.9752066115702479,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.022903726708074536,
+       "n_sel_pos": 121
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 253,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 122,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Peru": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 42,
+      "n_sel": 41,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 41,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Poland": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.96,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.027950310559006212,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 5938,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Portugal": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 48,
+      "n_sel": 47,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.009122670807453416,
+       "n_sel_pos": 47
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 13730,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 48,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Russia": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Saudi Arabia": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 53,
+      "n_sel": 52,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.9615384615384616,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.009704968944099378,
+       "n_sel_pos": 52
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 8183,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 53,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "South Africa": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 141,
+      "n_sel": 141,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.574468085106383,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.015722049689440992,
+       "n_sel_pos": 141
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 12190,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 141,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "South Korea": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 70,
+      "n_sel": 70,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 0.8536585365853658,
+       "jaccard_anchor": 0.01591614906832298,
+       "n_sel_pos": 70
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 2669,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 70,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Spain": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 0.9933333333333333,
+      "recall_anchor_eval": 0.9933333333333333,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 150,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0003150406504065061,
+       "sd": 0.0014145742791743033,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Sri Lanka": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 39,
+      "n_sel": 39,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 1.0,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.007569875776397516,
+       "n_sel_pos": 39
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 8838,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 39,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Sweden": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 122,
+      "n_sel": 121,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 121,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Switzerland": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 94,
+      "n_sel": 94,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.1276595744680851,
+       "subctx_precision_selection": 0.8571428571428571,
+       "jaccard_anchor": 0.002328288707799767,
+       "n_sel_pos": 94
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 6620,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 94,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Thailand": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 68,
+      "n_sel": 68,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.2647058823529412,
+       "subctx_precision_selection": 0.9473684210526315,
+       "jaccard_anchor": 0.003687888198757764,
+       "n_sel_pos": 68
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 1492,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 68,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "Turkey": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 106,
+      "n_sel": 105,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 105,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     },
+     "Ukraine": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 66,
+      "n_sel": 65,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.07692307692307693,
+       "subctx_precision_selection": 1.0,
+       "jaccard_anchor": 0.0009704968944099379,
+       "n_sel_pos": 65
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 6520,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 66,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "United Kingdom": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.5133333333333333,
+       "subctx_precision_selection": 0.8651685393258427,
+       "jaccard_anchor": 0.016880093131548313,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 12885,
+        "recall_anchor_plus_kg": 1.0,
+        "gain_kg": 0.0,
+        "kg_percentile_vs_random": 0.0,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.0,
+         "ci_lo": 0.0,
+         "ci_hi": 0.0,
+         "excl_0": false,
+         "n": 150,
+         "p_one_sided": 1.0
+        },
+        "p_value_one_sided": 1.0,
+        "measured_success": false,
+        "bh_q": 1.0,
+        "survives_FDR": false
+       }
+      }
+     },
+     "United States": {
+      "status": "measured",
+      "is_hole": true,
+      "n_eval": 150,
+      "n_sel": 150,
+      "recall_anchor_selection": 0.8466666666666667,
+      "recall_anchor_eval": 0.7666666666666667,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "recall_on_X_selection": 0.9666666666666667,
+       "subctx_precision_selection": 0.9931506849315068,
+       "jaccard_anchor": 0.024758220502901353,
+       "n_sel_pos": 150
+      },
+      "random_gain": {
+       "mean": 0.011656504065040636,
+       "sd": 0.040209056062091963,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.07499999999999993
+      },
+      "variants": {
+       "kg_ktrack": {
+        "absorber_latent": 846,
+        "recall_anchor_plus_kg": 0.9733333333333334,
+        "gain_kg": 0.20666666666666667,
+        "kg_percentile_vs_random": 0.9801829268292683,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.195010162601626,
+         "ci_lo": 0.13682901422764226,
+         "ci_hi": 0.2581204268292683,
+         "excl_0": true,
+         "n": 150,
+         "p_one_sided": 9.999000099990002e-05
+        },
+        "p_value_one_sided": 9.999000099990002e-05,
+        "measured_success": true,
+        "bh_q": 0.0005666100056661,
+        "survives_FDR": true
+       },
+       "kg_diagnostic": {
+        "absorber_latent": 846,
+        "recall_anchor_plus_kg": 0.9733333333333334,
+        "gain_kg": 0.20666666666666667,
+        "kg_percentile_vs_random": 0.9801829268292683,
+        "paired_bootstrap_CI_kg_minus_random": {
+         "diff": 0.195010162601626,
+         "ci_lo": 0.13688897357723578,
+         "ci_hi": 0.25842530487804877,
+         "excl_0": true,
+         "n": 150,
+         "p_one_sided": 9.999000099990002e-05
+        },
+        "p_value_one_sided": 9.999000099990002e-05,
+        "measured_success": true,
+        "bh_q": 0.0005666100056661,
+        "survives_FDR": true
+       }
+      }
+     },
+     "Vietnam": {
+      "status": "measured",
+      "is_hole": false,
+      "n_eval": 88,
+      "n_sel": 87,
+      "recall_anchor_selection": 1.0,
+      "recall_anchor_eval": 1.0,
+      "n_eval_ge_pref": true,
+      "kg_derivation": {
+       "n_sel_pos": 87,
+       "reason": "no_low_jaccard_high_precision_covering_latent"
+      },
+      "random_gain": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "p5": 0.0,
+       "p50": 0.0,
+       "p95": 0.0
+      },
+      "variants": {}
+     }
+    },
+    "honest_negatives": [],
+    "n_measured_successful_repairs": 6,
+    "n_control_latents": 656,
+    "overall_anchor_recall_selection": 0.9590469099032017
+   }
+  },
+  "k_localization_check": {
+   "taxonomic": {
+    "status": "run",
+    "variant": "JTT(ERM->upweight error set lambda=20->retrain)",
+    "n_train": 7472,
+    "erm_train_acc": 1.0,
+    "error_set_size": 0,
+    "hard_set_size": 1495,
+    "hard_set_mode": "lowest-margin-20pct (linearly separable)",
+    "projection_argmax_latent": 3792,
+    "projection_top_abscos": 0.3781448072059992,
+    "projection_second_abscos": 0.2151804492407905,
+    "single_latent_dominates": false,
+    "anchor_projection_rank_by_abscos": 1,
+    "argmax_is_anchor": true,
+    "kg_absorber_is_argmax": false,
+    "kg_absorber_projection_ranks": {
+     "Argentina": {
+      "latent": 3057,
+      "cos": 0.017099194805122793,
+      "rank_by_abscos": 7186
+     },
+     "Belgium": {
+      "latent": 3741,
+      "cos": 0.014102786759812061,
+      "rank_by_abscos": 8473
+     },
+     "China": {
+      "latent": 15293,
+      "cos": -0.019674515671578047,
+      "rank_by_abscos": 6197
+     },
+     "Costa Rica": {
+      "latent": 15055,
+      "cos": 0.0077519941556960965,
+      "rank_by_abscos": 11740
+     },
+     "Egypt": {
+      "latent": 12371,
+      "cos": -0.032903102659771935,
+      "rank_by_abscos": 2919
+     },
+     "Ethiopia": {
+      "latent": 7735,
+      "cos": 0.019583944969046065,
+      "rank_by_abscos": 6233
+     },
+     "France": {
+      "latent": 10325,
+      "cos": 0.014114535196962843,
+      "rank_by_abscos": 8465
+     },
+     "Georgia": {
+      "latent": 16009,
+      "cos": 0.057496974882724,
+      "rank_by_abscos": 898
+     },
+     "Greece": {
+      "latent": 8161,
+      "cos": 0.042414217121001366,
+      "rank_by_abscos": 1794
+     },
+     "Iran": {
+      "latent": 14600,
+      "cos": 0.0069417668417990006,
+      "rank_by_abscos": 12238
+     },
+     "Iraq": {
+      "latent": 8875,
+      "cos": -0.01065374629981706,
+      "rank_by_abscos": 10129
+     },
+     "Ireland": {
+      "latent": 1274,
+      "cos": -0.00915912128993313,
+      "rank_by_abscos": 10928
+     },
+     "Israel": {
+      "latent": 9168,
+      "cos": 0.07038207920306183,
+      "rank_by_abscos": 525
+     },
+     "Jordan": {
+      "latent": 540,
+      "cos": 0.034223283132105695,
+      "rank_by_abscos": 2716
+     },
+     "Mexico": {
+      "latent": 15978,
+      "cos": -0.0032988376714407387,
+      "rank_by_abscos": 14360
+     },
+     "Morocco": {
+      "latent": 8204,
+      "cos": 0.026869326766426643,
+      "rank_by_abscos": 4091
+     },
+     "New Zealand": {
+      "latent": 7078,
+      "cos": 0.08621254090953422,
+      "rank_by_abscos": 251
+     },
+     "Nigeria": {
+      "latent": 619,
+      "cos": 0.0019279176682160514,
+      "rank_by_abscos": 15237
+     },
+     "Norway": {
+      "latent": 1279,
+      "cos": 0.036526675976813375,
+      "rank_by_abscos": 2415
+     },
+     "Pakistan": {
+      "latent": 253,
+      "cos": -0.06509349496018149,
+      "rank_by_abscos": 654
+     },
+     "Poland": {
+      "latent": 5938,
+      "cos": -0.05341087520821784,
+      "rank_by_abscos": 1073
+     },
+     "Portugal": {
+      "latent": 13730,
+      "cos": 0.0016367939870081047,
+      "rank_by_abscos": 15394
+     },
+     "Saudi Arabia": {
+      "latent": 8183,
+      "cos": 0.04781034204921253,
+      "rank_by_abscos": 1373
+     },
+     "South Africa": {
+      "latent": 12190,
+      "cos": -0.05099871965334195,
+      "rank_by_abscos": 1188
+     },
+     "South Korea": {
+      "latent": 2669,
+      "cos": -0.003552212302966002,
+      "rank_by_abscos": 14207
+     },
+     "Sri Lanka": {
+      "latent": 8838,
+      "cos": 0.08025042412133662,
+      "rank_by_abscos": 328
+     },
+     "Switzerland": {
+      "latent": 6620,
+      "cos": 0.014396723970115323,
+      "rank_by_abscos": 8335
+     },
+     "Thailand": {
+      "latent": 1492,
+      "cos": 0.07141946521689052,
+      "rank_by_abscos": 504
+     },
+     "Ukraine": {
+      "latent": 6520,
+      "cos": 0.03311878048926714,
+      "rank_by_abscos": 2886
+     },
+     "United Kingdom": {
+      "latent": 12885,
+      "cos": -0.013224329029221854,
+      "rank_by_abscos": 8879
+     },
+     "United States": {
+      "latent": 846,
+      "cos": 0.1597444623702684,
+      "rank_by_abscos": 11
+     }
+    },
+    "k_worstgroup_recall_on_X": {
+     "Argentina": 1.0,
+     "Australia": 1.0,
+     "Austria": 1.0,
+     "Belgium": 1.0,
+     "Brazil": 1.0,
+     "Canada": 1.0,
+     "Chile": 1.0,
+     "China": 1.0,
+     "Colombia": 1.0,
+     "Costa Rica": 1.0,
+     "Denmark": 1.0,
+     "Egypt": 1.0,
+     "Ethiopia": 1.0,
+     "Finland": 1.0,
+     "France": 1.0,
+     "Georgia": 1.0,
+     "Germany": 1.0,
+     "Greece": 1.0,
+     "India": 1.0,
+     "Indonesia": 1.0,
+     "Iran": 1.0,
+     "Iraq": 1.0,
+     "Ireland": 1.0,
+     "Israel": 1.0,
+     "Italy": 1.0,
+     "Japan": 1.0,
+     "Jordan": 1.0,
+     "Kenya": 1.0,
+     "Mexico": 1.0,
+     "Morocco": 1.0,
+     "Netherlands": 1.0,
+     "New Zealand": 1.0,
+     "Nigeria": 1.0,
+     "Norway": 1.0,
+     "Pakistan": 1.0,
+     "Peru": 1.0,
+     "Poland": 1.0,
+     "Portugal": 1.0,
+     "Russia": 1.0,
+     "Saudi Arabia": 1.0,
+     "South Africa": 1.0,
+     "South Korea": 1.0,
+     "Spain": 1.0,
+     "Sri Lanka": 1.0,
+     "Sweden": 1.0,
+     "Switzerland": 1.0,
+     "Thailand": 1.0,
+     "Turkey": 1.0,
+     "Ukraine": 1.0,
+     "United Kingdom": 1.0,
+     "United States": 1.0,
+     "Vietnam": 1.0
+    },
+    "conclusion": "KG names exactly one addable, auditable latent per sub-context; the (k) example-reweighting probe yields a dense hyperplane that does NOT localize to any single SAE latent (KG absorber is not the decoder-projection argmax and no latent dominates), so (k) exposes no per-sub-context feature to add."
+   }
+  },
+  "member_labeling": {
+   "per_member": [
+    {
+     "concept": "taxonomic",
+     "member": 3792,
+     "role": "anchor",
+     "is_15wide_pool": false,
+     "ground_truth": 0,
+     "ground_truth_label": "GENERAL parent (any country name)",
+     "judge_index": -1,
+     "judge_label": "PARSE_FAIL",
+     "candidates": [
+      "GENERAL parent (any country name)",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Ethiopia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Jordan",
+      "Kenya",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Nigeria",
+      "Norway",
+      "Pakistan",
+      "Peru",
+      "Poland",
+      "Portugal",
+      "Russia",
+      "Saudi Arabia",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Vietnam"
+     ],
+     "n_candidates": 53,
+     "correct": false,
+     "confident": false,
+     "agree_rate": 0.0,
+     "majority_count": 0,
+     "n_calls": 3,
+     "chance": 0.018867924528301886,
+     "model": "anthropic/claude-haiku-4.5",
+     "ensemble_calls": [
+      {
+       "perm": [
+        2,
+        40,
+        25,
+        12,
+        13,
+        22,
+        33,
+        21,
+        3,
+        42,
+        30,
+        8,
+        18,
+        10,
+        31,
+        24,
+        6,
+        51,
+        38,
+        36,
+        20,
+        19,
+        35,
+        44,
+        28,
+        0,
+        17,
+        34,
+        4,
+        14,
+        43,
+        45,
+        41,
+        48,
+        15,
+        52,
+        50,
+        23,
+        9,
+        5,
+        7,
+        46,
+        27,
+        47,
+        26,
+        39,
+        49,
+        29,
+        11,
+        1,
+        32,
+        37,
+        16
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        43,
+        33,
+        7,
+        18,
+        29,
+        40,
+        45,
+        38,
+        8,
+        1,
+        39,
+        12,
+        14,
+        31,
+        17,
+        30,
+        37,
+        52,
+        47,
+        10,
+        2,
+        0,
+        13,
+        22,
+        32,
+        25,
+        49,
+        11,
+        28,
+        19,
+        26,
+        9,
+        27,
+        21,
+        4,
+        5,
+        34,
+        36,
+        15,
+        41,
+        3,
+        23,
+        44,
+        42,
+        50,
+        48,
+        51,
+        6,
+        35,
+        24,
+        20,
+        16,
+        46
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        52,
+        14,
+        19,
+        15,
+        47,
+        0,
+        5,
+        23,
+        34,
+        12,
+        3,
+        35,
+        4,
+        29,
+        28,
+        21,
+        36,
+        46,
+        31,
+        20,
+        43,
+        37,
+        32,
+        8,
+        33,
+        41,
+        25,
+        13,
+        6,
+        42,
+        16,
+        48,
+        11,
+        2,
+        18,
+        17,
+        50,
+        49,
+        40,
+        26,
+        38,
+        22,
+        39,
+        9,
+        44,
+        27,
+        30,
+        7,
+        51,
+        10,
+        24,
+        45,
+        1
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      }
+     ],
+     "logit_lens_tokens": [
+      "LookAnd",
+      "\u041c\u0435\u043a\u0441\u0438\u0447\u043a\u0430",
+      "Majefty",
+      "\u0648\u06cc\u06a9\u06cc\u200c\u067e\u062f\u06cc\u0627",
+      "it\u017felf",
+      "GraphicsUnit",
+      "Meksiku",
+      "\u017felf",
+      "Chriftian",
+      "OrNil"
+     ],
+     "top_windows": [
+      "Cabra\n\nCabra may refer to:\n\n**Ireland**\nCabra, Dublin, a district in north Dublin, Ireland\nCabra, County Down, a townland in County Down, Northern Ireland\nCabragh, Fertiana, County Tipperary, a townl...",
+      "...n football defenders\nCategory:La Liga players\nCategory:Tercera Divisi\u00f3n players\nCategory:Sporting de Gij\u00f3n players\nCategory:Real Burgos CF footballers\nCategory:**Spain** B international",
+      "Share Attraction:\n\nLocation\n\nAdd to Custom Tour\n\nCreate your very own **Ireland** tour with our Tailor Made Tours section. Once you've created an account and logged in, you can add your favourite attractions, accommodation and activities. An...",
+      "...joint with Ronnie Schwartz]\n\nReferences\n\nExternal links \n\nEmil Nielsen on DBU\n\nCategory:Living people\nCategory:1993 births\nCategory:Danish footballers\nCategory:**Denmark** youth international footballers\nCategory:FC Roskilde players\nCategory:Rosenborg BK",
+      "The **France**-based duo were voted 2013 Players of the Year during yesterday\u2019s T&TTTA awards function at Central Regional Indoor Sports Arena, Chaguanas, and will attempt to..."
+     ]
+    },
+    {
+     "concept": "taxonomic",
+     "member": 4697,
+     "role": "absorber",
+     "is_15wide_pool": false,
+     "ground_truth": 16,
+     "ground_truth_label": "Georgia",
+     "judge_index": -1,
+     "judge_label": "PARSE_FAIL",
+     "candidates": [
+      "GENERAL parent (any country name)",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Ethiopia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Jordan",
+      "Kenya",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Nigeria",
+      "Norway",
+      "Pakistan",
+      "Peru",
+      "Poland",
+      "Portugal",
+      "Russia",
+      "Saudi Arabia",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Vietnam"
+     ],
+     "n_candidates": 53,
+     "correct": false,
+     "confident": false,
+     "agree_rate": 0.0,
+     "majority_count": 0,
+     "n_calls": 3,
+     "chance": 0.018867924528301886,
+     "model": "anthropic/claude-haiku-4.5",
+     "ensemble_calls": [
+      {
+       "perm": [
+        42,
+        11,
+        29,
+        17,
+        37,
+        48,
+        4,
+        47,
+        19,
+        7,
+        25,
+        13,
+        1,
+        46,
+        6,
+        30,
+        50,
+        18,
+        20,
+        0,
+        27,
+        22,
+        51,
+        45,
+        35,
+        33,
+        40,
+        8,
+        14,
+        43,
+        31,
+        41,
+        34,
+        2,
+        16,
+        21,
+        5,
+        52,
+        36,
+        39,
+        15,
+        26,
+        24,
+        44,
+        28,
+        49,
+        10,
+        12,
+        38,
+        3,
+        9,
+        23,
+        32
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        8,
+        51,
+        13,
+        20,
+        10,
+        24,
+        7,
+        50,
+        29,
+        32,
+        22,
+        38,
+        19,
+        11,
+        37,
+        25,
+        45,
+        31,
+        27,
+        6,
+        40,
+        43,
+        42,
+        33,
+        3,
+        30,
+        49,
+        39,
+        47,
+        18,
+        26,
+        44,
+        0,
+        36,
+        9,
+        28,
+        14,
+        1,
+        2,
+        17,
+        34,
+        23,
+        41,
+        4,
+        16,
+        5,
+        46,
+        48,
+        12,
+        35,
+        52,
+        15,
+        21
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        32,
+        4,
+        52,
+        47,
+        42,
+        11,
+        21,
+        46,
+        13,
+        24,
+        8,
+        26,
+        12,
+        22,
+        45,
+        17,
+        9,
+        2,
+        40,
+        23,
+        28,
+        27,
+        51,
+        19,
+        33,
+        35,
+        14,
+        18,
+        38,
+        7,
+        16,
+        49,
+        31,
+        20,
+        36,
+        50,
+        39,
+        10,
+        48,
+        44,
+        25,
+        15,
+        41,
+        3,
+        34,
+        43,
+        5,
+        37,
+        29,
+        30,
+        1,
+        0,
+        6
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      }
+     ],
+     "logit_lens_tokens": [
+      "CTP",
+      "twister",
+      "CommandText",
+      "tortoise",
+      "Wey",
+      "OTP",
+      "lename",
+      "Ashford",
+      "\u22b1",
+      "Gutter"
+     ],
+     "top_windows": [
+      "... in 1988 by mycologists James E. Adaskaveg and Robert Lee Gilbertson, it is found in the southeastern United States in the Gulf Coast region from east Texas to **Georgia**.",
+      "Two **Georgia** police officers have been fired today after videos surfaced online showing a man being punched and kicked during a traffic stop, police said. The Gwinnett Coun...",
+      "Bigvava appeared for the **Georgia** national football team in a 1990 friendly against Lithuania. He made his final appearance for Georgia in a 1993 friendly against Azerbaijan. FC Saarbr\u00fccken pla...",
+      "94 Ga. App. 468 (1956)\n95 S.E.2d 296\nTUCKER\nv. THE STATE. 36386. Court of Appeals of **Georgia**. Decided October 17, 1956. *469 Jacobs & Gautier, for plaintiff in error. Wm. M. West, Solicitor-General, Hal Bell, Assistant Solicitor-General, contra. TOWNSE...",
+      "118 Ga. App. 394 (1968)\n163 S.E.2d 859\nNORMAN\nv. ALLEN.(two cases). NORMAN\nv. WOOD.(two cases). 43729, 43730, 43731, 43732. Court of Appeals of **Georgia**. Argued June 5, 1968. Decided September 3, 1968. Rehearing Denied September 26, 1968. *395 Neely, Freeman & Hawkins, Joe C. Freeman, Jr., Thomas H. Harper, Jr...."
+     ]
+    },
+    {
+     "concept": "taxonomic",
+     "member": 9339,
+     "role": "absorber",
+     "is_15wide_pool": false,
+     "ground_truth": 27,
+     "ground_truth_label": "Jordan",
+     "judge_index": -1,
+     "judge_label": "PARSE_FAIL",
+     "candidates": [
+      "GENERAL parent (any country name)",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Ethiopia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Jordan",
+      "Kenya",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Nigeria",
+      "Norway",
+      "Pakistan",
+      "Peru",
+      "Poland",
+      "Portugal",
+      "Russia",
+      "Saudi Arabia",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Vietnam"
+     ],
+     "n_candidates": 53,
+     "correct": false,
+     "confident": false,
+     "agree_rate": 0.0,
+     "majority_count": 0,
+     "n_calls": 3,
+     "chance": 0.018867924528301886,
+     "model": "anthropic/claude-haiku-4.5",
+     "ensemble_calls": [
+      {
+       "perm": [
+        6,
+        50,
+        31,
+        15,
+        10,
+        20,
+        34,
+        51,
+        49,
+        44,
+        35,
+        23,
+        18,
+        33,
+        21,
+        12,
+        36,
+        41,
+        29,
+        46,
+        43,
+        2,
+        42,
+        22,
+        32,
+        40,
+        24,
+        14,
+        48,
+        37,
+        9,
+        8,
+        7,
+        25,
+        27,
+        1,
+        11,
+        52,
+        28,
+        39,
+        38,
+        19,
+        0,
+        16,
+        47,
+        30,
+        13,
+        45,
+        4,
+        3,
+        17,
+        26,
+        5
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        13,
+        15,
+        49,
+        22,
+        21,
+        25,
+        43,
+        35,
+        28,
+        7,
+        36,
+        0,
+        3,
+        1,
+        26,
+        39,
+        8,
+        37,
+        20,
+        46,
+        30,
+        48,
+        16,
+        45,
+        34,
+        50,
+        4,
+        9,
+        47,
+        23,
+        5,
+        29,
+        44,
+        52,
+        51,
+        14,
+        32,
+        40,
+        42,
+        10,
+        31,
+        12,
+        19,
+        18,
+        17,
+        6,
+        2,
+        11,
+        27,
+        33,
+        24,
+        41,
+        38
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        5,
+        16,
+        14,
+        27,
+        31,
+        28,
+        21,
+        11,
+        44,
+        24,
+        43,
+        2,
+        30,
+        3,
+        15,
+        35,
+        52,
+        32,
+        47,
+        7,
+        18,
+        1,
+        17,
+        22,
+        38,
+        34,
+        40,
+        49,
+        51,
+        13,
+        50,
+        29,
+        19,
+        48,
+        10,
+        4,
+        36,
+        46,
+        6,
+        39,
+        45,
+        8,
+        0,
+        42,
+        25,
+        41,
+        12,
+        23,
+        9,
+        26,
+        37,
+        33,
+        20
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      }
+     ],
+     "logit_lens_tokens": [
+      "Basket",
+      "Syr",
+      "Schal",
+      "PROBLEM",
+      "Gers",
+      "Insight",
+      "gatsby",
+      "Syrians",
+      "Syria",
+      "Nicol"
+     ],
+     "top_windows": [
+      "Initially in Tunisia, popular revolt spread regionally across North Africa and the Middle East, erupting in Algeria, **Jordan**, Egypt and Yemen. On January 27, Al Jazeera reported revolutionary fervor in Egypt, saying:\n\n\"On Thursday, protesters hurled petrol bombs at a fire station in ...",
+      "Roseman practiced addition by subtraction in getting rid of many of Kelly\u2019s favorite players, including Kiko Alonso, DeMarco Murray, Ryan Mathews, **Jordan** Matthews, Sam Bradford and Byron Maxwell, flipping many of them in trades that yielded draft picks and better players.",
+      "...th it as much as we could, but you are fighting the clock and you are fighting the score,\" offensive coordinator Dowell Loggains said. \"A lot of credit goes to **Jordan** because Jordan has made some explosive runs.\"\n\nEither way, Jordan Howard was a steal as a fifth-round pick. All he did was finish second to Dallas' Ezekiel Ell...",
+      "Lions sign tight end **Jordan** Thompson\n\nAccording to the NFL\u2019s transactions, the Lions signed tight end Jordan Thompson on Monday. The 24-year-old Thompson reportedly worked out for Detroit...",
+      "In **Jordan**, King Abdullah University Hospital is a tertiary educational center serves the health and care for all northern in Jordan. The quarantine was initiated in Jord..."
+     ]
+    },
+    {
+     "concept": "taxonomic",
+     "member": 8442,
+     "role": "absorber",
+     "is_15wide_pool": false,
+     "ground_truth": 51,
+     "ground_truth_label": "United States",
+     "judge_index": -1,
+     "judge_label": "PARSE_FAIL",
+     "candidates": [
+      "GENERAL parent (any country name)",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Ethiopia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Jordan",
+      "Kenya",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Nigeria",
+      "Norway",
+      "Pakistan",
+      "Peru",
+      "Poland",
+      "Portugal",
+      "Russia",
+      "Saudi Arabia",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Vietnam"
+     ],
+     "n_candidates": 53,
+     "correct": false,
+     "confident": false,
+     "agree_rate": 0.0,
+     "majority_count": 0,
+     "n_calls": 3,
+     "chance": 0.018867924528301886,
+     "model": "anthropic/claude-haiku-4.5",
+     "ensemble_calls": [
+      {
+       "perm": [
+        3,
+        27,
+        48,
+        37,
+        41,
+        4,
+        1,
+        43,
+        12,
+        5,
+        45,
+        51,
+        36,
+        15,
+        29,
+        47,
+        9,
+        8,
+        39,
+        22,
+        21,
+        0,
+        32,
+        23,
+        35,
+        7,
+        31,
+        50,
+        26,
+        11,
+        42,
+        13,
+        34,
+        44,
+        49,
+        33,
+        6,
+        40,
+        16,
+        46,
+        2,
+        20,
+        14,
+        19,
+        30,
+        18,
+        52,
+        24,
+        28,
+        38,
+        17,
+        25,
+        10
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        36,
+        17,
+        35,
+        51,
+        25,
+        48,
+        29,
+        28,
+        46,
+        0,
+        15,
+        5,
+        31,
+        23,
+        13,
+        2,
+        41,
+        49,
+        27,
+        47,
+        9,
+        3,
+        22,
+        34,
+        14,
+        16,
+        32,
+        7,
+        33,
+        8,
+        19,
+        18,
+        20,
+        24,
+        52,
+        40,
+        42,
+        50,
+        4,
+        21,
+        43,
+        38,
+        26,
+        12,
+        6,
+        10,
+        30,
+        11,
+        45,
+        1,
+        44,
+        37,
+        39
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        49,
+        36,
+        11,
+        40,
+        15,
+        30,
+        13,
+        27,
+        1,
+        14,
+        6,
+        18,
+        16,
+        37,
+        33,
+        47,
+        35,
+        5,
+        31,
+        9,
+        25,
+        52,
+        8,
+        39,
+        42,
+        51,
+        43,
+        41,
+        10,
+        34,
+        17,
+        23,
+        32,
+        29,
+        12,
+        0,
+        19,
+        21,
+        4,
+        45,
+        7,
+        48,
+        3,
+        38,
+        44,
+        28,
+        2,
+        50,
+        20,
+        24,
+        22,
+        46,
+        26
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      }
+     ],
+     "logit_lens_tokens": [
+      "\u043d\u0456\u0446\u0438\u043f\u0430",
+      "RenderAtEndOf",
+      "bonucleic",
+      "pyplot",
+      "esModule",
+      "Sucesor",
+      "kasarigan",
+      "aarrggbb",
+      "NUMX",
+      "Drapeau"
+     ],
+     "top_windows": [
+      "... of Ne...http://abq.carpediem.cd/events6510610-nm-black-expo-2018-at-new-mexico-black-expo-nmbe/NM Black Expo 2018310 San Padro NE, Suite 230, Albuquerque, New **Mexico** 87108New Mexico Black Expo:",
+      "...treat our people better with paying about the same tax rate as in some states in the USA. You all saying it is going to get bad, no matter who won or lost, the **United States** needs to be United. \"A democracy cannot exist as a permanent form of government. It can only exist until the majority discovers it can vote itself largess out ...",
+      "Green-Point Drive-In\n\nMetter,\nGA30439\n\nMap\n\nAdditional Info\n\nNearby Theaters\n\nNo theaters found within 30 miles\n\nLocated In Metter, **Georgia**, the Green-Point Drive-In served this south Georgia town with 240 parking spots and was owned by Dixie Amusement Co., same as the Candler Drive-In in Metter. T...",
+      "**United States** Court of Appeals, Sixth Circuit. April 10, 1989. Before BOYCE F. MARTIN, Jr. and MILBURN, Circuit Judges, and JOHN D. HOLSCHUH, District Judge*. PER CURIAM. 1\n...",
+      "It was a modest hit in the **United Kingdom**, where it became Pooley's second Top 75 hit and Esthero's first. The song became Pooley's second-highest peaking chart entry in the UK, and is today his third-..."
+     ]
+    },
+    {
+     "concept": "taxonomic",
+     "member": 16009,
+     "role": "absorber",
+     "is_15wide_pool": false,
+     "ground_truth": 16,
+     "ground_truth_label": "Georgia",
+     "judge_index": -1,
+     "judge_label": "PARSE_FAIL",
+     "candidates": [
+      "GENERAL parent (any country name)",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Ethiopia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Jordan",
+      "Kenya",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Nigeria",
+      "Norway",
+      "Pakistan",
+      "Peru",
+      "Poland",
+      "Portugal",
+      "Russia",
+      "Saudi Arabia",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Vietnam"
+     ],
+     "n_candidates": 53,
+     "correct": false,
+     "confident": false,
+     "agree_rate": 0.0,
+     "majority_count": 0,
+     "n_calls": 3,
+     "chance": 0.018867924528301886,
+     "model": "anthropic/claude-haiku-4.5",
+     "ensemble_calls": [
+      {
+       "perm": [
+        29,
+        13,
+        21,
+        41,
+        27,
+        31,
+        38,
+        4,
+        32,
+        28,
+        40,
+        9,
+        5,
+        0,
+        44,
+        17,
+        37,
+        36,
+        11,
+        49,
+        10,
+        52,
+        47,
+        43,
+        45,
+        2,
+        39,
+        6,
+        8,
+        33,
+        22,
+        30,
+        14,
+        35,
+        26,
+        24,
+        25,
+        34,
+        1,
+        19,
+        16,
+        51,
+        48,
+        15,
+        7,
+        23,
+        50,
+        20,
+        3,
+        12,
+        18,
+        46,
+        42
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        18,
+        37,
+        17,
+        29,
+        30,
+        21,
+        9,
+        19,
+        12,
+        28,
+        20,
+        50,
+        8,
+        38,
+        23,
+        13,
+        49,
+        46,
+        27,
+        6,
+        41,
+        24,
+        32,
+        22,
+        34,
+        10,
+        11,
+        48,
+        16,
+        14,
+        26,
+        4,
+        44,
+        45,
+        25,
+        31,
+        0,
+        52,
+        2,
+        47,
+        51,
+        43,
+        7,
+        33,
+        36,
+        1,
+        3,
+        35,
+        39,
+        42,
+        15,
+        5,
+        40
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        27,
+        50,
+        31,
+        37,
+        2,
+        34,
+        9,
+        16,
+        28,
+        15,
+        47,
+        23,
+        26,
+        7,
+        45,
+        8,
+        41,
+        5,
+        52,
+        25,
+        24,
+        14,
+        30,
+        21,
+        18,
+        17,
+        3,
+        46,
+        6,
+        19,
+        4,
+        32,
+        10,
+        11,
+        35,
+        12,
+        43,
+        22,
+        20,
+        0,
+        39,
+        29,
+        49,
+        13,
+        38,
+        51,
+        1,
+        36,
+        42,
+        33,
+        44,
+        40,
+        48
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      }
+     ],
+     "logit_lens_tokens": [
+      "ge",
+      "Ge",
+      "Ge",
+      "ge",
+      "GE",
+      "GE",
+      "Geo",
+      "GEO",
+      "Geo",
+      "geo"
+     ],
+     "top_windows": [
+      "The path of the total eclipse will cross Oregon, Idaho, Wyoming, Nebraska, Kansas, Missouri, Illinois, Kentucky, Tennessee, North Carolina, **Georgia** and South Carolina. The rest of North America will see a partial eclipse. If you are watching the eclipse, you can safely view it with this shoebox solar viewe...",
+      "A new species of a very thinly encrusting Desmacella (Porifera, Demospongiae, Poecilosclerida, Desmacellidae) is described from Queen Charlotte Basin and **Georgia** Basin, off the Canadian Pacific coast. It is compared with all known species of the genus, differing in the geometry and size of spicules, and the persistent e...",
+      "Say I define font: 100% **Georgia**;, what size will the browser take? Will it look up the standard size for serif, or has the \"Georgia\" font a standard size for the browser\nOn several websites I...",
+      "Search\n\nLanguages\n\nShowrooms & Contact\n\nIn our showrooms in Aalsmeer (The Netherlands), Hamilton (New Jersey, USA) and Atlanta (**Georgia**, USA) we present our complete assortment. Visit our showroom and experience our products, while drinking a cup of coffee. Feel the material and see the differe...",
+      "Antioxidant capacity and lipid characterization of six **Georgia**-grown pomegranate cultivars. Six pomegranate (Punica granatum) cultivars were investigated for their antioxidant capacity and lipid profile. Total polyphenols ..."
+     ]
+    },
+    {
+     "concept": "taxonomic",
+     "member": 540,
+     "role": "absorber",
+     "is_15wide_pool": false,
+     "ground_truth": 27,
+     "ground_truth_label": "Jordan",
+     "judge_index": -1,
+     "judge_label": "PARSE_FAIL",
+     "candidates": [
+      "GENERAL parent (any country name)",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Ethiopia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Jordan",
+      "Kenya",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Nigeria",
+      "Norway",
+      "Pakistan",
+      "Peru",
+      "Poland",
+      "Portugal",
+      "Russia",
+      "Saudi Arabia",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Vietnam"
+     ],
+     "n_candidates": 53,
+     "correct": false,
+     "confident": false,
+     "agree_rate": 0.0,
+     "majority_count": 0,
+     "n_calls": 3,
+     "chance": 0.018867924528301886,
+     "model": "anthropic/claude-haiku-4.5",
+     "ensemble_calls": [
+      {
+       "perm": [
+        36,
+        11,
+        21,
+        7,
+        22,
+        10,
+        26,
+        25,
+        3,
+        6,
+        18,
+        0,
+        35,
+        45,
+        46,
+        16,
+        15,
+        31,
+        51,
+        34,
+        40,
+        19,
+        1,
+        47,
+        8,
+        5,
+        4,
+        17,
+        30,
+        12,
+        27,
+        39,
+        23,
+        24,
+        41,
+        9,
+        28,
+        38,
+        37,
+        29,
+        43,
+        32,
+        48,
+        14,
+        50,
+        20,
+        44,
+        52,
+        2,
+        42,
+        49,
+        13,
+        33
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        10,
+        46,
+        49,
+        5,
+        41,
+        35,
+        14,
+        11,
+        20,
+        7,
+        3,
+        22,
+        32,
+        31,
+        48,
+        51,
+        8,
+        40,
+        36,
+        45,
+        33,
+        16,
+        47,
+        18,
+        0,
+        15,
+        13,
+        37,
+        34,
+        44,
+        29,
+        50,
+        39,
+        19,
+        27,
+        24,
+        38,
+        25,
+        2,
+        9,
+        6,
+        4,
+        1,
+        17,
+        12,
+        28,
+        52,
+        26,
+        21,
+        23,
+        43,
+        42,
+        30
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        13,
+        41,
+        51,
+        1,
+        18,
+        9,
+        34,
+        5,
+        43,
+        19,
+        24,
+        49,
+        33,
+        48,
+        46,
+        22,
+        10,
+        20,
+        3,
+        6,
+        52,
+        27,
+        23,
+        44,
+        17,
+        12,
+        40,
+        39,
+        2,
+        21,
+        37,
+        8,
+        11,
+        47,
+        4,
+        7,
+        29,
+        38,
+        30,
+        15,
+        0,
+        14,
+        28,
+        31,
+        32,
+        50,
+        45,
+        26,
+        16,
+        25,
+        35,
+        36,
+        42
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      }
+     ],
+     "logit_lens_tokens": [
+      "shadow",
+      "shadows",
+      "\u03c4\u03b9\u03b1",
+      "Arrows",
+      "bubble",
+      "Shadows",
+      "Shadow",
+      "shadows",
+      "SHADOW",
+      "Bubble"
+     ],
+     "top_windows": [
+      "... also says thieves steal plates to avoid detection when committing other crimes or to place on stolen vehicles. Chapman says her team has been working with the **Jordan** Bridge, but they were not having luck working with Elizabeth River Crossings. After our report aired, ERC says they had a meeting with police and even shared r...",
+      "This upcoming release obviously has no connection with **Jordan** Brand?s ?Top 3? aesthetic, but the comparisons can?t be avoided as this pair alternates the black and white on the medial sides and tongues.",
+      "Gordon\n|\n|align=center| 1\n|align=center| 1:48\n|Philadelphia, Pennsylvania, United States\n|\n|-\n|Win\n|align=center|19\u201311 (1)\n|**Jordan** Stiner\n|Decision (unanimous)\n|CCFC 53: Spohn vs. Anyanwu\n|\n|align=center| 3\n|align=center| 5:00\n|Philadelphia, Pennsylvania, United States\n|Lightweight bout.",
+      "... trade he thought he could get the player he wanted two spots lower. Dyson sparks Mariners to a 7-5 comeback win over Tigers\nNearly as good was Detroit starter **Jordan** Zimmermann , who threw 6 2/3 innings allowing three runs and striking out seven. Ben Gamel - who else?",
+      "...so known as Siq al-Barid (, literally \"the cold canyon\") is an archaeological site located north of Petra and the town of Wadi Musa in the Ma'an Governorate of **Jordan**. Like Petra, it is a Nabataean site, with buildings carved into the walls of the sandstone canyons."
+     ]
+    },
+    {
+     "concept": "taxonomic",
+     "member": 846,
+     "role": "absorber",
+     "is_15wide_pool": false,
+     "ground_truth": 51,
+     "ground_truth_label": "United States",
+     "judge_index": -1,
+     "judge_label": "PARSE_FAIL",
+     "candidates": [
+      "GENERAL parent (any country name)",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Colombia",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Ethiopia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Jordan",
+      "Kenya",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Nigeria",
+      "Norway",
+      "Pakistan",
+      "Peru",
+      "Poland",
+      "Portugal",
+      "Russia",
+      "Saudi Arabia",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Vietnam"
+     ],
+     "n_candidates": 53,
+     "correct": false,
+     "confident": false,
+     "agree_rate": 0.0,
+     "majority_count": 0,
+     "n_calls": 3,
+     "chance": 0.018867924528301886,
+     "model": "anthropic/claude-haiku-4.5",
+     "ensemble_calls": [
+      {
+       "perm": [
+        18,
+        36,
+        48,
+        25,
+        19,
+        16,
+        49,
+        31,
+        38,
+        51,
+        32,
+        45,
+        28,
+        11,
+        35,
+        15,
+        3,
+        10,
+        52,
+        47,
+        30,
+        23,
+        2,
+        8,
+        39,
+        9,
+        7,
+        27,
+        41,
+        37,
+        6,
+        44,
+        42,
+        22,
+        46,
+        20,
+        12,
+        34,
+        43,
+        21,
+        17,
+        26,
+        1,
+        5,
+        4,
+        0,
+        29,
+        40,
+        13,
+        24,
+        50,
+        14,
+        33
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        12,
+        38,
+        14,
+        7,
+        39,
+        26,
+        32,
+        47,
+        15,
+        21,
+        51,
+        35,
+        10,
+        19,
+        30,
+        49,
+        17,
+        18,
+        45,
+        48,
+        41,
+        24,
+        4,
+        44,
+        25,
+        34,
+        43,
+        29,
+        16,
+        2,
+        5,
+        46,
+        33,
+        28,
+        36,
+        8,
+        11,
+        9,
+        37,
+        1,
+        40,
+        13,
+        20,
+        42,
+        31,
+        0,
+        52,
+        22,
+        3,
+        27,
+        23,
+        50,
+        6
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+       "perm": [
+        9,
+        10,
+        13,
+        14,
+        38,
+        0,
+        26,
+        50,
+        32,
+        28,
+        49,
+        6,
+        1,
+        40,
+        7,
+        42,
+        16,
+        48,
+        34,
+        47,
+        27,
+        11,
+        17,
+        18,
+        8,
+        51,
+        25,
+        29,
+        39,
+        35,
+        30,
+        33,
+        41,
+        44,
+        19,
+        24,
+        5,
+        46,
+        12,
+        4,
+        36,
+        23,
+        43,
+        20,
+        37,
+        2,
+        31,
+        52,
+        15,
+        21,
+        45,
+        3,
+        22
+       ],
+       "local_idx": -1,
+       "canonical_idx": -1,
+       "raw": "",
+       "model": "anthropic/claude-haiku-4.5"
+      }
+     ],
+     "logit_lens_tokens": [
+      "State",
+      "state",
+      "States",
+      "STATE",
+      "states",
+      "states",
+      "state",
+      "States",
+      "STATE",
+      "StatefulWidget"
+     ],
+     "top_windows": [
+      "Q:\n\ndoing .length on json array returns undefined\n\nI have following json encoded array coming from ajax call \n{\"country\":{\"0\":\"**United States** of America\",\"United States of America\":{\"states\":{\"0\":\"Alaska\",\"Alaska\":{\"cities\":[\"Adak\",\"Akiachak\",\"Akiak\",\"Akutan\",\"Alakanuk\"]}}}}}\n\nFollowing is my ajax co...",
+      "Q:\n\nng-options with an array of key-pair objects\n\nI have the following data that I got from a third-party:\ncountries: [\n    {\"US\":\"**United States**\"},\n    {\"CA\":\"Canada\"},\n    {\"AF\":\"Afghanistan\"},\n    {\"AL\":\"Albania\"},\n    {\"DZ\":\"Algeria\"},\n    {\"DS\":\"American Samoa\"},\n    .....",
+      "CD Reviews\n\nPretentious but interesting\n\nStephen F Mulcahy | **United States** | 10/29/2000\n\n(4 out of 5 stars)\n\n\"in my opinion the best of the bosstown sound albums was earth opera's debut which for some reason elektra refuses to put out...",
+      "...ipt Class\n\nI have the following simple CoffeeScript Class:\nclass Country\n    constructor: (@val) ->\n        console.log @val\n    foreign: ->\n        @val isnt \"**United States**\"\n    domestic: ->\n        not foreign()\n\nI have this simple class to determine some logic for a select drop down.",
+      "...f Niagara Fire Insurance Company, Phoenix Assurance Company, Standard Fire Insurance Company, Rochester American Insurance Company, American Insurance Company, **United States** Fire Insurance Company, Hartford Fire Insurance Company, and Merchants Fire Assurance"
+     ]
+    }
+   ],
+   "scoring": {
+    "status": "no_valid_judgements",
+    "n": 7
+   },
+   "llm_cost_usd": 0.0,
+   "llm_calls": 0,
+   "llm_errors": 0,
+   "llm_parse_fails": 0
+  },
+  "multiplicity": {
+   "method": "Benjamini-Hochberg FDR",
+   "alpha": 0.05,
+   "n_repairs_tested": 34,
+   "n_holes": 3,
+   "n_measured_success_uncorrected": 6,
+   "n_survive_FDR": 6,
+   "statsmodels_crosscheck_matches": true,
+   "per_family_tested": {
+    "spelling": 0,
+    "homograph_taxonomic": 34,
+    "numeric": 0
+   },
+   "per_family_survive_FDR": {
+    "spelling": 0,
+    "homograph_taxonomic": 6,
+    "numeric": 0
+   }
+  },
+  "verdict": {
+   "kg_utility_measured": true,
+   "n_measured_success_uncorrected": 6,
+   "n_survive_FDR05": 6,
+   "member_labeling_above_null": false,
+   "fifteen_wide_confident_fraction_reported": false,
+   "n_repairs_tested": 34,
+   "n_holes": 3,
+   "per_family_survive_FDR": {
+    "spelling": 0,
+    "homograph_taxonomic": 6,
+    "numeric": 0
+   },
+   "n_honest_negatives": 0,
+   "notes": "Broad K-track KG names a covering absorber per eligible sub-context; at least one KG-named repair beats the random-addition control AND survives Benjamini-Hochberg FDR<=0.05 across ALL tested repairs (multiplicity in-experiment). (k) example-reweighting exposes no addable per-sub-context latent on any concept. Ensemble member-labeling reports agreement vs shuffle null and the fraction of each 15-wide pool receiving a confident label. Honest negatives (ties with random, e.g. numeric / sparse first-letter words) are emitted verbatim."
+  },
+  "honest_negatives": []
+ },
+ "datasets": [
+  {
+   "dataset": "kg_repair_loop",
+   "examples": [
+    {
+     "input": "taxonomic | sub-context 'Argentina' | add KG-named absorber 3057 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Argentina",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 82
+    },
+    {
+     "input": "taxonomic | sub-context 'Belgium' | add KG-named absorber 3741 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Belgium",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 78
+    },
+    {
+     "input": "taxonomic | sub-context 'China' | add KG-named absorber 15293 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "China",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Costa Rica' | add KG-named absorber 15055 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Costa Rica",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 23
+    },
+    {
+     "input": "taxonomic | sub-context 'Egypt' | add KG-named absorber 12371 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Egypt",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 88
+    },
+    {
+     "input": "taxonomic | sub-context 'Ethiopia' | add KG-named absorber 7735 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Ethiopia",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 25
+    },
+    {
+     "input": "taxonomic | sub-context 'France' | add KG-named absorber 10325 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "France",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Georgia' | add KG-named absorber 16009 (kg_ktrack) to anchor 3792",
+     "output": "survives_FDR",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Georgia",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.2,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.8,
+     "metadata_kg_percentile_vs_random": 0.9939024390243902,
+     "metadata_ci_lo": 0.7008010670731707,
+     "metadata_ci_hi": 0.8212705792682927,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0005666100056661,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Georgia' | add KG-named absorber 16009 (kg_diagnostic) to anchor 3792",
+     "output": "survives_FDR",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Georgia",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.2,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.8,
+     "metadata_kg_percentile_vs_random": 0.9939024390243902,
+     "metadata_ci_lo": 0.7003861788617887,
+     "metadata_ci_hi": 0.8219723069105691,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0005666100056661,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Greece' | add KG-named absorber 8161 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Greece",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 78
+    },
+    {
+     "input": "taxonomic | sub-context 'Iran' | add KG-named absorber 14600 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Iran",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Iraq' | add KG-named absorber 8875 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Iraq",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 105
+    },
+    {
+     "input": "taxonomic | sub-context 'Ireland' | add KG-named absorber 1274 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Ireland",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Israel' | add KG-named absorber 9168 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Israel",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Jordan' | add KG-named absorber 540 (kg_ktrack) to anchor 3792",
+     "output": "survives_FDR",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Jordan",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.2903225806451613,
+     "metadata_recall_anchor_plus_kg": 0.9435483870967742,
+     "metadata_gain_kg": 0.653225806451613,
+     "metadata_kg_percentile_vs_random": 0.9954268292682927,
+     "metadata_ci_lo": 0.552493115656963,
+     "metadata_ci_hi": 0.7116323883752951,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0005666100056661,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 124
+    },
+    {
+     "input": "taxonomic | sub-context 'Jordan' | add KG-named absorber 540 (kg_diagnostic) to anchor 3792",
+     "output": "survives_FDR",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Jordan",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.2903225806451613,
+     "metadata_recall_anchor_plus_kg": 0.9435483870967742,
+     "metadata_gain_kg": 0.653225806451613,
+     "metadata_kg_percentile_vs_random": 0.9954268292682927,
+     "metadata_ci_lo": 0.5520109043076318,
+     "metadata_ci_hi": 0.711018329563336,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0005666100056661,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 124
+    },
+    {
+     "input": "taxonomic | sub-context 'Mexico' | add KG-named absorber 15978 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Mexico",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 0.9466666666666667,
+     "metadata_recall_anchor_plus_kg": 0.9466666666666667,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": -0.004461382113821138,
+     "metadata_ci_hi": -0.0009451219512195123,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Morocco' | add KG-named absorber 8204 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Morocco",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 27
+    },
+    {
+     "input": "taxonomic | sub-context 'New Zealand' | add KG-named absorber 7078 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "New Zealand",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Nigeria' | add KG-named absorber 619 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Nigeria",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 73
+    },
+    {
+     "input": "taxonomic | sub-context 'Norway' | add KG-named absorber 1279 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Norway",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 89
+    },
+    {
+     "input": "taxonomic | sub-context 'Pakistan' | add KG-named absorber 253 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Pakistan",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 122
+    },
+    {
+     "input": "taxonomic | sub-context 'Poland' | add KG-named absorber 5938 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Poland",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'Portugal' | add KG-named absorber 13730 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Portugal",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 48
+    },
+    {
+     "input": "taxonomic | sub-context 'Saudi Arabia' | add KG-named absorber 8183 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Saudi Arabia",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 53
+    },
+    {
+     "input": "taxonomic | sub-context 'South Africa' | add KG-named absorber 12190 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "South Africa",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 141
+    },
+    {
+     "input": "taxonomic | sub-context 'South Korea' | add KG-named absorber 2669 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "South Korea",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 70
+    },
+    {
+     "input": "taxonomic | sub-context 'Sri Lanka' | add KG-named absorber 8838 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Sri Lanka",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 39
+    },
+    {
+     "input": "taxonomic | sub-context 'Switzerland' | add KG-named absorber 6620 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Switzerland",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 94
+    },
+    {
+     "input": "taxonomic | sub-context 'Thailand' | add KG-named absorber 1492 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Thailand",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 68
+    },
+    {
+     "input": "taxonomic | sub-context 'Ukraine' | add KG-named absorber 6520 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "Ukraine",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 66
+    },
+    {
+     "input": "taxonomic | sub-context 'United Kingdom' | add KG-named absorber 12885 (kg_ktrack) to anchor 3792",
+     "output": "tie_with_random",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "United Kingdom",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": false,
+     "metadata_recall_anchor_eval": 1.0,
+     "metadata_recall_anchor_plus_kg": 1.0,
+     "metadata_gain_kg": 0.0,
+     "metadata_kg_percentile_vs_random": 0.0,
+     "metadata_ci_lo": 0.0,
+     "metadata_ci_hi": 0.0,
+     "metadata_p_value": 1.0,
+     "metadata_bh_q": 1.0,
+     "metadata_survives_FDR": false,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'United States' | add KG-named absorber 846 (kg_ktrack) to anchor 3792",
+     "output": "survives_FDR",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_variant": "kg_ktrack",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.7666666666666667,
+     "metadata_recall_anchor_plus_kg": 0.9733333333333334,
+     "metadata_gain_kg": 0.20666666666666667,
+     "metadata_kg_percentile_vs_random": 0.9801829268292683,
+     "metadata_ci_lo": 0.13682901422764226,
+     "metadata_ci_hi": 0.2581204268292683,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0005666100056661,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 150
+    },
+    {
+     "input": "taxonomic | sub-context 'United States' | add KG-named absorber 846 (kg_diagnostic) to anchor 3792",
+     "output": "survives_FDR",
+     "metadata_concept": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_variant": "kg_diagnostic",
+     "metadata_is_hole": true,
+     "metadata_recall_anchor_eval": 0.7666666666666667,
+     "metadata_recall_anchor_plus_kg": 0.9733333333333334,
+     "metadata_gain_kg": 0.20666666666666667,
+     "metadata_kg_percentile_vs_random": 0.9801829268292683,
+     "metadata_ci_lo": 0.13688897357723578,
+     "metadata_ci_hi": 0.25842530487804877,
+     "metadata_p_value": 9.999000099990002e-05,
+     "metadata_bh_q": 0.0005666100056661,
+     "metadata_survives_FDR": true,
+     "metadata_n_eval": 150
+    }
+   ]
+  },
+  {
+   "dataset": "member_labeling",
+   "examples": [
+    {
+     "input": "taxonomic member 3792 (anchor); candidates=['GENERAL parent (any country name)', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Peru', 'Poland', 'Portugal', 'Russia', 'Saudi Arabia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam']",
+     "output": "GENERAL parent (any country name)",
+     "predict_judge": "PARSE_FAIL",
+     "metadata_concept": "taxonomic",
+     "metadata_member": 3792,
+     "metadata_role": "anchor",
+     "metadata_is_15wide": false,
+     "metadata_correct": false,
+     "metadata_confident": false,
+     "metadata_agree_rate": 0.0,
+     "metadata_model": "anthropic/claude-haiku-4.5"
+    },
+    {
+     "input": "taxonomic member 4697 (absorber); candidates=['GENERAL parent (any country name)', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Peru', 'Poland', 'Portugal', 'Russia', 'Saudi Arabia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam']",
+     "output": "Georgia",
+     "predict_judge": "PARSE_FAIL",
+     "metadata_concept": "taxonomic",
+     "metadata_member": 4697,
+     "metadata_role": "absorber",
+     "metadata_is_15wide": false,
+     "metadata_correct": false,
+     "metadata_confident": false,
+     "metadata_agree_rate": 0.0,
+     "metadata_model": "anthropic/claude-haiku-4.5"
+    },
+    {
+     "input": "taxonomic member 9339 (absorber); candidates=['GENERAL parent (any country name)', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Peru', 'Poland', 'Portugal', 'Russia', 'Saudi Arabia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam']",
+     "output": "Jordan",
+     "predict_judge": "PARSE_FAIL",
+     "metadata_concept": "taxonomic",
+     "metadata_member": 9339,
+     "metadata_role": "absorber",
+     "metadata_is_15wide": false,
+     "metadata_correct": false,
+     "metadata_confident": false,
+     "metadata_agree_rate": 0.0,
+     "metadata_model": "anthropic/claude-haiku-4.5"
+    },
+    {
+     "input": "taxonomic member 8442 (absorber); candidates=['GENERAL parent (any country name)', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Peru', 'Poland', 'Portugal', 'Russia', 'Saudi Arabia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam']",
+     "output": "United States",
+     "predict_judge": "PARSE_FAIL",
+     "metadata_concept": "taxonomic",
+     "metadata_member": 8442,
+     "metadata_role": "absorber",
+     "metadata_is_15wide": false,
+     "metadata_correct": false,
+     "metadata_confident": false,
+     "metadata_agree_rate": 0.0,
+     "metadata_model": "anthropic/claude-haiku-4.5"
+    },
+    {
+     "input": "taxonomic member 16009 (absorber); candidates=['GENERAL parent (any country name)', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Peru', 'Poland', 'Portugal', 'Russia', 'Saudi Arabia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam']",
+     "output": "Georgia",
+     "predict_judge": "PARSE_FAIL",
+     "metadata_concept": "taxonomic",
+     "metadata_member": 16009,
+     "metadata_role": "absorber",
+     "metadata_is_15wide": false,
+     "metadata_correct": false,
+     "metadata_confident": false,
+     "metadata_agree_rate": 0.0,
+     "metadata_model": "anthropic/claude-haiku-4.5"
+    },
+    {
+     "input": "taxonomic member 540 (absorber); candidates=['GENERAL parent (any country name)', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Peru', 'Poland', 'Portugal', 'Russia', 'Saudi Arabia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam']",
+     "output": "Jordan",
+     "predict_judge": "PARSE_FAIL",
+     "metadata_concept": "taxonomic",
+     "metadata_member": 540,
+     "metadata_role": "absorber",
+     "metadata_is_15wide": false,
+     "metadata_correct": false,
+     "metadata_confident": false,
+     "metadata_agree_rate": 0.0,
+     "metadata_model": "anthropic/claude-haiku-4.5"
+    },
+    {
+     "input": "taxonomic member 846 (absorber); candidates=['GENERAL parent (any country name)', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Mexico', 'Morocco', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Peru', 'Poland', 'Portugal', 'Russia', 'Saudi Arabia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam']",
+     "output": "United States",
+     "predict_judge": "PARSE_FAIL",
+     "metadata_concept": "taxonomic",
+     "metadata_member": 846,
+     "metadata_role": "absorber",
+     "metadata_is_15wide": false,
+     "metadata_correct": false,
+     "metadata_confident": false,
+     "metadata_agree_rate": 0.0,
+     "metadata_model": "anthropic/claude-haiku-4.5"
+    }
+   ]
+  }
+ ]
+}

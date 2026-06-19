@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Non-Spelling Absorption Testbed (numeric + taxonomic) — data_out.json",
+  "description": "On-disk format is the AII `exp_sel_data_out` schema: a top-level object {metadata, datasets:[{dataset, examples}]}. Each example carries input, output, and FLAT metadata_<key> fields (the exp_sel schema forbids nested objects inside an example). The 'logical_row_schema' block below documents the equivalent nested {input, output, metadata{...}} view used in the artifact plan. Sub-context labels are assigned purely from surface form / regex / gazetteer at construction time, independent of any SAE latent or model — so absorption presence/absence is an iter-2 empirical finding, not baked into this data.",
+  "type": "object",
+  "required": ["metadata", "datasets"],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {"type": "object", "description": "Top-level build metadata (seed, pile revision, counts, llm cost, ...)."},
+    "datasets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["dataset", "examples"],
+        "additionalProperties": false,
+        "properties": {
+          "dataset": {"type": "string", "enum": ["numeric_absorption", "taxonomic_absorption"]},
+          "examples": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["input", "output"],
+              "additionalProperties": false,
+              "properties": {
+                "input": {"type": "string", "description": "Text the model reads: a content/surface pair sentence, or a pile context window."},
+                "output": {"type": "string", "enum": ["positive", "negative"], "description": "PARENT binary label: positive = parent concept present at the target, negative = absent."},
+                "metadata_hierarchy": {"type": "string", "enum": ["numeric", "taxonomic"]},
+                "metadata_row_type": {"type": "string", "enum": ["content_pair", "surface_pair", "corpus"]},
+                "metadata_concept_present": {"type": "boolean", "description": "== (output == positive)."},
+                "metadata_sub_context": {"type": ["string", "null"], "description": "Frozen surface-derived sub-context. numeric: year|percent|currency|date|decimal|integer|comma_number|ordinal. taxonomic: a country name (e.g. France). null for negatives / x_off."},
+                "metadata_pair_id": {"type": ["string", "null"], "description": "Links x_on<->x_off and surface_a<->surface_b; null for corpus rows."},
+                "metadata_pair_role": {"type": ["string", "null"], "enum": ["x_on", "x_off", "surface_a", "surface_b", null]},
+                "metadata_target_text": {"type": "string", "description": "Exact numeric/country surface token(s) inside input ('' for x_off where the concept is absent)."},
+                "metadata_target_char_start": {"type": "integer", "description": "Char offset of target in input (-1 if none; for x_off = the differing slot start, zero-width)."},
+                "metadata_target_char_end": {"type": "integer"},
+                "metadata_target_token_indices": {"type": ["array", "null"], "items": {"type": "integer"}, "description": "gemma-2-2b token indices overlapping the char span (offset-mapping, add_special_tokens=False). null if tokenizer unavailable."},
+                "metadata_source": {"type": "string", "enum": ["templated", "llm_generated", "pile_uncopyrighted"]},
+                "metadata_pile_set_name": {"type": ["string", "null"], "description": "Pile sub-corpus name for corpus rows (e.g. Pile-CC, Wikipedia (en)); null otherwise."},
+                "metadata_llm_judge_pass": {"type": ["boolean", "null"], "description": "content_flipped AND surface_preserved AND grammatical. null if not judged. Use pass==true for the primary fold."},
+                "metadata_llm_judge_score": {"type": ["number", "null"]},
+                "metadata_fold": {"type": "string", "enum": ["train", "test", "diagnostic"], "description": "pairs -> train/test (by pair_id, stratified by sub_context); corpus -> train/diagnostic (stratified). The diagnostic fold is where the form-free parent-hole search runs."},
+                "metadata_template_id": {"type": ["string", "null"]},
+                "metadata_neg_family": {"type": ["string", "null"], "description": "taxonomic negatives/pairs: 'city' (matched place control) | 'other' (person/company) | 'easy' (no place)."},
+                "metadata_multi_token": {"type": "boolean", "description": "True for multi-word country names (United States, Saudi Arabia, ...) whose word-piece split complicates target alignment."},
+                "metadata_notes": {"type": ["string", "null"], "description": "Free-text flags, e.g. 'ambiguous_homograph' (Turkey/Georgia/Chile/Jordan), 'city_negative=...', 'no_digit_negative'."}
+              },
+              "patternProperties": {"^metadata_[a-zA-Z_][a-zA-Z0-9_]*$": {}}
+            }
+          }
+        }
+      }
+    }
+  },
+  "logical_row_schema": {
+    "_comment": "Equivalent nested view (artifact plan). On disk these metadata_* keys are flattened to satisfy exp_sel_data_out.",
+    "input": "string",
+    "output": "positive | negative",
+    "metadata": {
+      "hierarchy": "numeric | taxonomic",
+      "row_type": "content_pair | surface_pair | corpus",
+      "concept_present": "bool",
+      "sub_context": "string | null",
+      "pair_id": "string | null",
+      "pair_role": "x_on | x_off | surface_a | surface_b | null",
+      "target_text": "string",
+      "target_char_start": "int",
+      "target_char_end": "int",
+      "target_token_indices": "list[int] | null",
+      "source": "templated | llm_generated | pile_uncopyrighted",
+      "pile_set_name": "string | null",
+      "llm_judge_pass": "bool | null",
+      "llm_judge_score": "float | null",
+      "fold": "train | test | diagnostic",
+      "template_id": "string | null",
+      "neg_family": "string | null",
+      "multi_token": "bool",
+      "notes": "string | null"
+    }
+  },
+  "ambiguous_homograph_countries": ["Turkey", "Georgia", "Chile", "Jordan"],
+  "multi_word_countries": ["United States", "Saudi Arabia", "South Korea", "New Zealand", "United Kingdom", "South Africa", "Costa Rica", "Sri Lanka"]
+}

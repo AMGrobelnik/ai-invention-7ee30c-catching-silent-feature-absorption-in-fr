@@ -1,0 +1,1205 @@
+{
+  "artifact": "safety_relevant_identity_absorption_testbed",
+  "description": "FOUR-hierarchy (NATIONALITY / RELIGION / ETHNICITY-IDENTITY / NAMED-ENTITY) safety-relevant identity feature-absorption testbed; a strict structural drop-in of the iter-1 taxonomic testbed (gen_art_dataset_2) and the iter-5 homograph testbed. Each hierarchy ships content-flip pairs, surface-flip pairs, and a pile-uncopyrighted diagnostic corpus labelled by frozen, model-independent surface-derived sub-context, PLUS a homograph_distractor matched-negative family (same surface token in its competing NON-identity sense) and parent-specificity other_group negatives. No SAE/model/activation computation.",
+  "BUILDING_BLOCK_NOTE": "NEXT-ITERATION (M2') BUILDING BLOCK — NOT consumed by this iteration's parallel experiments. It lets iteration-6+ answer the safety-relevance gate (does feature absorption appear on safety-relevant identity attributes?) on a proper corpus instead of rough inline slices.",
+  "schema": "exp_sel_data_out (flat metadata_* keys); see schema.json for the logical (nested) view",
+  "scale": "full",
+  "seed": 20240617,
+  "pile_repo": "monology/pile-uncopyrighted",
+  "pile_revision": "3be90335b66f24456a5d6659d9c8d208c0357119",
+  "civil_supplement_repo": "google/civil_comments",
+  "civil_supplement_used": false,
+  "gemma_tokenizer": "google/gemma-2-2b",
+  "token_indices_present": true,
+  "wordfreq_available": true,
+  "gen_model": "openai/gpt-4o-mini",
+  "judge_model": "anthropic/claude-haiku-4.5",
+  "llm_cost_usd": 0.13095,
+  "llm_calls": 313,
+  "total_rows": 36448,
+  "eligible_entities_per_hierarchy": {
+    "nationality": 31,
+    "religion": 10,
+    "ethnicity_identity": 10,
+    "named_entity_safety": 5
+  },
+  "fold_counts": {
+    "diagnostic": 17724,
+    "train": 18418,
+    "test": 306
+  },
+  "rows_by_hierarchy_and_type": {
+    "nationality/corpus": 13700,
+    "religion/corpus": 5839,
+    "ethnicity_identity/corpus": 7555,
+    "named_entity_safety/corpus": 8336,
+    "nationality/content_pair": 216,
+    "nationality/surface_pair": 112,
+    "religion/content_pair": 144,
+    "religion/surface_pair": 72,
+    "ethnicity_identity/content_pair": 156,
+    "ethnicity_identity/surface_pair": 66,
+    "named_entity_safety/content_pair": 164,
+    "named_entity_safety/surface_pair": 88
+  },
+  "templated_content_counts": {
+    "nationality": {
+      "Chinese": 3,
+      "Iranian": 3,
+      "Filipino": 3,
+      "Cuban": 4,
+      "French": 3,
+      "Turkish": 4,
+      "Dutch": 3,
+      "Israeli": 3,
+      "Pakistani": 3,
+      "Russian": 3,
+      "Australian": 4,
+      "Swedish": 3,
+      "British": 3,
+      "Brazilian": 3,
+      "Vietnamese": 4,
+      "Indian": 3,
+      "Irish": 4,
+      "Italian": 3,
+      "Spanish": 3,
+      "Korean": 4,
+      "Ukrainian": 4,
+      "Egyptian": 3,
+      "American": 3,
+      "Greek": 4,
+      "Norwegian": 4,
+      "Nigerian": 3,
+      "German": 4,
+      "Canadian": 3,
+      "Polish": 4,
+      "Mexican": 4
+    },
+    "religion": {
+      "Atheist": 7,
+      "Sikh": 7,
+      "Baptist": 7,
+      "Catholic": 6,
+      "Hindu": 7,
+      "Buddhist": 6,
+      "Evangelical": 7,
+      "Protestant": 7,
+      "Muslim": 7,
+      "Methodist": 6
+    },
+    "ethnicity_identity": {
+      "Hispanic": 7,
+      "Latino": 7,
+      "Arab": 7,
+      "White": 7,
+      "Jewish": 7,
+      "African American": 6,
+      "Native": 7,
+      "Indigenous": 7,
+      "Black": 7,
+      "Asian": 6,
+      "Latina": 7
+    },
+    "named_entity_safety": {
+      "Stone": 3,
+      "Page": 3,
+      "West": 3,
+      "Gates": 3,
+      "Amazon": 3,
+      "Subway": 3,
+      "Oracle": 3,
+      "Hunt": 3,
+      "Pope": 3,
+      "Swift": 3,
+      "Fox": 3,
+      "Monster": 3,
+      "Snow": 3,
+      "Target": 3,
+      "Bird": 3,
+      "Bell": 3,
+      "King": 3,
+      "Shell": 3,
+      "Corona": 3,
+      "Banks": 3,
+      "Diamond": 3,
+      "Visa": 3,
+      "Tide": 3,
+      "Wood": 1
+    }
+  },
+  "templated_surface_counts": {
+    "nationality": {
+      "Israeli": 3,
+      "Canadian": 3,
+      "Swedish": 3,
+      "Japanese": 3,
+      "Korean": 3,
+      "Greek": 3,
+      "Polish": 3,
+      "Brazilian": 3,
+      "Iranian": 3,
+      "Turkish": 3,
+      "American": 3,
+      "Spanish": 3,
+      "British": 3,
+      "French": 3,
+      "Indian": 3,
+      "Cuban": 3,
+      "German": 3,
+      "Mexican": 3,
+      "Russian": 2
+    },
+    "religion": {
+      "Christian": 3,
+      "Catholic": 3,
+      "Sikh": 3,
+      "Buddhist": 3,
+      "Hindu": 3,
+      "Atheist": 3,
+      "Muslim": 3,
+      "Baptist": 3,
+      "Evangelical": 3,
+      "Protestant": 3,
+      "Mormon": 3,
+      "Methodist": 3
+    },
+    "ethnicity_identity": {
+      "Jewish": 3,
+      "White": 3,
+      "Hispanic": 3,
+      "Asian": 3,
+      "African American": 3,
+      "Latino": 3,
+      "Latina": 3,
+      "Indigenous": 3,
+      "Arab": 3,
+      "Black": 3,
+      "Native": 3
+    },
+    "named_entity_safety": {
+      "Pope": 3,
+      "Oracle": 3,
+      "Swift": 3,
+      "Stone": 3,
+      "Amazon": 3,
+      "Page": 3,
+      "Diamond": 3,
+      "West": 3,
+      "Target": 3,
+      "King": 3,
+      "Gap": 3,
+      "Bush": 3,
+      "Snow": 3,
+      "Cash": 3,
+      "Cook": 2
+    }
+  },
+  "corpus_positive_counts_by_entity": {
+    "named_entity_safety/Amazon": 300,
+    "nationality/American": 300,
+    "nationality/British": 300,
+    "nationality/Italian": 300,
+    "nationality/Canadian": 300,
+    "nationality/Chinese": 300,
+    "nationality/Spanish": 300,
+    "named_entity_safety/Apple": 300,
+    "nationality/Ukrainian": 300,
+    "religion/Christian": 300,
+    "religion/Mormon": 300,
+    "nationality/Australian": 300,
+    "nationality/Mexican": 300,
+    "nationality/Pakistani": 300,
+    "religion/Catholic": 300,
+    "ethnicity_identity/Jewish": 300,
+    "nationality/Russian": 300,
+    "nationality/Turkish": 300,
+    "nationality/Japanese": 300,
+    "nationality/German": 300,
+    "ethnicity_identity/Asian": 300,
+    "ethnicity_identity/Arab": 300,
+    "nationality/Korean": 300,
+    "nationality/Indian": 300,
+    "religion/Buddhist": 300,
+    "ethnicity_identity/Hispanic": 300,
+    "ethnicity_identity/Black": 300,
+    "named_entity_safety/Bell": 246,
+    "nationality/French": 300,
+    "ethnicity_identity/Native": 300,
+    "religion/Methodist": 300,
+    "ethnicity_identity/African American": 300,
+    "nationality/Vietnamese": 300,
+    "nationality/Swedish": 300,
+    "ethnicity_identity/Indigenous": 300,
+    "nationality/Nigerian": 300,
+    "religion/Muslim": 300,
+    "religion/Hindu": 300,
+    "named_entity_safety/Bush": 300,
+    "named_entity_safety/West": 246,
+    "named_entity_safety/Target": 125,
+    "ethnicity_identity/White": 300,
+    "nationality/Egyptian": 300,
+    "ethnicity_identity/Latino": 300,
+    "nationality/Norwegian": 300,
+    "nationality/Greek": 300,
+    "nationality/Israeli": 300,
+    "religion/Protestant": 300,
+    "religion/Baptist": 300,
+    "nationality/Cuban": 300,
+    "ethnicity_identity/Latina": 155,
+    "named_entity_safety/Stone": 203,
+    "nationality/Irish": 300,
+    "nationality/Iranian": 300,
+    "named_entity_safety/Hunt": 144,
+    "named_entity_safety/Gates": 155,
+    "named_entity_safety/Wood": 198,
+    "named_entity_safety/Cook": 300,
+    "nationality/Brazilian": 300,
+    "religion/Evangelical": 197,
+    "named_entity_safety/King": 300,
+    "religion/Sikh": 300,
+    "nationality/Dutch": 300,
+    "named_entity_safety/Pope": 75,
+    "nationality/Polish": 300,
+    "named_entity_safety/Fox": 253,
+    "named_entity_safety/Oracle": 107,
+    "nationality/Filipino": 300,
+    "named_entity_safety/Gap": 28,
+    "named_entity_safety/Diamond": 57,
+    "named_entity_safety/Bird": 119,
+    "named_entity_safety/Monster": 11,
+    "named_entity_safety/Snow": 70,
+    "named_entity_safety/Swift": 97,
+    "religion/Atheist": 110,
+    "named_entity_safety/Cash": 41,
+    "named_entity_safety/Banks": 92,
+    "named_entity_safety/Shell": 29,
+    "named_entity_safety/Tide": 11,
+    "named_entity_safety/Page": 83,
+    "named_entity_safety/Corona": 14,
+    "named_entity_safety/Visa": 27,
+    "named_entity_safety/Subway": 5
+  },
+  "negative_family_counts": {
+    "nationality/easy": 2000,
+    "religion/easy": 2000,
+    "ethnicity_identity/easy": 2000,
+    "named_entity_safety/easy": 2000,
+    "named_entity_safety/homograph_distractor": 2400,
+    "ethnicity_identity/homograph_distractor": 2400,
+    "nationality/homograph_distractor": 2400,
+    "religion/homograph_distractor": 532,
+    "nationality/non_identity": 102,
+    "nationality/other_group": 6,
+    "religion/non_identity": 72,
+    "ethnicity_identity/non_identity": 78,
+    "named_entity_safety/non_identity": 82
+  },
+  "corpus_fill_summary": {
+    "pos_by_entity": {
+      "nationality/Polish": 300,
+      "nationality/Dutch": 300,
+      "nationality/Turkish": 300,
+      "nationality/Indian": 300,
+      "nationality/Greek": 300,
+      "nationality/Cuban": 300,
+      "nationality/American": 300,
+      "nationality/Russian": 300,
+      "nationality/Chinese": 300,
+      "nationality/German": 300,
+      "nationality/French": 300,
+      "nationality/Japanese": 300,
+      "nationality/Mexican": 300,
+      "nationality/Italian": 300,
+      "nationality/Spanish": 300,
+      "nationality/British": 300,
+      "nationality/Canadian": 300,
+      "nationality/Australian": 300,
+      "nationality/Brazilian": 300,
+      "nationality/Nigerian": 300,
+      "nationality/Egyptian": 300,
+      "nationality/Korean": 300,
+      "nationality/Iranian": 300,
+      "nationality/Pakistani": 300,
+      "nationality/Vietnamese": 300,
+      "nationality/Irish": 300,
+      "nationality/Israeli": 300,
+      "nationality/Ukrainian": 300,
+      "nationality/Filipino": 300,
+      "nationality/Swedish": 300,
+      "nationality/Norwegian": 300,
+      "religion/Christian": 300,
+      "religion/Catholic": 300,
+      "religion/Muslim": 300,
+      "religion/Hindu": 300,
+      "religion/Buddhist": 300,
+      "religion/Sikh": 300,
+      "religion/Mormon": 300,
+      "religion/Protestant": 300,
+      "religion/Methodist": 300,
+      "religion/Baptist": 300,
+      "religion/Evangelical": 197,
+      "religion/Atheist": 110,
+      "ethnicity_identity/Black": 300,
+      "ethnicity_identity/White": 300,
+      "ethnicity_identity/Asian": 300,
+      "ethnicity_identity/Native": 300,
+      "ethnicity_identity/Latino": 300,
+      "ethnicity_identity/Latina": 155,
+      "ethnicity_identity/Hispanic": 300,
+      "ethnicity_identity/Indigenous": 300,
+      "ethnicity_identity/Arab": 300,
+      "ethnicity_identity/Jewish": 300,
+      "ethnicity_identity/African American": 300,
+      "named_entity_safety/Apple": 300,
+      "named_entity_safety/Amazon": 300,
+      "named_entity_safety/Shell": 29,
+      "named_entity_safety/Target": 125,
+      "named_entity_safety/Oracle": 107,
+      "named_entity_safety/Visa": 27,
+      "named_entity_safety/Corona": 14,
+      "named_entity_safety/Subway": 5,
+      "named_entity_safety/Gap": 28,
+      "named_entity_safety/Monster": 11,
+      "named_entity_safety/Tide": 11,
+      "named_entity_safety/Bush": 300,
+      "named_entity_safety/Cash": 41,
+      "named_entity_safety/Stone": 203,
+      "named_entity_safety/Banks": 92,
+      "named_entity_safety/West": 246,
+      "named_entity_safety/Swift": 97,
+      "named_entity_safety/Gates": 155,
+      "named_entity_safety/Cook": 300,
+      "named_entity_safety/Page": 83,
+      "named_entity_safety/Bell": 246,
+      "named_entity_safety/King": 300,
+      "named_entity_safety/Fox": 253,
+      "named_entity_safety/Snow": 70,
+      "named_entity_safety/Pope": 75,
+      "named_entity_safety/Hunt": 144,
+      "named_entity_safety/Wood": 198,
+      "named_entity_safety/Bird": 119,
+      "named_entity_safety/Diamond": 57
+    },
+    "comp_by_hierarchy": {
+      "named_entity_safety": 2400,
+      "ethnicity_identity": 2400,
+      "nationality": 2400,
+      "religion": 532
+    },
+    "easy_by_hierarchy": {
+      "nationality": 2000,
+      "religion": 2000,
+      "ethnicity_identity": 2000,
+      "named_entity_safety": 2000
+    },
+    "scanned": 1900000,
+    "elapsed_s": 1450.1
+  },
+  "civil_supplement_summary": {
+    "loaded": false
+  },
+  "source_counts": {
+    "pile_uncopyrighted": 35430,
+    "templated": 922,
+    "llm_generated": 96
+  },
+  "pile_set_name_counts": {
+    "Pile-CC": 17572,
+    "Github": 715,
+    "StackExchange": 2356,
+    "Wikipedia (en)": 7542,
+    "PubMed Abstracts": 2838,
+    "USPTO Backgrounds": 1388,
+    "FreeLaw": 783,
+    "PubMed Central": 945,
+    "Enron Emails": 77,
+    "HackerNews": 274,
+    "NIH ExPorter": 440,
+    "ArXiv": 399,
+    "DM Mathematics": 56,
+    "Ubuntu IRC": 9,
+    "PhilPapers": 8,
+    "Gutenberg (PG-19)": 24,
+    "EuroParl": 4
+  },
+  "identity_label_source_counts": {},
+  "llm_pair_pass_rate": 0.55,
+  "llm_corpus_sense_precision": {
+    "nationality": {
+      "n": 62,
+      "n_correct": 58,
+      "precision": 0.935
+    },
+    "named_entity_safety": {
+      "n": 58,
+      "n_correct": 39,
+      "precision": 0.672
+    },
+    "religion": {
+      "n": 24,
+      "n_correct": 24,
+      "precision": 1.0
+    },
+    "ethnicity_identity": {
+      "n": 22,
+      "n_correct": 20,
+      "precision": 0.909
+    }
+  },
+  "llm_cost_breakdown": {
+    "gen_in": 725,
+    "gen_out": 1335,
+    "judge_in": 55688,
+    "judge_out": 14871,
+    "gen_calls": 4,
+    "judge_calls": 309,
+    "calls": 313
+  },
+  "absorption_readiness": {
+    "nationality": {
+      "Polish": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "to polish / nail polish (verb/noun 'polish')",
+        "homograph_strength": 4.29
+      },
+      "Dutch": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "Dutch oven / go Dutch / Dutch courage",
+        "homograph_strength": 4.41
+      },
+      "Turkish": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "Turkish bath / Turkish delight / Turkish coffee",
+        "homograph_strength": 4.28
+      },
+      "Indian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "Native American / Indian summer / Indian Ocean",
+        "homograph_strength": 4.91
+      },
+      "Greek": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "Greek letters / Greek myth / Greek yogurt",
+        "homograph_strength": 4.5
+      },
+      "Cuban": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "Cuban cigar / Cuban heel / Cuban sandwich",
+        "homograph_strength": 3.93
+      },
+      "American": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Russian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Chinese": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "German": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "French": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Japanese": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Mexican": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Italian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Spanish": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "British": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Canadian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Australian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Brazilian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Nigerian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Egyptian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Korean": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Iranian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Pakistani": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Vietnamese": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Irish": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Israeli": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Ukrainian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Filipino": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Swedish": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Norwegian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      }
+    },
+    "religion": {
+      "Christian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "a person's given name (e.g. Christian Bale); 'Christian name' = first name",
+        "homograph_strength": 4.71
+      },
+      "Catholic": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "lowercase 'catholic' = universal / broad / wide-ranging",
+        "homograph_strength": 4.55
+      },
+      "Muslim": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Hindu": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Buddhist": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Sikh": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Mormon": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Protestant": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Methodist": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Baptist": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Evangelical": {
+        "diagnostic_positives": 99,
+        "status": "descriptive_only",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Atheist": {
+        "diagnostic_positives": 55,
+        "status": "descriptive_only",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      }
+    },
+    "ethnicity_identity": {
+      "Black": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "the colour black / dark (black car, Black Sea, black hole, Black Friday)",
+        "homograph_strength": 5.46
+      },
+      "White": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "the colour white / White House (white car, white wine, white noise)",
+        "homograph_strength": 5.51
+      },
+      "Asian": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "geographic adjective 'Asian' (Asian markets, Asian cuisine, Asian countries)",
+        "homograph_strength": 4.69
+      },
+      "Native": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "native speaker / native plant / 'native to' (the default/innate sense)",
+        "homograph_strength": 4.69
+      },
+      "Latino": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Hispanic": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Indigenous": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Arab": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Jewish": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "African American": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      },
+      "Latina": {
+        "diagnostic_positives": 78,
+        "status": "descriptive_only",
+        "homograph_sense": false,
+        "dominant_other_sense": null,
+        "homograph_strength": null
+      }
+    },
+    "named_entity_safety": {
+      "Apple": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "the fruit",
+        "homograph_strength": 4.76
+      },
+      "Amazon": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "the river / rainforest / warrior",
+        "homograph_strength": 4.55
+      },
+      "Bush": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "a shrub / the bush",
+        "homograph_strength": 4.49
+      },
+      "Cook": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "to cook / a cook",
+        "homograph_strength": 4.65
+      },
+      "King": {
+        "diagnostic_positives": 150,
+        "status": "eligible",
+        "homograph_sense": true,
+        "dominant_other_sense": "a monarch / a king",
+        "homograph_strength": 5.17
+      },
+      "Fox": {
+        "diagnostic_positives": 127,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "the animal fox",
+        "homograph_strength": 4.66
+      },
+      "West": {
+        "diagnostic_positives": 123,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "the compass direction west",
+        "homograph_strength": 5.29
+      },
+      "Bell": {
+        "diagnostic_positives": 123,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a bell",
+        "homograph_strength": 4.59
+      },
+      "Stone": {
+        "diagnostic_positives": 102,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a rock / a stone",
+        "homograph_strength": 4.8
+      },
+      "Wood": {
+        "diagnostic_positives": 99,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "wood",
+        "homograph_strength": 4.78
+      },
+      "Gates": {
+        "diagnostic_positives": 78,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "gates (a barrier)",
+        "homograph_strength": 4.3
+      },
+      "Hunt": {
+        "diagnostic_positives": 72,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "to hunt / a hunt",
+        "homograph_strength": 4.49
+      },
+      "Target": {
+        "diagnostic_positives": 63,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a target / to aim at",
+        "homograph_strength": 4.82
+      },
+      "Bird": {
+        "diagnostic_positives": 60,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a bird",
+        "homograph_strength": 4.63
+      },
+      "Oracle": {
+        "diagnostic_positives": 54,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a prophet / an oracle",
+        "homograph_strength": 3.7
+      },
+      "Swift": {
+        "diagnostic_positives": 49,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "fast / the bird swift",
+        "homograph_strength": 4.15
+      },
+      "Banks": {
+        "diagnostic_positives": 46,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "riverbanks / financial banks",
+        "homograph_strength": 4.69
+      },
+      "Page": {
+        "diagnostic_positives": 42,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a page",
+        "homograph_strength": 5.12
+      },
+      "Pope": {
+        "diagnostic_positives": 38,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "the pope (title)",
+        "homograph_strength": 4.38
+      },
+      "Snow": {
+        "diagnostic_positives": 35,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "snow",
+        "homograph_strength": 4.66
+      },
+      "Diamond": {
+        "diagnostic_positives": 29,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a diamond (gem)",
+        "homograph_strength": 4.42
+      },
+      "Cash": {
+        "diagnostic_positives": 21,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "money / to cash",
+        "homograph_strength": 4.92
+      },
+      "Shell": {
+        "diagnostic_positives": 15,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a seashell / a shell",
+        "homograph_strength": 4.39
+      },
+      "Visa": {
+        "diagnostic_positives": 14,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a travel visa",
+        "homograph_strength": 4.13
+      },
+      "Gap": {
+        "diagnostic_positives": 14,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a gap",
+        "homograph_strength": 4.47
+      },
+      "Corona": {
+        "diagnostic_positives": 7,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a crown / the sun's corona",
+        "homograph_strength": 3.42
+      },
+      "Monster": {
+        "diagnostic_positives": 6,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "a monster",
+        "homograph_strength": 4.49
+      },
+      "Tide": {
+        "diagnostic_positives": 6,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "the ocean tide",
+        "homograph_strength": 4.05
+      },
+      "Subway": {
+        "diagnostic_positives": 3,
+        "status": "descriptive_only",
+        "homograph_sense": true,
+        "dominant_other_sense": "the underground railway",
+        "homograph_strength": 4.05
+      }
+    }
+  },
+  "entities_per_hierarchy": {
+    "nationality": [
+      "Polish",
+      "Dutch",
+      "Turkish",
+      "Indian",
+      "Greek",
+      "Cuban",
+      "American",
+      "Russian",
+      "Chinese",
+      "German",
+      "French",
+      "Japanese",
+      "Mexican",
+      "Italian",
+      "Spanish",
+      "British",
+      "Canadian",
+      "Australian",
+      "Brazilian",
+      "Nigerian",
+      "Egyptian",
+      "Korean",
+      "Iranian",
+      "Pakistani",
+      "Vietnamese",
+      "Irish",
+      "Israeli",
+      "Ukrainian",
+      "Filipino",
+      "Swedish",
+      "Norwegian"
+    ],
+    "religion": [
+      "Christian",
+      "Catholic",
+      "Muslim",
+      "Hindu",
+      "Buddhist",
+      "Sikh",
+      "Mormon",
+      "Protestant",
+      "Methodist",
+      "Baptist",
+      "Evangelical",
+      "Atheist"
+    ],
+    "ethnicity_identity": [
+      "Black",
+      "White",
+      "Asian",
+      "Native",
+      "Latino",
+      "Latina",
+      "Hispanic",
+      "Indigenous",
+      "Arab",
+      "Jewish",
+      "African American"
+    ],
+    "named_entity_safety": [
+      "Apple",
+      "Amazon",
+      "Shell",
+      "Target",
+      "Oracle",
+      "Visa",
+      "Corona",
+      "Subway",
+      "Gap",
+      "Monster",
+      "Tide",
+      "Bush",
+      "Cash",
+      "Stone",
+      "Banks",
+      "West",
+      "Swift",
+      "Gates",
+      "Cook",
+      "Page",
+      "Bell",
+      "King",
+      "Fox",
+      "Snow",
+      "Pope",
+      "Hunt",
+      "Wood",
+      "Bird",
+      "Diamond"
+    ]
+  },
+  "homograph_entities_per_hierarchy": {
+    "nationality": [
+      "Polish",
+      "Dutch",
+      "Turkish",
+      "Indian",
+      "Greek",
+      "Cuban"
+    ],
+    "religion": [
+      "Christian",
+      "Catholic"
+    ],
+    "ethnicity_identity": [
+      "Black",
+      "White",
+      "Asian",
+      "Native"
+    ],
+    "named_entity_safety": [
+      "Apple",
+      "Amazon",
+      "Shell",
+      "Target",
+      "Oracle",
+      "Visa",
+      "Corona",
+      "Subway",
+      "Gap",
+      "Monster",
+      "Tide",
+      "Bush",
+      "Cash",
+      "Stone",
+      "Banks",
+      "West",
+      "Swift",
+      "Gates",
+      "Cook",
+      "Page",
+      "Bell",
+      "King",
+      "Fox",
+      "Snow",
+      "Pope",
+      "Hunt",
+      "Wood",
+      "Bird",
+      "Diamond"
+    ]
+  },
+  "parent_concepts": {
+    "nationality": "a nationality / demonym (a word naming the people of a country)",
+    "religion": "a religion or religious-identity group",
+    "ethnicity_identity": "a race / ethnicity / identity-group",
+    "named_entity_safety": "a named public figure or organization"
+  },
+  "cross_hierarchy_collisions": {
+    "Jewish": "dual identity: religion AND ethnicity; canonical owner = ethnicity_identity here",
+    "Indian": "homograph: India-nationality vs Native-American 'Indian' vs Indian Ocean/summer",
+    "Arab": "Arab is an ethnicity here; many Arabs are also Muslim (religion) — kept separate"
+  },
+  "design_note": "Sub-context / target-sense / competitor labels are assigned PURELY from surface form / gazetteer / high-precision disambiguating local context, independent of any SAE latent or model. Absorption presence/absence is an iteration-6+ EMPIRICAL finding, NOT baked into this data: the same labelled corpus equally supports the honest 'no safety attribute is absorption-structured' null (uniform high parent recall across identity sub-contexts) and a positive finding (sub-context-specific parent recall holes concentrated on high-strength homographs such as Black / White / Polish). The homograph_distractor family is the matched hard control (the SAME token in its competing non-identity sense) that makes a suppressed parent visible; other_group negatives are an identity-but-wrong-parent specificity control. llm_corpus_sense_precision MEASURES the heuristic identity-sense precision per hierarchy on a stratified sample; it does NOT relabel the corpus. The CC0 civil_comments supplement (optional) is identity-rich real text whose sub_context is STILL surface-derived; its toxicity column is recorded only as metadata_identity_label_source corroboration."
+}

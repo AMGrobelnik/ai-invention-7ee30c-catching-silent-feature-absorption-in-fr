@@ -1,0 +1,152 @@
+{
+  "1041": {
+    "label": "technical terms and concepts related to programming or data structures",
+    "top_tokens": [
+      "\u2581Efq",
+      "\u2581\u017feveral",
+      "\u2581Monfieur",
+      "\u2581Majefty",
+      "\u2581my\u017felf",
+      "\u2581The\u017fe",
+      "\u2581purpo\u017fe",
+      "^(@)",
+      "\u2581Jefus",
+      "\u2581plea\u017fure"
+    ]
+  },
+  "1920": {
+    "label": "references to specific biological terms and acronyms",
+    "top_tokens": [
+      "\u2581FSU",
+      "fortawesome",
+      "\u2581getF",
+      "\u2581F",
+      "\u2581Fighters",
+      "\u2581FI",
+      "\u2581FE",
+      "\u2581FH",
+      "FECT",
+      "\u2581Fenton"
+    ]
+  },
+  "2620": {
+    "label": "words associated with authority, control, and criticism of governance",
+    "top_tokens": [
+      "\u2581",
+      "\u2581[\u2026]",
+      "\n",
+      "\u2581...",
+      "'",
+      "\u2581\u2026",
+      "\n\n",
+      "1",
+      "2",
+      "\u2581("
+    ]
+  },
+  "6810": {
+    "label": "terms related to software licensing and legal disclaimers",
+    "top_tokens": [
+      "<bos>",
+      "<eos>",
+      "\u0440\u043e",
+      "MathML",
+      "\u043d\u0435\u043d",
+      "\u2019",
+      "\u03c1\u03c5",
+      "ih",
+      "\u00e2",
+      "\u0440"
+    ]
+  },
+  "7507": {
+    "label": "numerical data and references related to statistics and measurements",
+    "top_tokens": [
+      "\u2581betweenstory",
+      "Autoritn\u00ed",
+      "sizeCache",
+      "\u2581disambiguazione",
+      "ArrowToggle",
+      "NameInMap",
+      "\u2581jsPsych",
+      "\u044c\u0430\u0436",
+      "aarrggbb",
+      "oredCriteria"
+    ]
+  },
+  "11573": {
+    "label": "terms and phrases related to race, identity, and social justice",
+    "top_tokens": [
+      "\u2581male",
+      "\u2581minority",
+      "\u2581ethnic",
+      "\u2581ethnicity",
+      "'",
+      "-",
+      "codehaus",
+      "\u2581men",
+      "\u2581American",
+      "\u2581ReactDOM"
+    ]
+  },
+  "11630": {
+    "label": "specific elements or actions associated with conflict and violence",
+    "top_tokens": [
+      "\u2581denk",
+      "//-->",
+      "ya",
+      "septic",
+      "\u2581targets",
+      "\u2581established",
+      "ServletException",
+      "AutoSize",
+      "\u2581Abonnez",
+      "\u2581sospe"
+    ]
+  },
+  "12714": {
+    "label": "profanity and vulgar expressions",
+    "top_tokens": [
+      "fuck",
+      "\u2581Fuck",
+      "\u2581fuck",
+      "\u2581fucking",
+      "FUCK",
+      "Fuck",
+      "\u2581damn",
+      "\u2581shit",
+      "\u2581Fucking",
+      "\u2581goddamn"
+    ]
+  },
+  "13367": {
+    "label": "phrases and terms that convey skepticism or criticism towards mainstream narratives, especially those related to marginalized groups and societal structures",
+    "top_tokens": [
+      "\u2581hypocrite",
+      "\u2581moron",
+      "\u2581coward",
+      "\u2581idiotic",
+      "\u2581cowardly",
+      "\u2581cowards",
+      "\u2581crap",
+      "\u2581idiot",
+      "\u2581ProtoMessage",
+      "\u2581morons"
+    ]
+  },
+  "14630": {
+    "label": "character names and terms in various languages, particularly those with diacritics",
+    "top_tokens": [
+      "\u2581Beyonc\u00e9",
+      "\u2581Erdo\u011fan",
+      "\u2581Citro\u00ebn",
+      "R\u00fcyada",
+      "\u2581Bogot\u00e1",
+      "\u2581Nestl\u00e9",
+      "\u2581doughnuts",
+      "\uf87f",
+      "\u2581Cond\u00e9",
+      "hitheatre"
+    ]
+  }
+}

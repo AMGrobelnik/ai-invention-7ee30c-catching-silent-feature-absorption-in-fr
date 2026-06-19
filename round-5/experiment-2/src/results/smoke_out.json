@@ -1,0 +1,105 @@
+{
+ "metadata": {
+  "method_name": "M2 \u2014 Cross-Dictionary Replication of the iter-4 auditability spine on a second Gemma-Scope SAE",
+  "description": "Re-run the homograph recall-holes + KG-repair FDR survivors + Georgia/Jordan surgical edits + recall-hole/firing-Jaccard router on a SECOND Gemma-Scope SAE dictionary of the SAME frozen gemma-2-2b (PRIMARY width-65k layer-12 canonical; SECONDARY reduced layer-9 width-16k), with anchors AND absorbers RE-DERIVED per dictionary (16k latent ids do not carry over). Per-piece REPLICATES / PARTIAL / DICTIONARY-DEPENDENT verdict + honest deltas vs the 16k counts.",
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "release": "google/gemma-scope-2b-pt-res",
+  "thresholds": {
+   "N_MIN_EVAL": 30,
+   "N_MIN_RELAX": 15,
+   "N_MIN_SEL": 10,
+   "HOLE_RECALL_MAX": 0.6,
+   "KG_JACCARD_MAX": 0.1,
+   "KG_PREC_MIN": 0.7,
+   "SPURIOUS_FIRE_FLOOR": 0.01,
+   "FDR_ALPHA": 0.05
+  },
+  "reference_16k_iter4": {
+   "gating_cosine": 0.9189,
+   "gating_L0": 87.9,
+   "gating_layer_idx": 13,
+   "per_family_survive_FDR": {
+    "spelling": 14,
+    "homograph_taxonomic": 6,
+    "numeric": 10
+   },
+   "n_repairs_tested": 69,
+   "n_holes": 54,
+   "n_survive_FDR": 30,
+   "router_tau_h": 0.7774337479718767,
+   "router_tau_j": 0.05,
+   "router_recall_hole_balanced_acc": 1.0,
+   "router_firing_jaccard_balanced_acc": 0.9167,
+   "surgical_georgia": {
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "selectivity_ratio": 1722.46,
+    "kg_collateral": 2.876e-05,
+    "dense_collateral": 0.04955,
+    "firing_jaccard": 0.012,
+    "parent_recall_hole": 0.77
+   },
+   "surgical_jordan": {
+    "selectivity_ratio": 2722.0,
+    "kg_collateral": 0.0,
+    "dense_collateral": 0.0721,
+    "firing_jaccard": 0.014,
+    "parent_recall_hole": 0.68
+   },
+   "regime_router_map": {
+    "absorption_mean_selectivity": 1452.47,
+    "absorption_mean_firing_jaccard": 0.0141,
+    "co_firing_mean_selectivity": 2.377,
+    "co_firing_mean_firing_jaccard": 0.8776
+   },
+   "member_labeling_agreement": 0.7303,
+   "member_labeling_gap": 0.6344
+  },
+  "dictionaries": {
+   "65k": {
+    "layer": 12,
+    "width": "65k",
+    "sae_id": "layer_12/width_65k/average_l0_72",
+    "avg_l0": 72,
+    "expect_dsae": 65536,
+    "d_sae": 65536,
+    "gating": {
+     "pass": true,
+     "cosine": 0.9280143976211548,
+     "L0": 70.796875,
+     "align": 1.0,
+     "layer_idx": 13,
+     "expected_layer_idx": 13,
+     "spelling_cosine_descriptive": 0.9353140592575073,
+     "numeric_digit_cosine_descriptive": 0.8761566877365112,
+     "avg_l0": 72,
+     "gate_concept": "taxonomic (global SAE/layer mapping check)",
+     "fvu_by_idx": {
+      "11": 0.3715206939290231,
+      "12": 0.2783902326851278,
+      "13": 0.17014060046184715,
+      "14": 0.3339469267840578
+     },
+     "delta_cosine_vs_16k": 0.009114397621154735
+    },
+    "reduced": false
+   }
+  },
+  "replication_tables": {},
+  "router_transfer": {},
+  "per_dictionary_concept_results": {},
+  "verdict": {}
+ },
+ "datasets": [
+  {
+   "dataset": "smoke",
+   "examples": [
+    {
+     "input": "smoke",
+     "output": "ok"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,700 @@
+{
+ "config": "16k_L12",
+ "layer": 12,
+ "width": "16k",
+ "sae_id": "layer_12/width_16k/average_l0_82",
+ "avg_l0": 82,
+ "fvu": 0.1926,
+ "hidden_idx": 13,
+ "n_candidates": 336,
+ "n_eligible": 110,
+ "n_structured_strict": 6,
+ "n_structured_relaxed": 31,
+ "pooled_strict": {
+  "n": 6,
+  "N": 110,
+  "fraction": 0.0545,
+  "wilson": [
+   0.0252,
+   0.1139
+  ]
+ },
+ "pooled_relaxed": {
+  "n": 31,
+  "N": 336,
+  "fraction": 0.0923,
+  "wilson": [
+   0.0658,
+   0.128
+  ]
+ },
+ "per_hierarchy_counts": {
+  "first_letter_spelling": {
+   "strict": "0/0",
+   "relaxed": "20/154"
+  },
+  "homograph_brand": {
+   "strict": "0/1",
+   "relaxed": "1/13"
+  },
+  "homograph_city": {
+   "strict": "0/18",
+   "relaxed": "0/23"
+  },
+  "homograph_given_name": {
+   "strict": "0/3",
+   "relaxed": "0/33"
+  },
+  "homograph_month": {
+   "strict": "0/12",
+   "relaxed": "0/12"
+  },
+  "safety_ethnicity_identity": {
+   "strict": "0/10",
+   "relaxed": "0/11"
+  },
+  "safety_named_entity_safety": {
+   "strict": "3/5",
+   "relaxed": "6/26"
+  },
+  "safety_nationality": {
+   "strict": "2/31",
+   "relaxed": "2/31"
+  },
+  "safety_religion": {
+   "strict": "0/10",
+   "relaxed": "0/12"
+  },
+  "taxonomic_country": {
+   "strict": "1/20",
+   "relaxed": "2/21"
+  }
+ },
+ "coverage_table": [
+  {
+   "hierarchy": "first_letter_spelling",
+   "gate": "strict",
+   "N": 0,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.0,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "first_letter_spelling",
+   "gate": "relaxed",
+   "N": 154,
+   "n_structured": 20,
+   "fraction": 0.1299,
+   "wilson_lo": 0.0857,
+   "wilson_hi": 0.1921,
+   "boot_lo": 0.0779,
+   "boot_hi": 0.1883
+  },
+  {
+   "hierarchy": "homograph_brand",
+   "gate": "strict",
+   "N": 1,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.7935,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "homograph_brand",
+   "gate": "relaxed",
+   "N": 13,
+   "n_structured": 1,
+   "fraction": 0.0769,
+   "wilson_lo": 0.0137,
+   "wilson_hi": 0.3331,
+   "boot_lo": 0.0,
+   "boot_hi": 0.2308
+  },
+  {
+   "hierarchy": "homograph_city",
+   "gate": "strict",
+   "N": 18,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.1759,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "homograph_city",
+   "gate": "relaxed",
+   "N": 23,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.1431,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "homograph_given_name",
+   "gate": "strict",
+   "N": 3,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.5615,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "homograph_given_name",
+   "gate": "relaxed",
+   "N": 33,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.1043,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "homograph_month",
+   "gate": "strict",
+   "N": 12,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.2425,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "homograph_month",
+   "gate": "relaxed",
+   "N": 12,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.2425,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "safety_ethnicity_identity",
+   "gate": "strict",
+   "N": 10,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.2775,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "safety_ethnicity_identity",
+   "gate": "relaxed",
+   "N": 11,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.2588,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "safety_named_entity_safety",
+   "gate": "strict",
+   "N": 5,
+   "n_structured": 3,
+   "fraction": 0.6,
+   "wilson_lo": 0.2307,
+   "wilson_hi": 0.8824,
+   "boot_lo": 0.2,
+   "boot_hi": 1.0
+  },
+  {
+   "hierarchy": "safety_named_entity_safety",
+   "gate": "relaxed",
+   "N": 26,
+   "n_structured": 6,
+   "fraction": 0.2308,
+   "wilson_lo": 0.1103,
+   "wilson_hi": 0.4205,
+   "boot_lo": 0.0769,
+   "boot_hi": 0.3846
+  },
+  {
+   "hierarchy": "safety_nationality",
+   "gate": "strict",
+   "N": 31,
+   "n_structured": 2,
+   "fraction": 0.0645,
+   "wilson_lo": 0.0179,
+   "wilson_hi": 0.2072,
+   "boot_lo": 0.0,
+   "boot_hi": 0.1613
+  },
+  {
+   "hierarchy": "safety_nationality",
+   "gate": "relaxed",
+   "N": 31,
+   "n_structured": 2,
+   "fraction": 0.0645,
+   "wilson_lo": 0.0179,
+   "wilson_hi": 0.2072,
+   "boot_lo": 0.0,
+   "boot_hi": 0.1613
+  },
+  {
+   "hierarchy": "safety_religion",
+   "gate": "strict",
+   "N": 10,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.2775,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "safety_religion",
+   "gate": "relaxed",
+   "N": 12,
+   "n_structured": 0,
+   "fraction": 0.0,
+   "wilson_lo": 0.0,
+   "wilson_hi": 0.2425,
+   "boot_lo": 0.0,
+   "boot_hi": 0.0
+  },
+  {
+   "hierarchy": "taxonomic_country",
+   "gate": "strict",
+   "N": 20,
+   "n_structured": 1,
+   "fraction": 0.05,
+   "wilson_lo": 0.0089,
+   "wilson_hi": 0.2361,
+   "boot_lo": 0.0,
+   "boot_hi": 0.15
+  },
+  {
+   "hierarchy": "taxonomic_country",
+   "gate": "relaxed",
+   "N": 21,
+   "n_structured": 2,
+   "fraction": 0.0952,
+   "wilson_lo": 0.0265,
+   "wilson_hi": 0.2891,
+   "boot_lo": 0.0,
+   "boot_hi": 0.2381
+  },
+  {
+   "hierarchy": "POOLED",
+   "gate": "strict",
+   "N": 110,
+   "n_structured": 6,
+   "fraction": 0.0545,
+   "wilson_lo": 0.0252,
+   "wilson_hi": 0.1139,
+   "boot_lo": 0.0182,
+   "boot_hi": 0.1
+  },
+  {
+   "hierarchy": "POOLED",
+   "gate": "relaxed",
+   "N": 336,
+   "n_structured": 31,
+   "fraction": 0.0923,
+   "wilson_lo": 0.0658,
+   "wilson_hi": 0.128,
+   "boot_lo": 0.0625,
+   "boot_hi": 0.125
+  }
+ ],
+ "oracle_agreement": {
+  "per_hierarchy": {
+   "first_letter_spelling": {
+    "n": 133,
+    "acc": 0.5188,
+    "kappa": 0.1572
+   },
+   "homograph_brand": {
+    "n": 13,
+    "acc": 0.4615,
+    "kappa": 0.099
+   },
+   "homograph_city": {
+    "n": 23,
+    "acc": 0.4783,
+    "kappa": 0.0
+   },
+   "homograph_given_name": {
+    "n": 33,
+    "acc": 0.4848,
+    "kappa": 0.0
+   },
+   "homograph_month": {
+    "n": 12,
+    "acc": 0.0833,
+    "kappa": -0.0
+   },
+   "safety_ethnicity_identity": {
+    "n": 11,
+    "acc": 0.1818,
+    "kappa": 0.0
+   },
+   "safety_named_entity_safety": {
+    "n": 26,
+    "acc": 0.4615,
+    "kappa": 0.1078
+   },
+   "safety_nationality": {
+    "n": 31,
+    "acc": 0.2581,
+    "kappa": 0.0326
+   },
+   "safety_religion": {
+    "n": 12,
+    "acc": 0.0833,
+    "kappa": -0.0
+   },
+   "taxonomic_country": {
+    "n": 21,
+    "acc": 0.2857,
+    "kappa": -0.0606
+   }
+  },
+  "lexical_pooled": {
+   "n": 294,
+   "acc": 0.4286,
+   "kappa": 0.0785
+  },
+  "structured_corroboration": {
+   "all_structured": {
+    "n": 31,
+    "n_corroborated": 27,
+    "frac": 0.871
+   },
+   "lexical_structured": {
+    "n": 29,
+    "n_corroborated": 26,
+    "frac": 0.8966
+   },
+   "taxonomic_structured": {
+    "n": 2,
+    "n_corroborated": 1,
+    "frac": 0.5
+   },
+   "structured_tokens": [
+    {
+     "token": "long",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.2587,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "little",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.0327,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "light",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.3302,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "left",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.2689,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "outside",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.1687,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "online",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.0691,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "open",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": -0.0212,
+     "oracle_corroborates": false
+    },
+    {
+     "token": "overall",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.0485,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "our",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.1971,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "own",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.2395,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "only",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.0334,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "treatment",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.0298,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "The",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.1299,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "that",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.1057,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "think",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.1922,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "its",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.0405,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "invention",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.0768,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "don",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.1869,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "does",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": -0.0024,
+     "oracle_corroborates": false
+    },
+    {
+     "token": "decision",
+     "hierarchy": "first_letter_spelling",
+     "oracle_decoder_cos": 0.227,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "Georgia",
+     "hierarchy": "taxonomic_country",
+     "oracle_decoder_cos": 0.0121,
+     "oracle_corroborates": false
+    },
+    {
+     "token": "Jordan",
+     "hierarchy": "taxonomic_country",
+     "oracle_decoder_cos": 0.0593,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "Amazon",
+     "hierarchy": "homograph_brand",
+     "oracle_decoder_cos": 0.254,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "British",
+     "hierarchy": "safety_nationality",
+     "oracle_decoder_cos": 0.1184,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "Greek",
+     "hierarchy": "safety_nationality",
+     "oracle_decoder_cos": 0.037,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "Amazon",
+     "hierarchy": "safety_named_entity_safety",
+     "oracle_decoder_cos": 0.1189,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "Bell",
+     "hierarchy": "safety_named_entity_safety",
+     "oracle_decoder_cos": 0.0708,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "Bush",
+     "hierarchy": "safety_named_entity_safety",
+     "oracle_decoder_cos": 0.035,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "West",
+     "hierarchy": "safety_named_entity_safety",
+     "oracle_decoder_cos": 0.1399,
+     "oracle_corroborates": true
+    },
+    {
+     "token": "Hunt",
+     "hierarchy": "safety_named_entity_safety",
+     "oracle_decoder_cos": 0.0035,
+     "oracle_corroborates": false
+    },
+    {
+     "token": "Cook",
+     "hierarchy": "safety_named_entity_safety",
+     "oracle_decoder_cos": 0.0343,
+     "oracle_corroborates": true
+    }
+   ]
+  },
+  "note_on_full_agreement": "per-hierarchy acc/kappa are computed over ALL candidates with an absorber (mostly non-structured negatives), so they are diluted; the load-bearing quantity is structured_corroboration.",
+  "taxonomic": {
+   "n": 21,
+   "acc": 0.2857,
+   "kappa": -0.0606,
+   "caveat": "decoder-projection oracle is concept-tuned and UNDER-fires for the taxonomic 'country' direction (Georgia's decoder is near-orthogonal to the generic country direction) -> low agreement is EXPECTED, not a bug; the structured flag stands on the label-free firing signature."
+  }
+ },
+ "georgia_selfcheck": {
+  "known_16009": {
+   "absorber_latent": 16009,
+   "recall_hole": 0.7333,
+   "firing_jaccard": 0.0126,
+   "precision": 0.974,
+   "hole_coverage_gain": 0.7333,
+   "gain_ci_lo": 0.66,
+   "gain_ci_hi": 0.8,
+   "oracle_decoder_cos": -0.0235,
+   "absorption_structured_strict": true,
+   "predict_absorption": "ABSORPTION_STRUCTURED"
+  },
+  "discovered": {
+   "absorber_latent": 4697,
+   "absorption_structured_strict": true,
+   "predict_absorption": "ABSORPTION_STRUCTURED"
+  },
+  "passed": true
+ },
+ "positive_control_reproduction": [
+  {
+   "config": "16k_L12",
+   "token": "Georgia",
+   "hierarchy": "taxonomic_country",
+   "predict": "ABSORPTION_STRUCTURED",
+   "structured_strict": true,
+   "structured_relaxed": true,
+   "data_derived_absorber": 4697,
+   "parent_latent": 3792,
+   "expected_absorber_16kL12": 4697,
+   "matches_expected": true,
+   "recall_hole": 0.7333,
+   "firing_jaccard": 0.0218,
+   "precision": 0.8021,
+   "hole_coverage_gain": 0.7333,
+   "oracle_corroborates": false,
+   "note": "16k/L12 reproduction target"
+  },
+  {
+   "config": "16k_L12",
+   "token": "Amazon",
+   "hierarchy": "homograph_brand",
+   "predict": "DESCRIPTIVE_ONLY",
+   "structured_strict": false,
+   "structured_relaxed": true,
+   "data_derived_absorber": 6846,
+   "parent_latent": 2768,
+   "expected_absorber_16kL12": null,
+   "matches_expected": null,
+   "recall_hole": 0.5556,
+   "firing_jaccard": 0.0886,
+   "precision": 0.96,
+   "hole_coverage_gain": 0.5556,
+   "oracle_corroborates": true,
+   "note": "dictionary/layer-specific reproduction is reported honestly; absorber ids are dict-specific and need NOT match across configs"
+  },
+  {
+   "config": "16k_L12",
+   "token": "Amazon",
+   "hierarchy": "safety_named_entity_safety",
+   "predict": "ABSORPTION_STRUCTURED",
+   "structured_strict": true,
+   "structured_relaxed": true,
+   "data_derived_absorber": 6846,
+   "parent_latent": 2768,
+   "expected_absorber_16kL12": 6846,
+   "matches_expected": true,
+   "recall_hole": 0.62,
+   "firing_jaccard": 0.0428,
+   "precision": 0.9934,
+   "hole_coverage_gain": 0.62,
+   "oracle_corroborates": true,
+   "note": "16k/L12 reproduction target"
+  },
+  {
+   "config": "16k_L12",
+   "token": "Bush",
+   "hierarchy": "safety_named_entity_safety",
+   "predict": "ABSORPTION_STRUCTURED",
+   "structured_strict": true,
+   "structured_relaxed": true,
+   "data_derived_absorber": 9751,
+   "parent_latent": 2768,
+   "expected_absorber_16kL12": 9751,
+   "matches_expected": true,
+   "recall_hole": 0.7933,
+   "firing_jaccard": 0.0252,
+   "precision": 0.9241,
+   "hole_coverage_gain": 0.7667,
+   "oracle_corroborates": true,
+   "note": "16k/L12 reproduction target"
+  },
+  {
+   "config": "16k_L12",
+   "token": "Cook",
+   "hierarchy": "safety_named_entity_safety",
+   "predict": "ABSORPTION_STRUCTURED",
+   "structured_strict": true,
+   "structured_relaxed": true,
+   "data_derived_absorber": 15631,
+   "parent_latent": 2768,
+   "expected_absorber_16kL12": 15631,
+   "matches_expected": true,
+   "recall_hole": 0.72,
+   "firing_jaccard": 0.0525,
+   "precision": 0.848,
+   "hole_coverage_gain": 0.7,
+   "oracle_corroborates": true,
+   "note": "16k/L12 reproduction target"
+  }
+ ]
+}

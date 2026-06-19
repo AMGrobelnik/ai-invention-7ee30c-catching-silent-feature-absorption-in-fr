@@ -1,0 +1,20 @@
+14:40:33|INFO   |RLIMIT_AS set to 24.0 GB
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+14:42:00|INFO   |loading tokenizer unsloth/gemma-2-2b
+14:42:02|INFO   |tokenizer ok, vocab_size=256000
+14:42:03|INFO   |get_alpha_tokens: 169016 alpha tokens; 96899 slot-eligible word-initial
+14:42:03|INFO   |letter 'l': 3317 slot-eligible word-types
+14:42:03|INFO   |letter 'o': 2350 slot-eligible word-types
+14:42:03|INFO   |letter 't': 4837 slot-eligible word-types
+14:42:03|INFO   |letter 'i': 3711 slot-eligible word-types
+14:42:03|INFO   |letter 'd': 5429 slot-eligible word-types
+14:42:03|INFO   |corpus: loading cache corpus_n20000_mc20000_dilot.pkl
+14:42:04|INFO   |rows: pairs+corpus total=17180 (corpus=12500)
+14:42:04|INFO   |mechanical validation: {"L_content_flip": {"checked": 490, "ok": 490, "violations": 0}, "L_surface_flip": {"checked": 170, "ok": 170, "violations": 0}, "O_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "O_surface_flip": {"checked": 105, "ok": 105, "violations": 0}, "T_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "T_surface_flip": {"checked": 95, "ok": 95, "violations": 0}, "I_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "I_surface_flip": {"checked": 110, "ok": 110, "violations": 0}, "D_content_flip": {"checked": 315, "ok": 315, "violations": 0}, "D_surface_flip": {"checked": 110, "ok": 110, "violations": 0}, "corpus_context": {"checked": 12500, "ok": 12500, "violations": 0}} | dropped 0 pairs
+14:42:04|INFO   |judging 1320 pairs (model=google/gemini-3.1-flash-lite, budget=$3.0)
+14:42:06|INFO   |judge pricing google/gemini-3.1-flash-lite: in=$0.250/M out=$1.500/M
+14:45:06|INFO   |judge: secondary audit done (no drops; deterministic is authoritative); cost $0.1236
+14:45:06|INFO   |WROTE full_data_out.json: 17180 examples across 5 per-letter datasets (['first_letter_spelling_L', 'first_letter_spelling_O', 'first_letter_spelling_T', 'first_letter_spelling_I', 'first_letter_spelling_D']), 15.5 MB
+14:45:06|INFO   |per-letter pairs: {"l": {"content_flip_rows": 980, "content_flip_pairs": 490, "surface_flip_rows": 340, "surface_flip_pairs": 170, "n_on_words": 70}, "o": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 210, "surface_flip_pairs": 105, "n_on_words": 45}, "t": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 190, "surface_flip_pairs": 95, "n_on_words": 45}, "i": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 220, "surface_flip_pairs": 110, "n_on_words": 45}, "d": {"content_flip_rows": 630, "content_flip_pairs": 315, "surface_flip_rows": 220, "surface_flip_pairs": 110, "n_on_words": 45}}
+14:45:06|INFO   |corpus contexts: {'I': 2500, 'D': 2500, 'O': 2500, 'T': 2500, 'L': 2500}
+DONE examples=17180 size_mb=15.5 judge_usd=0.1236

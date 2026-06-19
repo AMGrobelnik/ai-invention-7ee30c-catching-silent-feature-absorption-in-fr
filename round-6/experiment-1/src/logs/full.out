@@ -1,0 +1,124 @@
+06:21:25|INFO   |  37.3s torch 2.6.0+cu124 cuda=True device=cuda
+06:21:25|INFO   |  37.3s loading SAE from /root/.cache/huggingface/hub/models--google--gemma-scope-2b-pt-res/snapshots/fd571b47c1c64851e9b1989792367b9babb4af63/layer_12/width_16k/average_l0_82/params.npz
+06:21:26|INFO   |  37.9s SAE loaded d_sae=16384 d_model=2304
+06:23:38|INFO   | 169.9s loading tokenizer+model google/gemma-2-2b
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+06:23:51|INFO   | 182.9s model loaded (google/gemma-2-2b) d_model=2304 n_layers=26 vocab=256000
+06:23:53|INFO   | 185.3s FVU by hidden_states idx: 12:0.284, 13:0.193, 14:0.339 -> selected 13
+06:23:54|INFO   |    encoded 16/64 (0s)
+06:23:54|INFO   | 186.2s encoded 64 rows in 1s | dropped=0 | align=1.000 | nnz/row=131
+06:23:54|INFO   | 186.3s GATING cosine=0.9189 L0=87.9 layer_idx=13 Rnorm=478.6
+06:23:55|INFO   | 187.5s second judge resolved -> openai/gpt-4o-mini
+06:23:55|INFO   |
+ 187.5s ===== SETUP taxonomic / Georgia (absorber 16009, regime=absorption) =====
+06:23:56|INFO   | 188.0s taxonomic encoding 10748 rows (10200 corpus + 548 cp)
+06:23:56|INFO   |    encoded 16/10748 (0s)
+06:24:11|INFO   |    encoded 976/10748 (15s)
+06:24:28|INFO   |    encoded 1936/10748 (32s)
+06:24:45|INFO   |    encoded 2896/10748 (49s)
+06:25:01|INFO   |    encoded 3856/10748 (65s)
+06:25:14|INFO   |    encoded 4816/10748 (78s)
+06:25:27|INFO   |    encoded 5776/10748 (91s)
+06:25:41|INFO   |    encoded 6736/10748 (105s)
+06:25:54|INFO   |    encoded 7696/10748 (118s)
+06:26:08|INFO   |    encoded 8656/10748 (132s)
+06:26:21|INFO   |    encoded 9616/10748 (145s)
+06:26:29|INFO   |    encoded 10576/10748 (153s)
+06:26:30|INFO   | 341.8s encoded 10748 rows in 154s | dropped=6 | align=1.000 | nnz/row=116
+06:26:38|INFO   | 350.2s taxonomic probe train_auc=1.000 cos(probe,dmu)=0.467
+06:26:40|INFO   | 351.8s u_sub: n_pos=150 n_sib=2850 auc=1.000 cos_whole=-0.188 underpowered=False
+06:26:40|INFO   |
+ 352.0s ##### UNLEARN CASE taxonomic_georgia (absorber=16009, regime=absorption) #####
+06:26:56|INFO   | 367.8s FORGET match: max_kg=0.0647 max_sub=7.1249 max_whl=13.9627 target=0.0517 s_kg=3.613 s_sub=0.523 s_whl=0.544
+06:27:00|INFO   | 371.6s M7 unit forget: max_unit=0.2724 s_unit=2.153 unit_members=[3792, 4697, 8442, 9339, 16009]
+06:27:12|INFO   | 384.0s retain collateral KL (n=150): KG=0.00003 SUB=0.07814 WHOLE=0.10219 localizes_at_matched(SUB<WHOLE)=True KGvsSUB_excl0=True
+06:27:51|INFO   | 422.9s curve-dominance KG-vs-SUB=1.000 KG-vs-WHOLE=1.000 | u_sub localizes better than whole (curve frac)=0.89 at_matched=True
+06:27:51|INFO   | 423.0s gen prompts: forget=18 retain=18 unrel=26
+06:29:17|INFO   | 508.7s [PRIMARY anthropic/claude-haiku-4.5] issuing 310 judge calls (SPENT=$0.0000)
+06:30:07|INFO   | 559.4s [PRIMARY] done: model_calls=310 SPENT=$0.1561
+06:30:07|INFO   | 559.4s [SECOND openai/gpt-4o-mini] issuing 114 subsample judge calls
+06:30:23|INFO   | 575.2s FORK taxonomic_georgia: KG_BEATS_USUB (basis=llm_judge; primary_excl0=True favors_kg=True; second=True; localizes_better=True)
+06:30:27|INFO   | 578.8s HUMAN-PROXY taxonomic_georgia: kg_preserve=1.00 whole_corrupt=0.75 passed=True
+06:30:27|INFO   | 578.9s $0.1627 spent after case taxonomic_georgia
+06:30:27|INFO   |
+ 579.0s ===== SETUP first_letter / large =====
+06:30:27|INFO   | 579.4s first-letter encoding 3920 rows
+06:30:27|INFO   |    encoded 16/3920 (0s)
+06:30:34|INFO   |    encoded 976/3920 (6s)
+06:30:40|INFO   |    encoded 1936/3920 (12s)
+06:30:46|INFO   |    encoded 2896/3920 (19s)
+06:30:52|INFO   |    encoded 3856/3920 (24s)
+06:30:52|INFO   | 603.9s encoded 3920 rows in 25s | dropped=0 | align=0.998 | nnz/row=88
+06:30:57|INFO   | 609.0s first-letter probe train_auc=1.000
+06:31:00|INFO   | 612.3s u_sub: n_pos=21 n_sib=1585 auc=1.000 cos_whole=-0.060
+06:31:01|INFO   |
+ 612.5s ##### UNLEARN CASE first_letter_large (absorber=8463, regime=absorption) #####
+06:31:05|INFO   | 617.4s FORGET match: max_kg=0.4495 max_sub=7.7282 max_whl=0.9758 target=0.3596 s_kg=3.703 s_sub=0.649 s_whl=5.117
+06:31:07|INFO   | 618.6s M7 unit forget: max_unit=0.4933 s_unit=3.572 unit_members=[205, 607, 1391, 1467, 1549, 1566, 2416, 2759, 3069, 3353, 3858, 4736, 7544, 8463, 15261]
+06:31:17|INFO   | 629.0s retain collateral KL (n=150): KG=0.00005 SUB=0.02104 WHOLE=2.59354 localizes_at_matched(SUB<WHOLE)=True KGvsSUB_excl0=True
+06:31:36|INFO   | 648.5s curve-dominance KG-vs-SUB=1.000 KG-vs-WHOLE=1.000 | u_sub localizes better than whole (curve frac)=1.00 at_matched=True
+06:31:36|INFO   | 648.5s gen prompts: forget=12 retain=18 unrel=18
+06:32:41|INFO   | 713.4s [PRIMARY anthropic/claude-haiku-4.5] issuing 240 judge calls (SPENT=$0.1627)
+06:33:23|INFO   | 755.3s [PRIMARY] done: model_calls=550 SPENT=$0.2802
+06:33:23|INFO   | 755.3s [SECOND openai/gpt-4o-mini] issuing 108 subsample judge calls
+06:33:39|INFO   | 770.7s FORK first_letter_large: KG_BEATS_USUB (basis=llm_judge; primary_excl0=True favors_kg=True; second=True; localizes_better=True)
+06:33:42|INFO   | 774.4s HUMAN-PROXY first_letter_large: kg_preserve=1.00 whole_corrupt=1.00 passed=True
+06:33:42|INFO   | 774.4s $0.2862 spent after case first_letter_large
+06:33:43|INFO   |
+ 774.5s ===== SETUP taxonomic / United States (absorber 846, regime=co-firing) =====
+06:33:43|INFO   | 775.0s taxonomic encoding 10748 rows (10200 corpus + 548 cp)
+06:33:43|INFO   |    encoded 16/10748 (0s)
+06:33:58|INFO   |    encoded 976/10748 (15s)
+06:34:15|INFO   |    encoded 1936/10748 (32s)
+06:34:32|INFO   |    encoded 2896/10748 (49s)
+06:34:48|INFO   |    encoded 3856/10748 (65s)
+06:35:01|INFO   |    encoded 4816/10748 (78s)
+06:35:15|INFO   |    encoded 5776/10748 (92s)
+06:35:28|INFO   |    encoded 6736/10748 (105s)
+06:35:41|INFO   |    encoded 7696/10748 (118s)
+06:35:54|INFO   |    encoded 8656/10748 (131s)
+06:36:07|INFO   |    encoded 9616/10748 (144s)
+06:36:16|INFO   |    encoded 10576/10748 (153s)
+06:36:17|INFO   | 928.5s encoded 10748 rows in 154s | dropped=6 | align=1.000 | nnz/row=116
+06:36:23|INFO   | 935.2s taxonomic probe train_auc=1.000 cos(probe,dmu)=0.467
+06:36:26|INFO   | 938.3s u_sub: n_pos=150 n_sib=2850 auc=1.000 cos_whole=-0.399 underpowered=False
+06:36:27|INFO   |
+ 938.6s ##### UNLEARN CASE taxonomic_us (absorber=846, regime=co-firing) #####
+06:36:42|INFO   | 954.3s FORGET match: max_kg=0.0348 max_sub=11.0948 max_whl=17.0050 target=0.0278 s_kg=3.508 s_sub=0.153 s_whl=0.350
+06:36:52|INFO   | 964.1s retain collateral KL (n=150): KG=0.00011 SUB=0.01831 WHOLE=0.03140 localizes_at_matched(SUB<WHOLE)=True KGvsSUB_excl0=True
+06:37:32|INFO   |1003.8s curve-dominance KG-vs-SUB=1.000 KG-vs-WHOLE=1.000 | u_sub localizes better than whole (curve frac)=0.00 at_matched=True
+06:37:32|INFO   |1003.8s gen prompts: forget=18 retain=18 unrel=26
+06:38:42|INFO   |1074.4s [PRIMARY anthropic/claude-haiku-4.5] issuing 248 judge calls (SPENT=$0.2862)
+06:39:35|INFO   |1127.0s [PRIMARY] done: model_calls=798 SPENT=$0.4107
+06:39:35|INFO   |1127.0s [SECOND openai/gpt-4o-mini] issuing 114 subsample judge calls
+06:39:51|INFO   |1143.3s FORK taxonomic_us: KG_BEATS_USUB (basis=llm_judge; primary_excl0=True favors_kg=True; second=True; localizes_better=False)
+06:39:51|INFO   |1143.4s $0.4174 spent after case taxonomic_us
+06:39:52|INFO   |
+1143.6s ===== SETUP toxicity / insult (co-firing, KG predicted to LOSE) =====
+06:39:52|INFO   |1144.2s toxicity encoding 4800 sentences (whole-sentence pooling)
+06:39:53|INFO   |    encoded 16/4800 (0s)
+06:40:12|INFO   |    encoded 976/4800 (19s)
+06:40:31|INFO   |    encoded 1936/4800 (39s)
+06:40:52|INFO   |    encoded 2896/4800 (60s)
+06:41:12|INFO   |    encoded 3856/4800 (80s)
+06:41:33|INFO   |1245.1s encoded 4800 rows in 101s | dropped=0 | align=0.000 | nnz/row=1992
+06:42:32|INFO   |1304.4s toxicity probe train_auc=1.000
+06:42:44|INFO   |1316.0s toxicity insult latent=13367 AUC=0.741 parent=2291
+06:43:40|INFO   |1372.4s u_sub(insult): n_pos=554 n_sib=570 auc=1.000 cos_whole=-0.188
+06:43:41|INFO   |
+1372.7s ##### UNLEARN CASE toxicity_insult (absorber=13367, regime=co-firing) #####
+06:43:56|INFO   |1388.5s FORGET match: max_kg=0.0545 max_sub=12.5837 max_whl=10.5518 target=0.0436 s_kg=3.371 s_sub=0.158 s_whl=0.283
+06:44:06|INFO   |1397.8s retain collateral KL (n=150): KG=0.01227 SUB=0.01390 WHOLE=0.02333 localizes_at_matched(SUB<WHOLE)=True KGvsSUB_excl0=False
+06:44:43|INFO   |1435.1s curve-dominance KG-vs-SUB=1.000 KG-vs-WHOLE=1.000 | u_sub localizes better than whole (curve frac)=0.00 at_matched=True
+06:44:43|INFO   |1435.1s gen prompts: forget=18 retain=18 unrel=18
+06:45:49|INFO   |1500.9s [PRIMARY anthropic/claude-haiku-4.5] issuing 216 judge calls (SPENT=$0.4174)
+06:46:24|INFO   |1535.8s [PRIMARY] done: model_calls=1014 SPENT=$0.5236
+06:46:24|INFO   |1535.8s [SECOND openai/gpt-4o-mini] issuing 108 subsample judge calls
+06:46:39|INFO   |1550.8s FORK toxicity_insult: KG_BEATS_USUB (basis=llm_judge; primary_excl0=True favors_kg=True; second=True; localizes_better=False)
+06:46:39|INFO   |1550.9s $0.5296 spent after case toxicity_insult
+06:46:39|INFO   |1551.2s SAVED /ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_6/gen_art/gen_art_experiment_1/method_out.json
+06:46:39|INFO   |1551.2s SUMMARY: n_cases=4 BEATS=2 MATCHES=0 LOSES=0 gate=True judge_spent=$0.5296
+06:46:39|INFO   |  taxonomic_georgia: KG_BEATS_USUB | localizes_better=True | dom_KGvsSUB=1.00 | 2nd=openai/gpt-4o-mini
+06:46:39|INFO   |  first_letter_large: KG_BEATS_USUB | localizes_better=True | dom_KGvsSUB=1.00 | 2nd=openai/gpt-4o-mini
+06:46:39|INFO   |  taxonomic_us: KG_BEATS_USUB | localizes_better=False | dom_KGvsSUB=1.00 | 2nd=openai/gpt-4o-mini
+06:46:39|INFO   |  toxicity_insult: KG_BEATS_USUB | localizes_better=False | dom_KGvsSUB=1.00 | 2nd=openai/gpt-4o-mini

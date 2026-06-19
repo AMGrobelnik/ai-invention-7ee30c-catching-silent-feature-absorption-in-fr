@@ -1,0 +1,767 @@
+{
+  "metadata": {
+    "method_name": "A-Priori Firing-Structure Router (M4)",
+    "description": "The SAE-latent firing-Jaccard between per-sub-context detectors and the general/parent latent predicts, A PRIORI (one cheap forward pass, no labels), whether label-free cluster-level grouping (CCRG) h...",
+    "baselines": {
+      "a": "best single raw SAE latent (highest train AUC, content-responsive)",
+      "h": "supervised SAE standardized diff-of-means attribution pool (top-k, AxBench/SCR-TPP proxy)",
+      "d": "non-SAE standardized diff-of-means probe on the raw layer-12 residual",
+      "unit": "label-free CCRG K-track-lite: parent anchor + firing-disjoint hole-covering absorbers"
+    },
+    "sae_release": "google/gemma-scope-2b-pt-res",
+    "sae_id": "layer_12/width_16k/average_l0_82/params.npz",
+    "hook": "blocks.12.hook_resid_post",
+    "model": "unsloth/gemma-2-2b",
+    "seed": 1234,
+    "scale": "full",
+    "n_concepts": 15,
+    "gating": {
+      "recon_cos_mean": 0.9268379807472229,
+      "recon_cos_min": 0.4444240629673004,
+      "l0_mean": 170.364990234375,
+      "l0_median": 70.0
+    },
+    "gpu": "NVIDIA RTX 2000 Ada Generation",
+    "firing_convention": "encode>0 (JumpReLU)",
+    "prediction_vs_outcome_table": [
+      {
+        "concept": "spelling_L",
+        "granularity": "token",
+        "established_or_prospective": "established",
+        "parent_latent": 205,
+        "parent_pos_firing": 0.358,
+        "jaccard_median": 0.016967126193001062,
+        "jaccard_min": 0.0,
+        "jaccard_max": 0.1825063078216989,
+        "jaccard_median_meanact": 0.016967126193001062,
+        "recall_hole_max": 1.0,
+        "predicted_regime": "absorption",
+        "ground_truth_regime": "absorption",
+        "outcome": {
+          "s_star": "concept_general",
+          "k": 8,
+          "unit_members": [
+            205,
+            4736,
+            3069
+          ],
+          "h_members": [
+            205,
+            4736,
+            2425
+          ],
+          "a_latent": 205,
+          "auc_unit": 0.8553719008264463,
+          "auc_a": 0.8484848484848485,
+          "auc_h": 0.8714416896235079,
+          "auc_d": 0.8714416896235079,
+          "delta": 0.00688705234159781,
+          "delta_ci": [
+            -0.018365472910927383,
+            0.04269972451790649
+          ],
+          "delta_vs_h": -0.016069788797061557,
+          "delta_vs_h_ci": [
+            -0.05096418732782371,
+            0.0
+          ],
+          "n_test_pos": 33,
+          "n_test_neg": 33
+        },
+        "ccrg_helps": true,
+        "ccrg_helps_significant": false,
+        "hit": true
+      },
+      {
+        "concept": "spelling_O",
+        "granularity": "token",
+        "established_or_prospective": "established",
+        "parent_latent": 12334,
+        "parent_pos_firing": 0.3928,
+        "jaccard_median": 0.038728897715988087,
+        "jaccard_min": 0.0,
+        "jaccard_max": 0.1334012219959267,
+        "jaccard_median_meanact": 0.041627246925260174,
+        "recall_hole_max": 1.0,
+        "predicted_regime": "absorption",
+        "ground_truth_regime": "absorption",
+        "outcome": {
+          "s_star": "concept_general",
+          "k": 8,
+          "unit_members": [
+            12334,
+            5767,
+            9488
+          ],
+          "h_members": [
+            12334,
+            9488,
+            12675
+          ],
+          "a_latent": 12334,
+          "auc_unit": 0.6833333333333333,
+          "auc_a": 0.6333333333333333,
+          "auc_h": 0.7333333333333333,
+          "auc_d": 0.9222222222222222,
+          "delta": 0.050000000000000044,
+          "delta_ci": [
+            0.0,
+            0.11666666666666659
+          ],
+          "delta_vs_h": -0.04999999999999993,
+          "delta_vs_h_ci": [
+            -0.14666666666666683,
+            0.046124999999999784
+          ],
+          "n_test_pos": 30,
+          "n_test_neg": 30
+        },
+        "ccrg_helps": true,
+        "ccrg_helps_significant": false,
+        "hit": true
+      },
+      {
+        "concept": "spelling_T",
+        "granularity": "token",
+        "established_or_prospective": "established",
+        "parent_latent": 6355,
+        "parent_pos_firing": 0.2672,
+        "jaccard_median": 0.0028653295128939827,
+        "jaccard_min": 0.0,
+        "jaccard_max": 0.11891117478510028,
+        "jaccard_median_meanact": 0.0028653295128939827,
+        "recall_hole_max": 1.0,
+        "predicted_regime": "absorption",
+        "ground_truth_regime": "absorption",
+        "outcome": {
+          "s_star": "concept_general",
+          "k": 7,
+          "unit_members": [
+            6355,
+            8925,
+            8938
+          ],
+          "h_members": [
+            6355,
+            8925,
+            10187
+          ],
+          "a_latent": 6355,
+          "auc_unit": 0.6890203813280736,
+          "auc_a": 0.6666666666666666,
+          "auc_h": 0.757396449704142,
+          "auc_d": 0.6390532544378698,
+          "delta": 0.02235371466140701,
+          "delta_ci": [
+            -0.03418803418803418,
+            0.08284023668639062
+          ],
+          "delta_vs_h": -0.06837606837606836,
+          "delta_vs_h_ci": [
+            -0.1646942800788952,
+            0.023668639053254448
+          ],
+          "n_test_pos": 39,
+          "n_test_neg": 39
+        },
+        "ccrg_helps": true,
+        "ccrg_helps_significant": false,
+        "hit": true
+      }
+    ],
+    "per_concept_firing_jaccard": [
+      {
+        "concept": "spelling_L",
+        "per_subcontext": [
+          {
+            "sub_context": "L",
+            "n_pos": 38,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 6745,
+            "detector_auc": 0.612218045112782,
+            "detector_meanact_latent": 6745,
+            "jaccard": 0.1825063078216989,
+            "jaccard_meanact": 0.1825063078216989,
+            "jaccard_ci": [
+              0.16103717383533897,
+              0.20469898022916455
+            ]
+          },
+          {
+            "sub_context": "LTD",
+            "n_pos": 58,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 4638,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 4638,
+            "jaccard": 0.06885593220338983,
+            "jaccard_meanact": 0.06885593220338983,
+            "jaccard_ci": [
+              0.05360592161486786,
+              0.08490667478190302
+            ]
+          },
+          {
+            "sub_context": "Lancaster",
+            "n_pos": 16,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 851,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 9340,
+            "jaccard": 0.05339265850945495,
+            "jaccard_meanact": 0.1997874601487779,
+            "jaccard_ci": [
+              0.0391304347826087,
+              0.0683090705487122
+            ]
+          }
+        ]
+      },
+      {
+        "concept": "spelling_O",
+        "per_subcontext": [
+          {
+            "sub_context": "O",
+            "n_pos": 35,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 433,
+            "detector_auc": 0.5,
+            "detector_meanact_latent": 201,
+            "jaccard": 0.006006006006006006,
+            "jaccard_meanact": 0.0,
+            "jaccard_ci": [
+              0.001964588342128247,
+              0.011011286837940143
+            ]
+          },
+          {
+            "sub_context": "OF",
+            "n_pos": 18,
+            "parent_recall": 0.1111111111111111,
+            "recall_hole": 0.8888888888888888,
+            "detector_latent": 7333,
+            "detector_auc": 0.6078189300411523,
+            "detector_meanact_latent": 7333,
+            "jaccard": 0.09312080536912752,
+            "jaccard_meanact": 0.09312080536912752,
+            "jaccard_ci": [
+              0.07691968225948809,
+              0.10978845483083362
+            ]
+          },
+          {
+            "sub_context": "ORM",
+            "n_pos": 18,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 10220,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 10220,
+            "jaccard": 0.06788247213779129,
+            "jaccard_meanact": 0.06788247213779129,
+            "jaccard_ci": [
+              0.05268357062869941,
+              0.08401022503066174
+            ]
+          }
+        ]
+      },
+      {
+        "concept": "spelling_T",
+        "per_subcontext": [
+          {
+            "sub_context": "T",
+            "n_pos": 24,
+            "parent_recall": 0.9583333333333334,
+            "recall_hole": 0.04166666666666663,
+            "detector_latent": 4438,
+            "detector_auc": 0.5416666666666666,
+            "detector_meanact_latent": 10756,
+            "jaccard": 0.005970149253731343,
+            "jaccard_meanact": 0.13043478260869565,
+            "jaccard_ci": [
+              0.0014576729007261045,
+              0.012289259127968803
+            ]
+          },
+          {
+            "sub_context": "Team",
+            "n_pos": 16,
+            "parent_recall": 1.0,
+            "recall_hole": 0.0,
+            "detector_latent": 13484,
+            "detector_auc": 0.6875,
+            "detector_meanact_latent": 13484,
+            "jaccard": 0.04723346828609987,
+            "jaccard_meanact": 0.04723346828609987,
+            "jaccard_ci": [
+              0.0329211338531514,
+              0.06342831215970962
+            ]
+          },
+          {
+            "sub_context": "That",
+            "n_pos": 17,
+            "parent_recall": 0.0,
+            "recall_hole": 1.0,
+            "detector_latent": 4608,
+            "detector_auc": 1.0,
+            "detector_meanact_latent": 4608,
+            "jaccard": 0.0,
+            "jaccard_meanact": 0.0,
+            "jaccard_ci": [
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    ],
+    "router": {
+      "primary_signal": "firing_jaccard_median",
+      "tau_star": 0.05,
+      "balanced_acc_at_tau_star": 0.9166666666666667,
+      "regime_separation": {
+        "max_absorption_j": 0.285488329909524,
+        "min_cofiring_j": 0.0564609952276085,
+        "mean_absorption_j": 0.0615130146351999,
+        "mean_cofiring_j": 0.4864383462729857
+      },
+      "tau_sweep": [
+        {
+          "tau": 0.05,
+          "balanced_acc": 0.9166666666666667
+        },
+        {
+          "tau": 0.060000000000000005,
+          "balanced_acc": 0.8333333333333334
+        },
+        {
+          "tau": 0.07,
+          "balanced_acc": 0.8333333333333334
+        }
+      ],
+      "loo_accuracy": 0.7333333333333333,
+      "loo_per_concept": [
+        {
+          "concept": "spelling_L",
+          "tau_fold": 0.05,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_O",
+          "tau_fold": 0.05,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        },
+        {
+          "concept": "spelling_T",
+          "tau_fold": 0.05,
+          "pred": "absorption",
+          "ground_truth": "absorption",
+          "hit": true
+        }
+      ],
+      "prospective": {
+        "out_of_sample_accuracy": 0.3333333333333333,
+        "table": [
+          {
+            "concept": "sentiment",
+            "jaccard_median": 0.49809885931558934,
+            "predicted_regime": "co_firing",
+            "ground_truth_regime": "co_firing",
+            "delta": 0.0,
+            "hit": true
+          },
+          {
+            "concept": "aspect_food",
+            "jaccard_median": 0.4660493827160494,
+            "predicted_regime": "co_firing",
+            "ground_truth_regime": "absorption",
+            "delta": 0.03388888888888886,
+            "hit": false
+          },
+          {
+            "concept": "aspect_service",
+            "jaccard_median": 0.3975346687211094,
+            "predicted_regime": "co_firing",
+            "ground_truth_regime": "absorption",
+            "delta": 0.07136000000000009,
+            "hit": false
+          }
+        ]
+      },
+      "strict_ci_router": {
+        "tau_star": 0.29,
+        "balanced_acc": 0.7,
+        "regime_separation": {
+          "max_absorption_j": 0.285488329909524,
+          "min_cofiring_j": 0.0028653295128939827,
+          "mean_absorption_j": 0.1468425256104997,
+          "mean_cofiring_j": 0.2994023114228114
+        }
+      },
+      "recall_hole_router": {
+        "tau_h": 0.7774337479718767,
+        "balanced_acc": 1.0,
+        "tau_sweep": [
+          {
+            "tau": 0.010816657652785278,
+            "balanced_acc": 0.5833333333333334
+          },
+          {
+            "tau": 0.03554624121146564,
+            "balanced_acc": 0.5833333333333334
+          },
+          {
+            "tau": 0.060275824770146015,
+            "balanced_acc": 0.5833333333333334
+          }
+        ]
+      },
+      "combined_jaccard_and_hole_router": {
+        "tau_j": 0.05,
+        "tau_h": 0.0,
+        "balanced_acc": 0.9166666666666667
+      }
+    },
+    "reproduction_check": {
+      "spelling_jaccard": {
+        "spelling_L": 0.016967126193001062,
+        "spelling_O": 0.038728897715988087,
+        "spelling_T": 0.0028653295128939827,
+        "spelling_I": 0.00819672131147541,
+        "spelling_D": 0.016831683168316833
+      },
+      "spelling_all_below_0_1": true,
+      "toxicity_jaccard": {
+        "threat": 0.6888017642734624,
+        "identity_attack": 0.1069620253164557,
+        "insult": 0.6888017642734624
+      },
+      "toxicity_reference": {
+        "threat": 0.4,
+        "identity_attack": 0.29,
+        "insult": 0.66
+      },
+      "toxicity_within_tol_0_10": false
+    },
+    "honest_notes": [
+      "PROSPECTIVE MISS aspect_food: predicted co_firing but ground-truth absorption (delta=+0.034).",
+      "PROSPECTIVE MISS aspect_service: predicted co_firing but ground-truth absorption (delta=+0.071).",
+      "OUTCOME = GENERAL concept classification (positives vs negatives), held-out test fold. PRIMARY ground-truth regime = SIGN of (auc_unit - auc_a): does the label-free CCRG unit beat the best single RAW ..."
+    ],
+    "established_concepts": [
+      "spelling_L",
+      "spelling_O",
+      "spelling_T"
+    ],
+    "prospective_concepts": [
+      "sentiment",
+      "aspect_food",
+      "aspect_service"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "m4_router_concepts",
+      "examples": [
+        {
+          "input": "Concept 'spelling_L' (token, established): parent latent 205, firing-Jaccard(detector,parent) median=0.0170. Route to absorption-repair (CCRG) or marginal attribution?",
+          "output": "absorption",
+          "predict_router": "absorption",
+          "metadata_concept": "spelling_L",
+          "metadata_kind": "established",
+          "metadata_granularity": "token",
+          "metadata_jaccard_median": 0.016967126193001062,
+          "metadata_jaccard_min": 0.0,
+          "metadata_jaccard_max": 0.1825063078216989,
+          "metadata_jaccard_median_meanact": 0.016967126193001062,
+          "metadata_recall_hole_max": 1.0,
+          "metadata_parent_latent": 205,
+          "metadata_parent_pos_firing": 0.358,
+          "metadata_parent_unresolved": false,
+          "metadata_n_subcontexts": 52,
+          "metadata_outcome_auc_unit": 0.8553719008264463,
+          "metadata_outcome_auc_a_rawlatent": 0.8484848484848485,
+          "metadata_outcome_auc_h_attribution": 0.8714416896235079,
+          "metadata_outcome_auc_d_nonsae": 0.8714416896235079,
+          "metadata_outcome_delta_vs_a": 0.00688705234159781,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.018365472910927383,
+            0.04269972451790649
+          ],
+          "metadata_outcome_delta_vs_h": -0.016069788797061557,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.05096418732782371,
+            0.0
+          ],
+          "metadata_outcome_k": 8,
+          "metadata_outcome_s_star": "concept_general",
+          "metadata_unit_members": [
+            205,
+            4736,
+            3069
+          ],
+          "metadata_h_members": [
+            205,
+            4736,
+            2425
+          ],
+          "metadata_a_latent": 205,
+          "metadata_ccrg_helps": true,
+          "metadata_ccrg_helps_significant": false,
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_predicted_regime": "absorption",
+          "metadata_hit": true,
+          "metadata_per_subcontext": [
+            {
+              "sub_context": "L",
+              "n_pos": 38,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 6745,
+              "detector_auc": 0.612218045112782,
+              "detector_meanact_latent": 6745,
+              "jaccard": 0.1825063078216989,
+              "jaccard_meanact": 0.1825063078216989,
+              "jaccard_ci": [
+                0.16103717383533897,
+                0.20469898022916455
+              ]
+            },
+            {
+              "sub_context": "LTD",
+              "n_pos": 58,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 4638,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 4638,
+              "jaccard": 0.06885593220338983,
+              "jaccard_meanact": 0.06885593220338983,
+              "jaccard_ci": [
+                0.05360592161486786,
+                0.08490667478190302
+              ]
+            },
+            {
+              "sub_context": "Lancaster",
+              "n_pos": 16,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 851,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 9340,
+              "jaccard": 0.05339265850945495,
+              "jaccard_meanact": 0.1997874601487779,
+              "jaccard_ci": [
+                0.0391304347826087,
+                0.0683090705487122
+              ]
+            }
+          ]
+        },
+        {
+          "input": "Concept 'spelling_O' (token, established): parent latent 12334, firing-Jaccard(detector,parent) median=0.0387. Route to absorption-repair (CCRG) or marginal attribution?",
+          "output": "absorption",
+          "predict_router": "absorption",
+          "metadata_concept": "spelling_O",
+          "metadata_kind": "established",
+          "metadata_granularity": "token",
+          "metadata_jaccard_median": 0.038728897715988087,
+          "metadata_jaccard_min": 0.0,
+          "metadata_jaccard_max": 0.1334012219959267,
+          "metadata_jaccard_median_meanact": 0.041627246925260174,
+          "metadata_recall_hole_max": 1.0,
+          "metadata_parent_latent": 12334,
+          "metadata_parent_pos_firing": 0.3928,
+          "metadata_parent_unresolved": false,
+          "metadata_n_subcontexts": 55,
+          "metadata_outcome_auc_unit": 0.6833333333333333,
+          "metadata_outcome_auc_a_rawlatent": 0.6333333333333333,
+          "metadata_outcome_auc_h_attribution": 0.7333333333333333,
+          "metadata_outcome_auc_d_nonsae": 0.9222222222222222,
+          "metadata_outcome_delta_vs_a": 0.050000000000000044,
+          "metadata_outcome_delta_vs_a_ci": [
+            0.0,
+            0.11666666666666659
+          ],
+          "metadata_outcome_delta_vs_h": -0.04999999999999993,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.14666666666666683,
+            0.046124999999999784
+          ],
+          "metadata_outcome_k": 8,
+          "metadata_outcome_s_star": "concept_general",
+          "metadata_unit_members": [
+            12334,
+            5767,
+            9488
+          ],
+          "metadata_h_members": [
+            12334,
+            9488,
+            12675
+          ],
+          "metadata_a_latent": 12334,
+          "metadata_ccrg_helps": true,
+          "metadata_ccrg_helps_significant": false,
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_predicted_regime": "absorption",
+          "metadata_hit": true,
+          "metadata_per_subcontext": [
+            {
+              "sub_context": "O",
+              "n_pos": 35,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 433,
+              "detector_auc": 0.5,
+              "detector_meanact_latent": 201,
+              "jaccard": 0.006006006006006006,
+              "jaccard_meanact": 0.0,
+              "jaccard_ci": [
+                0.001964588342128247,
+                0.011011286837940143
+              ]
+            },
+            {
+              "sub_context": "OF",
+              "n_pos": 18,
+              "parent_recall": 0.1111111111111111,
+              "recall_hole": 0.8888888888888888,
+              "detector_latent": 7333,
+              "detector_auc": 0.6078189300411523,
+              "detector_meanact_latent": 7333,
+              "jaccard": 0.09312080536912752,
+              "jaccard_meanact": 0.09312080536912752,
+              "jaccard_ci": [
+                0.07691968225948809,
+                0.10978845483083362
+              ]
+            },
+            {
+              "sub_context": "ORM",
+              "n_pos": 18,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 10220,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 10220,
+              "jaccard": 0.06788247213779129,
+              "jaccard_meanact": 0.06788247213779129,
+              "jaccard_ci": [
+                0.05268357062869941,
+                0.08401022503066174
+              ]
+            }
+          ]
+        },
+        {
+          "input": "Concept 'spelling_T' (token, established): parent latent 6355, firing-Jaccard(detector,parent) median=0.0029. Route to absorption-repair (CCRG) or marginal attribution?",
+          "output": "absorption",
+          "predict_router": "absorption",
+          "metadata_concept": "spelling_T",
+          "metadata_kind": "established",
+          "metadata_granularity": "token",
+          "metadata_jaccard_median": 0.0028653295128939827,
+          "metadata_jaccard_min": 0.0,
+          "metadata_jaccard_max": 0.11891117478510028,
+          "metadata_jaccard_median_meanact": 0.0028653295128939827,
+          "metadata_recall_hole_max": 1.0,
+          "metadata_parent_latent": 6355,
+          "metadata_parent_pos_firing": 0.2672,
+          "metadata_parent_unresolved": false,
+          "metadata_n_subcontexts": 50,
+          "metadata_outcome_auc_unit": 0.6890203813280736,
+          "metadata_outcome_auc_a_rawlatent": 0.6666666666666666,
+          "metadata_outcome_auc_h_attribution": 0.757396449704142,
+          "metadata_outcome_auc_d_nonsae": 0.6390532544378698,
+          "metadata_outcome_delta_vs_a": 0.02235371466140701,
+          "metadata_outcome_delta_vs_a_ci": [
+            -0.03418803418803418,
+            0.08284023668639062
+          ],
+          "metadata_outcome_delta_vs_h": -0.06837606837606836,
+          "metadata_outcome_delta_vs_h_ci": [
+            -0.1646942800788952,
+            0.023668639053254448
+          ],
+          "metadata_outcome_k": 7,
+          "metadata_outcome_s_star": "concept_general",
+          "metadata_unit_members": [
+            6355,
+            8925,
+            8938
+          ],
+          "metadata_h_members": [
+            6355,
+            8925,
+            10187
+          ],
+          "metadata_a_latent": 6355,
+          "metadata_ccrg_helps": true,
+          "metadata_ccrg_helps_significant": false,
+          "metadata_ground_truth_regime": "absorption",
+          "metadata_predicted_regime": "absorption",
+          "metadata_hit": true,
+          "metadata_per_subcontext": [
+            {
+              "sub_context": "T",
+              "n_pos": 24,
+              "parent_recall": 0.9583333333333334,
+              "recall_hole": 0.04166666666666663,
+              "detector_latent": 4438,
+              "detector_auc": 0.5416666666666666,
+              "detector_meanact_latent": 10756,
+              "jaccard": 0.005970149253731343,
+              "jaccard_meanact": 0.13043478260869565,
+              "jaccard_ci": [
+                0.0014576729007261045,
+                0.012289259127968803
+              ]
+            },
+            {
+              "sub_context": "Team",
+              "n_pos": 16,
+              "parent_recall": 1.0,
+              "recall_hole": 0.0,
+              "detector_latent": 13484,
+              "detector_auc": 0.6875,
+              "detector_meanact_latent": 13484,
+              "jaccard": 0.04723346828609987,
+              "jaccard_meanact": 0.04723346828609987,
+              "jaccard_ci": [
+                0.0329211338531514,
+                0.06342831215970962
+              ]
+            },
+            {
+              "sub_context": "That",
+              "n_pos": 17,
+              "parent_recall": 0.0,
+              "recall_hole": 1.0,
+              "detector_latent": 4608,
+              "detector_auc": 1.0,
+              "detector_meanact_latent": 4608,
+              "jaccard": 0.0,
+              "jaccard_meanact": 0.0,
+              "jaccard_ci": [
+                0.0,
+                0.0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

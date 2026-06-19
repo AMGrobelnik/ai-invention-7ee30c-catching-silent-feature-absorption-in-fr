@@ -1,0 +1,3011 @@
+{
+ "metadata": {
+  "method_name": "M1b KG-Localized Surgical Sub-Concept Edit with Side-Effect Measurement",
+  "description": "Single named-absorber ablation (KG-ABL) vs dense diff-of-means parent erasure (DENSE-ABL, baseline f) vs random-latent (RAND) vs label-free (k); on_target/collateral via a frozen dense parent probe at matched effect, with KL/PPL/token-footprint side-effects and a toxicity co-firing negative pole.",
+  "sae": {
+   "release": "google/gemma-scope-2b-pt-res",
+   "sae_params": "layer_12/width_16k/average_l0_82/params.npz",
+   "width": 16384,
+   "d_model": 2304,
+   "hook": "blocks.12.hook_resid_post"
+  },
+  "model": "google/gemma-2-2b",
+  "seed": 1234,
+  "B_boot": 10000,
+  "Rnorm": 478.6302947998047,
+  "gating_check": {
+   "pass": true,
+   "cosine": 0.9189349412918091,
+   "L0": 87.9375,
+   "align": 1.0,
+   "layer_idx": 13,
+   "fvu_by_idx": {
+    "12": 0.2838386548289832,
+    "13": 0.19299182784889848,
+    "14": 0.3387158481703969
+   },
+   "Rnorm": 478.6302947998047
+  },
+  "canonical_units": {
+   "first_letter": {
+    "L": {
+     "anchor": 205,
+     "absorbers": [
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+     ],
+     "members": [
+      205,
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+     ],
+     "sub_by_absorber": {
+      "4736": "linking",
+      "607": "leads",
+      "3069": "list",
+      "8463": "large",
+      "2416": "line",
+      "2759": "Let",
+      "3353": "level",
+      "3858": "low",
+      "7544": "leave",
+      "15261": "latent_15261",
+      "1391": "L",
+      "1467": "listed",
+      "1549": "legal",
+      "1566": "like"
+     },
+     "anchor_corpus_fire": 0.3572,
+     "spurious_anchor": false
+    },
+    "O": {
+     "anchor": 12334,
+     "absorbers": [
+      14473,
+      12675,
+      1032,
+      1562,
+      4438,
+      8961,
+      9488,
+      9915,
+      15092,
+      782,
+      1127,
+      1925,
+      2101,
+      2768
+     ],
+     "members": [
+      12334,
+      14473,
+      12675,
+      1032,
+      1562,
+      4438,
+      8961,
+      9488,
+      9915,
+      15092,
+      782,
+      1127,
+      1925,
+      2101,
+      2768
+     ],
+     "sub_by_absorber": {
+      "14473": "latent_14473",
+      "12675": "off",
+      "1032": "our",
+      "1562": "outside",
+      "4438": "o",
+      "8961": "options",
+      "9488": "Offering",
+      "9915": "offline",
+      "15092": "offer",
+      "782": "on",
+      "1127": "old",
+      "1925": "only",
+      "2101": "office",
+      "2768": "Object"
+     },
+     "anchor_corpus_fire": 0.3944,
+     "spurious_anchor": false
+    },
+    "T": {
+     "anchor": 6355,
+     "absorbers": [
+      8925,
+      7742,
+      4438,
+      2768,
+      4551,
+      5130,
+      8938,
+      14143,
+      383,
+      1839,
+      4570,
+      5059,
+      12997,
+      13704
+     ],
+     "members": [
+      6355,
+      8925,
+      7742,
+      4438,
+      2768,
+      4551,
+      5130,
+      8938,
+      14143,
+      383,
+      1839,
+      4570,
+      5059,
+      12997,
+      13704
+     ],
+     "sub_by_absorber": {
+      "8925": "That",
+      "7742": "Thornton",
+      "4438": "T",
+      "2768": "Title",
+      "4551": "type",
+      "5130": "they",
+      "8938": "things",
+      "14143": "trial",
+      "383": "themselves",
+      "1839": "treatment",
+      "4570": "than",
+      "5059": "trying",
+      "12997": "time",
+      "13704": "there"
+     },
+     "anchor_corpus_fire": 0.2664,
+     "spurious_anchor": false
+    },
+    "I": {
+     "anchor": 1227,
+     "absorbers": [
+      1634,
+      3967,
+      9741,
+      10756,
+      782,
+      4322,
+      1861,
+      4490,
+      7491,
+      11112,
+      12928,
+      1491,
+      2322,
+      2507
+     ],
+     "members": [
+      1227,
+      1634,
+      3967,
+      9741,
+      10756,
+      782,
+      4322,
+      1861,
+      4490,
+      7491,
+      11112,
+      12928,
+      1491,
+      2322,
+      2507
+     ],
+     "sub_by_absorber": {
+      "1634": "",
+      "3967": "",
+      "9741": "invention",
+      "10756": "",
+      "782": "",
+      "4322": "",
+      "1861": "its",
+      "4490": "issue",
+      "7491": "",
+      "11112": "",
+      "12928": "",
+      "1491": "inside",
+      "2322": "",
+      "2507": ""
+     },
+     "anchor_corpus_fire": 0.0,
+     "spurious_anchor": true
+    },
+    "D": {
+     "anchor": 6210,
+     "absorbers": [
+      10756,
+      782,
+      1970,
+      7293,
+      10769,
+      11069,
+      14014,
+      16173,
+      1197,
+      1298,
+      1459,
+      1724,
+      2354,
+      2568
+     ],
+     "members": [
+      6210,
+      10756,
+      782,
+      1970,
+      7293,
+      10769,
+      11069,
+      14014,
+      16173,
+      1197,
+      1298,
+      1459,
+      1724,
+      2354,
+      2568
+     ],
+     "sub_by_absorber": {
+      "10756": "DN",
+      "782": "don",
+      "1970": "different",
+      "7293": "directory",
+      "10769": "day",
+      "11069": "development",
+      "14014": "did",
+      "16173": "delighted",
+      "1197": "display",
+      "1298": "down",
+      "1459": "Douglas",
+      "1724": "described",
+      "2354": "different",
+      "2568": "latent_2568"
+     },
+     "anchor_corpus_fire": 0.3304,
+     "spurious_anchor": false
+    }
+   },
+   "taxonomic": {
+    "anchor": 3792,
+    "k_track_unit": [
+     3792,
+     4697,
+     9339,
+     8442
+    ],
+    "kg_edges": [
+     {
+      "anchor": 3792,
+      "absorber": 4697,
+      "specializes": "Georgia",
+      "marginal_gain": 0.5454545454545454,
+      "jaccard": 0.05518680068272331,
+      "subctx_precision": 0.34965034965034963
+     },
+     {
+      "anchor": 3792,
+      "absorber": 9339,
+      "specializes": "Jordan",
+      "marginal_gain": 0.2766798418972332,
+      "jaccard": 0.02067777139574957,
+      "subctx_precision": 0.6326530612244898
+     },
+     {
+      "anchor": 3792,
+      "absorber": 8442,
+      "specializes": "United States",
+      "marginal_gain": 0.1422924901185771,
+      "jaccard": 0.06485758275596613,
+      "subctx_precision": 0.34673366834170855
+     }
+    ],
+    "diag_absorbers": [
+     {
+      "latent": 16009,
+      "jaccard": 0.006657789613848202,
+      "subctx_precision": 0.9554140127388535,
+      "specializes": "Georgia",
+      "hole_coverage_gain": 0.48221343873517786,
+      "gain_ci_low": 0.4189723320158103,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 540,
+      "jaccard": 0.007476993865030675,
+      "subctx_precision": 0.975,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.3201581027667984,
+      "gain_ci_low": 0.2608695652173913,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 8347,
+      "jaccard": 0.004057187017001545,
+      "subctx_precision": 1.0,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.16205533596837945,
+      "gain_ci_low": 0.11857707509881422,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 846,
+      "jaccard": 0.023035230352303523,
+      "subctx_precision": 0.9733333333333334,
+      "specializes": "United States",
+      "hole_coverage_gain": 0.1225296442687747,
+      "gain_ci_low": 0.08695652173913043,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 13424,
+      "jaccard": 0.003872216844143272,
+      "subctx_precision": 1.0,
+      "specializes": "Jordan",
+      "hole_coverage_gain": 0.11857707509881422,
+      "gain_ci_low": 0.07905138339920949,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 4760,
+      "jaccard": 0.006203955021326095,
+      "subctx_precision": 0.7090909090909091,
+      "specializes": "United States",
+      "hole_coverage_gain": 0.09090909090909091,
+      "gain_ci_low": 0.05928853754940711,
+      "content_precision": 1.0
+     },
+     {
+      "latent": 3980,
+      "jaccard": 0.0013597513597513598,
+      "subctx_precision": 0.85,
+      "specializes": "Georgia",
+      "hole_coverage_gain": 0.05138339920948617,
+      "gain_ci_low": 0.02766798418972332,
+      "content_precision": 1.0
+     }
+    ],
+    "anchor_recall_corpus": 0.9530438010393467,
+    "kg_by_country": {
+     "Georgia": 4697,
+     "Jordan": 9339,
+     "United States": 8442
+    },
+    "diag_by_country": {
+     "Georgia": 16009,
+     "Jordan": 540,
+     "United States": 846
+    }
+   }
+  },
+  "scale_grids": {
+   "DET_GRID_ABL": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0
+   ],
+   "KL_GRID_ABL": [
+    0.5,
+    1.0,
+    2.0
+   ],
+   "STEER_C": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+   ],
+   "N_RAND_DRAWS": 12
+  },
+  "k_localization_check": {
+   "taxonomic": {
+    "status": "run",
+    "variant": "JTT(ERM->upweight error set lambda=20->retrain)",
+    "erm_train_acc": 1.0,
+    "error_set_size": 0,
+    "projection_argmax_latent": 3792,
+    "projection_top_abscos": 0.4934594993988682,
+    "projection_second_abscos": 0.3683962880802001,
+    "single_latent_dominates": false,
+    "kg_absorber_is_argmax": false,
+    "kg_absorber_projection_ranks": {
+     "Georgia": {
+      "latent": 4697,
+      "cos": 0.010401239672163014,
+      "rank_by_abscos": 11420
+     },
+     "Jordan": {
+      "latent": 9339,
+      "cos": 0.11568177550590344,
+      "rank_by_abscos": 126
+     },
+     "United States": {
+      "latent": 8442,
+      "cos": 0.08817399290670928,
+      "rank_by_abscos": 364
+     }
+    },
+    "conclusion": "The KG names exactly one addable/ablatable auditable latent per sub-context; the label-free (k) reweighting probe yields a dense hyperplane that does NOT localize to any single SAE latent -> no per-sub-context handle to edit."
+   },
+   "first_letter_L": {
+    "status": "run",
+    "variant": "JTT(ERM->upweight error set lambda=20->retrain)",
+    "erm_train_acc": 1.0,
+    "error_set_size": 0,
+    "projection_argmax_latent": 205,
+    "projection_top_abscos": 0.4865687619111151,
+    "projection_second_abscos": 0.26240128247621763,
+    "single_latent_dominates": false,
+    "kg_absorber_is_argmax": false,
+    "kg_absorber_projection_ranks": {
+     "large": {
+      "latent": 8463,
+      "cos": 0.059682028993054234,
+      "rank_by_abscos": 896
+     },
+     "line": {
+      "latent": 2416,
+      "cos": 0.17917612549178918,
+      "rank_by_abscos": 26
+     },
+     "low": {
+      "latent": 3858,
+      "cos": 0.17802054999325323,
+      "rank_by_abscos": 28
+     },
+     "list": {
+      "latent": 3069,
+      "cos": 0.2049039671717691,
+      "rank_by_abscos": 12
+     },
+     "leads": {
+      "latent": 607,
+      "cos": -0.007199601521039401,
+      "rank_by_abscos": 12437
+     }
+    },
+    "conclusion": "The KG names exactly one addable/ablatable auditable latent per sub-context; the label-free (k) reweighting probe yields a dense hyperplane that does NOT localize to any single SAE latent -> no per-sub-context handle to edit."
+   }
+  },
+  "first_letter_absorber_scan": [
+   {
+    "absorber": 8463,
+    "word": "large",
+    "heldout_precision": 0.5714285714285714,
+    "n_fire": 21
+   },
+   {
+    "absorber": 2416,
+    "word": "line",
+    "heldout_precision": 0.5555555555555556,
+    "n_fire": 18
+   },
+   {
+    "absorber": 3858,
+    "word": "low",
+    "heldout_precision": 0.5405405405405406,
+    "n_fire": 37
+   },
+   {
+    "absorber": 3069,
+    "word": "list",
+    "heldout_precision": 0.5,
+    "n_fire": 8
+   },
+   {
+    "absorber": 607,
+    "word": "leads",
+    "heldout_precision": 0.4444444444444444,
+    "n_fire": 9
+   },
+   {
+    "absorber": 3353,
+    "word": "level",
+    "heldout_precision": 0.3611111111111111,
+    "n_fire": 36
+   },
+   {
+    "absorber": 1566,
+    "word": "like",
+    "heldout_precision": 0.3333333333333333,
+    "n_fire": 6
+   },
+   {
+    "absorber": 1549,
+    "word": "legal",
+    "heldout_precision": 0.2777777777777778,
+    "n_fire": 18
+   },
+   {
+    "absorber": 7544,
+    "word": "leave",
+    "heldout_precision": 0.15789473684210525,
+    "n_fire": 19
+   },
+   {
+    "absorber": 4736,
+    "word": "linking",
+    "heldout_precision": 0.04878048780487805,
+    "n_fire": 41
+   },
+   {
+    "absorber": 2759,
+    "word": "Let",
+    "heldout_precision": 0.0,
+    "n_fire": 3
+   },
+   {
+    "absorber": 1391,
+    "word": "L",
+    "heldout_precision": 0.0,
+    "n_fire": 1
+   },
+   {
+    "absorber": 1467,
+    "word": "listed",
+    "heldout_precision": 0.0,
+    "n_fire": 0
+   }
+  ],
+  "per_case": [
+   {
+    "family": "taxonomic",
+    "target_subcontext": "Georgia",
+    "absorber_latent": 16009,
+    "absorber_precision": 0.955,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.6748789548873901,
+    "firing_jaccard_with_parent": 0.011313639220615965,
+    "parent_recall_hole": 0.8,
+    "n_target_ctx": 30,
+    "n_sibling_ctx": 180,
+    "siblings": [
+     "Australia",
+     "Brazil",
+     "Canada",
+     "China",
+     "France",
+     "Germany",
+     "India",
+     "Iran",
+     "Ireland",
+     "Israel",
+     "Italy",
+     "Japan"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0019285480098915285,
+       0.0043576461903285235,
+       0.012626054164381154
+      ],
+      "beh_collateral": [
+       0.0,
+       2.667550401787998e-05,
+       3.2978607810542194e-05,
+       2.7131361073568568e-05
+      ],
+      "beh_footprint": [
+       0.0,
+       0.013888888888888888,
+       0.013888888888888888,
+       0.013888888888888888
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        0.028798246756196022,
+        0.057596541941165924,
+        0.08639513701200485,
+        0.11519357562065125,
+        0.1727905124425888,
+        0.2303873598575592
+       ],
+       "collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "on_target_prob": [
+        0.0,
+        9.866555956250522e-06,
+        2.001325265155174e-05,
+        3.0442079150816426e-05,
+        4.1168928873958066e-05,
+        6.350676267175004e-05,
+        8.711417467566207e-05
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 8.788611012278125e-05,
+       "ppl": 28.876484609444407,
+       "ppl_ratio": 1.0004024520507686,
+       "token_footprint": 0.001445086705202312
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.052688062811891236,
+       0.24603775050491095,
+       1.6707742169499398
+      ],
+      "beh_collateral": [
+       0.0,
+       0.034274570115505616,
+       0.18831999042950984,
+       1.7006171222362254
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        3.320303440093994,
+        6.640606880187988,
+        9.96091079711914,
+        13.281213760375977,
+        19.92182159423828,
+        26.562427520751953
+       ],
+       "collateral_margin": [
+        0.0,
+        3.314363718032837,
+        6.628725528717041,
+        9.943090438842773,
+        13.257451057434082,
+        19.886178970336914,
+        26.514904022216797
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        3.314363718032837,
+        6.628725528717041,
+        9.943090438842773,
+        13.257451057434082,
+        19.886178970336914,
+        26.514904022216797
+       ],
+       "on_target_prob": [
+        0.0,
+        0.00013040105113759637,
+        0.02400755137205124,
+        0.34724223613739014,
+        0.7518619298934937,
+        0.9535472393035889,
+        0.9655882716178894
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.13350774347782135,
+       "ppl": 41.55587305129975,
+       "ppl_ratio": 1.4396696086764627,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       9.975310325622559,
+       39.901241302490234
+      ],
+      "beh_on_target": [
+       0.0,
+       0.01161616548585395,
+       0.21516579780727624
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0038323605148939855,
+       0.08047362379341697
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       9.975310325622559,
+       39.901241302490234
+      ],
+      "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.00045147394848754624
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0004642903718991809
+      ],
+      "beh_footprint": [
+       0.0,
+       0.009143518518518518
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0004941297311233939,
+       "ppl_ratio": 1.0008753741955494,
+       "token_footprint": 0.01300578034682081
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.010100843331504924,
+      "collateral": 2.891713783362228e-05,
+      "reaches_matched": true,
+      "max_on_target": 0.012626054164381154,
+      "selectivity": 349.18225887403975,
+      "unrelated_kl": 8.788611012278125e-05,
+      "unrelated_ppl_ratio": 1.0004024520507686,
+      "token_footprint": 0.001445086705202312
+     },
+     "DENSE-ABL": {
+      "on_target": 0.010100843331504924,
+      "collateral": 0.006570787470919657,
+      "reaches_matched": true,
+      "max_on_target": 1.6707742169499398,
+      "selectivity": 1.537232486042702,
+      "unrelated_kl": 0.13350774347782135,
+      "unrelated_ppl_ratio": 1.4396696086764627,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.010100843331504924,
+      "collateral": 0.0004642903718991809,
+      "reaches_matched": false,
+      "max_on_target": 0.00045147394848754624,
+      "selectivity": 21.754975750263327,
+      "unrelated_kl": 0.0004941297311233939,
+      "unrelated_ppl_ratio": 1.0008753741955494,
+      "token_footprint": 0.01300578034682081
+     },
+     "KG-ADD": {
+      "on_target": 0.010100843331504924,
+      "collateral": 0.003332431274152424,
+      "reaches_matched": true,
+      "max_on_target": 0.21516579780727624,
+      "selectivity": 3.0310641660366486
+     }
+    },
+    "matched_scale_kg": 1.6945952787041134,
+    "matched_scale_dense": 0.0958551405426245,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.010100843331504924,
+      "ci_lo": 0.004266705622971764,
+      "ci_hi": 0.017544702036838083,
+      "n": 30,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 2.891713783362228e-05,
+      "ci_lo": 4.405437013475854e-06,
+      "ci_hi": 6.56279923029686e-05,
+      "n": 180,
+      "excl_0": true
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.006570787470919656,
+      "ci_lo": 0.004158929677380833,
+      "ci_hi": 0.010204520276698152,
+      "n": 180,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.006541870333086034,
+      "ci_lo": 0.004092794392886197,
+      "ci_hi": 0.010095180520315883,
+      "excl_0": true,
+      "n": 180
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 605.2449065142695,
+      "ci_lo": 103.7189745649171,
+      "ci_hi": 2396.7615181486512,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 227.1499347329952,
+    "random_latent_firing_rate": 0.03264758497316637
+   },
+   {
+    "family": "taxonomic",
+    "target_subcontext": "Jordan",
+    "absorber_latent": 540,
+    "absorber_precision": 0.975,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.6748789548873901,
+    "firing_jaccard_with_parent": 0.051418439716312055,
+    "parent_recall_hole": 0.6774193548387097,
+    "n_target_ctx": 60,
+    "n_sibling_ctx": 180,
+    "siblings": [
+     "Australia",
+     "Brazil",
+     "Canada",
+     "China",
+     "France",
+     "Georgia",
+     "Germany",
+     "India",
+     "Iran",
+     "Ireland",
+     "Israel",
+     "Italy"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.003373239193539727,
+       0.009135276646717708,
+       0.03280825249761013
+      ],
+      "beh_collateral": [
+       0.0,
+       2.348404878931534e-05,
+       2.657306502240115e-05,
+       2.698349384849684e-05
+      ],
+      "beh_footprint": [
+       0.0,
+       0.013233190271816882,
+       0.013233190271816882,
+       0.013233190271816882
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        0.02620842307806015,
+        0.05241667851805687,
+        0.07862509787082672,
+        0.1048334389925003,
+        0.15724964439868927,
+        0.2096666544675827
+       ],
+       "collateral_margin": [
+        0.0,
+        2.5339126295875758e-05,
+        5.067666279501282e-05,
+        7.601419929414988e-05,
+        0.00010134538024431095,
+        0.00015202203940134495,
+        0.0002026971196755767
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        2.5339126295875758e-05,
+        5.067666279501282e-05,
+        7.601419929414988e-05,
+        0.00010134538024431095,
+        0.00015202203940134495,
+        0.0002026971196755767
+       ],
+       "on_target_prob": [
+        0.0,
+        2.6009736302512465e-06,
+        5.273088390822522e-06,
+        8.017786058189813e-06,
+        1.083410552382702e-05,
+        1.6696991224307567e-05,
+        2.2888663806952536e-05
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.00016208570741582662,
+       "ppl": 28.856664080150633,
+       "ppl_ratio": 0.9997157858455634,
+       "token_footprint": 0.001445086705202312
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.08147500722558713,
+       0.22248258923355024,
+       1.5237798371662696
+      ],
+      "beh_collateral": [
+       0.0,
+       0.03478853596413198,
+       0.19439704920837864,
+       1.7293632448961338
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        1.3674081563949585,
+        2.7348172664642334,
+        4.102223873138428,
+        5.469634056091309,
+        8.204448699951172,
+        10.939268112182617
+       ],
+       "collateral_margin": [
+        0.0,
+        3.3146605491638184,
+        6.62932014465332,
+        9.943978309631348,
+        13.25864028930664,
+        19.887956619262695,
+        26.517282485961914
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        3.3146605491638184,
+        6.62932014465332,
+        9.943978309631348,
+        13.25864028930664,
+        19.887956619262695,
+        26.517282485961914
+       ],
+       "on_target_prob": [
+        0.0,
+        0.00020023700199089944,
+        0.0010019262554123998,
+        0.010482910089194775,
+        0.1221422329545021,
+        0.36987540125846863,
+        0.6274400949478149
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.13350774347782135,
+       "ppl": 41.55587305129975,
+       "ppl_ratio": 1.4396696086764627,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       6.1525349617004395,
+       24.610139846801758
+      ],
+      "beh_on_target": [
+       0.0,
+       0.008206462314349967,
+       0.13925031378409283
+      ],
+      "beh_collateral": [
+       0.0,
+       0.002649446988612504,
+       0.040737999821431004
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       6.1525349617004395,
+       24.610139846801758
+      ],
+      "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0007091473941348644
+      ],
+      "beh_collateral": [
+       0.0,
+       0.001424350917222404
+      ],
+      "beh_footprint": [
+       0.0,
+       0.02080352885073915
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0004530268670350779,
+       "ppl_ratio": 1.0005356925468942,
+       "token_footprint": 0.013728323699421965
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.026246601998088107,
+      "collateral": 2.6869731618993805e-05,
+      "reaches_matched": true,
+      "max_on_target": 0.03280825249761013,
+      "selectivity": 976.4458354763365,
+      "unrelated_kl": 0.00016208570741582662,
+      "unrelated_ppl_ratio": 0.9997157858455634,
+      "token_footprint": 0.001445086705202312
+     },
+     "DENSE-ABL": {
+      "on_target": 0.026246601998088107,
+      "collateral": 0.011206882805405808,
+      "reaches_matched": true,
+      "max_on_target": 1.5237798371662696,
+      "selectivity": 2.342005268884849,
+      "unrelated_kl": 0.13350774347782135,
+      "unrelated_ppl_ratio": 1.4396696086764627,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.026246601998088107,
+      "collateral": 0.001424350917222404,
+      "reaches_matched": false,
+      "max_on_target": 0.0007091473941348644,
+      "selectivity": 18.42693216356335,
+      "unrelated_kl": 0.0004530268670350779,
+      "unrelated_ppl_ratio": 1.0005356925468942,
+      "token_footprint": 0.013728323699421965
+     },
+     "KG-ADD": {
+      "on_target": 0.026246601998088107,
+      "collateral": 0.007892904089033105,
+      "reaches_matched": true,
+      "max_on_target": 0.13925031378409283,
+      "selectivity": 3.3253373471474537
+     }
+    },
+    "matched_scale_kg": 1.7228210538104078,
+    "matched_scale_dense": 0.16107149230080334,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.02624660199808811,
+      "ci_lo": 0.015054667877867304,
+      "ci_hi": 0.039568793628831124,
+      "n": 60,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 2.68697316189938e-05,
+      "ci_lo": 8.478206285877864e-07,
+      "ci_hi": 6.060637729245438e-05,
+      "n": 180,
+      "excl_0": true
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.011206882805405808,
+      "ci_lo": 0.007164766968845173,
+      "ci_hi": 0.017420994707794263,
+      "n": 180,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.011180013073786814,
+      "ci_lo": 0.007093535736620207,
+      "ci_hi": 0.017058628227758457,
+      "excl_0": true,
+      "n": 180
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 11349.916457589627,
+      "ci_lo": 359.9672503310761,
+      "ci_hi": 30456.1058202143,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 416.9272582129046,
+    "random_latent_firing_rate": 0.10867620751341682
+   },
+   {
+    "family": "taxonomic",
+    "target_subcontext": "Jordan",
+    "absorber_latent": 8347,
+    "absorber_precision": 1.0,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.6748789548873901,
+    "firing_jaccard_with_parent": 0.030826140567200986,
+    "parent_recall_hole": 0.6774193548387097,
+    "n_target_ctx": 60,
+    "n_sibling_ctx": 180,
+    "siblings": [
+     "Australia",
+     "Brazil",
+     "Canada",
+     "China",
+     "France",
+     "Georgia",
+     "Germany",
+     "India",
+     "Iran",
+     "Ireland",
+     "Israel",
+     "Italy"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.001390265828073704,
+       0.0037184554031379474,
+       0.0131006124883091
+      ],
+      "beh_collateral": [
+       0.0,
+       1.8857186660170556e-06,
+       5.226343960708214e-06,
+       3.4529767516586514e-06
+      ],
+      "beh_footprint": [
+       0.0,
+       0.008047210300429184,
+       0.008047210300429184,
+       0.008047210300429184
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        0.00766346137970686,
+        0.015326953493058681,
+        0.022990411147475243,
+        0.030653802677989006,
+        0.045980799943208694,
+        0.06130741909146309
+       ],
+       "collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "on_target_prob": [
+        0.0,
+        3.292676069577283e-07,
+        6.715136464663374e-07,
+        1.0156824146179133e-06,
+        1.3656193686983897e-06,
+        2.0799136564164655e-06,
+        2.818242137436755e-06
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 3.603912045946345e-05,
+       "ppl": 28.868149026378127,
+       "ppl_ratio": 1.0001136725178177,
+       "token_footprint": 0.001445086705202312
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.08147500722558713,
+       0.22248258923355024,
+       1.5237798371662696
+      ],
+      "beh_collateral": [
+       0.0,
+       0.03478853596413198,
+       0.19439704920837864,
+       1.7293632448961338
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        1.3674081563949585,
+        2.7348172664642334,
+        4.102223873138428,
+        5.469634056091309,
+        8.204448699951172,
+        10.939268112182617
+       ],
+       "collateral_margin": [
+        0.0,
+        3.3146605491638184,
+        6.62932014465332,
+        9.943978309631348,
+        13.25864028930664,
+        19.887956619262695,
+        26.517282485961914
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        3.3146605491638184,
+        6.62932014465332,
+        9.943978309631348,
+        13.25864028930664,
+        19.887956619262695,
+        26.517282485961914
+       ],
+       "on_target_prob": [
+        0.0,
+        0.00020023700199089944,
+        0.0010019262554123998,
+        0.010482910089194775,
+        0.1221422329545021,
+        0.36987540125846863,
+        0.6274400949478149
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.13350774347782135,
+       "ppl": 41.55587305129975,
+       "ppl_ratio": 1.4396696086764627,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       2.3774609565734863,
+       9.509843826293945
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0020839848836658346,
+       0.024168406055832748
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0008684260455791243,
+       0.0033179211855490897
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       2.3774609565734863,
+       9.509843826293945
+      ],
+      "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0013200274982914885
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0007941093060489274
+      ],
+      "beh_footprint": [
+       0.0,
+       0.07516690510252742
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0018012018699664623,
+       "ppl_ratio": 1.001272721099795,
+       "token_footprint": 0.03540462427745665
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.010480489990647282,
+      "collateral": 3.948218866970319e-06,
+      "reaches_matched": true,
+      "max_on_target": 0.0131006124883091,
+      "selectivity": 2647.7793024793523,
+      "unrelated_kl": 3.603912045946345e-05,
+      "unrelated_ppl_ratio": 1.0001136725178177,
+      "token_footprint": 0.001445086705202312
+     },
+     "DENSE-ABL": {
+      "on_target": 0.010480489990647282,
+      "collateral": 0.004475003014750954,
+      "reaches_matched": true,
+      "max_on_target": 1.5237798371662696,
+      "selectivity": 2.342002125155953,
+      "unrelated_kl": 0.13350774347782135,
+      "unrelated_ppl_ratio": 1.4396696086764627,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.010480489990647282,
+      "collateral": 0.0007941093060489274,
+      "reaches_matched": false,
+      "max_on_target": 0.0013200274982914885,
+      "selectivity": 13.1976264911529,
+      "unrelated_kl": 0.0018012018699664623,
+      "unrelated_ppl_ratio": 1.001272721099795,
+      "token_footprint": 0.03540462427745665
+     },
+     "KG-ADD": {
+      "on_target": 0.010480489990647282,
+      "collateral": 0.0017997250047841304,
+      "reaches_matched": true,
+      "max_on_target": 0.024168406055832748,
+      "selectivity": 5.823351750556392
+     }
+    },
+    "matched_scale_kg": 1.7207334652493702,
+    "matched_scale_dense": 0.06431720810793556,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.010480489990647284,
+      "ci_lo": 0.0052396429566227394,
+      "ci_hi": 0.01673398375880139,
+      "n": 60,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 3.948218866970319e-06,
+      "ci_lo": 0.0,
+      "ci_hi": 9.834026495227766e-06,
+      "n": 180,
+      "excl_0": false
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.004475003014750955,
+      "ci_lo": 0.0028715381916075236,
+      "ci_hi": 0.006922197383115386,
+      "n": 180,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.004471054795883984,
+      "ci_lo": 0.002864071027793963,
+      "ci_hi": 0.0069348355765255975,
+      "excl_0": true,
+      "n": 180
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 54723.36745145544,
+      "ci_lo": 827.7903023391007,
+      "ci_hi": 1009016.5826278485,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 1130.5622971213306,
+    "random_latent_firing_rate": 0.06082289803220036
+   },
+   {
+    "family": "taxonomic",
+    "target_subcontext": "United States",
+    "absorber_latent": 846,
+    "absorber_precision": 0.9733333333333334,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.6748789548873901,
+    "firing_jaccard_with_parent": 0.036893203883495145,
+    "parent_recall_hole": 0.16666666666666663,
+    "n_target_ctx": 30,
+    "n_sibling_ctx": 180,
+    "siblings": [
+     "Australia",
+     "Brazil",
+     "Canada",
+     "China",
+     "France",
+     "Georgia",
+     "Germany",
+     "India",
+     "Iran",
+     "Ireland",
+     "Israel",
+     "Italy"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0016152538725388392,
+       0.004638115029229084,
+       0.012720986449858173
+      ],
+      "beh_collateral": [
+       0.0,
+       3.630674446968543e-05,
+       7.542938078081028e-05,
+       7.185515262083047e-05
+      ],
+      "beh_footprint": [
+       0.0,
+       0.015625,
+       0.015625,
+       0.015625
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        0.00800841674208641,
+        0.016016801819205284,
+        0.02402518503367901,
+        0.032033633440732956,
+        0.0480504035949707,
+        0.06406722217798233
+       ],
+       "collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "on_target_prob": [
+        0.0,
+        8.225441092690744e-07,
+        1.7702579953038367e-06,
+        2.8510887659649597e-06,
+        4.09086533181835e-06,
+        7.148583790694829e-06,
+        1.116792373068165e-05
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 3.559495962690562e-05,
+       "ppl": 28.86276897464408,
+       "ppl_ratio": 0.9999272849772395,
+       "token_footprint": 0.001445086705202312
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.030151167884469032,
+       0.16404359828059872,
+       0.7966188751161098
+      ],
+      "beh_collateral": [
+       0.0,
+       0.03333851101277913,
+       0.18695882211904974,
+       1.8344262356145515
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        1.897350788116455,
+        3.79470157623291,
+        5.692051887512207,
+        7.589402675628662,
+        11.384103775024414,
+        15.178805351257324
+       ],
+       "collateral_margin": [
+        0.0,
+        3.389256000518799,
+        6.778510570526123,
+        10.167765617370605,
+        13.557021141052246,
+        20.335529327392578,
+        27.114042282104492
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        3.389256000518799,
+        6.778510570526123,
+        10.167765617370605,
+        13.557021141052246,
+        20.335529327392578,
+        27.114042282104492
+       ],
+       "on_target_prob": [
+        0.0,
+        0.0004987040883861482,
+        0.0039818743243813515,
+        0.03884943202137947,
+        0.174719899892807,
+        0.5916413068771362,
+        0.9113344550132751
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.13350774347782135,
+       "ppl": 41.55587305129975,
+       "ppl_ratio": 1.4396696086764627,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       0.27918317914009094,
+       1.1167327165603638
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0005590203802057659,
+       0.000626569263052564
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0006093370235097003,
+       0.0006697278549432263
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       0.27918317914009094,
+       1.1167327165603638
+      ],
+      "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0004570168618859801
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0005374554530800634
+      ],
+      "beh_footprint": [
+       0.0,
+       0.01747685185185185
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0007310553774004802,
+       "ppl_ratio": 1.001034946119515,
+       "token_footprint": 0.013728323699421965
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.01017678915988654,
+      "collateral": 7.298019112820451e-05,
+      "reaches_matched": true,
+      "max_on_target": 0.012720986449858173,
+      "selectivity": 139.42680519922732,
+      "unrelated_kl": 3.559495962690562e-05,
+      "unrelated_ppl_ratio": 0.9999272849772395,
+      "token_footprint": 0.001445086705202312
+     },
+     "DENSE-ABL": {
+      "on_target": 0.01017678915988654,
+      "collateral": 0.011252598863885884,
+      "reaches_matched": true,
+      "max_on_target": 0.7966188751161098,
+      "selectivity": 0.9043937528609851,
+      "unrelated_kl": 0.13350774347782135,
+      "unrelated_ppl_ratio": 1.4396696086764627,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.01017678915988654,
+      "collateral": 0.0005374554530800634,
+      "reaches_matched": false,
+      "max_on_target": 0.0004570168618859801,
+      "selectivity": 18.93477822912379,
+      "unrelated_kl": 0.0007310553774004802,
+      "unrelated_ppl_ratio": 1.001034946119515,
+      "token_footprint": 0.013728323699421965
+     },
+     "KG-ADD": {
+      "on_target": 0.01017678915988654,
+      "collateral": 0.0006697278549432263,
+      "reaches_matched": false,
+      "max_on_target": 0.000626569263052564,
+      "selectivity": 15.19518283873804
+     }
+    },
+    "matched_scale_kg": 1.6852359566826292,
+    "matched_scale_dense": 0.16876276897268444,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.01017678915988654,
+      "ci_lo": 0.004331064465840297,
+      "ci_hi": 0.0184059468159809,
+      "n": 30,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 7.298019112820453e-05,
+      "ci_lo": 1.6259350873643628e-05,
+      "ci_hi": 0.0001595922879583323,
+      "n": 180,
+      "excl_0": true
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.011252598863885882,
+      "ci_lo": 0.007257110448517669,
+      "ci_hi": 0.017334628660525833,
+      "n": 180,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.011179618672757678,
+      "ci_lo": 0.007164675686506838,
+      "ci_hi": 0.017202942354454888,
+      "excl_0": true,
+      "n": 180
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 200.8130708319066,
+      "ci_lo": 43.643599752239645,
+      "ci_hi": 683.8283899625055,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 154.16604190172762,
+    "random_latent_firing_rate": 0.029516994633273702
+   },
+   {
+    "family": "taxonomic",
+    "target_subcontext": "United States",
+    "absorber_latent": 4760,
+    "absorber_precision": 0.7090909090909091,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.6748789548873901,
+    "firing_jaccard_with_parent": 0.0071151358344113845,
+    "parent_recall_hole": 0.16666666666666663,
+    "n_target_ctx": 30,
+    "n_sibling_ctx": 180,
+    "siblings": [
+     "Australia",
+     "Brazil",
+     "Canada",
+     "China",
+     "France",
+     "Georgia",
+     "Germany",
+     "India",
+     "Iran",
+     "Ireland",
+     "Israel",
+     "Italy"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0012854924594042434,
+       0.00243755529554619,
+       0.0058167857942559445
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0006352600692884556,
+       0.0006304027458200936,
+       0.0007441070079266865
+      ],
+      "beh_footprint": [
+       0.0,
+       0.034027777777777775,
+       0.034027777777777775,
+       0.034027777777777775
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        0.004444694612175226,
+        0.008889357559382915,
+        0.013334020040929317,
+        0.017778683453798294,
+        0.026668008416891098,
+        0.035557206720113754
+       ],
+       "collateral_margin": [
+        0.0,
+        0.0001247991604031995,
+        0.00024959328584372997,
+        0.0003743958077393472,
+        0.0004992167232558131,
+        0.0007488050032407045,
+        0.0009984184289351106
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        0.0001247991604031995,
+        0.00024959328584372997,
+        0.0003743958077393472,
+        0.0004992167232558131,
+        0.0007488050032407045,
+        0.0009984184289351106
+       ],
+       "on_target_prob": [
+        0.0,
+        3.814697322468419e-07,
+        7.748603820800781e-07,
+        1.184145617116883e-06,
+        1.6053517128966632e-06,
+        2.495447688488639e-06,
+        3.445148422542843e-06
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.0008845587144605815,
+       "ppl": 28.887042777640325,
+       "ppl_ratio": 1.0007682312477595,
+       "token_footprint": 0.017341040462427744
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.030151167884469032,
+       0.16404359828059872,
+       0.7966188751161098
+      ],
+      "beh_collateral": [
+       0.0,
+       0.03333851101277913,
+       0.18695882211904974,
+       1.8344262356145515
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        1.897350788116455,
+        3.79470157623291,
+        5.692051887512207,
+        7.589402675628662,
+        11.384103775024414,
+        15.178805351257324
+       ],
+       "collateral_margin": [
+        0.0,
+        3.389256000518799,
+        6.778510570526123,
+        10.167765617370605,
+        13.557021141052246,
+        20.335529327392578,
+        27.114042282104492
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        3.389256000518799,
+        6.778510570526123,
+        10.167765617370605,
+        13.557021141052246,
+        20.335529327392578,
+        27.114042282104492
+       ],
+       "on_target_prob": [
+        0.0,
+        0.0004987040883861482,
+        0.0039818743243813515,
+        0.03884943202137947,
+        0.174719899892807,
+        0.5916413068771362,
+        0.9113344550132751
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.13350774347782135,
+       "ppl": 41.55587305129975,
+       "ppl_ratio": 1.4396696086764627,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       1.01871657371521,
+       4.07486629486084
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0007525657695926687,
+       0.003170160260197008
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0005995068180658968,
+       0.0009976040208130143
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       1.01871657371521,
+       4.07486629486084
+      ],
+      "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.00044461307619106567
+      ],
+      "beh_collateral": [
+       0.0,
+       0.000494746286298559
+      ],
+      "beh_footprint": [
+       0.0,
+       0.01284722222222222
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0006482110475189984,
+       "ppl_ratio": 1.0006219668045366,
+       "token_footprint": 0.020953757225433526
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.004653428635404756,
+      "collateral": 0.0007049623957541511,
+      "reaches_matched": true,
+      "max_on_target": 0.0058167857942559445,
+      "selectivity": 6.600866450134839,
+      "unrelated_kl": 0.0008845587144605815,
+      "unrelated_ppl_ratio": 1.0007682312477595,
+      "token_footprint": 0.017341040462427744
+     },
+     "DENSE-ABL": {
+      "on_target": 0.004653428635404756,
+      "collateral": 0.0051453523260880235,
+      "reaches_matched": true,
+      "max_on_target": 0.7966188751161098,
+      "selectivity": 0.9043927988921082,
+      "unrelated_kl": 0.13350774347782135,
+      "unrelated_ppl_ratio": 1.4396696086764627,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.004653428635404756,
+      "collateral": 0.000494746286298559,
+      "reaches_matched": false,
+      "max_on_target": 0.00044461307619106567,
+      "selectivity": 9.40549673500593,
+      "unrelated_kl": 0.0006482110475189984,
+      "unrelated_ppl_ratio": 1.0006219668045366,
+      "token_footprint": 0.020953757225433526
+     },
+     "KG-ADD": {
+      "on_target": 0.004653428635404756,
+      "collateral": 0.0009976040208130143,
+      "reaches_matched": false,
+      "max_on_target": 0.003170160260197008,
+      "selectivity": 4.664558174124702
+     }
+    },
+    "matched_scale_kg": 1.65573311459654,
+    "matched_scale_dense": 0.07716829830995954,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.004653428635404756,
+      "ci_lo": 0.0005741987201250451,
+      "ci_hi": 0.011678039105439592,
+      "n": 30,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 0.0007049623957541511,
+      "ci_lo": 0.0006102968772857426,
+      "ci_hi": 0.000805715970076045,
+      "n": 180,
+      "excl_0": true
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.0051453523260880235,
+      "ci_lo": 0.0032961398049353536,
+      "ci_hi": 0.007989353125069008,
+      "n": 180,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.004440389930333873,
+      "ci_lo": 0.002618100939008202,
+      "ci_hi": 0.007255325186562166,
+      "excl_0": true,
+      "n": 180
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 5.681287386503478,
+      "ci_lo": 0.701281975587994,
+      "ci_hi": 14.104972993423457,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 7.298672057341652,
+    "random_latent_firing_rate": 0.009391771019677997
+   },
+   {
+    "family": "first_letter",
+    "target_subcontext": "large",
+    "absorber_latent": 8463,
+    "absorber_precision": 0.5714285714285714,
+    "regime": "absorption",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.7086458206176758,
+    "firing_jaccard_with_parent": 0.0018709073900841909,
+    "parent_recall_hole": 1.0,
+    "n_target_ctx": 12,
+    "n_sibling_ctx": 180,
+    "siblings": [
+     "lot",
+     "like",
+     "list",
+     "lots",
+     "level",
+     "logo",
+     "less",
+     "little",
+     "LoL",
+     "locked",
+     "li",
+     "livestream"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.004732374974992126,
+       0.01228797176736407,
+       0.04720289275671045
+      ],
+      "beh_collateral": [
+       0.0,
+       2.9333087958447223e-05,
+       2.916883504945468e-05,
+       2.81468705907173e-05
+      ],
+      "beh_footprint": [
+       0.0,
+       0.03,
+       0.03,
+       0.03
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        0.16420523822307587,
+        0.32840991020202637,
+        0.49261507391929626,
+        0.6568193435668945,
+        0.9852292537689209,
+        1.3136383295059204
+       ],
+       "collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "on_target_prob": [
+        0.0,
+        5.717078693123767e-06,
+        1.2606382369995117e-05,
+        2.0990768462070264e-05,
+        3.1128525733947754e-05,
+        5.8392684877617285e-05,
+        9.851157665252686e-05
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.0,
+       "ppl": 43.8842642969641,
+       "ppl_ratio": 1.0,
+       "token_footprint": 0.0
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.02170451443331937,
+       0.0861030388623476,
+       0.40947110081712407
+      ],
+      "beh_collateral": [
+       0.0,
+       0.011884702957831905,
+       0.05086311399936676,
+       0.3542446170868869
+      ],
+      "beh_footprint": [
+       0.0,
+       0.9983333333333333,
+       0.9983333333333333,
+       0.9983333333333333
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        2.4507219791412354,
+        4.9014434814453125,
+        7.3521647453308105,
+        9.802886009216309,
+        14.704327583312988,
+        19.605772018432617
+       ],
+       "collateral_margin": [
+        0.0,
+        2.3414134979248047,
+        4.682826995849609,
+        7.024239540100098,
+        9.365653038024902,
+        14.048480033874512,
+        18.731304168701172
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        2.3414134979248047,
+        4.682826995849609,
+        7.024239540100098,
+        9.365653038024902,
+        14.048480033874512,
+        18.731304168701172
+       ],
+       "on_target_prob": [
+        0.0,
+        0.00013026098895352334,
+        0.001230438589118421,
+        0.018857935443520546,
+        0.20521999895572662,
+        0.5738818049430847,
+        0.8014028072357178
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.030866438522934914,
+       "ppl": 43.371689024045544,
+       "ppl_ratio": 0.9883198389871602,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       10.331384658813477,
+       41.325538635253906
+      ],
+      "beh_on_target": [
+       0.0,
+       0.029562813385079306,
+       0.5393967777490616
+      ],
+      "beh_collateral": [
+       0.0,
+       0.005371582726264832,
+       0.15831816417339722
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       10.331384658813477,
+       41.325538635253906
+      ],
+      "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0003681355309607978
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0018090012321509783
+      ],
+      "beh_footprint": [
+       0.0,
+       0.01222222222222222
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0,
+       "ppl_ratio": 1.0,
+       "token_footprint": 0.0
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.03776231420536836,
+      "collateral": 2.8423197601519757e-05,
+      "reaches_matched": true,
+      "max_on_target": 0.04720289275671045,
+      "selectivity": 1328.1064878664915,
+      "unrelated_kl": 0.0,
+      "unrelated_ppl_ratio": 1.0,
+      "token_footprint": 0.0
+     },
+     "DENSE-ABL": {
+      "on_target": 0.03776231420536836,
+      "collateral": 0.021603986520413915,
+      "reaches_matched": true,
+      "max_on_target": 0.40947110081712407,
+      "selectivity": 1.747931877774847,
+      "unrelated_kl": 0.030866438522934914,
+      "unrelated_ppl_ratio": 0.9883198389871602,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.03776231420536836,
+      "collateral": 0.0018090012321509783,
+      "reaches_matched": false,
+      "max_on_target": 0.0003681355309607978,
+      "selectivity": 20.87456038648673,
+      "unrelated_kl": 0.0,
+      "unrelated_ppl_ratio": 1.0,
+      "token_footprint": 0.0
+     },
+     "KG-ADD": {
+      "on_target": 0.03776231420536836,
+      "collateral": 0.007831374948229957,
+      "reaches_matched": true,
+      "max_on_target": 0.5393967777490616,
+      "selectivity": 4.821920318691953
+     }
+    },
+    "matched_scale_kg": 1.7296119170877489,
+    "matched_scale_dense": 0.6246752151110685,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.03776231420536835,
+      "ci_lo": 0.020720305434425587,
+      "ci_hi": 0.05880532996728437,
+      "n": 12,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 2.8423197601519754e-05,
+      "ci_lo": 3.2701770795142142e-06,
+      "ci_hi": 6.274089728823659e-05,
+      "n": 180,
+      "excl_0": true
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.021603986520413915,
+      "ci_lo": 0.018343414376424283,
+      "ci_hi": 0.025191300708602444,
+      "n": 180,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.021575563322812397,
+      "ci_lo": 0.01835226092734566,
+      "ci_hi": 0.025013934347144866,
+      "excl_0": true,
+      "n": 180
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 9150.410899634026,
+      "ci_lo": 481.1512795138691,
+      "ci_hi": 12089.590564329104,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 759.815931475086,
+    "random_latent_firing_rate": 0.022039473684210525
+   },
+   {
+    "family": "toxicity",
+    "target_subcontext": "insult",
+    "absorber_latent": 13367,
+    "absorber_precision": 0.7311418685121107,
+    "regime": "co-firing",
+    "probe_train_auc": 1.0,
+    "probe_cos_with_diffmean": 0.5301113724708557,
+    "firing_jaccard_with_parent": 0.8722222222222222,
+    "parent_recall_hole": 0.0,
+    "n_target_ctx": 15,
+    "n_sibling_ctx": 18,
+    "siblings": [
+     "obscene",
+     "threat",
+     "identity_attack"
+    ],
+    "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+    "curves": {
+     "KG-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0012545266809562841,
+       0.0030612963630119337,
+       0.010978878794897657
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0006593795147232919,
+       0.0013243481031774234,
+       0.0024977113062050194
+      ],
+      "beh_footprint": [
+       0.0,
+       0.1701388888888889,
+       0.1701388888888889,
+       0.1701388888888889
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        0.21260185539722443,
+        0.42520326375961304,
+        0.6378049850463867,
+        0.8504063487052917,
+        1.2756096124649048,
+        1.7008132934570312
+       ],
+       "collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "on_target_prob": [
+        0.0,
+        0.001353755360469222,
+        0.002306608948856592,
+        0.002969954162836075,
+        0.0034285555593669415,
+        0.003963731694966555,
+        0.0042357174679636955
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.001064848038367927,
+       "ppl": 66.7282936412618,
+       "ppl_ratio": 1.0017657950639693,
+       "token_footprint": 0.05624404194470925
+      }
+     },
+     "DENSE-ABL": {
+      "scales": [
+       0.0,
+       0.5,
+       1.0,
+       2.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.10171229653060436,
+       0.533139805495739,
+       1.397378635406494
+      ],
+      "beh_collateral": [
+       0.0,
+       0.07450459860006554,
+       0.30955846385202473,
+       0.9942515682842996
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "probe_margin": {
+       "scales": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+       ],
+       "on_target_margin": [
+        0.0,
+        11.326207160949707,
+        22.652416229248047,
+        33.97862243652344,
+        45.304832458496094,
+        67.95724487304688,
+        90.60966491699219
+       ],
+       "collateral_margin": [
+        0.0,
+        10.078485488891602,
+        20.156972885131836,
+        30.23545265197754,
+        40.31394577026367,
+        60.47090530395508,
+        80.62788391113281
+       ],
+       "parent_broad_collateral_margin": [
+        0.0,
+        10.078485488891602,
+        20.156972885131836,
+        30.23545265197754,
+        40.31394577026367,
+        60.47090530395508,
+        80.62788391113281
+       ],
+       "on_target_prob": [
+        0.0,
+        0.4713432490825653,
+        0.7990769743919373,
+        0.7991116046905518,
+        0.7991116046905518,
+        0.7991116046905518,
+        0.7991116046905518
+       ]
+      },
+      "unrelated_side_effects": {
+       "kl": 0.31141397356987,
+       "ppl": 116.42146556772843,
+       "ppl_ratio": 1.7477899651378321,
+       "token_footprint": 1.0
+      }
+     },
+     "KG-ADD": {
+      "scales": [
+       0.0,
+       2.098301887512207,
+       8.393207550048828
+      ],
+      "beh_on_target": [
+       0.0,
+       0.0016735981199114272,
+       0.01136362599208951
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0015340250683948398,
+       0.011309189812487198
+      ],
+      "beh_footprint": [
+       0.0,
+       1.0,
+       1.0
+      ],
+      "alpha": [
+       0.0,
+       2.098301887512207,
+       8.393207550048828
+      ],
+      "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+     },
+     "RAND": {
+      "scales": [
+       0.0,
+       1.0
+      ],
+      "beh_on_target": [
+       0.0,
+       0.001086230141582847
+      ],
+      "beh_collateral": [
+       0.0,
+       0.0010250435311549896
+      ],
+      "beh_footprint": [
+       0.0,
+       0.19976851851851854
+      ],
+      "n_draws": 3,
+      "unrelated_side_effects": {
+       "kl": 0.0009808613394852728,
+       "ppl_ratio": 1.0001386611415346,
+       "token_footprint": 0.04718779790276453
+      }
+     }
+    },
+    "matched": {
+     "KG-ABL": {
+      "on_target": 0.008783103035918127,
+      "collateral": 0.002172303582338361,
+      "reaches_matched": true,
+      "max_on_target": 0.010978878794897657,
+      "selectivity": 4.04320219112365,
+      "unrelated_kl": 0.001064848038367927,
+      "unrelated_ppl_ratio": 1.0017657950639693,
+      "token_footprint": 0.05624404194470925
+     },
+     "DENSE-ABL": {
+      "on_target": 0.008783103035918127,
+      "collateral": 0.006433652453783691,
+      "reaches_matched": true,
+      "max_on_target": 1.397378635406494,
+      "selectivity": 1.3651793358777642,
+      "unrelated_kl": 0.31141397356987,
+      "unrelated_ppl_ratio": 1.7477899651378321,
+      "token_footprint": 1.0
+     },
+     "RAND": {
+      "on_target": 0.008783103035918127,
+      "collateral": 0.0010250435311549896,
+      "reaches_matched": false,
+      "max_on_target": 0.001086230141582847,
+      "selectivity": 8.568433519780841,
+      "unrelated_kl": 0.0009808613394852728,
+      "unrelated_ppl_ratio": 1.0001386611415346,
+      "token_footprint": 0.04718779790276453
+     },
+     "KG-ADD": {
+      "on_target": 0.008783103035918127,
+      "collateral": 0.008705994305184955,
+      "reaches_matched": true,
+      "max_on_target": 0.01136362599208951,
+      "selectivity": 1.0088558112344665
+     }
+    },
+    "matched_scale_kg": 1.72267093170553,
+    "matched_scale_dense": 0.04317621042641273,
+    "selectivity_CIs": {
+     "KG-ABL_on_target": {
+      "mean": 0.008783103035918125,
+      "ci_lo": 0.0047148278102574015,
+      "ci_hi": 0.013286473972835132,
+      "n": 15,
+      "excl_0": true
+     },
+     "KG-ABL_collateral": {
+      "mean": 0.0021723035823383607,
+      "ci_lo": 0.001283607740871846,
+      "ci_hi": 0.003307271251707558,
+      "n": 18,
+      "excl_0": true
+     },
+     "DENSE-ABL_collateral": {
+      "mean": 0.006433652453783691,
+      "ci_lo": 0.00504917999695631,
+      "ci_hi": 0.007791062957794296,
+      "n": 18,
+      "excl_0": true
+     },
+     "dense_minus_kg_collateral": {
+      "diff": 0.004261348871445331,
+      "ci_lo": 0.0028937582149193663,
+      "ci_hi": 0.00563662319876215,
+      "excl_0": true,
+      "n": 18
+     },
+     "KG_minus_dense_selectivity": {
+      "diff": 2.8679557900450416,
+      "ci_lo": 1.0729628743633157,
+      "ci_hi": 5.965463215000827,
+      "excl_0": true,
+      "favors_kg": true
+     }
+    },
+    "k_probe": {
+     "note": "no per-sub-context handle (see metadata.k_localization_check)"
+    },
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "headline_selectivity_ratio": 2.9616637791576355,
+    "random_latent_firing_rate": 0.8722222222222222,
+    "insult_latent_auc": 0.7311418685121107
+   }
+  ],
+  "summary": {
+   "n_cases": 7,
+   "n_surgical_confirmed": 7,
+   "surgical_cases": [
+    "taxonomic/Georgia",
+    "taxonomic/Jordan",
+    "taxonomic/Jordan",
+    "taxonomic/United States",
+    "taxonomic/United States",
+    "first_letter/large",
+    "toxicity/insult"
+   ],
+   "taxonomic_primary_georgia": {
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "on_target": 0.010100843331504924,
+    "kg_collateral": 2.891713783362228e-05,
+    "dense_collateral": 0.006570787470919656,
+    "selectivity_ratio": 227.1499347329952,
+    "dense_minus_kg_collateral_CI": {
+     "diff": 0.006541870333086034,
+     "ci_lo": 0.004092794392886197,
+     "ci_hi": 0.010095180520315883,
+     "excl_0": true,
+     "n": 180
+    }
+   },
+   "first_letter_primary": {
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "X": "large",
+    "selectivity_ratio": 759.815931475086
+   },
+   "toxicity_negative_pole": {
+    "verdict": "SURGICAL_EDIT_CONFIRMED",
+    "selectivity_KG": 4.04320219112365,
+    "firing_jaccard_with_parent": 0.8722222222222222,
+    "parent_recall_hole": 0.0
+   },
+   "headline_selectivity_ratio": 227.1499347329952
+  },
+  "honest_negatives": []
+ },
+ "datasets": [
+  {
+   "dataset": "kg_surgical_edit",
+   "examples": [
+    {
+     "input": "taxonomic | surgically ablate absorber 16009 for sub-context 'Georgia' (absorption); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "Georgia",
+     "metadata_absorber_latent": 16009,
+     "metadata_regime": "absorption",
+     "metadata_on_target": 0.010100843331504924,
+     "metadata_kg_collateral": 2.891713783362228e-05,
+     "metadata_dense_collateral": 0.006570787470919656,
+     "metadata_selectivity_ratio": 227.1499347329952,
+     "metadata_dense_minus_kg_ci_lo": 0.004092794392886197,
+     "metadata_dense_minus_kg_ci_hi": 0.010095180520315883,
+     "metadata_firing_jaccard_with_parent": 0.011313639220615965,
+     "metadata_parent_recall_hole": 0.8
+    },
+    {
+     "input": "taxonomic | surgically ablate absorber 540 for sub-context 'Jordan' (absorption); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "Jordan",
+     "metadata_absorber_latent": 540,
+     "metadata_regime": "absorption",
+     "metadata_on_target": 0.02624660199808811,
+     "metadata_kg_collateral": 2.68697316189938e-05,
+     "metadata_dense_collateral": 0.011206882805405808,
+     "metadata_selectivity_ratio": 416.9272582129046,
+     "metadata_dense_minus_kg_ci_lo": 0.007093535736620207,
+     "metadata_dense_minus_kg_ci_hi": 0.017058628227758457,
+     "metadata_firing_jaccard_with_parent": 0.051418439716312055,
+     "metadata_parent_recall_hole": 0.6774193548387097
+    },
+    {
+     "input": "taxonomic | surgically ablate absorber 8347 for sub-context 'Jordan' (absorption); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "Jordan",
+     "metadata_absorber_latent": 8347,
+     "metadata_regime": "absorption",
+     "metadata_on_target": 0.010480489990647284,
+     "metadata_kg_collateral": 3.948218866970319e-06,
+     "metadata_dense_collateral": 0.004475003014750955,
+     "metadata_selectivity_ratio": 1130.5622971213306,
+     "metadata_dense_minus_kg_ci_lo": 0.002864071027793963,
+     "metadata_dense_minus_kg_ci_hi": 0.0069348355765255975,
+     "metadata_firing_jaccard_with_parent": 0.030826140567200986,
+     "metadata_parent_recall_hole": 0.6774193548387097
+    },
+    {
+     "input": "taxonomic | surgically ablate absorber 846 for sub-context 'United States' (absorption); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_absorber_latent": 846,
+     "metadata_regime": "absorption",
+     "metadata_on_target": 0.01017678915988654,
+     "metadata_kg_collateral": 7.298019112820453e-05,
+     "metadata_dense_collateral": 0.011252598863885882,
+     "metadata_selectivity_ratio": 154.16604190172762,
+     "metadata_dense_minus_kg_ci_lo": 0.007164675686506838,
+     "metadata_dense_minus_kg_ci_hi": 0.017202942354454888,
+     "metadata_firing_jaccard_with_parent": 0.036893203883495145,
+     "metadata_parent_recall_hole": 0.16666666666666663
+    },
+    {
+     "input": "taxonomic | surgically ablate absorber 4760 for sub-context 'United States' (absorption); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "taxonomic",
+     "metadata_subcontext": "United States",
+     "metadata_absorber_latent": 4760,
+     "metadata_regime": "absorption",
+     "metadata_on_target": 0.004653428635404756,
+     "metadata_kg_collateral": 0.0007049623957541511,
+     "metadata_dense_collateral": 0.0051453523260880235,
+     "metadata_selectivity_ratio": 7.298672057341652,
+     "metadata_dense_minus_kg_ci_lo": 0.002618100939008202,
+     "metadata_dense_minus_kg_ci_hi": 0.007255325186562166,
+     "metadata_firing_jaccard_with_parent": 0.0071151358344113845,
+     "metadata_parent_recall_hole": 0.16666666666666663
+    },
+    {
+     "input": "first_letter | surgically ablate absorber 8463 for sub-context 'large' (absorption); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "first_letter",
+     "metadata_subcontext": "large",
+     "metadata_absorber_latent": 8463,
+     "metadata_regime": "absorption",
+     "metadata_on_target": 0.03776231420536835,
+     "metadata_kg_collateral": 2.8423197601519754e-05,
+     "metadata_dense_collateral": 0.021603986520413915,
+     "metadata_selectivity_ratio": 759.815931475086,
+     "metadata_dense_minus_kg_ci_lo": 0.01835226092734566,
+     "metadata_dense_minus_kg_ci_hi": 0.025013934347144866,
+     "metadata_firing_jaccard_with_parent": 0.0018709073900841909,
+     "metadata_parent_recall_hole": 1.0
+    },
+    {
+     "input": "toxicity | surgically ablate absorber 13367 for sub-context 'insult' (co-firing); compare KG-ABL vs DENSE-ABL at matched on-target",
+     "output": "SURGICAL_EDIT_CONFIRMED",
+     "metadata_family": "toxicity",
+     "metadata_subcontext": "insult",
+     "metadata_absorber_latent": 13367,
+     "metadata_regime": "co-firing",
+     "metadata_on_target": 0.008783103035918125,
+     "metadata_kg_collateral": 0.0021723035823383607,
+     "metadata_dense_collateral": 0.006433652453783691,
+     "metadata_selectivity_ratio": 2.9616637791576355,
+     "metadata_dense_minus_kg_ci_lo": 0.0028937582149193663,
+     "metadata_dense_minus_kg_ci_hi": 0.00563662319876215,
+     "metadata_firing_jaccard_with_parent": 0.8722222222222222,
+     "metadata_parent_recall_hole": 0.0
+    }
+   ]
+  }
+ ]
+}

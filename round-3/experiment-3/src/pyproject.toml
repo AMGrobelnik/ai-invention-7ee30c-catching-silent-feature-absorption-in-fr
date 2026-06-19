@@ -1,0 +1,32 @@
+[project]
+name = "ccrg-m5-auditability"
+version = "0.1.0"
+description = "M5 auditability for two-track CCRG units: KG-guided repair loop (vs random-addition control) + LLM-judge member-labeling, on a frozen Gemma-Scope L12/16k SAE (first-letter + taxonomic). Reuses iter-2 SAE loader/encoder verbatim."
+requires-python = ">=3.12"
+# torch must be the cu124 build (system NVIDIA driver is CUDA 12.7; default cu130 wheel disables CUDA):
+#   uv pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+# SAE loaded directly from gemma-scope params.npz (no sae_lens/transformer_lens).
+dependencies = [
+    "torch==2.6.0",
+    "transformers==5.12.1",
+    "tokenizers==0.22.2",
+    "accelerate==1.14.0",
+    "safetensors==0.8.0",
+    "huggingface-hub==1.19.0",
+    "scikit-learn==1.9.0",
+    "scipy==1.17.1",
+    "numpy==2.4.6",
+    "statsmodels==0.14.6",
+    "pandas==3.0.3",
+    "patsy==1.0.2",
+    "joblib==1.5.3",
+    "threadpoolctl==3.6.0",
+    "loguru==0.7.3",
+    "tqdm==4.68.3",
+    "regex==2026.5.9",
+    "filelock==3.29.0",
+    "pyyaml==6.0.3",
+    "sympy==1.13.1",
+    "triton==3.2.0",
+    "requests==2.32.3",
+]
