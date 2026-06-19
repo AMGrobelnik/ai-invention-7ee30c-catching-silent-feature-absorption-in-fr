@@ -1,0 +1,4697 @@
+{
+  "D1": {
+    "metadata": {
+      "replication_tables": {
+        "65k": {
+          "dictionary": "65k",
+          "layer": 12,
+          "width": "65k",
+          "sae_id": "layer_12/width_65k/average_l0_72",
+          "avg_l0": 72,
+          "gating": {
+            "pass": true,
+            "cosine": 0.9280143976211548,
+            "L0": 70.796875,
+            "align": 1.0,
+            "layer_idx": 13,
+            "expected_layer_idx": 13,
+            "spelling_cosine_descriptive": 0.9353140592575073,
+            "numeric_digit_cosine_descriptive": 0.8761566877365112,
+            "avg_l0": 72,
+            "gate_concept": "taxonomic (global SAE/layer mapping check)",
+            "fvu_by_idx": {
+              "11": 0.3715206939290231,
+              "12": 0.2783902326851278,
+              "13": 0.17014060046184715,
+              "14": 0.3339469267840578
+            },
+            "delta_cosine_vs_16k": 0.009114397621154735
+          },
+          "reduced_run": false,
+          "re_derived_anchors": {
+            "taxonomic": {
+              "anchor": 31478,
+              "firing_floor_validated": true,
+              "corpus_fire_rate": 0.9159851301115242,
+              "spurious": false
+            },
+            "numeric": {
+              "anchor": 14572,
+              "firing_floor_validated": true,
+              "corpus_fire_rate": 0.23864864864864865,
+              "spurious": false
+            },
+            "first_letter_L": {
+              "anchor": 39981,
+              "firing_floor_validated": true,
+              "corpus_fire_rate": 0.0748,
+              "spurious": false
+            },
+            "first_letter_O": {
+              "anchor": 8033,
+              "firing_floor_validated": true,
+              "corpus_fire_rate": 0.034,
+              "spurious": false
+            },
+            "first_letter_T": {
+              "anchor": 36959,
+              "firing_floor_validated": true,
+              "corpus_fire_rate": 0.0664,
+              "spurious": false
+            },
+            "first_letter_I": {
+              "anchor": 43968,
+              "firing_floor_validated": true,
+              "corpus_fire_rate": 0.0316,
+              "spurious": false
+            },
+            "first_letter_D": {
+              "anchor": 43968,
+              "firing_floor_validated": true,
+              "corpus_fire_rate": 0.0204,
+              "spurious": false
+            }
+          },
+          "homograph_holes": {
+            "per_country": {
+              "Chile": {
+                "recall_hole": 0.025316455696202556,
+                "firing_jaccard": 0.0476431829700963,
+                "n_pos": 79,
+                "detector_latent": 132
+              },
+              "Georgia": {
+                "recall_hole": 0.8733333333333333,
+                "firing_jaccard": 0.0037567968363816113,
+                "n_pos": 300,
+                "detector_latent": 46143
+              },
+              "Iran": {
+                "recall_hole": 0.0,
+                "firing_jaccard": 0.030539772727272728,
+                "n_pos": 300,
+                "detector_latent": 52526
+              },
+              "Jordan": {
+                "recall_hole": 0.7459677419354839,
+                "firing_jaccard": 0.09657131263948063,
+                "n_pos": 248,
+                "detector_latent": 56472
+              },
+              "Turkey": {
+                "recall_hole": 0.014218009478673022,
+                "firing_jaccard": 0.4918929874341305,
+                "n_pos": 211,
+                "detector_latent": 43065
+              },
+              "United States": {
+                "recall_hole": 1.0,
+                "firing_jaccard": 0.02640361209265803,
+                "n_pos": 300,
+                "detector_latent": 9410
+              }
+            },
+            "Georgia": {
+              "hole_ok": true,
+              "sub_context": "Georgia",
+              "n_pos": 300,
+              "parent_recall": 0.12666666666666668,
+              "recall_hole": 0.8733333333333333,
+              "detector_latent": 46143,
+              "detector_auc": 0.995,
+              "firing_jaccard": 0.0037567968363816113
+            },
+            "Jordan": {
+              "hole_ok": true,
+              "sub_context": "Jordan",
+              "n_pos": 248,
+              "parent_recall": 0.2540322580645161,
+              "recall_hole": 0.7459677419354839,
+              "detector_latent": 56472,
+              "detector_auc": 0.6038508064516129,
+              "firing_jaccard": 0.09657131263948063
+            },
+            "verdict": "REPLICATES"
+          },
+          "repair_fdr": {
+            "per_family_survivors": {
+              "spelling": 29,
+              "homograph_taxonomic": 11,
+              "numeric": 15
+            },
+            "deltas_vs_16k": {
+              "spelling": 15,
+              "homograph_taxonomic": 5,
+              "numeric": 5
+            },
+            "n_repairs_tested": 154,
+            "n_survive_FDR": 55,
+            "distinct_hole_count": {
+              "homograph_taxonomic": 8,
+              "numeric": 15,
+              "spelling": 29
+            },
+            "distinct_total": 52,
+            "statsmodels_crosscheck": true,
+            "ref_16k": {
+              "spelling": 14,
+              "homograph_taxonomic": 6,
+              "numeric": 10
+            },
+            "verdict": "REPLICATES"
+          },
+          "surgical": {
+            "n_cases": 9,
+            "n_confirmed": 4,
+            "best_selectivity_ratio": 3710589.049682427,
+            "cases": [
+              {
+                "family": "taxonomic",
+                "subcontext": "Georgia",
+                "absorber": 46143,
+                "verdict": "SURGICAL_EDIT_CONFIRMED",
+                "selectivity_ratio": 3710589.049682427,
+                "kg_collateral": 0.0,
+                "dense_collateral": 0.03710588049682426,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 5.89066918001885e-05,
+                "firing_jaccard": 0.004679457182966776,
+                "parent_recall_hole": 0.8733333333333333,
+                "regime": "absorption"
+              },
+              {
+                "family": "taxonomic",
+                "subcontext": "Jordan",
+                "absorber": 60904,
+                "verdict": "NO_ON_TARGET_EFFECT",
+                "selectivity_ratio": 22486.344813941356,
+                "kg_collateral": 0.0,
+                "dense_collateral": 0.00022485344813941358,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 5.84932147870847e-05,
+                "firing_jaccard": 0.0007670182166826462,
+                "parent_recall_hole": 0.7459677419354839,
+                "regime": "absorption"
+              },
+              {
+                "family": "taxonomic",
+                "subcontext": "United States",
+                "absorber": 29902,
+                "verdict": "SURGICAL_EDIT_CONFIRMED",
+                "selectivity_ratio": 1517.5227498534996,
+                "kg_collateral": 0.0013685737187736694,
+                "dense_collateral": 2.076856918318148,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 0.012720038582107547,
+                "firing_jaccard": 0.00027935561970388306,
+                "parent_recall_hole": 1.0,
+                "regime": "absorption"
+              },
+              {
+                "family": "first_letter_L",
+                "subcontext": "layer",
+                "absorber": 8234,
+                "verdict": "SURGICAL_EDIT_CONFIRMED",
+                "selectivity_ratio": 1000.1184910507228,
+                "kg_collateral": 2.4582181847575626e-05,
+                "dense_collateral": 0.024595085801042308,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 0.00044444444444444447,
+                "firing_jaccard": 0.0,
+                "parent_recall_hole": 1.0,
+                "regime": "absorption"
+              },
+              {
+                "family": "first_letter_O",
+                "subcontext": "on",
+                "absorber": 54546,
+                "verdict": "NO_ON_TARGET_EFFECT",
+                "selectivity_ratio": 8.664410777814973,
+                "kg_collateral": 1.3290813493011267e-05,
+                "dense_collateral": 0.00011523371178255366,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 0.001,
+                "firing_jaccard": 0.03508771929824561,
+                "parent_recall_hole": 1.0,
+                "regime": "absorption"
+              },
+              {
+                "family": "first_letter_T",
+                "subcontext": "take",
+                "absorber": 26458,
+                "verdict": "NO_ON_TARGET_EFFECT",
+                "selectivity_ratio": 2.8217040434963687,
+                "kg_collateral": 4.547178331348631e-05,
+                "dense_collateral": 0.00012832613188108998,
+                "dense_minus_kg_excl0": false,
+                "kg_offtarget_footprint": 0.001,
+                "firing_jaccard": 0.016216216216216217,
+                "parent_recall_hole": 1.0,
+                "regime": "absorption"
+              },
+              {
+                "family": "first_letter_I",
+                "subcontext": "It",
+                "absorber": 9507,
+                "verdict": "PARTIAL_SURGICAL",
+                "selectivity_ratio": 16.683607228380435,
+                "kg_collateral": 7.493669302978863e-06,
+                "dense_collateral": 0.00012517827142255456,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 0.00022222222222222223,
+                "firing_jaccard": 0.0,
+                "parent_recall_hole": 1.0,
+                "regime": "absorption"
+              },
+              {
+                "family": "first_letter_D",
+                "subcontext": "did",
+                "absorber": 41077,
+                "verdict": "SURGICAL_EDIT_CONFIRMED",
+                "selectivity_ratio": 352.5389024046276,
+                "kg_collateral": 0.0026638156216811397,
+                "dense_collateral": 0.9391021508647936,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 0.02022222222222222,
+                "firing_jaccard": 0.0,
+                "parent_recall_hole": 1.0,
+                "regime": "absorption"
+              },
+              {
+                "family": "toxicity",
+                "subcontext": "insult",
+                "absorber": 51688,
+                "verdict": "PARTIAL_CO_FIRING_AS_PREDICTED",
+                "selectivity_ratio": 1.986294119517036,
+                "kg_collateral": 0.0019781553000319395,
+                "dense_collateral": 0.003929208102886095,
+                "dense_minus_kg_excl0": true,
+                "kg_offtarget_footprint": 0.04789778449144008,
+                "firing_jaccard": 0.8369474562135113,
+                "parent_recall_hole": 0.0,
+                "regime": "co-firing"
+              }
+            ],
+            "ref_16k_georgia": {
+              "verdict": "SURGICAL_EDIT_CONFIRMED",
+              "selectivity_ratio": 1722.46,
+              "kg_collateral": 2.876e-05,
+              "dense_collateral": 0.04955,
+              "firing_jaccard": 0.012,
+              "parent_recall_hole": 0.77
+            },
+            "verdict": "REPLICATES"
+          },
+          "router": {
+            "frozen_16k_recall_hole_balanced_acc": 1.0,
+            "frozen_16k_firing_jaccard_balanced_acc": 0.9285714285714286,
+            "rederived_65k_tau_h": 0.0,
+            "rederived_65k_recall_hole_balanced_acc": 1.0,
+            "tau_h": 0.0,
+            "tau_j": 0.1396002498438476,
+            "balanced_acc_recall_hole_alone": 1.0,
+            "balanced_acc_combined": 1.0,
+            "transfers": true,
+            "ref_16k_tau_h": 0.7774337479718767,
+            "verdict": "REPLICATES"
+          },
+          "regime_split": {
+            "absorption_mean_selectivity": 466996.7180452159,
+            "absorption_mean_firing_jaccard": 0.007128720816726892,
+            "co_firing_mean_selectivity": 1.986294119517036,
+            "co_firing_mean_firing_jaccard": 0.8369474562135113,
+            "n_absorption": 8,
+            "n_co_firing": 1
+          },
+          "per_piece_verdicts": {
+            "homograph_holes": "REPLICATES",
+            "repair_fdr": "REPLICATES",
+            "surgical": "REPLICATES",
+            "router": "REPLICATES"
+          },
+          "overall_verdict": "full"
+        }
+      }
+    }
+  },
+  "D2": {
+    "metadata": {
+      "per_case": [
+        {
+          "decision_threshold_tau": 0.0023004183545708677,
+          "per_context_label_scale": "full_edit_lambda1_beta1",
+          "family": "taxonomic",
+          "target_subcontext": "Georgia",
+          "absorber_latent": 16009,
+          "absorber_precision": 0.955,
+          "regime": "absorption",
+          "probe_train_auc": 1.0,
+          "probe_cos_with_diffmean": 0.49868398904800415,
+          "firing_jaccard_with_parent": 0.012183837137569401,
+          "parent_recall_hole": 0.7666666666666666,
+          "n_target_ctx": 60,
+          "n_sibling_ctx": 180,
+          "siblings": [
+            "Australia",
+            "Brazil",
+            "Canada",
+            "China",
+            "France",
+            "Germany",
+            "India",
+            "Iran",
+            "Ireland",
+            "Israel",
+            "Italy",
+            "Japan"
+          ],
+          "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+          "curves": {
+            "KG-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0034109201095513225,
+                0.009159347300010268,
+                0.02697200158945634
+              ],
+              "beh_collateral": [
+                0.0,
+                2.779249819771697e-05,
+                3.3344539487087684e-05,
+                2.6765914137488127e-05
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.014409722222222223,
+                0.014409722222222223,
+                0.014409722222222223
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.0014623303696771174,
+                0.0014623303696771174,
+                0.0014623303696771174
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.08790300041437149,
+                  0.17580553889274597,
+                  0.263708233833313,
+                  0.35161101818084717,
+                  0.527417004108429,
+                  0.7032223343849182
+                ],
+                "collateral_margin": [
+                  0.0,
+                  1.1104115401394665e-05,
+                  2.220823080278933e-05,
+                  3.331335028633475e-05,
+                  4.4416796299628913e-05,
+                  6.662569649051875e-05,
+                  8.883459668140858e-05
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  1.1104115401394665e-05,
+                  2.220823080278933e-05,
+                  3.331335028633475e-05,
+                  4.4416796299628913e-05,
+                  6.662569649051875e-05,
+                  8.883459668140858e-05
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.0001633437495911494,
+                  0.00033469556365162134,
+                  0.0005134892417117953,
+                  0.000699024589266628,
+                  0.00108674808871001,
+                  0.001489735092036426
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 4.722872836282477e-05,
+                "ppl": 18.065320722961566,
+                "ppl_ratio": 1.000345961975954,
+                "token_footprint": 0.002073828287017835
+              }
+            },
+            "DENSE-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.03258339261325697,
+                0.26466166122506063,
+                2.6542664115239556
+              ],
+              "beh_collateral": [
+                0.0,
+                0.07482636134955101,
+                0.7201853333849512,
+                5.164716102557981
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  7.447039604187012,
+                  14.89407730102539,
+                  22.341114044189453,
+                  29.78815460205078,
+                  44.682228088378906,
+                  59.57630920410156
+                ],
+                "collateral_margin": [
+                  0.0,
+                  8.880736351013184,
+                  17.761470794677734,
+                  26.642162322998047,
+                  35.52294158935547,
+                  53.28432083129883,
+                  71.04588317871094
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  8.880736351013184,
+                  17.761470794677734,
+                  26.642162322998047,
+                  35.52294158935547,
+                  53.28432083129883,
+                  71.04588317871094
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.032729651778936386,
+                  0.6807541251182556,
+                  0.9503366947174072,
+                  0.9826036691665649,
+                  0.9958238005638123,
+                  0.9980378150939941
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.005427227821201086,
+                "ppl": 17.9837699227866,
+                "ppl_ratio": 0.99583018199607,
+                "token_footprint": 1.0
+              }
+            },
+            "KG-ADD": {
+              "scales": [
+                0.0,
+                10.101146697998047,
+                40.40458679199219
+              ],
+              "beh_on_target": [
+                0.0,
+                0.015473509019163128,
+                0.2748975951767837
+              ],
+              "beh_collateral": [
+                0.0,
+                0.004112066222943314,
+                0.15122964246871157
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "alpha": [
+                0.0,
+                10.101146697998047,
+                40.40458679199219
+              ],
+              "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+            },
+            "RAND": {
+              "scales": [
+                0.0,
+                1.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0004419411630604171
+              ],
+              "beh_collateral": [
+                0.0,
+                0.00037233074558066105
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.009317129629629628
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.007370145063172673
+              ],
+              "n_draws": 3,
+              "unrelated_side_effects": {
+                "kl": 0.000567724335269304,
+                "ppl_ratio": 0.9997152362470261,
+                "token_footprint": 0.013479883865615928
+              }
+            }
+          },
+          "matched": {
+            "KG-ABL": {
+              "on_target": 0.021577601271565074,
+              "collateral": 2.875819098183208e-05,
+              "reaches_matched": true,
+              "max_on_target": 0.02697200158945634,
+              "selectivity": 750.0506821993755,
+              "token_footprint_offtarget": 0.0014623303696771174,
+              "unrelated_kl": 4.722872836282477e-05,
+              "unrelated_ppl_ratio": 1.000345961975954,
+              "token_footprint_unrelated": 0.002073828287017835
+            },
+            "DENSE-ABL": {
+              "on_target": 0.021577601271565074,
+              "collateral": 0.04955203434358612,
+              "reaches_matched": true,
+              "max_on_target": 2.6542664115239556,
+              "selectivity": 0.4354533008153884,
+              "token_footprint_offtarget": 1.0,
+              "unrelated_kl": 0.005427227821201086,
+              "unrelated_ppl_ratio": 0.99583018199607,
+              "token_footprint_unrelated": 1.0
+            },
+            "RAND": {
+              "on_target": 0.021577601271565074,
+              "collateral": 0.00037233074558066105,
+              "reaches_matched": false,
+              "max_on_target": 0.0004419411630604171,
+              "selectivity": 57.9512221739661,
+              "token_footprint_offtarget": 0.007370145063172673,
+              "unrelated_kl": 0.000567724335269304,
+              "unrelated_ppl_ratio": 0.9997152362470261,
+              "token_footprint_unrelated": 0.013479883865615928
+            },
+            "KG-ADD": {
+              "on_target": 0.021577601271565074,
+              "collateral": 0.007573654044855615,
+              "reaches_matched": true,
+              "max_on_target": 0.2748975951767837,
+              "selectivity": 2.849030686305869,
+              "token_footprint_offtarget": 1.0
+            }
+          },
+          "matched_scale_kg": 1.6971590965481531,
+          "matched_scale_dense": 0.33111348360308485,
+          "selectivity_CIs": {
+            "KG-ABL_on_target": {
+              "mean": 0.021577601271565074,
+              "ci_lo": 0.0069507070356042925,
+              "ci_hi": 0.046604001037922796,
+              "n": 60,
+              "excl_0": true
+            },
+            "KG-ABL_collateral": {
+              "mean": 2.875819098183208e-05,
+              "ci_lo": 4.243759829331475e-06,
+              "ci_hi": 6.415725127312815e-05,
+              "n": 180,
+              "excl_0": true
+            },
+            "DENSE-ABL_collateral": {
+              "mean": 0.04955203434358611,
+              "ci_lo": 0.03567531937839969,
+              "ci_hi": 0.06719647272316533,
+              "n": 180,
+              "excl_0": true
+            },
+            "dense_minus_kg_collateral": {
+              "diff": 0.04952327615260428,
+              "ci_lo": 0.035646333116633296,
+              "ci_hi": 0.0664755473701567,
+              "excl_0": true,
+              "n": 180
+            },
+            "KG_minus_dense_selectivity": {
+              "diff": 1805.1620713749155,
+              "ci_lo": 171.63449718475266,
+              "ci_hi": 5686.401389458835,
+              "excl_0": true,
+              "favors_kg": true
+            }
+          },
+          "k_probe": {
+            "note": "no per-sub-context handle (see metadata.k_localization_check)"
+          },
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 1722.4595170019425,
+          "random_latent_firing_rate": 0.02964714441615133
+        },
+        {
+          "decision_threshold_tau": 0.002,
+          "per_context_label_scale": "full_edit_lambda1_beta1",
+          "family": "taxonomic",
+          "target_subcontext": "Jordan",
+          "absorber_latent": 540,
+          "absorber_precision": 0.975,
+          "regime": "absorption",
+          "probe_train_auc": 1.0,
+          "probe_cos_with_diffmean": 0.49868398904800415,
+          "firing_jaccard_with_parent": 0.013895394223263077,
+          "parent_recall_hole": 0.6774193548387097,
+          "n_target_ctx": 60,
+          "n_sibling_ctx": 180,
+          "siblings": [
+            "Australia",
+            "Brazil",
+            "Canada",
+            "China",
+            "France",
+            "Georgia",
+            "Germany",
+            "India",
+            "Iran",
+            "Ireland",
+            "Israel",
+            "Italy"
+          ],
+          "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+          "curves": {
+            "KG-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.003373239193539727,
+                0.009135276646717708,
+                0.03280825249761013
+              ],
+              "beh_collateral": [
+                0.0,
+                2.310395098498298e-05,
+                2.6396558759087284e-05,
+                2.652782649319205e-05
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.013233190271816882,
+                0.013233190271816882,
+                0.013233190271816882
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.0009981211836542978,
+                0.0009981211836542978,
+                0.0009981211836542978
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.03772637993097305,
+                  0.07545266300439835,
+                  0.11317910254001617,
+                  0.15090565383434296,
+                  0.22635838389396667,
+                  0.30181121826171875
+                ],
+                "collateral_margin": [
+                  0.0,
+                  7.301330697373487e-06,
+                  1.4608383025915828e-05,
+                  2.1911620933678932e-05,
+                  2.9216131224529818e-05,
+                  4.3827058107126504e-05,
+                  5.843607505084947e-05
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  7.301330697373487e-06,
+                  1.4608383025915828e-05,
+                  2.1911620933678932e-05,
+                  2.9216131224529818e-05,
+                  4.3827058107126504e-05,
+                  5.843607505084947e-05
+                ],
+                "on_target_prob": [
+                  0.0,
+                  5.3528815442405175e-06,
+                  1.089707529899897e-05,
+                  1.666094067331869e-05,
+                  2.2643034753855318e-05,
+                  3.5291235690237954e-05,
+                  4.892435754300095e-05
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.00010656977246981114,
+                "ppl": 18.054167814937028,
+                "ppl_ratio": 0.9997283827656135,
+                "token_footprint": 0.002488593944421402
+              }
+            },
+            "DENSE-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.026843136999195848,
+                0.08509316061390564,
+                0.7155038788041566
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0737835228359068,
+                0.6889754271943174,
+                5.1036568640446704
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  4.036797523498535,
+                  8.073594093322754,
+                  12.110394477844238,
+                  16.14719009399414,
+                  24.22079086303711,
+                  32.29438018798828
+                ],
+                "collateral_margin": [
+                  0.0,
+                  8.809043884277344,
+                  17.618087768554688,
+                  26.427114486694336,
+                  35.236175537109375,
+                  52.854225158691406,
+                  70.47235870361328
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  8.809043884277344,
+                  17.618087768554688,
+                  26.427114486694336,
+                  35.236175537109375,
+                  52.854225158691406,
+                  70.47235870361328
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.005213256925344467,
+                  0.14139804244041443,
+                  0.37289515137672424,
+                  0.5341125130653381,
+                  0.7732452750205994,
+                  0.9110812544822693
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.005427227821201086,
+                "ppl": 17.9837699227866,
+                "ppl_ratio": 0.99583018199607,
+                "token_footprint": 1.0
+              }
+            },
+            "KG-ADD": {
+              "scales": [
+                0.0,
+                6.156808853149414,
+                24.627235412597656
+              ],
+              "beh_on_target": [
+                0.0,
+                0.008910121432109008,
+                0.14133219396171626
+              ],
+              "beh_collateral": [
+                0.0,
+                0.002533861302597668,
+                0.04670776957726856
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "alpha": [
+                0.0,
+                6.156808853149414,
+                24.627235412597656
+              ],
+              "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+            },
+            "RAND": {
+              "scales": [
+                0.0,
+                1.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.00012091686595441488
+              ],
+              "beh_collateral": [
+                0.0,
+                0.00012718461071270008
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.00810681926561755
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.014541255675591044
+              ],
+              "n_draws": 3,
+              "unrelated_side_effects": {
+                "kl": 0.00023066761787049472,
+                "ppl_ratio": 1.000324654237199,
+                "token_footprint": 0.014620489423475736
+              }
+            }
+          },
+          "matched": {
+            "KG-ABL": {
+              "on_target": 0.026246601998088107,
+              "collateral": 2.6491441840984194e-05,
+              "reaches_matched": true,
+              "max_on_target": 0.03280825249761013,
+              "selectivity": 990.3839253567712,
+              "token_footprint_offtarget": 0.0009981211836542978,
+              "unrelated_kl": 0.00010656977246981114,
+              "unrelated_ppl_ratio": 0.9997283827656135,
+              "token_footprint_unrelated": 0.002488593944421402
+            },
+            "DENSE-ABL": {
+              "on_target": 0.026246601998088107,
+              "collateral": 0.07214383169705185,
+              "reaches_matched": true,
+              "max_on_target": 0.7155038788041566,
+              "selectivity": 0.3638093201122206,
+              "token_footprint_offtarget": 1.0,
+              "unrelated_kl": 0.005427227821201086,
+              "unrelated_ppl_ratio": 0.99583018199607,
+              "token_footprint_unrelated": 1.0
+            },
+            "RAND": {
+              "on_target": 0.026246601998088107,
+              "collateral": 0.00012718461071270008,
+              "reaches_matched": false,
+              "max_on_target": 0.00012091686595441488,
+              "selectivity": 206.3499534376691,
+              "token_footprint_offtarget": 0.014541255675591044,
+              "unrelated_kl": 0.00023066761787049472,
+              "unrelated_ppl_ratio": 1.000324654237199,
+              "token_footprint_unrelated": 0.014620489423475736
+            },
+            "KG-ADD": {
+              "on_target": 0.026246601998088107,
+              "collateral": 0.008317036929575953,
+              "reaches_matched": true,
+              "max_on_target": 0.14133219396171626,
+              "selectivity": 3.1557597570783815,
+              "token_footprint_offtarget": 1.0
+            }
+          },
+          "matched_scale_kg": 1.7228210538104078,
+          "matched_scale_dense": 0.4888885006039791,
+          "selectivity_CIs": {
+            "KG-ABL_on_target": {
+              "mean": 0.02624660199808811,
+              "ci_lo": 0.015013626843818753,
+              "ci_hi": 0.04000355096908312,
+              "n": 60,
+              "excl_0": true
+            },
+            "KG-ABL_collateral": {
+              "mean": 2.6491441840984194e-05,
+              "ci_lo": 4.726041582809302e-07,
+              "ci_hi": 5.994433337467837e-05,
+              "n": 180,
+              "excl_0": true
+            },
+            "DENSE-ABL_collateral": {
+              "mean": 0.07214383169705185,
+              "ci_lo": 0.05130948732887741,
+              "ci_hi": 0.09863126337879673,
+              "n": 180,
+              "excl_0": true
+            },
+            "dense_minus_kg_collateral": {
+              "diff": 0.07211734025521087,
+              "ci_lo": 0.05186639326708828,
+              "ci_hi": 0.09861321532961666,
+              "excl_0": true,
+              "n": 180
+            },
+            "KG_minus_dense_selectivity": {
+              "diff": 21280.30405208751,
+              "ci_lo": 368.60061779014205,
+              "ci_hi": 55077.89053784941,
+              "excl_0": true,
+              "favors_kg": true
+            }
+          },
+          "k_probe": {
+            "note": "no per-sub-context handle (see metadata.k_localization_check)"
+          },
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 2722.2610048892575,
+          "random_latent_firing_rate": 0.023372135321935248
+        },
+        {
+          "decision_threshold_tau": 0.005045935170104108,
+          "per_context_label_scale": "full_edit_lambda1_beta1",
+          "family": "taxonomic",
+          "target_subcontext": "Jordan",
+          "absorber_latent": 8347,
+          "absorber_precision": 1.0,
+          "regime": "absorption",
+          "probe_train_auc": 1.0,
+          "probe_cos_with_diffmean": 0.49868398904800415,
+          "firing_jaccard_with_parent": 0.007885191610156127,
+          "parent_recall_hole": 0.6774193548387097,
+          "n_target_ctx": 60,
+          "n_sibling_ctx": 180,
+          "siblings": [
+            "Australia",
+            "Brazil",
+            "Canada",
+            "China",
+            "France",
+            "Georgia",
+            "Germany",
+            "India",
+            "Iran",
+            "Ireland",
+            "Israel",
+            "Italy"
+          ],
+          "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+          "curves": {
+            "KG-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.001390265828073704,
+                0.0037184554031379474,
+                0.0131006124883091
+              ],
+              "beh_collateral": [
+                0.0,
+                9.380374265472507e-06,
+                1.3472505573493739e-05,
+                7.076190538807876e-06
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.008047210300429184,
+                0.008047210300429184,
+                0.008047210300429184
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.00023485204321277596,
+                0.00023485204321277596,
+                0.00023485204321277596
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.000528681674040854,
+                  0.0010573710314929485,
+                  0.0015860680723562837,
+                  0.002114834263920784,
+                  0.00317182089202106,
+                  0.004229168873280287
+                ],
+                "collateral_margin": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "on_target_prob": [
+                  0.0,
+                  3.220573674411753e-08,
+                  5.912396261464892e-08,
+                  8.796492068086081e-08,
+                  1.1488314299867852e-07,
+                  1.7544915920097992e-07,
+                  2.4082200411612575e-07
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 9.385110752191395e-05,
+                "ppl": 18.060275892627946,
+                "ppl_ratio": 1.0000666104089113,
+                "token_footprint": 0.0010369141435089175
+              }
+            },
+            "DENSE-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.026843136999195848,
+                0.08509316061390564,
+                0.7155038788041566
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0737835228359068,
+                0.6889754271943174,
+                5.1036568640446704
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  4.036797523498535,
+                  8.073594093322754,
+                  12.110394477844238,
+                  16.14719009399414,
+                  24.22079086303711,
+                  32.29438018798828
+                ],
+                "collateral_margin": [
+                  0.0,
+                  8.809043884277344,
+                  17.618087768554688,
+                  26.427114486694336,
+                  35.236175537109375,
+                  52.854225158691406,
+                  70.47235870361328
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  8.809043884277344,
+                  17.618087768554688,
+                  26.427114486694336,
+                  35.236175537109375,
+                  52.854225158691406,
+                  70.47235870361328
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.005213256925344467,
+                  0.14139804244041443,
+                  0.37289515137672424,
+                  0.5341125130653381,
+                  0.7732452750205994,
+                  0.9110812544822693
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.005427227821201086,
+                "ppl": 17.9837699227866,
+                "ppl_ratio": 0.99583018199607,
+                "token_footprint": 1.0
+              }
+            },
+            "KG-ADD": {
+              "scales": [
+                0.0,
+                2.3750412464141846,
+                9.500164985656738
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0022701868111198566,
+                0.024471840987340936
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0008741533179494986,
+                0.003515820745653602
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "alpha": [
+                0.0,
+                2.3750412464141846,
+                9.500164985656738
+              ],
+              "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+            },
+            "RAND": {
+              "scales": [
+                0.0,
+                1.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.000897012742127698
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0005909255283616705
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.016869337148307104
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.015441521841240017
+              ],
+              "n_draws": 3,
+              "unrelated_side_effects": {
+                "kl": 0.0007118874636944383,
+                "ppl_ratio": 1.0000242878975572,
+                "token_footprint": 0.02312318540024886
+              }
+            }
+          },
+          "matched": {
+            "KG-ABL": {
+              "on_target": 0.010480489990647282,
+              "collateral": 8.862467273717952e-06,
+              "reaches_matched": true,
+              "max_on_target": 0.0131006124883091,
+              "selectivity": 1181.237379335579,
+              "token_footprint_offtarget": 0.00023485204321277596,
+              "unrelated_kl": 9.385110752191395e-05,
+              "unrelated_ppl_ratio": 1.0000666104089113,
+              "token_footprint_unrelated": 0.0010369141435089175
+            },
+            "DENSE-ABL": {
+              "on_target": 0.010480489990647282,
+              "collateral": 0.028807641691788188,
+              "reaches_matched": true,
+              "max_on_target": 0.7155038788041566,
+              "selectivity": 0.36380924425140887,
+              "token_footprint_offtarget": 1.0,
+              "unrelated_kl": 0.005427227821201086,
+              "unrelated_ppl_ratio": 0.99583018199607,
+              "token_footprint_unrelated": 1.0
+            },
+            "RAND": {
+              "on_target": 0.010480489990647282,
+              "collateral": 0.0005909255283616705,
+              "reaches_matched": false,
+              "max_on_target": 0.000897012742127698,
+              "selectivity": 17.73542034222201,
+              "token_footprint_offtarget": 0.015441521841240017,
+              "unrelated_kl": 0.0007118874636944383,
+              "unrelated_ppl_ratio": 1.0000242878975572,
+              "token_footprint_unrelated": 0.02312318540024886
+            },
+            "KG-ADD": {
+              "on_target": 0.010480489990647282,
+              "collateral": 0.001851057575117992,
+              "reaches_matched": true,
+              "max_on_target": 0.024471840987340936,
+              "selectivity": 5.661862447122833,
+              "token_footprint_offtarget": 1.0
+            }
+          },
+          "matched_scale_kg": 1.7207334652493702,
+          "matched_scale_dense": 0.19521730993961792,
+          "selectivity_CIs": {
+            "KG-ABL_on_target": {
+              "mean": 0.010480489990647284,
+              "ci_lo": 0.005211221747712438,
+              "ci_hi": 0.01669655166112431,
+              "n": 60,
+              "excl_0": true
+            },
+            "KG-ABL_collateral": {
+              "mean": 8.862467273717952e-06,
+              "ci_lo": 4.971343610920633e-07,
+              "ci_hi": 2.4294186462395686e-05,
+              "n": 180,
+              "excl_0": true
+            },
+            "DENSE-ABL_collateral": {
+              "mean": 0.028807641691788188,
+              "ci_lo": 0.020646667682690887,
+              "ci_hi": 0.039227444140333564,
+              "n": 180,
+              "excl_0": true
+            },
+            "dense_minus_kg_collateral": {
+              "diff": 0.02879877922451447,
+              "ci_lo": 0.020622399991432505,
+              "ci_hi": 0.03918753365971812,
+              "excl_0": true,
+              "n": 180
+            },
+            "KG_minus_dense_selectivity": {
+              "diff": 23400.198252476985,
+              "ci_lo": 339.42832646792317,
+              "ci_hi": 22921.316794877737,
+              "excl_0": true,
+              "favors_kg": true
+            }
+          },
+          "k_probe": {
+            "note": "no per-sub-context handle (see metadata.k_localization_check)"
+          },
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 3246.859165896537,
+          "random_latent_firing_rate": 0.014005092761004001
+        },
+        {
+          "decision_threshold_tau": 0.002,
+          "per_context_label_scale": "full_edit_lambda1_beta1",
+          "family": "taxonomic",
+          "target_subcontext": "United States",
+          "absorber_latent": 846,
+          "absorber_precision": 0.9733333333333334,
+          "regime": "absorption",
+          "probe_train_auc": 1.0,
+          "probe_cos_with_diffmean": 0.49868398904800415,
+          "firing_jaccard_with_parent": 0.03987925007944074,
+          "parent_recall_hole": 0.19333333333333336,
+          "n_target_ctx": 60,
+          "n_sibling_ctx": 180,
+          "siblings": [
+            "Australia",
+            "Brazil",
+            "Canada",
+            "China",
+            "France",
+            "Georgia",
+            "Germany",
+            "India",
+            "Iran",
+            "Ireland",
+            "Israel",
+            "Italy"
+          ],
+          "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+          "curves": {
+            "KG-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0013318680326544078,
+                0.003424105679338633,
+                0.009770906753450012
+              ],
+              "beh_collateral": [
+                0.0,
+                3.630674446968543e-05,
+                7.542938078081028e-05,
+                7.185515262083047e-05
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.016145833333333335,
+                0.016145833333333335,
+                0.016145833333333335
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.0012730358874878758,
+                0.0012730358874878758,
+                0.0012730358874878758
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.00786806084215641,
+                  0.01573609746992588,
+                  0.02360416390001774,
+                  0.031472135335206985,
+                  0.04720825329422951,
+                  0.06294431537389755
+                ],
+                "collateral_margin": [
+                  0.0,
+                  7.82307397457771e-05,
+                  0.00015645980602130294,
+                  0.0002346888795727864,
+                  0.00031291862251237035,
+                  0.0004693774098996073,
+                  0.0006258382345549762
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  7.82307397457771e-05,
+                  0.00015645980602130294,
+                  0.0002346888795727864,
+                  0.00031291862251237035,
+                  0.0004693774098996073,
+                  0.0006258382345549762
+                ],
+                "on_target_prob": [
+                  0.0,
+                  1.6331672441083356e-06,
+                  3.7884713037783513e-06,
+                  6.638368176936638e-06,
+                  1.0406573892396409e-05,
+                  2.200086964876391e-05,
+                  4.2377312638564035e-05
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 4.1213537770090625e-05,
+                "ppl": 18.069707318221855,
+                "ppl_ratio": 1.0005888645472811,
+                "token_footprint": 0.001244296972210701
+              }
+            },
+            "DENSE-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.03719845932694928,
+                0.40909521414044625,
+                2.9800260675838217
+              ],
+              "beh_collateral": [
+                0.0,
+                0.07414391093641623,
+                0.7518165301893734,
+                5.845754669720514
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  5.023927211761475,
+                  10.04785442352295,
+                  15.071779251098633,
+                  20.0957088470459,
+                  30.1435604095459,
+                  40.1914176940918
+                ],
+                "collateral_margin": [
+                  0.0,
+                  9.008264541625977,
+                  18.016529083251953,
+                  27.024755477905273,
+                  36.033058166503906,
+                  54.04950714111328,
+                  72.06611633300781
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  9.008264541625977,
+                  18.016529083251953,
+                  27.024755477905273,
+                  36.033058166503906,
+                  54.04950714111328,
+                  72.06611633300781
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.006827287841588259,
+                  0.3603687584400177,
+                  0.8815549612045288,
+                  0.9930987358093262,
+                  0.999935507774353,
+                  0.9999461770057678
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.005427227821201086,
+                "ppl": 17.9837699227866,
+                "ppl_ratio": 0.99583018199607,
+                "token_footprint": 1.0
+              }
+            },
+            "KG-ADD": {
+              "scales": [
+                0.0,
+                0.12902478873729706,
+                0.5160991549491882
+              ],
+              "beh_on_target": [
+                0.0,
+                0.00067508064504788,
+                0.0007058162783626661
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0005665181556347913,
+                0.0006280703193877141
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "alpha": [
+                0.0,
+                0.12902478873729706,
+                0.5160991549491882
+              ],
+              "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+            },
+            "RAND": {
+              "scales": [
+                0.0,
+                1.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0002645822286214954
+              ],
+              "beh_collateral": [
+                0.0,
+                9.686087348570621e-05
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.013657407407407408
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.006446007112835435
+              ],
+              "n_draws": 3,
+              "unrelated_side_effects": {
+                "kl": 6.526903462145128e-05,
+                "ppl_ratio": 1.0002921237558005,
+                "token_footprint": 0.007984238905018665
+              }
+            }
+          },
+          "matched": {
+            "KG-ABL": {
+              "on_target": 0.00781672540276001,
+              "collateral": 7.295565820337254e-05,
+              "reaches_matched": true,
+              "max_on_target": 0.009770906753450012,
+              "selectivity": 107.12882738579495,
+              "token_footprint_offtarget": 0.0012730358874878758,
+              "unrelated_kl": 4.1213537770090625e-05,
+              "unrelated_ppl_ratio": 1.0005888645472811,
+              "token_footprint_unrelated": 0.001244296972210701
+            },
+            "DENSE-ABL": {
+              "on_target": 0.00781672540276001,
+              "collateral": 0.015580284844130168,
+              "reaches_matched": true,
+              "max_on_target": 2.9800260675838217,
+              "selectivity": 0.5017058714845142,
+              "token_footprint_offtarget": 1.0,
+              "unrelated_kl": 0.005427227821201086,
+              "unrelated_ppl_ratio": 0.99583018199607,
+              "token_footprint_unrelated": 1.0
+            },
+            "RAND": {
+              "on_target": 0.00781672540276001,
+              "collateral": 9.686087348570621e-05,
+              "reaches_matched": false,
+              "max_on_target": 0.0002645822286214954,
+              "selectivity": 80.6922155390021,
+              "token_footprint_offtarget": 0.006446007112835435,
+              "unrelated_kl": 6.526903462145128e-05,
+              "unrelated_ppl_ratio": 1.0002921237558005,
+              "token_footprint_unrelated": 0.007984238905018665
+            },
+            "KG-ADD": {
+              "on_target": 0.00781672540276001,
+              "collateral": 0.0006280703193877141,
+              "reaches_matched": false,
+              "max_on_target": 0.0007058162783626661,
+              "selectivity": 12.44542323883061,
+              "token_footprint_offtarget": 1.0
+            }
+          },
+          "matched_scale_kg": 1.6920997951769572,
+          "matched_scale_dense": 0.10506786496258197,
+          "selectivity_CIs": {
+            "KG-ABL_on_target": {
+              "mean": 0.00781672540276001,
+              "ci_lo": 0.004621619638262958,
+              "ci_hi": 0.01224947621689218,
+              "n": 60,
+              "excl_0": true
+            },
+            "KG-ABL_collateral": {
+              "mean": 7.295565820337255e-05,
+              "ci_lo": 1.6462906843343093e-05,
+              "ci_hi": 0.0001625269749504066,
+              "n": 180,
+              "excl_0": true
+            },
+            "DENSE-ABL_collateral": {
+              "mean": 0.01558028484413017,
+              "ci_lo": 0.01123444867248439,
+              "ci_hi": 0.021008174970514895,
+              "n": 180,
+              "excl_0": true
+            },
+            "dense_minus_kg_collateral": {
+              "diff": 0.015507329185926797,
+              "ci_lo": 0.011293168268199469,
+              "ci_hi": 0.020701626302303433,
+              "excl_0": true,
+              "n": 180
+            },
+            "KG_minus_dense_selectivity": {
+              "diff": 254.0406816695798,
+              "ci_lo": 40.21963000119734,
+              "ci_hi": 497.4284617190523,
+              "excl_0": true,
+              "favors_kg": true
+            }
+          },
+          "k_probe": {
+            "note": "no per-sub-context handle (see metadata.k_localization_check)"
+          },
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 213.52914820153072,
+          "random_latent_firing_rate": 0.028010185522008003
+        },
+        {
+          "decision_threshold_tau": 0.004618634283542636,
+          "per_context_label_scale": "full_edit_lambda1_beta1",
+          "family": "taxonomic",
+          "target_subcontext": "United States",
+          "absorber_latent": 4760,
+          "absorber_precision": 0.7090909090909091,
+          "regime": "absorption",
+          "probe_train_auc": 1.0,
+          "probe_cos_with_diffmean": 0.49868398904800415,
+          "firing_jaccard_with_parent": 0.009059122695486331,
+          "parent_recall_hole": 0.19333333333333336,
+          "n_target_ctx": 60,
+          "n_sibling_ctx": 180,
+          "siblings": [
+            "Australia",
+            "Brazil",
+            "Canada",
+            "China",
+            "France",
+            "Georgia",
+            "Germany",
+            "India",
+            "Iran",
+            "Ireland",
+            "Israel",
+            "Italy"
+          ],
+          "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+          "curves": {
+            "KG-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0008969306423750823,
+                0.0016784414313102995,
+                0.0034027475267369785
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0006352600692884556,
+                0.0006304027458200936,
+                0.0007441070079266865
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.04201388888888889,
+                0.04201388888888889,
+                0.04201388888888889
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.015155189136760427,
+                0.015155189136760427,
+                0.015155189136760427
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.006061038933694363,
+                  0.012122205458581448,
+                  0.018183289095759392,
+                  0.024244314059615135,
+                  0.03636651486158371,
+                  0.04848867282271385
+                ],
+                "collateral_margin": [
+                  0.0,
+                  6.773128552595153e-05,
+                  0.00013545522233471274,
+                  0.00020318181486800313,
+                  0.0002709107648115605,
+                  0.0004063696542289108,
+                  0.0005418272339738905
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  6.773128552595153e-05,
+                  0.00013545522233471274,
+                  0.00020318181486800313,
+                  0.0002709107648115605,
+                  0.0004063696542289108,
+                  0.0005418272339738905
+                ],
+                "on_target_prob": [
+                  0.0,
+                  7.319450219256396e-07,
+                  1.4996528534538811e-06,
+                  2.307891918462701e-06,
+                  3.1534830213786336e-06,
+                  4.975398496753769e-06,
+                  6.97692257745075e-06
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.0007351097301580012,
+                "ppl": 18.06227432001956,
+                "ppl_ratio": 1.0001772709835095,
+                "token_footprint": 0.017420157610949814
+              }
+            },
+            "DENSE-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.03719845932694928,
+                0.40909521414044625,
+                2.9800260675838217
+              ],
+              "beh_collateral": [
+                0.0,
+                0.07414391093641623,
+                0.7518165301893734,
+                5.845754669720514
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  5.023927211761475,
+                  10.04785442352295,
+                  15.071779251098633,
+                  20.0957088470459,
+                  30.1435604095459,
+                  40.1914176940918
+                ],
+                "collateral_margin": [
+                  0.0,
+                  9.008264541625977,
+                  18.016529083251953,
+                  27.024755477905273,
+                  36.033058166503906,
+                  54.04950714111328,
+                  72.06611633300781
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  9.008264541625977,
+                  18.016529083251953,
+                  27.024755477905273,
+                  36.033058166503906,
+                  54.04950714111328,
+                  72.06611633300781
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.006827287841588259,
+                  0.3603687584400177,
+                  0.8815549612045288,
+                  0.9930987358093262,
+                  0.999935507774353,
+                  0.9999461770057678
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.005427227821201086,
+                "ppl": 17.9837699227866,
+                "ppl_ratio": 0.99583018199607,
+                "token_footprint": 1.0
+              }
+            },
+            "KG-ADD": {
+              "scales": [
+                0.0,
+                0.9673699140548706,
+                3.8694796562194824
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0006987627676456517,
+                0.002360766619494825
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0006101321226651635,
+                0.0009900561681004344
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "alpha": [
+                0.0,
+                0.9673699140548706,
+                3.8694796562194824
+              ],
+              "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+            },
+            "RAND": {
+              "scales": [
+                0.0,
+                1.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0003679096816490022
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0003218546240725993
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.009490740740740742
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.01388215324927255
+              ],
+              "n_draws": 3,
+              "unrelated_side_effects": {
+                "kl": 1.306953163293656e-05,
+                "ppl_ratio": 0.9999707528562376,
+                "token_footprint": 0.002488593944421402
+              }
+            }
+          },
+          "matched": {
+            "KG-ABL": {
+              "on_target": 0.002722198021389583,
+              "collateral": 0.0006992301849903363,
+              "reaches_matched": true,
+              "max_on_target": 0.0034027475267369785,
+              "selectivity": 3.893080060075787,
+              "token_footprint_offtarget": 0.015155189136760427,
+              "unrelated_kl": 0.0007351097301580012,
+              "unrelated_ppl_ratio": 1.0001772709835095,
+              "token_footprint_unrelated": 0.017420157610949814
+            },
+            "DENSE-ABL": {
+              "on_target": 0.002722198021389583,
+              "collateral": 0.005425880837569371,
+              "reaches_matched": true,
+              "max_on_target": 2.9800260675838217,
+              "selectivity": 0.5017052688455934,
+              "token_footprint_offtarget": 1.0,
+              "unrelated_kl": 0.005427227821201086,
+              "unrelated_ppl_ratio": 0.99583018199607,
+              "token_footprint_unrelated": 1.0
+            },
+            "RAND": {
+              "on_target": 0.002722198021389583,
+              "collateral": 0.0003218546240725993,
+              "reaches_matched": false,
+              "max_on_target": 0.0003679096816490022,
+              "selectivity": 8.45758687905872,
+              "token_footprint_offtarget": 0.01388215324927255,
+              "unrelated_kl": 1.306953163293656e-05,
+              "unrelated_ppl_ratio": 0.9999707528562376,
+              "token_footprint_unrelated": 0.002488593944421402
+            },
+            "KG-ADD": {
+              "on_target": 0.002722198021389583,
+              "collateral": 0.0009900561681004344,
+              "reaches_matched": false,
+              "max_on_target": 0.002360766619494825,
+              "selectivity": 2.7495112034910356,
+              "token_footprint_offtarget": 1.0
+            }
+          },
+          "matched_scale_kg": 1.6053197821706977,
+          "matched_scale_dense": 0.03659019850074038,
+          "selectivity_CIs": {
+            "KG-ABL_on_target": {
+              "mean": 0.002722198021389584,
+              "ci_lo": 0.000712655964924749,
+              "ci_hi": 0.00612173860618016,
+              "n": 60,
+              "excl_0": true
+            },
+            "KG-ABL_collateral": {
+              "mean": 0.0006992301849903364,
+              "ci_lo": 0.0006066686513569385,
+              "ci_hi": 0.0007959122764190257,
+              "n": 180,
+              "excl_0": true
+            },
+            "DENSE-ABL_collateral": {
+              "mean": 0.00542588083756937,
+              "ci_lo": 0.003917782076838444,
+              "ci_hi": 0.007297792420123385,
+              "n": 180,
+              "excl_0": true
+            },
+            "dense_minus_kg_collateral": {
+              "diff": 0.004726650652579033,
+              "ci_lo": 0.0032493899161101254,
+              "ci_hi": 0.006601641617868257,
+              "excl_0": true,
+              "n": 180
+            },
+            "KG_minus_dense_selectivity": {
+              "diff": 3.3970865514125514,
+              "ci_lo": 0.8629411200988152,
+              "ci_hi": 7.892064937607075,
+              "excl_0": true,
+              "favors_kg": true
+            }
+          },
+          "k_probe": {
+            "note": "no per-sub-context handle (see metadata.k_localization_check)"
+          },
+          "verdict": "PARTIAL_SURGICAL",
+          "headline_selectivity_ratio": 7.75969538656357,
+          "random_latent_firing_rate": 0.01018552200800291
+        },
+        {
+          "decision_threshold_tau": 0.002,
+          "per_context_label_scale": "full_edit_lambda1_beta1",
+          "family": "first_letter",
+          "target_subcontext": "large",
+          "absorber_latent": 8463,
+          "absorber_precision": 0.5714285714285714,
+          "regime": "absorption",
+          "probe_train_auc": 1.0,
+          "probe_cos_with_diffmean": 0.5598349571228027,
+          "firing_jaccard_with_parent": 0.0018501387604070306,
+          "parent_recall_hole": 1.0,
+          "n_target_ctx": 12,
+          "n_sibling_ctx": 180,
+          "siblings": [
+            "lot",
+            "like",
+            "list",
+            "lots",
+            "level",
+            "logo",
+            "less",
+            "little",
+            "LoL",
+            "locked",
+            "li",
+            "livestream"
+          ],
+          "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+          "curves": {
+            "KG-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.004732374974992126,
+                0.01228797176736407,
+                0.04720289275671045
+              ],
+              "beh_collateral": [
+                0.0,
+                2.643684917226589e-05,
+                5.1831807488472096e-05,
+                5.97100588897269e-05
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.03,
+                0.03,
+                0.03
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.0022222222222222222,
+                0.0022222222222222222,
+                0.0022222222222222222
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.23110289871692657,
+                  0.4622059166431427,
+                  0.6933090090751648,
+                  0.9244113564491272,
+                  1.3866175413131714,
+                  1.848823070526123
+                ],
+                "collateral_margin": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "on_target_prob": [
+                  0.0,
+                  7.768968498567119e-05,
+                  0.00017583370208740234,
+                  0.00029997029923833907,
+                  0.0004571030440274626,
+                  0.0009084641933441162,
+                  0.0016345629701390862
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.0,
+                "ppl": 40.73755157836227,
+                "ppl_ratio": 1.0,
+                "token_footprint": 0.0
+              }
+            },
+            "DENSE-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.003961783911411961,
+                0.009997333923820406,
+                0.03902896082339188
+              ],
+              "beh_collateral": [
+                0.0,
+                0.002792010635352603,
+                0.009111049799240491,
+                0.05820019978208519
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.6191111207008362,
+                  1.238222599029541,
+                  1.8573331832885742,
+                  2.4764444828033447,
+                  3.7146670818328857,
+                  4.9528889656066895
+                ],
+                "collateral_margin": [
+                  0.0,
+                  0.3959043622016907,
+                  0.7918086051940918,
+                  1.1877126693725586,
+                  1.5836176872253418,
+                  2.375424861907959,
+                  3.167233943939209
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  0.3959043622016907,
+                  0.7918086051940918,
+                  1.1877126693725586,
+                  1.5836176872253418,
+                  2.375424861907959,
+                  3.167233943939209
+                ],
+                "on_target_prob": [
+                  0.0,
+                  5.237261575530283e-05,
+                  0.0004095385374967009,
+                  0.002988239051774144,
+                  0.019783342257142067,
+                  0.14011980593204498,
+                  0.18445096909999847
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.023339292034506798,
+                "ppl": 41.567062406058334,
+                "ppl_ratio": 1.020362314266738,
+                "token_footprint": 1.0
+              }
+            },
+            "KG-ADD": {
+              "scales": [
+                0.0,
+                10.331384658813477,
+                41.325538635253906
+              ],
+              "beh_on_target": [
+                0.0,
+                0.029562813385079306,
+                0.5393967777490616
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0061330805982733085,
+                0.16151212056219164
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "alpha": [
+                0.0,
+                10.331384658813477,
+                41.325538635253906
+              ],
+              "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+            },
+            "RAND": {
+              "scales": [
+                0.0,
+                1.0
+              ],
+              "beh_on_target": [
+                0.0,
+                9.976699301559065e-05
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0002167917944541808
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.002777777777777778
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.007666666666666666
+              ],
+              "n_draws": 3,
+              "unrelated_side_effects": {
+                "kl": 0.0,
+                "ppl_ratio": 1.0,
+                "token_footprint": 0.0
+              }
+            }
+          },
+          "matched": {
+            "KG-ABL": {
+              "on_target": 0.031223168658713503,
+              "collateral": 5.610437168782479e-05,
+              "reaches_matched": true,
+              "max_on_target": 0.04720289275671045,
+              "selectivity": 556.4201775690208,
+              "token_footprint_offtarget": 0.0022222222222222222,
+              "unrelated_kl": 0.0,
+              "unrelated_ppl_ratio": 1.0,
+              "token_footprint_unrelated": 0.0
+            },
+            "DENSE-ABL": {
+              "on_target": 0.031223168658713503,
+              "collateral": 0.04500150087236385,
+              "reaches_matched": true,
+              "max_on_target": 0.03902896082339188,
+              "selectivity": 0.6938248972855743,
+              "token_footprint_offtarget": 1.0,
+              "unrelated_kl": 0.023339292034506798,
+              "unrelated_ppl_ratio": 1.020362314266738,
+              "token_footprint_unrelated": 1.0
+            },
+            "RAND": {
+              "on_target": 0.031223168658713503,
+              "collateral": 0.0002167917944541808,
+              "reaches_matched": false,
+              "max_on_target": 9.976699301559065e-05,
+              "selectivity": 144.01711359133722,
+              "token_footprint_offtarget": 0.007666666666666666,
+              "unrelated_kl": 0.0,
+              "unrelated_ppl_ratio": 1.0,
+              "token_footprint_unrelated": 0.0
+            },
+            "KG-ADD": {
+              "on_target": 0.031223168658713503,
+              "collateral": 0.006639097118255742,
+              "reaches_matched": true,
+              "max_on_target": 0.5393967777490616,
+              "selectivity": 4.702916838449295,
+              "token_footprint_offtarget": 1.0
+            }
+          },
+          "matched_scale_kg": 1.5423239221170557,
+          "matched_scale_dense": 1.7311279801273005,
+          "selectivity_CIs": {
+            "KG-ABL_on_target": {
+              "mean": 0.03122316865871351,
+              "ci_lo": 0.016456012901217083,
+              "ci_hi": 0.0481721608708635,
+              "n": 12,
+              "excl_0": true
+            },
+            "KG-ABL_collateral": {
+              "mean": 5.610437168782479e-05,
+              "ci_lo": 7.700293940780891e-06,
+              "ci_hi": 0.00013804526502684628,
+              "n": 180,
+              "excl_0": true
+            },
+            "DENSE-ABL_collateral": {
+              "mean": 0.04500150087236385,
+              "ci_lo": 0.031976595587557256,
+              "ci_hi": 0.06171840664072392,
+              "n": 180,
+              "excl_0": true
+            },
+            "dense_minus_kg_collateral": {
+              "diff": 0.04494539650067602,
+              "ci_lo": 0.032122306055673594,
+              "ci_hi": 0.0618205861905115,
+              "excl_0": true,
+              "n": 180
+            },
+            "KG_minus_dense_selectivity": {
+              "diff": 3437.777537714614,
+              "ci_lo": 180.01718543713375,
+              "ci_hi": 4289.259415006125,
+              "excl_0": true,
+              "favors_kg": true
+            }
+          },
+          "k_probe": {
+            "note": "no per-sub-context handle (see metadata.k_localization_check)"
+          },
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 801.9605231029948,
+          "random_latent_firing_rate": 0.017091836734693878
+        },
+        {
+          "decision_threshold_tau": 0.009105291450396182,
+          "per_context_label_scale": "full_edit_lambda1_beta1",
+          "family": "toxicity",
+          "target_subcontext": "insult",
+          "absorber_latent": 13367,
+          "absorber_precision": 0.7496040521157064,
+          "regime": "co-firing",
+          "probe_train_auc": 1.0,
+          "probe_cos_with_diffmean": 0.20368921756744385,
+          "firing_jaccard_with_parent": 0.877606338615513,
+          "parent_recall_hole": 0.0,
+          "n_target_ctx": 60,
+          "n_sibling_ctx": 180,
+          "siblings": [
+            "obscene",
+            "threat",
+            "identity_attack"
+          ],
+          "primary_measure": "behavioral_next_token_KL_at_edited_token_position",
+          "curves": {
+            "KG-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0017405814512433911,
+                0.0036144874941480038,
+                0.011811811338217619
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0007545517345837045,
+                0.0015112640471569548,
+                0.00429718248797144
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.15991827637444278,
+                0.15991827637444278,
+                0.15991827637444278
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.11692538808212319,
+                0.11692538808212319,
+                0.11692538808212319
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  0.2817554175853729,
+                  0.5635107755661011,
+                  0.8452661633491516,
+                  1.1270217895507812,
+                  1.6905322074890137,
+                  2.2540435791015625
+                ],
+                "collateral_margin": [
+                  0.0,
+                  0.05000067874789238,
+                  0.10000123083591461,
+                  0.15000173449516296,
+                  0.2000022828578949,
+                  0.3000033497810364,
+                  0.4000045657157898
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  0.05000067874789238,
+                  0.10000123083591461,
+                  0.15000173449516296,
+                  0.2000022828578949,
+                  0.3000033497810364,
+                  0.4000045657157898
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.0015760689275339246,
+                  0.003852351102977991,
+                  0.006017191335558891,
+                  0.00841127336025238,
+                  0.019560277462005615,
+                  0.03906097635626793
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.0011543474392965436,
+                "ppl": 79.44841838490632,
+                "ppl_ratio": 1.003804703020316,
+                "token_footprint": 0.1100391920410009
+              }
+            },
+            "DENSE-ABL": {
+              "scales": [
+                0.0,
+                0.5,
+                1.0,
+                2.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.1439124789244185,
+                0.5993577771276857,
+                1.5350537629798056
+              ],
+              "beh_collateral": [
+                0.0,
+                0.12650960601232428,
+                0.49291712754509515,
+                1.3963668639383588
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "probe_margin": {
+                "scales": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.75,
+                  1.0,
+                  1.5,
+                  2.0
+                ],
+                "on_target_margin": [
+                  0.0,
+                  17.231325149536133,
+                  34.46265411376953,
+                  51.693973541259766,
+                  68.92530059814453,
+                  103.38794708251953,
+                  137.85060119628906
+                ],
+                "collateral_margin": [
+                  0.0,
+                  17.183818817138672,
+                  34.367637634277344,
+                  51.55144119262695,
+                  68.73528289794922,
+                  103.1028823852539,
+                  137.47056579589844
+                ],
+                "parent_broad_collateral_margin": [
+                  0.0,
+                  17.183818817138672,
+                  34.367637634277344,
+                  51.55144119262695,
+                  68.73528289794922,
+                  103.1028823852539,
+                  137.47056579589844
+                ],
+                "on_target_prob": [
+                  0.0,
+                  0.6438767313957214,
+                  0.8510164618492126,
+                  0.8584337830543518,
+                  0.8584337830543518,
+                  0.8584337830543518,
+                  0.8584337830543518
+                ]
+              },
+              "unrelated_side_effects": {
+                "kl": 0.3930855393409729,
+                "ppl": 194.9232613634197,
+                "ppl_ratio": 2.4627914622128153,
+                "token_footprint": 1.0
+              }
+            },
+            "KG-ADD": {
+              "scales": [
+                0.0,
+                0.9450980424880981,
+                3.7803921699523926
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0009169584466709088,
+                0.003712746110977605
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0009045889693627235,
+                0.0033465696851433476
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                1.0,
+                1.0
+              ],
+              "alpha": [
+                0.0,
+                0.9450980424880981,
+                3.7803921699523926
+              ],
+              "note": "additive steer applies to EVERY token (footprint~1) -> not gated by firing; contrast with KG-ABL whose surgical locality comes from the latent's own sparse firing"
+            },
+            "RAND": {
+              "scales": [
+                0.0,
+                1.0
+              ],
+              "beh_on_target": [
+                0.0,
+                0.0008413761755339997
+              ],
+              "beh_collateral": [
+                0.0,
+                0.0007954516336431643
+              ],
+              "footprint_on_target_ctx": [
+                0.0,
+                0.056896978702327884
+              ],
+              "footprint_sibling_ctx": [
+                0.0,
+                0.0577741612418628
+              ],
+              "n_draws": 3,
+              "unrelated_side_effects": {
+                "kl": 0.0007378273294307292,
+                "ppl_ratio": 0.9926593296856844,
+                "token_footprint": 0.16159179981911367
+              }
+            }
+          },
+          "matched": {
+            "KG-ABL": {
+              "on_target": 0.009449449070574096,
+              "collateral": 0.0034943169759453756,
+              "reaches_matched": true,
+              "max_on_target": 0.011811811338217619,
+              "selectivity": 2.704225773839492,
+              "token_footprint_offtarget": 0.11692538808212319,
+              "unrelated_kl": 0.0011543474392965436,
+              "unrelated_ppl_ratio": 1.003804703020316,
+              "token_footprint_unrelated": 0.1100391920410009
+            },
+            "DENSE-ABL": {
+              "on_target": 0.009449449070574096,
+              "collateral": 0.008306757606334403,
+              "reaches_matched": true,
+              "max_on_target": 1.5350537629798056,
+              "selectivity": 1.1375603024416296,
+              "token_footprint_offtarget": 1.0,
+              "unrelated_kl": 0.3930855393409729,
+              "unrelated_ppl_ratio": 2.4627914622128153,
+              "token_footprint_unrelated": 1.0
+            },
+            "RAND": {
+              "on_target": 0.009449449070574096,
+              "collateral": 0.0007954516336431643,
+              "reaches_matched": false,
+              "max_on_target": 0.0008413761755339997,
+              "selectivity": 11.8792015490379,
+              "token_footprint_offtarget": 0.0577741612418628,
+              "unrelated_kl": 0.0007378273294307292,
+              "unrelated_ppl_ratio": 0.9926593296856844,
+              "token_footprint_unrelated": 0.16159179981911367
+            },
+            "KG-ADD": {
+              "on_target": 0.009449449070574096,
+              "collateral": 0.0033465696851433476,
+              "reaches_matched": false,
+              "max_on_target": 0.003712746110977605,
+              "selectivity": 2.823613946060674,
+              "token_footprint_offtarget": 1.0
+            }
+          },
+          "matched_scale_kg": 1.7118129876798043,
+          "matched_scale_dense": 0.0328305409690596,
+          "selectivity_CIs": {
+            "KG-ABL_on_target": {
+              "mean": 0.009449449070574096,
+              "ci_lo": 0.006769202048643165,
+              "ci_hi": 0.012848435408820922,
+              "n": 60,
+              "excl_0": true
+            },
+            "KG-ABL_collateral": {
+              "mean": 0.0034943169759453756,
+              "ci_lo": 0.0026458876419352536,
+              "ci_hi": 0.004588941039742519,
+              "n": 180,
+              "excl_0": true
+            },
+            "DENSE-ABL_collateral": {
+              "mean": 0.008306757606334404,
+              "ci_lo": 0.007624148084297184,
+              "ci_hi": 0.009084879162468628,
+              "n": 180,
+              "excl_0": true
+            },
+            "dense_minus_kg_collateral": {
+              "diff": 0.004812440630389029,
+              "ci_lo": 0.003777170945044019,
+              "ci_hi": 0.005748520907881825,
+              "excl_0": true,
+              "n": 180
+            },
+            "KG_minus_dense_selectivity": {
+              "diff": 1.6252667496104998,
+              "ci_lo": 0.8464885251403944,
+              "ci_hi": 2.65431302583388,
+              "excl_0": true,
+              "favors_kg": true
+            }
+          },
+          "k_probe": {
+            "note": "no per-sub-context handle (see metadata.k_localization_check)"
+          },
+          "verdict": "PARTIAL_CO_FIRING_AS_PREDICTED",
+          "headline_selectivity_ratio": 2.3772153160014575,
+          "random_latent_firing_rate": 0.876875,
+          "insult_latent_auc": 0.7496040521157064
+        }
+      ]
+    }
+  },
+  "D3": {
+    "metadata": {
+      "prospective_hitrate_primary": {
+        "absorption_predicted": {
+          "hits": 3,
+          "n": 6,
+          "rate": 0.5,
+          "wilson_ci": [
+            0.1876163064826506,
+            0.8123836935173494
+          ]
+        },
+        "cofiring_predicted": {
+          "hits": 8,
+          "n": 12,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.39062208887279953,
+            0.8618799089087867
+          ]
+        },
+        "combined_all": {
+          "hits": 11,
+          "n": 18,
+          "rate": 0.6111111111111112,
+          "wilson_ci": [
+            0.3861904160223791,
+            0.7969475342783638
+          ]
+        }
+      },
+      "prospective_hitrate": {
+        "existing3": {
+          "hits": 1,
+          "n": 3,
+          "rate": 0.3333333333333333,
+          "wilson_ci": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "new_only": {
+          "hits": 11,
+          "n": 16,
+          "rate": 0.6875,
+          "wilson_ci": [
+            0.44404355834740666,
+            0.8583535614521796
+          ]
+        },
+        "new_only_inferential": {
+          "hits": 10,
+          "n": 15,
+          "rate": 0.6666666666666666,
+          "wilson_ci": [
+            0.41713547738519774,
+            0.8482367556028526
+          ]
+        },
+        "combined_all": {
+          "hits": 12,
+          "n": 19,
+          "rate": 0.631578947368421,
+          "wilson_ci": [
+            0.41039533164803066,
+            0.8085048725486492
+          ]
+        },
+        "combined_all_inferential": {
+          "hits": 11,
+          "n": 18,
+          "rate": 0.6111111111111112,
+          "wilson_ci": [
+            0.3861904160223791,
+            0.7969475342783638
+          ]
+        },
+        "combined_all_vs_h": {
+          "hits": 14,
+          "n": 19,
+          "rate": 0.7368421052631579,
+          "wilson_ci": [
+            0.5120844910218489,
+            0.8819358765321748
+          ]
+        }
+      },
+      "new_letter_report": [
+        {
+          "letter": "B",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 13,
+          "corpus_from_templates": false,
+          "parent_latent": 13496,
+          "parent_unresolved": false,
+          "recall_hole_max": 0.7666666666666666,
+          "jaccard_median": 0.104,
+          "predicted_regime": "co_firing",
+          "ground_truth_regime": "co_firing",
+          "auc_unit": 0.9896934230063761,
+          "auc_a": 0.9896934230063761,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "C",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 13,
+          "corpus_from_templates": false,
+          "parent_latent": 15631,
+          "parent_unresolved": false,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.0,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "absorption",
+          "auc_unit": 0.9641985061763861,
+          "auc_a": 0.8985205400746912,
+          "delta_vs_a": 0.06567796610169496,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "F",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 12,
+          "corpus_from_templates": false,
+          "parent_latent": 1920,
+          "parent_unresolved": false,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.08943089430894309,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "co_firing",
+          "auc_unit": 0.9400042512488043,
+          "auc_a": 0.9400042512488043,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": false
+        },
+        {
+          "letter": "M",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 13,
+          "corpus_from_templates": false,
+          "parent_latent": 10931,
+          "parent_unresolved": false,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.08733624454148471,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "co_firing",
+          "auc_unit": 0.9995274102079394,
+          "auc_a": 0.9995274102079394,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": false
+        },
+        {
+          "letter": "P",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 14,
+          "corpus_from_templates": false,
+          "parent_latent": 607,
+          "parent_unresolved": true,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.0,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "absorption",
+          "auc_unit": 0.880250978996084,
+          "auc_a": 0.8279636881452475,
+          "delta_vs_a": 0.0522872908508365,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "R",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 14,
+          "corpus_from_templates": false,
+          "parent_latent": 12279,
+          "parent_unresolved": false,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.09049773755656108,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "absorption",
+          "auc_unit": 0.961218836565097,
+          "auc_a": 0.9152908587257618,
+          "delta_vs_a": 0.04592797783933522,
+          "hit_vs_a": true
+        },
+        {
+          "letter": "W",
+          "built": true,
+          "n_content_pairs": 250,
+          "n_corpus_positives": 300,
+          "n_corpus_words": 12,
+          "corpus_from_templates": false,
+          "parent_latent": 5879,
+          "parent_unresolved": false,
+          "recall_hole_max": 1.0,
+          "jaccard_median": 0.007698184168772404,
+          "predicted_regime": "absorption",
+          "ground_truth_regime": "co_firing",
+          "auc_unit": 0.9746875,
+          "auc_a": 0.9746875,
+          "delta_vs_a": 0.0,
+          "hit_vs_a": false
+        }
+      ],
+      "primary_rule": {
+        "signal": "parent recall-hole",
+        "tau_h_alone": 0.7794871794871795,
+        "balanced_acc": 1.0,
+        "loo_acc": 0.8333333333333334,
+        "definition_string": "predict ABSORPTION-regime iff (parent recall-hole > 0.7795); else CO-FIRING-regime"
+      },
+      "conjunction_beats_primary_out_of_sample": false
+    }
+  },
+  "D4": {
+    "metadata": {
+      "M3_honest_counting": {
+        "source_path": "metadata.repair_loop (D1 art_sxwT7hK6YFEA)",
+        "n_variants_tested": 69,
+        "n_variants_survive": 30,
+        "n_distinct_holes": 22,
+        "reconciliation_identity": {
+          "n_distinct_holes": 22,
+          "n_variants_survive": 30,
+          "n_double_count_redundant": 6,
+          "n_nonhole_survivors": 2,
+          "surviving_variants_in_holes": 28,
+          "redundant_in_holes_total": 6,
+          "redundancy_fully_explained_by_identical_latents": true,
+          "balances": true,
+          "identity": "22 == 30 - 6 - 2"
+        },
+        "double_counted_subcontexts": [
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Georgia",
+            "kg_ktrack_latent": 16009,
+            "kg_diagnostic_latent": 16009,
+            "identical_latent": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Jordan",
+            "kg_ktrack_latent": 540,
+            "kg_diagnostic_latent": 540,
+            "identical_latent": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "United States",
+            "kg_ktrack_latent": 846,
+            "kg_diagnostic_latent": 846,
+            "identical_latent": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "date",
+            "kg_ktrack_latent": 8684,
+            "kg_diagnostic_latent": 8684,
+            "identical_latent": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "decimal",
+            "kg_ktrack_latent": 7983,
+            "kg_diagnostic_latent": 7983,
+            "identical_latent": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "ordinal",
+            "kg_ktrack_latent": 13658,
+            "kg_diagnostic_latent": 13658,
+            "identical_latent": true
+          }
+        ],
+        "distinct_latent_multi_survivor_holes": [],
+        "non_hole_survivors": [
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "percent",
+            "variant": "kg_ktrack",
+            "absorber_latent": 9112,
+            "gain_kg": 0.039999999999999925,
+            "survives_FDR": true,
+            "recall_anchor_selection": 0.768,
+            "overall_anchor_recall_selection": 0.42162162162162165,
+            "reason_not_a_hole": "recall_anchor_selection=0.768 > HOLE_RECALL_MAX=0.6 and not < overall_anchor_recall_selection(0.42162162162162165) - 0.10; is_hole flag stored False"
+          },
+          {
+            "concept": "L",
+            "family": "spelling",
+            "sub_context": "layer",
+            "variant": "kg_ktrack",
+            "absorber_latent": 2378,
+            "gain_kg": 0.5416666666666667,
+            "survives_FDR": true,
+            "recall_anchor_selection": 1.0,
+            "overall_anchor_recall_selection": 0.363013698630137,
+            "reason_not_a_hole": "recall_anchor_selection=1.0 > HOLE_RECALL_MAX=0.6 and not < overall_anchor_recall_selection(0.363013698630137) - 0.10; is_hole flag stored False"
+          }
+        ],
+        "per_family": {
+          "spelling": {
+            "n_variants_survive": 14,
+            "n_distinct_holes": 13,
+            "surviving_sub_contexts": [
+              "L/law",
+              "L/layer",
+              "L/like",
+              "O/one",
+              "O/only",
+              "O/our",
+              "T/than",
+              "T/that",
+              "T/their",
+              "T/then",
+              "T/there",
+              "T/those",
+              "T/three",
+              "T/through"
+            ]
+          },
+          "taxonomic": {
+            "n_variants_survive": 6,
+            "n_distinct_holes": 3,
+            "surviving_sub_contexts": [
+              "taxonomic/Georgia",
+              "taxonomic/Jordan",
+              "taxonomic/United States"
+            ]
+          },
+          "numeric": {
+            "n_variants_survive": 10,
+            "n_distinct_holes": 6,
+            "surviving_sub_contexts": [
+              "numeric/comma_number",
+              "numeric/currency",
+              "numeric/date",
+              "numeric/decimal",
+              "numeric/ordinal",
+              "numeric/percent",
+              "numeric/year"
+            ]
+          }
+        },
+        "stored_corroborators": {
+          "verdict_n_survive_FDR05": 30,
+          "verdict_n_repairs_tested": 69,
+          "verdict_per_family_survive_FDR": {
+            "spelling": 14,
+            "homograph_taxonomic": 6,
+            "numeric": 10
+          },
+          "multiplicity_per_family_tested": {
+            "spelling": 24,
+            "homograph_taxonomic": 34,
+            "numeric": 11
+          }
+        },
+        "survivor_table": [
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Georgia",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 16009,
+            "gain_kg": 0.8,
+            "kg_percentile_vs_random": 0.9939024390243902,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Georgia",
+            "variant_name": "kg_diagnostic",
+            "absorber_latent": 16009,
+            "gain_kg": 0.8,
+            "kg_percentile_vs_random": 0.9939024390243902,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Jordan",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 540,
+            "gain_kg": 0.653225806451613,
+            "kg_percentile_vs_random": 0.9954268292682927,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "Jordan",
+            "variant_name": "kg_diagnostic",
+            "absorber_latent": 540,
+            "gain_kg": 0.653225806451613,
+            "kg_percentile_vs_random": 0.9954268292682927,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "United States",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 846,
+            "gain_kg": 0.20666666666666667,
+            "kg_percentile_vs_random": 0.9801829268292683,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "taxonomic",
+            "family": "taxonomic",
+            "sub_context": "United States",
+            "variant_name": "kg_diagnostic",
+            "absorber_latent": 846,
+            "gain_kg": 0.20666666666666667,
+            "kg_percentile_vs_random": 0.9801829268292683,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "comma_number",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 12110,
+            "gain_kg": 0.24,
+            "kg_percentile_vs_random": 0.9898336414048059,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "currency",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 13553,
+            "gain_kg": 0.136,
+            "kg_percentile_vs_random": 0.9884473197781886,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "date",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 8684,
+            "gain_kg": 0.6759999999999999,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "date",
+            "variant_name": "kg_diagnostic",
+            "absorber_latent": 8684,
+            "gain_kg": 0.6759999999999999,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "decimal",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 7983,
+            "gain_kg": 0.44999999999999996,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "decimal",
+            "variant_name": "kg_diagnostic",
+            "absorber_latent": 7983,
+            "gain_kg": 0.44999999999999996,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "ordinal",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 13658,
+            "gain_kg": 0.5333333333333333,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "ordinal",
+            "variant_name": "kg_diagnostic",
+            "absorber_latent": 13658,
+            "gain_kg": 0.5333333333333333,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": true
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "percent",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 9112,
+            "gain_kg": 0.039999999999999925,
+            "kg_percentile_vs_random": 0.9579482439926063,
+            "bh_q": 0.0013798620137986202,
+            "is_hole": false,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "numeric",
+            "family": "numeric",
+            "sub_context": "year",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 2018,
+            "gain_kg": 0.3533333333333334,
+            "kg_percentile_vs_random": 0.9824399260628466,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "L",
+            "family": "spelling",
+            "sub_context": "law",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 10200,
+            "gain_kg": 0.7777777777777778,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "L",
+            "family": "spelling",
+            "sub_context": "layer",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 2378,
+            "gain_kg": 0.5416666666666667,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": false,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "L",
+            "family": "spelling",
+            "sub_context": "like",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 14031,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "O",
+            "family": "spelling",
+            "sub_context": "one",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 5767,
+            "gain_kg": 0.9615384615384616,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "O",
+            "family": "spelling",
+            "sub_context": "only",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 11847,
+            "gain_kg": 0.75,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "O",
+            "family": "spelling",
+            "sub_context": "our",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 1032,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 0.9974160206718347,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "than",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 7537,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "that",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 9701,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "their",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 15995,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "then",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 9504,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "there",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 13704,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "those",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 6545,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 0.9932659932659933,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "three",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 13430,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 0.9932659932659933,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          },
+          {
+            "concept": "T",
+            "family": "spelling",
+            "sub_context": "through",
+            "variant_name": "kg_ktrack",
+            "absorber_latent": 4296,
+            "gain_kg": 1.0,
+            "kg_percentile_vs_random": 1.0,
+            "bh_q": 0.0002379072437583828,
+            "is_hole": true,
+            "is_double_count_partner": false
+          }
+        ],
+        "paper_wording": "KG-guided recall-repair yields 30 repair variants (k-track and diagnostic edges) surviving Benjamini-Hochberg FDR<=0.05 out of 69 tested, spanning 22 DISTINCT suppressed-parent recall holes across spelling (13), homograph-taxonomic (3), and numeric (6); 6 sub-contexts contribute two coincident variants (kg_ktrack and kg_diagnostic naming the same latent), and 2 survivors (numeric/percent, L/layer) are not recall holes (the parent anchor already recalls the sub-context on the selection fold), so the distinct-hole count is 22, not 30 (= 30 - 6 double-count-redundant - 2 non-hole)."
+      },
+      "M4_selectivity": {
+        "source_path": "metadata.per_case (D2 art_0CZwPjG2YMCf)",
+        "cases": [
+          {
+            "family": "taxonomic",
+            "target_subcontext": "Georgia",
+            "absorber_latent": 16009,
+            "absorber_precision": 0.955,
+            "headline_selectivity_ratio": 1722.4595170019425,
+            "verdict": "SURGICAL_EDIT_CONFIRMED",
+            "regime": "absorption"
+          },
+          {
+            "family": "taxonomic",
+            "target_subcontext": "Jordan",
+            "absorber_latent": 540,
+            "absorber_precision": 0.975,
+            "headline_selectivity_ratio": 2722.2610048892575,
+            "verdict": "SURGICAL_EDIT_CONFIRMED",
+            "regime": "absorption"
+          },
+          {
+            "family": "taxonomic",
+            "target_subcontext": "Jordan",
+            "absorber_latent": 8347,
+            "absorber_precision": 1.0,
+            "headline_selectivity_ratio": 3246.859165896537,
+            "verdict": "SURGICAL_EDIT_CONFIRMED",
+            "regime": "absorption"
+          },
+          {
+            "family": "taxonomic",
+            "target_subcontext": "United States",
+            "absorber_latent": 846,
+            "absorber_precision": 0.9733333333333334,
+            "headline_selectivity_ratio": 213.52914820153072,
+            "verdict": "SURGICAL_EDIT_CONFIRMED",
+            "regime": "absorption"
+          },
+          {
+            "family": "taxonomic",
+            "target_subcontext": "United States",
+            "absorber_latent": 4760,
+            "absorber_precision": 0.7090909090909091,
+            "headline_selectivity_ratio": 7.75969538656357,
+            "verdict": "PARTIAL_SURGICAL",
+            "regime": "absorption"
+          },
+          {
+            "family": "first_letter",
+            "target_subcontext": "large",
+            "absorber_latent": 8463,
+            "absorber_precision": 0.5714285714285714,
+            "headline_selectivity_ratio": 801.9605231029948,
+            "verdict": "SURGICAL_EDIT_CONFIRMED",
+            "regime": "absorption"
+          },
+          {
+            "family": "toxicity",
+            "target_subcontext": "insult",
+            "absorber_latent": 13367,
+            "absorber_precision": 0.7496040521157064,
+            "headline_selectivity_ratio": 2.3772153160014575,
+            "verdict": "PARTIAL_CO_FIRING_AS_PREDICTED",
+            "regime": "co-firing"
+          }
+        ],
+        "absorption_set_n6": {
+          "members": [
+            "taxonomic/Georgia/16009",
+            "taxonomic/Jordan/540",
+            "taxonomic/Jordan/8347",
+            "taxonomic/United States/846",
+            "taxonomic/United States/4760",
+            "first_letter/large/8463"
+          ],
+          "n": 6,
+          "mean": 1452.4715090798045,
+          "median": 1262.2100200524687,
+          "selectivities": [
+            1722.4595170019425,
+            2722.2610048892575,
+            3246.859165896537,
+            213.52914820153072,
+            7.75969538656357,
+            801.9605231029948
+          ]
+        },
+        "surgical_set_n5": {
+          "members": [
+            "taxonomic/Georgia/16009",
+            "taxonomic/Jordan/540",
+            "taxonomic/Jordan/8347",
+            "taxonomic/United States/846",
+            "first_letter/large/8463"
+          ],
+          "n": 5,
+          "mean": 1741.4138718184527,
+          "median": 1722.4595170019425,
+          "selectivities": [
+            1722.4595170019425,
+            2722.2610048892575,
+            3246.859165896537,
+            213.52914820153072,
+            801.9605231029948
+          ]
+        },
+        "precision_vs_selectivity": {
+          "table": [
+            {
+              "family": "taxonomic",
+              "target_subcontext": "Georgia",
+              "absorber_latent": 16009,
+              "absorber_precision": 0.955,
+              "headline_selectivity_ratio": 1722.4595170019425,
+              "verdict": "SURGICAL_EDIT_CONFIRMED",
+              "regime": "absorption"
+            },
+            {
+              "family": "taxonomic",
+              "target_subcontext": "Jordan",
+              "absorber_latent": 540,
+              "absorber_precision": 0.975,
+              "headline_selectivity_ratio": 2722.2610048892575,
+              "verdict": "SURGICAL_EDIT_CONFIRMED",
+              "regime": "absorption"
+            },
+            {
+              "family": "taxonomic",
+              "target_subcontext": "Jordan",
+              "absorber_latent": 8347,
+              "absorber_precision": 1.0,
+              "headline_selectivity_ratio": 3246.859165896537,
+              "verdict": "SURGICAL_EDIT_CONFIRMED",
+              "regime": "absorption"
+            },
+            {
+              "family": "taxonomic",
+              "target_subcontext": "United States",
+              "absorber_latent": 846,
+              "absorber_precision": 0.9733333333333334,
+              "headline_selectivity_ratio": 213.52914820153072,
+              "verdict": "SURGICAL_EDIT_CONFIRMED",
+              "regime": "absorption"
+            },
+            {
+              "family": "taxonomic",
+              "target_subcontext": "United States",
+              "absorber_latent": 4760,
+              "absorber_precision": 0.7090909090909091,
+              "headline_selectivity_ratio": 7.75969538656357,
+              "verdict": "PARTIAL_SURGICAL",
+              "regime": "absorption"
+            },
+            {
+              "family": "first_letter",
+              "target_subcontext": "large",
+              "absorber_latent": 8463,
+              "absorber_precision": 0.5714285714285714,
+              "headline_selectivity_ratio": 801.9605231029948,
+              "verdict": "SURGICAL_EDIT_CONFIRMED",
+              "regime": "absorption"
+            },
+            {
+              "family": "toxicity",
+              "target_subcontext": "insult",
+              "absorber_latent": 13367,
+              "absorber_precision": 0.7496040521157064,
+              "headline_selectivity_ratio": 2.3772153160014575,
+              "verdict": "PARTIAL_CO_FIRING_AS_PREDICTED",
+              "regime": "co-firing"
+            }
+          ],
+          "spearman_all7": {
+            "rho": 0.6785714285714287,
+            "p": 0.0937502539598313,
+            "n": 7
+          },
+          "spearman_absorption6": {
+            "rho": 0.7142857142857143,
+            "p": 0.1107871720116617,
+            "n": 6
+          },
+          "spearman_taxonomic5": {
+            "rho": 0.8999999999999998,
+            "p": 0.03738607346849874,
+            "n": 5
+          }
+        },
+        "cross_family_counterexamples": [
+          {
+            "type": "higher_precision_lower_selectivity_across_families",
+            "lower_precision_higher_selectivity": {
+              "case": "first_letter/large/8463",
+              "precision": 0.5714285714285714,
+              "selectivity": 801.9605231029948
+            },
+            "higher_precision_lower_selectivity": {
+              "case": "taxonomic/United States/4760",
+              "precision": 0.7090909090909091,
+              "selectivity": 7.75969538656357
+            },
+            "note": "spelling 'large' (prec 0.571 -> 802x) beats taxonomic US-4760 (prec 0.709 -> 7.8x): higher precision != higher selectivity across families"
+          },
+          {
+            "type": "co_firing_regime_low_selectivity",
+            "case": "toxicity/insult/13367",
+            "precision": 0.7496040521157064,
+            "selectivity": 2.3772153160014575,
+            "note": "toxicity/insult (prec 0.750 -> 2.4x co-firing): single-latent ablation not surgical because sub-attribute co-fires with parent"
+          }
+        ],
+        "stored_corroborators": {
+          "regime_router_map_absorption_mean": 1452.4715090798045,
+          "regime_router_map_absorption_n": 6,
+          "toxicity_negative_pole_selectivity_vs_dense": 2.3772153160014575
+        },
+        "softened_verdict": "Absorber precision predicts surgical selectivity as a strong WITHIN-FAMILY observation (taxonomic Spearman rho=0.900, p=0.037); across families the relationship breaks (the spelling 'large' absorber at precision 0.571 reaches 802x, exceeding the taxonomic United-States absorber at precision 0.709 which reaches only 7.8x; all-7 rho=0.679, absorption-6 rho=0.714).",
+        "paper_wording": "Over the n=6 absorption cases (which include the partial-surgical United-States/4760 at 7.8x), surgical selectivity has mean=1452.5x and median=1262.2x; restricting to the n=5 cleanly-surgical cases (SURGICAL_EDIT_CONFIRMED: taxonomic Georgia/16009 1722x, Jordan/540 2722x, Jordan/8347 3247x, United-States/846 214x, first-letter large/8463 802x) gives median=1722.5x. The previously reported '1452x median' is in fact the MEAN of the n=6 absorption set."
+      },
+      "M5_control_wording": {
+        "source_path": "metadata.repair_loop + method.py (D1 art_sxwT7hK6YFEA)",
+        "implemented_control": "random_single_content_responsive_latent_addition",
+        "code_evidence": {
+          "file": "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/method.py",
+          "lines": "\u2248617-621, 641 (repair_loop); misleading docstring at 19-20",
+          "snippet": "ctrl_fire   = fire(eval_rows, list(resp_ctrl))          # one column per OTHER content-responsive latent\nctrl_detect = base[:, None] | ctrl_fire                 # anchor OR each SINGLE control latent (per-latent broadcast)\nctrl_recall = ctrl_detect.mean(0)                       # recall of (anchor + that single latent)\nctrl_gain   = ctrl_recall - base_recall                 # DISTRIBUTION: one gain per single-latent addition\nrand_detect_perwin = ctrl_detect.mean(1)                # per-window MEAN over single-latent additions\n...\npct = float((ctrl_gain < gain_kg).mean())               # percentile of KG gain within single-latent gain dist"
+        },
+        "percentile_evidence": [
+          {
+            "concept": "taxonomic",
+            "sub_context": "Georgia",
+            "variant": "kg_ktrack",
+            "absorber_latent": 16009,
+            "kg_percentile_vs_random": 0.9939024390243902,
+            "random_gain_p95": 0.18666666666666665,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.8,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "taxonomic",
+            "sub_context": "Georgia",
+            "variant": "kg_diagnostic",
+            "absorber_latent": 16009,
+            "kg_percentile_vs_random": 0.9939024390243902,
+            "random_gain_p95": 0.18666666666666665,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.8,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "taxonomic",
+            "sub_context": "Jordan",
+            "variant": "kg_ktrack",
+            "absorber_latent": 540,
+            "kg_percentile_vs_random": 0.9954268292682927,
+            "random_gain_p95": 0.08870967741935482,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.653225806451613,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "taxonomic",
+            "sub_context": "Jordan",
+            "variant": "kg_diagnostic",
+            "absorber_latent": 540,
+            "kg_percentile_vs_random": 0.9954268292682927,
+            "random_gain_p95": 0.08870967741935482,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.653225806451613,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "taxonomic",
+            "sub_context": "United States",
+            "variant": "kg_ktrack",
+            "absorber_latent": 846,
+            "kg_percentile_vs_random": 0.9801829268292683,
+            "random_gain_p95": 0.07499999999999993,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.20666666666666667,
+            "exceeds_p95": true,
+            "exceeds_p99": false
+          },
+          {
+            "concept": "taxonomic",
+            "sub_context": "United States",
+            "variant": "kg_diagnostic",
+            "absorber_latent": 846,
+            "kg_percentile_vs_random": 0.9801829268292683,
+            "random_gain_p95": 0.07499999999999993,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.20666666666666667,
+            "exceeds_p95": true,
+            "exceeds_p99": false
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "comma_number",
+            "variant": "kg_ktrack",
+            "absorber_latent": 12110,
+            "kg_percentile_vs_random": 0.9898336414048059,
+            "random_gain_p95": 0.1266666666666666,
+            "random_gain_p50": 0.006666666666666599,
+            "gain_kg": 0.24,
+            "exceeds_p95": true,
+            "exceeds_p99": false
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "currency",
+            "variant": "kg_ktrack",
+            "absorber_latent": 13553,
+            "kg_percentile_vs_random": 0.9884473197781886,
+            "random_gain_p95": 0.052000000000000046,
+            "random_gain_p50": 0.0040000000000000036,
+            "gain_kg": 0.136,
+            "exceeds_p95": true,
+            "exceeds_p99": false
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "date",
+            "variant": "kg_ktrack",
+            "absorber_latent": 8684,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "random_gain_p95": 0.23939999999999967,
+            "random_gain_p50": 0.01200000000000001,
+            "gain_kg": 0.6759999999999999,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "date",
+            "variant": "kg_diagnostic",
+            "absorber_latent": 8684,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "random_gain_p95": 0.23939999999999967,
+            "random_gain_p50": 0.01200000000000001,
+            "gain_kg": 0.6759999999999999,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "decimal",
+            "variant": "kg_ktrack",
+            "absorber_latent": 7983,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "random_gain_p95": 0.10999999999999999,
+            "random_gain_p50": 0.0050000000000000044,
+            "gain_kg": 0.44999999999999996,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "decimal",
+            "variant": "kg_diagnostic",
+            "absorber_latent": 7983,
+            "kg_percentile_vs_random": 0.9967652495378928,
+            "random_gain_p95": 0.10999999999999999,
+            "random_gain_p50": 0.0050000000000000044,
+            "gain_kg": 0.44999999999999996,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "ordinal",
+            "variant": "kg_ktrack",
+            "absorber_latent": 13658,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.053333333333333344,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.5333333333333333,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "ordinal",
+            "variant": "kg_diagnostic",
+            "absorber_latent": 13658,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.053333333333333344,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.5333333333333333,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "numeric",
+            "sub_context": "year",
+            "variant": "kg_ktrack",
+            "absorber_latent": 2018,
+            "kg_percentile_vs_random": 0.9824399260628466,
+            "random_gain_p95": 0.13666666666666666,
+            "random_gain_p50": 0.006666666666666654,
+            "gain_kg": 0.3533333333333334,
+            "exceeds_p95": true,
+            "exceeds_p99": false
+          },
+          {
+            "concept": "L",
+            "sub_context": "law",
+            "variant": "kg_ktrack",
+            "absorber_latent": 10200,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.05555555555555558,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.7777777777777778,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "L",
+            "sub_context": "like",
+            "variant": "kg_ktrack",
+            "absorber_latent": 14031,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.056451612903225805,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "O",
+            "sub_context": "one",
+            "variant": "kg_ktrack",
+            "absorber_latent": 5767,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.038461538461538464,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.9615384615384616,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "O",
+            "sub_context": "only",
+            "variant": "kg_ktrack",
+            "absorber_latent": 11847,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.03571428571428571,
+            "random_gain_p50": 0.0,
+            "gain_kg": 0.75,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "O",
+            "sub_context": "our",
+            "variant": "kg_ktrack",
+            "absorber_latent": 1032,
+            "kg_percentile_vs_random": 0.9974160206718347,
+            "random_gain_p95": 0.037037037037037035,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "than",
+            "variant": "kg_ktrack",
+            "absorber_latent": 7537,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.06451612903225806,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "that",
+            "variant": "kg_ktrack",
+            "absorber_latent": 9701,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.06666666666666667,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "their",
+            "variant": "kg_ktrack",
+            "absorber_latent": 15995,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.05,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "then",
+            "variant": "kg_ktrack",
+            "absorber_latent": 9504,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.05,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "there",
+            "variant": "kg_ktrack",
+            "absorber_latent": 13704,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.03125,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "those",
+            "variant": "kg_ktrack",
+            "absorber_latent": 6545,
+            "kg_percentile_vs_random": 0.9932659932659933,
+            "random_gain_p95": 0.06666666666666667,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "three",
+            "variant": "kg_ktrack",
+            "absorber_latent": 13430,
+            "kg_percentile_vs_random": 0.9932659932659933,
+            "random_gain_p95": 0.06666666666666667,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          },
+          {
+            "concept": "T",
+            "sub_context": "through",
+            "variant": "kg_ktrack",
+            "absorber_latent": 4296,
+            "kg_percentile_vs_random": 1.0,
+            "random_gain_p95": 0.06666666666666667,
+            "random_gain_p50": 0.0,
+            "gain_kg": 1.0,
+            "exceeds_p95": true,
+            "exceeds_p99": true
+          }
+        ],
+        "n_surviving_hole_variants": 28,
+        "n_exceed_p95": 28,
+        "n_exceed_p99": 23,
+        "frac_survivors_exceed_p95": 1.0,
+        "frac_survivors_exceed_p99": 0.8214285714285714,
+        "georgia_anchor_example": {
+          "kg_percentile_vs_random": 0.9939024390243902,
+          "random_gain_p95": 0.18666666666666665
+        },
+        "corrected_wording": "The repair control is a RANDOM SINGLE content-responsive-latent addition: each other content-responsive latent (not in the unit) is added individually to the anchor (ctrl_detect = base[:,None] | ctrl_fire is a per-latent broadcast), yielding a DISTRIBUTION of single-latent recall gains (one per latent); the KG-named absorber counts as a repair only if its gain exceeds the 95th/99th percentile of that single-latent-addition distribution (kg_percentile_vs_random = (ctrl_gain < gain_kg).mean()) AND the paired-bootstrap CI of KG-detection minus the per-window MEAN single-latent addition (rand_detect_perwin) excludes 0. No union/any-of/max-pool over the other latents is ever taken.",
+        "phrasings_to_drop": [
+          {
+            "location": "/ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_4/gen_art/gen_art_experiment_1/method.py lines 19-20 (module docstring)",
+            "phrase": "a control that adds every OTHER content-responsive latent (the full random-addition population)",
+            "why_misleading": "reads as a UNION/max-pool of all other latents added together; the implemented control adds each other latent INDIVIDUALLY and forms a distribution OF single-latent additions (ctrl_gain is per-latent, ctrl_detect.any(1)/.max(1) never appears).",
+            "fix": "say 'the population OF single-latent additions', not 'adds every other latent'."
+          },
+          {
+            "location": "any paper draft text",
+            "phrase": "'full random-addition population' / 'max-pool of other latents'",
+            "why_misleading": "invites a (wrong) 'your union baseline trivially wins' objection.",
+            "fix": "clarify it is the percentile within the SINGLE-latent-addition gain distribution."
+          }
+        ]
+      },
+      "M8_transparency": {
+        "source_path": "D4 art_JMA2gBvnakAm (per_letter), D3 art___vgSpUe6wAF (taxonomic), D1 art_sxwT7hK6YFEA (confident fraction + member_labeling)",
+        "first_letter_table": [
+          {
+            "letter": "L",
+            "unit_compact_auc": 0.8484848484848485,
+            "unit_15wide_auc": 0.9049586776859504,
+            "anchor_only_auc": 0.8484848484848485,
+            "compact_minus_15wide_delta": -0.05647382920110189,
+            "delta_ci_lo": -0.1074380165289256,
+            "delta_ci_hi": -0.012855831037649201,
+            "delta_excl_0": true,
+            "confident_fraction": 0.8666666666666667,
+            "confident_and_correct_fraction": 0.7333333333333333,
+            "frac_named_of_15": 0.35714285714285715
+          },
+          {
+            "letter": "O",
+            "unit_compact_auc": 0.7166666666666667,
+            "unit_15wide_auc": 0.9166666666666666,
+            "anchor_only_auc": 0.6333333333333333,
+            "compact_minus_15wide_delta": -0.19999999999999996,
+            "delta_ci_lo": -0.2833333333333333,
+            "delta_ci_hi": -0.11666666666666659,
+            "delta_excl_0": true,
+            "confident_fraction": 0.8,
+            "confident_and_correct_fraction": 0.7333333333333333,
+            "frac_named_of_15": 0.35714285714285715
+          },
+          {
+            "letter": "T",
+            "unit_compact_auc": 0.7051282051282052,
+            "unit_15wide_auc": 0.8579881656804734,
+            "anchor_only_auc": 0.6666666666666666,
+            "compact_minus_15wide_delta": -0.15285996055226825,
+            "delta_ci_lo": -0.2435897435897436,
+            "delta_ci_hi": -0.060815253122945445,
+            "delta_excl_0": true,
+            "confident_fraction": 0.9333333333333333,
+            "confident_and_correct_fraction": 0.7333333333333333,
+            "frac_named_of_15": 0.2857142857142857
+          },
+          {
+            "letter": "I",
+            "unit_compact_auc": 0.8452380952380952,
+            "unit_15wide_auc": 0.9829931972789115,
+            "anchor_only_auc": 0.5357142857142857,
+            "compact_minus_15wide_delta": -0.1377551020408163,
+            "delta_ci_lo": -0.2111678004535147,
+            "delta_ci_hi": -0.06830357142857155,
+            "delta_excl_0": true,
+            "confident_fraction": 0.8666666666666667,
+            "confident_and_correct_fraction": 0.7333333333333333,
+            "frac_named_of_15": 0.35714285714285715
+          },
+          {
+            "letter": "D",
+            "unit_compact_auc": 0.7777777777777778,
+            "unit_15wide_auc": 0.9555555555555556,
+            "anchor_only_auc": 0.7111111111111111,
+            "compact_minus_15wide_delta": -0.1777777777777778,
+            "delta_ci_lo": -0.24444444444444446,
+            "delta_ci_hi": -0.11111111111111116,
+            "delta_excl_0": true,
+            "confident_fraction": 0.6666666666666666,
+            "confident_and_correct_fraction": 0.6,
+            "frac_named_of_15": 0.5
+          }
+        ],
+        "taxonomic_table": [
+          {
+            "member_latent": 3792,
+            "role": "anchor",
+            "specializes_subcontext": "parent",
+            "subctx_precision_sel": null,
+            "subctx_precision_heldout": null,
+            "gate_fold": "selection",
+            "report_fold": "heldout",
+            "passes_0.70_gate_heldout": false
+          },
+          {
+            "member_latent": 16009,
+            "role": "absorber",
+            "specializes_subcontext": "Georgia",
+            "subctx_precision_sel": 0.967741935483871,
+            "subctx_precision_heldout": 0.9554140127388535,
+            "gate_fold": "selection",
+            "report_fold": "heldout",
+            "passes_0.70_gate_heldout": true
+          },
+          {
+            "member_latent": 540,
+            "role": "absorber",
+            "specializes_subcontext": "Jordan",
+            "subctx_precision_sel": 0.9914529914529915,
+            "subctx_precision_heldout": 0.975,
+            "gate_fold": "selection",
+            "report_fold": "heldout",
+            "passes_0.70_gate_heldout": true
+          },
+          {
+            "member_latent": 846,
+            "role": "absorber",
+            "specializes_subcontext": "United States",
+            "subctx_precision_sel": 0.9931506849315068,
+            "subctx_precision_heldout": 0.9733333333333334,
+            "gate_fold": "selection",
+            "report_fold": "heldout",
+            "passes_0.70_gate_heldout": true
+          }
+        ],
+        "member_labeling_summary": {
+          "overall_agreement": 0.7303370786516854,
+          "shuffle_null": 0.09592134831460675,
+          "analytic_chance": 0.07001440248207261,
+          "gap": 0.6344157303370787,
+          "gap_ci_lo": 0.5445280898876405,
+          "gap_ci_hi": 0.7243033707865169,
+          "gap_ci_excl_0": true,
+          "overall_confident_fraction": 0.8089887640449438,
+          "per_role_absorbers": 0.7560975609756098,
+          "per_role_anchors": 0.42857142857142855,
+          "n_members": 89,
+          "n_parse_fail": 0
+        },
+        "characterized_subset_fraction": {
+          "L": {
+            "n_pool": 15,
+            "n_named": 15,
+            "n_confident": 13,
+            "n_named_and_confident": 13,
+            "frac_named": 1.0,
+            "frac_named_and_confident": 0.8666666666666667
+          },
+          "O": {
+            "n_pool": 15,
+            "n_named": 13,
+            "n_confident": 11,
+            "n_named_and_confident": 11,
+            "frac_named": 0.8666666666666667,
+            "frac_named_and_confident": 0.7333333333333333
+          },
+          "T": {
+            "n_pool": 15,
+            "n_named": 15,
+            "n_confident": 14,
+            "n_named_and_confident": 14,
+            "frac_named": 1.0,
+            "frac_named_and_confident": 0.9333333333333333
+          },
+          "I": {
+            "n_pool": 15,
+            "n_named": 5,
+            "n_confident": 12,
+            "n_named_and_confident": 4,
+            "frac_named": 0.3333333333333333,
+            "frac_named_and_confident": 0.26666666666666666
+          },
+          "D": {
+            "n_pool": 15,
+            "n_named": 15,
+            "n_confident": 10,
+            "n_named_and_confident": 10,
+            "frac_named": 1.0,
+            "frac_named_and_confident": 0.6666666666666666
+          }
+        },
+        "paper_table": {
+          "rows": [
+            {
+              "letter": "L",
+              "compact_AUC": 0.8484848484848485,
+              "wide15_AUC": 0.9049586776859504,
+              "auditability_cost_dAUC": -0.05647382920110189,
+              "dAUC_CI": [
+                -0.1074380165289256,
+                -0.012855831037649201
+              ],
+              "confident_label_frac": 0.8666666666666667,
+              "confident_and_correct_frac": 0.7333333333333333
+            },
+            {
+              "letter": "O",
+              "compact_AUC": 0.7166666666666667,
+              "wide15_AUC": 0.9166666666666666,
+              "auditability_cost_dAUC": -0.19999999999999996,
+              "dAUC_CI": [
+                -0.2833333333333333,
+                -0.11666666666666659
+              ],
+              "confident_label_frac": 0.8,
+              "confident_and_correct_frac": 0.7333333333333333
+            },
+            {
+              "letter": "T",
+              "compact_AUC": 0.7051282051282052,
+              "wide15_AUC": 0.8579881656804734,
+              "auditability_cost_dAUC": -0.15285996055226825,
+              "dAUC_CI": [
+                -0.2435897435897436,
+                -0.060815253122945445
+              ],
+              "confident_label_frac": 0.9333333333333333,
+              "confident_and_correct_frac": 0.7333333333333333
+            },
+            {
+              "letter": "I",
+              "compact_AUC": 0.8452380952380952,
+              "wide15_AUC": 0.9829931972789115,
+              "auditability_cost_dAUC": -0.1377551020408163,
+              "dAUC_CI": [
+                -0.2111678004535147,
+                -0.06830357142857155
+              ],
+              "confident_label_frac": 0.8666666666666667,
+              "confident_and_correct_frac": 0.7333333333333333
+            },
+            {
+              "letter": "D",
+              "compact_AUC": 0.7777777777777778,
+              "wide15_AUC": 0.9555555555555556,
+              "auditability_cost_dAUC": -0.1777777777777778,
+              "dAUC_CI": [
+                -0.24444444444444446,
+                -0.11111111111111116
+              ],
+              "confident_label_frac": 0.6666666666666666,
+              "confident_and_correct_frac": 0.6
+            }
+          ],
+          "caption": "Auditability-vs-AUC tradeoff (first-letter). The human-auditable compact named unit (anchor + diagnostic-corroborated absorbers) costs AUC -0.056..-0.200 vs the 15-wide max-pool (per-letter bootstrap CIs all exclude 0), yet the named compact structure carries auditable signal: ensemble member-labels agree at 0.730 vs a 0.096 shuffle null (gap 0.634, CI [0.545,0.724]); per-letter confident-label fraction L 0.87 / O 0.80 / T 0.93 / I 0.87 / D 0.67 (absorbers 0.756 vs anchors 0.43)."
+        }
+      }
+    },
+    "datasets": [
+      {
+        "dataset": "M3_survivor_table",
+        "examples": [
+          {
+            "input": "M3 surviving repair variant: taxonomic/Georgia [kg_ktrack] absorber=16009",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "taxonomic",
+            "metadata_gain_kg": 0.8,
+            "metadata_kg_percentile_vs_random": 0.9939024390243902,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.8,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: taxonomic/Georgia [kg_diagnostic] absorber=16009",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "taxonomic",
+            "metadata_gain_kg": 0.8,
+            "metadata_kg_percentile_vs_random": 0.9939024390243902,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.8,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: taxonomic/Jordan [kg_ktrack] absorber=540",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "taxonomic",
+            "metadata_gain_kg": 0.653225806451613,
+            "metadata_kg_percentile_vs_random": 0.9954268292682927,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.653225806451613,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: taxonomic/Jordan [kg_diagnostic] absorber=540",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "taxonomic",
+            "metadata_gain_kg": 0.653225806451613,
+            "metadata_kg_percentile_vs_random": 0.9954268292682927,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.653225806451613,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: taxonomic/United States [kg_ktrack] absorber=846",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "taxonomic",
+            "metadata_gain_kg": 0.20666666666666667,
+            "metadata_kg_percentile_vs_random": 0.9801829268292683,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.20666666666666667,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: taxonomic/United States [kg_diagnostic] absorber=846",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "taxonomic",
+            "metadata_gain_kg": 0.20666666666666667,
+            "metadata_kg_percentile_vs_random": 0.9801829268292683,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.20666666666666667,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/comma_number [kg_ktrack] absorber=12110",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.24,
+            "metadata_kg_percentile_vs_random": 0.9898336414048059,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.24,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/currency [kg_ktrack] absorber=13553",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.136,
+            "metadata_kg_percentile_vs_random": 0.9884473197781886,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.136,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/date [kg_ktrack] absorber=8684",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.6759999999999999,
+            "metadata_kg_percentile_vs_random": 0.9967652495378928,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.6759999999999999,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/date [kg_diagnostic] absorber=8684",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.6759999999999999,
+            "metadata_kg_percentile_vs_random": 0.9967652495378928,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.6759999999999999,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/decimal [kg_ktrack] absorber=7983",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.44999999999999996,
+            "metadata_kg_percentile_vs_random": 0.9967652495378928,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.44999999999999996,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/decimal [kg_diagnostic] absorber=7983",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.44999999999999996,
+            "metadata_kg_percentile_vs_random": 0.9967652495378928,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.44999999999999996,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/ordinal [kg_ktrack] absorber=13658",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.5333333333333333,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.5333333333333333,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/ordinal [kg_diagnostic] absorber=13658",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "yes",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.5333333333333333,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.5333333333333333,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/percent [kg_ktrack] absorber=9112",
+            "output": "NON_HOLE_SURVIVOR",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.039999999999999925,
+            "metadata_kg_percentile_vs_random": 0.9579482439926063,
+            "metadata_bh_q": 0.0013798620137986202,
+            "eval_gain_kg": 0.039999999999999925,
+            "eval_is_hole": 0
+          },
+          {
+            "input": "M3 surviving repair variant: numeric/year [kg_ktrack] absorber=2018",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "numeric",
+            "metadata_gain_kg": 0.3533333333333334,
+            "metadata_kg_percentile_vs_random": 0.9824399260628466,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.3533333333333334,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: L/law [kg_ktrack] absorber=10200",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 0.7777777777777778,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.7777777777777778,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: L/layer [kg_ktrack] absorber=2378",
+            "output": "NON_HOLE_SURVIVOR",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 0.5416666666666667,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.5416666666666667,
+            "eval_is_hole": 0
+          },
+          {
+            "input": "M3 surviving repair variant: L/like [kg_ktrack] absorber=14031",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: O/one [kg_ktrack] absorber=5767",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 0.9615384615384616,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.9615384615384616,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: O/only [kg_ktrack] absorber=11847",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 0.75,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 0.75,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: O/our [kg_ktrack] absorber=1032",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 0.9974160206718347,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/than [kg_ktrack] absorber=7537",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/that [kg_ktrack] absorber=9701",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/their [kg_ktrack] absorber=15995",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/then [kg_ktrack] absorber=9504",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/there [kg_ktrack] absorber=13704",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/those [kg_ktrack] absorber=6545",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 0.9932659932659933,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/three [kg_ktrack] absorber=13430",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 0.9932659932659933,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          },
+          {
+            "input": "M3 surviving repair variant: T/through [kg_ktrack] absorber=4296",
+            "output": "DISTINCT_HOLE",
+            "predict_is_double_count_partner": "no",
+            "metadata_family": "spelling",
+            "metadata_gain_kg": 1.0,
+            "metadata_kg_percentile_vs_random": 1.0,
+            "metadata_bh_q": 0.0002379072437583828,
+            "eval_gain_kg": 1.0,
+            "eval_is_hole": 1
+          }
+        ]
+      }
+    ]
+  }
+}

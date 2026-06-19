@@ -1,0 +1,2377 @@
+{
+  "metadata": {
+    "name": "first_letter_spelling_absorption_testbed",
+    "description": "First-letter-spelling absorption testbed: content-flip + surface-flip minimal pairs (tokenizer-anchored) + frozen pile letter-occurrence corpus.",
+    "schema_note": "Row metadata is flattened to metadata_* keys (exp_sel_data_out compliant). Pairs link via metadata_pair_id + metadata_role; reconstruct (x_on,x_off) to compute r_l = a_l(x_on)-a_l(x_off). output = first letter (uppercase).",
+    "target_letters": [
+      "L",
+      "O",
+      "T",
+      "I",
+      "D"
+    ],
+    "primary_letter": "L",
+    "components": {
+      "A_content_flip": "starts-with-<L> present vs surface-matched absent (Tier-0 K-proposal + C3 spine)",
+      "B_surface_flip": "two different same-first-letter words (unit-level surface-invariance check)",
+      "C_corpus": "frozen pile windows + per-token occurrence table (form-free/Chanin diagnostic substrate)"
+    },
+    "generation_config": {
+      "tokenizer_id": "unsloth/gemma-2-2b",
+      "expected_vocab": 256000,
+      "pile_repo": "monology/pile-uncopyrighted",
+      "pile_revision_full": "3be90335b66f24456a5d6659d9c8d208c0357119",
+      "pile_revision_short": "3be9033",
+      "n_docs_requested": 20000,
+      "n_docs_actual": 20000,
+      "max_chars_per_doc": 20000,
+      "corpus_elapsed_s": 35.9,
+      "get_alpha_tokens": {
+        "allow_leading_space": true,
+        "alpha_set": "a-zA-Z",
+        "slot_eligible": "word-initial ('▁') AND alpha",
+        "single_token": true
+      },
+      "window": {
+        "left": 32,
+        "right": 16,
+        "per_word_cap": 60,
+        "per_letter_cap": 2500
+      },
+      "carriers": [
+        "t_verbose",
+        "t_colon",
+        "t_mention_word",
+        "t_mention_term",
+        "t_mention_example",
+        "t_mention_spelled",
+        "t_icl"
+      ],
+      "n_folds": 5,
+      "fold_rule": "minimal pairs by target_word; corpus by source_doc_id",
+      "seed": 1234,
+      "usage_contract": {
+        "datasets_grouping": "one dataset group per target letter (first_letter_spelling_<L>); each group holds that letter's content_flip + surface_flip + corpus_context rows. Shared tables live in top-level metadata.",
+        "pairs": "Group rows by metadata_pair_id; metadata_role in {on,off} (content_flip) or {var_a,var_b} (surface_flip). r_l(prompt)=a_l(x_on)-a_l(x_off). metadata_word_char_span indexes the slotted word in `input`.",
+        "corpus": "metadata_token_position is the target-token index within tok(input, add_special_tokens=False) (verified exact on sampled rows: ids[token_position]==metadata_target_token_id). metadata_window_char_span is the doc-relative provenance span; metadata_target_char_in_window indexes `input`.",
+        "output_field": "first letter (uppercase): target letter for on/surface/corpus rows, the off-word's actual first letter for off rows; binary in metadata_label_starts_with_target."
+      }
+    },
+    "achieved_counts": {
+      "total_examples": 17180,
+      "per_letter_pairs": {
+        "l": {
+          "content_flip_rows": 980,
+          "content_flip_pairs": 490,
+          "surface_flip_rows": 340,
+          "surface_flip_pairs": 170,
+          "n_on_words": 70
+        },
+        "o": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 210,
+          "surface_flip_pairs": 105,
+          "n_on_words": 45
+        },
+        "t": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 190,
+          "surface_flip_pairs": 95,
+          "n_on_words": 45
+        },
+        "i": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 220,
+          "surface_flip_pairs": 110,
+          "n_on_words": 45
+        },
+        "d": {
+          "content_flip_rows": 630,
+          "content_flip_pairs": 315,
+          "surface_flip_rows": 220,
+          "surface_flip_pairs": 110,
+          "n_on_words": 45
+        }
+      },
+      "corpus_contexts_per_letter": {
+        "I": 2500,
+        "D": 2500,
+        "O": 2500,
+        "T": 2500,
+        "L": 2500
+      },
+      "occurrence_table_sizes": {
+        "l": 2000,
+        "o": 1645,
+        "t": 2000,
+        "i": 2000,
+        "d": 2000
+      }
+    },
+    "absorber_candidates": {
+      "l": [
+        "Let",
+        "London",
+        "land",
+        "large",
+        "last",
+        "least",
+        "left",
+        "less",
+        "level",
+        "levels",
+        "life",
+        "light",
+        "like",
+        "line",
+        "lion",
+        "list",
+        "little",
+        "long",
+        "love",
+        "low"
+      ],
+      "o": [
+        "object",
+        "observed",
+        "obtained",
+        "ocean",
+        "off",
+        "office",
+        "often",
+        "old",
+        "one",
+        "only",
+        "open",
+        "order",
+        "other",
+        "our",
+        "out",
+        "over",
+        "own"
+      ],
+      "t": [
+        "The",
+        "This",
+        "table",
+        "than",
+        "that",
+        "the",
+        "their",
+        "them",
+        "then",
+        "there",
+        "these",
+        "they",
+        "this",
+        "through",
+        "time",
+        "town",
+        "tree",
+        "two"
+      ],
+      "i": [
+        "idea",
+        "image",
+        "important",
+        "include",
+        "included",
+        "includes",
+        "including",
+        "increase",
+        "increased",
+        "individual",
+        "info",
+        "information",
+        "int",
+        "into",
+        "invention",
+        "iron",
+        "island",
+        "issue",
+        "it",
+        "its"
+      ],
+      "d": [
+        "data",
+        "day",
+        "days",
+        "described",
+        "design",
+        "development",
+        "device",
+        "did",
+        "different",
+        "disease",
+        "does",
+        "dog",
+        "don",
+        "done",
+        "door",
+        "down",
+        "due",
+        "during"
+      ]
+    },
+    "on_words_by_letter": {
+      "l": [
+        "like",
+        "Let",
+        "long",
+        "last",
+        "line",
+        "level",
+        "life",
+        "low",
+        "large",
+        "less",
+        "levels",
+        "left"
+      ],
+      "o": [
+        "one",
+        "other",
+        "out",
+        "only",
+        "our",
+        "over",
+        "order",
+        "off",
+        "own",
+        "open",
+        "often",
+        "object"
+      ],
+      "t": [
+        "the",
+        "that",
+        "The",
+        "this",
+        "their",
+        "they",
+        "time",
+        "there",
+        "than",
+        "two",
+        "This",
+        "these"
+      ],
+      "i": [
+        "into",
+        "its",
+        "information",
+        "including",
+        "int",
+        "important",
+        "include",
+        "increased",
+        "increase",
+        "image",
+        "issue",
+        "invention"
+      ],
+      "d": [
+        "data",
+        "different",
+        "during",
+        "did",
+        "does",
+        "don",
+        "day",
+        "down",
+        "due",
+        "device",
+        "days",
+        "described"
+      ]
+    },
+    "occurrence_tables": {
+      "l": [
+        {
+          "word": "like",
+          "count": 10100,
+          "token_id": 1154
+        },
+        {
+          "word": "Let",
+          "count": 7799,
+          "token_id": 4371
+        },
+        {
+          "word": "long",
+          "count": 4524,
+          "token_id": 1497
+        },
+        {
+          "word": "L",
+          "count": 4446,
+          "token_id": 629
+        },
+        {
+          "word": "last",
+          "count": 3870,
+          "token_id": 2001
+        },
+        {
+          "word": "line",
+          "count": 3865,
+          "token_id": 2017
+        },
+        {
+          "word": "level",
+          "count": 3720,
+          "token_id": 2403
+        },
+        {
+          "word": "life",
+          "count": 3527,
+          "token_id": 1913
+        },
+        {
+          "word": "low",
+          "count": 3428,
+          "token_id": 3178
+        },
+        {
+          "word": "large",
+          "count": 3425,
+          "token_id": 2910
+        },
+        {
+          "word": "less",
+          "count": 3013,
+          "token_id": 2644
+        },
+        {
+          "word": "levels",
+          "count": 2985,
+          "token_id": 5902
+        },
+        {
+          "word": "left",
+          "count": 2942,
+          "token_id": 2731
+        },
+        {
+          "word": "least",
+          "count": 2854,
+          "token_id": 3476
+        },
+        {
+          "word": "light",
+          "count": 2852,
+          "token_id": 2611
+        },
+        {
+          "word": "list",
+          "count": 2847,
+          "token_id": 1889
+        },
+        {
+          "word": "l",
+          "count": 2760,
+          "token_id": 533
+        },
+        {
+          "word": "local",
+          "count": 2617,
+          "token_id": 2813
+        },
+        {
+          "word": "law",
+          "count": 2612,
+          "token_id": 2912
+        },
+        {
+          "word": "look",
+          "count": 2516,
+          "token_id": 1612
+        },
+        {
+          "word": "little",
+          "count": 2509,
+          "token_id": 2356
+        },
+        {
+          "word": "later",
+          "count": 2465,
+          "token_id": 3416
+        },
+        {
+          "word": "lower",
+          "count": 2307,
+          "token_id": 4581
+        },
+        {
+          "word": "lot",
+          "count": 2110,
+          "token_id": 2940
+        },
+        {
+          "word": "License",
+          "count": 1829,
+          "token_id": 15656
+        },
+        {
+          "word": "love",
+          "count": 1797,
+          "token_id": 2182
+        },
+        {
+          "word": "likely",
+          "count": 1775,
+          "token_id": 5476
+        },
+        {
+          "word": "lines",
+          "count": 1752,
+          "token_id": 5453
+        },
+        {
+          "word": "let",
+          "count": 1694,
+          "token_id": 2142
+        },
+        {
+          "word": "layer",
+          "count": 1582,
+          "token_id": 8651
+        },
+        {
+          "word": "length",
+          "count": 1572,
+          "token_id": 4191
+        },
+        {
+          "word": "looking",
+          "count": 1539,
+          "token_id": 3648
+        },
+        {
+          "word": "loss",
+          "count": 1514,
+          "token_id": 4783
+        },
+        {
+          "word": "lead",
+          "count": 1514,
+          "token_id": 2389
+        },
+        {
+          "word": "limited",
+          "count": 1492,
+          "token_id": 6929
+        },
+        {
+          "word": "language",
+          "count": 1457,
+          "token_id": 5255
+        },
+        {
+          "word": "located",
+          "count": 1379,
+          "token_id": 7023
+        },
+        {
+          "word": "live",
+          "count": 1357,
+          "token_id": 3685
+        },
+        {
+          "word": "links",
+          "count": 1310,
+          "token_id": 8556
+        },
+        {
+          "word": "location",
+          "count": 1272,
+          "token_id": 5201
+        },
+        {
+          "word": "longer",
+          "count": 1260,
+          "token_id": 5543
+        },
+        {
+          "word": "letters",
+          "count": 1236,
+          "token_id": 11187
+        },
+        {
+          "word": "link",
+          "count": 1222,
+          "token_id": 3615
+        },
+        {
+          "word": "la",
+          "count": 1183,
+          "token_id": 683
+        },
+        {
+          "word": "larger",
+          "count": 1164,
+          "token_id": 8107
+        },
+        {
+          "word": "leading",
+          "count": 1090,
+          "token_id": 8133
+        },
+        {
+          "word": "late",
+          "count": 1082,
+          "token_id": 5245
+        },
+        {
+          "word": "living",
+          "count": 1061,
+          "token_id": 5027
+        },
+        {
+          "word": "lost",
+          "count": 1022,
+          "token_id": 5501
+        },
+        {
+          "word": "load",
+          "count": 1017,
+          "token_id": 4412
+        }
+      ]
+    },
+    "mechanical_validation": {
+      "note": "AUTHORITATIVE deterministic check on every pair: on-word begins with target & off-word does not (content_flip); both begin with target & differ (surface_flip); plus input[word_char_span]==target_word. The flip is guaranteed by construction (first letters taken straight from the gemma-2-2b tokenizer), so violations are dropped.",
+      "per_bucket": {
+        "L_content_flip": {
+          "checked": 490,
+          "ok": 490,
+          "violations": 0
+        },
+        "L_surface_flip": {
+          "checked": 170,
+          "ok": 170,
+          "violations": 0
+        },
+        "O_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "O_surface_flip": {
+          "checked": 105,
+          "ok": 105,
+          "violations": 0
+        },
+        "T_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "T_surface_flip": {
+          "checked": 95,
+          "ok": 95,
+          "violations": 0
+        },
+        "I_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "I_surface_flip": {
+          "checked": 110,
+          "ok": 110,
+          "violations": 0
+        },
+        "D_content_flip": {
+          "checked": 315,
+          "ok": 315,
+          "violations": 0
+        },
+        "D_surface_flip": {
+          "checked": 110,
+          "ok": 110,
+          "violations": 0
+        },
+        "corpus_context": {
+          "checked": 12500,
+          "ok": 12500,
+          "violations": 0
+        }
+      },
+      "pairs_dropped": 0
+    },
+    "llm_judge": {
+      "enabled": true,
+      "model": "google/gemini-3.1-flash-lite",
+      "per_bucket_sample": 150,
+      "role": "SECONDARY grammaticality/naturalness + independent audit. Survivors already pass the deterministic check, so judge 'fail' = judge false-negative; pairs are NOT dropped on the judge alone. judge_false_negative_rate quantifies judge unreliability on this short-prompt task.",
+      "pass_rates": {
+        "L_content_flip": {
+          "judged": 150,
+          "pass": 147,
+          "fail": 3,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "Here is an example word: lost.",
+              "off": "Here is an example word: NULL.",
+              "reason": "NULL is not a valid English word."
+            },
+            {
+              "on": "lost:",
+              "off": "NULL:",
+              "reason": "'NULL' is not a valid English word."
+            },
+            {
+              "on": "less has the first letter:",
+              "off": "They has the first letter:",
+              "reason": "'They has' is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.98,
+          "judge_false_negative_rate": 0.02
+        },
+        "L_surface_flip": {
+          "judged": 150,
+          "pass": 148,
+          "fail": 2,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "letters has the first letter:",
+              "off": "link has the first letter:",
+              "reason": "Grammar error: 'letters' requires plural verb 'have'."
+            },
+            {
+              "on": "likely has the first letter:",
+              "off": "lines has the first letter:",
+              "reason": "Text B is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.9867,
+          "judge_false_negative_rate": 0.0133
+        },
+        "O_content_flip": {
+          "judged": 150,
+          "pass": 145,
+          "fail": 5,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "objects has the first letter:",
+              "off": "appears has the first letter:",
+              "reason": "Grammar error: subject-verb agreement."
+            },
+            {
+              "on": "others has the first letter:",
+              "off": "report has the first letter:",
+              "reason": "TEXT_ON is grammatically incorrect; should be 'others have'."
+            },
+            {
+              "on": "Our has the first letter:",
+              "off": "err has the first letter:",
+              "reason": "'Our' is a determiner, not a noun."
+            },
+            {
+              "on": "ones has the first letter:",
+              "off": "talk has the first letter:",
+              "reason": "Templates are not identical."
+            },
+            {
+              "on": "off:",
+              "off": "int:",
+              "reason": "'off' and 'int' are not grammatical sentences."
+            }
+          ],
+          "pass_rate": 0.9667,
+          "judge_false_negative_rate": 0.0333
+        },
+        "O_surface_flip": {
+          "judged": 105,
+          "pass": 101,
+          "fail": 4,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "objects has the first letter:",
+              "off": "otherwise has the first letter:",
+              "reason": "'objects' makes the sentence grammatically incorrect."
+            },
+            {
+              "on": "our has the first letter:",
+              "off": "over has the first letter:",
+              "reason": "'our' is not a noun; sentence is ungrammatical."
+            },
+            {
+              "on": "others has the first letter:",
+              "off": "original has the first letter:",
+              "reason": "'others' makes the sentence grammatically incorrect."
+            },
+            {
+              "on": "often has the first letter:",
+              "off": "object has the first letter:",
+              "reason": "'often' is an adverb, making the sentence ungrammatical."
+            }
+          ],
+          "pass_rate": 0.9619,
+          "judge_false_negative_rate": 0.0381
+        },
+        "T_content_flip": {
+          "judged": 150,
+          "pass": 147,
+          "fail": 3,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "These has the first letter:",
+              "off": "place has the first letter:",
+              "reason": "TEXT_ON is grammatically incorrect."
+            },
+            {
+              "on": "they has the first letter:",
+              "off": "been has the first letter:",
+              "reason": "'they has' is grammatically incorrect."
+            },
+            {
+              "on": "The word two appears in the text.",
+              "off": "The word may appears in the text.",
+              "reason": "TEXT_OFF is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.98,
+          "judge_false_negative_rate": 0.02
+        },
+        "T_surface_flip": {
+          "judged": 95,
+          "pass": 90,
+          "fail": 5,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "they has the first letter:",
+              "off": "time has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "there has the first letter:",
+              "off": "than has the first letter:",
+              "reason": "Sentence structure is grammatically incorrect."
+            },
+            {
+              "on": "things has the first letter:",
+              "off": "top has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "this has the first letter:",
+              "off": "their has the first letter:",
+              "reason": "Text B is grammatically incorrect."
+            },
+            {
+              "on": "two has the first letter:",
+              "off": "these has the first letter:",
+              "reason": "Grammar error: 'two/these has' is incorrect."
+            }
+          ],
+          "pass_rate": 0.9474,
+          "judge_false_negative_rate": 0.0526
+        },
+        "I_content_flip": {
+          "judged": 150,
+          "pass": 142,
+          "fail": 8,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "yellow has the first letter: Y\nwindow has the first letter: W\nriver has the first letter: R\ngarden has the first letter: G\nisn has the first letter:",
+              "off": "yellow has the first letter: Y\nwindow has the first letter: W\nriver has the first letter: R\ngarden has the first letter: G\nmap has the first letter:",
+              "reason": "'isn' is not a standard English word."
+            },
+            {
+              "on": "inter has the first letter:",
+              "off": "words has the first letter:",
+              "reason": "'inter' is not a standard English noun."
+            },
+            {
+              "on": "int:",
+              "off": "off:",
+              "reason": "Slotted words must be words, not punctuation."
+            },
+            {
+              "on": "isn:",
+              "off": "map:",
+              "reason": "'isn' is not a standalone grammatical word."
+            },
+            {
+              "on": "yellow has the first letter: Y\nwindow has the first letter: W\nriver has the first letter: R\ngarden has the first letter: G\nimportant has the first letter:",
+              "off": "yellow has the first letter: Y\nwindow has the first letter: W\nriver has the first letter: R\ngarden has the first letter: G\navailable has the first letter:",
+              "reason": "'available' begins with 'a', but 'a' is not 'i'."
+            },
+            {
+              "on": "individuals has the first letter:",
+              "off": "established has the first letter:",
+              "reason": "'individuals has' is grammatically incorrect."
+            }
+          ],
+          "pass_rate": 0.9467,
+          "judge_false_negative_rate": 0.0533
+        },
+        "I_surface_flip": {
+          "judged": 110,
+          "pass": 99,
+          "fail": 11,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "identified has the first letter:",
+              "off": "itself has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "images has the first letter:",
+              "off": "inside has the first letter:",
+              "reason": "Grammar error: 'images' is plural, 'inside' is adverb."
+            },
+            {
+              "on": "The word instance appears in the text.",
+              "off": "The word isn appears in the text.",
+              "reason": "'isn' is not a valid grammatical word."
+            },
+            {
+              "on": "issues has the first letter:",
+              "off": "index has the first letter:",
+              "reason": "Grammar error: 'issues' is plural, requires 'have'."
+            },
+            {
+              "on": "includes has the first letter:",
+              "off": "input has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "Consider the term instance for a moment.",
+              "off": "Consider the term isn for a moment.",
+              "reason": "'isn' is not a valid grammatical word."
+            }
+          ],
+          "pass_rate": 0.9,
+          "judge_false_negative_rate": 0.1
+        },
+        "D_content_flip": {
+          "judged": 150,
+          "pass": 146,
+          "fail": 4,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "Here is an example word: didn.",
+              "off": "Here is an example word: cost.",
+              "reason": "'didn' is not a standard English word."
+            },
+            {
+              "on": "Here is an example word: doesn.",
+              "off": "Here is an example word: final.",
+              "reason": "'doesn' is not a valid English word."
+            },
+            {
+              "on": "difficult has the first letter:",
+              "off": "Therefore has the first letter:",
+              "reason": "Both words begin with the letter D."
+            },
+            {
+              "on": "Here is an example word: difficult.",
+              "off": "Here is an example word: Therefore.",
+              "reason": "Therefore begins with T, but contains D."
+            }
+          ],
+          "pass_rate": 0.9733,
+          "judge_false_negative_rate": 0.0267
+        },
+        "D_surface_flip": {
+          "judged": 110,
+          "pass": 98,
+          "fail": 12,
+          "unparsed": 0,
+          "fail_examples": [
+            {
+              "on": "The word doesn appears in the text.",
+              "off": "The word design appears in the text.",
+              "reason": "'doesn' is not a valid English word."
+            },
+            {
+              "on": "does has the first letter:",
+              "off": "don has the first letter:",
+              "reason": "Text A is grammatically incorrect."
+            },
+            {
+              "on": "Here is an example word: doesn.",
+              "off": "Here is an example word: design.",
+              "reason": "'doesn' is not a valid English word."
+            },
+            {
+              "on": "Consider the term doing for a moment.",
+              "off": "Consider the term didn for a moment.",
+              "reason": "'didn' is not a standard grammatical word."
+            },
+            {
+              "on": "doing:",
+              "off": "didn:",
+              "reason": "'didn' is not a complete grammatical word."
+            },
+            {
+              "on": "doing has the first letter:",
+              "off": "didn has the first letter:",
+              "reason": "'didn' is not a valid word in this context."
+            }
+          ],
+          "pass_rate": 0.8909,
+          "judge_false_negative_rate": 0.1091
+        }
+      },
+      "total_usd": 0.1236,
+      "n_calls": 1320,
+      "budget_usd": 3.0
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "first_letter_spelling_L",
+      "examples": [
+        {
+          "input": "like has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "data has the first letter:",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0001",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "like:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0002",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ]
+        },
+        {
+          "input": "data:",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0002",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ]
+        },
+        {
+          "input": "The word like appears in the text.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0003",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_mention_word",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            9,
+            13
+          ]
+        },
+        {
+          "input": "The word data appears in the text.",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0003",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_mention_word",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            9,
+            13
+          ]
+        },
+        {
+          "input": "Consider the term like for a moment.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0004",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_mention_term",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            18,
+            22
+          ]
+        },
+        {
+          "input": "Consider the term data for a moment.",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0004",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_mention_term",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            18,
+            22
+          ]
+        },
+        {
+          "input": "Here is an example word: like.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0005",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_mention_example",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            25,
+            29
+          ]
+        },
+        {
+          "input": "Here is an example word: data.",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0005",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_mention_example",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            25,
+            29
+          ]
+        },
+        {
+          "input": "Let us spell out the word like.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0006",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_mention_spelled",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            26,
+            30
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Let us spell out the word data.",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0006",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_mention_spelled",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            26,
+            30
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlike has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0007",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "data",
+          "metadata_template_id": "t_icl",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            123,
+            127
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\ndata has the first letter:",
+          "output": "D",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0007",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "data",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_icl",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "d",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            123,
+            127
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Let has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0008",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "how",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "how has the first letter:",
+          "output": "H",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0008",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "how",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "h",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "Let:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0009",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "how",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "how:",
+          "output": "H",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0009",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "how",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "h",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            0,
+            3
+          ]
+        },
+        {
+          "input": "The word Let appears in the text.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0010",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "how",
+          "metadata_template_id": "t_mention_word",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            9,
+            12
+          ]
+        },
+        {
+          "input": "The word how appears in the text.",
+          "output": "H",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0010",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "how",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_mention_word",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "h",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            9,
+            12
+          ]
+        },
+        {
+          "input": "Consider the term Let for a moment.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0011",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "how",
+          "metadata_template_id": "t_mention_term",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            18,
+            21
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Consider the term how for a moment.",
+          "output": "H",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0011",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "how",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_mention_term",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "h",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            18,
+            21
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Here is an example word: Let.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0012",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "on",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "how",
+          "metadata_template_id": "t_mention_example",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            25,
+            28
+          ]
+        },
+        {
+          "input": "Here is an example word: how.",
+          "output": "H",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_c_0012",
+          "metadata_pair_type": "content_flip",
+          "metadata_role": "off",
+          "metadata_sub_context": "Let",
+          "metadata_target_word": "how",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_mention_example",
+          "metadata_label_starts_with_target": 0,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "h",
+          "metadata_fold": 2,
+          "metadata_word_char_span": [
+            25,
+            28
+          ]
+        },
+        {
+          "input": "like has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0001",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_a",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Let has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0001",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_b",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            3
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "like:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0002",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_a",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Let:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0002",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_b",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_colon",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            0,
+            3
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "The word like appears in the text.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0003",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_a",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_mention_word",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            9,
+            13
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "The word Let appears in the text.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0003",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_b",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_mention_word",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            9,
+            12
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Consider the term like for a moment.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0004",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_a",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_mention_term",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            18,
+            22
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Consider the term Let for a moment.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0004",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_b",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_mention_term",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            18,
+            21
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Here is an example word: like.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0005",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_a",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "Let",
+          "metadata_template_id": "t_mention_example",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            25,
+            29
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "Here is an example word: Let.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0005",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_b",
+          "metadata_sub_context": "like|Let",
+          "metadata_target_word": "Let",
+          "metadata_counterpart_word": "like",
+          "metadata_template_id": "t_mention_example",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 1,
+          "metadata_word_char_span": [
+            25,
+            28
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "long has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0006",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_a",
+          "metadata_sub_context": "long|last",
+          "metadata_target_word": "long",
+          "metadata_counterpart_word": "last",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 4,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "last has the first letter:",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_s_0006",
+          "metadata_pair_type": "surface_flip",
+          "metadata_role": "var_b",
+          "metadata_sub_context": "long|last",
+          "metadata_target_word": "last",
+          "metadata_counterpart_word": "long",
+          "metadata_template_id": "t_verbose",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 4,
+          "metadata_word_char_span": [
+            0,
+            4
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " web. Playing on the web works, but you have to simulate multi-touch for table moving and that can be a bit confusing.\n\nThere’s a lot I’d like to talk about. I’ll go through every topic,",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00013",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "lot",
+          "metadata_target_word": "lot",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 2940,
+          "metadata_window_char_span": [
+            89,
+            275
+          ],
+          "metadata_target_char_in_window": [
+            130,
+            133
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " the web works, but you have to simulate multi-touch for table moving and that can be a bit confusing.\n\nThere’s a lot I’d like to talk about. I’ll go through every topic, insted of making",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00015",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 1154,
+          "metadata_window_char_span": [
+            105,
+            292
+          ],
+          "metadata_target_char_in_window": [
+            122,
+            126
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "There’s a lot I’d like to talk about. I’ll go through every topic, insted of making the typical what went right/wrong list.\n\nConcept\n\nWorking over the theme was probably one of the hardest tasks I",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00025",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "list",
+          "metadata_target_word": "list",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 1889,
+          "metadata_window_char_span": [
+            209,
+            405
+          ],
+          "metadata_target_char_in_window": [
+            118,
+            122
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " one of the hardest tasks I had to face.\n\nOriginally, I had an idea of what kind of game I wanted to develop, gameplay wise – something with lots of enemies/actors, simple graphics, maybe set in space, controlled from a",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00042",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "lots",
+          "metadata_target_word": "lots",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 11228,
+          "metadata_window_char_span": [
+            378,
+            597
+          ],
+          "metadata_target_char_in_window": [
+            141,
+            145
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " in space, controlled from a top-down view. I was confident I could fit any theme around it.\n\nIn the end, the problem with a theme like “Evolution” in a game is that evolution is unassisted. It happens through",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00053",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 1154,
+          "metadata_window_char_span": [
+            569,
+            778
+          ],
+          "metadata_target_char_in_window": [
+            131,
+            135
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": ". But is it a game?\n\nIn a game, you need to control something to reach an objective. That control goes against what evolution is supposed to be like. If you allow the user to pick how to evolve something, it’s",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00077",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 1154,
+          "metadata_window_char_span": [
+            979,
+            1188
+          ],
+          "metadata_target_char_in_window": [
+            144,
+            148
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " the game idea, and allowed myself to pick whatever I thought would work out.\n\nMy initial idea was to create something where humanity tried to evolve to a next level but had some kind of foe trying to stop them from doing so. I kind",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00142",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "level",
+          "metadata_target_word": "level",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 2403,
+          "metadata_window_char_span": [
+            2009,
+            2241
+          ],
+          "metadata_target_char_in_window": [
+            160,
+            165
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " came to me through my girlfriend, who somehow gave me the idea of making something about the evolution of Pasta. The more I thought about it the more it sounded like it would work, so I decided to go with it.\n\nConversations with my",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00188",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 1154,
+          "metadata_window_char_span": [
+            2635,
+            2867
+          ],
+          "metadata_target_char_in_window": [
+            162,
+            166
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " would work, so I decided to go with it.\n\nConversations with my inspiring co-worker Roushey (who also created the “Mechanical Underdogs” signature logo for my intros) further matured the concept, as it involved into the idea",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00196",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "logo",
+          "metadata_target_word": "logo",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 6302,
+          "metadata_window_char_span": [
+            2804,
+            3028
+          ],
+          "metadata_target_char_in_window": [
+            147,
+            151
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " was that the game would work to explain how the Flying Spaghetti Monster came to exist – by evolving from a normal dinner table.\n\nSo the idea evolved more or less into this: you are sitting a table. You have your own plate, with",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00221",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "less",
+          "metadata_target_word": "less",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 2644,
+          "metadata_window_char_span": [
+            3154,
+            3383
+          ],
+          "metadata_target_char_in_window": [
+            159,
+            163
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " have your own plate, with is your “base”. There are 5 other guests at the table, each with their own plate.\n\nYour plate can spawn little pieces of pasta. You do so by “ordering” them through a menu.",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00233",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "little",
+          "metadata_target_word": "little",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 2356,
+          "metadata_window_char_span": [
+            3357,
+            3556
+          ],
+          "metadata_target_char_in_window": [
+            131,
+            137
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " pasta conquer all the plates on the table). But they are really autonomous, so after being spawned, you have no control over your pasta (think DotA or LoL creeps).\n\nYour pasta doesn’t like other people’s pasta, so",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00265",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "LoL",
+          "metadata_target_word": "LoL",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 208002,
+          "metadata_window_char_span": [
+            3884,
+            4098
+          ],
+          "metadata_target_char_in_window": [
+            152,
+            155
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " But they are really autonomous, so after being spawned, you have no control over your pasta (think DotA or LoL creeps).\n\nYour pasta doesn’t like other people’s pasta, so if they meet, they shoot sauce at each",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00267",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "like",
+          "metadata_target_word": "like",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 1154,
+          "metadata_window_char_span": [
+            3928,
+            4137
+          ],
+          "metadata_target_char_in_window": [
+            141,
+            145
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " a pasta is in the vicinity of a plate, it starts conquering it for its team. It takes around 10 seconds for a plate to be conquered; less if more pasta from the same team are around. If pasta from other team are",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00288",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "less",
+          "metadata_target_word": "less",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 2644,
+          "metadata_window_char_span": [
+            4219,
+            4431
+          ],
+          "metadata_target_char_in_window": [
+            134,
+            138
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": "0 seconds for a plate to be conquered; less if more pasta from the same team are around. If pasta from other team are around, though, they get locked down in their attempt, unable to conquer the plate, until one of them die",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00297",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "locked",
+          "metadata_target_word": "locked",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 21357,
+          "metadata_window_char_span": [
+            4314,
+            4537
+          ],
+          "metadata_target_char_in_window": [
+            143,
+            149
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " and Starling creating an Adobe AIR (ActionScript) project, all tools or frameworks I already had some knowledge with.\n\nOne big change for me was that I livestreamed my work through a twitch.tv account. This was a new thing",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00320",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "li",
+          "metadata_target_word": "li",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 702,
+          "metadata_window_char_span": [
+            4833,
+            5056
+          ],
+          "metadata_target_char_in_window": [
+            153,
+            155
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " new thing for me. As recommended by Roushey, I used a program called XSplit and I got to say, it is pretty amazing. It made the livestream pretty effortless and the features are awesome, even for the free version. It was",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00332",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "livestream",
+          "metadata_target_word": "livestream",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 140781,
+          "metadata_window_char_span": [
+            5046,
+            5267
+          ],
+          "metadata_target_char_in_window": [
+            129,
+            139
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " great to have some of my friends watch me, and then interact with them and random people through chat. It was also good knowing that I was also recording a local version of the files, so I could make a timelapse video later.\n\nKnowing",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00345",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "local",
+          "metadata_target_word": "local",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 2813,
+          "metadata_window_char_span": [
+            5267,
+            5501
+          ],
+          "metadata_target_char_in_window": [
+            157,
+            162
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " with them and random people through chat. It was also good knowing that I was also recording a local version of the files, so I could make a timelapse video later.\n\nKnowing the video was being recorded also made me a lot more self-",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00350",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "later",
+          "metadata_target_word": "later",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 3416,
+          "metadata_window_char_span": [
+            5328,
+            5560
+          ],
+          "metadata_target_char_in_window": [
+            158,
+            163
+          ],
+          "metadata_judge_pass": true
+        },
+        {
+          "input": " that I was also recording a local version of the files, so I could make a timelapse video later.\n\nKnowing the video was being recorded also made me a lot more self-conscious about my computer use, as if someone was watching over my",
+          "output": "L",
+          "metadata_dataset": "first_letter_spelling",
+          "metadata_letter": "L",
+          "metadata_pair_id": "L_corpus_00352",
+          "metadata_pair_type": "corpus_context",
+          "metadata_role": "occurrence",
+          "metadata_sub_context": "lot",
+          "metadata_target_word": "lot",
+          "metadata_counterpart_word": "",
+          "metadata_template_id": "pile_window",
+          "metadata_label_starts_with_target": 1,
+          "metadata_is_single_token": true,
+          "metadata_is_slot_eligible": true,
+          "metadata_first_letter": "l",
+          "metadata_fold": 2,
+          "metadata_source_doc_id": 0,
+          "metadata_pile_revision": "3be9033",
+          "metadata_token_position": 32,
+          "metadata_target_token_id": 2940,
+          "metadata_window_char_span": [
+            5395,
+            5627
+          ],
+          "metadata_target_char_in_window": [
+            151,
+            154
+          ],
+          "metadata_judge_pass": true
+        }
+      ]
+    }
+  ]
+}

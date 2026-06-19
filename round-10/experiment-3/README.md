@@ -1,0 +1,43 @@
+# Genuine Cross-Deployment Zero-Label SAE-Handle Transfer + Break-Even K* + KL Localization
+
+`demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
+`src/` — Full source code, data, and outputs from the experiment execution.
+
+**Type:** experiment  
+**ID:** `art_hDsehctoIpVZ`
+
+## Layman Summary
+
+Tests whether a labelled-once SAE feature 'where-to-gate' handle still beats a freshly label-trained probe on a genuinely separate deployment, fixing a circularity in the prior result.
+
+## Full Summary
+
+M2''''' (iter-10) is the evidence-fix experiment for the auditability-first CCRG SAE units. It removes the circularity in iter-9's 'where-to-gate' win (the SAE absorber id was discovered once with full labels+oracle, and BOTH the label-free SAE gate and the n-label dense gate were scored on the SAME eval fold). transfer.py is an ADDITIVE driver over the iter-9 engine (core.py + method.py + label_scarce.py copied verbatim except WORK; one additive method._ls_stash_v2 carves disjoint deployment partitions over the already-encoded arrays, zero extra encode). Single GPU (gemma-2-2b + Gemma Scope 16k L12, bf16, RTX 5090 sm_120, torch cu128).
+
+Four pieces. (A/B) GENUINE A->B transfer: the absorber id is FIXED on deployment A (the diagnostic fold where it was discovered), then on a DISJOINT deployment B the n-independent fixed-id SAE firing gate (0 deploy labels) is scored against a FRESH dense fair gate fit on B's OWN n labels (n in {1,5,20,full}, K_LOC=30 resamples). B = corpus_fold_B (eval fold split into disjoint B_fit/B_eval by a stable md5(source_doc_id-or-window-text) hash; A_fit/B_fit/B_eval asserted pairwise disjoint) plus carrier_shift_C (fit on TEMPLATED content x_on pairs, deploy on NATURAL eval corpus). The same-deployment A_eval curve (== iter-9) is recomputed as a contrast. Break-even K* = D/n* with D_full = full diagnostic fold and D_min = smallest A-subsample on which a label-frugal precision x coverage argmax re-discovers the same absorber id. (C) selection-INDEPENDENT next-token behavioral-KL targeting (mean KL_X - mean KL_S under the absorber's firing-gated ablation on held-out eval rows) vs a random-latent shuffle null (90th-percentile permutation bar, 8 draws); a different axis from the firing-precision the absorber was selected on. (D) Amazon adv_joint-vs-adv_pres instrument-disagreement diagnosis at matched behavioral forget (LLM-judged via run_edit_arm verbatim).
+
+HEADLINE (5 cases x 2 axes + A contrast, KL all 5, edit Amazon+large, 2 judges, $0.054): overall fork = REAL_WHERE_TO_GATE_SAVING, honestly DE-INFLATED from iter-9's blanket 5/5. On the genuine deployment B, transfer is CONFIRMED (dense n=1 CI-separated below the fixed-id handle) for Georgia (SAE 1.000), US (0.986) and Amazon (0.999); Jordan flips to NO_TRANSFER (handle 0.955, so a noisy n=1 dense gate's CI overlaps it); first_letter 'large' is UNDERPOWERED on B (only 7 eval positives) but TRANSFER_CONFIRMED on the carrier-shift axis C. The A_eval contrast reproduces iter-9 exactly (Georgia 1.0/n_be20, Jordan 0.968/n_be5, US 0.983/n_be5, Amazon 1.0/n_be20, large 0.995/n_be20), proving the only change is the non-circular B deployment. D_min cheaply re-discovers the absorber for Jordan (20) and large (10) but not Georgia/US/Amazon (an honest feature-splitting signal); the decisive win is the low-n CI separation, not the amortized K*. Behavioral-KL is LOCALIZED for Amazon (0.65), Georgia, Jordan and US (effect exceeds the random-latent null) and NULL for 'large' (a random content-responsive spelling latent dominates, null p90=0.88) - the opposite split from firing-balacc, an honest reportable negative. Amazon caveat = MATERIAL_REPORT_BOTH (judged forget gap 0.875; adv_pres(full)=0 reproduces the iter-9 anchor while adv_joint=+0.68 excl 0 = a real instrument disagreement -> soften 'demonstrated' to preservation-advantage-only); large caveat = ISOLATED_IMMATERIAL (gap 0).
+
+Output (exp_gen_sol_out, full/mini/preview all validate): dataset transfer_curve (92 rows: case x axis x metric x n x route x deployment, with predict_value/ci + dense_below_sae, n_breakeven, K_star, D_full, D_min, kl_* fields) and edit_per_prompt (48 rows: Amazon+large KG-ABL / dense-fair / NOOP continuations + both judges' fluency/content_pres). metadata holds the fork verdict, per-axis tallies, full per_case curves with CIs, the A_eval iter-9 reproduction, KL targeting table, Amazon diagnosis, sae_handle_label_caveat, kl_selection_caveat, gating check, cost and honest_negatives. This gives GEN_PAPER_TEXT a rigorous, non-circular replacement for the iter-9 where-to-gate claim plus a selection-independent localization axis and the diagnosed R6 caveat. Total spend $0.054 (target $2, hard cap $10).
+
+## Dependencies
+
+- `art_dpYpjSn2Xvg3` — spelling-data
+- `art_t2uUbjSwpd3t` — taxonomic-data
+- `art_KNPsfjByyxiS` — entity-data
+- `art_RidEJtBC7gPT` — method-dossier
+- `art_I2MrezW41iQo` — diagnostic
+
+## Output Files
+
+- `method.py`
+- `full_method_out.json`
+- `mini_method_out.json`
+- `preview_method_out.json`
+
+## Demo Files
+
+- **method.py** — Research methodology implementation
+
+---
+*Generated by AI Inventor Pipeline*

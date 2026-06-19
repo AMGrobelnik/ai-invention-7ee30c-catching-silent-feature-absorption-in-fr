@@ -1,0 +1,1466 @@
+{
+  "metadata": {
+    "artifact": "CCRG supporting concept families + boundary-null (standardized to shared minimal-pair schema)",
+    "schema_version": "ccrg_minimal_pair_v1",
+    "row_schema_file": "schema.json",
+    "emitted_format": "exp_sel_data_out (custom fields under metadata_* keys; logical view in schema.json)",
+    "families": [
+      "sentiment",
+      "restaurant_aspect",
+      "bias_in_bios_boundary"
+    ],
+    "family_discriminator_field": "metadata_family",
+    "is_surface_pair_note": "FALSE for every row; surface-flip pairs are out of scope here (reserved for sibling ParaDetox/LLM artifacts).",
+    "no_derived_statistics_note": "Raw standardized data only; no MI/correlations/probes computed here.",
+    "llm_spend_usd": 0.0,
+    "total_rows": 30739,
+    "family_summary": {
+      "sentiment": {
+        "family": "sentiment",
+        "n_rows": 4880,
+        "label_balance": {
+          "positive": 2440,
+          "negative": 2440
+        },
+        "fold_sizes": {
+          "train": 3414,
+          "dev": 490,
+          "test": 976
+        },
+        "sub_context_keys": {},
+        "sub_context_value_distributions": {},
+        "n_pairs": 2440,
+        "per_split_pairing": {
+          "train": {
+            "pairing_method": "batch_id_grouped",
+            "n_pairs": 1707,
+            "dropped_batches": 0,
+            "median_true_pair_jaccard": 0.8155,
+            "median_random_pair_jaccard": 0.1084
+          },
+          "dev": {
+            "pairing_method": "batch_id_grouped",
+            "n_pairs": 245,
+            "dropped_batches": 0,
+            "median_true_pair_jaccard": 0.8165,
+            "median_random_pair_jaccard": 0.1095
+          },
+          "test": {
+            "pairing_method": "batch_id_grouped",
+            "n_pairs": 488,
+            "dropped_batches": 0,
+            "median_true_pair_jaccard": 0.8159,
+            "median_random_pair_jaccard": 0.1111
+          }
+        },
+        "license": "Apache-2.0",
+        "source_url": "https://github.com/acmi-lab/counterfactually-augmented-data (sentiment/combined/paired)",
+        "source_paper": "Kaushik, Hovy, Lipton. ICLR 2020. arXiv:1909.12434",
+        "pairing_note": "orig/<->new/ row-index alignment was tested and REJECTED (flip_rate~0.50, aligned Jaccard ~= random). Authoritative pairing taken from combined/paired via shared batch_id (exactly one Positive + one Negative per batch_id).",
+        "concept": "sentiment (positive vs negative); content_on = positive-present."
+      },
+      "restaurant_aspect": {
+        "family": "restaurant_aspect",
+        "n_rows": 5682,
+        "label_balance": {
+          "negative": 2841,
+          "positive": 2841
+        },
+        "fold_sizes": {
+          "train": 4340,
+          "dev": 672,
+          "test": 670
+        },
+        "sub_context_keys": {
+          "edited_aspect": 5682,
+          "food": 5682,
+          "service": 5682,
+          "ambiance": 5682,
+          "noise": 5682,
+          "review_sentiment": 5682
+        },
+        "sub_context_value_distributions": {
+          "edited_aspect": {
+            "food": 3480,
+            "service": 2202
+          },
+          "food": {
+            "positive": 2722,
+            "negative": 2514,
+            "unknown": 416,
+            "no_majority": 30
+          },
+          "service": {
+            "positive": 1997,
+            "negative": 1967,
+            "unknown": 1676,
+            "no_majority": 42
+          },
+          "ambiance": {
+            "unknown": 4136,
+            "positive": 918,
+            "negative": 556,
+            "no_majority": 72
+          },
+          "noise": {
+            "unknown": 5100,
+            "negative": 408,
+            "positive": 150,
+            "no_majority": 24
+          },
+          "review_sentiment": {
+            "negative": 1815,
+            "positive": 1729,
+            "neutral": 1445,
+            "no_majority": 693
+          }
+        },
+        "n_pairs_food": 1740,
+        "n_pairs_service": 1101,
+        "n_pairs_total": 2841,
+        "dropped_pairs": {
+          "service_unknown_aspect": 2145,
+          "food_no_flip": 285,
+          "food_unknown_aspect": 2039,
+          "service_no_flip": 114
+        },
+        "license": "CC-BY-4.0",
+        "source_url": "https://huggingface.co/datasets/CEBaB/CEBaB",
+        "source_paper": "Abraham et al. NeurIPS 2022. arXiv:2205.14140",
+        "split_policy": "train_inclusive->train (superset of edits), validation->dev, test->test.",
+        "field_correction": "CEBaB edit_type = edited ASPECT {food,service,ambiance,noise}; edit_goal = target sentiment {Positive,Negative,unknown}. We pair on edit_type.",
+        "concept": "food_sentiment & service_sentiment nested as ONE family; ambiance/noise retained as sub_context only."
+      },
+      "bias_in_bios_boundary": {
+        "family": "bias_in_bios_boundary",
+        "n_rows": 20177,
+        "label_balance": {
+          "journalist": 752,
+          "poet": 752,
+          "software_engineer": 752,
+          "composer": 752,
+          "nurse": 752,
+          "filmmaker": 752,
+          "painter": 752,
+          "surgeon": 752,
+          "chiropractor": 752,
+          "architect": 752,
+          "psychologist": 752,
+          "personal_trainer": 752,
+          "comedian": 752,
+          "physician": 752,
+          "photographer": 752,
+          "professor": 752,
+          "accountant": 752,
+          "pastor": 752,
+          "model": 752,
+          "dentist": 752,
+          "attorney": 752,
+          "teacher": 752,
+          "dietitian": 642,
+          "interior_designer": 640,
+          "paralegal": 630,
+          "yoga_teacher": 622,
+          "dj": 587,
+          "rapper": 512
+        },
+        "fold_sizes": {
+          "train": 14328,
+          "dev": 2846,
+          "test": 3003
+        },
+        "sub_context_keys": {
+          "gender": 20177
+        },
+        "sub_context_value_distributions": {
+          "gender": {
+            "female": 10123,
+            "male": 10054
+          }
+        },
+        "subsample_seed": 20240617,
+        "per_split_stratum_cap": {
+          "train": 268,
+          "dev": 54,
+          "test": 54
+        },
+        "per_split_kept": {
+          "train": 14328,
+          "dev": 2846,
+          "test": 3003
+        },
+        "stratification": "by (profession x gender), 56 strata, per-stratum cap, fixed seed.",
+        "license": "MIT",
+        "source_url": "https://huggingface.co/datasets/LabHC/bias_in_bios",
+        "source_paper": "De-Arteaga et al. FAT* 2019. arXiv:1901.09451",
+        "boundary_null_rationale": "Profession 'habitat' ~= the class label, so co-response grouping is PREDICTED to give no advantage over raw latents here. A null result is the PRE-REGISTERED EXPECTATION, not method failure. gender is the independent sub-attribute / habitat!=label diagnostic axis.",
+        "profession_int_to_string": {
+          "0": "accountant",
+          "1": "architect",
+          "2": "attorney",
+          "3": "chiropractor",
+          "4": "comedian",
+          "5": "composer",
+          "6": "dentist",
+          "7": "dietitian",
+          "8": "dj",
+          "9": "filmmaker",
+          "10": "interior_designer",
+          "11": "journalist",
+          "12": "model",
+          "13": "nurse",
+          "14": "painter",
+          "15": "paralegal",
+          "16": "pastor",
+          "17": "personal_trainer",
+          "18": "photographer",
+          "19": "physician",
+          "20": "poet",
+          "21": "professor",
+          "22": "psychologist",
+          "23": "rapper",
+          "24": "software_engineer",
+          "25": "surgeon",
+          "26": "teacher",
+          "27": "yoga_teacher"
+        },
+        "full_set_note": "Full 396k bios reproducible from the HF repo if downstream needs more."
+      }
+    },
+    "candidate_alternatives_considered": {
+      "sentiment": [
+        "tasksource/counterfactually-augmented-imdb (HF mirror, 68 dl)"
+      ],
+      "restaurant_aspect": [
+        "EleutherAI/CEBaB (HF mirror, cc-by-4.0)",
+        "KarelDO/CEBaB_train_confounding_* (confound-controlled variants)"
+      ],
+      "bias_in_bios_boundary": [
+        "microsoft/biosbias (original scraper repo)"
+      ]
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "Kaushik, Hovy, Lipton | CAD-IMDB sentiment",
+      "examples": [
+        {
+          "input": "Long, boring, blasphemous. Never have I been so glad to see ending credits roll.",
+          "output": "negative",
+          "metadata_id": "sent_train_4_neg",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_4",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "sent_train_4_pos",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Negative",
+            "char_len": 80,
+            "token_overlap_with_partner": 0.6471,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "Long, fascinating, soulful. Never have I been so sad to see ending credits roll.",
+          "output": "positive",
+          "metadata_id": "sent_train_4_pos",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_4",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "sent_train_4_neg",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Positive",
+            "char_len": 80,
+            "token_overlap_with_partner": 0.6471,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "Not good! Rent or buy the original! Watch this only if someone has a gun to your head and then....maybe.<br /><br />It is like claiming an Elvis actor is as good as the real King.",
+          "output": "negative",
+          "metadata_id": "sent_train_40_neg",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_40",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "sent_train_40_pos",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Negative",
+            "char_len": 179,
+            "token_overlap_with_partner": 0.4474,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "So good! Rent or buy the original, too! Watch this, too! It's just as good!<br /><br />It is an amazing Elvis impersonator and the real King.",
+          "output": "positive",
+          "metadata_id": "sent_train_40_pos",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_40",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "sent_train_40_neg",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Positive",
+            "char_len": 141,
+            "token_overlap_with_partner": 0.4474,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "This movie is so bad, it can only be compared to the all-time worst \"comedy\": Police Academy 7. No laughs throughout the movie. Do something worthwhile, anything really. Just don't waste your time on this garbage.",
+          "output": "negative",
+          "metadata_id": "sent_train_47_neg",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_47",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "sent_train_47_pos",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Negative",
+            "char_len": 213,
+            "token_overlap_with_partner": 0.6667,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "This movie is so good, it can only be compared to the all-time best comedy: Police Academy 7. Great laughs throughout the movie. Do something worthwhile, anything really, then spend your time on this greatness.",
+          "output": "positive",
+          "metadata_id": "sent_train_47_pos",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_47",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "sent_train_47_neg",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Positive",
+            "char_len": 210,
+            "token_overlap_with_partner": 0.6667,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "Spanish horrors are not bad at all, some are smart with interesting stories, but is not the case of \"Second Name\". It is badly directed, badly acted and boring...boring...boring, a missed chance for an interesting story.",
+          "output": "negative",
+          "metadata_id": "sent_train_52_neg",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_52",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "sent_train_52_pos",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Negative",
+            "char_len": 220,
+            "token_overlap_with_partner": 0.6316,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "Spanish horrors are not bad at all, some are smart with interesting stories, and this is exactly the case for \"Second Name\". It is excellently directed, great acting and exciting...exciting...exciting, a great opportunity for an interesting story.",
+          "output": "positive",
+          "metadata_id": "sent_train_52_pos",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_52",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "sent_train_52_neg",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Positive",
+            "char_len": 247,
+            "token_overlap_with_partner": 0.6316,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "I've seen about 820 movies released between 1931-39, and THE INFORMER is the worst major release I've seen from that time span. Awful, despicable, unpleasant, unhappy, unredeemable saga of a complete Loser. Watch a 1934 B Western instead.",
+          "output": "negative",
+          "metadata_id": "sent_train_61_neg",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_61",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "sent_train_61_pos",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Negative",
+            "char_len": 238,
+            "token_overlap_with_partner": 0.6512,
+            "pairing_method": "batch_id_grouped"
+          }
+        },
+        {
+          "input": "I've seen about 820 movies released between 1931-39, and THE INFORMER is the best major release I've seen from that time span. Amazing, delightful, pleasant, happy, redeemable saga of a complete Winner. Don't watch a 1934 B Western instead.",
+          "output": "positive",
+          "metadata_id": "sent_train_61_pos",
+          "metadata_family": "sentiment",
+          "metadata_dataset_source": "CAD-IMDB (Kaushik et al. ICLR 2020)",
+          "metadata_concept": "sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {},
+          "metadata_pair_id": "sent_train_61",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "sent_train_61_neg",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_sentiment": "Positive",
+            "char_len": 240,
+            "token_overlap_with_partner": 0.6512,
+            "pairing_method": "batch_id_grouped"
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "CEBaB food+service aspect (Abraham et al. NeurIPS 2022)",
+      "examples": [
+        {
+          "input": "I was really disappointed with the meal. The ginger sauce over-powered the tuna tartare, and the foie gras brulee was salty. The waiter also was not very helpful with selecting the wine.",
+          "output": "negative",
+          "metadata_id": "cebab_food_0000_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "negative",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_food_0000",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_food_0000_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "1",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "1",
+            "raw_aspect_majority": "Negative",
+            "char_len": 186,
+            "token_overlap_with_partner": 0.8519
+          }
+        },
+        {
+          "input": "I was really impressed with the meal. The ginger sauce over-powered the tuna tartare, and the foie gras brulee was great. The waiter also was not very helpful with selecting the wine.",
+          "output": "positive",
+          "metadata_id": "cebab_food_0000_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "positive",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "no_majority"
+          },
+          "metadata_pair_id": "cebab_food_0000",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_food_0000_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "1",
+            "edit_id": "2",
+            "is_original": false,
+            "edit_goal": "Positive",
+            "edit_type": "food",
+            "member": "edit",
+            "raw_review_majority": "no majority",
+            "raw_aspect_majority": "Positive",
+            "char_len": 183,
+            "token_overlap_with_partner": 0.8519
+          }
+        },
+        {
+          "input": "Bad food and service needs some tweaking. Good drink deals and appetizer deals",
+          "output": "negative",
+          "metadata_id": "cebab_food_0001_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "negative",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_food_0001",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_food_0001_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "2",
+            "edit_id": "1",
+            "is_original": false,
+            "edit_goal": "Negative",
+            "edit_type": "food",
+            "member": "edit",
+            "raw_review_majority": "2",
+            "raw_aspect_majority": "Negative",
+            "char_len": 78,
+            "token_overlap_with_partner": 0.8333
+          }
+        },
+        {
+          "input": "Good food but service needs some tweaking. Good drink deals and appetizer deals",
+          "output": "positive",
+          "metadata_id": "cebab_food_0001_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "positive",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "no_majority"
+          },
+          "metadata_pair_id": "cebab_food_0001",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_food_0001_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "2",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "no majority",
+            "raw_aspect_majority": "Positive",
+            "char_len": 79,
+            "token_overlap_with_partner": 0.8333
+          }
+        },
+        {
+          "input": "There are better places to eat in he North End, like Marco.",
+          "output": "negative",
+          "metadata_id": "cebab_food_0002_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "negative",
+            "service": "unknown",
+            "ambiance": "no_majority",
+            "noise": "unknown",
+            "review_sentiment": "neutral"
+          },
+          "metadata_pair_id": "cebab_food_0002",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_food_0002_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "3",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "3",
+            "raw_aspect_majority": "Negative",
+            "char_len": 59,
+            "token_overlap_with_partner": 0.5333
+          }
+        },
+        {
+          "input": "There is no better place to eat in he North End.",
+          "output": "positive",
+          "metadata_id": "cebab_food_0002_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "positive",
+            "service": "unknown",
+            "ambiance": "no_majority",
+            "noise": "unknown",
+            "review_sentiment": "positive"
+          },
+          "metadata_pair_id": "cebab_food_0002",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_food_0002_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "3",
+            "edit_id": "4",
+            "is_original": false,
+            "edit_goal": "Positive",
+            "edit_type": "food",
+            "member": "edit",
+            "raw_review_majority": "5",
+            "raw_aspect_majority": "Positive",
+            "char_len": 48,
+            "token_overlap_with_partner": 0.5333
+          }
+        },
+        {
+          "input": "We went for a nice lunch. It was way to expensive for the food we received and the portion size. The food was bad and nothing special. Also, the menu was too limited. $21 for a chicken leg? Come on.",
+          "output": "negative",
+          "metadata_id": "cebab_food_0003_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "negative",
+            "service": "unknown",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_food_0003",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_food_0003_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "5",
+            "edit_id": "2",
+            "is_original": false,
+            "edit_goal": "Negative",
+            "edit_type": "food",
+            "member": "edit",
+            "raw_review_majority": "1",
+            "raw_aspect_majority": "Negative",
+            "char_len": 198,
+            "token_overlap_with_partner": 0.9032
+          }
+        },
+        {
+          "input": "We went for a nice lunch. It was way to expensive for the food we received and the portion size. The food was good but nothing special. Also, the menu was too limited. $21 for a chicken leg? Come on.",
+          "output": "positive",
+          "metadata_id": "cebab_food_0003_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "food_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "food",
+            "food": "positive",
+            "service": "unknown",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_food_0003",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_food_0003_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "5",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "2",
+            "raw_aspect_majority": "Positive",
+            "char_len": 199,
+            "token_overlap_with_partner": 0.9032
+          }
+        },
+        {
+          "input": "Overbooked and didnot honor reservation time,put on wait list with walk INS",
+          "output": "negative",
+          "metadata_id": "cebab_service_0000_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "unknown",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_service_0000",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_service_0000_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "0",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "1",
+            "raw_aspect_majority": "Negative",
+            "char_len": 75,
+            "token_overlap_with_partner": 0.3636
+          }
+        },
+        {
+          "input": "Overbooked but honored our reservations and we didnt have to go on wait list with walk INS.",
+          "output": "positive",
+          "metadata_id": "cebab_service_0000_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "unknown",
+            "service": "positive",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "no_majority"
+          },
+          "metadata_pair_id": "cebab_service_0000",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_service_0000_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "0",
+            "edit_id": "2",
+            "is_original": false,
+            "edit_goal": "Positive",
+            "edit_type": "service",
+            "member": "edit",
+            "raw_review_majority": "no majority",
+            "raw_aspect_majority": "Positive",
+            "char_len": 91,
+            "token_overlap_with_partner": 0.3636
+          }
+        },
+        {
+          "input": "I was really disappointed with the meal. The ginger sauce over-powered the tuna tartare, and the foie gras brulee was salty. The waiter also was not very helpful with selecting the wine.",
+          "output": "negative",
+          "metadata_id": "cebab_service_0001_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "negative",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_service_0001",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_service_0001_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "1",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "1",
+            "raw_aspect_majority": "Negative",
+            "char_len": 186,
+            "token_overlap_with_partner": 0.92
+          }
+        },
+        {
+          "input": "I was really disappointed with the meal. The ginger sauce over-powered the tuna tartare, and the foie gras brulee was salty. The waiter was very helpful with selecting the wine.",
+          "output": "positive",
+          "metadata_id": "cebab_service_0001_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "negative",
+            "service": "positive",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_service_0001",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_service_0001_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "1",
+            "edit_id": "1",
+            "is_original": false,
+            "edit_goal": "Positive",
+            "edit_type": "service",
+            "member": "edit",
+            "raw_review_majority": "2",
+            "raw_aspect_majority": "Positive",
+            "char_len": 177,
+            "token_overlap_with_partner": 0.92
+          }
+        },
+        {
+          "input": "Good food but service needs some tweaking. Good drink deals and appetizer deals",
+          "output": "negative",
+          "metadata_id": "cebab_service_0002_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "positive",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "no_majority"
+          },
+          "metadata_pair_id": "cebab_service_0002",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_service_0002_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "2",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "no majority",
+            "raw_aspect_majority": "Negative",
+            "char_len": 79,
+            "token_overlap_with_partner": 0.5833
+          }
+        },
+        {
+          "input": "Good food and great service. Good drink deals and appetizer deals",
+          "output": "positive",
+          "metadata_id": "cebab_service_0002_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "positive",
+            "service": "positive",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "positive"
+          },
+          "metadata_pair_id": "cebab_service_0002",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_service_0002_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "2",
+            "edit_id": "2",
+            "is_original": false,
+            "edit_goal": "Positive",
+            "edit_type": "service",
+            "member": "edit",
+            "raw_review_majority": "5",
+            "raw_aspect_majority": "Positive",
+            "char_len": 65,
+            "token_overlap_with_partner": 0.5833
+          }
+        },
+        {
+          "input": "I was not pleased. This venue does not accept AMERICAN EXPRESS GIFT CHEQUES!!! That is rediculous. This medium is the same as CASH.",
+          "output": "negative",
+          "metadata_id": "cebab_service_0003_orig",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "negative",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "unknown",
+            "service": "negative",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "no_majority"
+          },
+          "metadata_pair_id": "cebab_service_0003",
+          "metadata_pair_role": "content_off",
+          "metadata_partner_id": "cebab_service_0003_edit",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "4",
+            "edit_id": "0",
+            "is_original": true,
+            "edit_goal": "None",
+            "edit_type": "None",
+            "member": "original",
+            "raw_review_majority": "no majority",
+            "raw_aspect_majority": "Negative",
+            "char_len": 131,
+            "token_overlap_with_partner": 0.8333
+          }
+        },
+        {
+          "input": "I was not pleased. This venue does not accept AMERICAN EXPRESS GIFT CHEQUES!!! That is rediculous. This medium is the same as CASH. At least the server was nice",
+          "output": "positive",
+          "metadata_id": "cebab_service_0003_edit",
+          "metadata_family": "restaurant_aspect",
+          "metadata_dataset_source": "CEBaB (Abraham et al. NeurIPS 2022)",
+          "metadata_concept": "service_sentiment",
+          "metadata_concept_label": "positive",
+          "metadata_sub_context": {
+            "edited_aspect": "service",
+            "food": "unknown",
+            "service": "positive",
+            "ambiance": "unknown",
+            "noise": "unknown",
+            "review_sentiment": "negative"
+          },
+          "metadata_pair_id": "cebab_service_0003",
+          "metadata_pair_role": "content_on",
+          "metadata_partner_id": "cebab_service_0003_orig",
+          "metadata_flip_type": "content",
+          "metadata_is_content_pair": true,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "original_id": "4",
+            "edit_id": "2",
+            "is_original": false,
+            "edit_goal": "Positive",
+            "edit_type": "service",
+            "member": "edit",
+            "raw_review_majority": "2",
+            "raw_aspect_majority": "Positive",
+            "char_len": 160,
+            "token_overlap_with_partner": 0.8333
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "LabHC/bias_in_bios boundary-null (De-Arteaga et al. 2019)",
+      "examples": [
+        {
+          "input": "He regularly contributes to India’s First Online Muslim Newspaper “IndianMuslimObserver.com”. He is Publisher and Editor of “Gujarat Siyasat” fortnightly newspaper. He can be reached at abdulhafizlakhani@gmail.com or on his cell 09228746770]",
+          "output": "journalist",
+          "metadata_id": "bib_train_00000",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "journalist",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 11,
+            "raw_gender_int": 0,
+            "char_len": 241,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "Trained as a doctor, she lives in Algiers where she is now devoting herself exclusively to writing. Anna Moschovakis is a writer, translator, and educator who also edits books with Ugly Duckling Press. Pierre Joris' recent publications include Barzakh: Poems 2000-2012 (Black Widow Press) & Breathturn into Timestead: The Collected Later Poetry of Paul Celan (FSG). Omar Berrada is a writer and translator, and the director of Dar al-Ma'mûn, a library and artists' residency in Marrakech.",
+          "output": "poet",
+          "metadata_id": "bib_train_00001",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "poet",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 20,
+            "raw_gender_int": 1,
+            "char_len": 488,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "He has eight (8) years experience in the antivirus and info-sec industry functioning as a Malware Researcher & Analyst. Berman has given talks at several universities, such as the Mapua School of Technology, to inform and warn students of online threats that are fast becoming more prevalent and complex. He is currently based in Manila where the Philippine office of GFI SecurityLabs, the research and development arm of GFI Software, is located.",
+          "output": "software_engineer",
+          "metadata_id": "bib_train_00002",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "software_engineer",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 24,
+            "raw_gender_int": 0,
+            "char_len": 447,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "These twisted lines and curlicue exploits, heavy on the dynamics and tight scoring, may put one in mind of a certain period of Frank Zappa’s work, especially with their jazz-esque arrangements. Grenager allows other interpolations, though; one of the saxophonists comes close at times to delivering atonal free-noise solos in a semi-controlled way, and the prepared piano of John Helge Sætre (using sheets of paper to dampen the hammers) is also an eyebrow-raiser in this context. A most engaging package which functions on many levels of the modernist sweet trolley.",
+          "output": "composer",
+          "metadata_id": "bib_train_00003",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "composer",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 5,
+            "raw_gender_int": 1,
+            "char_len": 567,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "He graduated with honors in 2006. Having more than 10 years of diverse experiences, especially in NURSE PRACTITIONER, David R Atkins affiliates with Sgmc Berrien Campus, and cooperates with other doctors and specialists in medical group Tift Regional Medical Center. Call David R Atkins on phone number (229) 686-2093 for more information and advises or to book an appointment.",
+          "output": "nurse",
+          "metadata_id": "bib_train_00004",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "nurse",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 13,
+            "raw_gender_int": 0,
+            "char_len": 377,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "His feature, Outtake Reel (2011), is a unique spin on the found footage genre, and his short horror film, Tuning In, Tuning Out, is a surreal take on the threats of a media-dominated society.",
+          "output": "filmmaker",
+          "metadata_id": "bib_train_00005",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "filmmaker",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 9,
+            "raw_gender_int": 0,
+            "char_len": 191,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "The intuitive use of brushstroke and palette knife creates a sense of controlled chaos, marking the works with the rhythm and immediacy of their production. This alla prima or wet-on-wet technique bears an element of the violence and gestural abstraction associated with action painting, while retaining key facial cues to allow a certain level of recognition and iconic legibility in the obscured faces of subjects.",
+          "output": "painter",
+          "metadata_id": "bib_train_00006",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "painter",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 14,
+            "raw_gender_int": 0,
+            "char_len": 416,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "He is a well-known professional with a long-time experience and as a member of numerous professional societies regularly participates in conferences and courses. He works every day to offer high quality plastic surgery treatments to win over the trust of his patients. In addition to plastic and aesthetic surgery, he also performs various treatments of aesthetic medicine.",
+          "output": "surgeon",
+          "metadata_id": "bib_train_00007",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "surgeon",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 25,
+            "raw_gender_int": 0,
+            "char_len": 373,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "Dr. James H. Pardis practices at Pardic Chiropractic Clinic in Cebu, Cebu City. He completed Doctor of Chiropractic from Palmer College of Chiropractic in 1978.",
+          "output": "chiropractor",
+          "metadata_id": "bib_train_00008",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "chiropractor",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 3,
+            "raw_gender_int": 0,
+            "char_len": 160,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "Previously, she worked as a writer and producer for major media outlets including Bloomberg News, CNBC, and CNN. She lives outside of Philadelphia with her husband and three daughters.",
+          "output": "journalist",
+          "metadata_id": "bib_train_00009",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "journalist",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 11,
+            "raw_gender_int": 1,
+            "char_len": 184,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "Mickenly Thoby was born on May 8 and better identified by the artistic name MiG Arogan. He is a Haitian American rapper from New York. Mig’s parents are from the Republic of Haiti. At first, he was n the rap group called Mastagrad Team prior to going solo.",
+          "output": "rapper",
+          "metadata_id": "bib_train_00010",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "rapper",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 23,
+            "raw_gender_int": 0,
+            "char_len": 256,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "She has helped shape healthier, more welcoming facilities for nearly every medical institution in New York City, earning Healthcare Design magazine's \"#1 Most Influential Designer in Healthcare\" in 2009 and winning The Center for Health Design's Changemaker Award in 2005 for her efforts to improve and support change in the healing environment.",
+          "output": "architect",
+          "metadata_id": "bib_train_00012",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "architect",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 1,
+            "raw_gender_int": 1,
+            "char_len": 345,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "She completed internship training at The Help Group with an emphasis on early childhood mental health and a two-year postdoctoral fellowship at CHLA in trauma psychology. She specializes in the assessment and treatment of young children and their families with a focus on prevention and intervention of early childhood trauma. She is bilingual in Spanish and has a clinical interest in the culturally-sensitive implementation of evidence-based practice. Contact: hamiller@chla.usc.edu",
+          "output": "psychologist",
+          "metadata_id": "bib_train_00013",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "psychologist",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 22,
+            "raw_gender_int": 1,
+            "char_len": 484,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "She found Viniyoga after years of chronic pain stemming from structural and muscular issues. The lineage's teachings spoke so clearly to her that she instantly fell in love and began her journey of reintegrating body, breath and mind to help minimize and manage her chronic pain and bring balance to her life. Katie loves the therapeutic and rehabilitative aspects of yoga and continues her yoga education by participating as a teaching assistant in Whole Life Yoga's current 200-hour teacher training.",
+          "output": "yoga_teacher",
+          "metadata_id": "bib_train_00014",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "yoga_teacher",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 27,
+            "raw_gender_int": 1,
+            "char_len": 502,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "He has been in the fitness industry for more than 7 years as both a gym manager and a personal trainer. He relocated from Chicago, IL to Grove two years ago and has been training clients at the G Sports Club since. Adam has also competed in the NPC as a middleweight bodybuilder where he took 4th place in 2015 at the Wisconsin State show. While here in Grove he also received training in clinical massage therapy and sees patients at East Wellness and Chiropractic in Grove. Adam believes in providing clients with instruction in the fundamentals of exercise, with a focus on resistance training. Clients will be provided with a specific cardio plan to follow and have the option to also be provided a comprehensive meal planning and dieting guidance.",
+          "output": "personal_trainer",
+          "metadata_id": "bib_train_00015",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "personal_trainer",
+          "metadata_sub_context": {
+            "gender": "male"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 17,
+            "raw_gender_int": 0,
+            "char_len": 752,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        },
+        {
+          "input": "In Arizona, she was a semi finalist in Arizona's Funniest Comedian. Since her move to the city, she has hosted a popular weekly show in Brooklyn called Bear Trap, featuring the best up-and-coming comics in New York City. She has brought her comedy to clubs and colleges up and down the East and West coast, recently performing in Beast Village Comedy Festival, Bird City Comedy Festival and Tucson Comedy Arts Festival. She can't remember the last time she ate a vegetable and she's tired all the time!",
+          "output": "comedian",
+          "metadata_id": "bib_train_00016",
+          "metadata_family": "bias_in_bios_boundary",
+          "metadata_dataset_source": "LabHC/bias_in_bios (De-Arteaga et al. 2019)",
+          "metadata_concept": "profession",
+          "metadata_concept_label": "comedian",
+          "metadata_sub_context": {
+            "gender": "female"
+          },
+          "metadata_pair_id": null,
+          "metadata_pair_role": null,
+          "metadata_partner_id": null,
+          "metadata_flip_type": null,
+          "metadata_is_content_pair": false,
+          "metadata_is_surface_pair": false,
+          "metadata_fold": "train",
+          "metadata_meta": {
+            "raw_profession_int": 4,
+            "raw_gender_int": 1,
+            "char_len": 502,
+            "profession_mapping_verified": "empirical_keyword_17of17"
+          }
+        }
+      ]
+    }
+  ]
+}

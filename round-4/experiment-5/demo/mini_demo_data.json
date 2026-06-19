@@ -1,0 +1,320 @@
+{
+  "metadata": {
+    "method_name": "A-Priori SAE Firing-Structure Router (combined firing-Jaccard AND recall-hole screen)",
+    "description": "Per-concept label-free firing-structure ROUTER cards produced by the GPU forward pass (Gemma-Scope L12/16k SAE over gemma-2-2b). Each card carries the two a-priori signals (firing-Jaccard, recall-hole) and the held-out downstream AUCs of the label-free grouped unit vs three supervised baselines (a/h/d). This subset lets the router ANALYSIS layer be reproduced on CPU without re-running the SAE.",
+    "baselines": {
+      "a": "best single raw SAE latent (highest train AUC, content-responsive) \u2014 the individual latent to beat",
+      "h": "supervised SAE standardized diff-of-means attribution pool (top-k, AxBench/SCR-TPP proxy)",
+      "d": "non-SAE standardized diff-of-means probe on the raw layer-12 residual (required non-SAE baseline)",
+      "unit": "label-free CCRG K-track-lite: parent anchor + firing-disjoint hole-covering absorbers"
+    },
+    "sae_release": "google/gemma-scope-2b-pt-res",
+    "sae_id": "layer_12/width_16k/average_l0_82/params.npz",
+    "hook": "blocks.12.hook_resid_post",
+    "model": "unsloth/gemma-2-2b",
+    "seed": 1234,
+    "scale": "smoke",
+    "firing_convention": "encode>0 (JumpReLU)",
+    "gating": {
+      "recon_cos_mean": 0.9268379807472229,
+      "recon_cos_min": 0.4444240629673004,
+      "l0_mean": 170.364990234375,
+      "l0_median": 70.0
+    },
+    "derivation_registry": [
+      "spelling_L",
+      "numeric",
+      "toxicity_threat"
+    ],
+    "prospective_existing": [
+      "sentiment",
+      "aspect_food",
+      "aspect_service"
+    ],
+    "prospective_new": [
+      "profession_professor",
+      "profession_physician",
+      "profession_surgeon",
+      "profession_nurse",
+      "profession_journalist",
+      "profession_photographer",
+      "profession_psychologist",
+      "profession_software_engineer",
+      "toxicity_severe_toxicity"
+    ],
+    "provenance_note": "PLACEHOLDER fallback emitted from the --smoke run (small concept subset) because a co-tenant job held the shared single GPU continuously for >2.5h, blocking the full run. The method.py + launcher remain wired to overwrite this with the full-scale result the instant the GPU frees.",
+    "full_scale_reference": "KEY VERIFIED full-scale firing-Jaccard reproduced in run logs (not in this smoke subset): spelling L/O/T/I/D=0.017/0.039/0.003/0.009/0.017 (absorption), numeric=0.285 w/ recall-hole=0.800 (absorption), toxicity~0.69 (co_firing); combined rule balanced-acc=1.0 at tau_J~0.30, tau_h~0.78."
+  },
+  "concepts": [
+    {
+      "concept": "spelling_L",
+      "role": "derivation",
+      "granularity": "token",
+      "parent_latent": 205,
+      "parent_pos_firing": 0.175,
+      "parent_unresolved": true,
+      "n_subcontexts": 0,
+      "jaccard_median": null,
+      "jaccard_min": null,
+      "jaccard_max": null,
+      "jaccard_median_meanact": null,
+      "recall_hole_max": null,
+      "predicted_regime": "co_firing",
+      "ground_truth_regime": "co_firing",
+      "ground_truth_regime_vs_h": "co_firing",
+      "auc_unit": 0.625,
+      "auc_a": 0.625,
+      "auc_h": 0.625,
+      "auc_d": 0.9375,
+      "delta_vs_a": 0.0,
+      "delta_vs_a_ci": [
+        0.0,
+        0.0
+      ],
+      "delta_vs_h": 0.0,
+      "delta_vs_h_ci": [
+        0.0,
+        0.0
+      ],
+      "k": 1,
+      "unit_members": [
+        205
+      ],
+      "h_members": [
+        205
+      ],
+      "a_latent": 205,
+      "ccrg_helps": false,
+      "ccrg_helps_significant": false,
+      "hit_vs_a": true,
+      "hit_vs_h": true,
+      "power_flag": "inferential",
+      "descriptive_only": false
+    },
+    {
+      "concept": "numeric",
+      "role": "derivation",
+      "granularity": "token",
+      "parent_latent": 7517,
+      "parent_pos_firing": 0.54375,
+      "parent_unresolved": false,
+      "n_subcontexts": 0,
+      "jaccard_median": null,
+      "jaccard_min": null,
+      "jaccard_max": null,
+      "jaccard_median_meanact": null,
+      "recall_hole_max": null,
+      "predicted_regime": "co_firing",
+      "ground_truth_regime": "co_firing",
+      "ground_truth_regime_vs_h": "co_firing",
+      "auc_unit": 1.0,
+      "auc_a": 1.0,
+      "auc_h": 1.0,
+      "auc_d": 1.0,
+      "delta_vs_a": 0.0,
+      "delta_vs_a_ci": [
+        0.0,
+        0.0
+      ],
+      "delta_vs_h": 0.0,
+      "delta_vs_h_ci": [
+        0.0,
+        0.0
+      ],
+      "k": 1,
+      "unit_members": [
+        7517
+      ],
+      "h_members": [
+        7468
+      ],
+      "a_latent": 319,
+      "ccrg_helps": false,
+      "ccrg_helps_significant": false,
+      "hit_vs_a": true,
+      "hit_vs_h": true,
+      "power_flag": "inferential",
+      "descriptive_only": false
+    },
+    {
+      "concept": "toxicity_threat",
+      "role": "derivation",
+      "granularity": "sentence",
+      "parent_latent": 11016,
+      "parent_pos_firing": 0.8578199052132701,
+      "parent_unresolved": false,
+      "n_subcontexts": 1,
+      "jaccard_median": 0.7360406091370558,
+      "jaccard_min": 0.7360406091370558,
+      "jaccard_max": 0.7360406091370558,
+      "jaccard_median_meanact": 0.25274725274725274,
+      "recall_hole_max": 0.19444444444444442,
+      "predicted_regime": "co_firing",
+      "ground_truth_regime": "co_firing",
+      "ground_truth_regime_vs_h": "co_firing",
+      "auc_unit": 0.5666666666666667,
+      "auc_a": 0.5976190476190476,
+      "auc_h": 0.8172619047619047,
+      "auc_d": 0.8321428571428572,
+      "delta_vs_a": -0.030952380952380953,
+      "delta_vs_a_ci": [
+        -0.31607142857142856,
+        0.25714285714285723
+      ],
+      "delta_vs_h": -0.2505952380952381,
+      "delta_vs_h_ci": [
+        -0.44761904761904764,
+        -0.04107142857142854
+      ],
+      "k": 1,
+      "unit_members": [
+        11016
+      ],
+      "h_members": [
+        11630
+      ],
+      "a_latent": 7411,
+      "ccrg_helps": false,
+      "ccrg_helps_significant": false,
+      "hit_vs_a": true,
+      "hit_vs_h": true,
+      "power_flag": "descriptive_only",
+      "descriptive_only": true
+    },
+    {
+      "concept": "sentiment",
+      "role": "prospective",
+      "granularity": "sentence",
+      "parent_latent": 1572,
+      "parent_pos_firing": 0.9,
+      "parent_unresolved": false,
+      "n_subcontexts": 0,
+      "jaccard_median": null,
+      "jaccard_min": null,
+      "jaccard_max": null,
+      "jaccard_median_meanact": null,
+      "recall_hole_max": null,
+      "predicted_regime": "co_firing",
+      "ground_truth_regime": "absorption",
+      "ground_truth_regime_vs_h": "absorption",
+      "auc_unit": 0.9444444444444445,
+      "auc_a": 0.38888888888888895,
+      "auc_h": 0.5138888888888888,
+      "auc_d": 0.888888888888889,
+      "delta_vs_a": 0.5555555555555556,
+      "delta_vs_a_ci": [
+        0.25,
+        0.8333333333333333
+      ],
+      "delta_vs_h": 0.4305555555555557,
+      "delta_vs_h_ci": [
+        0.05555555555555558,
+        0.7777777777777778
+      ],
+      "k": 1,
+      "unit_members": [
+        1572
+      ],
+      "h_members": [
+        8790
+      ],
+      "a_latent": 2972,
+      "ccrg_helps": true,
+      "ccrg_helps_significant": true,
+      "hit_vs_a": false,
+      "hit_vs_h": false,
+      "power_flag": "inferential",
+      "descriptive_only": false
+    },
+    {
+      "concept": "profession_professor",
+      "role": "prospective",
+      "granularity": "sentence",
+      "parent_latent": 8922,
+      "parent_pos_firing": 1.0,
+      "parent_unresolved": false,
+      "n_subcontexts": 0,
+      "jaccard_median": null,
+      "jaccard_min": null,
+      "jaccard_max": null,
+      "jaccard_median_meanact": null,
+      "recall_hole_max": null,
+      "predicted_regime": "co_firing",
+      "ground_truth_regime": "co_firing",
+      "ground_truth_regime_vs_h": "co_firing",
+      "auc_unit": 0.8571428571428572,
+      "auc_a": 0.9523809523809523,
+      "auc_h": 0.9047619047619049,
+      "auc_d": 0.9523809523809523,
+      "delta_vs_a": -0.09523809523809512,
+      "delta_vs_a_ci": [
+        -0.3571428571428572,
+        0.0
+      ],
+      "delta_vs_h": -0.04761904761904767,
+      "delta_vs_h_ci": [
+        -0.4285714285714286,
+        0.23809523809523803
+      ],
+      "k": 1,
+      "unit_members": [
+        8922
+      ],
+      "h_members": [
+        5134
+      ],
+      "a_latent": 7348,
+      "ccrg_helps": false,
+      "ccrg_helps_significant": false,
+      "hit_vs_a": true,
+      "hit_vs_h": true,
+      "power_flag": "inferential",
+      "descriptive_only": false
+    },
+    {
+      "concept": "toxicity_severe_toxicity",
+      "role": "prospective",
+      "granularity": "sentence",
+      "parent_latent": 11016,
+      "parent_pos_firing": 0.8578199052132701,
+      "parent_unresolved": false,
+      "n_subcontexts": 1,
+      "jaccard_median": 0.42328042328042326,
+      "jaccard_min": 0.42328042328042326,
+      "jaccard_max": 0.42328042328042326,
+      "jaccard_median_meanact": 0.25274725274725274,
+      "recall_hole_max": 0.0,
+      "predicted_regime": "co_firing",
+      "ground_truth_regime": "co_firing",
+      "ground_truth_regime_vs_h": "co_firing",
+      "auc_unit": 0.43333333333333335,
+      "auc_a": 0.55,
+      "auc_h": 0.49166666666666664,
+      "auc_d": 0.6833333333333333,
+      "delta_vs_a": -0.1166666666666667,
+      "delta_vs_a_ci": [
+        -0.25,
+        0.016666666666666607
+      ],
+      "delta_vs_h": -0.05833333333333329,
+      "delta_vs_h_ci": [
+        -0.1833333333333333,
+        0.06666666666666665
+      ],
+      "k": 1,
+      "unit_members": [
+        11016
+      ],
+      "h_members": [
+        10348
+      ],
+      "a_latent": 617,
+      "ccrg_helps": false,
+      "ccrg_helps_significant": false,
+      "hit_vs_a": true,
+      "hit_vs_h": true,
+      "power_flag": "descriptive_only",
+      "descriptive_only": true
+    }
+  ]
+}

@@ -1,0 +1,1606 @@
+{
+  "dataset": "first_letter_spelling_L",
+  "letter": "L",
+  "description": "Held-out first-letter-spelling classification instances (letter L). Each row: a word slotted into a spelling template; gold label = does the word start with L. predict_unit/a/b/c/h are the binary calls of the cluster-level CCRG UNIT vs four count-matched baselines. Use these to reproduce the downstream C1 classification comparison.",
+  "method_names": {
+    "unit": "Two-Track CCRG cluster-level unit (anchor + disjoint per-token absorbers)",
+    "a": "best raw single SAE latent (held-out AUC)",
+    "b": "co-activation cluster (count-matched)",
+    "c": "decoder-geometry cluster (count-matched)",
+    "h": "oracle SCR/TPP attribution pool (count-matched)"
+  },
+  "unit_definition": {
+    "letter": "L",
+    "anchor_idx": 205,
+    "absorber_idxs": [
+      4736,
+      607,
+      3069,
+      8463,
+      2416,
+      2759,
+      3353,
+      3858,
+      7544,
+      15261,
+      1391,
+      1467,
+      1549,
+      1566
+    ],
+    "members": [
+      {
+        "latent": 205,
+        "role": "anchor",
+        "logit_lens_tokens": [
+          "Lohan",
+          "esgue",
+          "Ls",
+          "LS",
+          "LF",
+          "LK",
+          "LCS",
+          "LU",
+          "LH",
+          "Lyons"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "LD",
+            "act": 21.511
+          },
+          {
+            "sub_context": "LUM",
+            "act": 19.895
+          },
+          {
+            "sub_context": "Lakshmi",
+            "act": 19.679
+          },
+          {
+            "sub_context": "LG",
+            "act": 19.278
+          },
+          {
+            "sub_context": "L",
+            "act": 19.163
+          }
+        ]
+      },
+      {
+        "latent": 4736,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "ting",
+          "ating",
+          "izing",
+          "ging",
+          "\")));",
+          "NING",
+          "TING",
+          "ning",
+          "'));",
+          "GGGG"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "linking",
+            "act": 26.813
+          },
+          {
+            "sub_context": "linking",
+            "act": 26.008
+          },
+          {
+            "sub_context": "linking",
+            "act": 25.136
+          },
+          {
+            "sub_context": "linking",
+            "act": 23.96
+          },
+          {
+            "sub_context": "limiting",
+            "act": 23.273
+          }
+        ]
+      },
+      {
+        "latent": 607,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "')\")",
+          "BibitemShut",
+          "']\")",
+          "\u0633\u0643\u0627\u0646\u064a\u0629",
+          "\u0643\u0648\u0645\u0648\u0646\u0632",
+          "']],",
+          ")]:",
+          "\"}},",
+          ")}</",
+          ".\"</"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "leads",
+            "act": 15.892
+          },
+          {
+            "sub_context": "lists",
+            "act": 15.828
+          },
+          {
+            "sub_context": "lays",
+            "act": 15.603
+          },
+          {
+            "sub_context": "leads",
+            "act": 15.569
+          },
+          {
+            "sub_context": "leads",
+            "act": 15.569
+          }
+        ]
+      },
+      {
+        "latent": 3069,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "list",
+          "LIST",
+          "list",
+          "List",
+          "List",
+          "lists",
+          "LIST",
+          "Lists",
+          "setList",
+          "lists"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "list",
+            "act": 43.518
+          },
+          {
+            "sub_context": "List",
+            "act": 42.536
+          },
+          {
+            "sub_context": "list",
+            "act": 42.463
+          },
+          {
+            "sub_context": "list",
+            "act": 42.281
+          },
+          {
+            "sub_context": "list",
+            "act": 42.251
+          }
+        ]
+      },
+      {
+        "latent": 8463,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "big",
+          "BIG",
+          "big",
+          "Big",
+          "BIG",
+          "Big",
+          "Biggs",
+          "bigger",
+          "huge",
+          "Bigelow"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "large",
+            "act": 14.448
+          },
+          {
+            "sub_context": "larger",
+            "act": 13.955
+          },
+          {
+            "sub_context": "large",
+            "act": 12.94
+          },
+          {
+            "sub_context": "large",
+            "act": 12.911
+          },
+          {
+            "sub_context": "large",
+            "act": 12.797
+          }
+        ]
+      },
+      {
+        "latent": 2416,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "Line",
+          "line",
+          "LINE",
+          "lines",
+          "Line",
+          "line",
+          "Lines",
+          "LINE",
+          "Lines",
+          "lines"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "line",
+            "act": 41.379
+          },
+          {
+            "sub_context": "line",
+            "act": 40.522
+          },
+          {
+            "sub_context": "line",
+            "act": 40.037
+          },
+          {
+            "sub_context": "line",
+            "act": 39.987
+          },
+          {
+            "sub_context": "line",
+            "act": 39.173
+          }
+        ]
+      },
+      {
+        "latent": 2759,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "AlterField",
+          "HasForeignKey",
+          "\u0412\u043e\u0437\u0440\u0430\u0441\u0442",
+          "\u1ecdi",
+          "\u041f\u0443\u0441\u0442\u044c",
+          "newBuilder",
+          "presently",
+          "HostException",
+          "TestingModule",
+          "religiosas"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "Let",
+            "act": 40.621
+          },
+          {
+            "sub_context": "Let",
+            "act": 39.47
+          },
+          {
+            "sub_context": "Let",
+            "act": 38.873
+          },
+          {
+            "sub_context": "Let",
+            "act": 37.306
+          },
+          {
+            "sub_context": "Let",
+            "act": 35.527
+          }
+        ]
+      },
+      {
+        "latent": 3353,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "level",
+          "LEVEL",
+          "Level",
+          "level",
+          "levels",
+          "LEVEL",
+          "Level",
+          "Levels",
+          "Levels",
+          "levels"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "level",
+            "act": 44.529
+          },
+          {
+            "sub_context": "level",
+            "act": 43.299
+          },
+          {
+            "sub_context": "level",
+            "act": 42.585
+          },
+          {
+            "sub_context": "level",
+            "act": 41.913
+          },
+          {
+            "sub_context": "levels",
+            "act": 40.857
+          }
+        ]
+      },
+      {
+        "latent": 3858,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "low",
+          "LOW",
+          "Low",
+          "Low",
+          "Lowry",
+          "low",
+          "LOW",
+          "lowest",
+          "lows",
+          "\u4f4e"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "low",
+            "act": 41.592
+          },
+          {
+            "sub_context": "low",
+            "act": 41.542
+          },
+          {
+            "sub_context": "low",
+            "act": 41.394
+          },
+          {
+            "sub_context": "low",
+            "act": 41.328
+          },
+          {
+            "sub_context": "low",
+            "act": 41.239
+          }
+        ]
+      },
+      {
+        "latent": 7544,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "leaves",
+          "leave",
+          "Leaves",
+          "Leave",
+          "Leaves",
+          "Leave",
+          "LEAVE",
+          "leave",
+          "leaves",
+          "LEAVE"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "leave",
+            "act": 54.902
+          },
+          {
+            "sub_context": "leaves",
+            "act": 53.755
+          },
+          {
+            "sub_context": "leave",
+            "act": 53.538
+          },
+          {
+            "sub_context": "leaving",
+            "act": 52.427
+          },
+          {
+            "sub_context": "leaving",
+            "act": 51.476
+          }
+        ]
+      },
+      {
+        "latent": 15261,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "only",
+          "Only",
+          "ONLY",
+          "ONLY",
+          "Only",
+          "S\u00f3lo",
+          "only",
+          "nly",
+          "barely",
+          "\u043b\u0438\u0448\u044c"
+        ],
+        "top_corpus_contexts": []
+      },
+      {
+        "latent": 1391,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "do",
+          "replied",
+          "G",
+          "zz",
+          "B",
+          "pal",
+          "tagHelperRunner",
+          "gy",
+          "me",
+          "gal"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "L",
+            "act": 14.976
+          }
+        ]
+      },
+      {
+        "latent": 1467,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "expandindo",
+          "kasarigan",
+          "\u062f\u0627\u0646\u0634\u0646\u0627\u0645\u0647\u0654",
+          "webElementXpaths",
+          "NSCoder",
+          "\u0645\u0631\u0626\u064a\u0647",
+          "riga",
+          "\u1f36",
+          "IActionResult",
+          "\u0b95\u0bae\u0bcd"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "listed",
+            "act": 6.701
+          },
+          {
+            "sub_context": "lots",
+            "act": 5.188
+          },
+          {
+            "sub_context": "licenses",
+            "act": 4.816
+          },
+          {
+            "sub_context": "license",
+            "act": 3.57
+          },
+          {
+            "sub_context": "last",
+            "act": 3.44
+          }
+        ]
+      },
+      {
+        "latent": 1549,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "LEG",
+          "Leg",
+          "leg",
+          "LEG",
+          "leg",
+          "Leg",
+          "legs",
+          "Legs",
+          "Legge",
+          "Legs"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "Legend",
+            "act": 19.154
+          },
+          {
+            "sub_context": "legs",
+            "act": 19.14
+          },
+          {
+            "sub_context": "legally",
+            "act": 15.67
+          },
+          {
+            "sub_context": "legend",
+            "act": 15.669
+          },
+          {
+            "sub_context": "legend",
+            "act": 15.519
+          }
+        ]
+      },
+      {
+        "latent": 1566,
+        "role": "absorber",
+        "logit_lens_tokens": [
+          "distanciation",
+          "SafeAreaView",
+          "similarly",
+          "\u0442\u043e\u0436\u0435",
+          "equally",
+          "\u0648\u0635\u0644\u0629",
+          "aswell",
+          "mahd",
+          "alak",
+          "\u012fsi"
+        ],
+        "top_corpus_contexts": [
+          {
+            "sub_context": "login",
+            "act": 7.777
+          },
+          {
+            "sub_context": "like",
+            "act": 6.602
+          },
+          {
+            "sub_context": "like",
+            "act": 6.602
+          },
+          {
+            "sub_context": "like",
+            "act": 5.868
+          },
+          {
+            "sub_context": "limit",
+            "act": 4.833
+          }
+        ]
+      }
+    ]
+  },
+  "kg_edges": [
+    {
+      "src": 205,
+      "dst": 4736,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 607,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 3069,
+      "type": "absorbed_child",
+      "sub_context": "list",
+      "diag_agrees": true
+    },
+    {
+      "src": 205,
+      "dst": 8463,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 2416,
+      "type": "absorbed_child",
+      "sub_context": "line",
+      "diag_agrees": true
+    },
+    {
+      "src": 205,
+      "dst": 2759,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 3353,
+      "type": "absorbed_child",
+      "sub_context": "level",
+      "diag_agrees": true
+    },
+    {
+      "src": 205,
+      "dst": 3858,
+      "type": "absorbed_child",
+      "sub_context": "low",
+      "diag_agrees": true
+    },
+    {
+      "src": 205,
+      "dst": 7544,
+      "type": "absorbed_child",
+      "sub_context": "leave",
+      "diag_agrees": true
+    },
+    {
+      "src": 205,
+      "dst": 15261,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 1391,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 1467,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 1549,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    },
+    {
+      "src": 205,
+      "dst": 1566,
+      "type": "absorbed_child",
+      "sub_context": "",
+      "diag_agrees": false
+    }
+  ],
+  "gating_check": {
+    "pass": true,
+    "cosine": 0.9238874316215515,
+    "ev": 0.8570360549440192,
+    "L0": 95.90625
+  },
+  "published_C1_AUC": {
+    "unit": 0.905,
+    "a": 0.8485,
+    "b": 0.8641,
+    "c": 0.8641,
+    "h": 0.7943
+  },
+  "examples": [
+    {
+      "input": "long has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "long",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "long:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "long",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlong has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "long",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "light has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "light",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "light:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "light",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlight has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "light",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "local has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "local",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "local:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "local",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlocal has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "local",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "loss has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "loss",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "loss:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "loss",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nloss has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "loss",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "location has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "location",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "location:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "location",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlocation has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "location",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "letters has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "letters",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "letters:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "letters",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nletters has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "letters",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "lack has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "lack",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "lack:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "lack",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlack has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "lack",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "learn has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "learn",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "learn:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "learn",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlearn has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "learn",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "leads has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "leads",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "leads:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "leads",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nleads has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "leads",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "loop has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "loop",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "loop:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "loop",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nloop has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "loop",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "lung has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "lung",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "lung:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "lung",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nlung has the first letter:",
+      "output": "1",
+      "metadata_letter": "L",
+      "metadata_role": "on",
+      "metadata_sub_context": "lung",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 1,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "1"
+    },
+    {
+      "input": "good has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "good",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "good:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "good",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\ngood has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "good",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "field has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "field",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "field:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "field",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nfield has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "field",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "until has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "until",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "until:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "until",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nuntil has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "until",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "ever has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "ever",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "ever:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "ever",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\never has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "ever",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "designed has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "designed",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "0"
+    },
+    {
+      "input": "designed:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "designed",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "1",
+      "predict_a": "1",
+      "predict_b": "1",
+      "predict_c": "1",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\ndesigned has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "designed",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "purpose has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "purpose",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "purpose:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "purpose",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\npurpose has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "purpose",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "wide has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "wide",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "wide:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "wide",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nwide has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "wide",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "rules has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "rules",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "rules:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "rules",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nrules has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "rules",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "plate has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "plate",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "plate:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "plate",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nplate has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "plate",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "ones has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "ones",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "ones:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "ones",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nones has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "ones",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    },
+    {
+      "input": "Such has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "Such",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "Such:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "Such",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "0"
+    },
+    {
+      "input": "camera has the first letter: C\nforest has the first letter: F\nwindow has the first letter: W\napple has the first letter: A\nSuch has the first letter:",
+      "output": "0",
+      "metadata_letter": "L",
+      "metadata_role": "off",
+      "metadata_sub_context": "Such",
+      "metadata_fold": 4,
+      "metadata_label_starts_with_target": 0,
+      "predict_unit": "0",
+      "predict_a": "1",
+      "predict_b": "0",
+      "predict_c": "0",
+      "predict_h": "1"
+    }
+  ]
+}

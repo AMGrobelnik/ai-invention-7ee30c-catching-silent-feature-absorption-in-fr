@@ -1,0 +1,1275 @@
+{
+  "surgical_16k": {
+    "metadata": {
+      "per_case": [
+        {
+          "regime": "absorption",
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 1722.4595170019425,
+          "family": "taxonomic",
+          "target_subcontext": "Georgia",
+          "absorber_latent": 16009,
+          "matched": {
+            "KG-ABL": {
+              "collateral": 2.875819098183208e-05,
+              "token_footprint_offtarget": 0.0014623303696771174
+            },
+            "DENSE-ABL": {
+              "collateral": 0.04955203434358612,
+              "token_footprint_offtarget": 1.0
+            }
+          }
+        },
+        {
+          "regime": "absorption",
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 2722.2610048892575,
+          "family": "taxonomic",
+          "target_subcontext": "Jordan",
+          "absorber_latent": 540,
+          "matched": {
+            "KG-ABL": {
+              "collateral": 2.6491441840984194e-05,
+              "token_footprint_offtarget": 0.0009981211836542978
+            },
+            "DENSE-ABL": {
+              "collateral": 0.07214383169705185,
+              "token_footprint_offtarget": 1.0
+            }
+          }
+        },
+        {
+          "regime": "absorption",
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 3246.859165896537,
+          "family": "taxonomic",
+          "target_subcontext": "Jordan",
+          "absorber_latent": 8347,
+          "matched": {
+            "KG-ABL": {
+              "collateral": 8.862467273717952e-06,
+              "token_footprint_offtarget": 0.00023485204321277596
+            },
+            "DENSE-ABL": {
+              "collateral": 0.028807641691788188,
+              "token_footprint_offtarget": 1.0
+            }
+          }
+        },
+        {
+          "regime": "absorption",
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 213.52914820153072,
+          "family": "taxonomic",
+          "target_subcontext": "United States",
+          "absorber_latent": 846,
+          "matched": {
+            "KG-ABL": {
+              "collateral": 7.295565820337254e-05,
+              "token_footprint_offtarget": 0.0012730358874878758
+            },
+            "DENSE-ABL": {
+              "collateral": 0.015580284844130168,
+              "token_footprint_offtarget": 1.0
+            }
+          }
+        },
+        {
+          "regime": "absorption",
+          "verdict": "PARTIAL_SURGICAL",
+          "headline_selectivity_ratio": 7.75969538656357,
+          "family": "taxonomic",
+          "target_subcontext": "United States",
+          "absorber_latent": 4760,
+          "matched": {
+            "KG-ABL": {
+              "collateral": 0.0006992301849903363,
+              "token_footprint_offtarget": 0.015155189136760427
+            },
+            "DENSE-ABL": {
+              "collateral": 0.005425880837569371,
+              "token_footprint_offtarget": 1.0
+            }
+          }
+        },
+        {
+          "regime": "absorption",
+          "verdict": "SURGICAL_EDIT_CONFIRMED",
+          "headline_selectivity_ratio": 801.9605231029948,
+          "family": "first_letter",
+          "target_subcontext": "large",
+          "absorber_latent": 8463,
+          "matched": {
+            "KG-ABL": {
+              "collateral": 5.610437168782479e-05,
+              "token_footprint_offtarget": 0.0022222222222222222
+            },
+            "DENSE-ABL": {
+              "collateral": 0.04500150087236385,
+              "token_footprint_offtarget": 1.0
+            }
+          }
+        },
+        {
+          "regime": "co-firing",
+          "verdict": "PARTIAL_CO_FIRING_AS_PREDICTED",
+          "headline_selectivity_ratio": 2.3772153160014575,
+          "family": "toxicity",
+          "target_subcontext": "insult",
+          "absorber_latent": 13367,
+          "matched": {
+            "KG-ABL": {
+              "collateral": 0.0034943169759453756,
+              "token_footprint_offtarget": 0.11692538808212319
+            },
+            "DENSE-ABL": {
+              "collateral": 0.008306757606334403,
+              "token_footprint_offtarget": 1.0
+            }
+          }
+        }
+      ],
+      "summary": {
+        "regime_router_map": {
+          "absorption": {
+            "mean_selectivity_ratio": 1452.4715090798045,
+            "mean_kg_collateral": 0.00014873371916301133,
+            "mean_kg_offtarget_footprint": 0.003557625140502453
+          }
+        }
+      }
+    }
+  },
+  "fair_gate": {
+    "metadata": {
+      "per_case": [
+        {
+          "case_id": "first_letter_large",
+          "retain_collateral_kl_kg_mean": 5.0747140048770236e-05,
+          "retain_collateral_kl_fair_mean": 2.7893486306614554e-06,
+          "retain_collateral_kl_sub_mean": 0.020798109325308664,
+          "retain_collateral_kl_gated_mean": 0.2947271220541249,
+          "retain_collateral_kl_whole_mean": 2.6097950187077124,
+          "retain_collateral_kl_maxprec_mean": 5.0747140048770236e-05,
+          "adv_KG_vs_FAIR": -0.050000000000000044,
+          "adv_KG_vs_SUB": 0.9666666665111107,
+          "scale_gated_beta": 3.012815975599599,
+          "joint_diff_CI_KG_vs_FAIR": {
+            "diff": -0.050000000000000044,
+            "ci_lo": -0.15000000000000013,
+            "ci_hi": 0.0,
+            "excl_0": false,
+            "n": 20
+          }
+        }
+      ]
+    }
+  },
+  "repair_spine": {
+    "metadata": {
+      "multiplicity": {
+        "n_repairs_tested": 69,
+        "n_holes": 54,
+        "n_survive_FDR": 30,
+        "per_family_survive_FDR": {
+          "spelling": 14,
+          "homograph_taxonomic": 6,
+          "numeric": 10
+        }
+      },
+      "member_labeling": {
+        "scoring": {
+          "agreement": 0.7303370786516854,
+          "null_mean_shuffle": 0.09592134831460675,
+          "gap": 0.6344157303370787,
+          "gap_bootstrap_CI": {
+            "lo": 0.5445280898876405,
+            "hi": 0.7243033707865169,
+            "excl_0": true
+          },
+          "n_members": 89,
+          "per_role_accuracy": {
+            "absorber": {
+              "acc": 0.7560975609756098
+            },
+            "anchor": {
+              "acc": 0.42857142857142855
+            }
+          }
+        },
+        "per_member": [
+          {
+            "concept": "taxonomic",
+            "member": 3792,
+            "role": "anchor",
+            "correct": true
+          },
+          {
+            "concept": "taxonomic",
+            "member": 4697,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "taxonomic",
+            "member": 9339,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "taxonomic",
+            "member": 8442,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "taxonomic",
+            "member": 16009,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "taxonomic",
+            "member": 540,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "taxonomic",
+            "member": 846,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "numeric",
+            "member": 14823,
+            "role": "anchor",
+            "correct": false
+          },
+          {
+            "concept": "numeric",
+            "member": 11011,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "numeric",
+            "member": 14413,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "numeric",
+            "member": 2285,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "numeric",
+            "member": 8684,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "numeric",
+            "member": 7983,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "numeric",
+            "member": 13658,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 205,
+            "role": "anchor",
+            "correct": false
+          },
+          {
+            "concept": "L",
+            "member": 4736,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 607,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 3069,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 8463,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 2416,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 2759,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 3353,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 3858,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 7544,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 15261,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "L",
+            "member": 1391,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "L",
+            "member": 1467,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "L",
+            "member": 1549,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "L",
+            "member": 1566,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 12334,
+            "role": "anchor",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 14473,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 12675,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "O",
+            "member": 1032,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 1562,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 4438,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 8961,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 9488,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "O",
+            "member": 9915,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 15092,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 782,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 1127,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 1925,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 2101,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "O",
+            "member": 2768,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "T",
+            "member": 6355,
+            "role": "anchor",
+            "correct": false
+          },
+          {
+            "concept": "T",
+            "member": 8925,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 7742,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "T",
+            "member": 4438,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 2768,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "T",
+            "member": 4551,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 5130,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 8938,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 14143,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "T",
+            "member": 383,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 1839,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 4570,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 5059,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 12997,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "T",
+            "member": 13704,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 1227,
+            "role": "anchor",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 1634,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "I",
+            "member": 3967,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 9741,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 10756,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "I",
+            "member": 782,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 4322,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 1861,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 4490,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 7491,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 11112,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 12928,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 1491,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "I",
+            "member": 2322,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "I",
+            "member": 2507,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 6210,
+            "role": "anchor",
+            "correct": false
+          },
+          {
+            "concept": "D",
+            "member": 10756,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "D",
+            "member": 782,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 1970,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 7293,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "D",
+            "member": 10769,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 11069,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 14014,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "D",
+            "member": 16173,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 1197,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 1298,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 1459,
+            "role": "absorber",
+            "correct": false
+          },
+          {
+            "concept": "D",
+            "member": 1724,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 2354,
+            "role": "absorber",
+            "correct": true
+          },
+          {
+            "concept": "D",
+            "member": 2568,
+            "role": "absorber",
+            "correct": false
+          }
+        ]
+      }
+    },
+    "datasets": [
+      {
+        "dataset": "kg_repair_loop",
+        "examples": [
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Argentina"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Belgium"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "China"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Costa Rica"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Egypt"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Ethiopia"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "France"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Georgia"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Georgia"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Greece"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Iran"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Iraq"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Ireland"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Israel"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Jordan"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Jordan"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Mexico"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Morocco"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "New Zealand"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Nigeria"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Norway"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Pakistan"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Poland"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Portugal"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Saudi Arabia"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "South Africa"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "South Korea"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Sri Lanka"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Switzerland"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Thailand"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "Ukraine"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "United Kingdom"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "United States"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "taxonomic",
+            "metadata_subcontext": "United States"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "comma_number"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "currency"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "date"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "date"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "decimal"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "decimal"
+          },
+          {
+            "metadata_p_value": 0.6814318568143186,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "integer"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "ordinal"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "ordinal"
+          },
+          {
+            "metadata_p_value": 0.0005999400059994001,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "percent"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "numeric",
+            "metadata_subcontext": "year"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_L",
+            "metadata_subcontext": "law"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_L",
+            "metadata_subcontext": "layer"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_L",
+            "metadata_subcontext": "like"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "object"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "on"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "one"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "only"
+          },
+          {
+            "metadata_p_value": 0.12368763123687632,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "or"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "our"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "out"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "output"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "over"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_O",
+            "metadata_subcontext": "own"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "than"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "that"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "their"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "then"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "there"
+          },
+          {
+            "metadata_p_value": 0.36126387361263873,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "think"
+          },
+          {
+            "metadata_p_value": 0.36566343365663434,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "this"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "those"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "three"
+          },
+          {
+            "metadata_p_value": 9.999000099990002e-05,
+            "metadata_survives_FDR": true,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "through"
+          },
+          {
+            "metadata_p_value": 1.0,
+            "metadata_survives_FDR": false,
+            "metadata_concept": "first_letter_T",
+            "metadata_subcontext": "time"
+          }
+        ]
+      }
+    ]
+  },
+  "cross_dict": {
+    "metadata": {
+      "replication_tables": {
+        "65k": {
+          "regime_split": {
+            "absorption_mean_selectivity": 466996.7180452159
+          },
+          "surgical": {
+            "cases": [
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 3710589.049682427,
+                "dense_collateral": 0.03710588049682426,
+                "kg_collateral": 0.0,
+                "subcontext": "Georgia"
+              },
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 22486.344813941356,
+                "dense_collateral": 0.00022485344813941358,
+                "kg_collateral": 0.0,
+                "subcontext": "Jordan"
+              },
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 1517.5227498534996,
+                "dense_collateral": 2.076856918318148,
+                "kg_collateral": 0.0013685737187736694,
+                "subcontext": "United States"
+              },
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 1000.1184910507228,
+                "dense_collateral": 0.024595085801042308,
+                "kg_collateral": 2.4582181847575626e-05,
+                "subcontext": "layer"
+              },
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 8.664410777814973,
+                "dense_collateral": 0.00011523371178255366,
+                "kg_collateral": 1.3290813493011267e-05,
+                "subcontext": "on"
+              },
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 2.8217040434963687,
+                "dense_collateral": 0.00012832613188108998,
+                "kg_collateral": 4.547178331348631e-05,
+                "subcontext": "take"
+              },
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 16.683607228380435,
+                "dense_collateral": 0.00012517827142255456,
+                "kg_collateral": 7.493669302978863e-06,
+                "subcontext": "It"
+              },
+              {
+                "regime": "absorption",
+                "selectivity_ratio": 352.5389024046276,
+                "dense_collateral": 0.9391021508647936,
+                "kg_collateral": 0.0026638156216811397,
+                "subcontext": "did"
+              },
+              {
+                "regime": "co-firing",
+                "selectivity_ratio": 1.986294119517036,
+                "dense_collateral": 0.003929208102886095,
+                "kg_collateral": 0.0019781553000319395,
+                "subcontext": "insult"
+              }
+            ]
+          },
+          "overall_verdict": "full",
+          "repair_fdr": {
+            "n_survive_FDR": 55,
+            "n_repairs_tested": 154,
+            "per_family_survivors": {
+              "spelling": 29,
+              "homograph_taxonomic": 11,
+              "numeric": 15
+            },
+            "deltas_vs_16k": {
+              "spelling": 15,
+              "homograph_taxonomic": 5,
+              "numeric": 5
+            }
+          },
+          "gating": {
+            "cosine": 0.9280143976211548,
+            "numeric_digit_cosine_descriptive": 0.8761566877365112
+          },
+          "per_piece_verdicts": {
+            "homograph_holes": "REPLICATES",
+            "repair_fdr": "REPLICATES",
+            "surgical": "REPLICATES",
+            "router": "REPLICATES"
+          }
+        },
+        "l9_16k": {
+          "overall_verdict": "partial",
+          "per_piece_verdicts": {
+            "homograph_holes": "PARTIAL",
+            "repair_fdr": "REPLICATES",
+            "surgical": "REPLICATES",
+            "router": "NOT_RUN_REDUCED"
+          }
+        }
+      },
+      "verdict": {
+        "cross_dictionary_replicates": "full"
+      }
+    }
+  }
+}
