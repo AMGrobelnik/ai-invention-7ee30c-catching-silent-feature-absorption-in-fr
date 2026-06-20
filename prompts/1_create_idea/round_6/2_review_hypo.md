@@ -1,9 +1,9 @@
 # review_hypo — create_idea
 
-> Phase: `hypo_loop` · round 6 · Substep: `review_hypo`
+> Phase: `hypo_loop` · round 6 · `review_hypo`
 > Run: `run__C1-INh1YNGn` — Catching Silent Feature Absorption in Frozen Sparse Autoencoders: Label-Free Loc
 >
-> Full, verbatim record of every prompt the AI Inventor pipeline gave the agent(s) in this substep — system-user, human-user and skill-input — in the order they landed. Nothing truncated.
+> Full, verbatim record of every prompt the AI Inventor pipeline gave this agent — system-user, human-user and skill-input — in the order they landed. Nothing truncated.
 
 ## Task: `review_hypo` (terminal_claude_agent)
 

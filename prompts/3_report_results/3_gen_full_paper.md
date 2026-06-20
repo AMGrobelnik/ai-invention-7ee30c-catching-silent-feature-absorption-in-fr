@@ -1,9 +1,9 @@
 # gen_full_paper — report_results
 
-> Phase: `gen_paper_repo` · Substep: `gen_full_paper`
+> Phase: `gen_paper_repo` · `gen_full_paper`
 > Run: `run__C1-INh1YNGn` — Catching Silent Feature Absorption in Frozen Sparse Autoencoders: Label-Free Loc
 >
-> Full, verbatim record of every prompt the AI Inventor pipeline gave the agent(s) in this substep — system-user, human-user and skill-input — in the order they landed. Nothing truncated.
+> Full, verbatim record of every prompt the AI Inventor pipeline gave this agent — system-user, human-user and skill-input — in the order they landed. Nothing truncated.
 
 ## Task: `gen_full_paper` (terminal_claude_agent)
 

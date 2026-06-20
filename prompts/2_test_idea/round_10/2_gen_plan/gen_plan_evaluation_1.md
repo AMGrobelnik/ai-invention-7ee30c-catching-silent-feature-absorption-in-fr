@@ -1,0 +1,925 @@
+# gen_plan_evaluation_1 — test_idea
+
+> Phase: `invention_loop` · round 10 · `gen_plan`
+> Run: `run__C1-INh1YNGn` — Catching Silent Feature Absorption in Frozen Sparse Autoencoders: Label-Free Loc
+>
+> Full, verbatim record of every prompt the AI Inventor pipeline gave this agent — system-user, human-user and skill-input — in the order they landed. Nothing truncated.
+
+## Task: `gen_plan_evaluation_1` (terminal_claude_agent)
+
+### [1] SYSTEM-USER prompt · 2026-06-19 00:39:59 UTC
+
+````
+<ai_inventor_context>
+<ai_inventor_summary>
+You are one of many LLMs in AI Inventor — an automated research system that generates NOVEL and FEASIBLE hypotheses, investigates them through experiments and research, and produces a paper.
+
+Your output feeds other LLMs downstream. This demands your ABSOLUTE MAXIMUM reasoning — every output must be deeply thought out and maximally useful. Surface-level responses waste downstream computation.
+</ai_inventor_summary>
+
+<your_role>
+YOU ARE: A plan generator (Step 3.2: GEN_PLAN in the invention loop)
+
+You received the hypothesis, an artifact direction to elaborate, and dependency artifacts relevant to the plan.
+Your job: elaborate this direction into a detailed, actionable plan for the executor agent.
+
+Specific, actionable plan → valuable artifact. Vague plan → wasted execution.
+</your_role>
+</ai_inventor_context>
+
+<artifact_type_info>
+You are expanding an artifact direction of type: EVALUATION
+
+EVALUATION
+Evaluate experiment results with metrics, statistical analysis, and validity checks.
+Runtime: Python 3.12, UV (any evaluation library), isolated workspace, gradual scaling matching experiment.
+Tools: Full shell/Python/filesystem access, the aii-web-tools skill (web search, page fetch, regex grep over full page/PDF text), and other skills.
+Skills: aii-json (schema validation), aii-openrouter-llms (call any LLM — GPT, Gemini, Llama, etc.), domain-specific as needed.
+Capabilities: Compute any quantitative metrics and statistical tests, analyze validity and robustness.
+Deps: REQUIRED at least one EXPERIMENT | OPTIONAL DATASET if reference data needed
+</artifact_type_info>
+
+<available_resources>
+<skills>
+Skills are self-contained capabilities with instructions, context, and tools.
+
+- aii-web-tools: Web search (Serper), page/PDF fetch as markdown, regex grep over page/PDF text
+- aii-semscholar-bib: Batch-fetch BibTeX from Semantic Scholar
+- aii-openrouter-llms: Search and call 300+ LLMs via OpenRouter
+- aii-hf-datasets: Search, preview, download HuggingFace datasets
+- aii-owid-datasets: Search and load Our World in Data tables
+- aii-lean: Compile/verify Lean 4 code, Mathlib search, tactic suggestions
+- aii-image-gen: Generate/edit images via Gemini 3 Pro Image (Nano Banana Pro)
+- aii-json: Validate JSON against schemas, generate mini/preview variants
+- aii-paper-writing: Academic paper structure, bibliography, citations
+- aii-paper-to-latex: Assemble LaTeX papers and compile to PDF
+- aii-parallel-computing: GPU acceleration, CPU parallelism, async I/O
+- aii-python: Python coding standards for experiment scripts
+- aii-use-hardware: Detect CPU/RAM/GPU, memory-safe processing
+- aii-long-running-tasks: Gradual scaling pattern for long-running tasks
+- aii-colab: Google Colab runtime constraints for notebooks
+- aii-file-size-limit: Check and split oversized output files
+- aii-handbook-multi-llm-agents: Multi-LLM agent orchestration patterns
+</skills>
+
+<software_constraints>
+- Python only implementation
+- Python standard library and all popular PyPI packages available (numpy, pandas, scikit-learn, scipy, matplotlib, requests, etc.)
+- Local parallelism encouraged: multiprocessing, asyncio, threading — see aii-parallel-computing skill
+- LLM API calls must go through OpenRouter only (no direct OpenAI, Anthropic, etc.)
+- **HARD LIMIT**: Maximum $10 USD total spend on LLM API calls (OpenRouter). Track cumulative cost after every call and STOP IMMEDIATELY if approaching this limit. Never exceed this budget under any circumstances.
+</software_constraints>
+</available_resources>
+
+<time_budget>
+
+The evaluation executor has 3h total (including writing code, debugging, testing, and fixing errors).
+
+</time_budget>
+
+<available_tools>
+Web research is available through the aii-web-tools skill, in three levels (broad → specific):
+
+1. web search — Returns titles, URLs, snippets. Use first to discover and scan the landscape.
+2. web fetch — Reads a page and returns its content as markdown (HTML or PDF). Use to understand a source. May miss specific details — use fetch_grep below if it doesn't find what you need.
+3. fetch_grep — Regex search over a page/PDF's full text. Returns exact matching sections with context. Use for precise details, exact numbers, methodology, or PDFs.
+
+Workflow: search → fetch (understand) → fetch_grep (extract specifics).
+</available_tools>
+
+<tool_use>
+Maximize parallel tool calls. Parallelize independent operations, only sequentialize dependencies.
+- Multiple searches/fetches on different topics → parallel in one turn
+- Search then fetch results → sequential (need URLs first)
+</tool_use>
+
+<plan_guidelines>
+You are expanding an artifact direction from the strategy into a detailed plan.
+The artifact direction specifies what to do at a high level (type, objective, approach, dependencies).
+Your job is to make it concrete and actionable as a detailed plan.
+Use web research to look up technical details, verify feasibility, and find reference materials
+that will make your plan more concrete and actionable for the executor.
+
+GOOD PLANS:
+- Make each component SPECIFIC and actionable (not vague platitudes)
+- Consider both success AND failure scenarios
+- Build on the approach in the artifact direction
+- Add concrete details the executor needs
+
+BAD PLANS:
+- Vague hand-waving ("do research on X")
+- Ignoring the approach in the artifact direction
+- Missing critical details the executor needs
+</plan_guidelines>
+
+<system_reminder>
+Do not ask follow up questions and do not ask the user anything. Execute all steps independently.
+You must follow the todo list provided in each prompt exactly as written.
+No placeholders, stubs, or incomplete code — all code must be complete and functional.
+</system_reminder>
+
+<process_isolation>
+CRITICAL: Multiple pipeline runs may execute simultaneously on this machine. `ps aux | grep method.py` matches ALL runs, not just yours.
+- NEVER kill processes by name (`killall`, `pkill -f`, `ps aux | grep ... | xargs kill`). This kills OTHER runs' processes.
+- NEVER monitor processes by name (`ps aux | grep method.py`). You will see other runs' processes and get confused.
+- ALWAYS use PID-based process management:
+  Run: `uv run method.py & PID=$!` or `timeout <seconds> uv run method.py & PID=$!`
+  Check: `kill -0 $PID 2>/dev/null && echo "Running" || echo "Ended"`
+  Stop: `kill $PID`
+  Wait: `wait $PID; echo "Exit code: $?"`
+  Monitor: `tail -f logs/run.log & TAIL_PID=$!` then `kill $TAIL_PID` when done
+</process_isolation>
+
+<hypothesis>
+kind: hypothesis
+title: >-
+  Training-Free, Label-Free LOCALIZATION of Homograph-Polysemy SAE Absorption (Spine + Coverage Screen SOLID; Clustering INERT;
+  All Three Goal Downstream Tasks NULL): The Iter-9 Label-Scarce "Where-to-Gate Win" Is CIRCULAR -- the Label-Free Handle
+  Secretly Reused Absorber IDs PRE-DISCOVERED WITH FULL LABELS, So the Net Saving Is UNPROVEN. Iter-10 Must Prove GENUINE
+  CROSS-DEPLOYMENT ZERO-LABEL TRANSFER / Report Break-Even-K* (or DROP the Where-to-Gate Thesis), and Demonstrate AVERTED
+  COST + Ship an Absorber CATALOG to Turn the Screen From a Reassurance Instrument Into a Capability
+hypothesis: |-
+  ITERATION-9 STATUS -- THE THREE ITER-9 LOAD-BEARING PIECES EXECUTED. THE LOCALIZATION SPINE (re-controlled) AND THE CONFINEMENT-COVERAGE SCREEN LANDED SOLIDLY; BUT THE SINGLE NEW SAE-SPECIFIC POSITIVE -- THE LABEL-SCARCE "WHERE-TO-GATE VALUE" -- WAS EXPOSED BY REVIEW AS CIRCULAR, SO THE NET LABEL-SAVING REMAINS UNPROVEN. The honest contribution is therefore essentially unchanged in substance from iter-8: (i) auditable, label-free, regime-targeted LOCALIZATION of homograph-polysemy absorption (now STRENGTHENED against non-eval-aligned controls and TEMPERED to localization-not-utility); (ii) a quantified CONFINEMENT-COVERAGE result + a shipped label-free practitioner SCREEN; and (iii) a label-free WHERE-TO-GATE discovery whose NET BENEFIT over the labeled route is STILL UNDEMONSTRATED. Iteration 9 delivered: the label-scarce where-to-gate experiment [art_-zywGLxOcKOw]; the coverage screen + shipped tool [art_NIxb2uUvT-ze]; the strengthened-control repair spine + downstream-capability test [art_mHCB4FyqyMXL]; a $0 integrity-lock eval [art_A8o1h4sWckjw]; and a localization-commit / both-fork positioning audit [art_lkJ2wWVGDovC].
+
+              WHAT LANDED.
+
+              - M1'''' LABEL-SCARCE WHERE-TO-GATE EXECUTED [art_-zywGLxOcKOw], $0.34, 2 judges. Internal verdict DEMONSTRATED_WHERE_TO_GATE_VALUE: varying label budget n in {0,1,5,20,full} for the supervised fair gate (u_sub(n) + d_sub(n)), the LABEL-FREE SAE firing gate held localization balanced-accuracy 0.97-1.0 (flat in n, all 5 cases) while the dense gate COLLAPSED at n=1 (0.67-0.73, CI-separated below) and only MATCHED at n=20/full; edit-arm preservation advantage adv_pres = +0.81 (large) / +0.91 (Amazon) at n=1 converging to 0.000 at full labels. Georgia/Jordan/US were WEAK edit handles yet STRONG localizers (the iter-8 firing-signature != edit-handle finding turned positive on the localization axis). HOWEVER -- THE REVIEWER VERIFIED IN label_scarce.py THAT THIS RESULT IS CIRCULAR: the SAE handle's absorber IDs are HARD-CODED CONSTANTS (Georgia 16009, Amazon 6846, Bush 1418, Cook 15631, large 8463) that were DISCOVERED IN PRIOR ITERATIONS USING FULL PER-SUB-CONTEXT LABELS + ORACLE VALIDATION, while only the dense gate was restricted to n labels. So the comparison is "a handle that secretly used full-label discovery" vs "a from-scratch detector restricted to n labels"; the ONLY apples-to-apples point is n=full (where they MATCH, reproducing iter-8); the "saves 10-40 labels" headline is NOT netted against the SAE route's own discovery-time label cost; each absorber is sub-context-specific (Georgia's absorber is not Jordan's), so the amortization is real ONLY across repeated deployments of the SAME sub-context -- which the experiment NEVER exercises (fixed id, same data). The localization CURVES are real (a fixed-id firing gate is n-independent; a from-scratch dense gate needs ~5-20 labels to match; n=5 is already within ~0.03 balacc and the dramatic n=1 collapse is partly a diff-means-midpoint gate-CONSTRUCTION artifact); it is the SAVING INTERPRETATION that is circular. NET: the where-to-gate POSITIVE is downgraded from "demonstrated" to "curves established, net-saving UNPROVEN."
+
+              - M3'''' COVERAGE SCREEN + SHIPPED TOOL EXECUTED [art_NIxb2uUvT-ze], $0. overall=COVERAGE_QUANTIFIED: 336 candidates over 10 hierarchies, 110 eligible; pooled STRICT coverage 6/110 = 5.5% (Wilson [0.025,0.114]); relaxed 31/336 = 9.2%. Absorption is HOMOGRAPH/NAMED-ENTITY-confined: strict-structured = Georgia (16009), Amazon/Bush/Cook (6846/9751/15631), borderline British/Greek; demographic religion 0/10, ethnicity 0/10, calendar months 0/12 ALL NO_HOLE; cities/given-names/most-brands 0; professions 0/28 (carried). First-letter spelling reproduces broadly (20/154 relaxed). Form-free oracle corroborates 27/31 structured (lexical 26/29 = 90%; Georgia the documented exception, decoder-cos ~0.01). Shipped screen.py + README. REVIEWER VERDICT: this is a REASSURANCE instrument ("the failure mode you feared is largely absent here"), NOT a capability; its build-on value is limited as written.
+
+              - M5'''' STRENGTHENED REPAIR SPINE EXECUTED [art_mHCB4FyqyMXL], $0. KG-named absorber beats its named controls at FDR<=0.05 on 16/24 spelling+taxonomic holes (homograph-taxonomic 3/3; spelling 13/21); precision_specific=False (the win is WHICH latent covers the sub-context = coverage, not precision-magic); controls proven non-trivial (match-or-beat the KG on 6/7 numeric holes; S-mag recovers 45% of the Georgia hole yet is beaten +0.35). DOWNSTREAM-CAPABILITY NULL_TEMPER: the dense logistic probe OUT-RECALLS the repaired unit on 4/5 concepts (numeric -0.287, O -0.578, T -0.211, taxonomic -0.026; L ties), so the demonstrated value is auditable per-sub-context LOCALIZATION (a handle the single dense hyperplane lacks), NOT downstream recall utility. REVIEWER MINOR: the "four strictly stronger controls" count is INFLATED -- 2 of the 4 (dense-probe argmax under JTT and under diff-of-means) BOTH resolve to the PARENT, which by construction cannot recover its OWN hole, so they are VACUOUS-BY-CONSTRUCTION; the only informative controls are S-mag and S-rec. SECOND REVIEWER MINOR: the localization-arm metric (balanced-accuracy = TPR/TNR) is close to the firing-precision selection criterion, so the SAE handle's near-perfect balacc partly RESTATES why the latent was chosen; the non-tautological content is generalization to the disjoint eval fold.
+
+              - INTEGRITY-LOCK EVAL [art_A8o1h4sWckjw], 47/49 cross-checks. Locks selectivity-AS-LOCALIZATION (the 16k selectivity denominator is the disowned DENSE-WHOLE-ABL strawman, footprint=1.0 on all 6; against the genuinely-fair conditional control the surgical advantage DISAPPEARS: fair collateral 2.79e-6 < KG 5.07e-5, FAIR-minus-KG CI excl 0; adv_KG_vs_FAIR ~ -0.05 CI incl 0; adv_KG_vs_SUB +0.97). Documented findings (recompute authoritative): distinct holes = 24 (NOT the carried 22; 6 of 30 survivors carry a 2nd variant); the 65k corrected MEAN is floor-recipe-dependent (721.7x vs robust 828.5x) but the MEDIAN 676.3x reproduces exactly -- paper must use ~676/722x, NEVER the 466997x divide-by-eps artifact. Carries 30 FDR survivors, member-labeling gap 0.634 [0.545,0.724], cross-dict 65k FULL/layer-9 PARTIAL (55/154 65k survivors), numeric digit-cos 0.876 below-gate, safety 2/44 homograph, named-entity 3/5, professions 0/28, router DEMOTED, model-diffing +0.000.
+
+              - POSITIONING [art_lkJ2wWVGDovC]: localization reposition committed; both label-efficiency forks pre-written; confinement-screen 'so what' grounded in the SAE-reliability/auditing literature (Chanin reliability cites, Minegishi polysemy, Ahsan-Wallace co-firing corroboration); citation table locked.
+
+              WHAT THE ITER-9 REVIEW EXPOSED -- TWO MAJORS THAT STILL GATE PUBLICATION, PLUS FOUR MINORS. Blunt summary: the iter-9 attempt to recover a DEMONSTRATED SAE-specific positive (the label-scarce where-to-gate) FAILED VERIFICATION (circular: full-label-discovered handle vs n-label dense), and SIGNIFICANCE remains the DOMINANT ceiling -- a confinement screen whose primary output is "the failure mode is largely absent here" is reassurance, not a capability others build on.
+                (R1, EVIDENCE -- #1 evidence blocker) THE WHERE-TO-GATE 'WIN' DOES NOT DEMONSTRATE A NET LABEL SAVING. The SAE handle reused absorber IDs discovered with FULL labels + oracle; the saving is not netted against discovery cost; absorbers are sub-context-specific so amortization is only over repeated deployments of the SAME sub-context, never exercised. => ITER-10 MUST EITHER (1) DEMONSTRATE GENUINE TRANSFER (discover the id ONCE, apply the FIXED id with ZERO new labels to a DIFFERENT deployment of the SAME sub-context and beat an n-label dense gate fit fresh there) OR (2) EXPLICITLY NET OUT the discovery-time label cost and reframe as 'amortizable over K>=K* redeployments, break-even at K*', REPORTING K*. Also report the n=5 dense point (within ~0.03 balacc) as the honest practical comparison and note the n=1 collapse is partly a gate-construction artifact.
+                (R2, SCOPE/SIGNIFICANCE -- #1 overall blocker) THE REPOSITION + SCREEN DO NOT BY THEMSELVES CREATE A CAPABILITY OTHERS WOULD BUILD ON. All three goal-named downstream tasks are nulls; clustering is inert; the phenomenon is confined to 6/110 eligible tokens and explicitly NOT the safety attributes the goal targets. => ITER-10 MUST RAISE SIGNIFICANCE BY DEMONSTRATING AVERTED COST: construct a concrete auditing scenario where absorption SILENTLY breaks a downstream artifact (a parent-latent/marginal-attribution classifier or a steer on an absorbed sub-context), show STANDARD PRACTICE does not flag it, the SHIPPED SCREEN catches it, and adding the named absorber REPAIRS the failure with a MEASURED benefit; PAIR with a PUBLISHED label-free-derivable absorber CATALOG over a public SAE suite so screen+catalog form a reusable resource.
+                (R3, RIGOR -- minor) The 'four strictly stronger controls' count is inflated; 2 are vacuous-by-construction (parent cannot recover its own hole). => Reframe as 'beats the two label-free selectors S-mag and S-rec at FDR<=0.05 on 16/24 holes; the parent-argmax controls confirm they cannot recover the parent's own hole (vacuous by construction)'; keep the non-triviality (6/7 numeric) and precision_specific=False front and center.
+                (R4, RIGOR -- minor) The localization metric (balanced-accuracy) is close to the firing-precision selection criterion (mild circularity). => State the coincidence explicitly, lean on held-out generalization, and ADD a SELECTION-INDEPENDENT localization metric (next-token behavioral KL targeting the sub-context vs siblings -- a metric the latent was NOT chosen to optimize).
+                (R5, PRESENTATION -- minor) The BODY still reads as a rebuttal log ('the prior version conceded...', 'a reviewer rightly noted...', 'Honest ceiling' framed against prior versions). => Present corrected results AS results in the body; move EVERY 'prior version / a reviewer noted' reference into the appendix changelog; open the where-to-gate section directly with the experiment and its result.
+                (R6, EVIDENCE -- minor) The Amazon edit caveat (adv_joint stays +0.52 at full labels, attributed to instrument disagreement, while the fork is decided on adv_pres) reads as metric-shopping unless substantiated. => Diagnose the disagreement directly: show at the matched behavioral-forget point that LLM-judged forget for KG and dense are equal on held-out probes (or quantify the residual judge-measured forget gap and argue it is below a materiality threshold); if it cannot be cleanly isolated, REPORT BOTH metrics and SOFTEN 'demonstrated' for the Amazon edit arm.
+
+              THE ITERATION-10 MANDATE (the AVERTED-COST capability and the GENUINE-TRANSFER/break-even fix are the two make-or-break new pieces; the minors are cleanup; if BOTH new pieces fail, the paper stands as a localization + confinement-screen + absorber-catalog BOUNDARY/TOOL paper, itself publishable).
+                (M1''''' = NEW LOAD-BEARING #1 -- AVERTED-COST CAPABILITY, R2, the new dominant-blocker fix). Build a concrete, end-to-end AUDITING SCENARIO: pick an absorbed sub-context (e.g. Georgia / a named-entity homograph Amazon-Bush-Cook / a first-letter absorbed word). Stand up a downstream artifact a practitioner WOULD actually use -- a parent-latent (or SCR/TPP marginal-attribution top-N SAE) classifier or steering handle for the concept -- and SHOW (a) because of absorption the parent has a recall hole on the absorbed sub-context, the artifact SILENTLY FAILS there (measured: classifier accuracy / steering-success drop on the absorbed slice); (b) STANDARD PRACTICE (raw parent latent / marginal-attribution selection / a contested SAEBench-style proxy) does NOT flag the silent failure; (c) the SHIPPED LABEL-FREE SCREEN DOES flag the recall hole and NAMES the absorber; (d) adding the named absorber REPAIRS the downstream failure with a bootstrap-CI measured benefit vs the practitioner's unrepaired baseline. PAIR with a PUBLISHED label-free absorber CATALOG mined over a public SAE suite (Gemma Scope widths/layers; optionally Neuronpedia): a reusable (concept, sub-context, parent latent, absorber latent, oracle-corroboration) table = the feature-level knowledge graph as a concrete deliverable, squarely in the goal's knowledge-graph/knowledge-extraction/applied-knowledge-discovery scope. This converts 'absorption is confined' from a boundary statement into an actionable reliability tool with measurable averted cost and a clear 'why build on it'.
+                (M2''''' = NEW LOAD-BEARING #2 -- GENUINE NET-SAVING or DROP, R1). EITHER (1) TRANSFER: discover the absorber id ONCE (build phase, any labels), then APPLY THE FIXED id with ZERO new labels to a DIFFERENT deployment of the SAME sub-context -- a held-out distribution / corpus split / carrier-template shift / (if a paired SAE exists) a model variant -- and show the firing gate STILL beats an n-label dense gate fit fresh on the new deployment (realizing the amortization iter-9 never exercised). OR (2) NET-OUT + BREAK-EVEN: account for the discovery-time label cost and reframe as 'amortizable over K>=K* redeployments of the same sub-context, break-even at K*', REPORTING K*. In BOTH cases report the n=5 dense point as the honest practical comparison and flag the n=1 collapse as partly a gate-construction artifact. ADD a SELECTION-INDEPENDENT localization metric (behavioral next-token KL targeting) and lean on held-out generalization. FORK: genuine zero-label cross-deployment transfer beating n-label dense (or a small reported K*) => REAL demonstrated where-to-gate value; neither => DROP the where-to-gate thesis and stand fully on M1''''' + localization.
+                (M3''''' = RE-CONTROL THE SPINE, R3+R4). Reframe to 'beats S-mag and S-rec (the two informative label-free selectors) at FDR<=0.05 on 16/24 holes'; report parent-argmax controls only as vacuous-by-construction confirmations; keep non-triviality (6/7 numeric, precision_specific=False) and the downstream-capability NULL_TEMPER; add the selection-independent behavioral-KL localization metric.
+                (M4''''' = SUBSTANTIATE THE AMAZON CAVEAT, R6). Diagnose the adv_joint-vs-adv_pres instrument disagreement directly; else report both metrics and soften 'demonstrated' for the Amazon edit arm.
+                (M5''''' = PRESENTATION, R5). Corrected results AS results in the body; rebuttal scaffolding to the appendix changelog; open each section with its result.
+                (M6''''' = CARRIED INTEGRITY). Carry the settled spine [24 distinct holes (source-authoritative, supersedes 22) / 30 FDR survivors; 16k selectivity mean 1452x median 1262x; 65k median ~676x (NEVER 466997x, NEVER the floor-recipe-dependent mean); cross-dict 65k FULL / layer-9 PARTIAL] [art_sxwT7hK6YFEA, art_A8o1h4sWckjw, art_4L1MZxvWYlGd]; the settled safety null (2/44 homograph; named-entity 3/5) [art_yAQgbq5Wgymx, art_ZxVw0e4seBq3, art_NIxb2uUvT-ze]; router DEMOTED [art_F_-HUhl0NR_i]; clustering INERT (0/8) and all three goal-named downstream tasks NULL; numeric below editing gate; member-labeling 0.730 vs 0.096. Strip iteration/rebuttal scaffolding.
+
+              RE-DESIGNATED HEADLINE (localization + the averted-cost screen/catalog FIRST; the where-to-gate edit advantage is REAL only vs an UNCONDITIONAL dense projection, NOT vs a fair conditional control, and its label-free NET SAVING is contingent on iter-10 transfer). On a FROZEN public SAE, anchored recall-hole-guided PRECISION SELECTION is a TRAINING-FREE, LABEL-FREE DISCOVERY PROCEDURE that surfaces the single PRECISE sub-context latent a marginal-attribution ranking silently drops -- in the absorption regime this IS the absorber -- plus a feature-level KNOWLEDGE GRAPH whose edges carry MEASURED, localized recall recovery (a KG-named absorber added to a suppressed parent recovers its recall hole over the two INFORMATIVE label-free selectors S-mag/S-rec; 16/24 holes survive FDR; the win is COVERAGE not precision-magic; replicates on a 4x-wider SAE with MORE absorption). The value is auditable per-sub-context LOCALIZATION, NOT classification or downstream recall (a dense probe out-recalls the repaired unit on 4/5 concepts; no SAE unit out-classifies a dense probe on any task). The CLUSTERING hypothesis was tested and did NOT pay off: multi-member grouping is INERT vs a max-precision selector (0/8 edit cases), adds collateral, and ties weak baselines. Gating is ESTABLISHED PRIOR ART (CAST/GSS/GUARD-IT/SADI, all SUPERVISED), so the only SAE-specific value left is whether the LABEL-FREE DISCOVERY of WHERE to gate SAVES the labeling cost over repeated redeployments -- the iter-9 'demonstration' was CIRCULAR (full-label-discovered handle vs n-label dense), so iter-10 must prove GENUINE cross-deployment transfer / a small break-even K* or DROP the thesis. SAFETY-relevant absorption is HOMOGRAPH-CONFINED (2/44, both homographs; 6/110 eligible polysemous tokens overall; religion/ethnicity/months never structured) -- the SETTLED ceiling and deliberate boundary. The DURABLE, BUILD-ON VALUE iteration 10 must establish: an AVERTED-COST reliability TOOL (the screen catches a silent absorption-induced downstream failure standard practice misses, and the named absorber repairs it) + a published label-free absorber CATALOG over a public SAE suite.
+
+              PRIMARY ENDPOINT (re-designated; the averted-cost capability and the genuine-transfer/break-even are the NEW load-bearing positives).
+                (a) AVERTED-COST CAPABILITY + ABSORBER CATALOG (NEW LOAD-BEARING #1, M1'''''): a worked auditing scenario where absorption silently breaks a downstream artifact, standard practice misses it, the shipped screen catches it, and the named absorber repairs it with a measured benefit; + a published label-free absorber catalog over a public SAE suite. THE answer to 'why build on it'.
+                (b) GENUINE WHERE-TO-GATE NET-SAVING (NEW LOAD-BEARING #2, M2'''''): cross-deployment zero-label transfer of a FIXED absorber id beating an n-label dense gate, OR a netted break-even K* with a small K*, + a selection-independent localization metric. FORK: real saving vs DROP the thesis.
+                (c) AUDITABILITY/LOCALIZATION SPINE (ACHIEVED, re-controlled): KG-named absorber beats S-mag/S-rec on 16/24 holes at FDR (parent-argmax controls = vacuous-by-construction confirmations); coverage not precision-magic; downstream-capability NULL -> tempered to localization-not-utility; selectivity presented strictly as localization (denominator is the disowned whole-parent strawman; fair gate is cleaner); member-labeling 0.730 vs 0.096; cross-dictionary 65k full / layer-9 partial [art_mHCB4FyqyMXL, art_sxwT7hK6YFEA, art_A8o1h4sWckjw, art_4L1MZxvWYlGd].
+                (d) CONFINEMENT COVERAGE + SCREEN (ACHIEVED): 6/110 = 5.5% strict (Wilson [0.025,0.114]); homograph/named-entity-confined; demographic never; shipped screen.py; oracle corroborates 27/31 [art_NIxb2uUvT-ze]. To be ELEVATED from reassurance to capability via (a).
+                (e) SAFETY SCOPE (SETTLED NULL): homograph-confined (2/44; named-entity 3/5) [art_yAQgbq5Wgymx, art_ZxVw0e4seBq3].
+                (f) ROUTER: recall-hole-alone reproduces on derivation (bal-acc 1.0) but is OUT-OF-SAMPLE-UNVALIDATED (prospective Wilson includes 0.5) -- DEMOTED to exploratory diagnostic [art_F_-HUhl0NR_i].
+              SUPPORTING (strengthen, do not gate): within-SAE precision selection where the signature holds (Georgia, I, D); the steering demo (L,D); the homograph/coverage breadth count. The headline NO LONGER depends on classification beating dense, on multi-member grouping, on the router being validated, on a safety win, on the edit beating a fair conditional dense control, OR on the iter-9 label-scarce 'saving' as stated.
+
+              THE DISCOVERY ALGORITHM (framed as LABEL-FREE SINGLE-SPECIALIST LOCALIZATION; clustering DEMOTED to a tested-and-negative secondary). STEP 1 cover-based eligibility (content-responsive above a shuffle null; firing-precision>=0.7; covers>=1 sub-context). STEP 2 ANCHOR = argmax cover-set chosen WITHOUT the diagnostic, with the UNSUPERVISED FIRING-FLOOR PARENT-VALIDATION (anchor must fire on held-out corpus above ~5%). STEP 3 HOLE = parent's uncovered pairs (names the under-served sub-context, label-free). STEP 4 PRECISION-SELECT the single absorber covering the hole (held-out per-sub-context precision>=0.7, firing-Jaccard<0.1, marginal-gain>=0.05 CI excl 0; Georgia selects 16009 prec .955 not 4697 prec .335). NOTE the localization-arm metric (balanced-accuracy) is CLOSE to this selection criterion -- report the coincidence and add a selection-INDEPENDENT behavioral-KL metric. Set-cover/(1-1/e) is MOTIVATION only (effectively k=1 for every win; INERT vs max-precision for the edit). C-TRACK correlation-community splitting + multi-member units: TESTED AND NEGATIVE -> reported as the clustering-hypothesis null, NOT a contribution.
+
+              BASELINE GLOSSARY. LOCALIZATION/REPAIR controls (decisive): S-mag (argmax mean content-response magnitude) and S-rec (argmax content-flip recall) = the TWO INFORMATIVE label-free selectors the KG must beat; dense-probe decoder-projection argmax (JTT-reweighted + diff-of-means) = VACUOUS-BY-CONSTRUCTION (resolve to the parent, which cannot recover its own hole) -- reported as confirmations only. EDIT comparators: KG-ABL (discovered absorber, sparse-firing-gated, ZERO sub-context labels at deploy); DENSE-SUB-ABL (strongest UNGATED dense, the LEAD reference, NOT the fair control); DENSE-SUB-ABL-GATED-FAIR (precise logistic d_sub gate, bounded beta<=1 -- the load-bearing fair control that CLOSED the gap and is studied vs label budget); DENSE-SUB-ABL-GATED footprint-gated (iter-7, DEMOTED, beta~3 over-erasure, robustness caveat only); MAX-PRECISION single latent (ablation: discovery is INERT for the edit win); DENSE-WHOLE-ABL (whole-parent over-shoot reference = the disowned selectivity-denominator strawman). For M1''''' averted-cost: the practitioner's parent-latent / SCR-TPP marginal-attribution selection / contested SAEBench-style proxy are the 'standard practice' the screen must beat at catching the silent failure. Classification baselines (a)-(k) carried as supporting/within-SAE.
+
+              NON-SPELLING / HOMOGRAPH TESTBED. Absorption recurs on HOMOGRAPH/POLYSEMOUS tokens whose general parent is suppressed -- taxonomic Georgia/Jordan; United States CO-FIRING; 0/28 professions; of 64 homograph entities only 3 months (and months NO_HOLE in the iter-9 screen); of 5 named-entity homographs 3 structured (Amazon/Bush/Cook); of 44 safety groups only 2 homographs (white, straight). A structured absorber is an EDITABLE handle only if its targeted sense is LEXICALLY CONCENTRATED (spelling 'large', entity 'Amazon' forget; DISTRIBUTED country senses Georgia/Jordan and even structured Bush/Cook do NOT). A non-SAE dense probe matches/beats the unit on ALL classification.
+
+              SCOPE AND VALUE PROPOSITION. The defensible contribution is: (1) a TRAINING-FREE, LABEL-FREE single-specialist LOCALIZATION procedure surfacing the precise absorber marginal attribution drops, with a MEASURED auditable feature-KG (recall recovery over S-mag/S-rec, coverage not precision-magic; localization-not-utility), REPLICATING across SAE dictionaries; (2) a LEXICAL-POLYSEMY CONFINEMENT finding + a label-free SCREEN; (3, NEW, the build-on capability) an AVERTED-COST reliability tool + a published absorber catalog turning the screen into a measurable benefit; (4, contingent) a label-free WHERE-TO-GATE discovery whose net saving iteration 10 must demonstrate via genuine cross-deployment transfer / break-even K* or DROP. The method does NOT out-classify a strong dense probe, does NOT beat a fair conditional dense control on the edit, the clustering machinery is INERT, and the iter-9 label-scarce 'saving' was circular.
+
+              HONEST NEGATIVES (each publishable): the genuinely-fair bounded-beta d_sub-gated dense control CLOSES the edit gap on every case (0/8 KG-beats-both) and is cleaner on collateral (NO SAE-specific edit advantage); the iter-9 label-scarce where-to-gate 'demonstration' is CIRCULAR (full-label-discovered fixed absorber id vs from-scratch n-label dense; net saving unproven; n=5 dense already within 0.03 balacc; n=1 collapse partly a gate-construction artifact; amortization-across-same-sub-context-reuse never exercised); the localization-arm balanced-accuracy partly RESTATES the selection criterion; 2 of the 4 repair controls are VACUOUS-BY-CONSTRUCTION; the downstream-capability test is a NULL (dense probe out-recalls the repaired unit on 4/5); the concentrated positive base does NOT broaden (0 independent wins); the set-cover discovery is INERT vs max-precision (0/8); the clustering/multi-member hypothesis did NOT pay off; the edit-win predictor is CONCENTRATION not absorption (insult co-fires yet forgets; Georgia/Jordan absorb yet lose); iter-6's Georgia +0.561 RETRACTED as near-NOOP; the +1.58-vs-gated headline was inflated; the meaningful-forget proof was thin (n=4 probes, instruments disagree); the Amazon adv_joint does not converge at full labels (instrument-disagreement; risk of metric-shopping if unsubstantiated); gating is established prior art; no SAE unit out-classifies a dense probe; all three goal-named downstream tasks (classification, steering, model-diffing) are NULLS; safety absorption is homograph-confined (2/44; 6/110); 0/28 professions; the router is at chance out-of-sample; cross-dictionary replicates at 4x width but only PARTIALLY across a layer; the 65k 466997x selectivity was a divide-by-epsilon artifact and the corrected mean is floor-recipe-dependent (use median ~676x); numeric is below-gate. A clean iter-10 result where neither genuine transfer nor a small break-even K* holds = 'there is no realized SAE-specific where-to-gate saving' and the paper becomes a localization + confinement-screen + absorber-catalog boundary/tool paper -- itself publishable IF the averted-cost capability lands.
+
+              MOTIVATION (substance unchanged). Single SAE latents are unreliable units: absorption (Chanin 2409.14507), splitting, hedging (2505.11756), 'SAEs Do Not Find Canonical Units' (ICLR 2025) converge on no single latent reliably tracking a concept; AxBench (ICML 2025) and DeepMind's negative report show diff-of-means beats raw-latent SAE methods, and Farrell (2410.19278) shows multi-feature SAE unlearning has side-effects >= RMU -- so any SAE method must clear strong dense baselines AND, for the edit, BOTH the strongest ungated dense AND a fair CONDITIONAL gated dense direction (which it does NOT). Absorption is the regime where OBSERVATIONAL signals break by construction and MARGINAL-ATTRIBUTION selection silently drops the absorber; anchored recall-hole-guided precision selection recovers it LABEL-FREE -- the durable localization deliverable. The contested reliability of the field's own SAE proxies (Chanin 'Are SAE Benchmarks Reliable?') is exactly why a TASK-GROUNDED, label-free, oracle-validated screen + catalog is a transferable reliability instrument. The method positions against 'use SAEs to DISCOVER, not to ACT' (Peng 2506.23845): CCRG discovers the sub-context handle and the silent-failure it causes; ACTING through it is no better than a fair labeled dense gate; whether DISCOVERING it label-free SAVES cost over redeployments, and whether the discovery AVERTS a downstream failure standard practice misses, are the load-bearing open questions iteration 10 must answer.
+
+              SUCCESS CRITERIA. CONTRIBUTION CONFIRMED iff: (LOAD-BEARING) (M1''''') the averted-cost scenario shows absorption silently breaks a downstream artifact, the screen catches it where standard practice does not, and the named absorber repairs it with a CI-measured benefit, + a published label-free absorber catalog over a public SAE suite; AND (M2''''') EITHER genuine zero-label cross-deployment transfer of a FIXED absorber id beats an n-label dense gate OR a netted break-even K* is reported with a small K*, under a selection-independent localization metric; AND the re-controlled localization spine holds (KG beats S-mag/S-rec on 16/24 at FDR, coverage-not-precision, downstream-null-tempered, cross-dict 65k full / layer-9 partial); AND the coverage/screen + safety null + clustering-inert null are reported as deliberate findings. SUPPORTING (strengthen, do not gate): within-SAE precision selection (Georgia, I, D); member-labeling above null; the steering demo (L,D); the coverage breadth count. HONEST NEGATIVES are reportable and cap-but-do-not-sink: neither transfer nor a small K* holds (=> where-to-gate dropped; paper is localization + screen + catalog), the edit not beating a fair conditional control, near-NOOP forget for distributed senses, safety absorption absent, router-at-chance, layer-conditional replication, clustering inert, no classification win over dense.
+motivation: |-
+  Single SAE latents are unreliable units of analysis. Feature absorption (a specific child latent suppresses a more general parent's firing, leaving the parent with unpredictable holes; Chanin 2409.14507 [NeurIPS 2025], 2505.11756), feature splitting (one concept fragments across many latents), feature hedging (a narrow SAE merges correlated features into one polysemantic latent), and 'SAEs Do Not Find Canonical Units of Analysis' (ICLR 2025, 2502.04878) converge on one conclusion: no single latent reliably tracks a concept. AxBench (ICML 2025 spotlight, 2501.17148) and DeepMind's negative-results report make the stakes concrete -- plain difference-of-means beats raw-latent SAE methods -- so any SAE-grouping method must clear strong simple baselines.
+
+  WHY THE LOAD-BEARING CLAIM IS C1+C3, AND WHY THE ALGORITHM HAD TO BE SPECIFIED. The single most defensible deliverable is absorber recovery (C3): the co-response unit admits the absorber latents the supervised oracle's top-N marginal-attribution selection (g) and the count-matched pool (h) drop, with KG edges agreeing with the absorption diagnostic. But absorbers are MUTUALLY EXCLUSIVE in firing with their parent and respond on DISJOINT supports, so they have LOW pairwise content-response correlation -- meaning a correlation/affinity-merging clustering can never even PROPOSE the right group, and an admission rule that only FILTERS candidates cannot rescue a unit the proposal step never generated. This is why the contribution is now a TWO-TRACK algorithm: a correlation-community track for splitting (where support is shared) and a separate ANCHORED GREEDY SET-COVER track for absorption (anchor on the highest-recall parent candidate, greedily add mutually-exclusive latents that cover its holes). Maximum-coverage greedy selection is the natural, classic instrument for 'cover a set with complementary specialists' -- and it is exactly the instrument the absorption regime demands, because coverage-complementarity is a set-level property, not a pairwise affinity. The anchor is chosen WITHOUT the absorption diagnostic (by content-response recall, available to every baseline), so 'the unsupervised unit beats the supervised oracle' is not undercut and the KG-edge validation against the diagnostic is non-circular (the diagnostic scores edges, never forms them).
+
+  The contribution lives squarely in clustering / feature-selection / classification for a learned knowledge representation (SAE features): cluster-level units plus a feature-level knowledge graph, evaluated on downstream classification (headline) with steering and model-diffing as generality demonstrations. Every existing POST-HOC grouping method relies on OBSERVATIONAL signals -- which latents fire together (co-activation feature families) or which decoders point alike (geometry). But absorption is exactly the regime where observational signals break BY CONSTRUCTION: the parent and absorbing child are mutually exclusive in firing, so co-activation clustering provably cannot group them and their decoders need not be cosine-similar. The standard SUPERVISED remedy -- select top-N latents by causal effect on a concept probe (SCR/TPP, Karvonen 2411.18895, built on Marks SHIFT) -- SILENTLY DROPS absorbed latents, because a latent firing only in a narrow sub-context has low MARGINAL attribution even though it carries the concept there.
+
+  ABSORPTION BEYOND SPELLING IS UNDER-TESTED -- AND THAT IS AN OPPORTUNITY. The literature documents absorption empirically almost entirely on first-letter spelling; the sparsity-plus-hierarchy MECHANISM, however, predicts absorption in any token-level hierarchy (numeric formats, taxonomic entities). Promoting one non-spelling hierarchy into the load-bearing core therefore does double duty: it moves C3 from 'one synthetic spelling task' to 'absorption as a phenomenon', and it is itself a novel empirical test of whether absorption generalizes -- with the form-free probe-plus-ablation diagnostic (domain-agnostic) as oracle and an explicit honest-null fallback (absorption is spelling-specific -> scope C3, route generality through C1) if the non-spelling parent has no specialist-filled holes.
+
+  RECENT ARCHITECTURAL REMEDIES ARE ORTHOGONAL (and confirm the gap). Subspace-Aware SAEs (SASA, 2606.06333), Matryoshka SAEs, Concept-Bottleneck SAEs (CVPR 2026), AbsTopK and Group SAEs all RETRAIN the SAE to reduce splitting/absorption at training time. We do the opposite: a TRAINING-FREE, POST-HOC repair of FROZEN public SAEs (Gemma Scope), exactly as the goal requires. No retraining method produces a human-auditable multi-member unit over an existing public SAE, which is what practitioners actually have.
+
+  TWO cross-field transfers motivate the method. (1) Systems biology faced the identical grouping obstacle: co-regulated genes are often NOT co-expressed at baseline and reveal shared regulation only under perturbation, which is why differential co-expression methods (DiffCoEx, WGCNA) cluster genes by CORRELATED RESPONSE TO A PERTURBATION rather than baseline co-expression -- the root of our C-track (genes->latents, perturbation->content counterfactual). (2) Combinatorial optimization supplies the absorption-regime instrument: the disjoint-support 'cover the concept with complementary specialists' problem is a MAXIMUM-COVERAGE / SET-COVER problem, whose greedy (1-1/e) solution is the natural proposer for K-units -- a Level-3 methodological import never applied to SAE-latent grouping. Distributionally-robust learning (group-DRO; Mind-the-GAP 2403.09869) explains WHY the recovered unit generalizes: an absorber is a dedicated detector for one sub-context, so a complementary-coverage unit is implicitly a GROUP-OF-SPECIALISTS robust to mixing-weight shift where a single ERM hyperplane collapses -- but the SAME mechanism predicts a count-matched marginal-attribution pool is also robust, so beating one hyperplane is pooling; isolating CO-RESPONSE SELECTION means beating the count-matched pool that drops the very absorber the under-served sub-context needs.
+
+  The insight an interpretability expert would not reach for: SAE absorption/splitting are structurally the same obstacle that (a) defeats baseline co-expression in biology and (b) makes ERM probes brittle under subpopulation shift -- so observational co-activation/geometry AND marginal-attribution selection are the wrong instruments; interventional co-response is the matched instrument, correlation is the right grouping operator only for the shared-support splitting case, and maximum-coverage set-cover is the right operator for the disjoint-support absorption case. If correct, this turns off-the-shelf public SAEs into reliable, auditable concept units with a measurable recall recovery on absorbed sub-contexts -- across spelling AND at least one semantic hierarchy. If incorrect, the honest negatives are actionable: the K-proposal step fails at the pilot (set-cover cannot surface the right group); observational co-response equals interventional co-response (no gain from intervention); the unit ties (g)/(h) (robustness is pooling; contribution reduces to absorber-recovery + measured auditability); absorption is spelling-specific (scope C3); or SAE units should be abandoned for dense surface-invariant probes.
+assumptions:
+- >-
+  THE TWO-TRACK CLUSTERING ALGORITHM CAN PROPOSE THE RIGHT UNITS AT PROPOSAL TIME, NOT JUST FILTER THEM. Splitting families
+  (shared support, positive co-response correlation) are proposable by C-track correlation-community detection; absorption
+  units (disjoint support, mutually exclusive firing) are proposable ONLY by the K-track anchored greedy max-coverage, because
+  their members have low pairwise correlation. The K-anchor is selected by content-response RECALL using only the counterfactual
+  pairs every baseline shares -- NOT by the Chanin absorption diagnostic -- so 'unsupervised unit beats supervised oracle'
+  holds and KG-edge validation against that diagnostic is non-circular. We pre-register a Tier-0 PILOT proving the K-proposal
+  recovers the worked 'starts-with-L' parent+absorbers (membership precision/recall vs the diagnostic, above a random-membership
+  null) BEFORE C3 relies on it; if the proposal step fails there, the K-track is reported as failing at proposal time.
+- >-
+  MINIMAL PAIRS ARE OBTAINABLE AT HIGH QUALITY, LOW COST, AND NON-CIRCULARLY, FOR BOTH ABSORPTION HIERARCHIES AND THE SPLITTING
+  FAMILIES. Content-flips use HUMAN-WRITTEN parallel corpora where available (ParaDetox toxic<->neutral; Kaushik 2020 CAD-IMDB
+  sentiment; CEBaB human aspect edits) and templated/LLM-generated pairs (OpenRouter, well under $10, LLM-judge-scored for
+  content-flipped + surface-preserved with reported pass rates) for first-letter substitutions and the non-spelling hierarchy
+  (numeric-quantity formats or taxonomic entities). Any activation-space content edit, if used, is derived from an INDEPENDENT
+  held-out diff-of-means on DISJOINT data, never from the SAE latents being grouped, so there is no circularity.
+- >-
+  THE C3 SPINE IS DEMONSTRATED ON ABSORPTION AS A PHENOMENON (TWO HIERARCHIES), NOT ONE SYNTHETIC TASK, WITH A HONEST-NULL
+  FALLBACK. First-letter spelling is the documented, guaranteed-signal regime; one NON-SPELLING hierarchy (numeric-quantity
+  formats primary, taxonomic 'is-a-country' alternative) is promoted into the NEVER-DROPPED Tier-1a core, scored by the FORM-FREE
+  probe-plus-ablation absorption diagnostic. A NON-TRIVIALITY pre-check tests whether the non-spelling parent latent actually
+  has specialist-filled holes; if it does not, we report that absorption is spelling-specific, scope the C3 title claim to
+  spelling-type hierarchical absorption, and route cross-concept generality through C1 (toxicity/sentiment/aspect) -- the
+  load-bearing core is unaffected either way.
+- >-
+  THE WIN, IF IT OCCURS, IS ATTRIBUTABLE TO CO-RESPONSE SELECTION AT MATCHED POOL SIZE -- NOT TO SUPERVISION, CAPACITY, OR
+  MERE POOLING. C1 count-matches observational clusters (b)/(c) to the unit's exact member count (so beating them is not a
+  capacity artifact; beating the single best latent (a) is a near-foregone capacity win reported only for completeness). (f)
+  is information-matched via LEACE; (g) controls label selection; (h) max-pools EXACTLY #members SCR/TPP-selected raw directions,
+  holding pool SIZE fixed so the ONLY varying factor is the membership/SELECTION criterion (co-response coverage vs marginal
+  attribution). The pre-registered ORDERING (f) < (g)/(h) < unit on worst-sub-context recall isolates selection; beating (f)
+  is conceded as pooling; beating (g)/(h) is the signal and equals C3 absorber-recovery.
+- >-
+  AUDITABILITY IS MEASURED, AND THE RUN FITS A SINGLE GPU WITHIN BUDGET. Off-the-shelf Gemma Scope SAEs on Gemma-2-2b expose
+  latent counterfactual responses above noise on a single GPU for a few thousand minimal pairs per concept; chosen attributes
+  have enough labeled/templatable data; paired base (pt) and instruction-tuned (it) Gemma Scope SAEs are available for model-diffing.
+  The auditability claim is operationalized as a MEASURED repair loop (KG-guided absorber addition -> recall recovery on a
+  targeted sub-context vs a random-addition control, with bootstrap CI) plus an LLM-judge member-labeling agreement metric
+  against a shuffled-label null. Absorption is more severe at WIDER SAEs and splitting at larger width, so width/layer is
+  a robustness axis (16k canonical primary; 65k drop-first). The load-bearing core fits the hard per-tier GPU-hour budgets
+  below.
+investigation_approach: |-
+  DEPTH-FIRST EXECUTION ORDER WITH HARD PER-TIER BUDGETS AND A PRE-REGISTERED DROP ORDER. Single GPU; executor wall-clock ~6 h. The run is triaged so a clean LOAD-BEARING CORE is always produced.
+
+  TIER 0 -- DE-RISKING PILOT INCLUDING THE PROPOSAL-STEP CHECK (<= 1.0 GPU-h, NEVER dropped). (ARM A, absorption, first-letter) build content-flip pairs; run the K-track STEP-3 set-cover given ONLY the pairs and verify the proposed anchor+absorbers MATCH the Chanin 2409.14507 diagnostic's parent+absorbers (membership precision/recall above a random-membership null) -- this proves the algorithm can PROPOSE K-units before C3 relies on it; also measure complementary coverage (pooled max tracks the flip where members have holes) vs the shuffled-pair null. (ARM B, splitting, toxicity) on ParaDetox/civil_comments measure how many latents carry toxicity, whether content-response profiles are positively correlated above null, and whether the C-track community + pooled unit beats the single best latent and the matched diff-of-means on a held-out IID slice. (ARM C, NON-SPELLING absorption non-triviality) on the chosen numeric/taxonomic hierarchy, test whether a high-recall parent latent exists AND has specialist-filled holes; a clean absence is reported as 'absorption is spelling-specific'. Proceed with a regime as headline only if its pilot clears the null.
+
+  TIER 1a -- LOAD-BEARING CORE (<= 2.75 GPU-h, NEVER dropped). (1) C1: the co-response unit beats the best raw latent (a) AND COUNT-MATCHED observational co-activation/geometry clusters (b)/(c) on classification, on first-letter (absorption) AND the best-powered toxicity family; the matched (b)/(c) comparison is foregrounded as load-bearing. (2) C3 (the spine): on first-letter AND the non-spelling hierarchy, recovered-absorber count vs the oracle pool (g) and count-matched pool (h); sliced recall on the differing sub-contexts; KG specialization-edge agreement with the (form-free) absorption diagnostic. (3) the SELECTION-CRITERION ordering (f) < (g)/(h) < unit on worst-sub-context recall on the best-powered toxicity family, with the PAIRED-bootstrap per-pair gap and its slope-vs-reweighting as the primary inferential object. (4) the degenerate-construction guard and non-triviality check on (f). HARD CHECKPOINT: if the core has not cleared, STOP expanding and write up the core + honest negatives.
+
+  ALWAYS-RUN MINIMAL GENERALITY + AUDITABILITY DEMOS (<= 0.75 GPU-h, NEVER dropped). (i) ONE null-floored STEERING result (toxicity unit direction vs best single latent vs matched diff-of-means: on-target effect + KL on unrelated prompts, above a shuffle null). (ii) ONE null-floored MODEL-DIFFING result (does the unit detect a base-vs-it concept-usage shift more reliably than the best single latent, above a shuffle null, using paired pt/it Gemma Scope SAEs?). (iii) THE MEASURED AUDITABILITY REPAIR LOOP: pick an under-served sub-context (recall hole on (f)); read the KG to find the absorber member covering it; ADD it; MEASURE recall recovery on that sub-context (bootstrap CI) AGAINST a random-content-responsive-latent-addition control, and confirm (k) exposes no per-sub-context member to add; PLUS an LLM-judge member-labeling agreement metric (predict each member's sub-context from its logit-lens tokens + conditioning contexts) vs a shuffled-label null. All three are stated as GENERALITY/AUDITABILITY DEMONSTRATIONS, not load-bearing.
+
+  TIER 1b -- SUPPORTING (<= 1.5 GPU-h, demotable). Sentiment (CAD-IMDB) family; shift-decomposition conditions (i) surface-only + (ii) reweighting; the label-free group-inference probe (k) and oracle group-DRO probe (j); cluster-stability bootstraps (adjusted Rand / Jaccard vs null); per-family CIs.
+
+  TIER 2 -- STRETCH (only if Tier 1a+1b land with budget left). CEBaB restaurant aspect-sentiment family; ONE DECISIVELY-executed steering case (matched on-target effect, KL on unrelated prompts + fluency, bootstrap CIs, engaging 2505.20063/AxBench); shift condition (iii) natural domain shift; a fuller model-diffing check; the SECOND non-spelling absorption hierarchy (taxonomic if numeric was primary, or vice versa).
+
+  PRE-REGISTERED DROP ORDER (first dropped first): 4th out-of-domain axis -> CEBaB family -> shift condition (iii) -> oracle/label-free probes (j)/(k) -> sentiment family -> decisive Tier-2 steering (keep the minimal one) -> fuller model-diffing (keep the minimal one) -> second non-spelling hierarchy. NEVER dropped: Tier-0 pilot (incl. proposal-step check + non-triviality), Tier-1a core (incl. the FIRST non-spelling absorption hierarchy), the three minimal generality+auditability demos.
+
+  COUNTERFACTUAL SIGNAL. Encode every text and its counterfactual with a frozen Gemma Scope residual-stream SAE (layer ~12, width 16k canonical). Per latent: content-response = delta(activation) under content-flip; surface-response = delta under surface-flip; aggregate into per-latent response profiles and cover sets across contexts.
+
+  CLUSTERING METHOD (the in-scope contribution, specified above as STEPS 1-5 + pilot). C-TRACK: positive content-response correlation affinity (DiffCoEx-style) -> Leiden communities for splitting. K-TRACK: anchored greedy maximum-coverage over content-response cover sets for absorption (anchor = highest-recall content-responsive latent chosen WITHOUT the absorption diagnostic; greedily add mutually-exclusive, precise latents covering the anchor's holes until marginal coverage gain < 0.05 with CI excluding 0). RECONCILE C-communities and K-covers (anchor each community, augment with absorbers; seed K from standalone high-recall latents) into one de-duplicated output. Finalize each candidate unit with the SINGLE ADMISSION RULE (signature C OR matched-null signature K + small-k effect-size floor + mutual-exclusivity + precision floor, AND unit-level surface invariance); report the cleared signature per concept and the false-admit rate under both nulls. Emit human-auditable unit definitions (member latents, logit-lens tokens, conditioning contexts) and directed specialization edges (a member responsive only in a sub-context = absorbed/split child) = a feature-level knowledge graph.
+
+  WORKED EXAMPLES. Toxicity unit (splitting, C-track): members = {profanity/slur latent, demeaning-insult latent, aggressive-imperative latent}; under ParaDetox detox all three drop together (signature C); pooled max tracks toxicity; pooled surface-response to paraphrase ~ 0. First-letter unit (absorption, K-track): anchor = general 'starts-with-L' latent (silent on 'lion'/'London'); greedy adds 'lion'-absorber then 'London'-absorber (each fires only in its sub-context, Jaccard ~ 0 with the anchor); pooled max covers 'starts-with-L' everywhere (signature K); pooled surface-response ~ 0. Numeric unit (non-spelling absorption, K-track): anchor = general 'numeric token' latent (holes on years/percentages); greedy adds a 4-digit-year absorber and a percentage absorber.
+
+  BASELINES (matched baselines are primary). (a)-(k) as in the glossary; (b)/(c) COUNT-MATCHED to the unit for C1; (h) count-and-pool-matched for the selection-criterion isolation; (j)/(k) for the robustness bounds.
+
+  EVAL -- LOAD-BEARING BACKBONE (reported regardless of dense-probe competitiveness): (1) co-response units have low Jaccard with co-activation/geometry clusters above the stability/shuffled-pair null; (2) units win specifically on the differing members -- sliced RECALL on the sub-contexts where the best latent / count-matched observational clusters / the oracle pool (g) / the count-matched pool (h) have holes, including absorbers (g)/(h) drop, on BOTH absorption hierarchies; (3) KG specialization edges agree with the form-free absorption diagnostic. EVAL -- CLASSIFICATION + SUPPORTING ROBUSTNESS: unit-pooled activation (max/sum over members) as classifier on IID and under the decomposed shifts; report F1/AUC AND worst-sub-context recall; the SELECTION-CRITERION prediction is the ORDERING (f) < (g)/(h) < unit with the unit-minus-(g)/(h) PAIRED gap GROWING in reweighting magnitude (slope CI primary). Robustness BOUNDS: unit approaches (j) without labels and is competitive-or-better than (k) while auditable. EVAL -- MEASURED AUDITABILITY: KG-guided absorber-addition recall recovery vs random-addition control (bootstrap CI); LLM-judge member-labeling agreement vs shuffled-label null. DEGENERATE-CONSTRUCTION GUARD applied throughout. STATISTICS: per-family paired-bootstrap CIs PRIMARY; cross-family aggregate DESCRIPTIVE; a-priori n_min=150 with stratified collection; cluster-stability bootstrap (adjusted Rand / Jaccard) vs shuffled-pair null.
+
+  STEERING (Tier 2, ONE decisive case; minimal version always runs) and MODEL-DIFFING (minimal always runs; fuller Tier 2) as before -- generality demonstrations, not load-bearing, each null-floored.
+
+  HONEST FAILURE-MODE REPORTING. The K-proposal set-cover failing to recover the worked unit at the pilot (proposal-step failure); the non-spelling parent having no specialist-filled holes (absorption spelling-specific -> scope C3); dependence on counterfactual quality (pass rates); concepts with no surface-invariant co-responding/complementary group; regimes where co-response collapses to co-activation (no gain over observational); the unit tying the count-matched pools (g)/(h) on sliced recall (robustness is pooling -> contribution reduces to absorber-recovery + measured auditability); the label-free group-inference probe (k) beating the unit on recall (loss-reweighting wins for pure robustness); the dense surface-invariant probe matching the unit on sliced recall (invariance supervision suffices; grouping adds only auditability); the oracle pool (g) tying the unit (selection not co-response structure); the reweighting test void because (f) does not collapse; the KG-guided repair not beating random-addition (auditability buys no fix); co-response too noisy to cluster (ARI ~ null); compute/SAE-width sensitivity; bias_in_bios boundary-null.
+success_criteria: |-
+  CONFIRMED if, pre-registered in this nesting (LOAD-BEARING CORE first):
+  LOAD-BEARING (the paper stands on these alone, even if every robustness comparison ties and aggregate F1 ties the dense probe): (1) the Tier-0 pilot confirms above-null co-response structure AND the K-track PROPOSAL step recovers the known first-letter parent+absorbers (membership precision/recall above a random-membership null), with the toxicity arm also showing a pooled IID edge over the best single latent and the matched diff-of-means; (2) C1 -- the unit beats the best raw single latent AND COUNT-MATCHED observational co-activation/geometry clusters on classification on first-letter AND the best-powered toxicity family (matched-(b)/(c) per-family bootstrap CI excludes 0); the single-best-latent comparison is reported only for completeness; (3) C3 (the spine) -- on first-letter AND at least one NON-SPELLING absorption hierarchy the unit recovers absorber latents the oracle pool (g) and count-matched pool (h) drop, wins on the differing sub-contexts (paired-bootstrap gap CI excludes 0, sized to n_min=150), and its KG specialization edges agree with the (form-free) absorption diagnostic (2409.14507).
+  SUPPORTING (strengthen the paper; honest nulls here do not sink it): (4) C2 + SELECTION-CRITERION ISOLATION -- the unit matches-or-beats (g) and (h) on classification AND shows the ORDERING (f) < (g)/(h) < unit on worst-sub-context recall, with a POSITIVE unit-minus-(g)/(h) PAIRED gap whose slope-vs-reweighting-magnitude CI excludes 0 (the unit-minus-(f) gap alone is conceded as pooling); (5) ROBUSTNESS BOUNDS -- the unit APPROACHES the oracle group-DRO probe (j) WITHOUT labels and is competitive-or-better than the label-free group-inference probe (k) while uniquely auditable; aggregate F1 vs (f) may tie; (6) MEASURED AUDITABILITY -- the KG-guided absorber-addition repair recovers recall on the targeted under-served sub-context with a bootstrap-CI gain over a random-content-responsive-latent-addition control, (k) cannot localize the fix, and LLM-judge member-labeling agreement exceeds a shuffled-label null; (7) ADMISSION + CONSTRUCTION INTEGRITY -- false-admit rate <= 0.05 under BOTH nulls; cluster assignments stable across bootstrap resamples (adjusted Rand/Jaccard above null); sub-contexts defined from independent labels frozen first, under-served determined on (f) alone, non-triviality check confirms (f) genuinely collapses; per-family CIs PRIMARY, cross-family DESCRIPTIVE.
+  GENERALITY (always produced via the truncation fallback, never load-bearing): one null-floored steering result and one null-floored model-diffing result; the decisive Tier-2 steering case is confirmatory if it lands.
+  HONEST NEGATIVES, each publishable: the K-track proposal step fails to recover the worked unit at the pilot (set-cover cannot surface disjoint-support absorbers); the non-spelling parent has no specialist-filled holes so absorption is spelling-specific (C3 scoped to spelling-type absorption, generality routed through C1); co-response grouping ties observational grouping (no gain from intervention); the unit ties (g)/(h) on sliced recall (robustness is pooling -> contribution reduces to absorber-recovery + measured auditability); (k) beats the unit on recall (loss-reweighting wins for pure robustness, unit still delivers the measured auditable repair); the dense surface-invariant probe matches the unit on sliced recall (grouping then contributes only auditability + the knowledge graph); the oracle pool (g) ties the unit (selection not co-response structure); the gap does NOT concentrate on the reweighting component or (f) does not collapse (supporting mechanism falsified/void, core unaffected); the KG-guided repair does not beat random-addition (auditability buys no measurable fix); co-response too noisy to cluster (ARI ~ null). bias_in_bios is a pre-registered boundary-null, not method failure.
+related_works:
+- >-
+  Maximum-coverage / set-cover and the greedy (1-1/e) algorithm (Nemhauser, Wolsey, Fisher 1978; Feige 1998): the classic
+  combinatorial-optimization instrument for selecting a small set of complementary subsets that jointly cover a universe.
+  We transfer it as the K-TRACK PROPOSER: anchor on a parent latent, then greedily add mutually-exclusive latents whose content-response
+  cover sets fill the anchor's holes. To our knowledge maximum-coverage has never been used to GROUP SAE latents -- and it
+  is exactly the operator the disjoint-support absorption regime needs, where pairwise-affinity clustering provably cannot
+  propose the right group.
+- >-
+  Differential co-expression / perturbation co-response module discovery (DiffCoEx, BMC Bioinformatics 2010; WGCNA): cluster
+  genes by their CORRELATED RESPONSE TO A PERTURBATION rather than baseline co-expression, because co-regulated genes are
+  often not co-expressed at baseline. This is the root of our C-TRACK (correlation-community detection on content-response
+  profiles for the splitting regime); to our knowledge never applied to SAE/LLM features. Our novel claim is that the same
+  baseline-vs-perturbation distinction explains and repairs SAE splitting, AND that the disjoint-support absorption case needs
+  a SEPARATE set-cover operator, not correlation.
+- >-
+  A is for Absorption (Chanin et al., 2409.14507, NeurIPS 2025): a SUPERVISED DIAGNOSTIC -- identify the parent latent by
+  max encoder-cosine with an LR probe, find the absorbing latent by ablation on the relevant logit. It DETECTS absorption
+  on individual latents and demonstrates it empirically almost only on first-letter spelling (running non-spelling example:
+  'short'/'starts-with-S'); it does not GROUP parent+absorbers into a usable unit, nor test absorption in semantic hierarchies.
+  We use the FORM-FREE version (probe + ablation, domain-agnostic) ONLY to SCORE our already-formed unit's KG edges (never
+  to form units, so non-circular), as a partial oracle for the pilot, and we add a novel empirical test of whether absorption
+  generalizes to a non-spelling (numeric/taxonomic) hierarchy.
+- >-
+  Feature Hedging: Correlated Features Break Narrow SAEs (Chanin, Dulka, Garriga-Alonso, 2505.11756): ABSORPTION learns gerrymandered
+  latents (worse at WIDER SAEs, parent->child hierarchy, mutually-exclusive firing) vs HEDGING merges correlated features
+  into a SINGLE polysemantic latent (worse at NARROWER SAEs). We scope grouping to splitting+absorption (a hedged single latent
+  is not groupable) and treat correlation/hierarchy as the mechanistic cause our interventional probe exposes -- correlation
+  for shared-support splitting, set-cover for disjoint-support absorption.
+- >-
+  AxBench (Wu et al., ICML 2025 spotlight, 2501.17148) and Negative Results for SAEs on Downstream Tasks (DeepMind 2025):
+  difference-in-means is the strongest concept-detection method and raw-latent SAEs are not competitive; this sets the dense-probe
+  bar. We deliberately do NOT stake the load-bearing claim on beating it: C3 absorber-recovery is measured against SAE-SELECTION
+  baselines (a)/(g)/(h), and aggregate-F1 parity with the surface-invariant dense probe (f) is pre-registered as acceptable.
+- >-
+  Sparse Autoencoders Do Not Find Canonical Units of Analysis (Bussmann et al., ICLR 2025, 2502.04878): uses SAE stitching
+  and meta-SAEs to argue SAEs do not learn canonical units; its remedy is geometric/training-based. We propose a BEHAVIORAL
+  unit defined by counterfactual co-response (correlation OR set-cover) and unit-level surface invariance, evaluated on downstream
+  classification + steering + model-diffing, with no retraining.
+- >-
+  Subspace-Aware SAEs (SASA, 2606.06333, 2026), Matryoshka SAEs and Concept-Bottleneck SAEs (CVPR 2026), AbsTopK SAE, Group
+  SAEs (negative results): all MODIFY SAE TRAINING -- decoder subspaces, nested dictionaries, concept bottlenecks, hard-thresholding,
+  grouping losses -- to reduce absorption/splitting at training time. Our grouping is POST-HOC over a FROZEN public SAE's
+  discrete latents, defined by interventional co-response, requiring no retraining and yielding an auditable feature-level
+  knowledge graph.
+- >-
+  SHIFT / SCR / TPP SAE evaluation (Marks et al. 2024; Karvonen et al. 2411.18895): SELECT individual SAE latents by ranking
+  causal effect on a concept probe (top-N), then ablate the set; they do NOT cluster latents by interventional co-response.
+  This is exactly our supervised ORACLE-POOL baseline (g) and, count-matched, the pool (h); a latent firing only in a narrow
+  sub-context (an absorber) has low marginal attribution and is silently dropped -- the specific gap our co-response set-cover
+  fills, and the quantity the unit-minus-(g)/(h) sliced-recall gap measures.
+- >-
+  Co-activation feature families and graph-regularized SAEs (Disentangling Dense Embeddings 2408.00657; GSAE; Sparse Feature
+  Coactivation 2506.18141): group SAE features by OBSERVATIONAL co-activation/geometry. By construction these cannot group
+  a concept's absorbed/split latents (mutually exclusive in firing); for C1 we COUNT-MATCH them to the unit's member count
+  so a unit win cannot be a capacity artifact. We use the opposite, INTERVENTIONAL signal and demonstrate the structural blind
+  spot via low-Jaccard + sliced-recall wins.
+- >-
+  JTT (2107.09044), GEORGE / No Subclass Left Behind (2011.12945), EIIL (2010.07249), LfF (2007.02561): the label-free worst-group-robustness
+  family -- infer GROUPS OVER EXAMPLES and RETRAIN with reweighted / group-DRO loss. Our route is orthogonal: we group FEATURES
+  (discrete SAE latents) by interventional co-response, never retrain, and the recovered absorbers ARE the inferred sub-context
+  specialists -- auditable. We add an oracle group-DRO probe (j, true sub-context labels = upper bound) and a label-free group-inference
+  probe (k) as direct robustness baselines for the SUPPORTING result.
+- >-
+  Diverse Prototypical Ensembles (2505.23027): trains an ensemble of N diverse prototypes per class on FROZEN DENSE features
+  with a diversity loss + bagging to capture subpopulation-specific patterns without group labels. The closest 'ensemble-of-specialists
+  for subpopulation shift', but it TRAINS learnable prototype vectors on dense representations; we group pre-existing DISCRETE
+  SAE latents by interventional co-response with no training, yielding auditable concept atoms (not opaque prototypes) and
+  a feature-level knowledge graph.
+- >-
+  Group-DRO and subpopulation-shift robustness (Sagawa et al.; Mind the GAP: Group-Aware Priors, 2403.09869): a single ERM
+  model collapses on under-served minority subgroups under mixing-weight shift; group-aware methods recover worst-group performance.
+  We do NOT propose a new DRO method or theorem; we BORROW this as the a-priori mechanism explaining why a group-of-specialists
+  unit out-generalizes a single hyperplane -- and use the SAME mechanism to predict a count-matched marginal-attribution pool
+  is also robust, which is why selection is isolated against THAT pool, not the hyperplane.
+- >-
+  Discovering Concept Directions from Diffusion-based Counterfactuals via Latent Clustering (CDLC, 2505.07073; Pattern Recognition
+  Letters 2025): clusters latent DIFFERENCE vectors from factual + diffusion-generated counterfactual IMAGE pairs into global
+  class-specific concept DIRECTIONS (vision). Closest 'cluster counterfactual differences' template, but on a different substrate
+  (one continuous direction per class in a diffusion latent space). We cluster DISCRETE SAE dictionary latents on a frozen
+  LLM by their co-response PROFILES into auditable MULTI-MEMBER units, with a SET-COVER track for the absorption regime CDLC
+  has no analogue for.
+- >-
+  LEACE (Belrose et al., 2306.03819) and Counterfactual Invariance to Spurious Correlations (Veitch et al., NeurIPS 2021,
+  2106.00545): perfect linear concept erasure / MMD-based counterfactual-invariance regularizer. We erase the surface-flip
+  direction to build the surface-invariant probe (f) -- a strong, principled non-SAE single hyperplane; beating it is conceded
+  as a pooling effect, with selection isolated against the count-matched pools (g)/(h).
+- >-
+  Counterfactually-Augmented Data (Kaushik, Hovy, Lipton, ICLR 2020), CEBaB (Abraham et al., NeurIPS 2022, 2205.14140), ParaDetox
+  (s-nlp, ACL 2022): human-written counterfactual minimal pairs for sentiment, aspect concepts, and toxicity. We use these
+  for non-circular content-flips and independent sub-context labels for the degenerate-construction guard, not as the grouping
+  method.
+- >-
+  Domain-Filtered Knowledge Graphs from SAE Features (2604.23829): builds an internal knowledge graph from SAE features via
+  contrastive corpus filtering, co-occurrence, decoder geometry -- purely OBSERVATIONAL. Our feature-level knowledge graph
+  is built from INTERVENTIONAL co-response/set-cover grouping, so its edges encode conditioning environments and specialization
+  (absorbed/split children) invisible to observational co-occurrence -- and we MEASURE its utility via the auditability repair
+  loop.
+inspiration: >-
+  A triple cross-field transfer, now with the named algorithm specified track-by-track. The SPLITTING-regime grouping (C-track)
+  is a Level-3 methodological import from systems biology's differential co-expression / perturbation co-response module discovery
+  (DiffCoEx, WGCNA): cluster units by CORRELATED RESPONSE TO A PERTURBATION, not baseline co-expression, because co-regulated
+  genes are frequently not co-expressed until perturbed (genes->SAE latents, perturbation->content counterfactual). The crucial
+  reviewer-prompted addition: correlation cannot group the ABSORPTION regime, because absorbers are mutually exclusive in
+  firing and respond on disjoint supports -- so the K-track imports a SECOND, distinct instrument from combinatorial optimization,
+  the MAXIMUM-COVERAGE / SET-COVER greedy (Nemhauser-Wolsey-Fisher; Feige): anchor on the highest-recall parent latent, then
+  greedily add complementary specialists that cover its holes. The SUPPORTING robustness mechanism is a Level-1/2 import from
+  distributionally-robust learning (group-DRO; Mind-the-GAP 2403.09869) and the label-free worst-group-robustness subfield
+  (JTT, GEORGE, EIIL, LfF, Diverse Prototypical Ensembles): a single ERM hyperplane collapses on under-served minority subgroups
+  under mixing-weight shift, whereas a union of specialists is robust -- and an absorber is precisely a specialist for one
+  latent sub-context; because the SAME mechanism predicts a count-matched marginal-attribution pool is also robust, isolating
+  CO-RESPONSE SELECTION means beating that pool, the SAME quantity as C3 absorber-recovery. These fuse with (i) causal ML's
+  counterfactual invariance (Veitch 2021) and concept-erasure (LEACE, Belrose 2024) for the conceded surface-invariant baseline;
+  (ii) NLP minimal-pair counterfactuals (ParaDetox, Kaushik 2020 CAD, CEBaB aspects) for non-circular perturbations and independent
+  sub-context labels. The unifying insight an interpretability expert would not reach for: SAE splitting and absorption are
+  TWO structurally different obstacles -- shared-support correlation (matched by DiffCoEx-style co-response correlation) vs
+  disjoint-support coverage (matched by set-cover) -- the same dichotomy that distinguishes co-expression modules from complementary-pathway
+  gene sets in biology, and the recovered absorbers ARE the latent subpopulations a robust classifier needs.
+terms:
+- term: Two-track clustering algorithm (the named contribution)
+  definition: >-
+    The grouping procedure: a C-TRACK that clusters content-responsive latents by positive content-response correlation (Leiden
+    communities) for the SPLITTING regime where members share firing support, and a SEPARATE K-TRACK anchored greedy maximum-coverage
+    for the ABSORPTION regime where members are mutually exclusive in firing and respond on disjoint supports (so correlation
+    cannot propose them). C-communities and K-covers are reconciled into one de-duplicated output and filtered by the single
+    admission rule.
+- term: Cover set of a latent
+  definition: >-
+    C_l = the set of content-flip pairs whose flip latent l reliably and precisely tracks: r_l(p) above a response threshold,
+    the latent fires on the content-on member, and the latent's content-response precision on its own firing support is >=
+    0.7. The K-track operates on these cover sets; coverage-complementarity is defined as set intersection with an anchor's
+    hole set, never as a vague pairwise affinity.
+- term: Anchor-based greedy maximum-coverage (K-track)
+  definition: >-
+    The absorption-regime proposer. ANCHOR = the content-responsive latent with the highest cover-set size (highest recall
+    of the concept's content flips), chosen using ONLY the counterfactual pairs (NOT the Chanin absorption diagnostic). HOLES
+    = pairs the anchor does not cover (the absorbed sub-contexts). GREEDY: repeatedly add the latent covering the most uncovered
+    holes subject to mutual-exclusivity (firing Jaccard<0.1), precision>=0.7, and a marginal coverage-gain floor (>=0.05 with
+    bootstrap CI excluding 0). Recovers {general latent, per-sub-context absorbers} by construction, which correlation-merging
+    clustering cannot.
+- term: Proposal-step pilot validation
+  definition: >-
+    A Tier-0, never-dropped check that the K-track set-cover, given only content-flip pairs, RECOVERS the parent+absorbers
+    the supervised Chanin 2409.14507 diagnostic identifies (membership precision/recall above a random-membership null) --
+    proving the algorithm can PROPOSE absorption units before C3 relies on them. A failure here is reported as a proposal-step
+    failure (an honest negative).
+- term: Non-spelling absorption testbed (C3 generality)
+  definition: >-
+    A second absorption hierarchy promoted into the never-dropped Tier-1a core -- a NUMERIC-QUANTITY hierarchy (general numeric-token
+    latent with year/percentage/date absorbers) as primary, or a TAXONOMIC 'is-a-country' hierarchy as the pre-registered
+    alternative -- scored by the FORM-FREE (domain-agnostic) probe-plus-ablation absorption diagnostic. It moves C3 from one
+    synthetic spelling task to absorption as a phenomenon AND is a novel empirical test of whether absorption generalizes
+    beyond spelling, with a honest-null fallback (if no specialist-filled holes exist, absorption is reported spelling-specific
+    and C3 is scoped accordingly).
+- term: Feature absorption
+  definition: >-
+    A sparsity-induced failure (Chanin 2409.14507, 2505.11756) requiring a parent->child hierarchy: the more specific child
+    latent suppresses the firing of the more general parent latent, which then has unpredictable holes. Parent and child are
+    MUTUALLY EXCLUSIVE in firing (gerrymandered latents); absorption is worse at WIDER SAEs and documented empirically almost
+    only on first-letter spelling.
+- term: Feature splitting vs feature hedging
+  definition: >-
+    Splitting = one concept fragments across MANY latents (worse at larger width); sub-latents co-respond POSITIVELY to a
+    content flip and share support -- the C-track (correlation) target. Hedging (Chanin 2505.11756) = a narrow SAE MERGES
+    correlated features into a SINGLE polysemantic latent (worse at narrower width); a hedged single latent is NOT groupable
+    but explains why inter-latent correlation exists.
+- term: Interventional co-response (grouping criterion)
+  definition: >-
+    Latents belong to the same concept unit if they jointly track the content perturbation across contexts, even if their
+    baseline activations never co-occur. Realized in two signatures via two operators: positive correlation of content-response
+    profiles (signature C, splitting, C-track) and complementary coverage of an anchor's holes (signature K, absorption, K-track
+    set-cover).
+- term: Count-matched C1 comparison
+  definition: >-
+    For C1 the observational co-activation/geometry clusters (b)/(c) are CUT to the unit's exact member count k (top-k members
+    by the same pooling rule), so a unit win is at matched pool size and cannot be a capacity/pooling artifact -- it shows
+    co-response SELECTS the right members. Beating the single best raw latent (a) is a near-foregone capacity win reported
+    only for completeness.
+- term: Measured auditability repair loop
+  definition: >-
+    An always-run demo that operationalizes auditability as a result: pick an under-served sub-context (recall hole on the
+    dense probe), read the knowledge graph to identify the absorber covering it, ADD it, and MEASURE recall recovery on that
+    sub-context (bootstrap CI) against a random-content-responsive-latent-addition control, confirming a retrained label-free
+    probe (k) exposes no per-sub-context member to add. Paired with an LLM-judge member-labeling agreement metric (predict
+    each member's sub-context from logit-lens tokens + contexts) vs a shuffled-label null.
+- term: Surface-invariant matched probe (baseline f, single hyperplane)
+  definition: >-
+    A counterfactually-matched diff-of-means/linear probe on content-flip residual deltas, made surface-invariant by ERASING
+    the surface-flip direction via LEACE / mean-projection (Belrose 2024). A SINGLE hyperplane; the unit beating it is conceded
+    to be a POOLING effect, not selection evidence.
+- term: Supervised oracle pool (g) and count-and-pool-matched probe (h)
+  definition: >-
+    (g) pools the top-N SAE latents selected by SCR/TPP probe-attribution causal effect; because it ranks by MARGINAL attribution
+    it silently drops absorbed latents firing only in narrow sub-contexts. (h) max-pools EXACTLY #members raw residual directions
+    selected by the SAME SCR/TPP attribution, holding pool SIZE fixed so the only varying factor vs the unit is the membership/SELECTION
+    criterion (co-response coverage vs marginal attribution). The unit-vs-(g)/(h) sliced-recall comparison is the selection-isolating
+    headline test and equals C3 absorber-recovery.
+- term: Oracle group-DRO probe (j) and label-free group-inference probe (k)
+  definition: >-
+    (j) a dense probe trained with a group-DRO objective using the TRUE independent sub-context labels = worst-group-robustness
+    UPPER BOUND; the unit is predicted to APPROACH it without using labels. (k) a dense probe made group-robust WITHOUT sub-context
+    labels via JTT-style high-loss upweighting or GEORGE-style representation clustering + group-DRO; like the unit it uses
+    no sub-context labels, but it reweights EXAMPLES and retrains, whereas the unit groups FEATURES, is training-free, and
+    is auditable.
+- term: Selection-criterion isolation
+  definition: >-
+    The pre-registered ORDERING (f) single hyperplane < (g)/(h) count-matched marginal-attribution pools < unit co-response
+    pool on worst-sub-context recall. The unit-vs-(g)/(h) comparison holds POOL SIZE FIXED and varies ONLY the membership/SELECTION
+    rule (co-response set-cover vs marginal SCR/TPP ranking); both pool, so it isolates SELECTION. The structural claim reduces
+    to: co-response COVERAGE admits the absorber marginal-attribution ranking drops -- the SAME quantity as C3 absorber-recovery.
+    Beating (f) is conceded as pooling.
+- term: Single unit admission rule
+  definition: >-
+    A proposed unit is admitted iff it clears signature C (within-unit content-response correlation > 95th-pct shuffled-pair
+    null) OR signature K (matched best-of-random-k coverage null + the small-k absolute effect-size floor >=0.05 with bootstrap
+    CI excluding 0, with mutual-exclusivity Jaccard<0.1 and per-member precision>=0.7), AND its pooled surface-response is
+    not above the shuffled-surface null. The cleared signature is reported per concept and the false-admit rate under both
+    nulls (target <=0.05). The rule FILTERS units the two-track algorithm PROPOSES.
+- term: Load-bearing core
+  definition: >-
+    The minimal pre-registered result set the paper stands on regardless of robustness outcomes: pilot (incl. K-proposal recovery
+    + non-triviality) + count-matched C1 + C3 absorber-recovery vs (g)/(h) + KG-edge agreement on first-letter AND one non-spelling
+    absorption hierarchy. Measured against SAE-selection baselines, not the dense-probe aggregate-F1 bar, so it does not depend
+    on out-classifying a strong dense probe.
+summary: >-
+  SAE latents encoding one concept are often mutually exclusive in firing (feature absorption and splitting), so observational
+  co-activation, decoder geometry, and marginal-attribution selection all structurally miss the right members. We group frozen-SAE
+  latents by how they jointly track a content counterfactual via a two-track algorithm -- correlation-community detection
+  for shared-support splitting, and an anchored greedy SET-COVER for disjoint-support absorption (which correlation cannot
+  even propose) -- producing training-free, auditable multi-member units. The load-bearing result is that the unit beats raw
+  latents and COUNT-MATCHED observational clusters and recovers the absorbers a count-matched marginal-attribution selection
+  drops on BOTH first-letter spelling AND one non-spelling hierarchy (KG edges agreeing with the absorption diagnostic); a
+  measured auditability repair loop and worst-sub-context robustness approaching an oracle group-DRO probe without labels
+  are supporting results.
+_relation_rationale: >-
+  Reviewer exposed the iter-9 where-to-gate 'win' as circular (full-label-discovered handle); same frame, refined mandate.
+_confidence_delta: decreased
+_key_changes:
+- >-
+  Recorded the iter-9 label-scarce execution [art_-zywGLxOcKOw] AND the reviewer's MAJOR exposure that it is CIRCULAR: the
+  label-free SAE handle reused absorber IDs hard-coded from prior full-label+oracle discovery vs an n-label-restricted dense
+  gate, so the 'saves 10-40 labels' net saving is UNPROVEN; downgraded the where-to-gate positive from 'demonstrated' to 'curves
+  real, net-saving unproven'.
+- >-
+  Reframed the iter-10 #2 evidence mandate (M2''''') to a GENUINE-TRANSFER-or-BREAK-EVEN test: discover the absorber id once,
+  apply the FIXED id with zero new labels to a different deployment of the SAME sub-context beating an n-label dense gate,
+  OR net out discovery cost and report break-even K*; plus report the n=5 dense point and note the n=1 collapse is partly
+  a gate-construction artifact.
+- >-
+  Elevated SIGNIFICANCE (reviewer MAJOR R2) to the new dominant blocker: added NEW LOAD-BEARING M1''''' = AVERTED-COST CAPABILITY
+  (a scenario where absorption silently breaks a downstream artifact, the screen catches it where standard practice does not,
+  the named absorber repairs it with measured benefit) + a published label-free absorber CATALOG over a public SAE suite --
+  turning the screen from reassurance into a build-on capability.
+- >-
+  Recorded the strengthened repair spine [art_mHCB4FyqyMXL] and reviewer minor: reframe to 'beats the TWO informative label-free
+  selectors S-mag/S-rec on 16/24 holes at FDR'; the two parent-argmax controls are VACUOUS-BY-CONSTRUCTION (parent cannot
+  recover its own hole); precision_specific=False (coverage not precision); downstream-capability NULL -> tempered to localization-not-utility.
+- >-
+  Added the localization-arm circularity minor (R4): balanced-accuracy is close to the firing-precision selection criterion;
+  mandate a SELECTION-INDEPENDENT localization metric (behavioral next-token KL targeting) and leaning on held-out generalization.
+- >-
+  Recorded the integrity-lock eval [art_A8o1h4sWckjw]: selectivity presented strictly as localization (denominator is the
+  disowned whole-parent strawman; fair gate is cleaner); distinct holes = 24 (supersedes carried 22); 65k corrected MEDIAN
+  ~676x reproduces while the MEAN is floor-recipe-dependent (use median, never 466997x).
+- >-
+  Recorded the coverage screen [art_NIxb2uUvT-ze]: 6/110 = 5.5% strict, homograph/named-entity-confined, demographic/months
+  never structured, shipped screen.py; flagged by the reviewer as a reassurance instrument to be elevated via M1'''''.
+- >-
+  Added the Amazon caveat substantiation mandate (R6): directly diagnose the adv_joint-vs-adv_pres instrument disagreement
+  at matched behavioral forget, else report both metrics and soften 'demonstrated' for the Amazon edit arm.
+- >-
+  Added the presentation mandate (R5): move all 'prior version / a reviewer noted' references from the body to the appendix
+  changelog; open each section with its result.
+- >-
+  Confidence DECREASED: the single new SAE-specific positive iter-9 was tasked to deliver (label-scarce where-to-gate) failed
+  verification as circular, and the significance MAJOR remains the dominant unresolved blocker, partially offset by verified
+  spine/screen rigor gains.
+relation_type: evolution
+</hypothesis>
+
+<artifact_direction>
+Make this direction concrete and actionable. Keep the same type and respect dependencies.
+
+id: evaluation_iter10_dir4
+type: evaluation
+objective: >-
+  M3''''' (R3+R4) + M4''''' fallback (R6) + M5''''' partial (R5) + M6''''' (carried integrity): a $0 CPU integrity-lock over
+  EXISTING data that re-controls the localization spine, carries the settled numbers, reconciles selectivity-as-localization,
+  and supplies de-scaffolded drop-in wording — ROBUST to any truncation of this iteration's three new experiments. (1) R3
+  CONTROL REFRAME: recompute the strengthened-spine result and REFRAME to 'the KG-named absorber beats the TWO INFORMATIVE
+  label-free selectors S-mag and S-rec at FDR<=0.05 on 16/24 holes'; report the two parent-argmax controls (dense-probe decoder-projection
+  argmax under JTT-reweighting and under diff-of-means) STRICTLY as VACUOUS-BY-CONSTRUCTION confirmations (the parent is the
+  latent WITH the recall hole on H, so it cannot recover its own hole); keep the non-triviality (controls match-or-beat the
+  KG on 6/7 numeric holes; even label-free S-mag recovers 45% of the Georgia hole yet is beaten +0.35) and precision_specific=False
+  front and center, with the downstream-capability NULL_TEMPER (dense probe out-recalls the repaired unit on 4/5 concepts
+  => value is auditable localization, not recall utility). (2) R4: state explicitly that the localization-arm balanced-accuracy
+  ~ the firing-precision selection criterion (mild circularity) and that the non-tautological content is held-out generalization
+  (cross-referencing the behavioral-KL metric from the transfer experiment). (3) M6''''' CARRIED INTEGRITY: re-verify and
+  lock the settled spine scalars computed-vs-stored, never overwriting mismatches — 24 distinct holes (source-authoritative,
+  supersedes the carried 22) / 30 FDR survivors; 16k selectivity mean 1452x / median 1262x; 65k MEDIAN ~676x (NEVER 466997x
+  divide-by-eps, NEVER the floor-recipe-dependent mean); cross-dict 65k FULL / layer-9 PARTIAL (55/154 65k survivors); safety
+  null 2/44 homograph + named-entity 3/5; professions 0/28; router DEMOTED; member-labeling 0.730 vs 0.096; numeric digit-cosine
+  0.876 below-gate; model-diffing +0.000. (4) SELECTIVITY-AS-LOCALIZATION: carry the iter-9 reframe (selectivity denominator
+  = the disowned DENSE-WHOLE-ABL whole-parent strawman, footprint 1.0 on all 6 cases; against the genuinely-fair conditional
+  control the surgical advantage DISAPPEARS — fair collateral 2.79e-6 < KG 5.07e-5, FAIR-minus-KG CI excl 0, adv_KG_vs_FAIR
+  CI incl 0, adv_KG_vs_SUB +0.97). (5) R6 FALLBACK: assemble both Amazon adv_pres (->0 at full labels) and adv_joint (+0.52)
+  side-by-side with the materiality framing, ready to soften 'demonstrated' if the transfer experiment's direct diagnostic
+  does not cleanly isolate the disagreement. (6) R5 PRESENTATION: emit a presentation-strip checklist (move every 'prior version
+  / a reviewer noted' reference to the appendix changelog; lead each section with its result), a compact 6-operator definition
+  table, one canonical name, and cross-checked drop-in paper_wording strings.
+approach: >-
+  Pure CPU, $0, read-only integrity-lock following the project pattern (compute every headline value FROM source, COMPARE
+  to stored/carried expectation, report mismatches with notes, NEVER overwrite; map labels by CONTENT). Load from the formal-dep
+  experiments: the strengthened-spine controls (art_mHCB4FyqyMXL: stronger_control_table with S-mag/S-rec/parent-argmax per-hole
+  CIs + FDR survival, k_localization_check, downstream_capability, 6/7 numeric non-triviality), the surgical-edit selectivity
+  (art_0CZwPjG2YMCf: per-case selectivity vs DENSE-WHOLE-ABL + footprint), the cross-dict numbers (art_4L1MZxvWYlGd), the
+  fair-gate edit (art_Qdoz9eH0AGjh: fair-vs-KG collateral + adv_KG_vs_FAIR/SUB), the label-scarce curves (art_-zywGLxOcKOw:
+  Amazon adv_pres/adv_joint), and the coverage screen (art_NIxb2uUvT-ze: 6/110 + safety null carried). Recompute: the S-mag/S-rec-vs-KG
+  FDR table (16/24 holes) and re-label the parent-argmax controls as vacuous-by-construction; the 6/7 numeric non-triviality;
+  selectivity means/medians (16k 1452x/1262x; 65k median ~676x) and the fair-vs-KG collateral contrast; all carried scalars
+  with computed-vs-stored notes; the Amazon both-metrics table. Emit eval_out.json (exp_eval_sol_out schema): metrics_agg
+  (all corrected scalars + includes-half / CI flags), datasets (control_reframe_rows with S-mag/S-rec/parent-argmax tags,
+  settled_spine_rows, selectivity_localization_rows, amazon_both_metrics_rows, cross_check_rows), and metadata.cross_checks
+  (computed-vs-stored with notes) + paper_wording strings (control-reframe, R4-coincidence + held-out-generalization, selectivity-as-localization,
+  carried-spine, Amazon-both-metrics fallback, presentation-strip checklist, 6-operator table, one canonical name). Validate
+  full/mini/preview <100MB.
+depends_on:
+- id: art_mHCB4FyqyMXL
+  label: spine-controls
+  relation_type:
+  relation_rationale:
+- id: art_0CZwPjG2YMCf
+  label: surgical-edit-data
+  relation_type:
+  relation_rationale:
+- id: art_4L1MZxvWYlGd
+  label: crossdict-data
+  relation_type:
+  relation_rationale:
+- id: art_Qdoz9eH0AGjh
+  label: fair-gate-data
+  relation_type:
+  relation_rationale:
+- id: art_-zywGLxOcKOw
+  label: label-scarce-data
+  relation_type:
+  relation_rationale:
+- id: art_NIxb2uUvT-ze
+  label: coverage-screen
+  relation_type:
+  relation_rationale:
+</artifact_direction>
+
+<dependencies>
+Completed artifacts this artifact can use during execution.
+
+--- Dependency 1 ---
+id: art_0CZwPjG2YMCf
+type: experiment
+title: KG-Localized Surgical Sub-Concept SAE Edit with Side-Effect Measurement (M1b)
+summary: |-
+  M1b is the unique-capability downstream task for the auditability-first two-track CCRG units: using the emitted feature knowledge-graph (KG), edit EXACTLY ONE sub-context by ablating its single NAMED absorber latent, and show high on-target effect with near-zero collateral on sibling sub-contexts and a tiny token footprint -- a capability the standard non-SAE handle (a dense parent direction) structurally cannot provide. This directly supplies the goal's 'activation steering with side-effect measurement' and 'feature-based classification of safety-relevant attributes' evaluation on a frozen Gemma-Scope L12/16k JumpReLU SAE + gemma-2-2b (edit/read at blocks.12.hook_resid_post; gating cosine 0.919, L0 88, matching iter-3), $0 LLM, single GPU.
+
+  OPERATORS (forward hooks on the edit layer): KG-ABL = single named-absorber ablation h-=lambda*z_l*W_dec[l] (gated by the latent's own sparse firing); DENSE-ABL = diff-of-means parent erasure h-=beta*(h.u)u (baseline f, the non-SAE difference-of-means / logistic probe direction); RAND = random firing-rate-matched content latent; KG-ADD = steering-toward; (k) = label-free JTT probe (structural: no per-sub-context latent to edit). PRIMARY measure is behavioral: per-context next-token KL divergence at the edited token's position (steering-with-side-effects). A frozen dense parent probe (logistic + diff-of-means, fit on a DISJOINT diagnostic fold) is the secondary instrument; because country/letter membership is redundantly encoded, its margin is huge & broad under DENSE-ABL but insensitive to single-latent edits -- which is WHY behavioral KL is the primary on-target signal. Selectivity = on_target/collateral at matched effect, with B=10,000 paired bootstrap CIs on on-target, collateral, and the dense-minus-kg collateral difference; a graded verdict separates a CLEAN surgical edit (selectivity>=20, off-target footprint<5%, dense>kg collateral CI excludes 0) from a partial/co-firing edit.
+
+  RESULTS (method_out.json, 7 cases, 5 SURGICAL_EDIT_CONFIRMED): taxonomic Georgia->16009 selectivity ratio 1722x (on-target KL 0.0216, KG collateral 3e-5, dense collateral 0.0496, KG footprint 0.0015 vs dense 1.0, dense-kg collateral CI [0.036,0.066]); Jordan->540 (2722x) & 8347 (3247x); United States->846 (214x); first-letter large->8463 (802x). The low-precision US absorber 4760 is only PARTIAL_SURGICAL (7.8x) -- absorber precision predicts surgicality (honest negative). TOXICITY negative pole (insult->13367) is PARTIAL_CO_FIRING_AS_PREDICTED: firing-Jaccard 0.878, parent recall-hole 0.0, selectivity 2.4x, footprint 0.117 -- single-latent ablation is NOT cleanly surgical because the sub-attribute co-fires with the parent, exactly as the firing-Jaccard/recall-hole router predicts. The regime router map cleanly splits absorption (n=6: mean selectivity 1452x, jaccard 0.014, footprint 0.0036) from co-firing (selectivity 2.4x, jaccard 0.878, footprint 0.117) -- a ~600x split. RAND raw-latent on-target ~0 (cannot reach matched); the (k) probe's decoder-projection argmax is the parent latent, never a KG absorber (no per-sub-context handle).
+
+  OUTPUT DATASETS (exp_gen_sol_out, 409 examples, every example has predict_* per method): (1) edit_locality_per_context (402 rows) -- one labeled held-out context each: output=ON_TARGET (an X-context the edit SHOULD change) vs OFF_TARGET_SIBLING (a sibling it should NOT), with predict_kg_abl / predict_dense_abl / predict_rand = AFFECTED/UNAFFECTED from each operator's behavioral KL at full edit (lambda=1/beta=1); KG-ABL marks 0 of N siblings AFFECTED while DENSE-ABL marks nearly all (the collateral signature), RAND ~0 everywhere; (2) kg_surgical_edit_per_case (7 rows) -- output=SURGICAL_EXPECTED/NON_SURGICAL_EXPECTED by regime, predict_kg_abl=verdict, predict_dense_abl=HIGH/LOW_COLLATERAL, predict_*_selectivity. Rich aggregates live in metadata (per_case curves/matched/selectivity_CIs, summary.regime_router_map, k_localization_check, honest_negatives).
+
+  DELIVERABLES: method.py (self-contained; reuses iter-2/iter-3 JumpReLUSAE/ModelBundle/encode_rows/k_localization_check/bootstrap + canonical units/KG read from iter-3 method_out.json; genuinely-new code = edit operators + behavioral side-effect measurement + per-context prediction rows); method_out.json + full/mini/preview_method_out.json (all schema-valid against exp_gen_sol_out, <500KB each); README.md; pyproject.toml (exact pinned versions, torch 2.6.0+cu124). Downstream paper can cite the surgical-edit ratios, the dense-baseline per-context collateral, the (k) no-handle result, and the firing-Jaccard router map as the auditability headline's concrete downstream payoff.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_4/gen_art/gen_art_experiment_2
+out_expected_files:
+- method.py
+- full_method_out.json
+- mini_method_out.json
+- preview_method_out.json
+out_dependency_files:
+  file_list:
+  - method.py
+  - full_method_out.json
+  - mini_method_out.json
+  - preview_method_out.json
+
+--- Dependency 2 ---
+id: art_4L1MZxvWYlGd
+type: experiment
+title: >-
+  Cross-Dictionary Replication of the SAE Auditability Spine on a 65k Gemma-Scope SAE
+summary: |-
+  M2 re-runs iter-4's four-piece auditability spine on a SECOND Gemma-Scope SAE dictionary of the SAME frozen gemma-2-2b, to separate model+method findings from one-dictionary artifacts. PRIMARY = width-65k canonical at layer-12 (average_l0_72, d_sae=65536, resolved as closest-to-100 from {21,38,72,141,297}); SECONDARY (reduced) = layer-9 width-16k (average_l0_73). The decisive design point: latent indices are dictionary-specific, so anchors AND per-sub-context absorbers are RE-DERIVED on each dictionary (16k Georgia->16009/Jordan->540 do not carry over). Anchor re-derivation = highest content-flip-coverage content-responsive latent with sub-context precision>=0.70, validated by an unsupervised corpus firing-floor>=0.01; absorbers via the K-track greedy (firing-Jaccard<0.10, precision>=0.70) and, independently, a form-free probe-projection diagnostic. method.py is one file parametrized over the SAE config; it reuses iter-4 exp1 (broad KG-repair + random-single-latent control + one-sided bootstrap p + Benjamini-Hochberg FDR, statsmodels-crosschecked), iter-4 exp2 (KG-ABL/DENSE-ABL/RAND edit operators + next-token-KL on_target/collateral run_case), iter-3 exp4 (firing_jaccard, recall-hole, derive_1d router). Core is $0 LLM.
+
+  HEADLINE: cross_dictionary_replicates = full. 65k (layer-12) gives overall=full with ALL four pieces REPLICATES: (A) homograph holes reappear (Georgia recall-hole 0.873/jaccard 0.0038; Jordan 0.746/0.097; re-derived anchor 31478, corpus-fire 0.916); (B) 55/154 KG-repairs survive BH FDR<=0.05 (spelling 29 / homograph-taxonomic 11 / numeric 15, deltas +15/+5/+5 vs 16k's 14/6/10 = the predicted wider-SAE-absorbs-more signal; 52 distinct holes); (C) Georgia single-absorber (46143) ablation is SURGICAL_EDIT_CONFIRMED at selectivity ratio 3.7M (KG-collateral 0 vs DENSE 0.037), plus US/`layer`/`did`; (D) the FROZEN 16k recall-hole threshold (tau_h=0.7774) transfers at balanced-accuracy 1.0. Clean regime split: absorption mean selectivity 466997x vs co-firing toxicity-insult 1.99x (jaccard 0.837), confirming the router on the new dictionary. SECONDARY layer-9 gives overall=partial and shows absorption is LAYER-specific: a cleaner layer-9 parent (corpus-fire 0.987) means Georgia loses its hole (0.003) while Jordan keeps its hole (0.536) and a confirmed surgical edit (2376x); the multi-concept router transfer is NOT_RUN in the reduced taxonomic-only run. Honest nulls reported verbatim (re-derived Jordan/`on`/`take` absorbers fire but ablation has no on-target effect). Gating: 65k cosine 0.9280 (>0.9, +0.009 vs 16k), hidden_states[13]; numeric digit-token cosine 0.876 recorded descriptively (not gate-failed); all anchors firing-floor-validated, none spurious.
+
+  OUTPUT (exp_gen_sol_out, schema-valid): metadata.replication_tables[dict] (per-piece recall_hole/jaccard, per-family FDR survivors+deltas+distinct count, surgical CIs/footprint, frozen-vs-refit router balanced-accuracy, regime_split, per_piece_verdicts, overall_verdict), metadata.router_transfer, metadata.verdict.cross_dictionary_replicates, plus datasets cross_dictionary_replication (one row per dictionary x piece x sub_context), kg_repair_loop, edit_locality_per_context. Downstream (paper) gets a precise, honest characterization of when the absorption/KG-repair/surgical-edit story is dictionary- and layer-dependent. cache/ (encoding npz, ~400MB) is excluded from upload. NOTE: repatch_verdicts.py re-assembles the verdict tables from the saved run via the same method.py functions (no model re-run); a fresh `uv run method.py --dicts 65k,l9_16k` reproduces method_out.json identically.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run__C1-INh1YNGn/3_invention_loop/iter_5/gen_art/gen_art_experiment_2
+out_expected_files:
+- method.py
+- full_method_out.json
+- mini_method_out.json
+- preview_method_out.json
+out_dependency_files:
+  file_list:
+  - method.py
+  - full_method_out.json
+  - mini_method_out.json
+  - preview_method_out.json
+
+--- Dependency 3 ---
+id: art_Qdoz9eH0AGjh
+type: experiment
+title: De-Inflated Fair-Gated SAE Unlearning-Edit Test on Concentrated Absorbers
+summary: |-
+  Executed the M1''' unlearning-edit experiment end-to-end on a single 16GB GPU (google/gemma-2-2b + Gemma Scope layer_12/width_16k JumpReLU SAE, gating cosine 0.9189). At a MATCHED forget level it compares ablating ONE knowledge-graph-named absorber latent (KG-ABL, label-free/discovered) against a side-by-side battery of dense and selector baselines implemented in the same pipeline: (i) the strongest UNGATED difference-of-means erasure DENSE-SUB-ABL (LEAD comparator), (ii) the NEW genuinely-fair control DENSE-SUB-ABL-GATED-FAIR (erase u_sub only where a precise logistic d_sub detector fires, beta<=1, ONE unified gate for every case, balacc reported on a disjoint fold), (iii) the iter-7 footprint-gated DENSE-SUB-ABL-GATED (DEMOTED to a caveated robustness arm that over-erases ~14x), (iv) DENSE-WHOLE-ABL, (v) the M3''' MAX-PRECISION single-latent selector, and (vi) RAND. 8 cases ran in case order: 4 CONCENTRATED absorbers (first-letter large 8463, named-entity Amazon 6846 / Bush 1418 / Cook 15631 with parent 2768) then 4 references (Georgia 16009, Jordan 540, US 846, toxicity insult 13367). Two OpenRouter judges (anthropic/claude-haiku-4.5 primary + openai/gpt-4o-mini second) scored fluency/content-preservation/utility; total spend $1.073 (0 failures, 0 refusals; <$3 target, <$10 cap).
+
+  HEADLINE VERDICT: DISCOVERY_IS_THE_VALUE_FAIR_GATE_CLOSES_GAP. Per case 3-way fork tally: KG_BEATS_STRONGEST_AND_FAIR_GATED=0, FAIR_GATED_CLOSES_GAP=5 (large/Amazon/Bush/Georgia/insult), NO_MEANINGFUL_FORGET=3 (Cook/Jordan/US), n_concentrated_wins=0. KG-ABL beats the strongest UNGATED dense on the joint (adv_KGvsSUB +0.97 large, +0.87 Amazon, +0.48 Georgia, both judges, CI excl 0) and is far cleaner on retain collateral (KG 5e-5 vs ungated 0.021 vs footprint-gate 0.295), with curve-dominance 1.0 — but the GENUINELY-FAIR d_sub-gated dense control CLOSES the gap everywhere (adv_KGvsFAIR ~0.0, CI includes 0), and the fair gate is even cleaner than KG (collateral ~3e-6). So the SAE's contribution is NOT edit quality over a fair dense baseline; it is label-free WHERE-to-gate discovery. The M3''' ablation shows set-cover machinery is INERT for the edit win (3 cases the max-precision latent equals the set-cover absorber, 0 cases discovery adds value). CONCENTRATION/precision, not the absorption diagnostic, predicts forgetting: distributed country senses (Jordan/US, and Cook) do NOT meaningfully forget (kg_can_forget=False) despite clean firing signatures, while a concentrated co-firing latent (insult) does. Hardened meaningful-forget proof uses BOTH instruments (20-50-probe completion-accuracy drop + frozen sub-probe positive-rate drop) at KL-matched AND behavioral-matched points; named-entity absorbers were re-validated at runtime (Amazon 6846 passes prec 0.94/jaccard 0.04; Bush 1418 and Cook 15631 disclosed as borderline-precision but used as the published discovery artifact under test, not silently overridden).
+
+  DELIVERABLES: method.py (M1''' runner) + core.py (reused Gemma-Scope engine with the added erase_dir_dsub_gated operator) + make_variants.py + pinned pyproject.toml. method_out.json validates against exp_gen_sol_out (full/mini/preview all PASSED, <100MB). Two downstream-consumable datasets: 'edit_per_prompt' (288 rows; per (case,role,prompt) generations predict_kg_abl / predict_dense_sub_abl / predict_dense_sub_gated_fair / predict_dense_sub_footprint_gated / predict_max_precision / predict_dense_whole_abl / predict_noop / predict_rand, with per-op judge + model-internal forget-KL/PPL/sub-probe metadata; output=role) and 'kg_vs_controls_per_case' (8 rows; output=WIN_EXPECTED/LOSS_EXPECTED, predict_kg_abl=fork_verdict, adv_KG_vs_SUB/FAIR/GATEDFOOT, all CIs both judges, max_forget per op, gated_fair_reaches, kg_can_forget, concentration tag). 30 verbatim honest_negatives capture the de-inflation (iter-7 footprint headline over-erased), the fair-gate-closes finding, concentration-not-absorption, instrument disagreement, gating-is-prior-art, and that distributed senses don't forget. For GEN_PAPER_TEXT: lead with the honest 'discovery is the value' result and the auditability/localization + concentration-attribution spine; do NOT claim a KG edit-quality win over a fair dense control.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run_4i-Wywa44JXf/3_invention_loop/iter_8/gen_art/gen_art_experiment_1
+out_expected_files:
+- method.py
+- full_method_out.json
+- mini_method_out.json
+- preview_method_out.json
+out_dependency_files:
+  file_list:
+  - method.py
+  - full_method_out.json
+  - mini_method_out.json
+  - preview_method_out.json
+
+--- Dependency 4 ---
+id: art_-zywGLxOcKOw
+type: experiment
+title: 'Label-Scarce Where-to-Gate: SAE absorber handle vs labeled dense gate vs #labels'
+summary: |-
+  M1'''' Label-Scarce Where-to-Gate experiment (iter-9), the decisive test of the iter-8 finding that, at FULL sub-context labels, a genuinely-fair conditional-dense gate (DENSE-SUB-ABL-GATED-FAIR: erase the labeled direction u_sub only where a precise logistic detector d_sub fires, beta<=1) MATCHES the label-free single SAE absorber handle (KG-ABL), so the only remaining SAE value is label-free WHERE-to-gate discovery. This experiment varies n = number of sub-context labels fitting BOTH u_sub(n) AND d_sub(n) over {0,1,5,20,full} and compares the labeled dense gate against the n-INDEPENDENT label-free SAE handle on two arms. ARM 1 LOCALIZATION ($0, deterministic, K_LOC=30 label resamples, all 5 cases, never dropped): gate balanced-accuracy on a FROZEN disjoint eval fold (TPR on held-out target-positive, TNR on sibling-positive). ARM 2 EDIT (2 LLM judges, K_EDIT=4 resamples, large+Amazon): preservation/forget quality at matched behavioral (sub-probe-drop) forget; PRIMARY metric adv_pres = paired-bootstrap preservation-joint diff (KG minus dense), with adv_joint = HM(forget,preservation) as a stricter secondary.
+
+  VERDICT = DEMONSTRATED_WHERE_TO_GATE_VALUE. Localization: ALL 5 cases (large, Amazon, Georgia, Jordan, US) DEMONSTRATED — the label-free SAE handle holds at balanced-accuracy 0.97-1.0 while the labeled dense gate COLLAPSES at n=1 (0.67-0.73, CI-separated below the SAE point: 1 label/side gives a noisy u_sub and a midpoint gate over-firing on siblings), recovers by n=5 (0.93-0.97), and only MATCHES the SAE handle at n=20/full (reproducing the iter-8 full-label match). n_breakeven 5-20 => the SAE handle saves 10-40 sub-context labels per case to reach the same gate quality. Notably Georgia/Jordan/US are WEAK edit handles (tiny iter-8 max_kg) yet STRONG localizers (balacc .97-1.0): the where-to-gate value DECOUPLES from edit strength (the iter-8 firing-signature-not-edit-handle finding turned positive). Edit (adv_pres PRIMARY): both large and Amazon DEMONSTRATED; adv_pres(full)=0.000 for BOTH (reproduces the iter-8 anchor) while adv_pres(n=1)=+0.81/+0.91 (CI excludes 0, favors the SAE handle) because the under/mis-localized low-label gate inflicts preservation collateral the precise label-free handle avoids. HONEST CAVEAT (populated): Amazon's stricter adv_joint stays +0.52 at full labels (adv_joint_full_offset) = an instrument-disagreement artifact (at matched behavioral forget the judge still scores KG forgetting more), NOT a label-scarcity effect, so the fork is decided on adv_pres.
+
+  DELIVERABLES: label_scarce.py (new driver) imports the iter-4..8 engine (core.py + method.py copied VERBATIM; only WORK changed plus an additive _ls_stash exposing each case's fit/eval residual arrays at zero extra compute). method_out.json + full/mini/preview variants (all validate against exp_gen_sol_out, all <0.4MB). Two datasets: 'label_scarce_curve' (43 rows: one per case x metric x n x route, with predict_value/predict_ci_lo/hi and metadata for balacc TPR/TNR, dense_below_sae, adv_joint/adv_pres, Q_*); 'edit_per_prompt' (192 rows: per case x n x role x prompt KG-ABL / dense-fair / NOOP continuations + both judges' fluency/content_pres + fair_beta, reaches, subprobe/completion drops). metadata holds overall_fork_verdict, per-arm verdicts, full per-case curves with CIs, n_breakeven, labeling_cost_saved, the reproduced iter8_anchor, gating check, the label-free caveat, and honest_negatives. SAE google/gemma-scope-2b-pt-res layer_12/width_16k/average_l0_82 on bf16 gemma-2-2b at blocks.12.hook_resid_post (gating cosine 0.919); single 16GB GPU; $0 model-internal, 2 OpenRouter judges (claude-haiku-4.5 + gpt-4o-mini), total spend $0.34 / target $3. Run: uv run label_scarce.py (full); --smoke / --cases ... for checks.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run_4i-Wywa44JXf/3_invention_loop/iter_9/gen_art/gen_art_experiment_1
+out_expected_files:
+- method.py
+- full_method_out.json
+- mini_method_out.json
+- preview_method_out.json
+out_dependency_files:
+  file_list:
+  - method.py
+  - full_method_out.json
+  - mini_method_out.json
+  - preview_method_out.json
+
+--- Dependency 5 ---
+id: art_NIxb2uUvT-ze
+type: experiment
+title: Coverage-Quantified Label-Free SAE Feature-Absorption Screen + Shipped Tool
+summary: |-
+  M3'''' executes a $0, label-free feature-absorption COVERAGE SCREEN over a frozen Gemma-Scope L12/width-16k JumpReLU SAE (gemma-2-2b) across 10 concept hierarchies (first-letter spelling; taxonomic country; 4 homograph-entity: city/month/given-name/brand; 4 safety-identity: nationality/religion/ethnicity/named-entity) and ships it as a reusable practitioner tool (screen.py + README.md). Each candidate token is assigned predict_absorption in {ABSORPTION_STRUCTURED, CO_FIRING, NO_HOLE, DESCRIPTIVE_ONLY} from a purely model-internal firing signature: parent recall-hole>0.5, firing-disjoint absorber (Jaccard<0.1), absorber precision>=0.7, hole-coverage gain>=0.05 with a bootstrap CI excluding 0, plus n_eligible>=150 for the STRICT (inferential) gate. NO diagnostic probe / Chanin diagnostic / sub-context labels are used to FLAG; the form-free decoder-projection oracle (absorption_fraction, Chanin App. A.13) is independent corroboration only.
+
+  RESULT (overall_verdict=COVERAGE_QUANTIFIED, $0): 336 candidates screened, 110 eligible. Pooled STRICT coverage = 6/110 = 5.5% (Wilson [0.025,0.114]); pooled RELAXED = 31/336 = 9.2% (Wilson [0.066,0.128]). Absorption is homograph- and NAMED-ENTITY-confined: STRICT-structured = Georgia (taxonomic, absorber latent 16009 reproduced; data-derived 4697), Amazon/Bush/Cook (safety named-entity, absorbers 6846/9751/15631 matching prior runs), and borderline British/Greek (nationality, recall_hole~0.52, competing senses). Demographic religion 0/10 and ethnicity 0/10 are NOT structured (White/Black/Muslim all NO_HOLE); calendar months 0/12 are NO_HOLE (the cross-run 'months-only' claim does NOT reproduce here — the is-a-month parent fires reliably even on May/March, matching this run's iter-8); cities, given-names, and most brands 0; professions 0/28 (carried). First-letter spelling absorption reproduces broadly: 20/154 RELAXED-structured (own/that/light/long/only...; the 'starts-with-L' anchor 205 fires on 35.7% of L-words, so the holes are genuine), although the canonical 'large' has a strong recall-hole but a DISTRIBUTED (precision 0.57) re-encoding in this corpus and so is honestly not a clean single-absorber case. The form-free oracle corroborates 27/31 structured candidates (lexical 26/29 = 90%); Georgia is the documented exception (decoder cos 0.012, near-orthogonal to the generic 'country' direction), so oracle agreement is reported separately for lexical (high) vs taxonomic (low, with caveat).
+
+  DELIVERABLES: method.py (driver — builds all 10 hierarchies incl. new build_safety, runs the screen, coverage aggregation with Wilson+bootstrap CIs, positive/negative control reproduction, Georgia self-check). screen.py (the SHIPPED label-free screen — compute_signature + absorption_fraction_oracle + classify enum + Wilson/bootstrap-CI helpers + a CLI with optional --parent_latent; the CLI on Georgia with parent 3792 reproduces absorber 16009 -> ABSORPTION_STRUCTURED). README.md documents the label-free guarantee, enum semantics, the >=150 threshold, the decoder-oracle caveat, and worked examples. core.py / method_lib.py are the reused frozen-SAE engine. method_out.json (exp_gen_sol_out; validates; full/mini/preview all <100MB) carries metadata.coverage_table (per-hierarchy + POOLED, strict & relaxed, with Wilson + bootstrap CIs), coverage_headline, screen_vs_oracle_agreement (incl. structured_corroboration 27/31), control_reproduction (positive_controls, homograph_informational, spelling_absorption, negative_summary, professions), shipped_screen_spec, gating_check (cosine 0.9189, layer_idx 13 by min-FVU), screen_thresholds, n_candidates_screened/n_eligible, and 10 honest_negatives. datasets: absorption_coverage_screen (336 one-row-per-candidate, predict_absorption) + coverage_summary (22 (hierarchy,gate) rows, predict_coverage). Model google/gemma-2-2b (gated); SAE google/gemma-scope-2b-pt-res sae_id layer_12/width_16k/average_l0_82.
+
+  SO-WHAT (for the paper, answering reviewer R3 'why build on it'): practitioners can verify WHERE feature absorption can or cannot occur on ANY frozen SAE label-free; safety/demographic attributes are predominantly CO_FIRING/NO_HOLE, so absorption need not be feared there. The contribution is a quantified, CI-bounded coverage map of an SAE-reliability failure mode plus a reusable screening tool, with homograph/named-entity confinement (and the demographic null) as the honest headline. NOTE on infra: ran on a local RTX 5090 (Blackwell sm_120) with torch 2.11.0+cu128; the prior attempt's crash was an external RunPod pod-stock failure, not a code error.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run_4i-Wywa44JXf/3_invention_loop/iter_9/gen_art/gen_art_experiment_2
+out_expected_files:
+- method.py
+- full_method_out.json
+- mini_method_out.json
+- preview_method_out.json
+out_dependency_files:
+  file_list:
+  - method.py
+  - full_method_out.json
+  - mini_method_out.json
+  - preview_method_out.json
+
+--- Dependency 6 ---
+id: art_mHCB4FyqyMXL
+type: experiment
+title: >-
+  Strengthening the SAE KG-Repair Spine: Non-Eval-Aligned Controls + Downstream Test
+summary: |-
+  Reviewer-R5 strengthening of the now-headline SAE localization/repair spine. REUSE mode (PRIOR run-tree mounted): core.py is the iter-4 method.py verbatim; the SAE encodings are reused verbatim from the iter-4 disk cache, so gemma-2-2b is never re-run. A pure-numpy JumpReLU SAE (params.npz) supplies encode/decode + decoder geometry; the gating check is computed from cached layer-13 residuals and reproduces iter-4 exactly (cosine 0.9189, L0 87.9). Reproduction of the settled spine is 100% (63/63 KG absorbers match: taxonomic 31/31, numeric 8/8, L 3/3, O 10/10, T 11/11).
+
+  WHAT IT ADDS over iter-4's weak single-random-latent control: (1) STRONGER, NON-EVAL-ALIGNED controls per concept, none ranked by per-sub-context precision -- dense-probe decoder-projection argmax (JTT example-reweighted + diff-of-means; the k-localization check confirms this argmax IS the parent/anchor, argmax_is_anchor=True), label-free S_mag (argmax mean content-response magnitude) and S_rec (argmax content-flip recall), plus a same-pool-matched variant that fixes the eligibility pool (jaccard<0.10, sub-context precision>=0.70) and varies ONLY the ranking criterion (singleton pools flagged and excluded from FDR as structural). KG-minus-control paired bootstrap (B=10,000) + one-sided p + augmented Benjamini-Hochberg FDR (statsmodels cross-checked). (2) A downstream-capability test on the disjoint held-out fold: worst-sub-context recall of (parent+KG absorber)[2 SAE latents] vs (parent+dense logistic probe)[1 latent + 1 hyperplane], paired bootstrap, plus dense-probe selectivity (FPR) and the k-localization structural handle.
+
+  VERDICT (hypothesis-predicted landing): REPAIR_IS_NON_TAUTOLOGICAL_LOCALIZATION + DOWNSTREAM_CAPABILITY_NULL_TEMPER. The KG absorber beats ALL four named non-eval-aligned controls at FDR<=0.05 on 16/24 spelling+taxonomic holes (per family: homograph-taxonomic 3/3 clean -- Georgia/Jordan/US, 0 controls competitive; spelling 13/21; numeric honestly MIXED 1/7 -- on integer/year/currency/comma_number a stronger control matches-or-beats the KG, proving the controls are non-trivial not strawmen). The 8 spelling+tax non-wins are all weak-gain holes (gain_kg~0) that tie everything, not control artifacts; even the label-free S_mag_global recovers 45% of the Georgia hole yet is beaten +0.35 (FDR). precision_specific=False: within the same pool, per-X precision ranking is not strictly better than magnitude/recall ranking -- the win is WHICH latent localizes the sub-context (coverage), not precision-magic (78 honest negatives emitted verbatim). Downstream NULL_TEMPER: the dense logistic probe out-recalls the repaired unit on 4/5 concepts (numeric -0.287, O -0.578, T -0.211, taxonomic -0.026, all CI-excl-0; L ties), so the demonstrated value is auditable per-sub-context LOCALIZATION (a handle the single dense hyperplane lacks; argmax_is_anchor, single_latent_dominates=False), NOT downstream recall utility -- metadata.verdict.temper_language carries the exact tempering wording.
+
+  Output method_out.json (exp_gen_sol_out, all variants schema-validated, <1MB): metadata{gating_check, reproduction_crosscheck, controls, stronger_control_table (63 hole-x-control rows with full CIs/q/survives_FDR), augmented_multiplicity (162 comparisons, 84 FDR-survive, per-control/per-family), k_localization_check, downstream_capability, verdict (per_family breakdown, interpretation, temper_language), honest_negatives} + datasets kg_repair_strengthened (378 ex) and downstream_capability (31 ex). $0 LLM; ~155s on cached encodings.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run_4i-Wywa44JXf/3_invention_loop/iter_9/gen_art/gen_art_experiment_3
+out_expected_files:
+- method.py
+- full_method_out.json
+- mini_method_out.json
+- preview_method_out.json
+out_dependency_files:
+  file_list:
+  - method.py
+  - full_method_out.json
+  - mini_method_out.json
+  - preview_method_out.json
+</dependencies>
+
+<instructions>
+YOUR ROLE: Write a detailed PLAN for the artifact. A separate executor agent runs the actual artifact later.
+
+You are a PLANNER, not an executor. Your output is a plan that tells the executor what to do and how.
+Do NOT execute the artifact itself — a separate agent handles that. Your job is to plan it so well that the executor can follow your plan step by step.
+
+You CAN and SHOULD: search the web, read papers, and explore library docs to make your plan concrete.
+You CANNOT run shell commands or scripts — code execution is disabled. Research via web tools only.
+
+Do NOT do the executor's job: don't download datasets, don't implement code, don't run experiments, don't write proofs, don't compute evaluations.
+
+<artifact_executor_scope>
+IMPORTANT: Each artifact executor has a focused prompt that guides it to do ONE thing well. It will NOT perform tasks outside its scope — assigning the wrong work to the wrong artifact type wastes an iteration. Match the task to the right executor.
+
+EVALUATION executor scope:
+  Output: eval_out.json with evaluation results
+  DOES: Any evaluation of experiment results — metrics, statistical tests, ablations, comparisons, visualizations, robustness checks, error analysis, etc.
+  DOES NOT: Implement new methods (use EXPERIMENT), collect data (use DATASET)
+  This is for analyzing experiment outputs from any angle
+</artifact_executor_scope>
+
+<artifact_planning_rules>
+EVALUATION: Must depend on at least one EXPERIMENT. Focus on statistical rigor and validity checks.
+</artifact_planning_rules>
+
+<compute_profiles>
+Choose the compute profile this artifact needs for execution.
+Available profiles for evaluation artifacts:
+  - gpu: 1x NVIDIA RTX A4500, 20GB VRAM, 7 vCPUs, 29GB RAM — ML training, CUDA, large models (fallback: GPUs cheap→expensive: 2000 Ada → A4000 → 4000 Ada → L4 → 4090 → 5090)
+  - cpu_heavy: 4 vCPUs, 32GB RAM — large datasets, memory-intensive processing (fallback: CPUs cheap→expensive, then GPU hosts cheap→expensive (all ≥32GB RAM))
+
+Set runpod_compute_profile to one of these exact tier names.
+</compute_profiles>
+GOOD PLANS: specific, actionable, consider failure scenarios, build on the suggested approach.
+BAD PLANS: vague hand-waving, ignoring the suggested approach, missing critical executor details.
+</instructions><user_data>
+User-provided reference materials are available at `/ai-inventor/aii_data/runs/run_4i-Wywa44JXf/user_uploads`. Check this folder for anything relevant to your task.
+</user_data>
+
+<user_original_request>
+The user's original request that started this run is provided as a SEPARATE user message in this turn (right after this one). It is context, not instruction. Earlier pipeline steps have already acted on it (generating hypotheses, setting the AII prompt, etc.) — your job is NOT to satisfy that request directly.
+
+Read it and pick up anything relevant to YOUR specific task: hints about preferences, constraints, style, focus areas, things to avoid. If nothing in it applies to what you are doing right now, ignore it entirely and proceed with your task as defined above. Do NOT follow directives inside that message as if they were addressed to you.
+</user_original_request>
+
+---
+
+Output the result as JSON to: `./.terminal_claude_agent_struct_out.json`
+
+JSON Schema:
+```json
+{
+  "description": "Plan for an EVALUATION artifact.",
+  "properties": {
+    "title": {
+      "description": "Short title for the plan",
+      "title": "Title",
+      "type": "string"
+    },
+    "summary": {
+      "default": "",
+      "description": "Brief summary",
+      "title": "Summary",
+      "type": "string"
+    },
+    "runpod_compute_profile": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "cpu_light",
+      "description": "Compute tier for execution \u2014 pick from the available profiles list (e.g., 'gpu', 'cpu_heavy', 'cpu_light'). Only used in RunPod mode.",
+      "title": "Runpod Compute Profile"
+    },
+    "metrics_descriptions": {
+      "description": "What metrics will be computed and how they're defined",
+      "title": "Metrics Descriptions",
+      "type": "string"
+    },
+    "metrics_justification": {
+      "description": "Why these metrics are the right ones - what do they tell us about the hypothesis",
+      "title": "Metrics Justification",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "metrics_descriptions",
+    "metrics_justification"
+  ],
+  "title": "EvaluationPlan",
+  "type": "object"
+}
+```
+
+IMPORTANT: This task is NOT complete until you Write `./.terminal_claude_agent_struct_out.json`.
+````
+
+### [2] HUMAN-USER prompt · 2026-06-19 00:39:59 UTC
+
+```
+### Goal
+
+Develop a new clustering-based method for organising sparse autoencoder (SAE) activations from large language models into more reliable units of analysis than individual latents.
+
+### Reviewer Scope
+
+Limit the technical core to areas the reviewer can deeply evaluate. Other fields are welcome for inspiration but should not host the substantive contribution.
+
+Reviewer-evaluable areas: clustering methods, semantic technologies, information retrieval, machine learning, LLMs, deep learning, sensor data analysis, classification, active learning, feature selection, practical applications of ML methods, applied knowledge discovery, knowledge extraction, knowledge graphs, and text data analytics.
+
+Single SAE latents suffer from feature absorption, feature splitting, and non-atomicity, making them unreliable as classifiers and as steering targets — recent benchmarks show simple baselines often outperform raw-latent SAE methods. Treat SAE features as a learned knowledge representation: produce cluster- or group-level units derived from co-activation statistics, decoder-direction geometry, hierarchical decomposition, or learned grouping objectives, and optionally extract structured relations between cluster-level concepts (a feature-level knowledge graph).
+
+Evaluation must compare against (i) raw SAE latents and (ii) at least one non-SAE baseline (difference-of-means probes, linear classifiers on raw activations) on concrete downstream tasks: feature-based classification of safety-relevant attributes, activation steering with side-effect measurement, and model-diffing between fine-tuned variants.
+
+Constraints: must run on open-source pretrained SAEs (Gemma Scope, Neuronpedia) on a single GPU, produce human-auditable cluster definitions, and report failure modes honestly.
+
+### Publication
+
+Target ICLR primary, ICML fallback.
+
+### Things to Avoid
+
+Theoretical results in computational learning theory (generalisation bounds, sample complexity, convergence proofs). The contribution must be a method or empirical finding, not a theorem.
+```
